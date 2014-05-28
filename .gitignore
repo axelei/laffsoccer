@@ -1,0 +1,5 @@
+.bmx/
+settings.json
+ysoccer.ini
+*.bak
+*.debug

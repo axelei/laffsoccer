@@ -1,7 +1,7 @@
 Rem
 
 YSoccer
-Copyright (C) 2003-2012
+Copyright (C) 2014
 by Massimo Modica, Daniele Giannarini, Marco Modica
 
 This program is free software; you can redistribute it and/or modify
