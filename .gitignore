@@ -1,5 +1,7 @@
 .bmx/
-settings.json
-ysoccer.ini
 *.bak
 *.debug
+settings.json
+ysoccer.ini
+ysoccer
+ysoccer.exe
