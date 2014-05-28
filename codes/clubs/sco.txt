@@ -1,0 +1,12 @@
+000 Aberdeen
+001 Dundee
+002 Dundee Utd
+003 Dunfermline Athletic
+004 Glasgow Celtic
+005 Glasgow Rangers
+006 Hearts
+007 Hibernian
+008 Kilmarnock
+009 Livingston
+010 Motherwell
+011 Partick Thistle

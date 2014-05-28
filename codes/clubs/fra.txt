@@ -1,0 +1,20 @@
+000 Ajaccio
+001 Auxerre
+002 Bastia
+003 Bordeaux
+004 Guingamp
+005 Le Mans
+006 Lens
+007 Lille
+008 Lyon
+009 Marseille
+010 Metz
+011 Monaco
+012 Montpellier
+013 Nantes
+014 Nice
+015 Paris Saint- Germain
+016 Rennes
+017 Sochaux
+018 Strasbourg
+019 Toulouse

@@ -1,0 +1,18 @@
+000 Adanaspor
+001 Akçaabat Sebatspor
+002 Ankaragücü
+003 Besiktas
+004 Bursaspor
+005 Çaykur Rizespor
+006 Denizlispor
+007 Diyarbakirspor
+008 Elazigspor
+009 Fenerbahçe
+010 Galatasaray
+011 Gaziantepspor
+012 Gençlerbirligi
+013 Istanbulspor
+014 Konyaspor
+015 Malatyaspor
+016 Samsunspor
+017 Trabzonspor

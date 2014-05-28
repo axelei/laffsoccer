@@ -1,0 +1,11 @@
+000 Chicago Fire
+001 Colorado Rapids
+002 Columbus Crew
+003 D.C. United
+004 Dallas Burn
+005 Kansas City Wizards
+006 Los Angeles Galaxy
+007 Miami
+008 New England Revolution
+009 NY/NJ MetroStars
+010 San Jose Earthquakes

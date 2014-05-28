@@ -1,0 +1,702 @@
+#Number  :001
+Country  :KAZ
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     18     11     10     20     
+Away      4      4      2      10     18     
+Third     14     3      18     18     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     31    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     22    2   2   7   1   1   4   5   
+03:       3       C             C             KAZ   3     501   0     0     20    2   3   4   0   0   7   4   
+04:       4       D             D             KAZ   3     501   0     0     25    0   5   0   3   6   6   5   
+05:       5       E             E             KAZ   2     501   0     0     14    4   4   4   1   0   0   1   
+06:       6       F             F             KAZ   4     501   0     0     34    7   6   5   7   2   7   0   
+07:       7       G             G             KAZ   6     501   0     0     28    6   4   4   3   7   4   0   
+08:       8       H             H             KAZ   6     501   0     0     28    6   2   7   3   4   1   5   
+09:       9       I             I             KAZ   5     501   0     0     19    4   2   5   1   6   0   1   
+10:       10      J             J             KAZ   7     501   0     0     22    6   5   1   1   4   2   3   
+11:       11      K             K             KAZ   7     501   0     0     29    7   1   7   1   1   6   6   
+12:       12      L             L             KAZ   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     21    0   1   7   5   0   4   4   
+14:       14      N             N             KAZ   6     501   0     0     8     0   0   1   5   1   1   0   
+15:       15      O             O             KAZ   7     501   0     0     22    5   7   4   2   0   2   2   
+16:       16      P             P             KAZ   7     501   0     0     25    5   7   4   0   6   2   1   
+
+
+#Number  :002
+Country  :KAZ
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     0      11     21     21     
+Away      9      21     9      16     20     
+Third     4      0      11     13     4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     23    5   5   0   6   4   3   0   
+03:       3       C             C             KAZ   3     501   0     0     15    3   3   2   2   2   0   3   
+04:       4       D             D             KAZ   3     501   0     0     11    0   2   3   1   1   2   2   
+05:       5       E             E             KAZ   2     501   0     0     21    1   5   0   0   5   7   3   
+06:       6       F             F             KAZ   4     501   0     0     12    1   3   2   2   0   2   2   
+07:       7       G             G             KAZ   6     501   0     0     34    6   3   0   6   7   5   7   
+08:       8       H             H             KAZ   6     501   0     0     23    4   2   2   7   0   5   3   
+09:       9       I             I             KAZ   5     501   0     0     15    0   1   2   3   1   1   7   
+10:       10      J             J             KAZ   7     501   0     0     26    5   2   4   7   5   0   3   
+11:       11      K             K             KAZ   7     501   0     0     27    0   7   2   2   4   7   5   
+12:       12      L             L             KAZ   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     23    3   5   6   6   0   0   3   
+14:       14      N             N             KAZ   6     501   0     0     17    0   1   0   5   4   6   1   
+15:       15      O             O             KAZ   7     501   0     0     23    5   4   2   3   1   1   7   
+16:       16      P             P             KAZ   7     501   0     0     28    2   3   3   1   7   7   5   
+
+
+#Number  :003
+Country  :KAZ
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     1      17     21     3      
+Away      12     12     0      6      11     
+Third     4      7      14     10     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     2     0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     35    7   6   5   1   6   4   6   
+03:       3       C             C             KAZ   3     501   0     0     29    4   7   4   7   7   0   0   
+04:       4       D             D             KAZ   3     501   0     0     22    1   6   1   0   7   7   0   
+05:       5       E             E             KAZ   2     501   0     0     36    3   5   6   7   5   5   5   
+06:       6       F             F             KAZ   4     501   0     0     34    1   4   1   7   7   7   7   
+07:       7       G             G             KAZ   6     501   0     0     18    3   5   2   0   0   5   3   
+08:       8       H             H             KAZ   6     501   0     0     28    7   3   1   5   6   4   2   
+09:       9       I             I             KAZ   5     501   0     0     26    2   4   3   7   2   3   5   
+10:       10      J             J             KAZ   7     501   0     0     30    6   6   7   4   0   1   6   
+11:       11      K             K             KAZ   7     501   0     0     36    6   4   5   3   5   7   6   
+12:       12      L             L             KAZ   0     501   0     0     40    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     19    0   5   1   1   7   5   0   
+14:       14      N             N             KAZ   6     501   0     0     19    7   1   3   3   1   0   4   
+15:       15      O             O             KAZ   7     501   0     0     31    4   7   7   4   4   1   4   
+16:       16      P             P             KAZ   7     501   0     0     28    1   4   1   6   4   5   7   
+
+
+#Number  :004
+Country  :KAZ
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     4      15     13     4      
+Away      14     20     12     3      5      
+Third     4      13     20     8      20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     32    3   5   4   6   6   2   6   
+03:       3       C             C             KAZ   3     501   0     0     26    4   3   5   5   2   5   2   
+04:       4       D             D             KAZ   3     501   0     0     29    4   5   7   4   3   0   6   
+05:       5       E             E             KAZ   2     501   0     0     24    4   2   4   2   7   3   2   
+06:       6       F             F             KAZ   4     501   0     0     25    6   6   0   5   1   4   3   
+07:       7       G             G             KAZ   6     501   0     0     24    2   1   2   7   6   5   1   
+08:       8       H             H             KAZ   6     501   0     0     16    5   4   0   3   0   2   2   
+09:       9       I             I             KAZ   5     501   0     0     32    3   5   7   5   6   3   3   
+10:       10      J             J             KAZ   7     501   0     0     21    4   5   4   1   2   4   1   
+11:       11      K             K             KAZ   7     501   0     0     25    4   4   7   4   2   4   0   
+12:       12      L             L             KAZ   0     501   0     0     22    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     27    4   6   3   3   0   6   5   
+14:       14      N             N             KAZ   6     501   0     0     30    2   7   7   5   3   3   3   
+15:       15      O             O             KAZ   7     501   0     0     14    6   0   0   0   2   0   6   
+16:       16      P             P             KAZ   7     501   0     0     22    6   3   1   4   3   4   1   
+
+
+#Number  :005
+Country  :KAZ
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     14     12     16     20     
+Away      8      5      17     2      0      
+Third     11     11     5      3      13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     35    2   6   5   7   4   6   5   
+03:       3       C             C             KAZ   3     501   0     0     24    2   0   3   5   5   7   2   
+04:       4       D             D             KAZ   3     501   0     0     24    2   3   4   4   1   5   5   
+05:       5       E             E             KAZ   2     501   0     0     24    3   3   5   1   4   1   7   
+06:       6       F             F             KAZ   4     501   0     0     21    1   1   1   6   1   4   7   
+07:       7       G             G             KAZ   6     501   0     0     24    6   0   4   2   7   4   1   
+08:       8       H             H             KAZ   6     501   0     0     14    0   2   7   0   0   5   0   
+09:       9       I             I             KAZ   5     501   0     0     29    0   2   6   3   7   4   7   
+10:       10      J             J             KAZ   7     501   0     0     32    5   6   3   4   6   5   3   
+11:       11      K             K             KAZ   7     501   0     0     30    6   1   6   1   2   7   7   
+12:       12      L             L             KAZ   0     501   0     0     12    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     19    5   7   2   1   2   2   0   
+14:       14      N             N             KAZ   6     501   0     0     26    4   5   0   3   6   3   5   
+15:       15      O             O             KAZ   7     501   0     0     24    1   0   2   7   7   5   2   
+16:       16      P             P             KAZ   7     501   0     0     24    3   6   0   4   2   2   7   
+
+
+#Number  :006
+Country  :KAZ
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      6      7      16     9      
+Away      1      9      4      13     7      
+Third     5      20     0      8      14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     30    6   2   7   5   7   3   0   
+03:       3       C             C             KAZ   3     501   0     0     18    0   6   3   0   3   6   0   
+04:       4       D             D             KAZ   3     501   0     0     19    0   5   5   4   1   2   2   
+05:       5       E             E             KAZ   2     501   0     0     33    5   5   4   6   3   6   4   
+06:       6       F             F             KAZ   4     501   0     0     26    6   2   6   4   0   2   6   
+07:       7       G             G             KAZ   6     501   0     0     23    1   2   4   5   4   6   1   
+08:       8       H             H             KAZ   6     501   0     0     24    2   4   4   5   0   4   5   
+09:       9       I             I             KAZ   5     501   0     0     21    1   3   3   1   6   6   1   
+10:       10      J             J             KAZ   7     501   0     0     31    6   3   0   7   5   6   4   
+11:       11      K             K             KAZ   7     501   0     0     33    6   7   7   4   1   2   6   
+12:       12      L             L             KAZ   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     9     0   0   0   5   2   1   1   
+14:       14      N             N             KAZ   6     501   0     0     21    6   3   1   1   1   5   4   
+15:       15      O             O             KAZ   7     501   0     0     15    2   2   1   3   1   6   0   
+16:       16      P             P             KAZ   7     501   0     0     25    1   3   7   5   6   3   0   
+
+
+#Number  :007
+Country  :KAZ
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      14     8      10     
+Away      2      15     10     2      21     
+Third     0      0      1      5      0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     16    0   5   1   2   1   0   7   
+03:       3       C             C             KAZ   3     501   0     0     38    4   7   6   7   7   3   4   
+04:       4       D             D             KAZ   3     501   0     0     25    1   4   3   2   7   3   5   
+05:       5       E             E             KAZ   2     501   0     0     20    3   1   6   0   2   4   4   
+06:       6       F             F             KAZ   4     501   0     0     26    3   5   3   5   0   7   3   
+07:       7       G             G             KAZ   6     501   0     0     25    7   3   3   3   5   3   1   
+08:       8       H             H             KAZ   6     501   0     0     21    6   5   1   4   3   1   1   
+09:       9       I             I             KAZ   5     501   0     0     32    7   7   4   4   5   3   2   
+10:       10      J             J             KAZ   7     501   0     0     20    1   2   0   5   5   5   2   
+11:       11      K             K             KAZ   7     501   0     0     20    3   0   4   7   2   2   2   
+12:       12      L             L             KAZ   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     19    3   6   0   7   2   1   0   
+14:       14      N             N             KAZ   6     501   0     0     25    7   1   1   5   0   6   5   
+15:       15      O             O             KAZ   7     501   0     0     35    7   6   5   1   3   7   6   
+16:       16      P             P             KAZ   7     501   0     0     22    4   4   0   7   2   1   4   
+
+
+#Number  :008
+Country  :KAZ
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     17     5      21     6      
+Away      1      16     7      6      22     
+Third     2      17     10     4      4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     19    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     27    4   3   2   6   3   5   4   
+03:       3       C             C             KAZ   3     501   0     0     35    7   3   7   6   2   7   3   
+04:       4       D             D             KAZ   3     501   0     0     26    2   4   5   6   1   4   4   
+05:       5       E             E             KAZ   2     501   0     0     28    3   7   0   4   7   0   7   
+06:       6       F             F             KAZ   4     501   0     0     40    7   6   4   6   3   7   7   
+07:       7       G             G             KAZ   6     501   0     0     30    5   5   7   5   1   4   3   
+08:       8       H             H             KAZ   6     501   0     0     23    7   1   5   3   0   6   1   
+09:       9       I             I             KAZ   5     501   0     0     29    7   1   1   7   6   7   0   
+10:       10      J             J             KAZ   7     501   0     0     30    6   0   4   2   5   6   7   
+11:       11      K             K             KAZ   7     501   0     0     28    3   5   7   5   1   4   3   
+12:       12      L             L             KAZ   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     27    7   5   6   1   0   6   2   
+14:       14      N             N             KAZ   6     501   0     0     23    6   1   3   2   3   4   4   
+15:       15      O             O             KAZ   7     501   0     0     21    2   2   6   2   2   1   6   
+16:       16      P             P             KAZ   7     501   0     0     21    0   4   2   5   4   1   5   
+
+
+#Number  :009
+Country  :KAZ
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      22     5      12     8      
+Away      10     1      10     1      6      
+Third     10     17     3      18     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     43    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     28    0   6   6   6   6   0   4   
+03:       3       C             C             KAZ   3     501   0     0     24    2   6   4   2   0   6   4   
+04:       4       D             D             KAZ   3     501   0     0     15    2   2   0   0   2   2   7   
+05:       5       E             E             KAZ   2     501   0     0     21    0   4   4   2   4   4   3   
+06:       6       F             F             KAZ   4     501   0     0     32    7   6   3   2   5   4   5   
+07:       7       G             G             KAZ   6     501   0     0     35    6   5   3   3   6   6   6   
+08:       8       H             H             KAZ   6     501   0     0     15    4   0   3   3   2   0   3   
+09:       9       I             I             KAZ   5     501   0     0     34    7   2   7   7   2   3   6   
+10:       10      J             J             KAZ   7     501   0     0     26    3   7   0   3   7   5   1   
+11:       11      K             K             KAZ   7     501   0     0     33    7   7   7   7   2   3   0   
+12:       12      L             L             KAZ   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     27    5   1   7   3   4   4   3   
+14:       14      N             N             KAZ   6     501   0     0     24    3   7   6   3   0   5   0   
+15:       15      O             O             KAZ   7     501   0     0     28    7   6   3   4   1   0   7   
+16:       16      P             P             KAZ   7     501   0     0     14    0   6   0   1   3   0   4   
+
+
+#Number  :010
+Country  :KAZ
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      3      6      9      5      
+Away      6      2      6      22     22     
+Third     7      21     1      18     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     49    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     37    2   7   4   7   7   5   5   
+03:       3       C             C             KAZ   3     501   0     0     29    3   7   2   5   3   7   2   
+04:       4       D             D             KAZ   3     501   0     0     15    0   0   7   0   2   6   0   
+05:       5       E             E             KAZ   2     501   0     0     28    1   4   7   4   3   3   6   
+06:       6       F             F             KAZ   4     501   0     0     24    2   7   3   7   0   4   1   
+07:       7       G             G             KAZ   6     501   0     0     22    6   0   1   6   4   3   2   
+08:       8       H             H             KAZ   6     501   0     0     22    4   6   1   6   3   0   2   
+09:       9       I             I             KAZ   5     501   0     0     23    3   0   2   2   6   7   3   
+10:       10      J             J             KAZ   7     501   0     0     18    1   6   5   4   0   0   2   
+11:       11      K             K             KAZ   7     501   0     0     27    3   1   3   7   6   5   2   
+12:       12      L             L             KAZ   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     19    0   3   3   1   1   4   7   
+14:       14      N             N             KAZ   6     501   0     0     29    3   7   0   5   6   6   2   
+15:       15      O             O             KAZ   7     501   0     0     25    4   4   3   2   7   1   4   
+16:       16      P             P             KAZ   7     501   0     0     25    4   6   7   2   0   0   6   
+
+
+#Number  :011
+Country  :KAZ
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      8      11     13     2      
+Away      3      1      16     22     2      
+Third     13     13     3      1      0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     18    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     27    2   3   7   3   3   7   2   
+03:       3       C             C             KAZ   3     501   0     0     32    3   6   5   7   6   3   2   
+04:       4       D             D             KAZ   3     501   0     0     15    0   5   1   1   5   1   2   
+05:       5       E             E             KAZ   2     501   0     0     13    0   2   5   2   1   1   2   
+06:       6       F             F             KAZ   4     501   0     0     24    2   2   2   5   1   7   5   
+07:       7       G             G             KAZ   6     501   0     0     23    6   4   0   3   3   6   1   
+08:       8       H             H             KAZ   6     501   0     0     34    5   6   6   2   7   5   3   
+09:       9       I             I             KAZ   5     501   0     0     25    0   1   6   1   7   7   3   
+10:       10      J             J             KAZ   7     501   0     0     24    7   4   3   1   1   2   6   
+11:       11      K             K             KAZ   7     501   0     0     28    4   2   3   4   2   6   7   
+12:       12      L             L             KAZ   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     21    6   0   4   0   2   5   4   
+14:       14      N             N             KAZ   6     501   0     0     21    7   1   3   0   1   5   4   
+15:       15      O             O             KAZ   7     501   0     0     17    5   2   1   3   1   5   0   
+16:       16      P             P             KAZ   7     501   0     0     26    3   2   7   3   5   0   6   
+
+
+#Number  :012
+Country  :KAZ
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      0      10     18     6      
+Away      2      0      15     16     6      
+Third     8      7      15     11     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     15    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     29    7   5   0   5   1   5   6   
+03:       3       C             C             KAZ   3     501   0     0     33    0   7   2   6   6   5   7   
+04:       4       D             D             KAZ   3     501   0     0     25    1   0   6   7   1   3   7   
+05:       5       E             E             KAZ   2     501   0     0     26    0   1   7   3   5   6   4   
+06:       6       F             F             KAZ   4     501   0     0     29    5   6   1   3   6   3   5   
+07:       7       G             G             KAZ   6     501   0     0     12    2   0   0   4   0   4   2   
+08:       8       H             H             KAZ   6     501   0     0     20    7   2   0   1   0   4   6   
+09:       9       I             I             KAZ   5     501   0     0     32    7   7   6   3   5   0   4   
+10:       10      J             J             KAZ   7     501   0     0     27    3   5   4   0   5   5   5   
+11:       11      K             K             KAZ   7     501   0     0     30    7   7   7   6   2   0   1   
+12:       12      L             L             KAZ   0     501   0     0     4     0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     32    6   2   5   6   3   5   5   
+14:       14      N             N             KAZ   6     501   0     0     21    5   0   3   4   6   1   2   
+15:       15      O             O             KAZ   7     501   0     0     18    1   0   7   4   3   0   3   
+16:       16      P             P             KAZ   7     501   0     0     18    2   3   1   4   1   6   1   
+
+
+#Number  :013
+Country  :KAZ
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      10     10     9      2      
+Away      3      0      19     7      3      
+Third     16     16     2      19     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     8     0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     29    0   1   7   5   5   7   4   
+03:       3       C             C             KAZ   3     501   0     0     18    6   1   6   0   1   0   4   
+04:       4       D             D             KAZ   3     501   0     0     22    0   0   6   3   2   7   4   
+05:       5       E             E             KAZ   2     501   0     0     39    7   7   3   7   6   5   4   
+06:       6       F             F             KAZ   4     501   0     0     32    4   7   4   5   2   4   6   
+07:       7       G             G             KAZ   6     501   0     0     16    1   0   3   2   2   6   2   
+08:       8       H             H             KAZ   6     501   0     0     30    1   7   2   2   6   6   6   
+09:       9       I             I             KAZ   5     501   0     0     29    6   7   1   4   5   3   3   
+10:       10      J             J             KAZ   7     501   0     0     37    4   7   6   7   5   6   2   
+11:       11      K             K             KAZ   7     501   0     0     19    0   5   6   0   0   3   5   
+12:       12      L             L             KAZ   0     501   0     0     5     0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     28    3   3   6   7   0   3   6   
+14:       14      N             N             KAZ   6     501   0     0     30    5   2   4   7   4   5   3   
+15:       15      O             O             KAZ   7     501   0     0     13    1   1   0   2   4   5   0   
+16:       16      P             P             KAZ   7     501   0     0     27    4   5   6   1   1   3   7   
+
+
+#Number  :014
+Country  :KAZ
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      5      12     20     16     
+Away      13     9      0      11     16     
+Third     9      4      22     5      7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     24    5   4   4   5   5   1   0   
+03:       3       C             C             KAZ   3     501   0     0     28    5   5   2   2   6   6   2   
+04:       4       D             D             KAZ   3     501   0     0     40    6   4   5   7   6   7   5   
+05:       5       E             E             KAZ   2     501   0     0     31    3   6   2   1   7   7   5   
+06:       6       F             F             KAZ   4     501   0     0     16    3   2   1   3   6   0   1   
+07:       7       G             G             KAZ   6     501   0     0     24    2   4   2   5   2   4   5   
+08:       8       H             H             KAZ   6     501   0     0     32    2   5   7   6   5   6   1   
+09:       9       I             I             KAZ   5     501   0     0     18    1   2   5   4   0   1   5   
+10:       10      J             J             KAZ   7     501   0     0     23    5   0   6   6   3   1   2   
+11:       11      K             K             KAZ   7     501   0     0     36    7   3   6   4   6   7   3   
+12:       12      L             L             KAZ   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     19    0   6   1   4   7   1   0   
+14:       14      N             N             KAZ   6     501   0     0     29    6   5   5   1   7   2   3   
+15:       15      O             O             KAZ   7     501   0     0     23    5   3   2   2   4   7   0   
+16:       16      P             P             KAZ   7     501   0     0     22    0   4   4   4   4   3   3   
+
+
+#Number  :015
+Country  :KAZ
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     7      0      8      2      
+Away      18     15     3      13     21     
+Third     5      15     1      21     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     41    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     20    2   5   4   5   0   3   1   
+03:       3       C             C             KAZ   3     501   0     0     25    0   3   4   7   0   5   6   
+04:       4       D             D             KAZ   3     501   0     0     22    4   3   6   2   4   0   3   
+05:       5       E             E             KAZ   2     501   0     0     36    7   5   7   5   2   3   7   
+06:       6       F             F             KAZ   4     501   0     0     22    6   5   4   2   0   5   0   
+07:       7       G             G             KAZ   6     501   0     0     20    0   1   5   3   1   5   5   
+08:       8       H             H             KAZ   6     501   0     0     28    1   6   6   7   6   0   2   
+09:       9       I             I             KAZ   5     501   0     0     35    5   3   6   4   6   5   6   
+10:       10      J             J             KAZ   7     501   0     0     22    2   1   4   7   1   0   7   
+11:       11      K             K             KAZ   7     501   0     0     22    4   3   0   3   2   6   4   
+12:       12      L             L             KAZ   0     501   0     0     18    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     25    2   0   4   1   7   6   5   
+14:       14      N             N             KAZ   6     501   0     0     20    5   4   4   0   1   2   4   
+15:       15      O             O             KAZ   7     501   0     0     26    7   2   7   1   1   6   2   
+16:       16      P             P             KAZ   7     501   0     0     31    7   0   6   6   3   3   6   
+
+
+#Number  :016
+Country  :KAZ
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      3      17     7      14     
+Away      17     13     20     18     14     
+Third     5      0      16     15     2      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     22    5   7   5   0   5   0   0   
+03:       3       C             C             KAZ   3     501   0     0     26    2   6   4   7   1   1   5   
+04:       4       D             D             KAZ   3     501   0     0     15    3   1   0   7   0   1   3   
+05:       5       E             E             KAZ   2     501   0     0     21    7   0   7   4   0   0   3   
+06:       6       F             F             KAZ   4     501   0     0     27    0   4   5   4   1   6   7   
+07:       7       G             G             KAZ   6     501   0     0     22    1   3   3   4   5   2   4   
+08:       8       H             H             KAZ   6     501   0     0     20    1   0   2   6   5   5   1   
+09:       9       I             I             KAZ   5     501   0     0     34    7   7   3   5   5   7   0   
+10:       10      J             J             KAZ   7     501   0     0     28    5   3   5   3   3   6   3   
+11:       11      K             K             KAZ   7     501   0     0     21    0   1   5   2   2   4   7   
+12:       12      L             L             KAZ   0     501   0     0     23    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     16    4   1   0   2   4   3   2   
+14:       14      N             N             KAZ   6     501   0     0     31    5   4   6   7   1   3   5   
+15:       15      O             O             KAZ   7     501   0     0     23    5   3   5   1   6   3   0   
+16:       16      P             P             KAZ   7     501   0     0     24    7   3   7   0   1   3   3   
+
+
+#Number  :017
+Country  :KAZ
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      19     19     15     21     
+Away      2      20     20     5      12     
+Third     14     16     2      1      0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     13    0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     16    3   3   4   1   5   0   0   
+03:       3       C             C             KAZ   3     501   0     0     26    4   1   2   2   6   5   6   
+04:       4       D             D             KAZ   3     501   0     0     30    7   0   7   4   3   2   7   
+05:       5       E             E             KAZ   2     501   0     0     26    5   0   4   5   5   3   4   
+06:       6       F             F             KAZ   4     501   0     0     17    0   6   0   0   1   3   7   
+07:       7       G             G             KAZ   6     501   0     0     32    4   4   6   6   5   0   7   
+08:       8       H             H             KAZ   6     501   0     0     24    3   2   2   3   1   6   7   
+09:       9       I             I             KAZ   5     501   0     0     14    5   0   0   1   1   6   1   
+10:       10      J             J             KAZ   7     501   0     0     31    6   6   0   6   5   3   5   
+11:       11      K             K             KAZ   7     501   0     0     15    0   6   4   1   2   1   1   
+12:       12      L             L             KAZ   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     19    1   4   1   4   2   3   4   
+14:       14      N             N             KAZ   6     501   0     0     25    0   0   7   4   1   6   7   
+15:       15      O             O             KAZ   7     501   0     0     20    2   6   2   4   5   1   0   
+16:       16      P             P             KAZ   7     501   0     0     14    0   3   2   5   3   1   0   
+
+
+#Number  :018
+Country  :KAZ
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      8      5      3      13     
+Away      15     11     9      15     14     
+Third     1      21     10     3      7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             KAZ   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             KAZ   1     501   0     0     38    4   7   6   7   6   2   6   
+03:       3       C             C             KAZ   3     501   0     0     19    3   1   6   5   0   3   1   
+04:       4       D             D             KAZ   3     501   0     0     19    2   6   0   3   0   6   2   
+05:       5       E             E             KAZ   2     501   0     0     34    7   1   5   5   2   7   7   
+06:       6       F             F             KAZ   4     501   0     0     26    1   6   4   5   0   3   7   
+07:       7       G             G             KAZ   6     501   0     0     23    7   2   0   6   3   2   3   
+08:       8       H             H             KAZ   6     501   0     0     21    2   1   5   3   6   1   3   
+09:       9       I             I             KAZ   5     501   0     0     14    0   7   4   1   0   2   0   
+10:       10      J             J             KAZ   7     501   0     0     27    5   5   7   3   0   2   5   
+11:       11      K             K             KAZ   7     501   0     0     30    2   1   7   7   5   6   2   
+12:       12      L             L             KAZ   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             KAZ   3     501   0     0     16    1   2   5   0   3   3   2   
+14:       14      N             N             KAZ   6     501   0     0     26    6   0   2   4   4   3   7   
+15:       15      O             O             KAZ   7     501   0     0     23    6   3   2   4   2   5   1   
+16:       16      P             P             KAZ   7     501   0     0     19    2   6   0   0   4   3   4   
+
+

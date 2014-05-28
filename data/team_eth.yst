@@ -1,0 +1,702 @@
+#Number  :001
+Country  :ETH
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      21     22     16     11     
+Away      6      17     5      18     21     
+Third     18     6      18     0      22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     23    0   7   5   1   2   1   7   
+03:       3       C             C             ETH   3     501   0     0     19    0   2   6   1   5   1   4   
+04:       4       D             D             ETH   3     501   0     0     32    0   2   4   7   7   5   7   
+05:       5       E             E             ETH   2     501   0     0     28    0   1   7   5   1   7   7   
+06:       6       F             F             ETH   4     501   0     0     22    4   3   0   4   0   5   6   
+07:       7       G             G             ETH   6     501   0     0     30    5   6   7   2   1   6   3   
+08:       8       H             H             ETH   6     501   0     0     19    2   1   0   3   7   4   2   
+09:       9       I             I             ETH   5     501   0     0     32    3   1   3   6   7   5   7   
+10:       10      J             J             ETH   7     501   0     0     17    0   3   0   4   3   6   1   
+11:       11      K             K             ETH   7     501   0     0     35    3   7   6   4   4   6   5   
+12:       12      L             L             ETH   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     28    5   4   2   6   2   2   7   
+14:       14      N             N             ETH   6     501   0     0     30    7   5   3   4   2   6   3   
+15:       15      O             O             ETH   7     501   0     0     29    6   5   3   7   6   1   1   
+16:       16      P             P             ETH   7     501   0     0     20    2   0   4   2   7   2   3   
+
+
+#Number  :002
+Country  :ETH
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     0      17     6      7      
+Away      18     19     20     6      19     
+Third     12     2      8      20     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     23    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     30    0   7   3   7   4   5   4   
+03:       3       C             C             ETH   3     501   0     0     30    4   6   7   0   3   3   7   
+04:       4       D             D             ETH   3     501   0     0     29    2   6   3   7   6   4   1   
+05:       5       E             E             ETH   2     501   0     0     18    4   4   0   3   2   0   5   
+06:       6       F             F             ETH   4     501   0     0     29    6   0   4   4   4   4   7   
+07:       7       G             G             ETH   6     501   0     0     25    4   6   1   6   0   6   2   
+08:       8       H             H             ETH   6     501   0     0     23    0   6   1   4   2   3   7   
+09:       9       I             I             ETH   5     501   0     0     22    0   4   7   0   1   4   6   
+10:       10      J             J             ETH   7     501   0     0     14    1   4   0   4   1   1   3   
+11:       11      K             K             ETH   7     501   0     0     16    1   4   0   2   1   1   7   
+12:       12      L             L             ETH   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     25    6   7   0   1   6   0   5   
+14:       14      N             N             ETH   6     501   0     0     10    5   0   2   1   0   1   1   
+15:       15      O             O             ETH   7     501   0     0     28    3   6   7   6   1   4   1   
+16:       16      P             P             ETH   7     501   0     0     23    6   1   3   5   0   1   7   
+
+
+#Number  :003
+Country  :ETH
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      10     11     16     13     
+Away      0      19     7      15     10     
+Third     4      2      4      6      6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     20    0   7   4   2   3   2   2   
+03:       3       C             C             ETH   3     501   0     0     22    3   5   2   7   1   4   0   
+04:       4       D             D             ETH   3     501   0     0     25    2   0   7   3   4   3   6   
+05:       5       E             E             ETH   2     501   0     0     20    2   6   3   1   4   4   0   
+06:       6       F             F             ETH   4     501   0     0     18    3   0   5   2   0   2   6   
+07:       7       G             G             ETH   6     501   0     0     17    5   3   1   1   0   0   7   
+08:       8       H             H             ETH   6     501   0     0     24    7   1   7   0   2   6   1   
+09:       9       I             I             ETH   5     501   0     0     35    5   5   3   4   4   7   7   
+10:       10      J             J             ETH   7     501   0     0     32    7   7   6   6   0   3   3   
+11:       11      K             K             ETH   7     501   0     0     30    2   7   6   6   1   3   5   
+12:       12      L             L             ETH   0     501   0     0     6     0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     26    4   1   2   3   6   3   7   
+14:       14      N             N             ETH   6     501   0     0     18    1   2   3   0   4   6   2   
+15:       15      O             O             ETH   7     501   0     0     18    4   4   6   0   0   3   1   
+16:       16      P             P             ETH   7     501   0     0     30    6   5   5   3   1   3   7   
+
+
+#Number  :004
+Country  :ETH
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      14     3      8      11     
+Away      0      21     21     6      0      
+Third     16     1      12     4      18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     29    5   5   5   6   3   5   0   
+03:       3       C             C             ETH   3     501   0     0     32    0   7   7   7   2   6   3   
+04:       4       D             D             ETH   3     501   0     0     30    7   3   1   7   3   5   4   
+05:       5       E             E             ETH   2     501   0     0     20    7   1   0   2   3   4   3   
+06:       6       F             F             ETH   4     501   0     0     28    3   7   0   3   1   7   7   
+07:       7       G             G             ETH   6     501   0     0     28    1   0   7   6   4   5   5   
+08:       8       H             H             ETH   6     501   0     0     24    2   1   0   4   5   6   6   
+09:       9       I             I             ETH   5     501   0     0     25    5   4   1   0   4   5   6   
+10:       10      J             J             ETH   7     501   0     0     24    5   7   2   6   2   0   2   
+11:       11      K             K             ETH   7     501   0     0     22    3   3   1   7   0   5   3   
+12:       12      L             L             ETH   0     501   0     0     41    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     27    6   5   2   7   3   3   1   
+14:       14      N             N             ETH   6     501   0     0     31    7   4   0   7   2   5   6   
+15:       15      O             O             ETH   7     501   0     0     29    0   6   7   7   3   0   6   
+16:       16      P             P             ETH   7     501   0     0     21    2   7   5   0   3   2   2   
+
+
+#Number  :005
+Country  :ETH
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      0      13     14     16     
+Away      10     15     22     14     14     
+Third     9      19     3      20     8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     17    4   7   1   2   2   0   1   
+03:       3       C             C             ETH   3     501   0     0     13    2   3   4   1   0   3   0   
+04:       4       D             D             ETH   3     501   0     0     23    5   3   3   5   0   0   7   
+05:       5       E             E             ETH   2     501   0     0     23    0   4   6   5   7   1   0   
+06:       6       F             F             ETH   4     501   0     0     15    1   1   1   2   1   7   2   
+07:       7       G             G             ETH   6     501   0     0     28    7   4   1   4   2   5   5   
+08:       8       H             H             ETH   6     501   0     0     35    7   2   5   2   6   7   6   
+09:       9       I             I             ETH   5     501   0     0     27    4   6   1   5   1   5   5   
+10:       10      J             J             ETH   7     501   0     0     25    0   5   1   2   5   5   7   
+11:       11      K             K             ETH   7     501   0     0     22    3   1   3   5   4   5   1   
+12:       12      L             L             ETH   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     23    5   0   6   4   7   0   1   
+14:       14      N             N             ETH   6     501   0     0     14    1   4   2   2   4   1   0   
+15:       15      O             O             ETH   7     501   0     0     24    0   7   1   0   6   5   5   
+16:       16      P             P             ETH   7     501   0     0     34    7   5   7   5   1   6   3   
+
+
+#Number  :006
+Country  :ETH
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      17     7      17     17     
+Away      9      14     13     20     11     
+Third     7      9      10     14     5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     21    7   1   1   4   0   5   3   
+03:       3       C             C             ETH   3     501   0     0     27    6   4   1   7   4   2   3   
+04:       4       D             D             ETH   3     501   0     0     14    2   0   0   1   5   1   5   
+05:       5       E             E             ETH   2     501   0     0     29    7   1   2   4   7   7   1   
+06:       6       F             F             ETH   4     501   0     0     31    5   6   0   1   7   7   5   
+07:       7       G             G             ETH   6     501   0     0     22    1   2   6   2   0   4   7   
+08:       8       H             H             ETH   6     501   0     0     24    1   2   6   2   2   4   7   
+09:       9       I             I             ETH   5     501   0     0     28    3   3   7   1   6   7   1   
+10:       10      J             J             ETH   7     501   0     0     19    2   0   2   5   3   4   3   
+11:       11      K             K             ETH   7     501   0     0     18    4   0   2   6   1   1   4   
+12:       12      L             L             ETH   0     501   0     0     40    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     33    3   7   6   5   4   1   7   
+14:       14      N             N             ETH   6     501   0     0     24    3   4   7   0   2   6   2   
+15:       15      O             O             ETH   7     501   0     0     22    4   4   6   1   0   4   3   
+16:       16      P             P             ETH   7     501   0     0     31    1   0   7   2   7   7   7   
+
+
+#Number  :007
+Country  :ETH
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     7      11     15     16     
+Away      4      6      17     4      9      
+Third     17     0      21     5      20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     24    2   7   3   0   5   0   7   
+03:       3       C             C             ETH   3     501   0     0     18    1   0   7   2   6   2   0   
+04:       4       D             D             ETH   3     501   0     0     15    1   3   0   5   1   5   0   
+05:       5       E             E             ETH   2     501   0     0     14    3   0   0   5   4   2   0   
+06:       6       F             F             ETH   4     501   0     0     30    3   7   2   7   7   3   1   
+07:       7       G             G             ETH   6     501   0     0     21    2   2   4   3   7   0   3   
+08:       8       H             H             ETH   6     501   0     0     31    7   7   0   0   6   6   5   
+09:       9       I             I             ETH   5     501   0     0     15    3   0   4   1   4   0   3   
+10:       10      J             J             ETH   7     501   0     0     31    2   7   7   6   4   0   5   
+11:       11      K             K             ETH   7     501   0     0     17    3   2   5   5   0   2   0   
+12:       12      L             L             ETH   0     501   0     0     48    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     25    6   0   3   4   4   5   3   
+14:       14      N             N             ETH   6     501   0     0     23    4   0   5   7   5   0   2   
+15:       15      O             O             ETH   7     501   0     0     20    6   0   2   6   5   0   1   
+16:       16      P             P             ETH   7     501   0     0     34    6   3   7   3   7   2   6   
+
+
+#Number  :008
+Country  :ETH
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      20     19     18     21     
+Away      3      4      3      14     1      
+Third     18     18     19     21     2      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     28    0   4   5   7   3   5   4   
+03:       3       C             C             ETH   3     501   0     0     30    7   3   4   2   4   3   7   
+04:       4       D             D             ETH   3     501   0     0     29    5   2   4   7   2   5   4   
+05:       5       E             E             ETH   2     501   0     0     29    3   4   7   4   7   3   1   
+06:       6       F             F             ETH   4     501   0     0     24    1   7   0   5   2   2   7   
+07:       7       G             G             ETH   6     501   0     0     18    4   1   2   4   2   2   3   
+08:       8       H             H             ETH   6     501   0     0     35    2   3   3   7   6   7   7   
+09:       9       I             I             ETH   5     501   0     0     26    5   3   2   3   6   0   7   
+10:       10      J             J             ETH   7     501   0     0     18    3   3   5   0   3   4   0   
+11:       11      K             K             ETH   7     501   0     0     29    7   4   5   2   2   2   7   
+12:       12      L             L             ETH   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     24    2   5   2   2   2   4   7   
+14:       14      N             N             ETH   6     501   0     0     25    6   0   4   4   4   5   2   
+15:       15      O             O             ETH   7     501   0     0     32    3   7   1   5   5   5   6   
+16:       16      P             P             ETH   7     501   0     0     22    4   3   7   3   5   0   0   
+
+
+#Number  :009
+Country  :ETH
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      3      20     19     
+Away      11     12     13     6      18     
+Third     15     14     17     11     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     26    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     19    0   4   4   0   1   7   3   
+03:       3       C             C             ETH   3     501   0     0     36    1   6   6   7   7   2   7   
+04:       4       D             D             ETH   3     501   0     0     21    4   1   1   6   2   0   7   
+05:       5       E             E             ETH   2     501   0     0     16    5   0   0   4   1   2   4   
+06:       6       F             F             ETH   4     501   0     0     31    2   2   5   2   7   7   6   
+07:       7       G             G             ETH   6     501   0     0     35    7   7   3   1   7   7   3   
+08:       8       H             H             ETH   6     501   0     0     12    0   4   1   2   4   0   1   
+09:       9       I             I             ETH   5     501   0     0     30    3   7   1   3   4   6   6   
+10:       10      J             J             ETH   7     501   0     0     30    7   5   5   6   4   1   2   
+11:       11      K             K             ETH   7     501   0     0     33    5   7   4   4   4   5   4   
+12:       12      L             L             ETH   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     21    0   0   6   0   3   6   6   
+14:       14      N             N             ETH   6     501   0     0     18    4   4   6   2   0   1   1   
+15:       15      O             O             ETH   7     501   0     0     27    6   7   1   3   3   6   1   
+16:       16      P             P             ETH   7     501   0     0     21    0   5   5   5   1   5   0   
+
+
+#Number  :010
+Country  :ETH
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      20     20     20     16     
+Away      17     14     9      6      5      
+Third     11     13     2      21     2      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     30    4   0   2   6   6   7   5   
+03:       3       C             C             ETH   3     501   0     0     20    7   6   2   0   0   2   3   
+04:       4       D             D             ETH   3     501   0     0     24    3   0   7   0   4   7   3   
+05:       5       E             E             ETH   2     501   0     0     26    0   1   7   3   6   5   4   
+06:       6       F             F             ETH   4     501   0     0     27    4   6   4   2   2   4   5   
+07:       7       G             G             ETH   6     501   0     0     23    3   4   1   5   3   0   7   
+08:       8       H             H             ETH   6     501   0     0     29    3   6   1   6   6   5   2   
+09:       9       I             I             ETH   5     501   0     0     28    6   1   5   0   4   6   6   
+10:       10      J             J             ETH   7     501   0     0     33    7   4   5   6   2   7   2   
+11:       11      K             K             ETH   7     501   0     0     26    2   5   2   2   7   7   1   
+12:       12      L             L             ETH   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     23    3   3   7   7   0   3   0   
+14:       14      N             N             ETH   6     501   0     0     22    6   7   0   0   2   5   2   
+15:       15      O             O             ETH   7     501   0     0     27    1   2   6   3   3   5   7   
+16:       16      P             P             ETH   7     501   0     0     32    7   1   7   7   6   4   0   
+
+
+#Number  :011
+Country  :ETH
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      3      6      14     4      
+Away      9      8      22     16     21     
+Third     18     1      2      5      15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     49    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     30    2   4   4   7   2   5   6   
+03:       3       C             C             ETH   3     501   0     0     21    6   0   7   3   1   1   3   
+04:       4       D             D             ETH   3     501   0     0     24    3   6   2   2   5   0   6   
+05:       5       E             E             ETH   2     501   0     0     26    5   7   2   2   0   4   6   
+06:       6       F             F             ETH   4     501   0     0     19    0   3   3   2   2   4   5   
+07:       7       G             G             ETH   6     501   0     0     23    7   2   5   5   4   0   0   
+08:       8       H             H             ETH   6     501   0     0     32    7   7   4   5   0   2   7   
+09:       9       I             I             ETH   5     501   0     0     38    7   6   6   4   5   3   7   
+10:       10      J             J             ETH   7     501   0     0     35    4   3   7   7   2   5   7   
+11:       11      K             K             ETH   7     501   0     0     21    3   0   7   6   0   0   5   
+12:       12      L             L             ETH   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     29    5   3   3   7   6   0   5   
+14:       14      N             N             ETH   6     501   0     0     17    4   2   1   4   3   2   1   
+15:       15      O             O             ETH   7     501   0     0     7     0   1   0   0   5   1   0   
+16:       16      P             P             ETH   7     501   0     0     22    5   1   4   3   7   1   1   
+
+
+#Number  :012
+Country  :ETH
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     20     16     8      17     
+Away      6      14     16     10     3      
+Third     17     4      16     18     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     25    6   5   1   6   1   6   0   
+03:       3       C             C             ETH   3     501   0     0     33    6   4   5   5   7   1   5   
+04:       4       D             D             ETH   3     501   0     0     35    0   7   5   7   7   2   7   
+05:       5       E             E             ETH   2     501   0     0     25    6   1   4   0   7   6   1   
+06:       6       F             F             ETH   4     501   0     0     29    4   7   7   0   5   5   1   
+07:       7       G             G             ETH   6     501   0     0     21    2   5   4   6   1   2   1   
+08:       8       H             H             ETH   6     501   0     0     34    2   5   7   7   3   4   6   
+09:       9       I             I             ETH   5     501   0     0     26    2   1   7   3   1   7   5   
+10:       10      J             J             ETH   7     501   0     0     30    3   5   4   4   7   2   5   
+11:       11      K             K             ETH   7     501   0     0     19    0   5   0   2   4   1   7   
+12:       12      L             L             ETH   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     29    3   5   1   6   6   5   3   
+14:       14      N             N             ETH   6     501   0     0     39    5   4   3   7   7   6   7   
+15:       15      O             O             ETH   7     501   0     0     38    1   5   7   6   7   6   6   
+16:       16      P             P             ETH   7     501   0     0     25    0   6   6   5   1   6   1   
+
+
+#Number  :013
+Country  :ETH
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     18     9      12     4      
+Away      12     20     20     2      2      
+Third     10     8      13     12     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     45    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     13    3   0   3   6   0   1   0   
+03:       3       C             C             ETH   3     501   0     0     27    7   4   5   4   1   4   2   
+04:       4       D             D             ETH   3     501   0     0     15    7   1   0   5   0   1   1   
+05:       5       E             E             ETH   2     501   0     0     22    5   6   4   0   0   6   1   
+06:       6       F             F             ETH   4     501   0     0     25    6   1   5   5   4   0   4   
+07:       7       G             G             ETH   6     501   0     0     43    4   7   6   7   6   6   7   
+08:       8       H             H             ETH   6     501   0     0     22    5   1   3   2   0   7   4   
+09:       9       I             I             ETH   5     501   0     0     24    5   0   0   5   7   1   6   
+10:       10      J             J             ETH   7     501   0     0     32    2   7   5   5   7   3   3   
+11:       11      K             K             ETH   7     501   0     0     12    2   0   0   4   1   2   3   
+12:       12      L             L             ETH   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     26    3   7   0   5   1   3   7   
+14:       14      N             N             ETH   6     501   0     0     33    4   5   5   6   4   4   5   
+15:       15      O             O             ETH   7     501   0     0     28    5   2   6   3   7   2   3   
+16:       16      P             P             ETH   7     501   0     0     32    5   6   2   7   6   6   0   
+
+
+#Number  :014
+Country  :ETH
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     18     8      7      15     
+Away      8      2      16     1      14     
+Third     16     18     10     20     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     26    0   5   3   6   5   7   0   
+03:       3       C             C             ETH   3     501   0     0     28    6   3   1   7   1   4   6   
+04:       4       D             D             ETH   3     501   0     0     24    1   2   3   6   7   3   2   
+05:       5       E             E             ETH   2     501   0     0     23    0   6   5   6   1   5   0   
+06:       6       F             F             ETH   4     501   0     0     22    1   4   3   0   3   5   6   
+07:       7       G             G             ETH   6     501   0     0     24    7   3   2   3   5   3   1   
+08:       8       H             H             ETH   6     501   0     0     37    5   2   5   7   5   6   7   
+09:       9       I             I             ETH   5     501   0     0     24    1   5   6   5   1   4   2   
+10:       10      J             J             ETH   7     501   0     0     20    4   1   3   3   5   4   0   
+11:       11      K             K             ETH   7     501   0     0     17    1   4   6   3   1   0   2   
+12:       12      L             L             ETH   0     501   0     0     16    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     22    2   2   0   1   7   4   6   
+14:       14      N             N             ETH   6     501   0     0     31    6   7   0   4   7   6   1   
+15:       15      O             O             ETH   7     501   0     0     36    7   4   6   4   5   7   3   
+16:       16      P             P             ETH   7     501   0     0     23    0   4   2   3   6   3   5   
+
+
+#Number  :015
+Country  :ETH
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      15     19     9      4      
+Away      14     22     16     12     1      
+Third     12     20     16     19     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     8     0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     33    6   4   7   4   4   4   4   
+03:       3       C             C             ETH   3     501   0     0     24    3   4   7   1   0   4   5   
+04:       4       D             D             ETH   3     501   0     0     22    3   2   2   6   1   4   4   
+05:       5       E             E             ETH   2     501   0     0     28    7   2   2   6   4   3   4   
+06:       6       F             F             ETH   4     501   0     0     34    5   7   1   6   7   6   2   
+07:       7       G             G             ETH   6     501   0     0     29    3   5   6   1   5   4   5   
+08:       8       H             H             ETH   6     501   0     0     38    2   7   5   7   7   4   6   
+09:       9       I             I             ETH   5     501   0     0     25    5   2   7   0   6   4   1   
+10:       10      J             J             ETH   7     501   0     0     31    0   5   3   7   5   7   4   
+11:       11      K             K             ETH   7     501   0     0     33    3   2   7   3   7   7   4   
+12:       12      L             L             ETH   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     20    5   1   3   4   4   1   2   
+14:       14      N             N             ETH   6     501   0     0     26    7   1   2   7   4   3   2   
+15:       15      O             O             ETH   7     501   0     0     22    2   4   1   6   5   4   0   
+16:       16      P             P             ETH   7     501   0     0     25    6   3   1   2   7   2   4   
+
+
+#Number  :016
+Country  :ETH
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     18     8      5      2      
+Away      6      7      0      11     10     
+Third     15     10     0      12     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     21    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     16    0   2   6   0   4   0   4   
+03:       3       C             C             ETH   3     501   0     0     16    4   3   1   6   2   0   0   
+04:       4       D             D             ETH   3     501   0     0     12    0   0   3   6   0   0   3   
+05:       5       E             E             ETH   2     501   0     0     35    6   6   7   4   6   4   2   
+06:       6       F             F             ETH   4     501   0     0     26    3   7   1   4   4   0   7   
+07:       7       G             G             ETH   6     501   0     0     16    4   0   5   1   0   3   3   
+08:       8       H             H             ETH   6     501   0     0     26    3   0   6   7   1   5   4   
+09:       9       I             I             ETH   5     501   0     0     19    1   3   3   1   6   3   2   
+10:       10      J             J             ETH   7     501   0     0     25    5   7   2   0   5   1   5   
+11:       11      K             K             ETH   7     501   0     0     26    7   7   0   2   2   6   2   
+12:       12      L             L             ETH   0     501   0     0     39    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     19    1   1   2   7   1   7   0   
+14:       14      N             N             ETH   6     501   0     0     30    7   6   4   5   3   2   3   
+15:       15      O             O             ETH   7     501   0     0     26    7   3   7   0   0   3   6   
+16:       16      P             P             ETH   7     501   0     0     33    2   5   4   4   5   7   6   
+
+
+#Number  :017
+Country  :ETH
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     17     13     5      22     
+Away      11     15     22     11     22     
+Third     13     15     8      19     20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     13    0   1   2   5   0   5   0   
+03:       3       C             C             ETH   3     501   0     0     36    0   7   7   7   5   7   3   
+04:       4       D             D             ETH   3     501   0     0     25    2   4   1   7   3   2   6   
+05:       5       E             E             ETH   2     501   0     0     17    3   1   0   6   2   0   5   
+06:       6       F             F             ETH   4     501   0     0     33    4   5   6   5   5   1   7   
+07:       7       G             G             ETH   6     501   0     0     35    5   4   5   6   5   6   4   
+08:       8       H             H             ETH   6     501   0     0     17    1   3   3   0   0   7   3   
+09:       9       I             I             ETH   5     501   0     0     19    2   5   1   3   0   4   4   
+10:       10      J             J             ETH   7     501   0     0     45    6   7   7   6   6   6   7   
+11:       11      K             K             ETH   7     501   0     0     16    2   0   4   0   2   7   1   
+12:       12      L             L             ETH   0     501   0     0     30    0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     20    5   0   6   2   4   3   0   
+14:       14      N             N             ETH   6     501   0     0     22    1   4   5   1   5   6   0   
+15:       15      O             O             ETH   7     501   0     0     23    4   2   0   2   5   7   3   
+16:       16      P             P             ETH   7     501   0     0     27    7   0   0   5   6   6   3   
+
+
+#Number  :018
+Country  :ETH
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     19     16     7      8      
+Away      2      14     19     18     6      
+Third     14     20     11     2      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             ETH   0     501   0     0     3     0   0   0   0   0   0   0   
+02:       2       B             B             ETH   1     501   0     0     23    5   0   2   1   5   4   6   
+03:       3       C             C             ETH   3     501   0     0     29    4   2   6   4   2   6   5   
+04:       4       D             D             ETH   3     501   0     0     28    0   3   1   6   5   6   7   
+05:       5       E             E             ETH   2     501   0     0     20    1   2   1   7   1   2   6   
+06:       6       F             F             ETH   4     501   0     0     28    4   6   3   4   6   4   1   
+07:       7       G             G             ETH   6     501   0     0     21    5   7   1   1   6   1   0   
+08:       8       H             H             ETH   6     501   0     0     34    3   1   7   4   7   5   7   
+09:       9       I             I             ETH   5     501   0     0     16    1   7   0   2   3   1   2   
+10:       10      J             J             ETH   7     501   0     0     33    6   4   3   7   3   3   7   
+11:       11      K             K             ETH   7     501   0     0     19    0   5   3   3   3   4   1   
+12:       12      L             L             ETH   0     501   0     0     7     0   0   0   0   0   0   0   
+13:       13      M             M             ETH   3     501   0     0     30    7   6   7   1   3   3   3   
+14:       14      N             N             ETH   6     501   0     0     26    6   0   3   6   7   1   3   
+15:       15      O             O             ETH   7     501   0     0     23    5   0   7   1   0   4   6   
+16:       16      P             P             ETH   7     501   0     0     26    7   3   0   7   1   3   5   
+
+

@@ -1,0 +1,60 @@
+000 AE Lemesou
+001 AEK Larnakas
+002 Anorthosi Ammochostou
+003 Apep
+004 APOEL Nicosia
+005 Apollon Lemesou
+006 Apop Kiniras
+007 Digenis Morphou
+008 ENP Paralimni
+009 Ethnikos Achnas
+010 Nea Salamina
+011 Olympiakos Leukosias
+012 Omonoia Leukosias
+013 THOI Lakatamias
+
+014 AEP 
+015 Aris   
+016 Agia Napa 
+017 Alki
+018 Anagennisi Derineias 
+019 Chalkanoras Idaliou
+020 Doksa 
+021 Elpida Ksilofagou 
+022 Ethnikos Assias 
+023 Iraklis Gerolakou 
+024 MEAP 
+025 Omonoia Aradippou 
+026 Onisillos
+027 SEK Agiou Athanasiou    
+
+028 Adonis
+029 Achironas 
+030 AEZ Zakakiou 
+031 AEK Kithreas
+032 AEM Mesogis/Giolou  
+033 Akritas 
+034 ASIL
+035 Atromitos 
+036 Digenis Oroklinis
+037 ENAD Polis Chrisochous
+038 Enosi Kokkinotrimithias  
+039 Ermis 
+040 Frenaros 
+041 PAEEK
+ 
+042 Anagennisi Germasogias
+043 Anagennisi Trachoniou 
+044 AOL/Omonoia 
+045 APEP Pelendriou 
+046 Elia Lithrodonta 
+047 Ellinismos
+048 Episkopi 
+049 Ethnikos Latsion 
+050 Olimpos 
+051 Orpheas
+052 Othellos 
+053 Spartakos    
+054 SPE Kissos  
+055 Sourouklis  
+

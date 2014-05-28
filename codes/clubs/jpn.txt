@@ -1,0 +1,33 @@
+001 Kashima Antlers
+002 Urawa Red Diamonds
+003 Omiya Ardija
+004 Jef United Ichihara Chiba
+005 F.c.tokyo
+006 Kawasaki Frontale
+007 Yokohama F.marinos
+008 Ventforet Kofu
+009 Albirex Niigata
+010 Shimizu S-pulse
+011 Jubilo Iwata
+012 Nagoya Grampus Eight
+013 Kyoto Purple Sanga 
+014 Gamba Osaka
+015 Cerezo Osaka
+016 Sanfrecce Hiroshima
+017 Avispa Fukuoka
+018 Oita Trinita
+
+
+019 Consadole Sapporo
+020 Vegalta Sendai
+021 Montedio Yamagata
+022 Mito Hollyhock
+023 Thespa Kusatsu
+024 Kashiwa Reysol
+025 Tokyo Verdy 1969
+026 Yokohama Fc
+027 Shonan Bellmare
+028 Vissel Kobe
+029 Tokushima Vortis
+030 Ehime Fc
+031 Sagan Tosu

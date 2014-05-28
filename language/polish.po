@@ -1,0 +1,2373 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-12 17:22+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../t_menu_replay_match.bmx:21
+#: ../t_match_intro.bmx:205
+#: ../t_menu_nationals_confederation.bmx:43
+#: ../t_menu_select_teams.bmx:274
+#: ../t_menu_view_selected_teams.bmx:31
+#: ../t_menu_view_selected_teams.bmx:146
+#: ../t_menu_match_presentation.bmx:136
+#: ../t_menu_friendly.bmx:25
+#: ../t_menu_clubs_confederation.bmx:32
+#: ../t_menu_main.bmx:72
+msgid "FRIENDLY"
+msgstr "MECZ TOWARZYSKI"
+
+#: ../t_menu_replay_match.bmx:29
+#: ../t_menu_match_presentation.bmx:258
+#: ../t_menu_set_team.bmx:247
+msgid "PLAY MATCH"
+msgstr "GRAJ MECZ"
+
+#: ../t_menu_replay_match.bmx:39
+#: ../t_menu_tactics_save_warning.bmx:45
+#: ../t_menu_tactics_import.bmx:63
+#: ../t_menu_play_league.bmx:271
+#: ../t_menu_select_tactics_to_edit.bmx:40
+#: ../t_menu_select_teams.bmx:175
+#: ../t_menu_cup_info.bmx:229
+#: ../t_menu_edit_tactics.bmx:253
+#: ../t_menu_view_selected_teams.bmx:112
+#: ../t_menu_diy_competition.bmx:55
+#: ../t_menu_view_team.bmx:182
+#: ../t_menu_match_presentation.bmx:268
+#: ../t_menu_load_teams.bmx:64
+#: ../t_menu_training_settings.bmx:176
+#: ../t_menu_edit_players.bmx:319
+#: ../t_menu_friendly.bmx:99
+#: ../t_menu_top_scorers.bmx:85
+#: ../t_menu_view_statistics.bmx:53
+#: ../t_menu_design_diy_league.bmx:252
+#: ../t_menu_play_cup.bmx:273
+#: ../t_menu_select_squad_to_view.bmx:68
+#: ../t_menu_edit_team.bmx:358
+#: ../t_menu_design_diy_cup.bmx:294
+#: ../t_menu_clubs_country.bmx:99
+#: ../t_menu_league_info.bmx:161
+#: ../t_menu_control.bmx:210
+#: ../t_menu_game_options.bmx:179
+#: ../t_menu_set_team.bmx:258
+#: ../t_menu_select_team.bmx:127
+#: ../t_menu_match_options.bmx:215
+#: ../t_menu_clubs_division.bmx:97
+msgid "EXIT"
+msgstr "WYJŚCIE"
+
+#: ../lib_language.bmx:100
+msgid "KEY_BACKSPACE"
+msgstr "BACKSPACE"
+
+#: ../lib_language.bmx:101
+msgid "KEY_TAB"
+msgstr "TAB"
+
+#: ../lib_language.bmx:102
+msgid "KEY_CLEAR"
+msgstr "CLEAR"
+
+#: ../lib_language.bmx:103
+msgid "KEY_RETURN"
+msgstr "RETURN"
+
+#: ../lib_language.bmx:104
+msgid "KEY_PAGEUP"
+msgstr "PAGEUP"
+
+#: ../lib_language.bmx:105
+msgid "KEY_PAGEDOWN"
+msgstr "PAGEDOWN"
+
+#: ../lib_language.bmx:106
+msgid "KEY_END"
+msgstr "END"
+
+#: ../lib_language.bmx:107
+msgid "KEY_HOME"
+msgstr "HOME"
+
+#: ../lib_language.bmx:108
+msgid "KEY_LEFT"
+msgstr "LEFT"
+
+#: ../lib_language.bmx:109
+msgid "KEY_UP"
+msgstr "UP"
+
+#: ../lib_language.bmx:110
+msgid "KEY_RIGHT"
+msgstr "RIGHT"
+
+#: ../lib_language.bmx:111
+msgid "KEY_DOWN"
+msgstr "DOWN"
+
+#: ../lib_language.bmx:112
+msgid "KEY_INSERT"
+msgstr "INSERT"
+
+#: ../lib_language.bmx:113
+msgid "KEY_DELETE"
+msgstr "DELETE"
+
+#: ../lib_language.bmx:114
+msgid "KEY_0"
+msgstr "0"
+
+#: ../lib_language.bmx:115
+msgid "KEY_1"
+msgstr "1"
+
+#: ../lib_language.bmx:116
+msgid "KEY_2"
+msgstr "2"
+
+#: ../lib_language.bmx:117
+msgid "KEY_3"
+msgstr "3"
+
+#: ../lib_language.bmx:118
+msgid "KEY_4"
+msgstr "4"
+
+#: ../lib_language.bmx:119
+msgid "KEY_5"
+msgstr "5"
+
+#: ../lib_language.bmx:120
+msgid "KEY_6"
+msgstr "6"
+
+#: ../lib_language.bmx:121
+msgid "KEY_7"
+msgstr "7"
+
+#: ../lib_language.bmx:122
+msgid "KEY_8"
+msgstr "8"
+
+#: ../lib_language.bmx:123
+msgid "KEY_9"
+msgstr "9"
+
+#: ../lib_language.bmx:124
+msgid "KEY_A"
+msgstr "A"
+
+#: ../lib_language.bmx:125
+msgid "KEY_B"
+msgstr "B"
+
+#: ../lib_language.bmx:126
+msgid "KEY_C"
+msgstr "C"
+
+#: ../lib_language.bmx:127
+msgid "KEY_D"
+msgstr "D"
+
+#: ../lib_language.bmx:128
+msgid "KEY_E"
+msgstr "E"
+
+#: ../lib_language.bmx:129
+msgid "KEY_F"
+msgstr "F"
+
+#: ../lib_language.bmx:130
+msgid "KEY_G"
+msgstr "G"
+
+#: ../lib_language.bmx:131
+msgid "KEY_H"
+msgstr "H"
+
+#: ../lib_language.bmx:132
+msgid "KEY_I"
+msgstr "I"
+
+#: ../lib_language.bmx:133
+msgid "KEY_J"
+msgstr "J"
+
+#: ../lib_language.bmx:134
+msgid "KEY_K"
+msgstr "K"
+
+#: ../lib_language.bmx:135
+msgid "KEY_L"
+msgstr "L"
+
+#: ../lib_language.bmx:136
+msgid "KEY_M"
+msgstr "M"
+
+#: ../lib_language.bmx:137
+msgid "KEY_N"
+msgstr "N"
+
+#: ../lib_language.bmx:138
+msgid "KEY_O"
+msgstr "O"
+
+#: ../lib_language.bmx:139
+msgid "KEY_P"
+msgstr "P"
+
+#: ../lib_language.bmx:140
+msgid "KEY_Q"
+msgstr "Q"
+
+#: ../lib_language.bmx:141
+msgid "KEY_R"
+msgstr "R"
+
+#: ../lib_language.bmx:142
+msgid "KEY_S"
+msgstr "S"
+
+#: ../lib_language.bmx:143
+msgid "KEY_T"
+msgstr "T"
+
+#: ../lib_language.bmx:144
+msgid "KEY_U"
+msgstr "U"
+
+#: ../lib_language.bmx:145
+msgid "KEY_V"
+msgstr "V"
+
+#: ../lib_language.bmx:146
+msgid "KEY_W"
+msgstr "W"
+
+#: ../lib_language.bmx:147
+msgid "KEY_X"
+msgstr "X"
+
+#: ../lib_language.bmx:148
+msgid "KEY_Y"
+msgstr "Y"
+
+#: ../lib_language.bmx:149
+msgid "KEY_Z"
+msgstr "Z"
+
+#: ../lib_language.bmx:150
+msgid "KEY_NUM0"
+msgstr "NUM0"
+
+#: ../lib_language.bmx:151
+msgid "KEY_NUM1"
+msgstr "NUM1"
+
+#: ../lib_language.bmx:152
+msgid "KEY_NUM2"
+msgstr "NUM2"
+
+#: ../lib_language.bmx:153
+msgid "KEY_NUM3"
+msgstr "NUM3"
+
+#: ../lib_language.bmx:154
+msgid "KEY_NUM4"
+msgstr "NUM4"
+
+#: ../lib_language.bmx:155
+msgid "KEY_NUM5"
+msgstr "NUM5"
+
+#: ../lib_language.bmx:156
+msgid "KEY_NUM6"
+msgstr "NUM6"
+
+#: ../lib_language.bmx:157
+msgid "KEY_NUM7"
+msgstr "NUM7"
+
+#: ../lib_language.bmx:158
+msgid "KEY_NUM8"
+msgstr "NUM8"
+
+#: ../lib_language.bmx:159
+msgid "KEY_NUM9"
+msgstr "NUM9"
+
+#: ../lib_language.bmx:160
+msgid "KEY_LSHIFT"
+msgstr "LSHIFT"
+
+#: ../lib_language.bmx:161
+msgid "KEY_RSHIFT"
+msgstr "RSHIFT"
+
+#: ../lib_language.bmx:162
+msgid "KEY_LCONTROL"
+msgstr "LCONTROL"
+
+#: ../lib_language.bmx:163
+msgid "KEY_RCONTROL"
+msgstr "RCONTROL"
+
+#: ../lib_language.bmx:164
+msgid "KEY_LALT"
+msgstr "LALT"
+
+#: ../lib_language.bmx:165
+msgid "KEY_RALT"
+msgstr "RALT"
+
+#: ../lib_language.bmx:166
+msgid "KEY_SEMICOLON"
+msgstr "SEMICOLON"
+
+#: ../lib_language.bmx:167
+msgid "KEY_EQUALS"
+msgstr "EQUALS"
+
+#: ../lib_language.bmx:168
+msgid "KEY_COMMA"
+msgstr "COMMA"
+
+#: ../lib_language.bmx:169
+msgid "KEY_MINUS"
+msgstr "MINUS"
+
+#: ../lib_language.bmx:170
+msgid "KEY_PERIOD"
+msgstr "PERIOD"
+
+#: ../lib_language.bmx:171
+msgid "KEY_SLASH"
+msgstr "SLASH"
+
+#: ../lib_language.bmx:172
+msgid "KEY_TILDE"
+msgstr "TILDE"
+
+#: ../lib_language.bmx:173
+msgid "KEY_OPENBRACKET"
+msgstr "OPENBRACKET"
+
+#: ../lib_language.bmx:174
+msgid "KEY_CLOSEBRACKET"
+msgstr "CLOSEBRACKET"
+
+#: ../lib_language.bmx:175
+msgid "KEY_QUOTES"
+msgstr "QUOTES"
+
+#: ../lib_language.bmx:176
+msgid "KEY_BACKSLASH"
+msgstr "BACKSLASH"
+
+#: ../t_associations_files.bmx:19
+msgid "ALBANIA"
+msgstr "ALBANIA"
+
+#: ../t_associations_files.bmx:20
+msgid "ANDORRA"
+msgstr "ANDORA"
+
+#: ../t_associations_files.bmx:21
+msgid "ARMENIA"
+msgstr "ARMENIA"
+
+#: ../t_associations_files.bmx:22
+msgid "AUSTRIA"
+msgstr "AUSTRIA"
+
+#: ../t_associations_files.bmx:23
+msgid "AZERBAIJAN"
+msgstr "AZERBEJDŻAN"
+
+#: ../t_associations_files.bmx:24
+msgid "BELARUS"
+msgstr "BIAŁORUŚ"
+
+#: ../t_associations_files.bmx:25
+msgid "BELGIUM"
+msgstr "BELGIA"
+
+#: ../t_associations_files.bmx:26
+msgid "BOSNIA HERZEGOVINA"
+msgstr "BOŚNIA/HERCEGOWINA"
+
+#: ../t_associations_files.bmx:27
+msgid "BULGARIA"
+msgstr "BUŁGARIA"
+
+#: ../t_associations_files.bmx:28
+msgid "CROATIA"
+msgstr "CHORWACJA"
+
+#: ../t_associations_files.bmx:29
+msgid "CYPRUS"
+msgstr "CYPR"
+
+#: ../t_associations_files.bmx:30
+msgid "CZECH REPUBLIC"
+msgstr "CZECHY"
+
+#: ../t_associations_files.bmx:31
+msgid "DENMARK"
+msgstr "DANIA"
+
+#: ../t_associations_files.bmx:32
+msgid "ENGLAND"
+msgstr "ANGLIA"
+
+#: ../t_associations_files.bmx:33
+msgid "ESTONIA"
+msgstr "ESTONIA"
+
+#: ../t_associations_files.bmx:34
+msgid "FAROE ISLANDS"
+msgstr "WYSPY OWCZE"
+
+#: ../t_associations_files.bmx:35
+msgid "FINLAND"
+msgstr "FINLANDIA"
+
+#: ../t_associations_files.bmx:36
+msgid "FRANCE"
+msgstr "FRANCJA"
+
+#: ../t_associations_files.bmx:37
+msgid "GEORGIA"
+msgstr "GRUZJA"
+
+#: ../t_associations_files.bmx:38
+msgid "GERMANY"
+msgstr "NIEMCY"
+
+#: ../t_associations_files.bmx:39
+msgid "GREECE"
+msgstr "GRECJA"
+
+#: ../t_associations_files.bmx:40
+msgid "HUNGARY"
+msgstr "WĘGRY"
+
+#: ../t_associations_files.bmx:41
+msgid "ICELAND"
+msgstr "ISLANDIA"
+
+#: ../t_associations_files.bmx:42
+msgid "IRELAND REPUBLIC"
+msgstr "IRLANDIA"
+
+#: ../t_associations_files.bmx:43
+msgid "ISRAEL"
+msgstr "IZRAEL"
+
+#: ../t_associations_files.bmx:44
+msgid "ITALY"
+msgstr "WŁOCHY"
+
+#: ../t_associations_files.bmx:45
+msgid "KAZAKHSTAN"
+msgstr "KAZACHSTAN"
+
+#: ../t_associations_files.bmx:46
+msgid "LATVIA"
+msgstr "ŁOTWA"
+
+#: ../t_associations_files.bmx:47
+msgid "LIECHTENSTEIN"
+msgstr "LIECHTENSTEIN"
+
+#: ../t_associations_files.bmx:48
+msgid "LITHUANIA"
+msgstr "LITWA"
+
+#: ../t_associations_files.bmx:49
+msgid "LUXEMBOURG"
+msgstr "LUKSEMBURG"
+
+#: ../t_associations_files.bmx:50
+msgid "MACEDONIA FYR"
+msgstr "MACEDONIA"
+
+#: ../t_associations_files.bmx:51
+msgid "MALTA"
+msgstr "MALTA"
+
+#: ../t_associations_files.bmx:52
+msgid "MOLDOVA"
+msgstr "MOŁDAWIA"
+
+#: ../t_associations_files.bmx:53
+msgid "MONTENEGRO"
+msgstr "CZARNOGÓRA"
+
+#: ../t_associations_files.bmx:54
+msgid "NETHERLANDS"
+msgstr "HOLANDIA"
+
+#: ../t_associations_files.bmx:55
+msgid "NORTHERN IRELAND"
+msgstr "IRLANDIA PŁN."
+
+#: ../t_associations_files.bmx:56
+msgid "NORWAY"
+msgstr "NORWEGIA"
+
+#: ../t_associations_files.bmx:57
+msgid "POLAND"
+msgstr "POLSKA"
+
+#: ../t_associations_files.bmx:58
+msgid "PORTUGAL"
+msgstr "PORTUGALIA"
+
+#: ../t_associations_files.bmx:59
+msgid "ROMANIA"
+msgstr "RUMUNIA"
+
+#: ../t_associations_files.bmx:60
+msgid "RUSSIA"
+msgstr "ROSJA"
+
+#: ../t_associations_files.bmx:61
+msgid "SAN MARINO"
+msgstr "SAN MARINO"
+
+#: ../t_associations_files.bmx:62
+msgid "SCOTLAND"
+msgstr "SZKOCJA"
+
+#: ../t_associations_files.bmx:63
+msgid "SERBIA"
+msgstr "SERBIA"
+
+#: ../t_associations_files.bmx:64
+msgid "SLOVAKIA"
+msgstr "SŁOWACJA"
+
+#: ../t_associations_files.bmx:65
+msgid "SLOVENIA"
+msgstr "SŁOWENIA"
+
+#: ../t_associations_files.bmx:66
+msgid "SPAIN"
+msgstr "HISZPANIA"
+
+#: ../t_associations_files.bmx:67
+msgid "SWEDEN"
+msgstr "SZWECJA"
+
+#: ../t_associations_files.bmx:68
+msgid "SWITZERLAND"
+msgstr "SZWAJCARIA"
+
+#: ../t_associations_files.bmx:69
+msgid "TURKEY"
+msgstr "TURCJA"
+
+#: ../t_associations_files.bmx:70
+msgid "UKRAINE"
+msgstr "UKRAINA"
+
+#: ../t_associations_files.bmx:71
+msgid "WALES"
+msgstr "WALIA"
+
+#: ../t_associations_files.bmx:73
+msgid "ANGUILLA"
+msgstr "ANGUILLA"
+
+#: ../t_associations_files.bmx:74
+msgid "ANTIGUA & BARBUDA"
+msgstr "ANTIGUA I BARBUDA"
+
+#: ../t_associations_files.bmx:75
+msgid "ARUBA"
+msgstr "ARUBA"
+
+#: ../t_associations_files.bmx:76
+msgid "BAHAMAS"
+msgstr "BAHAMY"
+
+#: ../t_associations_files.bmx:77
+msgid "BARBADOS"
+msgstr "BARBADOS"
+
+#: ../t_associations_files.bmx:78
+msgid "BELIZE"
+msgstr "BELIZE"
+
+#: ../t_associations_files.bmx:79
+msgid "BERMUDA"
+msgstr "BERMUDY"
+
+#: ../t_associations_files.bmx:80
+msgid "BR.VIRGIN ISLANDS"
+msgstr "BRYT.W-Y DZIEWICZE"
+
+#: ../t_associations_files.bmx:81
+msgid "CANADA"
+msgstr "KANADA"
+
+#: ../t_associations_files.bmx:82
+msgid "CAYMAN ISLANDS"
+msgstr "KAJMANY"
+
+#: ../t_associations_files.bmx:83
+msgid "COSTA RICA"
+msgstr "KOSTARYKA"
+
+#: ../t_associations_files.bmx:84
+msgid "CUBA"
+msgstr "KUBA"
+
+#: ../t_associations_files.bmx:85
+msgid "CURAÇAO"
+msgstr "CURAÇAO"
+
+#: ../t_associations_files.bmx:86
+msgid "DOMINICA"
+msgstr "DOMINIKA"
+
+#: ../t_associations_files.bmx:87
+msgid "DOMINICAN REPUBLIC"
+msgstr "DOMINIKANA"
+
+#: ../t_associations_files.bmx:88
+msgid "EL SALVADOR"
+msgstr "SALWADOR"
+
+#: ../t_associations_files.bmx:89
+msgid "GRENADA"
+msgstr "GRENADA"
+
+#: ../t_associations_files.bmx:90
+msgid "GUATEMALA"
+msgstr "GWATEMALA"
+
+#: ../t_associations_files.bmx:91
+msgid "GUYANA"
+msgstr "GUJANA"
+
+#: ../t_associations_files.bmx:92
+msgid "HAITI"
+msgstr "HAITI"
+
+#: ../t_associations_files.bmx:93
+msgid "HONDURAS"
+msgstr "HONDURAS"
+
+#: ../t_associations_files.bmx:94
+msgid "JAMAICA"
+msgstr "JAMAJKA"
+
+#: ../t_associations_files.bmx:95
+msgid "MEXICO"
+msgstr "MEKSYK"
+
+#: ../t_associations_files.bmx:96
+msgid "MONTSERRAT"
+msgstr "MONTSERRAT"
+
+#: ../t_associations_files.bmx:97
+msgid "NICARAGUA"
+msgstr "NIKARAGUA"
+
+#: ../t_associations_files.bmx:98
+msgid "PANAMA"
+msgstr "PANAMA"
+
+#: ../t_associations_files.bmx:99
+msgid "PUERTO RICO"
+msgstr "PORTORYKO"
+
+#: ../t_associations_files.bmx:100
+msgid "ST.KITTS & NEVIS"
+msgstr "ST.KITTS I NEVIS"
+
+#: ../t_associations_files.bmx:101
+msgid "SAINT LUCIA"
+msgstr "SAINT LUCIA"
+
+#: ../t_associations_files.bmx:102
+msgid "ST.VINCENT & GREN."
+msgstr "ST.VINCENT I GREN."
+
+#: ../t_associations_files.bmx:103
+msgid "SURINAM"
+msgstr "SURINAM"
+
+#: ../t_associations_files.bmx:104
+msgid "TRINIDAD & TOBAGO"
+msgstr "TRYNIDAD I TOBAGO"
+
+#: ../t_associations_files.bmx:105
+msgid "TURKS & CAICOS IS."
+msgstr "TURKS I CAICOS IS."
+
+#: ../t_associations_files.bmx:106
+msgid "US VIRGIN ISLANDS"
+msgstr "W-Y DZIEWICZE USA"
+
+#: ../t_associations_files.bmx:107
+msgid "UNITED STATES"
+msgstr "U.S.A."
+
+#: ../t_associations_files.bmx:109
+msgid "ARGENTINA"
+msgstr "ARGENTYNA"
+
+#: ../t_associations_files.bmx:110
+msgid "BOLIVIA"
+msgstr "BOLIWIA"
+
+#: ../t_associations_files.bmx:111
+msgid "BRAZIL"
+msgstr "BRAZYLIA"
+
+#: ../t_associations_files.bmx:112
+msgid "CHILE"
+msgstr "CHILE"
+
+#: ../t_associations_files.bmx:113
+msgid "COLOMBIA"
+msgstr "KOLUMBIA"
+
+#: ../t_associations_files.bmx:114
+msgid "ECUADOR"
+msgstr "EKWADOR"
+
+#: ../t_associations_files.bmx:115
+msgid "PARAGUAY"
+msgstr "PARAGWAJ"
+
+#: ../t_associations_files.bmx:116
+msgid "PERU"
+msgstr "PERU"
+
+#: ../t_associations_files.bmx:117
+msgid "URUGUAY"
+msgstr "URUGWAJ"
+
+#: ../t_associations_files.bmx:118
+msgid "VENEZUELA"
+msgstr "WENEZUELA"
+
+#: ../t_associations_files.bmx:120
+msgid "ALGERIA"
+msgstr "ALGIERIA"
+
+#: ../t_associations_files.bmx:121
+msgid "ANGOLA"
+msgstr "ANGOLA"
+
+#: ../t_associations_files.bmx:122
+msgid "BENIN"
+msgstr "BENIN"
+
+#: ../t_associations_files.bmx:123
+msgid "BOTSWANA"
+msgstr "BOTSWANA"
+
+#: ../t_associations_files.bmx:124
+msgid "BURKINA FASO"
+msgstr "BURKINA FASO"
+
+#: ../t_associations_files.bmx:125
+msgid "BURUNDI"
+msgstr "BURUNDI"
+
+#: ../t_associations_files.bmx:126
+msgid "CAMEROON"
+msgstr "KAMERUN"
+
+#: ../t_associations_files.bmx:127
+msgid "CAPE VERDE ISLANDS"
+msgstr "REP. ZIEL. PRZYL."
+
+#: ../t_associations_files.bmx:128
+msgid "CENTR.AFRICAN REP."
+msgstr "R. ŚRODKOWOAFRYK."
+
+#: ../t_associations_files.bmx:129
+msgid "CHAD"
+msgstr "CZAD"
+
+#: ../t_associations_files.bmx:130
+msgid "COMOROS"
+msgstr "COMOROS"
+
+#: ../t_associations_files.bmx:131
+msgid "CONGO"
+msgstr "KONGO"
+
+#: ../t_associations_files.bmx:132
+msgid "CONGO DR"
+msgstr "DEM. REP. KONGA"
+
+#: ../t_associations_files.bmx:133
+msgid "CÔTE D'IVOIRE"
+msgstr "WYB. KOŚCI SŁON."
+
+#: ../t_associations_files.bmx:134
+msgid "DJIBOUTI"
+msgstr "DŻIBUTI"
+
+#: ../t_associations_files.bmx:135
+msgid "EGYPT"
+msgstr "EGIPT"
+
+#: ../t_associations_files.bmx:136
+msgid "EQUATORIAL GUINEA"
+msgstr "GWINEA RÓWNIKOWA"
+
+#: ../t_associations_files.bmx:137
+msgid "ERITREA"
+msgstr "ERYTREA"
+
+#: ../t_associations_files.bmx:138
+msgid "ETHIOPIA"
+msgstr "ETIOPIA"
+
+#: ../t_associations_files.bmx:139
+msgid "GABON"
+msgstr "GABON"
+
+#: ../t_associations_files.bmx:140
+msgid "GAMBIA"
+msgstr "GAMBIA"
+
+#: ../t_associations_files.bmx:141
+msgid "GHANA"
+msgstr "GHANA"
+
+#: ../t_associations_files.bmx:142
+msgid "GUINEA"
+msgstr "GWINEA"
+
+#: ../t_associations_files.bmx:143
+msgid "GUINEA-BISSAU"
+msgstr "GWINEA BISSAU"
+
+#: ../t_associations_files.bmx:144
+msgid "KENYA"
+msgstr "KENIA"
+
+#: ../t_associations_files.bmx:145
+msgid "LESOTHO"
+msgstr "LESOTHO"
+
+#: ../t_associations_files.bmx:146
+msgid "LIBERIA"
+msgstr "LIBERIA"
+
+#: ../t_associations_files.bmx:147
+msgid "LIBYA"
+msgstr "LIBIA"
+
+#: ../t_associations_files.bmx:148
+msgid "MADAGASCAR"
+msgstr "MADAGASKAR"
+
+#: ../t_associations_files.bmx:149
+msgid "MALAWI"
+msgstr "MALAWI"
+
+#: ../t_associations_files.bmx:150
+msgid "MALI"
+msgstr "MALI"
+
+#: ../t_associations_files.bmx:151
+msgid "MAURITANIA"
+msgstr "MAURETANIA"
+
+#: ../t_associations_files.bmx:152
+msgid "MAURITIUS"
+msgstr "MAURITIUS"
+
+#: ../t_associations_files.bmx:153
+msgid "MOROCCO"
+msgstr "MOROKO"
+
+#: ../t_associations_files.bmx:154
+msgid "MOZAMBIQUE"
+msgstr "MOZAMBIK"
+
+#: ../t_associations_files.bmx:155
+msgid "NAMIBIA"
+msgstr "NAMIBIA"
+
+#: ../t_associations_files.bmx:156
+msgid "NIGER"
+msgstr "NIGER"
+
+#: ../t_associations_files.bmx:157
+msgid "NIGERIA"
+msgstr "NIGERIA"
+
+#: ../t_associations_files.bmx:158
+msgid "RWANDA"
+msgstr "RWANDA"
+
+#: ../t_associations_files.bmx:159
+msgid "SÃO TOMÉ PRÍNCIPE"
+msgstr "W-Y ŚW. TOMASZA..."
+
+#: ../t_associations_files.bmx:160
+msgid "SENEGAL"
+msgstr "SENEGAL"
+
+#: ../t_associations_files.bmx:161
+msgid "SEYCHELLES"
+msgstr "SESZELE"
+
+#: ../t_associations_files.bmx:162
+msgid "SIERRA LEONE"
+msgstr "SIERRA LEONE"
+
+#: ../t_associations_files.bmx:163
+msgid "SOMALIA"
+msgstr "SOMALIA"
+
+#: ../t_associations_files.bmx:164
+msgid "SOUTH AFRICA"
+msgstr "R.P.A."
+
+#: ../t_associations_files.bmx:165
+msgid "SOUTH SUDAN"
+msgstr "SUDAN POŁUDNIOWY"
+
+#: ../t_associations_files.bmx:166
+msgid "SUDAN"
+msgstr "SUDAN"
+
+#: ../t_associations_files.bmx:167
+msgid "SWAZILAND"
+msgstr "SUAZI"
+
+#: ../t_associations_files.bmx:168
+msgid "TANZANIA"
+msgstr "TANZANIA"
+
+#: ../t_associations_files.bmx:169
+msgid "TOGO"
+msgstr "TOGO"
+
+#: ../t_associations_files.bmx:170
+msgid "TUNISIA"
+msgstr "TUNEZJA"
+
+#: ../t_associations_files.bmx:171
+msgid "UGANDA"
+msgstr "UGANDA"
+
+#: ../t_associations_files.bmx:172
+msgid "ZAMBIA"
+msgstr "ZAMBIA"
+
+#: ../t_associations_files.bmx:173
+msgid "ZIMBABWE"
+msgstr "ZIMBABWE"
+
+#: ../t_associations_files.bmx:175
+msgid "AFGHANISTAN"
+msgstr "AFGHANISTAN"
+
+#: ../t_associations_files.bmx:176
+msgid "AUSTRALIA"
+msgstr "AUSTRALIA"
+
+#: ../t_associations_files.bmx:177
+msgid "BAHRAIN"
+msgstr "BAHRAJN"
+
+#: ../t_associations_files.bmx:178
+msgid "BANGLADESH"
+msgstr "BANGLADESZ"
+
+#: ../t_associations_files.bmx:179
+msgid "BHUTAN"
+msgstr "BHUTAN"
+
+#: ../t_associations_files.bmx:180
+msgid "BRUNEI DARUSSALAM"
+msgstr "BRUNEI"
+
+#: ../t_associations_files.bmx:181
+msgid "CAMBODIA"
+msgstr "KAMBODŻA"
+
+#: ../t_associations_files.bmx:182
+msgid "CHINA PR"
+msgstr "CHINY"
+
+#: ../t_associations_files.bmx:183
+msgid "TAIWAN"
+msgstr "TAJWAN"
+
+#: ../t_associations_files.bmx:184
+msgid "GUAM"
+msgstr "GUAM"
+
+#: ../t_associations_files.bmx:185
+msgid "HONG KONG"
+msgstr "HONGKONG"
+
+#: ../t_associations_files.bmx:186
+msgid "INDIA"
+msgstr "INDIE"
+
+#: ../t_associations_files.bmx:187
+msgid "INDONESIA"
+msgstr "INDONEZJA"
+
+#: ../t_associations_files.bmx:188
+msgid "IRAN"
+msgstr "IRAN"
+
+#: ../t_associations_files.bmx:189
+msgid "IRAQ"
+msgstr "IRAK"
+
+#: ../t_associations_files.bmx:190
+msgid "JAPAN"
+msgstr "JAPONIA"
+
+#: ../t_associations_files.bmx:191
+msgid "JORDAN"
+msgstr "JORDANIA"
+
+#: ../t_associations_files.bmx:192
+msgid "KOREA DPR"
+msgstr "KOREA PÓŁNOCNA"
+
+#: ../t_associations_files.bmx:193
+msgid "KOREA REPUBLIC"
+msgstr "KOREA POŁUDNIOWA"
+
+#: ../t_associations_files.bmx:194
+msgid "KUWAIT"
+msgstr "KUWEJT"
+
+#: ../t_associations_files.bmx:195
+msgid "KYRGYZSTAN"
+msgstr "KIRGISTAN"
+
+#: ../t_associations_files.bmx:196
+msgid "LAOS"
+msgstr "LAOS"
+
+#: ../t_associations_files.bmx:197
+msgid "LEBANON"
+msgstr "LIBAN"
+
+#: ../t_associations_files.bmx:198
+msgid "MACAO"
+msgstr "MAKAU"
+
+#: ../t_associations_files.bmx:199
+msgid "MALAYSIA"
+msgstr "MALEZJA"
+
+#: ../t_associations_files.bmx:200
+msgid "MALDIVES"
+msgstr "MALEDIWY"
+
+#: ../t_associations_files.bmx:201
+msgid "MONGOLIA"
+msgstr "MONGOLIA"
+
+#: ../t_associations_files.bmx:202
+msgid "MYANMAR"
+msgstr "BIRMA"
+
+#: ../t_associations_files.bmx:203
+msgid "NEPAL"
+msgstr "NEPAL"
+
+#: ../t_associations_files.bmx:204
+msgid "OMAN"
+msgstr "OMAN"
+
+#: ../t_associations_files.bmx:205
+msgid "PAKISTAN"
+msgstr "PAKISTAN"
+
+#: ../t_associations_files.bmx:206
+msgid "PALESTINE"
+msgstr "PALESTYNA"
+
+#: ../t_associations_files.bmx:207
+msgid "PHILIPPINES"
+msgstr "FILIPINY"
+
+#: ../t_associations_files.bmx:208
+msgid "QATAR"
+msgstr "KATAR"
+
+#: ../t_associations_files.bmx:209
+msgid "SAUDI ARABIA"
+msgstr "ARABIA SAUDYJSKA"
+
+#: ../t_associations_files.bmx:210
+msgid "SINGAPORE"
+msgstr "SINGAPUR"
+
+#: ../t_associations_files.bmx:211
+msgid "SRI LANKA"
+msgstr "SRI LANKA"
+
+#: ../t_associations_files.bmx:212
+msgid "SYRIA"
+msgstr "SYRIA"
+
+#: ../t_associations_files.bmx:213
+msgid "TAJIKISTAN"
+msgstr "TADŻYKISTAN"
+
+#: ../t_associations_files.bmx:214
+msgid "THAILAND"
+msgstr "TAJLANDIA"
+
+#: ../t_associations_files.bmx:215
+msgid "TIMOR-LESTE"
+msgstr "TIMOR-LESTE"
+
+#: ../t_associations_files.bmx:216
+msgid "TURKMENISTAN"
+msgstr "TURKMENISTAN"
+
+#: ../t_associations_files.bmx:217
+msgid "UN. ARAB EMIRATES"
+msgstr "Z.E.A."
+
+#: ../t_associations_files.bmx:218
+msgid "UZBEKISTAN"
+msgstr "UZBEKISTAN"
+
+#: ../t_associations_files.bmx:219
+msgid "VIETNAM SR"
+msgstr "WIETNAM"
+
+#: ../t_associations_files.bmx:220
+msgid "YEMEN"
+msgstr "JEMEN"
+
+#: ../t_associations_files.bmx:222
+msgid "AMERICAN SAMOA"
+msgstr "SAMOA AMERYKAŃSKIE"
+
+#: ../t_associations_files.bmx:223
+msgid "COOK ISLANDS"
+msgstr "WYSPY COOKA"
+
+#: ../t_associations_files.bmx:224
+msgid "FIJI"
+msgstr "FIDŻI"
+
+#: ../t_associations_files.bmx:225
+msgid "NEW CALEDONIA"
+msgstr "NEW CALEDONIA"
+
+#: ../t_associations_files.bmx:226
+msgid "NEW ZEALAND"
+msgstr "NOWA ZELANDIA"
+
+#: ../t_associations_files.bmx:227
+msgid "PAPUA NEW GUINEA"
+msgstr "PAPUA-NOWA GWINEA"
+
+#: ../t_associations_files.bmx:228
+msgid "SAMOA"
+msgstr "SAMOA ZACHODNIE"
+
+#: ../t_associations_files.bmx:229
+msgid "SOLOMON ISLANDS"
+msgstr "WYSPY SALOMONA"
+
+#: ../t_associations_files.bmx:230
+msgid "TAHITI"
+msgstr "TAHITI"
+
+#: ../t_associations_files.bmx:231
+msgid "TONGA"
+msgstr "TONGA"
+
+#: ../t_associations_files.bmx:232
+msgid "VANUATU"
+msgstr "VANUATU"
+
+#: ../t_associations_files.bmx:234
+msgid "UEFA"
+msgstr "UEFA"
+
+#: ../t_associations_files.bmx:235
+msgid "CONCACAF"
+msgstr "CONCACAF"
+
+#: ../t_associations_files.bmx:236
+msgid "CONMEBOL"
+msgstr "CONMEBOL"
+
+#: ../t_associations_files.bmx:237
+msgid "CAF"
+msgstr "CAF"
+
+#: ../t_associations_files.bmx:238
+msgid "AFC"
+msgstr "AFC"
+
+#: ../t_associations_files.bmx:239
+msgid "OFC"
+msgstr "OFC"
+
+#: ../t_menu_tactics_save_warning.bmx:19
+#: ../t_menu_save_tactics.bmx:23
+msgid "SAVE TACTICS"
+msgstr ""
+
+#: ../t_menu_tactics_save_warning.bmx:27
+msgid "TACTICS HAVE BEEN CHANGED"
+msgstr ""
+
+#: ../t_menu_tactics_save_warning.bmx:35
+#: ../t_menu_edit_tactics.bmx:253
+#: ../t_menu_save_tactics.bmx:103
+#: ../t_menu_edit_players.bmx:309
+#: ../t_menu_edit_team.bmx:348
+msgid "SAVE"
+msgstr "ZAPISZ"
+
+#: ../t_menu_tactics_import.bmx:19
+msgid "IMPORT TACTICS"
+msgstr ""
+
+#: ../t_menu_tactics_import.bmx:54
+msgid "LOAD"
+msgstr ""
+
+#: ../t_menu_tactics_load.bmx:23
+msgid "LOAD EDITED TACTICS"
+msgstr ""
+
+#: ../t_menu_tactics_load.bmx:90
+#: ../t_menu_nationals_confederation.bmx:104
+#: ../t_menu_edit_tactics.bmx:263
+#: ../t_menu_competition_warning.bmx:57
+#: ../t_menu_save_tactics.bmx:113
+#: ../t_menu_clubs_confederation.bmx:102
+#: ../t_menu_tactics_abort_warning.bmx:45
+msgid "ABORT"
+msgstr "ANULUJ"
+
+#: ../t_function_key.bmx:27
+msgid "ACTION RECORDED"
+msgstr "AKCJA ZAPISANA"
+
+#: ../t_function_key.bmx:53
+msgid "CROWD CHANTS"
+msgstr "KIBICE"
+
+#: ../t_function_key.bmx:56
+#: ../t_function_key.bmx:70
+#: ../t_function_key.bmx:84
+#: ../t_function_key.bmx:98
+#: ../t_menu_game_options.bmx:286
+#: ../t_menu_match_options.bmx:285
+#: ../t_menu_match_options.bmx:293
+#: ../t_menu_match_options.bmx:316
+#: ../t_menu_match_options.bmx:332
+msgid "ON"
+msgstr "WŁĄCZ"
+
+#: ../t_function_key.bmx:58
+#: ../t_function_key.bmx:72
+#: ../t_function_key.bmx:86
+#: ../t_function_key.bmx:100
+#: ../common.bmx:1004
+#: ../t_menu_game_options.bmx:280
+#: ../t_menu_game_options.bmx:288
+#: ../t_menu_match_options.bmx:275
+#: ../t_menu_match_options.bmx:287
+#: ../t_menu_match_options.bmx:295
+#: ../t_menu_match_options.bmx:318
+#: ../t_menu_match_options.bmx:326
+#: ../t_menu_match_options.bmx:334
+msgid "OFF"
+msgstr "WYŁĄCZ"
+
+#: ../t_function_key.bmx:67
+#: ../t_menu_match_options.bmx:197
+msgid "COMMENTARY"
+msgstr "KOMENTARZ"
+
+#: ../t_function_key.bmx:81
+#: ../t_menu_match_options.bmx:79
+msgid "RADAR"
+msgstr ""
+
+#: ../t_function_key.bmx:95
+#: ../t_menu_match_options.bmx:97
+msgid "AUTO REPLAYS"
+msgstr "AUTO POWTÓRKI"
+
+#: ../t_function_key.bmx:118
+#: ../t_menu_match_options.bmx:177
+msgid "SOUND EFFECTS"
+msgstr "EFEKTY DŹWIĘKOWE"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:47
+msgid "PL // code for: PLAYED MATCHES"
+msgstr "M"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:53
+msgid "W // code for: WON MATCHES"
+msgstr "Z"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:59
+msgid "D // code for: DRAWN MATCHES"
+msgstr "R"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:65
+msgid "L // code for: LOST MATCHES"
+msgstr "P"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:71
+msgid "F // code for: GOALS FOR"
+msgstr "GZ"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:77
+msgid "A // code for: GOALS AGAINST"
+msgstr "GS"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:83
+msgid "PTS // code for: POINTS"
+msgstr "PT"
+
+#. NOTE: max 2 characters
+#: ../t_menu_play_league.bmx:193
+#: ../t_menu_play_cup.bmx:99
+#: ../t_menu_play_cup.bmx:167
+msgid "V // code for: VERSUS"
+msgstr ""
+
+#: ../t_menu_play_league.bmx:218
+#: ../t_menu_play_cup.bmx:220
+msgid "NEXT MATCH"
+msgstr "NASTĘPNY MECZ"
+
+#: ../t_menu_play_league.bmx:231
+#: ../t_menu_play_cup.bmx:234
+msgid "MATCH"
+msgstr "DO MECZU"
+
+#: ../t_menu_play_league.bmx:233
+#: ../t_menu_play_cup.bmx:236
+msgid "VIEW MATCH"
+msgstr "ROZGRYWAJ"
+
+#: ../t_menu_play_league.bmx:246
+#: ../t_menu_play_cup.bmx:248
+msgid "RESULT"
+msgstr "REZULTAT"
+
+#: ../t_menu_play_league.bmx:249
+#: ../t_menu_play_cup.bmx:251
+msgid "VIEW RESULT"
+msgstr "SZYBKI WYNIK"
+
+#: ../t_menu_play_league.bmx:263
+#: ../t_menu_play_cup.bmx:265
+msgid "STATS"
+msgstr "STAT"
+
+#: ../t_menu_select_tactics_to_edit.bmx:19
+#: ../t_menu_edit_tactics.bmx:83
+#: ../t_menu_main.bmx:64
+#: ../t_menu_set_team.bmx:216
+#: ../t_menu_tactics_abort_warning.bmx:19
+msgid "EDIT TACTICS"
+msgstr "EDYCJA TAKTYK"
+
+#: ../t_match_intro.bmx:288
+#: ../t_match_intro.bmx:289
+#: ../t_menu_select_teams.bmx:104
+#: ../t_menu_select_teams.bmx:112
+#: ../t_menu_view_selected_teams.bmx:52
+#: ../t_menu_view_selected_teams.bmx:60
+#: ../t_menu_edit_team.bmx:179
+#: ../t_menu_set_team.bmx:538
+msgid "COACH"
+msgstr "TRENER"
+
+#: ../t_match_mode.bmx:427
+msgid "MATCH STATS"
+msgstr "STATYSTYKI"
+
+#: ../t_match_mode.bmx:435
+msgid "GOALS"
+msgstr "GOLE"
+
+#: ../t_match_mode.bmx:440
+msgid "POSSESSION"
+msgstr "POSIADANIE PIŁKI"
+
+#: ../t_match_mode.bmx:445
+msgid "GOAL ATTEMPTS"
+msgstr "STRZAŁY NA BRAMKĘ"
+
+#: ../t_match_mode.bmx:450
+msgid "ON TARGET"
+msgstr "CELNE"
+
+#: ../t_match_mode.bmx:455
+msgid "CORNERS WON"
+msgstr "RZUTY ROŻNE"
+
+#: ../t_match_mode.bmx:460
+msgid "FOULS CONCEDED"
+msgstr "FAULE"
+
+#: ../t_match_mode.bmx:465
+msgid "BOOKINGS"
+msgstr "ŻÓŁTE KARTKI"
+
+#: ../t_match_mode.bmx:470
+msgid "SENDINGS OFF"
+msgstr "CZERWONE KARTKI"
+
+#: ../t_menu_nationals_confederation.bmx:49
+#: ../t_menu_load_teams.bmx:26
+#: ../t_menu_clubs_confederation.bmx:38
+#: ../t_menu_main.bmx:88
+msgid "EDIT TEAMS"
+msgstr "EDYTUJ DRUŻYNY"
+
+#: ../t_menu_nationals_confederation.bmx:51
+#: ../t_menu_load_teams.bmx:29
+#: ../t_menu_training_settings.bmx:45
+#: ../t_menu_clubs_confederation.bmx:41
+#: ../t_menu_main.bmx:96
+msgid "TRAINING"
+msgstr ""
+
+#: ../t_menu_nationals_confederation.bmx:54
+#: ../t_menu_select_teams.bmx:86
+#: ../t_menu_load_teams.bmx:48
+#: ../t_menu_friendly.bmx:83
+#: ../t_menu_design_diy_league.bmx:236
+#: ../t_menu_design_diy_cup.bmx:278
+#: ../t_menu_select_team.bmx:83
+msgid "NATIONAL TEAMS"
+msgstr "ZESPOŁY NARODOWE"
+
+#: ../t_menu_select_teams.bmx:96
+#: ../t_menu_view_selected_teams.bmx:44
+#: ../t_menu_set_team.bmx:532
+msgid "COMPUTER"
+msgstr "KOMPUTER"
+
+#: ../t_menu_select_teams.bmx:104
+#: ../t_menu_view_selected_teams.bmx:52
+#: ../t_menu_set_team.bmx:535
+msgid "PLAYER"
+msgstr "GRACZ"
+
+#: ../t_menu_select_teams.bmx:165
+msgid "VIEW SELECTED TEAMS"
+msgstr "ZOBACZ WYBRANE ZESPOŁY"
+
+#: ../t_menu_select_teams.bmx:278
+#: ../t_menu_view_selected_teams.bmx:150
+#: ../t_menu_design_diy_league.bmx:29
+msgid "DIY LEAGUE"
+msgstr "LIGA TOWARZYSKA"
+
+#: ../t_menu_select_teams.bmx:280
+#: ../t_menu_view_selected_teams.bmx:152
+#: ../t_menu_design_diy_cup.bmx:29
+msgid "DIY CUP"
+msgstr ""
+
+#. NOTE: %n is replaced automatically by the game
+#: ../t_menu_select_teams.bmx:288
+#: ../t_menu_view_selected_teams.bmx:160
+#, c-format
+msgid "SELECT %n MORE TEAMS"
+msgstr "BRAKUJE %n DRUŻYN"
+
+#: ../t_menu_select_teams.bmx:290
+#: ../t_menu_view_selected_teams.bmx:162
+msgid "SELECT 1 MORE TEAM"
+msgstr "WYBIERZ JESZCZE 1 ZESPÓŁ"
+
+#: ../t_menu_select_teams.bmx:292
+#: ../t_menu_view_selected_teams.bmx:164
+msgid "SELECT 1 LESS TEAM"
+msgstr "1 ZESPÓL ZA DUŻO"
+
+#. NOTE: %n is replaced automatically by the game
+#: ../t_menu_select_teams.bmx:295
+#: ../t_menu_view_selected_teams.bmx:167
+#, c-format
+msgid "SELECT %n LESS TEAMS"
+msgstr "ZA DUŻO O %n DRUŻYN"
+
+#: ../t_menu_cup_info.bmx:73
+#: ../t_menu_design_diy_cup.bmx:109
+msgid "AWAY GOALS"
+msgstr ""
+
+#: ../t_menu_cup_info.bmx:94
+#: ../t_menu_match_presentation.bmx:160
+#: ../t_menu_training_settings.bmx:53
+#: ../t_menu_design_diy_league.bmx:112
+#: ../t_menu_design_diy_cup.bmx:126
+#: ../t_menu_league_info.bmx:71
+msgid "TIME"
+msgstr "CZAS"
+
+#: ../t_menu_cup_info.bmx:109
+#: ../t_menu_design_diy_cup.bmx:143
+msgid "ROUNDS"
+msgstr ""
+
+#: ../t_menu_cup_info.bmx:124
+#: ../t_menu_friendly.bmx:33
+#: ../t_menu_design_diy_league.bmx:188
+#: ../t_menu_design_diy_cup.bmx:161
+#: ../t_menu_league_info.bmx:131
+msgid "SUBSTITUTES"
+msgstr "ZMIANY"
+
+#: ../t_menu_cup_info.bmx:139
+#: ../t_menu_friendly.bmx:53
+#: ../t_menu_design_diy_league.bmx:208
+#: ../t_menu_design_diy_cup.bmx:180
+#: ../t_menu_league_info.bmx:146
+msgid "BENCH SIZE"
+msgstr "GRACZY NA ŁAWCE"
+
+#: ../t_menu_cup_info.bmx:152
+#: ../t_menu_design_diy_cup.bmx:196
+msgid "TEAMS"
+msgstr ""
+
+#: ../t_menu_cup_info.bmx:158
+#: ../t_menu_design_diy_cup.bmx:202
+msgid "DESCRIPTION"
+msgstr ""
+
+#: ../t_menu_edit_tactics.bmx:216
+msgid "COPY"
+msgstr ""
+
+#: ../t_menu_edit_tactics.bmx:235
+msgid "UNDO"
+msgstr ""
+
+#: ../t_menu_edit_tactics.bmx:245
+msgid "IMPORT"
+msgstr ""
+
+#: ../t_menu_edit_tactics.bmx:601
+msgid "FLIP ON"
+msgstr ""
+
+#: ../t_menu_edit_tactics.bmx:603
+msgid "FLIP OFF"
+msgstr ""
+
+#: ../t_menu_competition_warning.bmx:11
+msgid "YOU ARE ABOUT TO LOSE YOUR CURRENT DIY COMPETITION"
+msgstr "CZY CHCESZ UTRACIĆ AKTUALNĄ GRĘ ROZGRYWKI TOWARZYSKIE"
+
+#: ../t_menu_competition_warning.bmx:22
+#: ../t_menu_main.bmx:80
+msgid "DIY COMPETITION"
+msgstr ""
+
+#: ../t_menu_competition_warning.bmx:49
+#: ../t_menu_main.bmx:108
+#: ../t_menu_tactics_abort_warning.bmx:35
+msgid "CONTINUE"
+msgstr "KONTYNUUJ"
+
+#: ../t_menu_view_selected_teams.bmx:36
+msgid "SELECTED TEAMS FOR"
+msgstr "WYBIERZ ZESPOŁY DO"
+
+#: ../t_menu_diy_competition.bmx:21
+msgid "SELECT DIY COMPETITION TYPE"
+msgstr "WYBÓR TYPU ROZGRYWEK"
+
+#: ../t_menu_diy_competition.bmx:29
+msgid "LEAGUE"
+msgstr "LIGA"
+
+#: ../t_menu_diy_competition.bmx:39
+msgid "CUP"
+msgstr "PUCHAR"
+
+#: ../t_menu_diy_competition.bmx:47
+msgid "TOURNAMENT"
+msgstr "TURNIEJ"
+
+#: ../t_menu_match_presentation.bmx:185
+#: ../t_menu_training_settings.bmx:84
+msgid "PITCH"
+msgstr "MURAWA"
+
+#: ../t_menu_match_presentation.bmx:208
+#: ../t_menu_training_settings.bmx:115
+msgid "WEATHER"
+msgstr "POGODA"
+
+#: ../t_menu_match_presentation.bmx:367
+#: ../t_menu_edit_team.bmx:102
+msgid "CITY"
+msgstr "MIASTO"
+
+#: ../t_menu_match_presentation.bmx:380
+#: ../t_menu_edit_team.bmx:118
+msgid "STADIUM"
+msgstr "STADION"
+
+#: ../t_menu_load_teams.bmx:38
+#: ../t_menu_friendly.bmx:73
+#: ../t_menu_design_diy_league.bmx:228
+#: ../t_menu_design_diy_cup.bmx:270
+#: ../t_menu_clubs_country.bmx:48
+#: ../t_menu_clubs_confederation.bmx:44
+#: ../t_menu_clubs_division.bmx:39
+msgid "CLUB TEAMS"
+msgstr "ZESPOŁY KLUBOWE"
+
+#: ../t_menu_load_teams.bmx:56
+#: ../t_menu_friendly.bmx:91
+#: ../t_menu_design_diy_league.bmx:244
+#: ../t_menu_design_diy_cup.bmx:286
+msgid "CUSTOM TEAMS"
+msgstr ""
+
+#: ../t_menu_save_tactics.bmx:86
+msgid "FILENAME"
+msgstr ""
+
+#: ../t_menu_training_settings.bmx:144
+msgid "FREE TRAINING"
+msgstr ""
+
+#: ../t_menu_training_settings.bmx:154
+msgid "FREE KICKS"
+msgstr ""
+
+#: ../t_menu_training_settings.bmx:165
+msgid "PENALTY KICKS"
+msgstr ""
+
+#: ../t_game_mode.bmx:437
+msgid "SWEEP"
+msgstr "SWEEP"
+
+#: ../t_game_mode.bmx:439
+msgid "ATTACK"
+msgstr "ATAK"
+
+#: ../t_game_mode.bmx:440
+msgid "DEFEND"
+msgstr "OBRONA"
+
+#: ../t_game_mode.bmx:441
+#: ../t_game_mode.bmx:442
+#: ../t_game_mode.bmx:443
+#: ../t_game_mode.bmx:444
+#: ../t_game_mode.bmx:445
+#: ../t_game_mode.bmx:446
+msgid "USER"
+msgstr "MOJA"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:452
+msgid "G // code for: GOALKEEPER"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:455
+msgid "RB // code for: RIGHT BACK"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:458
+msgid "LB // code for: LEFT BACK"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:461
+msgid "D // code for: DEFENDER"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:464
+msgid "RW // code for: RIGHT WING"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:467
+msgid "LW // code for: LEFT WING"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:470
+msgid "M // code for: MIDFIELD"
+msgstr ""
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:473
+msgid "A // code for: ATTACK"
+msgstr ""
+
+#: ../t_game_mode.bmx:478
+msgid "FROZEN"
+msgstr "ZMROŻONA"
+
+#: ../t_game_mode.bmx:479
+msgid "MUDDY"
+msgstr "BŁOTNISTA"
+
+#: ../t_game_mode.bmx:480
+msgid "WET"
+msgstr "MOKRA"
+
+#: ../t_game_mode.bmx:481
+msgid "SOFT"
+msgstr "MIĘKKA"
+
+#: ../t_game_mode.bmx:482
+msgid "NORMAL"
+msgstr "NORMALNA"
+
+#: ../t_game_mode.bmx:483
+msgid "DRY"
+msgstr "SUCHA"
+
+#: ../t_game_mode.bmx:484
+msgid "HARD"
+msgstr "TWARDA"
+
+#: ../t_game_mode.bmx:485
+msgid "SNOWED"
+msgstr "OŚNIEŻONA"
+
+#: ../t_game_mode.bmx:486
+msgid "WHITE"
+msgstr "BIAŁY"
+
+#: ../t_game_mode.bmx:487
+#: ../t_location_settings.bmx:107
+#: ../t_location_settings.bmx:117
+msgid "RANDOM"
+msgstr "LOSOWA"
+
+#: ../t_game_mode.bmx:492
+msgid "JANUARY"
+msgstr "STYCZEŃ"
+
+#: ../t_game_mode.bmx:493
+msgid "FEBRUARY"
+msgstr "LUTY"
+
+#: ../t_game_mode.bmx:494
+msgid "MARCH"
+msgstr "MARZEC"
+
+#: ../t_game_mode.bmx:495
+msgid "APRIL"
+msgstr "KWIECIEŃ"
+
+#: ../t_game_mode.bmx:496
+msgid "MAY"
+msgstr "MAJ"
+
+#: ../t_game_mode.bmx:497
+msgid "JUNE"
+msgstr "CZERWIEC"
+
+#: ../t_game_mode.bmx:498
+msgid "JULY"
+msgstr "LIPIEC"
+
+#: ../t_game_mode.bmx:499
+msgid "AUGUST"
+msgstr "SIERPIEŃ"
+
+#: ../t_game_mode.bmx:500
+msgid "SEPTEMBER"
+msgstr "WRZESIEŃ"
+
+#: ../t_game_mode.bmx:501
+msgid "OCTOBER"
+msgstr "PAŹDZIERNIK"
+
+#: ../t_game_mode.bmx:502
+msgid "NOVEMBER"
+msgstr "LISTOPAD"
+
+#: ../t_game_mode.bmx:503
+msgid "DECEMBER"
+msgstr "GRUDZIEŃ"
+
+#: ../t_location_settings.bmx:103
+#: ../common.bmx:334
+msgid "DAY"
+msgstr "DZIEŃ"
+
+#: ../t_location_settings.bmx:105
+#: ../common.bmx:336
+msgid "NIGHT"
+msgstr "NOC"
+
+#: ../t_location_settings.bmx:122
+msgid "CLEAR"
+msgstr "SŁONECZNIE"
+
+#: ../t_location_settings.bmx:124
+msgid "CLOUDY"
+msgstr "POCHMURNIE"
+
+#: ../t_location_settings.bmx:129
+msgid "LIGHT WIND"
+msgstr "LEKKI WIATR"
+
+#: ../t_location_settings.bmx:131
+msgid "LIGHT RAIN"
+msgstr "MRZAWKA"
+
+#: ../t_location_settings.bmx:133
+msgid "LIGHT SNOW"
+msgstr "LEKKI ŚNIEG"
+
+#: ../t_location_settings.bmx:135
+msgid "THIN FOG"
+msgstr "MGIEŁKA"
+
+#: ../t_location_settings.bmx:140
+msgid "STRONG WIND"
+msgstr "SILNY WIATR"
+
+#: ../t_location_settings.bmx:142
+msgid "STRONG RAIN"
+msgstr "ULEWA"
+
+#: ../t_location_settings.bmx:144
+msgid "STRONG SNOW"
+msgstr "ŚNIEŻYCA"
+
+#: ../t_location_settings.bmx:146
+msgid "THICK FOG"
+msgstr "MLECZNA"
+
+#: ../t_menu_edit_players.bmx:250
+#: ../common.bmx:2910
+msgid "P // 1 letter code for: PASSING"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:252
+#: ../common.bmx:2918
+msgid "V // 1 letter code for: SHOOTING"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:254
+#: ../common.bmx:2908
+msgid "H // 1 letter code for: HEADING"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:256
+#: ../common.bmx:2906
+msgid "T // 1 letter code for: TACKLING"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:258
+#: ../common.bmx:2914
+msgid "C // 1 letter code for: BALL CONTROL"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:260
+#: ../common.bmx:2912
+msgid "S // 1 letter code for: SPEED"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:262
+#: ../common.bmx:2916
+msgid "F // 1 letter code for: FINISHING"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:282
+msgid "TEAM"
+msgstr "DRUŻYNA"
+
+#: ../t_menu_edit_players.bmx:291
+msgid "NEW PLAYER"
+msgstr "NOWY PIŁKARZ"
+
+#: ../t_menu_edit_players.bmx:300
+msgid "DELETE PLAYER"
+msgstr "USUŃ PIŁKARZA"
+
+#: ../t_menu_edit_players.bmx:645
+msgid "H // 1 letter code for: HAIR COLOR"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:655
+msgid "T // 1 letter code for: HAIR STYLE"
+msgstr ""
+
+#: ../t_menu_edit_players.bmx:665
+msgid "S // 1 letter code for: SKIN COLOR"
+msgstr ""
+
+#: ../t_menu_top_scorers.bmx:77
+#: ../t_menu_view_statistics.bmx:27
+msgid "HIGHEST SCORER LIST"
+msgstr "NAJLEPSI STRZELCY"
+
+#: ../t_menu_view_statistics.bmx:19
+msgid "STATISTICS"
+msgstr "STATYSTYKI"
+
+#: ../t_menu_view_statistics.bmx:37
+msgid "COMPETITION INFO"
+msgstr "INFO O ROZGRYWKACH"
+
+#: ../t_menu_view_statistics.bmx:45
+msgid "VIEW SQUADS"
+msgstr "SKŁADY"
+
+#: ../t_menu_design_diy_league.bmx:36
+msgid "DESIGN DIY LEAGUE"
+msgstr "DESIGN LIGI"
+
+#: ../t_menu_design_diy_league.bmx:131
+#: ../t_menu_league_info.bmx:86
+msgid "NUMBER OF TEAMS"
+msgstr "LICZBA DRUŻYN"
+
+#: ../t_menu_design_diy_league.bmx:151
+#: ../t_menu_league_info.bmx:101
+msgid "PLAY EACH TEAM"
+msgstr "ILOŚĆ GIER"
+
+#: ../t_menu_design_diy_league.bmx:171
+#: ../t_menu_league_info.bmx:116
+msgid "POINTS FOR A WIN"
+msgstr "PUNKTY ZA WYGRANĄ"
+
+#: ../t_menu_select_squad_to_view.bmx:24
+msgid "SELECT SQUAD TO VIEW"
+msgstr "WYBIERZ SKŁAD"
+
+#: ../t_menu_edit_team.bmx:135
+msgid "CONFEDERATION"
+msgstr "KONFEDERACJA"
+
+#: ../t_menu_edit_team.bmx:149
+msgid "COUNTRY"
+msgstr "KRAJ"
+
+#: ../t_menu_edit_team.bmx:163
+msgid "DIVISION"
+msgstr "LIGA"
+
+#: ../t_menu_edit_team.bmx:195
+msgid "STYLE"
+msgstr "STYL"
+
+#: ../t_menu_edit_team.bmx:206
+#: ../t_menu_edit_team.bmx:217
+msgid "SHIRT"
+msgstr "KOSZULKA"
+
+#: ../t_menu_edit_team.bmx:228
+msgid "SHORTS"
+msgstr "SPODENKI"
+
+#: ../t_menu_edit_team.bmx:239
+msgid "SOCKS"
+msgstr "SKARPETY"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:250
+msgid "HOME KIT"
+msgstr "GOSPODARZ"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:259
+msgid "AWAY KIT"
+msgstr "GOŚĆ"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:268
+msgid "THIRD KIT"
+msgstr "NETRUALNE"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:277
+msgid "1ST CHANGE KIT"
+msgstr "ZMIANA 1"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:286
+msgid "2ND CHANGE KIT"
+msgstr "ZMIANA 2"
+
+#: ../t_menu_edit_team.bmx:321
+msgid "PLAYERS"
+msgstr "PIŁKARZ"
+
+#: ../t_menu_edit_team.bmx:330
+msgid "NEW KIT"
+msgstr "NOW STRÓJ"
+
+#: ../t_menu_edit_team.bmx:339
+msgid "DELETE KIT"
+msgstr "USUŃ STRÓJ"
+
+#: ../common.bmx:325
+msgid "SEASON"
+msgstr "SEZON"
+
+#: ../common.bmx:327
+msgid "PITCH TYPE"
+msgstr "TYP MURAWY"
+
+#: ../common.bmx:552
+#: ../common.bmx:903
+#: ../common.bmx:986
+msgid "1ST LEG"
+msgstr ""
+
+#: ../common.bmx:849
+#: ../common.bmx:872
+#: ../common.bmx:890
+#: ../common.bmx:892
+#: ../common.bmx:910
+msgid "WIN"
+msgstr ""
+
+#: ../common.bmx:853
+#: ../common.bmx:876
+#: ../common.bmx:914
+msgid "ON PENALTIES"
+msgstr ""
+
+#: ../common.bmx:855
+#: ../common.bmx:862
+#: ../common.bmx:878
+#: ../common.bmx:899
+#: ../common.bmx:916
+#: ../common.bmx:919
+#: ../common.bmx:1008
+msgid "AFTER EXTRA TIME"
+msgstr ""
+
+#: ../common.bmx:857
+#: ../common.bmx:862
+#: ../common.bmx:880
+#: ../common.bmx:919
+msgid "90 MINUTES"
+msgstr ""
+
+#: ../common.bmx:889
+#: ../common.bmx:896
+msgid "ON AGGREGATE"
+msgstr ""
+
+#: ../common.bmx:890
+msgid "ON AWAY GOALS"
+msgstr ""
+
+#: ../common.bmx:929
+msgid "FINAL"
+msgstr ""
+
+#: ../common.bmx:931
+msgid "SEMI-FINAL"
+msgstr ""
+
+#: ../common.bmx:934
+msgid "QUARTER-FINAL"
+msgstr ""
+
+#: ../common.bmx:937
+msgid "FIRST ROUND"
+msgstr ""
+
+#: ../common.bmx:940
+msgid "SECOND ROUND"
+msgstr ""
+
+#: ../common.bmx:943
+msgid "THIRD ROUND"
+msgstr ""
+
+#: ../common.bmx:960
+#: ../common.bmx:978
+#: ../common.bmx:991
+#: ../t_menu_main.bmx:106
+msgid "REPLAY"
+msgstr ""
+
+#: ../common.bmx:962
+#: ../common.bmx:980
+#: ../common.bmx:993
+msgid "REPLAYS"
+msgstr ""
+
+#: ../common.bmx:966
+msgid "2ND REPLAY"
+msgstr ""
+
+#: ../common.bmx:968
+msgid "2ND REPLAYS"
+msgstr ""
+
+#: ../common.bmx:972
+msgid "3RD REPLAY"
+msgstr ""
+
+#: ../common.bmx:974
+msgid "3RD REPLAYS"
+msgstr ""
+
+#: ../common.bmx:988
+msgid "2ND LEG"
+msgstr ""
+
+#: ../common.bmx:1006
+msgid "AFTER 90 MINS"
+msgstr ""
+
+#. NOTE: max 6 characters
+#: ../common.bmx:1016
+msgid "ONE LEG"
+msgstr ""
+
+#. NOTE: max 6 characters
+#: ../common.bmx:1019
+msgid "TWO LEGS"
+msgstr ""
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1027
+msgid "NO EXTRA TIME"
+msgstr ""
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1030
+msgid "EXTRA TIME"
+msgstr ""
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1033
+msgid "EXTRA TIME IF REPLAY"
+msgstr ""
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1041
+msgid "NO PENALTIES"
+msgstr ""
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1044
+msgid "PENALTIES"
+msgstr ""
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1047
+msgid "PENALTIES IF REPLAY"
+msgstr ""
+
+#: ../t_team_input_device_button.bmx:30
+msgid "KEYBOARD"
+msgstr "KLAWIATURA"
+
+#: ../t_team_input_device_button.bmx:32
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+#: ../t_menu_design_diy_cup.bmx:38
+msgid "DESIGN DIY CUP"
+msgstr ""
+
+#: ../t_menu_control.bmx:19
+#: ../t_menu_main.bmx:56
+msgid "CONTROL"
+msgstr "STEROWANIE"
+
+#: ../t_menu_control.bmx:27
+msgid "KEYS"
+msgstr "KLAWISZE"
+
+#: ../t_menu_control.bmx:49
+msgid "UP"
+msgstr "PRZÓD"
+
+#: ../t_menu_control.bmx:57
+msgid "DOWN"
+msgstr "TYŁ"
+
+#: ../t_menu_control.bmx:65
+msgid "LEFT"
+msgstr "LEWO"
+
+#: ../t_menu_control.bmx:73
+msgid "RIGHT"
+msgstr "PRAWO"
+
+#: ../t_menu_control.bmx:81
+msgid "BUTTON A"
+msgstr "PRZYCISK A"
+
+#: ../t_menu_control.bmx:89
+msgid "BUTTON B"
+msgstr "PRZYCISK B"
+
+#: ../t_menu_game_options.bmx:27
+#: ../t_menu_main.bmx:38
+msgid "GAME OPTIONS"
+msgstr "OPCJE GRY"
+
+#: ../t_menu_game_options.bmx:35
+msgid "SCREEN MODE"
+msgstr "EKRAN"
+
+#: ../t_menu_game_options.bmx:55
+msgid "PLAYER'S COUNTRY"
+msgstr "NARODOWOŚĆ"
+
+#: ../t_menu_game_options.bmx:73
+msgid "MUSIC MODE"
+msgstr ""
+
+#: ../t_menu_game_options.bmx:93
+msgid "MUSIC VOLUME"
+msgstr ""
+
+#: ../t_menu_game_options.bmx:113
+msgid "MOUSE"
+msgstr "MYSZA"
+
+#: ../t_menu_game_options.bmx:131
+msgid "LANGUAGE"
+msgstr "JĘZYK"
+
+#: ../t_menu_game_options.bmx:151
+msgid "AUDIO DRIVER"
+msgstr ""
+
+#: ../t_menu_game_options.bmx:171
+msgid "QUIT TO OS"
+msgstr "WYJDŹ Z GRY"
+
+#: ../t_menu_game_options.bmx:242
+msgid "FULL SCREEN"
+msgstr "PEŁNY EKRAN"
+
+#: ../t_menu_game_options.bmx:244
+msgid "WINDOW"
+msgstr "OKNO"
+
+#: ../t_menu_game_options.bmx:250
+msgid "FLAG"
+msgstr "FLAGA"
+
+#: ../t_menu_game_options.bmx:252
+msgid "CODE"
+msgstr "KOD"
+
+#: ../t_menu_game_options.bmx:260
+msgid "ALL"
+msgstr ""
+
+#: ../t_menu_game_options.bmx:263
+msgid "SHUFFLE"
+msgstr ""
+
+#. NOTE: the name of the language, e.g.: ENGLISH, ITALIANO, DEUTSCH
+#: ../t_menu_game_options.bmx:294
+msgid "// THIS LANGUAGE NAME //"
+msgstr "POLSKI"
+
+#: ../t_menu_main.bmx:48
+#: ../t_menu_match_options.bmx:29
+msgid "MATCH OPTIONS"
+msgstr "USTAWIENIA MECZU"
+
+#: ../t_menu_set_team.bmx:207
+msgid "OPPONENT TEAM"
+msgstr "ZESPÓŁ RYWALA"
+
+#: ../t_menu_set_team.bmx:550
+msgid "TACTICS COMPARISON"
+msgstr "PORÓWNANIE TAKTYK"
+
+#: ../t_menu_set_team.bmx:552
+msgid "TEAM TACTICS"
+msgstr "TAKTYKA ZESPOŁU"
+
+#: ../t_menu_match_options.bmx:37
+msgid "FRIENDLY/DIY GAME LENGTH"
+msgstr "DŁUGOŚĆ MECZU"
+
+#: ../t_menu_match_options.bmx:59
+msgid "WEATHER EFFECTS"
+msgstr "EFEKTY POGODOWE"
+
+#: ../t_menu_match_options.bmx:115
+msgid "RESOLUTION"
+msgstr "ROZDZIELCZOŚĆ"
+
+#: ../t_menu_match_options.bmx:135
+msgid "ZOOM"
+msgstr ""
+
+#: ../t_menu_match_options.bmx:159
+msgid "ROTATION"
+msgstr ""
+
+#. NOTE: %n is replaced automatically by the game
+#: ../t_menu_match_options.bmx:269
+#, c-format
+msgid "%n MINUTES"
+msgstr "%n MIN."
+
+#: ../t_menu_match_options.bmx:277
+msgid "LIGHT"
+msgstr "LEKKIE"
+
+#: ../t_menu_match_options.bmx:279
+msgid "STRONG"
+msgstr "MOCNE"
+
+#: ../t_menu_tactics_abort_warning.bmx:27
+msgid "EDITED TACTICS WILL BE LOST"
+msgstr ""
+

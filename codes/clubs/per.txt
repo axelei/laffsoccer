@@ -1,0 +1,13 @@
+001 Alianza Sullana
+002 Alianza Lima
+003 Atletico Universidad
+004 Cesar Vallejo
+005 Cienciano
+006 Coronel Bolognesi
+007 Deportivo San martin
+008 FBC Melgar
+009 Sport Ancash
+010 Sport Boys
+011 Sporting Cristal
+012 Union Huracal
+013 Universitario

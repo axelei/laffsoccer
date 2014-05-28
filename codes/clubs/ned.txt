@@ -1,0 +1,18 @@
+000 Ajax
+001 AZ Alkmaar
+002 Den Haag
+003 Feyenoord
+004 Groningen
+005 Heerenveen
+006 NAC Breda
+007 Nec Nijmegen
+008 PSV Eindhoven
+009 RBC Roosendaal
+010 RKC Waalwijk
+011 Roda JC Kerkrade
+012 Twente Enschede
+013 Utrecht
+014 Vitesse
+015 Volendam
+016 Willem II Tilburg
+017 Zwolle

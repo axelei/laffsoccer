@@ -1,0 +1,53 @@
+000 Algeria
+001 Angola
+002 Benin
+003 Botswana
+004 Burkina Faso
+005 Burundi
+006 Cameroon
+007 Cape Verde Islands
+008 Central African Republic
+009 Chad
+010 Congo
+011 Congo DR
+012 Côte d'Ivoire
+013 Djibouti
+014 Egypt
+015 Equatorial Guinea
+016 Eritrea
+017 Ethiopia
+018 Gabon
+019 Gambia
+020 Ghana
+021 Guinea
+022 Guinea-Bissau
+023 Kenya
+024 Lesotho
+025 Liberia
+026 Libya
+027 Madagascar
+028 Malawi
+029 Mali
+030 Mauritania
+031 Mauritius
+032 Morocco
+033 Mozambique
+034 Namibia
+035 Niger
+036 Nigeria
+037 Rwanda
+038 São Tomé e Príncipe
+039 Senegal
+040 Seychelles
+041 Sierra Leone
+042 Somalia
+043 South Africa
+044 Sudan
+045 Swaziland
+046 Tanzania
+047 Togo
+048 Tunisia
+049 Uganda
+050 Zambia
+051 Zimbabwe
+052 Comoros

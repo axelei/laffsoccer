@@ -1,0 +1,702 @@
+#Number  :313
+Country  :CUS
+Name     :ELECTRONICS
+Tactics  :0
+Division :1
+CoachName:WELDER
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      1      2      
+Away      0      4      4      4      4      
+Third     0      2      2      2      2      
+Change1   0      4      4      2      2      
+Change2   0      2      2      4      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       7812                        CUS   0     501   1     0     23    0   0   0   0   0   0   0   
+02:       2       10100                       CUS   1     501   0     0     20    2   2   2   6*  1   6*  1   
+03:       4       7402                        CUS   3     501   0     1     16    0   1   5*  6*  1   2   1   
+04:       5       4001                        CUS   3     501   0     0     27    2   4   7*  7*  2   2   3   
+05:       3       5402                        CUS   2     501   0     0     20    2   1   2   5*  2   7*  1   
+06:       7       1N4007                      CUS   4     501   0     0     21    2   1   2   1   7*  6*  2   
+07:       6       741                         CUS   6     501   0     1     21    2   2   7*  6*  1   1   2   
+08:       9       555                         CUS   6     501   0     0     21    6*  2   2   5*  2   2   2   
+09:       8       2N2222                      CUS   5     501   0     1     24    2   1   2   2   7*  7*  3   
+10:       10      LM317                       CUS   6     501   0     0     22    7*  1   3   7*  2   1   1   
+11:       11      2N3055                      CUS   7     501   0     0     26    3   2   7*  3   3   2   6*  
+12:       12      7912                        CUS   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      10500                       CUS   3     501   0     0     15    0   1   7*  3*  1   2   1   
+14:       14      LM101                       CUS   6     501   1     0     19    2   2   5*  6*  1   1   2   
+15:       16      1N4148                      CUS   7     501   0     0     17    2   2   5*  0   2   1   5*  
+16:       15      2N3905                      CUS   7     501   1     0     5     1*  0   1   1*  0   1   1   
+
+
+#Number  :317
+Country  :CUS
+Name     :MONEY
+Tactics  :2
+Division :1
+CoachName:GOLD
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      9      0      0      9      
+Away      0      1      1      3      6      
+Third     0      0      0      0      0      
+Change1   1      3      6      3      6      
+Change2   0      1      1      1      3      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       RUPEE                       IND   0     502   0     5     18    0   0   0   0   0   0   0   
+02:       2       FRANC                       SUI   1     501   0     0     19    2   2   1   6*  2   5*  1   
+03:       5       DOLLAR                      USA   3     402   2     0     21    1   1   6*  7*  3   1   2   
+04:       3       PESO                        MEX   3     501   0     4     20    2   1   1   7*  1   7*  1   
+05:       13      PATACA                      CUS   2     501   0     0     16    0   1   5*  5*  1   2   2   
+06:       7       POUND                       ENG   4     501   0     0     20    1   2   2   1   5*  6*  3   
+07:       9       EURO                        BEL   6     403   2     0     19    6*  1   2   7*  1   1   1   
+08:       10      YEN                         JPN   6     516   3     3     19    5*  1   2   7*  1   2   1   
+09:       8       REAL                        BRA   5     501   0     4     20    2   1   2   2   5*  6*  2   
+10:       6       KRONE                       CZE   6     501   0     0     21    2   2   6*  7*  1   1   2   
+11:       11      WON                         KOR   7     501   0     3     21    2   3   6*  2   1   2   5*  
+12:       12      ZLOTY                       POL   0     401   1     0     17    0   0   0   0   0   0   0   
+13:       4       RENMINBI                    CHN   3     501   0     0     22    2   2   7*  7*  2   1   1   
+14:       14      FLORIN                      HUN   3     503   2     0     18    1   0   6*  6*  2   2   1   
+15:       15      DINAR                       ROM   6     401   2     0     18    7*  1   0   5*  1   2   2   
+16:       16      ROUBLE                      RUS   6     501   1     0     17    4*  1   2   6*  2   1   1   
+
+
+#Number  :330
+Country  :CUS
+Name     :INVENTORS
+Tactics  :7
+Division :1
+CoachName:LEONARDO DA VINCI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      2      2      2      2      
+Away      0      0      0      0      0      
+Third     0      1      1      1      1      
+Change1   0      2      2      0      0      
+Change2   0      0      0      2      2      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       ALESSANDRO    VOLTA         ITA   0     501   0     0     31    0   0   0   0   0   0   0   
+02:       2       SAMUEL        MORSE         USA   1     501   6     0     34    5   3   5   7*  3   7*  4   
+03:       4       BENJAMIN      FRANKLIN      USA   3     303   2     0     33    3   4   7*  7*  5   3   4   
+04:       5       ALFRED        NOBEL         SWE   6     502   2     0     35    5   4   7*  7*  3   4   5   
+05:       3       JOHANN        GUTENBERG     GER   2     806   2     0     32    3   4   4   7*  2   7*  5   
+06:       11      CHARLES       BABBAGE       ENG   4     504   5     0     30    3   5   4*  3   5   5   5*  
+07:       9       GUGLIEMO      MARCONI       ITA   6     504   2     0     35    7*  5   3   7*  4   6   3   
+08:       10      ANTONIO       MEUCCI        ITA   7     806   5     0     35    7*  4   5   7*  4   5   3   
+09:       6       THOMAS        EDISON        USA   5     504   6     0     33    2   4   7*  4   4   5   7*  
+10:       7       ISAAC         NEWTON        ENG   7     508   2     0     34    6   3   7*  4   4   3   7*  
+11:       8       ARCHIMEDES                  GRE   7     806   6     0     36    4   5   7*  5   4   4   7*  
+12:       12      ALAN          TURING        ENG   0     504   2     0     28    0   0   0   0   0   0   0   
+13:       13      LEVI          STRAUSS       USA   3     806   0     0     30    2   4   7*  7*  3   3   4   
+14:       14      WILHELM CONRADRONTGEN       GER   3     806   0     0     30    4   3   7*  7*  3   3   3   
+15:       15      NIKOLA        TESLA         SBM   6     502   2     0     32    7*  3   3   7*  4   4   4   
+16:       16      FRANK         HORNBY        ENG   7     301   2     0     30    3   3   7*  3   4   3   7*  
+
+
+#Number  :338
+Country  :CUS
+Name     :C64 GAMES
+Tactics  :0
+Division :1
+CoachName:EMLYN HUGHES
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     5      4      5      4      
+Away      0      1      4      5      4      
+Third     0      0      0      0      0      
+Change1   0      20     1      5      4      
+Change2   0      6      6      1      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       IMPOSSIBLE    MISSION       CUS   0     501   0     0     16    0   0   0   0   0   0   0   
+02:       2       GREEN         BERET         CUS   1     501   0     0     13    1   0   0   5   0   6   1   
+03:       4       HERO                        CUS   3     501   0     0     17    1   1   5   6   1   1   2   
+04:       5       COMMANDO                    CUS   3     501   0     0     16    1   1   7   6   0   0   1   
+05:       3       HUNCHBACK                   CUS   2     501   0     0     13    0   0   2   4   2   4   1   
+06:       7       DECATHLON                   CUS   4     501   0     0     17    2   1   1   2   6   4   1   
+07:       6       BRUCE         LEE           CUS   6     501   0     0     22    3   2   6   5   2   2   2   
+08:       9       ARCHON                      CUS   6     501   0     0     17    6   0   1   5   1   2   2   
+09:       8       GHOSTS'N      GOBLINS       CUS   5     501   0     0     23    1   2   2   2   7   7   2   
+10:       10      PITSTOP                     CUS   7     501   0     0     19    5   1   2   5   2   2   2   
+11:       11      ARKANOID                    CUS   7     501   0     0     26    3   7   6   2   1   1   6   
+12:       12      RAID          OVER MOSCOW   CUS   0     501   0     0     10    0   0   0   0   0   0   0   
+13:       13      SQUISH'EM                   CUS   3     501   0     0     1     0   0   0   1   0   0   0   
+14:       16      URIDIUM                     CUS   6     501   0     0     12    4   2   1   3   1   0   1   
+15:       17      EXPLODING     FIST          CUS   2     501   0     0     13    0   0   2   4   2   4   1   
+16:       15      SPINDIZZY                   CUS   7     501   0     0     11    4   0   2   4   0   0   1   
+
+
+#Number  :342
+Country  :CUS
+Name     :PHILOSOPHERS
+Tactics  :4
+Division :1
+CoachName:PLATO
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      21     0      2      
+Away      0      4      4      4      1      
+Third     0      0      0      0      0      
+Change1   0      5      5      4      1      
+Change2   0      4      4      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       VOLTAIRE                    FRA   0     512   6     0     32    0   0   0   0   0   0   0   
+02:       2       BLAISE        PASCAL        FRA   1     501   0     0     34    4   5   4   7*  4   7*  3   
+03:       4       GIOVANNI      GENTILE       ITA   3     601   5     0     32    4   3   7*  7*  3   4   4   
+04:       6       RENÉ          DESCARTES     FRA   6     501   1     0     34    7*  5   4   7*  4   4   3   
+05:       3       MICHEL        FOCAULT       FRA   2     501   0     0     43    5   7   7   7*  5   7*  5   
+06:       5       FRIEDRICH     NIETZSCHE     GER   4     501   0     0     34    4   4   4   3   7*  7*  5   
+07:       7       WILLIAM OF    OCKHAM        NED   6     501   0     0     35    7*  4   5   7*  3   5   4   
+08:       8       SOCRATES                    GRE   6     806   6     0     29    7*  4   3   7*  3   2   3   
+09:       9       THOMAS        AQUINAS       ITA   5     501   0     0     39    6   4   5   4   7*  7*  6   
+10:       11      JOHN          LOCKE         ENG   7     501   0     0     48    6   7   7*  7   7   7   7*  
+11:       10      ARISTOTLE                   GRE   7     806   0     0     36    4   5   7*  5   4   4   7*  
+12:       12      LUDWIG        WITTGENSTEIN  AUT   0     501   0     0     29    0   0   0   0   0   0   0   
+13:       13      BENEDETTO     CROCE         ITA   3     501   0     6     30    3   3   7*  7*  3   3   4   
+14:       14      CICERO                      ITA   6     401   6     0     30    7*  3   3   7*  3   4   3   
+15:       15      ARTUR         SCHOPENHAUER  GER   6     501   0     0     31    7*  4   4   7*  3   3   3   
+16:       16      IMMANUEL      KANT          GER   7     512   6     0     34    6   3   7*  4   4   3   7*  
+
+
+#Number  :341
+Country  :CUS
+Name     :RASSEGNATI FC
+Tactics  :4
+Division :1
+CoachName:MASSIMUZZO
+CoachType:0
+City     :DANIELE'S HEAD
+Stadium  :MASSIMO ARENA
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     13     12     13     12     
+Away      0      4      4      4      1      
+Third     0      0      0      0      0      
+Change1   0      5      5      4      1      
+Change2   0      4      4      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       ARMADIETTO                  CUS   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       DOSBOX                      ENG   1     401   6     1     34    4   5   4   7*  4   7*  3   
+03:       4       CARDINAL      MAZZARINO     FRA   3     603   6     0     24    4   3   4*  4*  5   4   0   
+04:       6       ALCOHOLIC     GATTOLICO     CUS   6     501   3     6     34    7*  5   4   7*  4   4   3   
+05:       3       CCTV5                       CHN   2     401   0     3     43    5   7   7   7*  5   7*  5   
+06:       5       SUOR AUSILIA                ITA   4     501   0     0     37    4   4   4   6*  7*  7*  5   
+07:       7       ER DOTTORINO                ITA   6     401   2     0     35    7*  4   5   7*  3   5   4   
+08:       8       CHUCK         NORRIS        USA   6     806   3     0     48    7*  7*  7*  7*  7*  7*  6*  
+09:       9       MICHELE       CERULARIO     GRE   5     501   0     0     39    6   4   5   4   7*  7*  6   
+10:       11      LUPO          MANGIAFRUTTA  MSR   7     804   5     8     35    0   0   7*  7   7   7   7*  
+11:       10      PERA MANTOVANA              ITA   7     801   2     9     36    4   5   7*  5   4   4   7*  
+12:       12      MOSTRO        REFRATTARIO   CUS   0     501   0     0     29    0   0   0   0   0   0   0   
+13:       13      UOMO DEL MONTE              CRC   3     501   0     6     30    3   3   7*  7*  3   3   4   
+14:       14      OSVALDINO                   IRL   6     401   8     3     30    7*  3   3   7*  3   4   3   
+15:       15      ZI'PITA                     CUS   6     512   5     0     31    7*  4   4   7*  3   3   3   
+16:       16      'A CRIATURA                 CUS   7     515   7     8     34    6   3   7*  4   4   3   7*  
+17:       17      CECCOPEPPE                  TAN   4     401   3     9     12    6*  0   0   0   0   6   0   
+
+
+#Number  :343
+Country  :CUS
+Name     :PACIFISTS
+Tactics  :0
+Division :1
+CoachName:
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     19     20     4      13     
+Away      0      1      4      5      4      
+Third     0      0      0      0      0      
+Change1   0      20     1      5      4      
+Change2   0      6      6      1      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       JEAN HENRY    DUNANT        SUI   0     501   0     0     16    0   0   0   0   0   0   0   
+02:       2       MIKHAIL       GORBACEV      RUS   1     301   6     0     13    1   0   0   5*  0   6*  1   
+03:       4       BERTOLT       BRECHT        GER   3     501   0     0     17    1   1   5*  6*  1   1   2   
+04:       5       FRIDTJOF      NANSEN        NOR   3     504   1     0     16    1   1   7*  6*  0   0   1   
+05:       3       BARTOLOMEO    DE LAS CASAS  ESP   2     501   0     0     13    0   0   2   4*  2   4*  1   
+06:       7       TENZIN        GYATSO        CHN   4     201   5     4     17    2   1   1   2   6*  4*  1   
+07:       6       BERTRAND      RUSSELL       SCO   6     501   0     0     22    3   2   6*  5*  2   2   2   
+08:       9       NELSON        MANDELA       RSA   6     601   5     1     17    6*  0   1   5*  1   2   2   
+09:       8       MAHATMA       GHANDI        IND   5     101   0     5     23    1   2   2   2   7*  7*  2   
+10:       10      MARTIN        LUTHER KING   USA   7     601   0     1     19    5*  1   2   5*  2   2   2   
+11:       11      JOHN          LENNON        ENG   7     506   2     0     21    3   2   6*  2   1   1   6*  
+12:       12      ALBERT        SCHWEITZER    GER   0     501   0     0     10    0   0   0   0   0   0   0   
+13:       13      LECH          WALESA        POL   3     501   0     0     1     0   0   0*  1*  0   0   0   
+14:       16      ROGER         WATERS        ENG   6     501   0     0     12    4*  2   1   3*  1   0   1   
+15:       17      ALDO          CAPITINI      ITA   2     501   0     0     13    0   0   2   4*  2   4*  1   
+16:       15      DAVID HENRY   THOREAU       ENG   7     501   0     0     11    4*  0   2   4*  0   0   1   
+
+
+#Number  :345
+Country  :CUS
+Name     :GERMAN SCIENTISTS
+Tactics  :0
+Division :1
+CoachName:JOHANNES KEPLER
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      2      1      1      
+Away      3      8      3      8      3      
+Third     0      0      0      0      0      
+Change1   2      2      1      8      3      
+Change2   3      8      3      2      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       WILHELM       WEBER         GER   0     501   6     0     29    0   0   0   0   0   0   0   
+02:       2       GEORG         OHM           GER   1     501   1     0     28    4   4   5   5*  2   7*  1   
+03:       4       MAX           PLANCK        GER   3     301   1     0     29    5   4   3*  5*  4   3   5   
+04:       5       ALBERT        EINSTEIN      GER   3     807   6     0     30    5   3   7*  7*  2   3   3   
+05:       3       ERNST KARL    ABBE          GER   4     806   6     2     29    3   2   4   7*  4   6*  3   
+06:       11      HEINRICH R.   HERTZ         GER   5     806   0     2     29    4   6   5*  2   4   4   4*  
+07:       6       GOTTFRIED     LEIBNIZ       GER   2     606   0     2     29    3   4   5*  7*  3   4   3   
+08:       10      JAMES CLERK   MAXWELL       GER   6     806   6     2     28    7*  5   3   4*  4   2   3   
+09:       7       WILHELM       RONTGEN       GER   7     806   6     0     33    4   3   7*  2   6   4   7*  
+10:       9       MAX           BORN          GER   6     504   5     2     33    7*  7   1   6*  4   4   4   
+11:       8       CARL FRIEDRICHGAUSS         GER   7     501   6     0     29    4   4   6*  3   4   4   4*  
+12:       12      RUDOLF        CLAUSIUS      GER   0     806   6     0     24    0   0   0   0   0   0   0   
+13:       13      JOSEPH        VAN FRAUNHOFERGER   3     501   0     2     26    3   4   6*  5*  2   3   3   
+14:       14      WERNER        HEISENBERG    GER   3     504   0     2     23    4   3   4*  4*  3   3   2   
+15:       15      GUSTAV ROBERT KIRCHHOFF     GER   6     806   0     2     26    7*  4   4   5*  3   2   1   
+16:       16      HERMAN        VON HELMHOLTZ GER   7     101   6     2     26    3   3   5*  4   4   3   4*  
+
+
+#Number  :346
+Country  :CUS
+Name     :POETS
+Tactics  :0
+Division :1
+CoachName:CALLIOPE
+CoachType:0
+City     :TROY
+Stadium  :PRIAM'S PALACE
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      22     20     13     22     
+Away      0      2      13     2      13     
+Third     14     3      22     3      13     
+Change1   0      5      5      4      1      
+Change2   0      4      4      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       CHARLES       BAUDELAIRE    FRA   0     501   2     0     25    0   0   0   0   0   0   0   
+02:       2       FEDERICO      GARCIA LORCA  ESP   1     502   0     0     20    2   2   2   6*  1   6*  1   
+03:       4       JUVENAL                     ITA   3     504   5     0     21    0   1   5*  6*  4   3   2   
+04:       5       LORD GEORGE N.BYRON         ENG   3     602   0     0     27    2   4   7*  7*  2   2   3   
+05:       3       GIACOMO       LEOPARDI      ITA   2     501   2     0     20    2   1   2   5*  2   7*  1   
+06:       7       FRANCESCO     PETRARCA      ITA   4     501   0     0     21    2   1   2   1   7*  6*  2   
+07:       6       WILLIAM BUTLERYEATS         IRL   6     502   0     2     21    2   2   7*  6*  1   1   2   
+08:       9       VIRIGILIUS                  ITA   6     501   5     0     24    7*  2   2   5*  4   2   2   
+09:       8       DANTE         ALIGHIERI     ITA   5     501   0     0     35    7*  5   3   2   7*  7*  4   
+10:       10      PABLO         NERUDA        ESP   6     303   0     0     22    7*  1   3   7*  2   1   1   
+11:       11      HOMER                       GRE   7     806   5     0     31    4   3   7*  3   4   4   6*  
+12:       12      EDGAR ALLAN   POE           ENG   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      JORGE LUIS    BORGES        ARG   3     401   0     0     15    0   1   7*  3*  1   2   1   
+14:       14      CATULLUS                    ITA   6     501   0     0     19    2   2   5*  6*  1   1   2   
+15:       16      GIOVANNI      PASCOLI       ITA   7     501   2     0     17    2   2   5*  0   2   1   5*  
+16:       15      EURIPIDES                   GRE   7     806   6     0     5     1*  0   1   1*  0   1   1   
+
+#Number  :000
+Country  :CUS
+Name     :PAINTERS
+Tactics  :0
+Division :1
+CoachName:LEONARDO DA VINCI
+CoachType:0
+City     :PARIS
+Stadium  :LE LOUVRE
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     3      19     17     12     
+Away      0      1      1      5      1      
+Third     0      0      0      0      0      
+Change1   0      5      1      5      1      
+Change2   0      1      1      5      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       VINCENT       VAN GOGH      NED   0     501   2     0     33    0   0   0   0   0   0   0   
+02:       6       JOHN          CONSTABLE     ENG   1     501   0     0     17    1   2   3   4   1   5   1   
+03:       5       EDVARD        MÜNCH         NOR   3     501   2     0     24    3   3   6   4   3   2   3   
+04:       2       WILLIAM       BLAKE         ENG   3     501   6     0     9     0   1   2   4   0   1   1   
+05:       3       GUSTAVE       MONET         FRA   2     501   0     0     9     1   1   1   3   1   2   0   
+06:       9       VASILIJ       KANDISKIJ     RUS   4     403   0     0     14    2   2   1   2   2   4   1   
+07:       8       PABLO         PICASSO       ESP   6     501   0     0     17    3   3   2   3   3   2   1   
+08:       4       HENRI         MATISSE       FRA   6     501   0     0     20    5   3   2   1   3   3   3   
+09:       11      PAUL          GAUGUIN       TAH   5     501   0     0     11    1   3   1   0   2   3   1   
+10:       10      MICHELANGELO  CARAVAGGIO    CZE   7     516   0     0     20    2   3   3   0   2   4   6   
+11:       7       ALESSANDRO    BOTTICELLI    CZE   7     506   2     0     26    2   4   6   0   3   4   7   
+12:       12      JAN           MATEJKO       POL   0     806   6     0     18    0   0   0   0   0   0   0   
+13:       13      GIOTTO                      ITA   3     303   2     0     8     0   1   1   1   1   4   0   
+14:       14      FRANCISCO     GOYA          CZE   6     501   1     0     14    4   2   1   2   2   2   1   
+15:       15      VEIT          STOSS         CZE   7     806   5     0     11    1   2   1   0   2   2   3   
+16:       16      GEORGES       SEURAT        CZE   7     403   0     0     19    2   3   3   1   3   3   4   
+17:       17      GUSTAV        KLIMT         AUT   0     403   0     0     19    0   0   0   0   0   0   0   
+
+#Number  :001
+Country  :CUS
+Name     :IRISH PAST
+Tactics  :0
+Division :1
+CoachName:LADY ERIN
+CoachType:0
+City     :RECESS
+Stadium  :TURF PITCH
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     8      14     14     19     
+Away      14     1      19     1      2      
+Third     16     1      5      4      7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       RORY          GALLAGHER     IRL   0     515   0     0     19    0   0   0   0   0   0   0   
+02:       2       PADRAIG       PEARSE        IRL   1     501   0     0     26    6   3   7   2   1   2   5   
+03:       3       DANIEL        O'CONNELL     IRL   3     501   0     0     26    3   1   0   5   7   4   6   
+04:       4       ST. PATRICK                 IRL   3     806   6     0     31    2   6   2   5   4   6   6   
+05:       5       EOGHAIN                     IRL   2     501   0     0     19    5   2   4   1   4   1   2   
+06:       6       SIR ARTHUR    GUINNESS      IRL   4     303   2     0     22    6   0   5   0   7   0   4   
+07:       7       OF THE 9 HOST.NIALL         IRL   6     506   6     0     30    0   5   1   6   6   7   5   
+08:       8       DIARMUID                    IRL   6     505   0     0     22    2   6   2   0   5   6   1   
+09:       9       BRIAN BORU                  IRL   5     603   2     0     30    3   4   5   7   0   5   6   
+10:       10      RED HUGH      O'DONNELL     IRL   7     806   3     0     17    4   6   0   4   0   3   0   
+11:       11      FIONN         MCCUMHAIL     IRL   7     508   2     0     22    0   6   2   4   3   0   7   
+12:       12      REGINALD                    NOR   0     401   2     0     15    0   0   0   0   0   0   0   
+13:       13      ST. BRENDAN                 IRL   3     501   0     0     21    1   2   4   0   5   2   7   
+14:       14      ST. COLMAN                  IRL   6     506   0     0     22    7   1   4   1   2   4   3   
+15:       15      MICHAEL       DEVITT        IRL   7     401   2     0     26    7   3   2   2   6   2   4   
+16:       16      ST. COLUMBA                 SCO   7     501   0     0     19    0   4   1   1   2   6   5   
+
+
+#Number  :002
+Country  :CUS
+Name     :GENERALS
+Tactics  :0
+Division :1
+CoachName:SERGEANT HARTMANN
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      14     16     14     16     
+Away      13     13     22     5      16     
+Third     18     0      15     13     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       12      LEONIDAS                    GRE   0     501   0     0     39    0   0   0   0   0   0   0   
+02:       2       ROBERT E.     LEE           USA   1     806   6     0     30    0   7   6   6   5   6   0   
+03:       3       DWIGHT D.     EISENHOWER    USA   3     302   1     0     28    7   7   7   0*  0   0   7   
+04:       4       JOSEPH        RADETZKY      AUT   3     502   6     0     19    3   1   1   6   2   6   0   
+05:       5       GILBERT DE    LAFAYETTE     FRA   2     512   6     0     32    6   3   4   6   6   4   3   
+06:       6       ERWIN         ROMMEL        GER   4     802   0     0     34    7   5   0   7   6   2   7*  
+07:       7       BERNARD       MONTGOMERY    ENG   6     501   0     0     29    1   5   6   2   6   3   6   
+08:       8       ARTHUR DUKE OFWELLINGTON    IRL   6     501   0     0     21    0   4   4   6   0   0   7   
+09:       9       EPAMINONDAS                 GRE   5     501   0     0     26    4   7   2   6   0   5   2   
+10:       10      GAIUS JULIUS  CAESAR        ITA   7     303   5     0     20    3   6   4   3   1   0   3   
+11:       11      NAPOLEON                    FRA   7     303   0     0     23    7   2   0   6   5   2   1   
+12:       1       HORATIO       NELSON        ENG   0     513   6     0     19    0   0   0   0   0   0   0   
+13:       13      FRANCIS       DRAKE         ENG   3     502   2     0     27    7   5   2   4   5   3   1   
+14:       14      ALCIBIADES                  GRE   6     602   0     0     22    6   1   0   6   1   6   2   
+15:       15      TADAMICHI     KURIBAYASHI   JPN   7     401   1     3     23    4   0   7   5   5   1   1   
+16:       16      BELISARIUS                  BUL   7     806   0     0     22    7   5   5   1   2   2   0   
+
+
+#Number  :003
+Country  :CUS
+Name     :KINGS AND EMPER.
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      6      22     6      22     
+Away      18     22     1      1      22     
+Third     12     15     5      20     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       MONTEZUMA                   MEX   0     501   0     6     21    0   0   0   0   0   0   0   
+02:       2       FREDRIK II                  SWE   1     602   1     0     29    5   1   7   7   3   6   0   
+03:       3       SIGISMUND     JAGIELLONE    POL   3     515   3     0     26    2   5   2   7   0   5   5   
+04:       4       SALADIN                     TUR   3     505   5     4     32    7   4   1   4   5   4   7   
+05:       5       FERDINAND     D'ARAGON      ESP   2     501   0     0     24    7   5   6   0   0   5   1   
+06:       6       CHARLES MAGNE               FRA   4     508   2     0     31    4   2   6   3   6   4   6   
+07:       7       ALEXANDER                   GRE   6     515   2     0     26    0   3   1   5   4   6   7   
+08:       8       GENGIS KHAN                 MGL   6     506   0     3     30    4   4   5   1   6   7   3   
+09:       9       TSAR          PIOTR T.GREAT RUS   5     501   0     0     23    1   1   2   6   5   1   7   
+10:       10      RICHARD       LIONHEART     ENG   7     501   0     0     26    6   6   7   0   4   0   3   
+11:       11      OCTAVIANUS    AUGUSTUS      ITA   7     601   0     0     23    2   4   1   5   2   6   3   
+12:       12      FRANZ JOSEF                 AUT   0     512   6     0     24    0   0   0   0   0   0   0   
+13:       13      RAMSES II                   EGY   3     101   0     5     24    7   3   4   7   0   0   3   
+14:       14      PIRRUS                      ALB   6     806   0     0     24    1   1   7   5   3   5   2   
+15:       15      FREDRIK       REDBEARD      GER   7     806   3     0     22    5   7   4   3   3   0   0   
+16:       16      SERSE                       IRN   7     303   0     6     21    0   6   6   1   5   1   2   
+
+
+#Number  :004
+Country  :CUS
+Name     :JURISTS
+Tactics  :0
+Division :1
+CoachName:HAMMURABI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      21     0      21     1      
+Away      18     14     4      6      20     
+Third     3      5      5      6      16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       HANS          KELSEN        AUT   0     301   6     0     38    0   0   0   0   0   0   0   
+02:       2       SOLON                       GRE   1     806   0     0     33    6   7   4   6   0   5   5   
+03:       3       WILLIAM       BLACKSTONE    ENG   3     605   6     0     20    0   2   3   5   3   6   1   
+04:       4       RUDOLF        VON JHERING   GER   3     502   6     0     22    0   5   7   2   2   5   1   
+05:       5       RECCESWINTH                 ESP   2     510   5     0     16    2   2   3   0   5   4   0   
+06:       6       GAIUS                       ITA   4     501   0     0     25    1   6   6   1   2   6   3   
+07:       7       HUGO          GROTHIUS      NED   6     806   2     0     22    5   1   3   6   5   2   0   
+08:       8       FRIEDRICH CARLVON SAVIGNY   GER   6     506   2     0     33    6   7   7   5   5   1   2   
+09:       9       ROBERT JOSEPH POTHIER       FRA   5     512   6     0     26    5   1   3   4   5   6   2   
+10:       10      AEMILIUS      PAPINIANUS    ITA   7     501   0     0     23    3   3   3   0   6   6   2   
+11:       11      IRNERIUS                    ITA   7     501   0     0     28    3   7   2   4   4   3   5   
+12:       12      MARCUS A.     LABEO         ITA   0     501   0     0     41    0   0   0   0   0   0   0   
+13:       13      THEODOR       MOMMSEN       GER   3     508   6     0     18    1   1   0   7   6   2   1   
+14:       14      PEPO                        ITA   6     501   0     0     16    2   6   3   0   0   4   1   
+15:       15      R.-THÉODORE   TROPLONG      FRA   7     501   0     0     10    3   0   3   0   2   2   0   
+16:       16      DOMITIUS      ULPIANUS      ITA   7     401   0     0     24    4   5   2   7   3   2   1   
+
+
+#Number  :005
+Country  :CUS
+Name     :REBELS
+Tactics  :0
+Division :1
+CoachName:GEORGE WASHINGTON
+CoachType:0
+City     :CORK
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      16     16     4      
+Away      11     3      6      1      8      
+Third     6      11     10     13     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       RASPUTIN                    RUS   0     603   0     0     7     0   0   0   0   0   0   0   
+02:       2       THEOBALD      WOLFE-TONE    IRL   1     512   2     0     27    0   6   7   6   0   7   1   
+03:       3       GUGLIELMO     OBERDAN       ITA   3     503   2     0     17    3   1   0   2   2   6   3   
+04:       4       BOBBY         SANDS         NIR   3     505   2     0     25    7   5   3   1   0   3   6   
+05:       5       SPARTACUS                   ITA   2     501   2     0     21    6   7   3   1   0   0   4   
+06:       6       EMILIANO      ZAPATA        MEX   4     501   0     6     29    0   5   5   6   6   2   5   
+07:       7       PANCHO VILLA                MEX   6     501   0     6     23    4   4   4   3   3   3   2   
+08:       8       ERNESTO       CHE GUEVARA   ARG   6     516   0     0     28    3   7   0   0   5   6   7   
+09:       9       CAMILO        CIENFUEGOS    CUB   5     806   0     4     26    3   1   5   5   6   0   6   
+10:       10      MICHAEL       COLLINS       IRL   7     401   2     0     26    6   7   4   3   3   3   0   
+11:       11      WILLIAM       WALLACE       SCO   7     603   2     0     26    6   3   5   7   0   1   4   
+12:       12      MAXIMILIEN    ROBESPIERRE   FRA   0     512   6     0     15    0   0   0   0   0   0   0   
+13:       13      COLA DI RIENZO              ITA   3     603   0     0     22    5   0   6   0   3   4   4   
+14:       14      MASANIELLO                  ITA   6     501   0     0     24    0   5   5   6   3   2   3   
+15:       15      SABINO        ARANA         ESP   7     806   0     0     20    1   7   1   1   3   4   3   
+16:       16      NIKOLAJ       LENIN         RUS   7     302   2     0     24    7   6   3   2   4   2   0   
+
+
+#Number  :006
+Country  :CUS
+Name     :COMPOSERS
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     17     8      16     15     
+Away      14     12     20     9      11     
+Third     6      13     20     4      4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       JOHANN S.     BACH          GER   0     512   6     0     37    0   0   0   0   0   0   0   
+02:       2       RICHARD       WAGNER        GER   1     403   2     0     17    6   2   3   0   1   5   0   
+03:       3       ANTONIO       VIVALDI       ITA   3     502   0     0     15    2   1   0   1   4   7   0   
+04:       4       MODEST P.     MUSSORGSKY    RUS   3     603   2     0     28    4   5   6   5   6   1   1   
+05:       5       JOHANN        STRAUSS JR.   AUT   2     506   2     0     18    7   0   2   0   5   3   1   
+06:       6       MAURICE       RAVEL         FRA   4     501   0     0     30    6   6   4   1   2   6   5   
+07:       7       GIOACCHINO    ROSSINI       ITA   6     501   5     0     24    3   3   4   0   3   4   7   
+08:       8       LUDWIG VAN    BEETHOVEN     GER   6     505   6     0     16    5   2   0   0   0   7   2   
+09:       9       PYOTR ILIYICH TCHAIKOVSKIJ  RUS   5     401   2     0     14    0   0   0   2   5   3   4   
+10:       10      WOLFGANG A.   MOZART        AUT   7     512   6     0     14    2   1   2   5   0   0   4   
+11:       11      FREDERIC      CHOPIN        POL   7     501   0     0     19    5   1   7   3   1   1   1   
+12:       12      GIUSEPPE      VERDI         ITA   0     506   2     0     11    0   0   0   0   0   0   0   
+13:       13      GAETANO       DONIZETTI     ITA   3     501   0     0     30    2   6   1   7   4   3   7   
+14:       14      EDVARD        GRIEG         NOR   6     401   1     0     21    5   5   1   0   3   7   0   
+15:       15      GIACOMO       PUCCINI       ITA   7     501   0     0     27    6   3   4   1   2   4   7   
+16:       16      ERIK          SATIE         FRA   7     501   0     0     38    3   7   4   5   6   7   6   
+
+
+#Number  :007
+Country  :CUS
+Name     :XMAS TEAM
+Tactics  :0
+Division :1
+CoachName:WHATEVER YOU HATE
+CoachType:0
+City     :ROME
+Stadium  :PIAZZA NAVONA
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     4      14     22     6      
+Away      14     10     16     10     14     
+Third     5      5      5      10     8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       24'S MESS                   CUS   0     516   6     0     2     0   0   0   0   0   0   0   
+02:       2       CHOCOLATE                   SUI   1     402   2     1     28    1   7   6   4   6   4   0   
+03:       3       SANTA'S ELF                 FIN   3     501   8     4     16    2   0   4   0   3   6   1   
+04:       4       24TH DEC.     DINNER OF FISHCUB   3     501   0     0     15    4   2   2   3   0   3   1   
+05:       5       XMAS LUNCH                  CUS   2     501   0     0     29    7   7   5   1   2   1   6   
+06:       6       PRESEPE                     ITA   4     503   2     4     27    5   4   1   1   6   5   5   
+07:       7       SHOPPERS'     HAPPINESS     USA   6     501   0     0     22    2   2   6   2   0   5   5   
+08:       8       GRANDMA'S     PRESENT       CUS   6     501   7     3     24    7   2   3   5   2   5   0   
+09:       9       FALLING       SNOWFLAKES    CUS   5     501   6     2     22    6   2   7   2   4   1   0   
+10:       10      CHRISTMAS TREE              SWE   7     801   6     1     27    6   1   1   4   4   4   7   
+11:       11      SANTA CLAUS                 FIN   7     806   6     0     42    2   7   7   7   7   7   5   
+12:       12      CANDY                       CUS   0     513   7     2     30    0   0   0   0   0   0   0   
+13:       13      EL CAGANER                  ESP   3     501   2     2     49    7   7   7   7   7   7   7   
+14:       14      JINGLE BELLS                ENG   6     501   0     0     24    3   0   1   5   3   6   6   
+15:       15      MITTLEEUR.    XMAS MARKETS  AUT   7     403   1     2     22    5   0   1   4   5   7   0   
+16:       16      NEW YEARS DAY               CUS   7     501   0     0     30    6   4   5   6   0   7   2   
+
+
+#Number  :008
+Country  :CUS
+Name     :SAI COME SI CHIAMA
+Tactics  :0
+Division :1
+CoachName:ERMINIO OTTONE
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      9      8      9      8      
+Away      0      1      1      1      1      
+Third     0      0      0      0      0      
+Change1   1      9      8      1      1      
+Change2   0      1      1      9      8      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       GUIDO         LA VESPA      ITA   0     401   0     0     8     0   0   0   0   0   0   0   
+02:       2       FUR GON CIN                 CHN   1     501   0     3     10    0   1   0   3*  0   6*  0   
+03:       4       ANDREI        DOMETROVO     UKR   3     401   1     0     11    1   0   5*  3*  0   1   1   
+04:       5       EMMO          COMESCU       ROM   3     402   2     0     11    0   0   4*  5*  1   1   0   
+05:       3       CASCO         DE PANZA      ESP   2     505   0     0     8     1   0   0   3*  1   2*  1   
+06:       6       CHON FU HUL                 CHN   4     501   0     3     13    2   1   1   1   4*  3*  1   
+07:       8       TOFUSO        LAMOTO        JPN   6     501   0     0     11    6*  1   0   3*  0   1   0   
+08:       10      GUSTAVO       LA MAZZA      ITA   6     513   7     0     49    7*  7   7   7*  7   7   7*  
+09:       7       OTTO          KRAPFEN       GER   5     504   2     0     11    1   0   1   0   4*  4*  1   
+10:       9       CHIN CHAN PAI               TPE   7     501   0     3     9     0   1   4*  1   0   0   3*  
+11:       11      REMO          LA BARCA      ITA   7     501   0     0     11    2   0   3*  1   1   0   4*  
+12:       12      ANDREI        NEIBOSKI      RUS   0     502   1     0     7     0   0   0   0   0   0   0   
+13:       13      THOMAS        TURBATO       ITA   3     501   0     0     6     1   0   3*  1*  1   0   0   
+14:       14      D'HALÌ        ALAH          KSA   3     501   0     4     6     0   0   3*  3*  0   0   0   
+15:       15      MOTIRO        LABOMBA       KEN   6     401   0     1     7     3*  0   0   2*  1   0   1   
+16:       16      SOSHITO       NAKAGATA      JPN   7     501   0     0     8     0   0   4*  0   1   0   3*  
+
+

@@ -1,0 +1,20 @@
+001 Audax Italiano
+002 Cobreloa
+003 Cobresal
+004 Colo Colo
+005 Coquimbo Unido
+006 Deportes Concepcion
+007 Everton de Chile
+008 Huachipato
+009 Deportes La Serena
+010 Deportes Melipilla
+011 Palestino
+012 Puerto Montt
+013 Rangers Talca
+014 Union San Felipe
+015 Deportes Temuco
+016 Universidad Catolica
+017 Universidad Concepcion
+018 Universidad de Chile
+019 Union Espanola
+020 Santiago Wanderers

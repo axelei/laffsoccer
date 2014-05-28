@@ -1,0 +1,18 @@
+001 Club Nacional
+002 Defensor Sporting
+003 Liverpool Montevideo
+004 Penarol
+005 Danubio
+006 Miramar Misiones
+007 Rocha FC
+008 Fenix
+009 Cerrito
+010 CA River Plate
+011 Wanderers
+012 Rentistas
+013 Tacuarembo FC
+014 Deportivo Colonia
+015 Paysandu FC
+016 Cerro
+017 Rampla Juniors
+018 Plaza Colonia

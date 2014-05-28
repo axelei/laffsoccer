@@ -1,0 +1,43 @@
+000 Albacete
+001 Athletic de Bilbao
+002 Atletico de Madrid
+003 Barcelona
+004 Betis
+005 Celta
+006 Deportivo
+007 Espanyol
+008 Malaga
+009 Mallorca
+010 Murcia
+011 Osasuna
+012 Racing de Santander
+013 Real Madrid
+014 Real Sociedad
+015 Sevilla
+016 Valencia
+017 Valladolid
+018 Villarreal
+019 Zaragoza
+
+020 Almeria
+021 Badajoz
+022 Compostela
+023 Cordoba
+024 Eibar
+025 Ejido
+026 Elche
+027 Getafe
+028 Las Palmas
+029 Leganes
+030 Levante
+031 Murcia
+032 Numancia
+033 Oviedo
+034 Racing de Ferrol
+035 Racing Ferrol
+036 Salamanca
+037 Sporting Gijon
+038 Tenerife
+039 Terrassa
+040 Xerez
+041 Zaragoza

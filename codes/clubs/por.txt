@@ -1,0 +1,98 @@
+000 Academica Coimbra
+001 Alverca
+002 Beira-Mar
+003 Belenenses
+004 Benfica
+005 Boavista
+006 Estrela Amadora
+007 FC Porto
+008 Gil Vicente
+009 Maritimo
+010 Moreirense
+011 Nacional
+012 Pacos Ferreira
+013 Rio Ave
+014 Sporting Braga
+015 Sporting CP
+016 Uniao Leiria
+017 Vitoria Guimaraes
+
+018 Aves
+019 Chaves
+020 Estoril
+021 Feirense
+022 Felgueiras
+023 Leixoes
+024 Maia
+025 Marco
+026 Naval
+027 Ovarense
+028 Penafiel
+029 Portimonense
+030 Salgueiros
+031 Santa Clara
+032 Sporting Covilha
+033 Uniao Madeira
+034 Vitoria Setubal
+035 Varzim
+
+036 Braganca
+037 Cacadores Taipas
+038 Ermesinde
+039 Fafe
+040 FC Porto B
+041 Freamunde
+042 Gondomar
+043 Infesta
+044 Leca
+045 Lixa
+046 Lousada
+047 Paredes
+048 Pedras Rubras
+049 Sporting Braga B
+050 Trofense
+051 Valdevez
+052 Vilanovense
+053 Vizela
+
+054 Academico Viseu
+055 Academica Coimbra B
+056 Agueda
+057 Alcains
+058 Caldas
+059 Esmoriz
+060 Estarreja
+061 Fatima
+062 Marinhense
+063 Oliveira Bairro
+064 Oliveira Hospital
+065 Oliveirense
+066 Pampilhosa
+067 Portomosense
+068 Sanjoanense
+069 Sporting Espinho
+070 Sporting Pombal
+071 Torreense
+072 Uniao Lamas
+073 Vilafranquense
+
+074 Amora
+075 Barreirense
+076 Camacha
+077 Estrela Vendas Novas
+078 Farense
+079 Louletano
+080 Lusitania
+081 Mafra
+082 Maritimo B
+083 Micaelense
+084 Odivelas
+085 Olivais e Moscavide
+086 Olhanense
+087 Oriental
+088 Pinhalnovense
+089 Pontassolense
+090 Ribeira Brava
+091 Santo Antonio
+092 Sintrense
+093 Sporting CP B

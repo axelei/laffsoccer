@@ -1,0 +1,702 @@
+#Number  :001
+Country  :CAM
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     19     3      12     13     
+Away      2      10     1      11     5      
+Third     3      21     1      15     20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     32    7   1   6   4   5   5   4   
+03:       3       C             C             CAM   3     501   0     0     15    6   0   5   2   1   1   0   
+04:       4       D             D             CAM   3     501   0     0     38    7   6   7   5   2   7   4   
+05:       5       E             E             CAM   2     501   0     0     18    3   4   0   5   2   0   4   
+06:       6       F             F             CAM   4     501   0     0     18    6   4   2   2   0   1   3   
+07:       7       G             G             CAM   6     501   0     0     23    1   5   5   3   6   0   3   
+08:       8       H             H             CAM   6     501   0     0     22    0   2   4   3   5   2   6   
+09:       9       I             I             CAM   5     501   0     0     22    7   0   1   7   0   5   2   
+10:       10      J             J             CAM   7     501   0     0     15    1   3   1   5   2   3   0   
+11:       11      K             K             CAM   7     501   0     0     20    3   2   0   2   3   4   6   
+12:       12      L             L             CAM   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     24    1   0   4   7   3   7   2   
+14:       14      N             N             CAM   6     501   0     0     13    0   1   3   3   0   2   4   
+15:       15      O             O             CAM   7     501   0     0     27    2   6   0   7   5   5   2   
+16:       16      P             P             CAM   7     501   0     0     28    3   0   5   4   7   4   5   
+
+
+#Number  :002
+Country  :CAM
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      6      14     1      17     
+Away      5      3      9      19     13     
+Third     18     18     2      6      15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     22    7   5   5   0   0   3   2   
+03:       3       C             C             CAM   3     501   0     0     19    7   2   3   4   2   0   1   
+04:       4       D             D             CAM   3     501   0     0     27    2   4   6   2   6   6   1   
+05:       5       E             E             CAM   2     501   0     0     32    6   2   2   7   6   6   3   
+06:       6       F             F             CAM   4     501   0     0     35    6   6   7   0   6   7   3   
+07:       7       G             G             CAM   6     501   0     0     19    1   3   2   5   7   1   0   
+08:       8       H             H             CAM   6     501   0     0     20    5   5   5   0   2   2   1   
+09:       9       I             I             CAM   5     501   0     0     21    2   1   1   3   7   0   7   
+10:       10      J             J             CAM   7     501   0     0     30    5   6   2   0   7   4   6   
+11:       11      K             K             CAM   7     501   0     0     21    2   4   6   0   5   1   3   
+12:       12      L             L             CAM   0     501   0     0     39    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     25    5   5   1   2   7   0   5   
+14:       14      N             N             CAM   6     501   0     0     26    6   7   4   6   1   2   0   
+15:       15      O             O             CAM   7     501   0     0     35    7   7   7   3   2   4   5   
+16:       16      P             P             CAM   7     501   0     0     30    6   4   6   1   7   4   2   
+
+
+#Number  :003
+Country  :CAM
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      14     15     17     19     
+Away      4      20     8      13     2      
+Third     9      18     9      9      13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     17    4   0   4   0   0   4   5   
+03:       3       C             C             CAM   3     501   0     0     20    4   2   6   2   0   3   3   
+04:       4       D             D             CAM   3     501   0     0     28    4   4   4   5   3   2   6   
+05:       5       E             E             CAM   2     501   0     0     15    1   2   3   0   6   0   3   
+06:       6       F             F             CAM   4     501   0     0     21    0   4   3   7   0   7   0   
+07:       7       G             G             CAM   6     501   0     0     30    5   5   4   5   2   3   6   
+08:       8       H             H             CAM   6     501   0     0     25    6   4   3   3   5   1   3   
+09:       9       I             I             CAM   5     501   0     0     29    5   6   3   5   1   3   6   
+10:       10      J             J             CAM   7     501   0     0     16    0   1   1   1   3   4   6   
+11:       11      K             K             CAM   7     501   0     0     16    4   2   1   0   6   0   3   
+12:       12      L             L             CAM   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     26    3   7   2   3   7   0   4   
+14:       14      N             N             CAM   6     501   0     0     26    6   3   7   1   0   7   2   
+15:       15      O             O             CAM   7     501   0     0     21    2   3   6   4   2   1   3   
+16:       16      P             P             CAM   7     501   0     0     26    6   1   6   4   3   2   4   
+
+
+#Number  :004
+Country  :CAM
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      9      19     14     2      
+Away      5      17     18     12     10     
+Third     8      3      20     14     0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     15    6   1   4   1   1   1   1   
+03:       3       C             C             CAM   3     501   0     0     15    1   4   2   5   0   2   1   
+04:       4       D             D             CAM   3     501   0     0     25    5   4   4   1   2   5   4   
+05:       5       E             E             CAM   2     501   0     0     34    7   2   1   6   6   6   6   
+06:       6       F             F             CAM   4     501   0     0     17    0   3   2   3   4   4   1   
+07:       7       G             G             CAM   6     501   0     0     29    6   4   3   7   1   1   7   
+08:       8       H             H             CAM   6     501   0     0     25    6   4   7   0   5   0   3   
+09:       9       I             I             CAM   5     501   0     0     33    4   5   7   2   7   3   5   
+10:       10      J             J             CAM   7     501   0     0     18    3   6   3   0   2   1   3   
+11:       11      K             K             CAM   7     501   0     0     23    1   6   7   4   5   0   0   
+12:       12      L             L             CAM   0     501   0     0     8     0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     21    4   4   2   1   3   1   6   
+14:       14      N             N             CAM   6     501   0     0     30    4   1   6   5   3   6   5   
+15:       15      O             O             CAM   7     501   0     0     15    1   6   3   4   0   1   0   
+16:       16      P             P             CAM   7     501   0     0     29    6   2   7   2   4   7   1   
+
+
+#Number  :005
+Country  :CAM
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      0      21     10     11     
+Away      8      20     15     1      17     
+Third     0      6      5      17     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     39    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     20    6   1   2   3   1   4   3   
+03:       3       C             C             CAM   3     501   0     0     32    4   7   3   6   5   5   2   
+04:       4       D             D             CAM   3     501   0     0     15    2   2   3   0   6   2   0   
+05:       5       E             E             CAM   2     501   0     0     27    1   3   7   7   1   6   2   
+06:       6       F             F             CAM   4     501   0     0     26    1   7   0   4   1   6   7   
+07:       7       G             G             CAM   6     501   0     0     27    1   5   3   7   4   1   6   
+08:       8       H             H             CAM   6     501   0     0     27    6   1   4   5   1   3   7   
+09:       9       I             I             CAM   5     501   0     0     22    5   1   5   2   2   6   1   
+10:       10      J             J             CAM   7     501   0     0     24    0   3   5   7   0   6   3   
+11:       11      K             K             CAM   7     501   0     0     35    7   2   0   5   7   7   7   
+12:       12      L             L             CAM   0     501   0     0     48    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     28    4   5   0   5   4   3   7   
+14:       14      N             N             CAM   6     501   0     0     32    7   6   7   6   0   0   6   
+15:       15      O             O             CAM   7     501   0     0     34    6   2   5   6   3   6   6   
+16:       16      P             P             CAM   7     501   0     0     29    0   3   6   7   0   6   7   
+
+
+#Number  :006
+Country  :CAM
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      8      7      12     9      
+Away      15     1      5      7      22     
+Third     6      7      3      11     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     48    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     34    4   6   6   6   1   7   4   
+03:       3       C             C             CAM   3     501   0     0     27    0   1   6   4   6   7   3   
+04:       4       D             D             CAM   3     501   0     0     19    1   3   4   6   0   1   4   
+05:       5       E             E             CAM   2     501   0     0     33    6   1   5   4   6   4   7   
+06:       6       F             F             CAM   4     501   0     0     19    0   1   2   3   7   0   6   
+07:       7       G             G             CAM   6     501   0     0     21    2   1   0   7   5   2   4   
+08:       8       H             H             CAM   6     501   0     0     28    1   4   6   0   4   6   7   
+09:       9       I             I             CAM   5     501   0     0     31    6   2   4   6   4   2   7   
+10:       10      J             J             CAM   7     501   0     0     20    5   4   0   2   4   0   5   
+11:       11      K             K             CAM   7     501   0     0     19    2   4   2   0   1   3   7   
+12:       12      L             L             CAM   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     34    7   4   7   7   7   1   1   
+14:       14      N             N             CAM   6     501   0     0     29    7   6   4   1   7   1   3   
+15:       15      O             O             CAM   7     501   0     0     27    4   2   6   4   2   5   4   
+16:       16      P             P             CAM   7     501   0     0     30    7   5   3   0   7   4   4   
+
+
+#Number  :007
+Country  :CAM
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     6      2      6      8      
+Away      1      13     17     3      18     
+Third     12     4      0      3      14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     5     0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     32    3   3   4   7   4   5   6   
+03:       3       C             C             CAM   3     501   0     0     18    5   6   0   2   4   1   0   
+04:       4       D             D             CAM   3     501   0     0     27    4   6   2   6   2   6   1   
+05:       5       E             E             CAM   2     501   0     0     22    7   7   0   2   0   0   6   
+06:       6       F             F             CAM   4     501   0     0     34    2   4   7   5   4   7   5   
+07:       7       G             G             CAM   6     501   0     0     23    6   1   7   6   3   0   0   
+08:       8       H             H             CAM   6     501   0     0     29    3   3   5   7   4   3   4   
+09:       9       I             I             CAM   5     501   0     0     21    3   2   0   4   5   1   6   
+10:       10      J             J             CAM   7     501   0     0     27    1   7   0   5   3   5   6   
+11:       11      K             K             CAM   7     501   0     0     31    6   4   0   6   6   5   4   
+12:       12      L             L             CAM   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     25    4   5   1   2   3   3   7   
+14:       14      N             N             CAM   6     501   0     0     20    2   5   0   0   5   7   1   
+15:       15      O             O             CAM   7     501   0     0     25    4   7   1   4   2   5   2   
+16:       16      P             P             CAM   7     501   0     0     21    3   4   5   4   1   4   0   
+
+
+#Number  :008
+Country  :CAM
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     4      11     1      15     
+Away      2      4      4      8      11     
+Third     11     13     13     13     4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     26    5   0   4   1   7   5   4   
+03:       3       C             C             CAM   3     501   0     0     25    7   7   1   1   5   0   4   
+04:       4       D             D             CAM   3     501   0     0     18    0   2   0   1   6   3   6   
+05:       5       E             E             CAM   2     501   0     0     27    1   4   4   6   5   6   1   
+06:       6       F             F             CAM   4     501   0     0     25    3   4   6   5   7   0   0   
+07:       7       G             G             CAM   6     501   0     0     20    4   2   4   6   0   4   0   
+08:       8       H             H             CAM   6     501   0     0     19    3   4   1   4   3   3   1   
+09:       9       I             I             CAM   5     501   0     0     20    1   4   0   5   3   2   5   
+10:       10      J             J             CAM   7     501   0     0     31    6   4   2   1   4   7   7   
+11:       11      K             K             CAM   7     501   0     0     33    7   0   7   4   6   3   6   
+12:       12      L             L             CAM   0     501   0     0     12    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     21    3   0   7   4   3   4   0   
+14:       14      N             N             CAM   6     501   0     0     18    0   5   2   2   4   3   2   
+15:       15      O             O             CAM   7     501   0     0     20    7   1   1   5   6   0   0   
+16:       16      P             P             CAM   7     501   0     0     26    7   1   6   2   1   5   4   
+
+
+#Number  :009
+Country  :CAM
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     1      7      9      2      
+Away      2      6      3      21     1      
+Third     17     13     14     11     15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     26    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     30    4   7   5   0   6   5   3   
+03:       3       C             C             CAM   3     501   0     0     16    1   1   0   5   5   3   1   
+04:       4       D             D             CAM   3     501   0     0     33    5   7   4   2   4   6   5   
+05:       5       E             E             CAM   2     501   0     0     21    6   3   3   5   3   1   0   
+06:       6       F             F             CAM   4     501   0     0     28    3   0   6   6   7   0   6   
+07:       7       G             G             CAM   6     501   0     0     23    7   1   0   3   3   7   2   
+08:       8       H             H             CAM   6     501   0     0     18    5   0   3   0   7   3   0   
+09:       9       I             I             CAM   5     501   0     0     13    0   2   3   7   0   0   1   
+10:       10      J             J             CAM   7     501   0     0     22    4   7   3   0   6   1   1   
+11:       11      K             K             CAM   7     501   0     0     21    3   2   1   2   7   2   4   
+12:       12      L             L             CAM   0     501   0     0     11    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     27    1   4   3   2   7   4   6   
+14:       14      N             N             CAM   6     501   0     0     32    5   0   7   7   4   7   2   
+15:       15      O             O             CAM   7     501   0     0     17    5   1   6   0   0   4   1   
+16:       16      P             P             CAM   7     501   0     0     23    0   0   6   5   0   7   5   
+
+
+#Number  :010
+Country  :CAM
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     14     16     2      5      
+Away      18     6      11     5      8      
+Third     9      1      10     17     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     0     0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     41    4   7   6   4   6   7   7   
+03:       3       C             C             CAM   3     501   0     0     15    2   3   3   4   1   0   2   
+04:       4       D             D             CAM   3     501   0     0     28    4   6   4   5   3   1   5   
+05:       5       E             E             CAM   2     501   0     0     26    7   3   5   5   2   2   2   
+06:       6       F             F             CAM   4     501   0     0     24    4   4   0   5   7   2   2   
+07:       7       G             G             CAM   6     501   0     0     16    0   0   3   1   0   6   6   
+08:       8       H             H             CAM   6     501   0     0     23    6   2   1   6   0   6   2   
+09:       9       I             I             CAM   5     501   0     0     30    5   5   2   3   4   5   6   
+10:       10      J             J             CAM   7     501   0     0     23    0   4   3   4   0   6   6   
+11:       11      K             K             CAM   7     501   0     0     22    7   0   3   1   2   7   2   
+12:       12      L             L             CAM   0     501   0     0     4     0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     28    7   0   4   7   3   6   1   
+14:       14      N             N             CAM   6     501   0     0     34    0   7   5   4   6   7   5   
+15:       15      O             O             CAM   7     501   0     0     33    6   6   3   4   7   4   3   
+16:       16      P             P             CAM   7     501   0     0     22    4   1   6   7   1   1   2   
+
+
+#Number  :011
+Country  :CAM
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      21     16     4      11     
+Away      10     18     22     14     13     
+Third     13     6      10     7      9      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     3     0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     13    6   1   0   0   3   3   0   
+03:       3       C             C             CAM   3     501   0     0     29    4   6   6   7   3   0   3   
+04:       4       D             D             CAM   3     501   0     0     10    0   4   3   0   3   0   0   
+05:       5       E             E             CAM   2     501   0     0     20    6   0   5   5   4   0   0   
+06:       6       F             F             CAM   4     501   0     0     20    1   5   2   4   4   1   3   
+07:       7       G             G             CAM   6     501   0     0     16    2   1   2   2   4   5   0   
+08:       8       H             H             CAM   6     501   0     0     21    6   6   0   1   2   0   6   
+09:       9       I             I             CAM   5     501   0     0     33    4   6   2   6   5   7   3   
+10:       10      J             J             CAM   7     501   0     0     19    3   4   2   0   4   6   0   
+11:       11      K             K             CAM   7     501   0     0     24    5   4   3   2   5   2   3   
+12:       12      L             L             CAM   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     25    7   5   4   1   0   4   4   
+14:       14      N             N             CAM   6     501   0     0     3     0   2   1   0   0   0   0   
+15:       15      O             O             CAM   7     501   0     0     35    1   6   3   7   6   5   7   
+16:       16      P             P             CAM   7     501   0     0     11    3   3   1   0   4   0   0   
+
+
+#Number  :012
+Country  :CAM
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      0      18     5      4      
+Away      13     13     0      4      5      
+Third     14     19     11     6      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     14    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     30    7   5   5   5   2   6   0   
+03:       3       C             C             CAM   3     501   0     0     38    6   7   0   6   6   7   6   
+04:       4       D             D             CAM   3     501   0     0     30    6   7   5   1   3   1   7   
+05:       5       E             E             CAM   2     501   0     0     20    7   7   0   3   1   0   2   
+06:       6       F             F             CAM   4     501   0     0     17    0   1   3   2   0   5   6   
+07:       7       G             G             CAM   6     501   0     0     24    0   2   3   2   6   5   6   
+08:       8       H             H             CAM   6     501   0     0     23    2   1   7   7   2   2   2   
+09:       9       I             I             CAM   5     501   0     0     34    4   6   7   5   2   6   4   
+10:       10      J             J             CAM   7     501   0     0     25    4   0   1   7   2   4   7   
+11:       11      K             K             CAM   7     501   0     0     10    0   2   1   4   0   0   3   
+12:       12      L             L             CAM   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     17    2   2   6   3   0   3   1   
+14:       14      N             N             CAM   6     501   0     0     28    2   5   2   5   3   4   7   
+15:       15      O             O             CAM   7     501   0     0     26    2   7   3   5   3   3   3   
+16:       16      P             P             CAM   7     501   0     0     26    5   3   2   6   6   1   3   
+
+
+#Number  :013
+Country  :CAM
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      18     19     13     5      
+Away      15     9      13     11     12     
+Third     15     10     18     5      8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     17    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     11    2   1   1   1   4   1   1   
+03:       3       C             C             CAM   3     501   0     0     20    1   3   1   1   1   7   6   
+04:       4       D             D             CAM   3     501   0     0     25    1   6   0   7   3   3   5   
+05:       5       E             E             CAM   2     501   0     0     26    6   5   0   4   4   5   2   
+06:       6       F             F             CAM   4     501   0     0     18    4   2   4   4   3   0   1   
+07:       7       G             G             CAM   6     501   0     0     34    3   4   7   7   6   6   1   
+08:       8       H             H             CAM   6     501   0     0     21    2   2   0   4   6   2   5   
+09:       9       I             I             CAM   5     501   0     0     24    1   6   7   1   2   5   2   
+10:       10      J             J             CAM   7     501   0     0     26    3   5   6   3   2   1   6   
+11:       11      K             K             CAM   7     501   0     0     12    2   5   1   0   1   0   3   
+12:       12      L             L             CAM   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     19    0   1   4   7   2   1   4   
+14:       14      N             N             CAM   6     501   0     0     40    6   3   7   7   6   4   7   
+15:       15      O             O             CAM   7     501   0     0     33    7   4   1   6   2   7   6   
+16:       16      P             P             CAM   7     501   0     0     33    4   3   7   4   7   5   3   
+
+
+#Number  :014
+Country  :CAM
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      17     7      20     15     
+Away      9      8      22     18     18     
+Third     6      6      1      10     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     41    5   6   7   6   7   7   3   
+03:       3       C             C             CAM   3     501   0     0     20    0   6   7   0   4   0   3   
+04:       4       D             D             CAM   3     501   0     0     20    1   5   1   1   5   0   7   
+05:       5       E             E             CAM   2     501   0     0     27    3   4   0   1   6   7   6   
+06:       6       F             F             CAM   4     501   0     0     19    0   2   3   5   2   7   0   
+07:       7       G             G             CAM   6     501   0     0     22    4   1   3   6   3   0   5   
+08:       8       H             H             CAM   6     501   0     0     15    3   6   2   0   0   0   4   
+09:       9       I             I             CAM   5     501   0     0     26    4   6   5   0   5   6   0   
+10:       10      J             J             CAM   7     501   0     0     36    6   4   2   7   6   7   4   
+11:       11      K             K             CAM   7     501   0     0     24    1   4   4   3   0   6   6   
+12:       12      L             L             CAM   0     501   0     0     5     0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     20    1   7   4   2   2   3   1   
+14:       14      N             N             CAM   6     501   0     0     27    3   5   7   3   7   2   0   
+15:       15      O             O             CAM   7     501   0     0     30    5   1   0   6   4   7   7   
+16:       16      P             P             CAM   7     501   0     0     32    7   7   2   5   3   5   3   
+
+
+#Number  :015
+Country  :CAM
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     17     18     6      9      
+Away      5      7      20     18     17     
+Third     16     13     18     15     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     33    7   2   4   4   4   5   7   
+03:       3       C             C             CAM   3     501   0     0     25    5   3   2   5   2   3   5   
+04:       4       D             D             CAM   3     501   0     0     11    5   1   1   2   0   0   2   
+05:       5       E             E             CAM   2     501   0     0     23    7   7   5   1   0   1   2   
+06:       6       F             F             CAM   4     501   0     0     13    2   1   2   6   1   1   0   
+07:       7       G             G             CAM   6     501   0     0     33    2   7   7   1   7   7   2   
+08:       8       H             H             CAM   6     501   0     0     26    1   1   7   5   6   0   6   
+09:       9       I             I             CAM   5     501   0     0     30    3   6   1   2   7   6   5   
+10:       10      J             J             CAM   7     501   0     0     22    1   4   0   5   5   5   2   
+11:       11      K             K             CAM   7     501   0     0     23    5   1   4   1   3   7   2   
+12:       12      L             L             CAM   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     33    7   7   0   6   6   2   5   
+14:       14      N             N             CAM   6     501   0     0     24    1   3   2   1   6   6   5   
+15:       15      O             O             CAM   7     501   0     0     20    4   3   3   1   1   7   1   
+16:       16      P             P             CAM   7     501   0     0     31    5   4   7   6   4   5   0   
+
+
+#Number  :016
+Country  :CAM
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     18     21     2      13     
+Away      15     18     15     1      3      
+Third     3      1      18     19     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     47    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     23    1   3   2   4   3   5   5   
+03:       3       C             C             CAM   3     501   0     0     22    6   1   3   1   5   6   0   
+04:       4       D             D             CAM   3     501   0     0     32    6   7   0   3   5   4   7   
+05:       5       E             E             CAM   2     501   0     0     35    1   7   7   2   4   7   7   
+06:       6       F             F             CAM   4     501   0     0     13    3   0   5   0   1   4   0   
+07:       7       G             G             CAM   6     501   0     0     25    0   2   5   0   6   6   6   
+08:       8       H             H             CAM   6     501   0     0     22    4   3   3   3   1   2   6   
+09:       9       I             I             CAM   5     501   0     0     21    3   1   3   1   4   3   6   
+10:       10      J             J             CAM   7     501   0     0     30    7   4   7   0   3   6   3   
+11:       11      K             K             CAM   7     501   0     0     21    3   0   2   2   6   7   1   
+12:       12      L             L             CAM   0     501   0     0     45    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     23    5   1   5   3   4   3   2   
+14:       14      N             N             CAM   6     501   0     0     23    4   3   1   5   1   5   4   
+15:       15      O             O             CAM   7     501   0     0     15    0   6   7   0   0   0   2   
+16:       16      P             P             CAM   7     501   0     0     20    2   1   7   6   1   3   0   
+
+
+#Number  :017
+Country  :CAM
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     14     5      6      14     
+Away      13     6      16     1      20     
+Third     14     14     16     21     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     27    4   3   4   7   2   6   1   
+03:       3       C             C             CAM   3     501   0     0     26    1   1   3   4   5   7   5   
+04:       4       D             D             CAM   3     501   0     0     19    4   2   1   4   3   5   0   
+05:       5       E             E             CAM   2     501   0     0     13    2   2   0   7   0   1   1   
+06:       6       F             F             CAM   4     501   0     0     29    5   7   4   3   2   7   1   
+07:       7       G             G             CAM   6     501   0     0     22    1   2   4   5   6   3   1   
+08:       8       H             H             CAM   6     501   0     0     17    4   1   3   4   5   0   0   
+09:       9       I             I             CAM   5     501   0     0     22    1   0   0   5   4   6   6   
+10:       10      J             J             CAM   7     501   0     0     18    2   1   4   2   5   0   4   
+11:       11      K             K             CAM   7     501   0     0     22    4   3   7   2   1   1   4   
+12:       12      L             L             CAM   0     501   0     0     23    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     25    5   3   3   6   0   1   7   
+14:       14      N             N             CAM   6     501   0     0     16    3   0   3   2   7   0   1   
+15:       15      O             O             CAM   7     501   0     0     31    5   5   5   1   7   2   6   
+16:       16      P             P             CAM   7     501   0     0     29    7   3   1   3   6   2   7   
+
+
+#Number  :018
+Country  :CAM
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     19     10     7      22     
+Away      4      6      6      9      9      
+Third     8      16     15     12     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             CAM   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             CAM   1     501   0     0     17    1   3   0   1   2   3   7   
+03:       3       C             C             CAM   3     501   0     0     34    4   5   7   6   7   2   3   
+04:       4       D             D             CAM   3     501   0     0     24    6   1   3   6   1   3   4   
+05:       5       E             E             CAM   2     501   0     0     15    2   0   1   7   1   3   1   
+06:       6       F             F             CAM   4     501   0     0     18    3   6   0   2   0   5   2   
+07:       7       G             G             CAM   6     501   0     0     25    1   6   0   4   7   6   1   
+08:       8       H             H             CAM   6     501   0     0     23    7   7   0   2   0   3   4   
+09:       9       I             I             CAM   5     501   0     0     36    6   4   6   7   6   6   1   
+10:       10      J             J             CAM   7     501   0     0     26    3   0   5   6   7   1   4   
+11:       11      K             K             CAM   7     501   0     0     19    2   7   0   6   0   3   1   
+12:       12      L             L             CAM   0     501   0     0     22    0   0   0   0   0   0   0   
+13:       13      M             M             CAM   3     501   0     0     33    7   3   1   7   4   5   6   
+14:       14      N             N             CAM   6     501   0     0     28    5   7   2   6   0   5   3   
+15:       15      O             O             CAM   7     501   0     0     28    4   1   4   4   7   7   1   
+16:       16      P             P             CAM   7     501   0     0     23    6   2   0   2   2   6   5   
+
+

@@ -1,0 +1,702 @@
+#Number  :001
+Country  :BEL
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      2      19     12     17     
+Away      16     22     12     4      18     
+Third     0      13     6      16     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     32    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     29    1   7   3   4   7   6   1   
+03:       3       C             C             BEL   3     501   0     0     32    5   7   5   2   4   7   2   
+04:       4       D             D             BEL   3     501   0     0     29    7   6   3   1   5   2   5   
+05:       5       E             E             BEL   2     501   0     0     18    2   6   2   1   1   2   4   
+06:       6       F             F             BEL   4     501   0     0     24    2   6   1   6   3   0   6   
+07:       7       G             G             BEL   6     501   0     0     28    2   6   2   3   7   2   6   
+08:       8       H             H             BEL   6     501   0     0     13    2   3   0   3   0   4   1   
+09:       9       I             I             BEL   5     501   0     0     18    0   6   3   6   0   3   0   
+10:       10      J             J             BEL   7     501   0     0     13    1   0   0   6   0   1   5   
+11:       11      K             K             BEL   7     501   0     0     24    7   0   6   1   6   0   4   
+12:       12      L             L             BEL   0     501   0     0     35    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     19    2   2   5   3   2   4   1   
+14:       14      N             N             BEL   6     501   0     0     34    5   7   3   4   5   3   7   
+15:       15      O             O             BEL   7     501   0     0     25    6   1   4   2   0   7   5   
+16:       16      P             P             BEL   7     501   0     0     27    2   7   0   3   3   6   6   
+
+
+#Number  :002
+Country  :BEL
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      19     0      8      22     
+Away      1      8      1      14     0      
+Third     4      19     12     14     6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     23    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     21    5   4   5   0   4   3   0   
+03:       3       C             C             BEL   3     501   0     0     25    7   0   4   4   3   4   3   
+04:       4       D             D             BEL   3     501   0     0     32    1   6   6   5   7   4   3   
+05:       5       E             E             BEL   2     501   0     0     18    2   3   1   6   2   4   0   
+06:       6       F             F             BEL   4     501   0     0     17    3   0   1   5   3   4   1   
+07:       7       G             G             BEL   6     501   0     0     11    1   1   0   2   1   3   3   
+08:       8       H             H             BEL   6     501   0     0     34    7   0   3   7   6   4   7   
+09:       9       I             I             BEL   5     501   0     0     31    5   4   6   4   4   6   2   
+10:       10      J             J             BEL   7     501   0     0     24    0   0   6   7   3   1   7   
+11:       11      K             K             BEL   7     501   0     0     19    0   2   2   6   0   3   6   
+12:       12      L             L             BEL   0     501   0     0     43    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     24    4   0   4   7   0   6   3   
+14:       14      N             N             BEL   6     501   0     0     26    3   2   7   3   3   7   1   
+15:       15      O             O             BEL   7     501   0     0     27    6   3   4   3   7   1   3   
+16:       16      P             P             BEL   7     501   0     0     30    3   7   7   1   3   6   3   
+
+
+#Number  :003
+Country  :BEL
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     20     2      4      5      
+Away      10     12     7      0      18     
+Third     8      10     6      2      20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     27    0   5   4   2   4   7   5   
+03:       3       C             C             BEL   3     501   0     0     20    6   1   2   0   1   4   6   
+04:       4       D             D             BEL   3     501   0     0     22    1   1   5   7   7   0   1   
+05:       5       E             E             BEL   2     501   0     0     19    3   6   1   0   2   4   3   
+06:       6       F             F             BEL   4     501   0     0     23    6   4   7   0   2   2   2   
+07:       7       G             G             BEL   6     501   0     0     30    5   3   5   4   7   0   6   
+08:       8       H             H             BEL   6     501   0     0     22    4   7   4   1   1   2   3   
+09:       9       I             I             BEL   5     501   0     0     42    7   5   5   7   7   4   7   
+10:       10      J             J             BEL   7     501   0     0     28    7   3   0   6   7   2   3   
+11:       11      K             K             BEL   7     501   0     0     34    7   3   5   6   7   2   4   
+12:       12      L             L             BEL   0     501   0     0     6     0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     20    5   3   3   2   1   2   4   
+14:       14      N             N             BEL   6     501   0     0     35    4   1   3   7   7   6   7   
+15:       15      O             O             BEL   7     501   0     0     18    6   0   3   4   0   1   4   
+16:       16      P             P             BEL   7     501   0     0     26    5   7   6   0   3   0   5   
+
+
+#Number  :004
+Country  :BEL
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      9      9      22     6      
+Away      17     2      3      2      15     
+Third     8      2      8      6      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     0     0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     34    7   7   7   0   7   6   0   
+03:       3       C             C             BEL   3     501   0     0     30    4   5   5   6   1   7   2   
+04:       4       D             D             BEL   3     501   0     0     23    1   0   5   7   1   7   2   
+05:       5       E             E             BEL   2     501   0     0     16    0   3   2   7   0   0   4   
+06:       6       F             F             BEL   4     501   0     0     23    4   3   0   6   5   1   4   
+07:       7       G             G             BEL   6     501   0     0     23    1   0   5   4   3   6   4   
+08:       8       H             H             BEL   6     501   0     0     13    1   3   1   5   1   2   0   
+09:       9       I             I             BEL   5     501   0     0     22    3   0   5   3   4   1   6   
+10:       10      J             J             BEL   7     501   0     0     25    6   1   5   3   4   5   1   
+11:       11      K             K             BEL   7     501   0     0     20    0   0   6   5   2   7   0   
+12:       12      L             L             BEL   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     29    0   6   4   5   6   4   4   
+14:       14      N             N             BEL   6     501   0     0     26    4   4   6   4   1   5   2   
+15:       15      O             O             BEL   7     501   0     0     26    5   3   7   6   4   1   0   
+16:       16      P             P             BEL   7     501   0     0     28    5   6   2   1   4   5   5   
+
+
+#Number  :005
+Country  :BEL
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      8      22     22     1      
+Away      8      13     7      15     11     
+Third     4      20     15     11     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     25    7   6   1   3   2   6   0   
+03:       3       C             C             BEL   3     501   0     0     22    7   6   1   0   0   2   6   
+04:       4       D             D             BEL   3     501   0     0     18    1   3   5   0   1   2   6   
+05:       5       E             E             BEL   2     501   0     0     25    6   2   3   1   4   7   2   
+06:       6       F             F             BEL   4     501   0     0     26    0   4   7   4   2   7   2   
+07:       7       G             G             BEL   6     501   0     0     29    5   2   4   6   7   3   2   
+08:       8       H             H             BEL   6     501   0     0     31    7   6   0   7   3   6   2   
+09:       9       I             I             BEL   5     501   0     0     30    7   6   3   0   6   2   6   
+10:       10      J             J             BEL   7     501   0     0     21    0   0   4   0   6   7   4   
+11:       11      K             K             BEL   7     501   0     0     20    0   4   0   7   3   4   2   
+12:       12      L             L             BEL   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     24    0   4   3   4   3   7   3   
+14:       14      N             N             BEL   6     501   0     0     25    5   2   3   2   5   5   3   
+15:       15      O             O             BEL   7     501   0     0     19    3   4   5   3   4   0   0   
+16:       16      P             P             BEL   7     501   0     0     36    5   7   3   3   6   7   5   
+
+
+#Number  :006
+Country  :BEL
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     15     12     17     19     
+Away      13     18     18     14     10     
+Third     4      3      6      1      18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     19    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     12    2   0   2   6   1   0   1   
+03:       3       C             C             BEL   3     501   0     0     25    2   2   5   5   2   3   6   
+04:       4       D             D             BEL   3     501   0     0     26    0   4   1   3   7   4   7   
+05:       5       E             E             BEL   2     501   0     0     28    2   4   5   5   5   3   4   
+06:       6       F             F             BEL   4     501   0     0     27    3   6   0   3   4   7   4   
+07:       7       G             G             BEL   6     501   0     0     25    6   7   0   1   4   5   2   
+08:       8       H             H             BEL   6     501   0     0     18    4   5   0   1   5   0   3   
+09:       9       I             I             BEL   5     501   0     0     39    6   6   6   5   6   5   5   
+10:       10      J             J             BEL   7     501   0     0     25    1   7   0   5   5   0   7   
+11:       11      K             K             BEL   7     501   0     0     28    6   1   5   4   2   4   6   
+12:       12      L             L             BEL   0     501   0     0     23    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     22    4   7   2   4   0   0   5   
+14:       14      N             N             BEL   6     501   0     0     15    0   3   3   5   1   0   3   
+15:       15      O             O             BEL   7     501   0     0     29    5   0   5   6   4   4   5   
+16:       16      P             P             BEL   7     501   0     0     36    6   6   4   5   2   6   7   
+
+
+#Number  :007
+Country  :BEL
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      19     11     13     21     
+Away      17     21     0      13     4      
+Third     18     15     0      12     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     18    3   4   6   2   1   2   0   
+03:       3       C             C             BEL   3     501   0     0     30    0   4   4   7   4   7   4   
+04:       4       D             D             BEL   3     501   0     0     33    3   5   6   4   6   3   6   
+05:       5       E             E             BEL   2     501   0     0     23    7   4   2   1   0   5   4   
+06:       6       F             F             BEL   4     501   0     0     31    6   4   3   5   6   0   7   
+07:       7       G             G             BEL   6     501   0     0     32    6   7   7   1   4   5   2   
+08:       8       H             H             BEL   6     501   0     0     18    1   1   2   5   4   4   1   
+09:       9       I             I             BEL   5     501   0     0     25    4   2   3   3   5   1   7   
+10:       10      J             J             BEL   7     501   0     0     28    4   7   3   3   7   3   1   
+11:       11      K             K             BEL   7     501   0     0     17    5   1   2   2   6   1   0   
+12:       12      L             L             BEL   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     23    1   1   3   6   4   6   2   
+14:       14      N             N             BEL   6     501   0     0     31    6   2   3   4   5   6   5   
+15:       15      O             O             BEL   7     501   0     0     27    4   6   1   6   3   2   5   
+16:       16      P             P             BEL   7     501   0     0     21    3   0   3   1   1   7   6   
+
+
+#Number  :008
+Country  :BEL
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      22     14     12     4      
+Away      3      9      10     15     6      
+Third     17     18     6      16     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     31    2   3   6   4   5   5   6   
+03:       3       C             C             BEL   3     501   0     0     17    0   4   2   6   2   0   3   
+04:       4       D             D             BEL   3     501   0     0     21    4   2   4   1   4   0   6   
+05:       5       E             E             BEL   2     501   0     0     15    2   5   4   0   4   0   0   
+06:       6       F             F             BEL   4     501   0     0     31    0   7   7   7   3   0   7   
+07:       7       G             G             BEL   6     501   0     0     21    2   2   5   0   7   2   3   
+08:       8       H             H             BEL   6     501   0     0     36    7   7   2   6   3   6   5   
+09:       9       I             I             BEL   5     501   0     0     26    4   3   2   5   7   3   2   
+10:       10      J             J             BEL   7     501   0     0     18    0   6   3   7   2   0   0   
+11:       11      K             K             BEL   7     501   0     0     17    5   0   3   4   0   2   3   
+12:       12      L             L             BEL   0     501   0     0     46    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     21    4   3   1   5   1   1   6   
+14:       14      N             N             BEL   6     501   0     0     28    6   5   6   1   1   3   6   
+15:       15      O             O             BEL   7     501   0     0     26    7   3   7   0   3   1   5   
+16:       16      P             P             BEL   7     501   0     0     21    7   6   7   0   0   1   0   
+
+
+#Number  :009
+Country  :BEL
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     20     6      7      10     
+Away      15     20     2      13     21     
+Third     1      1      13     14     5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     22    5   2   1   0   5   4   5   
+03:       3       C             C             BEL   3     501   0     0     20    6   3   2   2   2   4   1   
+04:       4       D             D             BEL   3     501   0     0     21    1   1   0   5   4   5   5   
+05:       5       E             E             BEL   2     501   0     0     22    5   2   3   0   7   0   5   
+06:       6       F             F             BEL   4     501   0     0     35    6   5   6   2   6   7   3   
+07:       7       G             G             BEL   6     501   0     0     27    7   2   4   2   4   7   1   
+08:       8       H             H             BEL   6     501   0     0     26    3   4   2   7   7   2   1   
+09:       9       I             I             BEL   5     501   0     0     20    2   4   4   0   0   6   4   
+10:       10      J             J             BEL   7     501   0     0     24    1   7   3   2   1   3   7   
+11:       11      K             K             BEL   7     501   0     0     21    6   3   3   6   0   0   3   
+12:       12      L             L             BEL   0     501   0     0     10    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     31    2   7   6   4   6   6   0   
+14:       14      N             N             BEL   6     501   0     0     28    7   3   6   5   1   3   3   
+15:       15      O             O             BEL   7     501   0     0     34    5   7   7   7   4   2   2   
+16:       16      P             P             BEL   7     501   0     0     20    2   3   4   3   4   2   2   
+
+
+#Number  :010
+Country  :BEL
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      5      16     13     6      
+Away      2      8      9      12     7      
+Third     11     7      6      5      18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     25    2   6   1   3   6   7   0   
+03:       3       C             C             BEL   3     501   0     0     19    5   2   2   3   3   0   4   
+04:       4       D             D             BEL   3     501   0     0     34    7   7   7   1   5   1   6   
+05:       5       E             E             BEL   2     501   0     0     14    5   1   3   1   3   0   1   
+06:       6       F             F             BEL   4     501   0     0     24    5   0   0   4   5   3   7   
+07:       7       G             G             BEL   6     501   0     0     20    0   0   2   5   3   6   4   
+08:       8       H             H             BEL   6     501   0     0     26    5   2   4   0   7   6   2   
+09:       9       I             I             BEL   5     501   0     0     23    6   1   5   0   6   2   3   
+10:       10      J             J             BEL   7     501   0     0     27    7   2   5   4   0   7   2   
+11:       11      K             K             BEL   7     501   0     0     26    6   3   4   3   4   1   5   
+12:       12      L             L             BEL   0     501   0     0     46    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     25    4   7   6   5   0   2   1   
+14:       14      N             N             BEL   6     501   0     0     29    1   4   6   6   5   7   0   
+15:       15      O             O             BEL   7     501   0     0     24    0   4   5   2   0   6   7   
+16:       16      P             P             BEL   7     501   0     0     26    3   0   7   4   5   7   0   
+
+
+#Number  :011
+Country  :BEL
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      8      20     7      11     
+Away      1      5      16     21     14     
+Third     12     4      22     11     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     47    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     24    7   5   0   6   3   1   2   
+03:       3       C             C             BEL   3     501   0     0     26    7   4   1   2   5   4   3   
+04:       4       D             D             BEL   3     501   0     0     25    7   0   6   4   6   2   0   
+05:       5       E             E             BEL   2     501   0     0     25    7   1   6   0   3   7   1   
+06:       6       F             F             BEL   4     501   0     0     20    2   5   3   3   2   1   4   
+07:       7       G             G             BEL   6     501   0     0     29    4   1   6   6   4   4   4   
+08:       8       H             H             BEL   6     501   0     0     28    3   1   6   2   6   3   7   
+09:       9       I             I             BEL   5     501   0     0     25    5   7   2   0   3   6   2   
+10:       10      J             J             BEL   7     501   0     0     37    6   6   6   4   4   7   4   
+11:       11      K             K             BEL   7     501   0     0     30    1   3   3   5   7   4   7   
+12:       12      L             L             BEL   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     19    5   3   1   3   2   2   3   
+14:       14      N             N             BEL   6     501   0     0     23    3   4   6   4   2   4   0   
+15:       15      O             O             BEL   7     501   0     0     39    6   6   7   1   6   7   6   
+16:       16      P             P             BEL   7     501   0     0     27    6   6   5   2   7   0   1   
+
+
+#Number  :012
+Country  :BEL
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      18     9      15     9      
+Away      13     1      21     2      9      
+Third     10     14     20     12     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     2     0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     24    0   4   2   5   3   5   5   
+03:       3       C             C             BEL   3     501   0     0     17    6   3   1   0   0   7   0   
+04:       4       D             D             BEL   3     501   0     0     23    1   5   4   7   0   1   5   
+05:       5       E             E             BEL   2     501   0     0     30    3   4   6   6   6   0   5   
+06:       6       F             F             BEL   4     501   0     0     18    0   4   0   2   2   5   5   
+07:       7       G             G             BEL   6     501   0     0     31    6   1   4   4   7   6   3   
+08:       8       H             H             BEL   6     501   0     0     13    2   0   2   1   0   1   7   
+09:       9       I             I             BEL   5     501   0     0     24    1   1   6   3   4   4   5   
+10:       10      J             J             BEL   7     501   0     0     29    7   7   3   7   0   4   1   
+11:       11      K             K             BEL   7     501   0     0     16    2   3   0   4   6   1   0   
+12:       12      L             L             BEL   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     28    5   4   1   4   7   3   4   
+14:       14      N             N             BEL   6     501   0     0     26    3   5   1   5   3   6   3   
+15:       15      O             O             BEL   7     501   0     0     32    4   6   4   3   7   6   2   
+16:       16      P             P             BEL   7     501   0     0     35    4   6   7   7   4   5   2   
+
+
+#Number  :013
+Country  :BEL
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     14     21     12     17     
+Away      15     3      6      0      9      
+Third     12     12     9      6      9      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     14    2   0   1   6   0   5   0   
+03:       3       C             C             BEL   3     501   0     0     27    4   6   2   5   3   3   4   
+04:       4       D             D             BEL   3     501   0     0     21    1   2   7   7   2   0   2   
+05:       5       E             E             BEL   2     501   0     0     23    1   0   5   2   3   5   7   
+06:       6       F             F             BEL   4     501   0     0     26    4   4   1   7   5   4   1   
+07:       7       G             G             BEL   6     501   0     0     27    2   2   3   2   5   6   7   
+08:       8       H             H             BEL   6     501   0     0     25    3   5   3   0   4   7   3   
+09:       9       I             I             BEL   5     501   0     0     27    6   2   4   7   0   4   4   
+10:       10      J             J             BEL   7     501   0     0     21    7   2   0   0   7   4   1   
+11:       11      K             K             BEL   7     501   0     0     23    4   6   4   0   3   4   2   
+12:       12      L             L             BEL   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     21    4   4   0   4   0   6   3   
+14:       14      N             N             BEL   6     501   0     0     26    6   2   7   6   3   0   2   
+15:       15      O             O             BEL   7     501   0     0     21    2   1   5   4   2   7   0   
+16:       16      P             P             BEL   7     501   0     0     31    7   0   7   6   3   4   4   
+
+
+#Number  :014
+Country  :BEL
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      17     7      3      19     
+Away      9      4      11     14     1      
+Third     4      11     7      12     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     46    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     31    6   3   6   1   1   7   7   
+03:       3       C             C             BEL   3     501   0     0     14    7   0   2   0   4   1   0   
+04:       4       D             D             BEL   3     501   0     0     27    4   2   7   1   1   5   7   
+05:       5       E             E             BEL   2     501   0     0     24    7   6   1   6   3   0   1   
+06:       6       F             F             BEL   4     501   0     0     24    6   5   2   3   5   2   1   
+07:       7       G             G             BEL   6     501   0     0     26    5   3   4   6   3   3   2   
+08:       8       H             H             BEL   6     501   0     0     26    5   4   7   2   1   3   4   
+09:       9       I             I             BEL   5     501   0     0     26    4   5   6   1   4   2   4   
+10:       10      J             J             BEL   7     501   0     0     29    3   2   2   2   6   7   7   
+11:       11      K             K             BEL   7     501   0     0     30    7   3   7   2   5   1   5   
+12:       12      L             L             BEL   0     501   0     0     12    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     30    2   2   7   2   7   6   4   
+14:       14      N             N             BEL   6     501   0     0     28    5   4   5   5   4   2   3   
+15:       15      O             O             BEL   7     501   0     0     22    1   7   2   2   4   1   5   
+16:       16      P             P             BEL   7     501   0     0     36    4   5   6   6   3   7   5   
+
+
+#Number  :015
+Country  :BEL
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      3      12     8      5      
+Away      2      6      1      13     2      
+Third     13     8      1      2      10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     10    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     33    4   5   6   5   6   4   3   
+03:       3       C             C             BEL   3     501   0     0     19    0   3   4   3   3   6   0   
+04:       4       D             D             BEL   3     501   0     0     27    4   4   6   1   7   3   2   
+05:       5       E             E             BEL   2     501   0     0     27    1   3   3   6   1   7   6   
+06:       6       F             F             BEL   4     501   0     0     14    1   0   1   3   7   1   1   
+07:       7       G             G             BEL   6     501   0     0     13    0   4   3   3   1   0   2   
+08:       8       H             H             BEL   6     501   0     0     23    0   6   5   0   0   7   5   
+09:       9       I             I             BEL   5     501   0     0     10    2   2   1   0   2   3   0   
+10:       10      J             J             BEL   7     501   0     0     30    7   6   3   4   4   5   1   
+11:       11      K             K             BEL   7     501   0     0     32    4   7   0   6   5   3   7   
+12:       12      L             L             BEL   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     28    4   0   4   4   4   6   6   
+14:       14      N             N             BEL   6     501   0     0     30    5   5   7   2   2   3   6   
+15:       15      O             O             BEL   7     501   0     0     25    1   5   5   1   2   5   6   
+16:       16      P             P             BEL   7     501   0     0     37    7   1   6   7   3   7   6   
+
+
+#Number  :016
+Country  :BEL
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      8      16     9      14     
+Away      0      9      18     8      2      
+Third     14     20     10     14     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     45    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     27    3   7   7   1   3   4   2   
+03:       3       C             C             BEL   3     501   0     0     31    6   1   7   1   5   6   5   
+04:       4       D             D             BEL   3     501   0     0     21    2   0   4   3   6   4   2   
+05:       5       E             E             BEL   2     501   0     0     23    7   7   1   2   0   3   3   
+06:       6       F             F             BEL   4     501   0     0     38    5   3   7   6   5   7   5   
+07:       7       G             G             BEL   6     501   0     0     26    7   1   0   7   3   2   6   
+08:       8       H             H             BEL   6     501   0     0     39    7   6   7   5   3   4   7   
+09:       9       I             I             BEL   5     501   0     0     31    5   7   7   1   6   1   4   
+10:       10      J             J             BEL   7     501   0     0     25    5   4   1   5   4   3   3   
+11:       11      K             K             BEL   7     501   0     0     24    0   7   5   1   3   4   4   
+12:       12      L             L             BEL   0     501   0     0     17    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     18    6   0   2   5   1   0   4   
+14:       14      N             N             BEL   6     501   0     0     24    4   1   5   0   3   6   5   
+15:       15      O             O             BEL   7     501   0     0     21    4   2   3   4   1   6   1   
+16:       16      P             P             BEL   7     501   0     0     17    6   1   1   3   2   0   4   
+
+
+#Number  :017
+Country  :BEL
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     19     5      6      18     
+Away      5      19     17     16     19     
+Third     14     15     4      3      2      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     9     0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     27    3   1   7   4   6   2   4   
+03:       3       C             C             BEL   3     501   0     0     23    7   3   1   3   1   7   1   
+04:       4       D             D             BEL   3     501   0     0     29    7   3   4   5   4   1   5   
+05:       5       E             E             BEL   2     501   0     0     30    1   1   6   7   3   7   5   
+06:       6       F             F             BEL   4     501   0     0     31    5   6   3   3   6   2   6   
+07:       7       G             G             BEL   6     501   0     0     31    5   5   5   7   5   4   0   
+08:       8       H             H             BEL   6     501   0     0     22    5   3   4   3   0   6   1   
+09:       9       I             I             BEL   5     501   0     0     32    6   3   7   2   4   5   5   
+10:       10      J             J             BEL   7     501   0     0     19    1   0   4   3   6   0   5   
+11:       11      K             K             BEL   7     501   0     0     18    4   5   5   1   3   0   0   
+12:       12      L             L             BEL   0     501   0     0     2     0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     14    1   7   0   0   1   3   2   
+14:       14      N             N             BEL   6     501   0     0     22    2   4   2   4   5   3   2   
+15:       15      O             O             BEL   7     501   0     0     36    3   7   7   3   6   5   5   
+16:       16      P             P             BEL   7     501   0     0     18    1   0   2   1   4   6   4   
+
+
+#Number  :018
+Country  :BEL
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     16     18     3      10     
+Away      13     19     4      1      16     
+Third     16     11     6      17     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BEL   0     501   0     0     26    0   0   0   0   0   0   0   
+02:       2       B             B             BEL   1     501   0     0     30    6   2   1   4   4   7   6   
+03:       3       C             C             BEL   3     501   0     0     41    6   5   3   7   7   6   7   
+04:       4       D             D             BEL   3     501   0     0     21    6   1   0   1   5   3   5   
+05:       5       E             E             BEL   2     501   0     0     24    0   2   4   5   7   1   5   
+06:       6       F             F             BEL   4     501   0     0     20    4   3   2   3   3   0   5   
+07:       7       G             G             BEL   6     501   0     0     24    7   0   5   7   0   5   0   
+08:       8       H             H             BEL   6     501   0     0     26    5   1   1   5   6   6   2   
+09:       9       I             I             BEL   5     501   0     0     21    0   5   6   4   1   2   3   
+10:       10      J             J             BEL   7     501   0     0     32    7   3   7   2   5   3   5   
+11:       11      K             K             BEL   7     501   0     0     28    6   1   5   4   2   7   3   
+12:       12      L             L             BEL   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             BEL   3     501   0     0     26    6   2   3   4   3   2   6   
+14:       14      N             N             BEL   6     501   0     0     20    5   2   2   6   4   0   1   
+15:       15      O             O             BEL   7     501   0     0     26    4   1   5   0   4   7   5   
+16:       16      P             P             BEL   7     501   0     0     18    5   2   4   4   0   2   1   
+
+

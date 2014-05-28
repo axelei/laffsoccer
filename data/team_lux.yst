@@ -1,0 +1,702 @@
+#Number  :001
+Country  :LUX
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     15     12     4      1      
+Away      9      5      10     0      9      
+Third     9      13     1      22     2      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     16    2   5   2   0   0   0   7   
+03:       3       C             C             LUX   3     501   0     0     21    7   3   6   4   0   0   1   
+04:       4       D             D             LUX   3     501   0     0     25    5   4   2   3   1   7   3   
+05:       5       E             E             LUX   2     501   0     0     25    7   3   1   5   3   0   6   
+06:       6       F             F             LUX   4     501   0     0     33    1   1   5   7   7   6   6   
+07:       7       G             G             LUX   6     501   0     0     29    1   4   2   6   5   6   5   
+08:       8       H             H             LUX   6     501   0     0     31    5   3   7   0   7   4   5   
+09:       9       I             I             LUX   5     501   0     0     22    1   6   1   1   0   6   7   
+10:       10      J             J             LUX   7     501   0     0     24    4   0   4   3   0   6   7   
+11:       11      K             K             LUX   7     501   0     0     30    2   5   5   1   7   6   4   
+12:       12      L             L             LUX   0     501   0     0     23    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     19    2   4   0   6   4   2   1   
+14:       14      N             N             LUX   6     501   0     0     27    4   4   7   0   1   6   5   
+15:       15      O             O             LUX   7     501   0     0     27    7   2   1   7   4   4   2   
+16:       16      P             P             LUX   7     501   0     0     23    7   5   3   2   1   3   2   
+
+
+#Number  :002
+Country  :LUX
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     3      0      2      2      
+Away      13     14     20     14     2      
+Third     13     22     1      14     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     0     0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     19    3   2   5   0   4   5   0   
+03:       3       C             C             LUX   3     501   0     0     22    6   4   5   3   2   2   0   
+04:       4       D             D             LUX   3     501   0     0     22    3   3   1   5   0   6   4   
+05:       5       E             E             LUX   2     501   0     0     21    3   1   1   1   4   4   7   
+06:       6       F             F             LUX   4     501   0     0     23    1   5   3   5   3   5   1   
+07:       7       G             G             LUX   6     501   0     0     18    1   3   0   3   2   6   3   
+08:       8       H             H             LUX   6     501   0     0     28    6   5   2   3   7   4   1   
+09:       9       I             I             LUX   5     501   0     0     21    4   7   3   5   2   0   0   
+10:       10      J             J             LUX   7     501   0     0     21    4   1   2   2   5   7   0   
+11:       11      K             K             LUX   7     501   0     0     33    6   3   2   7   3   7   5   
+12:       12      L             L             LUX   0     501   0     0     28    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     26    7   4   0   7   2   3   3   
+14:       14      N             N             LUX   6     501   0     0     20    4   4   1   5   1   4   1   
+15:       15      O             O             LUX   7     501   0     0     30    7   5   1   3   5   6   3   
+16:       16      P             P             LUX   7     501   0     0     33    3   5   6   1   7   5   6   
+
+
+#Number  :003
+Country  :LUX
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      12     22     22     8      
+Away      13     4      18     10     15     
+Third     1      0      7      9      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     18    2   1   1   1   2   7   4   
+03:       3       C             C             LUX   3     501   0     0     32    1   7   6   7   7   0   4   
+04:       4       D             D             LUX   3     501   0     0     25    6   2   3   4   4   3   3   
+05:       5       E             E             LUX   2     501   0     0     36    7   7   4   7   0   5   6   
+06:       6       F             F             LUX   4     501   0     0     25    0   1   7   3   7   4   3   
+07:       7       G             G             LUX   6     501   0     0     25    3   4   5   1   0   6   6   
+08:       8       H             H             LUX   6     501   0     0     18    4   2   4   5   0   1   2   
+09:       9       I             I             LUX   5     501   0     0     30    5   3   6   4   1   6   5   
+10:       10      J             J             LUX   7     501   0     0     15    1   3   4   0   2   0   5   
+11:       11      K             K             LUX   7     501   0     0     24    5   3   6   2   4   3   1   
+12:       12      L             L             LUX   0     501   0     0     34    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     16    4   1   0   1   2   3   5   
+14:       14      N             N             LUX   6     501   0     0     27    2   1   3   7   1   7   6   
+15:       15      O             O             LUX   7     501   0     0     16    7   0   3   0   1   0   5   
+16:       16      P             P             LUX   7     501   0     0     12    0   0   1   6   2   3   0   
+
+
+#Number  :004
+Country  :LUX
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      12     3      9      20     
+Away      12     13     6      14     3      
+Third     13     9      9      7      18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     13    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     29    2   4   7   6   3   2   5   
+03:       3       C             C             LUX   3     501   0     0     29    6   5   3   1   5   5   4   
+04:       4       D             D             LUX   3     501   0     0     27    4   7   7   1   2   0   6   
+05:       5       E             E             LUX   2     501   0     0     16    3   3   1   1   4   1   3   
+06:       6       F             F             LUX   4     501   0     0     12    2   4   0   4   0   2   0   
+07:       7       G             G             LUX   6     501   0     0     21    7   3   6   1   3   0   1   
+08:       8       H             H             LUX   6     501   0     0     34    6   1   6   7   4   6   4   
+09:       9       I             I             LUX   5     501   0     0     29    6   2   3   7   6   1   4   
+10:       10      J             J             LUX   7     501   0     0     16    0   4   1   1   3   0   7   
+11:       11      K             K             LUX   7     501   0     0     20    4   7   1   0   3   5   0   
+12:       12      L             L             LUX   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     19    5   0   7   2   4   1   0   
+14:       14      N             N             LUX   6     501   0     0     9     1   3   0   1   1   3   0   
+15:       15      O             O             LUX   7     501   0     0     20    4   1   5   1   4   0   5   
+16:       16      P             P             LUX   7     501   0     0     28    7   2   5   0   4   3   7   
+
+
+#Number  :005
+Country  :LUX
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      9      5      4      22     
+Away      5      21     9      6      9      
+Third     14     9      4      13     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     29    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     21    1   0   6   1   2   4   7   
+03:       3       C             C             LUX   3     501   0     0     24    3   6   6   0   1   1   7   
+04:       4       D             D             LUX   3     501   0     0     19    1   7   0   4   0   4   3   
+05:       5       E             E             LUX   2     501   0     0     24    2   2   7   3   5   1   4   
+06:       6       F             F             LUX   4     501   0     0     27    6   4   2   4   6   5   0   
+07:       7       G             G             LUX   6     501   0     0     19    2   4   0   7   0   2   4   
+08:       8       H             H             LUX   6     501   0     0     25    2   7   0   4   7   3   2   
+09:       9       I             I             LUX   5     501   0     0     23    2   2   7   6   4   0   2   
+10:       10      J             J             LUX   7     501   0     0     17    1   0   3   5   0   2   6   
+11:       11      K             K             LUX   7     501   0     0     14    0   2   5   5   1   1   0   
+12:       12      L             L             LUX   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     28    3   6   3   5   2   2   7   
+14:       14      N             N             LUX   6     501   0     0     37    5   6   4   6   2   7   7   
+15:       15      O             O             LUX   7     501   0     0     16    2   1   2   0   4   6   1   
+16:       16      P             P             LUX   7     501   0     0     26    7   2   3   0   5   2   7   
+
+
+#Number  :006
+Country  :LUX
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     13     13     18     21     
+Away      2      13     0      4      5      
+Third     0      19     19     9      17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     35    5   7   6   3   6   3   5   
+03:       3       C             C             LUX   3     501   0     0     28    4   7   0   4   7   3   3   
+04:       4       D             D             LUX   3     501   0     0     25    6   3   0   2   0   7   7   
+05:       5       E             E             LUX   2     501   0     0     26    7   1   5   2   7   1   3   
+06:       6       F             F             LUX   4     501   0     0     28    6   6   5   0   6   1   4   
+07:       7       G             G             LUX   6     501   0     0     22    5   2   2   3   0   7   3   
+08:       8       H             H             LUX   6     501   0     0     22    3   3   1   6   7   1   1   
+09:       9       I             I             LUX   5     501   0     0     21    4   0   7   2   5   2   1   
+10:       10      J             J             LUX   7     501   0     0     35    4   6   3   5   4   7   6   
+11:       11      K             K             LUX   7     501   0     0     20    0   6   4   3   7   0   0   
+12:       12      L             L             LUX   0     501   0     0     6     0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     20    5   0   0   6   1   5   3   
+14:       14      N             N             LUX   6     501   0     0     15    0   3   0   5   3   0   4   
+15:       15      O             O             LUX   7     501   0     0     12    3   2   0   0   2   0   5   
+16:       16      P             P             LUX   7     501   0     0     18    2   1   5   1   0   2   7   
+
+
+#Number  :007
+Country  :LUX
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      11     2      0      14     
+Away      7      12     3      17     6      
+Third     13     9      21     20     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     28    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     20    6   2   5   5   2   0   0   
+03:       3       C             C             LUX   3     501   0     0     23    1   4   3   1   7   2   5   
+04:       4       D             D             LUX   3     501   0     0     26    4   2   6   3   0   4   7   
+05:       5       E             E             LUX   2     501   0     0     17    2   1   7   1   0   6   0   
+06:       6       F             F             LUX   4     501   0     0     21    7   5   5   0   0   1   3   
+07:       7       G             G             LUX   6     501   0     0     24    5   5   3   3   2   3   3   
+08:       8       H             H             LUX   6     501   0     0     35    6   4   7   3   4   7   4   
+09:       9       I             I             LUX   5     501   0     0     27    5   2   4   5   1   6   4   
+10:       10      J             J             LUX   7     501   0     0     23    2   5   1   1   2   5   7   
+11:       11      K             K             LUX   7     501   0     0     14    5   0   2   0   3   2   2   
+12:       12      L             L             LUX   0     501   0     0     3     0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     26    3   4   4   4   7   3   1   
+14:       14      N             N             LUX   6     501   0     0     21    4   1   6   0   1   6   3   
+15:       15      O             O             LUX   7     501   0     0     20    0   5   6   1   2   1   5   
+16:       16      P             P             LUX   7     501   0     0     19    0   6   4   1   3   4   1   
+
+
+#Number  :008
+Country  :LUX
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      4      0      22     1      
+Away      0      16     10     9      11     
+Third     12     18     2      18     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     7     1   2   0   1   1   1   1   
+03:       3       C             C             LUX   3     501   0     0     18    2   0   3   0   5   3   5   
+04:       4       D             D             LUX   3     501   0     0     18    6   0   0   4   1   2   5   
+05:       5       E             E             LUX   2     501   0     0     19    1   6   6   4   1   1   0   
+06:       6       F             F             LUX   4     501   0     0     16    1   3   3   5   0   3   1   
+07:       7       G             G             LUX   6     501   0     0     27    4   5   2   1   2   6   7   
+08:       8       H             H             LUX   6     501   0     0     23    5   3   6   4   0   4   1   
+09:       9       I             I             LUX   5     501   0     0     18    0   0   0   4   2   7   5   
+10:       10      J             J             LUX   7     501   0     0     20    4   1   7   1   3   1   3   
+11:       11      K             K             LUX   7     501   0     0     21    1   1   6   1   4   7   1   
+12:       12      L             L             LUX   0     501   0     0     45    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     27    1   2   7   5   0   6   6   
+14:       14      N             N             LUX   6     501   0     0     33    6   6   7   4   3   4   3   
+15:       15      O             O             LUX   7     501   0     0     26    2   5   3   7   1   2   6   
+16:       16      P             P             LUX   7     501   0     0     37    5   5   4   6   3   7   7   
+
+
+#Number  :009
+Country  :LUX
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      13     13     1      4      
+Away      5      17     12     13     17     
+Third     12     6      19     11     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     22    4   2   3   2   1   6   4   
+03:       3       C             C             LUX   3     501   0     0     21    1   0   4   2   6   2   6   
+04:       4       D             D             LUX   3     501   0     0     19    0   1   0   3   5   3   7   
+05:       5       E             E             LUX   2     501   0     0     24    7   4   4   1   6   1   1   
+06:       6       F             F             LUX   4     501   0     0     20    3   2   6   3   2   3   1   
+07:       7       G             G             LUX   6     501   0     0     20    1   5   3   1   2   3   5   
+08:       8       H             H             LUX   6     501   0     0     27    7   0   4   4   3   5   4   
+09:       9       I             I             LUX   5     501   0     0     25    1   4   5   2   7   3   3   
+10:       10      J             J             LUX   7     501   0     0     23    2   1   5   6   4   0   5   
+11:       11      K             K             LUX   7     501   0     0     24    4   5   1   3   3   4   4   
+12:       12      L             L             LUX   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     28    4   5   3   4   5   3   4   
+14:       14      N             N             LUX   6     501   0     0     24    4   4   2   1   3   6   4   
+15:       15      O             O             LUX   7     501   0     0     24    1   6   3   6   2   4   2   
+16:       16      P             P             LUX   7     501   0     0     28    6   3   5   5   2   5   2   
+
+
+#Number  :010
+Country  :LUX
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      22     11     8      19     
+Away      17     9      0      2      17     
+Third     18     3      10     14     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     2     0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     32    0   7   5   4   4   7   5   
+03:       3       C             C             LUX   3     501   0     0     13    2   7   0   0   0   3   1   
+04:       4       D             D             LUX   3     501   0     0     25    2   4   0   6   0   6   7   
+05:       5       E             E             LUX   2     501   0     0     17    1   1   5   4   0   1   5   
+06:       6       F             F             LUX   4     501   0     0     27    1   6   1   6   2   4   7   
+07:       7       G             G             LUX   6     501   0     0     31    4   5   6   2   6   1   7   
+08:       8       H             H             LUX   6     501   0     0     27    5   0   1   5   6   5   5   
+09:       9       I             I             LUX   5     501   0     0     20    5   3   7   1   0   1   3   
+10:       10      J             J             LUX   7     501   0     0     21    1   6   0   7   1   1   5   
+11:       11      K             K             LUX   7     501   0     0     21    1   4   0   7   6   0   3   
+12:       12      L             L             LUX   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     22    6   0   1   4   7   2   2   
+14:       14      N             N             LUX   6     501   0     0     33    5   5   4   7   7   1   4   
+15:       15      O             O             LUX   7     501   0     0     25    4   7   2   3   4   0   5   
+16:       16      P             P             LUX   7     501   0     0     19    0   0   7   0   5   7   0   
+
+
+#Number  :011
+Country  :LUX
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     19     6      15     9      
+Away      9      4      8      1      0      
+Third     5      2      4      0      1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     3     0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     15    0   4   6   0   4   0   1   
+03:       3       C             C             LUX   3     501   0     0     18    0   4   4   5   5   0   0   
+04:       4       D             D             LUX   3     501   0     0     24    3   2   4   6   4   4   1   
+05:       5       E             E             LUX   2     501   0     0     23    3   4   1   5   3   1   6   
+06:       6       F             F             LUX   4     501   0     0     30    6   0   7   6   4   2   5   
+07:       7       G             G             LUX   6     501   0     0     22    1   3   1   5   5   2   5   
+08:       8       H             H             LUX   6     501   0     0     28    7   2   3   1   3   5   7   
+09:       9       I             I             LUX   5     501   0     0     19    2   6   6   5   0   0   0   
+10:       10      J             J             LUX   7     501   0     0     29    3   2   5   2   6   5   6   
+11:       11      K             K             LUX   7     501   0     0     16    1   4   3   2   0   0   6   
+12:       12      L             L             LUX   0     501   0     0     34    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     15    0   3   6   0   1   1   4   
+14:       14      N             N             LUX   6     501   0     0     34    1   7   5   7   2   5   7   
+15:       15      O             O             LUX   7     501   0     0     27    1   1   2   6   7   7   3   
+16:       16      P             P             LUX   7     501   0     0     25    5   7   1   1   4   6   1   
+
+
+#Number  :012
+Country  :LUX
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     1      0      13     16     
+Away      14     18     6      6      18     
+Third     9      1      5      21     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     19    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     17    1   0   1   1   6   7   1   
+03:       3       C             C             LUX   3     501   0     0     37    5   5   7   7   7   6   0   
+04:       4       D             D             LUX   3     501   0     0     15    0   4   0   3   3   5   0   
+05:       5       E             E             LUX   2     501   0     0     28    1   7   6   3   3   3   5   
+06:       6       F             F             LUX   4     501   0     0     22    5   1   2   3   7   3   1   
+07:       7       G             G             LUX   6     501   0     0     20    4   0   1   5   1   6   3   
+08:       8       H             H             LUX   6     501   0     0     20    2   5   1   4   1   4   3   
+09:       9       I             I             LUX   5     501   0     0     27    7   0   5   3   5   7   0   
+10:       10      J             J             LUX   7     501   0     0     20    5   5   0   4   1   1   4   
+11:       11      K             K             LUX   7     501   0     0     34    7   5   0   6   6   7   3   
+12:       12      L             L             LUX   0     501   0     0     3     0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     25    3   2   6   2   6   0   6   
+14:       14      N             N             LUX   6     501   0     0     26    3   2   4   7   6   4   0   
+15:       15      O             O             LUX   7     501   0     0     34    2   4   6   7   7   5   3   
+16:       16      P             P             LUX   7     501   0     0     32    4   6   0   5   6   4   7   
+
+
+#Number  :013
+Country  :LUX
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      14     9      8      15     
+Away      2      13     20     2      15     
+Third     14     10     2      14     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     15    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     24    4   5   2   6   1   2   4   
+03:       3       C             C             LUX   3     501   0     0     25    6   7   1   3   3   4   1   
+04:       4       D             D             LUX   3     501   0     0     22    4   4   1   6   1   2   4   
+05:       5       E             E             LUX   2     501   0     0     31    4   6   1   6   6   2   6   
+06:       6       F             F             LUX   4     501   0     0     22    2   5   6   1   3   2   3   
+07:       7       G             G             LUX   6     501   0     0     23    3   2   3   7   3   5   0   
+08:       8       H             H             LUX   6     501   0     0     32    7   3   4   6   4   7   1   
+09:       9       I             I             LUX   5     501   0     0     18    6   1   2   0   2   0   7   
+10:       10      J             J             LUX   7     501   0     0     21    0   0   0   5   4   6   6   
+11:       11      K             K             LUX   7     501   0     0     22    6   6   3   1   3   3   0   
+12:       12      L             L             LUX   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     28    6   6   6   4   0   4   2   
+14:       14      N             N             LUX   6     501   0     0     18    0   5   0   5   4   3   1   
+15:       15      O             O             LUX   7     501   0     0     20    3   5   4   0   0   2   6   
+16:       16      P             P             LUX   7     501   0     0     24    2   1   4   5   2   3   7   
+
+
+#Number  :014
+Country  :LUX
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     15     0      0      15     
+Away      3      0      19     5      15     
+Third     8      16     10     3      10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     19    4   1   0   2   0   7   5   
+03:       3       C             C             LUX   3     501   0     0     26    1   2   5   6   2   3   7   
+04:       4       D             D             LUX   3     501   0     0     24    4   5   0   5   1   4   5   
+05:       5       E             E             LUX   2     501   0     0     31    3   4   4   3   6   6   5   
+06:       6       F             F             LUX   4     501   0     0     32    6   0   3   6   6   6   5   
+07:       7       G             G             LUX   6     501   0     0     33    6   7   6   5   6   3   0   
+08:       8       H             H             LUX   6     501   0     0     27    6   3   4   7   0   4   3   
+09:       9       I             I             LUX   5     501   0     0     15    0   1   7   0   2   3   2   
+10:       10      J             J             LUX   7     501   0     0     29    3   7   0   7   4   7   1   
+11:       11      K             K             LUX   7     501   0     0     27    5   1   6   1   7   5   2   
+12:       12      L             L             LUX   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     23    4   1   3   7   6   0   2   
+14:       14      N             N             LUX   6     501   0     0     32    2   6   5   4   5   6   4   
+15:       15      O             O             LUX   7     501   0     0     30    1   7   7   1   6   7   1   
+16:       16      P             P             LUX   7     501   0     0     25    4   5   2   2   4   1   7   
+
+
+#Number  :015
+Country  :LUX
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      9      22     16     5      
+Away      0      16     2      10     21     
+Third     2      11     17     22     2      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     48    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     25    0   7   3   2   5   3   5   
+03:       3       C             C             LUX   3     501   0     0     29    1   5   6   5   0   5   7   
+04:       4       D             D             LUX   3     501   0     0     38    6   5   1   7   5   7   7   
+05:       5       E             E             LUX   2     501   0     0     31    4   1   4   7   2   6   7   
+06:       6       F             F             LUX   4     501   0     0     17    0   7   2   3   2   0   3   
+07:       7       G             G             LUX   6     501   0     0     24    2   0   7   0   6   2   7   
+08:       8       H             H             LUX   6     501   0     0     25    7   0   7   4   1   4   2   
+09:       9       I             I             LUX   5     501   0     0     28    7   5   3   6   0   7   0   
+10:       10      J             J             LUX   7     501   0     0     11    4   0   1   0   3   0   3   
+11:       11      K             K             LUX   7     501   0     0     13    5   1   3   2   0   2   0   
+12:       12      L             L             LUX   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     23    5   6   1   0   5   5   1   
+14:       14      N             N             LUX   6     501   0     0     25    1   3   3   3   6   4   5   
+15:       15      O             O             LUX   7     501   0     0     30    7   3   3   7   1   3   6   
+16:       16      P             P             LUX   7     501   0     0     28    7   2   1   7   0   6   5   
+
+
+#Number  :016
+Country  :LUX
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      22     2      8      13     
+Away      6      21     18     20     8      
+Third     5      14     0      5      5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     12    1   0   0   4   3   0   4   
+03:       3       C             C             LUX   3     501   0     0     30    0   6   5   6   2   7   4   
+04:       4       D             D             LUX   3     501   0     0     14    7   1   3   0   2   1   0   
+05:       5       E             E             LUX   2     501   0     0     26    4   3   5   3   3   7   1   
+06:       6       F             F             LUX   4     501   0     0     17    3   2   2   1   5   3   1   
+07:       7       G             G             LUX   6     501   0     0     26    2   5   5   5   0   2   7   
+08:       8       H             H             LUX   6     501   0     0     33    6   6   4   6   1   4   6   
+09:       9       I             I             LUX   5     501   0     0     30    5   5   3   3   4   7   3   
+10:       10      J             J             LUX   7     501   0     0     24    1   7   3   5   2   2   4   
+11:       11      K             K             LUX   7     501   0     0     32    6   7   3   1   6   6   3   
+12:       12      L             L             LUX   0     501   0     0     39    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     21    2   5   5   3   1   5   0   
+14:       14      N             N             LUX   6     501   0     0     31    7   5   6   7   0   2   4   
+15:       15      O             O             LUX   7     501   0     0     20    2   0   4   5   2   7   0   
+16:       16      P             P             LUX   7     501   0     0     21    1   4   7   1   1   4   3   
+
+
+#Number  :017
+Country  :LUX
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      3      21     7      4      
+Away      2      12     0      18     12     
+Third     2      16     5      17     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     22    0   5   1   5   6   2   3   
+03:       3       C             C             LUX   3     501   0     0     29    7   5   1   1   5   7   3   
+04:       4       D             D             LUX   3     501   0     0     25    1   2   7   6   5   0   4   
+05:       5       E             E             LUX   2     501   0     0     14    5   3   2   0   1   0   3   
+06:       6       F             F             LUX   4     501   0     0     17    0   0   4   2   5   4   2   
+07:       7       G             G             LUX   6     501   0     0     21    5   7   2   0   4   3   0   
+08:       8       H             H             LUX   6     501   0     0     19    4   2   2   0   2   7   2   
+09:       9       I             I             LUX   5     501   0     0     34    4   3   5   7   7   5   3   
+10:       10      J             J             LUX   7     501   0     0     15    6   1   1   0   2   0   5   
+11:       11      K             K             LUX   7     501   0     0     29    3   6   2   3   2   6   7   
+12:       12      L             L             LUX   0     501   0     0     7     0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     35    5   2   5   6   7   5   5   
+14:       14      N             N             LUX   6     501   0     0     24    5   4   0   3   4   6   2   
+15:       15      O             O             LUX   7     501   0     0     30    4   7   6   6   4   0   3   
+16:       16      P             P             LUX   7     501   0     0     31    1   4   5   3   7   6   5   
+
+
+#Number  :018
+Country  :LUX
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      4      1      20     2      
+Away      5      15     20     1      18     
+Third     14     1      9      12     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LUX   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       B             B             LUX   1     501   0     0     34    4   2   7   4   6   7   4   
+03:       3       C             C             LUX   3     501   0     0     23    6   5   6   0   2   0   4   
+04:       4       D             D             LUX   3     501   0     0     29    6   2   7   3   2   2   7   
+05:       5       E             E             LUX   2     501   0     0     33    4   3   7   3   3   6   7   
+06:       6       F             F             LUX   4     501   0     0     29    3   3   2   6   4   5   6   
+07:       7       G             G             LUX   6     501   0     0     29    4   6   3   7   2   5   2   
+08:       8       H             H             LUX   6     501   0     0     30    2   7   5   7   0   3   6   
+09:       9       I             I             LUX   5     501   0     0     27    5   1   0   5   6   6   4   
+10:       10      J             J             LUX   7     501   0     0     30    2   1   7   3   5   5   7   
+11:       11      K             K             LUX   7     501   0     0     25    1   5   1   7   6   0   5   
+12:       12      L             L             LUX   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             LUX   3     501   0     0     38    5   7   7   7   7   5   0   
+14:       14      N             N             LUX   6     501   0     0     26    7   3   7   6   2   0   1   
+15:       15      O             O             LUX   7     501   0     0     17    2   7   0   0   7   0   1   
+16:       16      P             P             LUX   7     501   0     0     17    0   0   2   6   1   1   7   
+
+

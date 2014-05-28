@@ -1,0 +1,11 @@
+000 American Samoa(USA)
+001 Cook Islands(NZL)
+002 Fiji
+003 New Caledonia
+004 New Zealand
+005 Papua New Guinea
+006 Samoa
+007 Solomon Islands
+008 Tahiti
+009 Tonga
+010 Vanuatu

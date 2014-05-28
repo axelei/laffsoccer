@@ -1,0 +1,10 @@
+001 Liga Dep Quito
+002 El Nacional
+003 Deportivo Aucas
+004 Barcelona Sport
+005 Deportivo Quito
+006 Deportivo Quevedo
+007 Liga de Loja
+008 Emelec
+009 Deportivo Olmedo
+010 Deportivo Cuenca

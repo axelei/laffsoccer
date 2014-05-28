@@ -1,0 +1,52 @@
+000 Albania
+001 Andorra
+002 Armenia
+003 Austria
+004 Azerbaijan
+005 Belarus
+006 Belgium
+007 Bosnia-Herzegovina
+008 Bulgaria
+009 Croatia
+010 Cyprus
+011 Czech Republic
+012 Denmark
+013 England
+014 Estonia
+015 Faroe Islands
+016 Finland
+017 France
+018 Georgia
+019 Germany
+020 Greece
+021 Hungary
+022 Iceland
+023 Ireland Republic
+024 Israel
+025 Italy
+026 Kazakhstan
+027 Latvia
+028 Liechtenstein
+029 Lithuania
+030 Luxembourg
+031 Macedonia FYR
+032 Malta
+033 Moldova
+034 Netherlands
+035 Northern Ireland
+036 Norway
+037 Poland
+038 Portugal
+039 Romania
+040 Russia
+041 San Marino
+042 Scotland
+043 Serbia and Montenegro
+044 Slovakia
+045 Slovenia
+046 Spain
+047 Sweden
+048 Switzerland
+049 Turkey
+050 Ukraine
+051 Wales

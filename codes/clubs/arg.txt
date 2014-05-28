@@ -1,0 +1,39 @@
+001 Almagro
+002 Argentinos Juniors
+003 Arsenal Sarandi
+004 Banfield
+005 Boca Juniors
+006 Colon Santa Fe
+007 Estudiantes
+008 Gymnasia
+009 Huracan
+010 Indipendiente
+011 Instituto Cordoba
+012 Lanus
+013 Newells Old Boys
+014 Olimpo de Bahia
+015 Quilmes
+016 Racing
+017 River Plate
+018 Rosario Central
+019 San Lorenzo
+020 Velez Sarsfield
+
+101 Atletico Rafaela
+102 Belgrano (CBA)
+103 Chacarita JRS
+104 Defensa y Just.
+105 El Porvenir
+106 Ferro Carr Oeste
+107 Gimnasia Jujuy
+108 Godoy Cruz
+109 Huracan
+110 Juv. Antoniana
+111 Nueva Chicago
+112 San Martin Mza
+113 San Martin SJ
+114 Talleres CBA
+115 Tiro Federal
+116 Union Santa Fe
+117 CAI (C.Riv)
+118 Def.de Belgrano 

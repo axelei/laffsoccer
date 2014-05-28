@@ -1,0 +1,7 @@
+The codes in this folder are used to identify univocally a team in his country (or his confederation for national teams).
+They are also used to select the right logo.
+The tables are obtained from 2003/04 leagues, sorting teams by divisions, then alphabetically.
+
+I codici contenuti in questa cartella sono quelli utilizzati per identificare univocamente una squadra nel suo paese (o nella sua confederazione per la squadre nazionali).
+Sono anche usati per selezionare il logo.
+Le tabelle sono ottenute dai campionati 2003/04, ordinando le squadre per divisione e poi alfabeticamente.

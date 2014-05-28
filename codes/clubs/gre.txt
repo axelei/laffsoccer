@@ -1,0 +1,54 @@
+000 AEK Athens
+001 Aigaleo
+002 Akratitos
+003 Aris Thessaloniki
+004 Atromitos
+005 Ionikos
+006 Iraklis Thessaloniki
+007 Kallithea
+008 OFI Crete
+009 Olympiakos Piraeus
+010 Panathinaikos
+011 Paniliakos
+012 Panionios
+013 PAOK Thessaloniki
+014 Proodeutiki
+015 Skoda Xanthi
+
+016 Apollon Athens
+017 Apollon Kalamarias
+018 Atromitos
+020 Ergotelis
+021 Ethnikos Asteras
+021 Fostiras
+022 Kalamata
+023 Kerkira
+024 Kassandra
+025 Levadeiakos
+026 Niki Volou
+027 Panachaiki
+028 Panserraikos
+029 PAS Giannina
+030 Patraikos
+031 Poseidon Neon Poron
+
+032 Acharnaikos
+033 Agios Dimitrios
+034 Agrotikos Asteras
+035 Atsalenios
+036 Chalkida
+037 Doksa Dramas
+038 Ilisiakos
+039 Iltex Likoi
+040 Kastoria
+041 Kilkisiakos
+042 Kavala
+043 Larisa
+044 Leonidio
+045 Marko
+046 Pontiakos Neas Santas
+047 Rodos
+048 Thiela Patron
+049 Thrasivoulos Filis
+050 Veroia
+051 Vizas Megaron

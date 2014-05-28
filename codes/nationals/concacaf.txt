@@ -1,0 +1,36 @@
+000 Anguilla(UK)
+001 Antigua and Barbuda
+002 Aruba(NED)
+003 Bahamas
+004 Barbados
+005 Belize
+006 Bermuda(UK)
+007 British Virgin Islands(UK)
+008 Canada
+009 Cayman Islands(UK)
+010 Costa Rica
+011 Cuba
+012 Dominica
+013 Dominican Republic
+014 El Salvador
+015 Grenada
+016 Guatemala
+017 Guyana
+018 Haiti
+019 Honduras
+020 Jamaica
+021 Mexico
+022 Montserrat(UK)
+023 Netherlands Antilles(NED)
+024 Nicaragua
+025 Panama
+026 Puerto Rico(USA)
+027 St. Kitts & Nevis
+028 St. Lucia
+029 St. Vincent and the Grenadines
+030 Surinam
+031 Trinidad and Tobago
+032 Turks and Caicos Islands(UK)
+033 US Virgin Islands(USA)
+034 USA
+

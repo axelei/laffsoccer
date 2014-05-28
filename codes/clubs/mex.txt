@@ -1,0 +1,39 @@
+001 America
+002 Atlante
+003 Atlas
+004 Chivas Guadalajara
+005 Cruz Azul
+006 Dorados Sinaloa
+007 Jaguares
+008 Monarcas Morelia
+009 Monterrey
+010 Necaxa
+011 Pachuca
+012 Puebla
+013 Tecos
+014 Tigres
+015 Pumas
+016 Toluca
+017 Santos Laguna
+018 Veracruz
+
+020 Mexiquense
+021 Broncos
+022 Celaya
+023 Club Leon
+024 Cobras
+025 Correcaminos
+026 Chivas
+027 Colima
+028 Durango
+029 Coatzcoalcos
+030 Irapuato
+031 Lagartos
+032 Pachuca JR
+033 Merida
+034 Queretaro
+035 San Luis
+036 Estudiantes
+037 Potros Neza
+038 Pioneros
+040 Cobras

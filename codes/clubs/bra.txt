@@ -1,0 +1,22 @@
+001 Atletico Mineiro
+002 Atletico Paranaense
+003 Botafogo
+004 Brasiliense
+005 Corinthians
+006 Coritiba
+007 Cruzeiro
+008 Figueirense
+009 Flamengo
+010 Fluminense
+011 Fortaleza
+012 Goias
+013 Internacional
+014 Juventude
+015 Palmeiras
+016 Parana
+017 Paysandu
+018 Ponte Preta
+019 Santos
+020 Sao Caetano
+021 Sao Paulo
+022 Vasco da Gama

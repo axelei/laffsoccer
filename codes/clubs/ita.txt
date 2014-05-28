@@ -1,0 +1,138 @@
+000 Ancona
+001 Bologna
+002 Brescia
+003 Chievo Verona
+004 Empoli
+005 Inter
+006 Juventus
+007 Lazio
+008 Lecce
+009 Milan
+010 Modena
+011 Parma
+012 Perugia
+013 Reggina
+014 Roma
+015 Sampdoria
+016 Siena
+017 Udinese
+
+018 Albinoleffe
+019 Ascoli
+020 Atalanta
+021 Avellino
+022 Bari
+023 Cagliari
+024 Catania
+025 Como
+026 Fiorentina
+027 Genoa
+028 Hellas Verona
+029 Livorno
+030 Messina
+031 Napoli
+032 Palermo
+033 Pescara
+034 Piacenza
+035 Salernitana
+036 Ternana
+037 Torino
+038 Treviso
+039 Triestina
+040 Venezia
+041 Vicenza
+
+042 Arezzo
+043 Cesena
+044 Cittadella
+045 Lucchese
+046 Lumezzane
+047 Novara
+048 Padova
+049 Pavia
+050 Pisa
+051 Pistoiese
+052 Prato
+053 Pro Patria
+054 Reggiana
+055 Rimini
+056 S.p.a.l.
+057 Sassari Torres
+058 Spezia
+059 Varese
+
+060 Acireale
+061 Benevento
+062 Catanzaro
+063 Chieti
+064 Crotone
+065 Fermana
+066 Foggia
+067 Giulianova
+068 L' Aquila
+069 Lanciano
+070 Martina
+071 Paternò
+072 Sambenedettese
+073 Sora
+074 Taranto
+075 Teramo
+076 Vis Pesaro
+077 Viterbese
+
+078 Belluno
+079 Biellese
+080 Cremonese
+081 Ivrea
+082 Legnano
+083 Mantova
+084 Meda
+085 Montichiari
+086 Monza
+087 Olbia
+088 Palazzolo
+089 Pizzighettone
+090 Pro Sesto
+091 Pro Vercelli
+092 Sassuolo
+093 Savona
+094 Sudtirol Alto Adige
+095 Valenzana
+
+096 Aglianese
+097 Bellaria
+098 Carrarese
+099 Castelnuovo Garfagnana
+100 Cuoiopelli
+101 Fano
+102 Forlì
+103 Grosseto
+104 Gualdo
+105 Gubbio
+106 Imolese
+107 Montevarchi
+108 Ravenna
+109 Rosetana
+110 San Marino
+111 Sangiovannese
+112 Sansovino
+113 Tolentino
+
+114 Brindisi
+115 Castel di Sangro
+116 Cavese
+117 Fidelis Andria
+118 Frosinone
+119 Gela
+120 Giugliano
+121 Igea Virtus
+122 Isernia
+123 Latina
+124 Lodigiani
+125 Melfi
+126 Nocerina
+127 Palmese
+128 Ragusa
+129 Rutigliano
+130 Tivoli
+131 Vittoria

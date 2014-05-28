@@ -1,0 +1,702 @@
+#Number  :001
+Country  :LAO
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     9      4      19     21     
+Away      13     4      1      17     7      
+Third     17     16     9      15     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     28    6   7   7   1   3   4   0   
+03:       3       C             C             LAO   3     501   0     0     27    7   3   4   6   5   0   2   
+04:       4       D             D             LAO   3     501   0     0     24    4   5   5   6   2   1   1   
+05:       5       E             E             LAO   2     501   0     0     28    1   2   7   4   5   5   4   
+06:       6       F             F             LAO   4     501   0     0     18    4   1   4   1   7   0   1   
+07:       7       G             G             LAO   6     501   0     0     16    4   1   0   7   1   1   2   
+08:       8       H             H             LAO   6     501   0     0     37    7   5   6   6   6   0   7   
+09:       9       I             I             LAO   5     501   0     0     13    0   0   1   0   5   2   5   
+10:       10      J             J             LAO   7     501   0     0     20    1   0   3   2   5   3   6   
+11:       11      K             K             LAO   7     501   0     0     31    7   6   6   3   1   5   3   
+12:       12      L             L             LAO   0     501   0     0     11    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     25    0   3   7   6   5   4   0   
+14:       14      N             N             LAO   6     501   0     0     23    5   7   0   4   2   1   4   
+15:       15      O             O             LAO   7     501   0     0     30    1   6   7   0   7   4   5   
+16:       16      P             P             LAO   7     501   0     0     22    7   0   2   5   5   1   2   
+
+
+#Number  :002
+Country  :LAO
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      20     13     1      21     
+Away      5      10     13     10     12     
+Third     13     6      4      22     8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     34    7   6   7   0   6   3   5   
+03:       3       C             C             LAO   3     501   0     0     17    3   4   1   2   3   1   3   
+04:       4       D             D             LAO   3     501   0     0     25    0   2   5   7   0   6   5   
+05:       5       E             E             LAO   2     501   0     0     21    5   2   0   2   0   7   5   
+06:       6       F             F             LAO   4     501   0     0     21    1   7   0   0   6   4   3   
+07:       7       G             G             LAO   6     501   0     0     25    1   0   7   5   3   6   3   
+08:       8       H             H             LAO   6     501   0     0     24    3   3   3   7   2   4   2   
+09:       9       I             I             LAO   5     501   0     0     30    7   5   5   1   5   6   1   
+10:       10      J             J             LAO   7     501   0     0     23    5   1   6   6   4   0   1   
+11:       11      K             K             LAO   7     501   0     0     16    0   2   4   3   1   5   1   
+12:       12      L             L             LAO   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     26    2   6   7   6   0   3   2   
+14:       14      N             N             LAO   6     501   0     0     33    2   7   2   6   6   7   3   
+15:       15      O             O             LAO   7     501   0     0     13    2   5   1   1   1   1   2   
+16:       16      P             P             LAO   7     501   0     0     38    7   6   6   3   5   7   4   
+
+
+#Number  :003
+Country  :LAO
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     14     3      20     10     
+Away      9      8      6      6      10     
+Third     16     19     11     1      8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     41    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     23    1   2   4   4   5   6   1   
+03:       3       C             C             LAO   3     501   0     0     24    7   6   4   3   1   2   1   
+04:       4       D             D             LAO   3     501   0     0     22    5   3   7   3   0   4   0   
+05:       5       E             E             LAO   2     501   0     0     22    6   0   6   2   5   1   2   
+06:       6       F             F             LAO   4     501   0     0     11    3   0   1   2   2   2   1   
+07:       7       G             G             LAO   6     501   0     0     30    3   2   5   7   5   1   7   
+08:       8       H             H             LAO   6     501   0     0     23    2   2   4   1   4   7   3   
+09:       9       I             I             LAO   5     501   0     0     26    2   7   4   6   5   0   2   
+10:       10      J             J             LAO   7     501   0     0     16    6   0   0   4   2   0   4   
+11:       11      K             K             LAO   7     501   0     0     24    6   0   7   0   4   3   4   
+12:       12      L             L             LAO   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     30    4   4   5   5   5   6   1   
+14:       14      N             N             LAO   6     501   0     0     18    0   5   1   0   6   6   0   
+15:       15      O             O             LAO   7     501   0     0     26    4   3   5   4   5   1   4   
+16:       16      P             P             LAO   7     501   0     0     22    3   1   5   5   3   0   5   
+
+
+#Number  :004
+Country  :LAO
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     1      16     21     0      
+Away      13     1      2      17     3      
+Third     15     13     13     4      18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     30    5   4   6   2   2   5   6   
+03:       3       C             C             LAO   3     501   0     0     35    4   4   5   5   6   4   7   
+04:       4       D             D             LAO   3     501   0     0     21    2   2   3   4   7   1   2   
+05:       5       E             E             LAO   2     501   0     0     30    5   4   0   5   7   4   5   
+06:       6       F             F             LAO   4     501   0     0     20    4   3   2   1   3   0   7   
+07:       7       G             G             LAO   6     501   0     0     30    5   6   2   1   7   3   6   
+08:       8       H             H             LAO   6     501   0     0     21    7   5   4   0   0   4   1   
+09:       9       I             I             LAO   5     501   0     0     20    4   2   2   3   2   5   2   
+10:       10      J             J             LAO   7     501   0     0     26    2   4   7   1   4   3   5   
+11:       11      K             K             LAO   7     501   0     0     24    7   6   4   0   4   3   0   
+12:       12      L             L             LAO   0     501   0     0     11    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     30    6   3   5   1   3   5   7   
+14:       14      N             N             LAO   6     501   0     0     31    6   6   3   3   6   6   1   
+15:       15      O             O             LAO   7     501   0     0     20    4   0   0   2   2   6   6   
+16:       16      P             P             LAO   7     501   0     0     19    0   4   3   4   1   3   4   
+
+
+#Number  :005
+Country  :LAO
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      15     22     0      0      
+Away      2      7      22     17     10     
+Third     16     21     12     1      1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     31    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     28    7   1   1   6   5   4   4   
+03:       3       C             C             LAO   3     501   0     0     28    2   4   2   6   7   2   5   
+04:       4       D             D             LAO   3     501   0     0     21    1   1   0   2   4   7   6   
+05:       5       E             E             LAO   2     501   0     0     20    0   5   1   2   5   4   3   
+06:       6       F             F             LAO   4     501   0     0     22    3   6   0   4   4   4   1   
+07:       7       G             G             LAO   6     501   0     0     25    5   3   3   5   7   1   1   
+08:       8       H             H             LAO   6     501   0     0     25    3   3   4   0   7   2   6   
+09:       9       I             I             LAO   5     501   0     0     22    7   2   3   2   2   4   2   
+10:       10      J             J             LAO   7     501   0     0     33    7   5   5   4   5   5   2   
+11:       11      K             K             LAO   7     501   0     0     20    3   2   0   2   4   4   5   
+12:       12      L             L             LAO   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     27    4   6   0   6   6   3   2   
+14:       14      N             N             LAO   6     501   0     0     22    0   3   4   4   4   5   2   
+15:       15      O             O             LAO   7     501   0     0     22    3   6   4   4   2   1   2   
+16:       16      P             P             LAO   7     501   0     0     31    7   6   6   5   3   4   0   
+
+
+#Number  :006
+Country  :LAO
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      22     6      11     13     
+Away      12     0      21     7      3      
+Third     7      0      11     6      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     21    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     27    4   1   4   6   4   1   7   
+03:       3       C             C             LAO   3     501   0     0     26    6   7   2   0   4   6   1   
+04:       4       D             D             LAO   3     501   0     0     15    2   1   0   3   5   3   1   
+05:       5       E             E             LAO   2     501   0     0     26    4   5   0   1   5   4   7   
+06:       6       F             F             LAO   4     501   0     0     25    5   2   2   2   3   6   5   
+07:       7       G             G             LAO   6     501   0     0     20    7   5   4   1   0   0   3   
+08:       8       H             H             LAO   6     501   0     0     14    0   0   2   0   7   5   0   
+09:       9       I             I             LAO   5     501   0     0     18    2   0   5   0   1   5   5   
+10:       10      J             J             LAO   7     501   0     0     30    7   7   1   0   6   2   7   
+11:       11      K             K             LAO   7     501   0     0     26    1   7   4   5   5   3   1   
+12:       12      L             L             LAO   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     32    5   1   3   5   7   7   4   
+14:       14      N             N             LAO   6     501   0     0     27    2   3   2   6   7   6   1   
+15:       15      O             O             LAO   7     501   0     0     23    7   1   3   4   3   0   5   
+16:       16      P             P             LAO   7     501   0     0     23    2   7   2   2   5   2   3   
+
+
+#Number  :007
+Country  :LAO
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      6      14     12     22     
+Away      5      17     1      13     16     
+Third     9      13     8      18     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     15    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     28    0   7   4   2   2   7   6   
+03:       3       C             C             LAO   3     501   0     0     28    1   7   6   1   7   3   3   
+04:       4       D             D             LAO   3     501   0     0     22    0   5   1   2   5   4   5   
+05:       5       E             E             LAO   2     501   0     0     31    7   6   5   2   5   0   6   
+06:       6       F             F             LAO   4     501   0     0     35    5   3   7   4   5   5   6   
+07:       7       G             G             LAO   6     501   0     0     28    3   6   2   5   7   5   0   
+08:       8       H             H             LAO   6     501   0     0     14    0   4   0   2   2   2   4   
+09:       9       I             I             LAO   5     501   0     0     24    4   6   5   0   4   4   1   
+10:       10      J             J             LAO   7     501   0     0     28    6   2   4   5   6   4   1   
+11:       11      K             K             LAO   7     501   0     0     22    2   6   1   0   6   3   4   
+12:       12      L             L             LAO   0     501   0     0     49    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     26    1   5   4   5   7   1   3   
+14:       14      N             N             LAO   6     501   0     0     11    3   1   4   0   0   2   1   
+15:       15      O             O             LAO   7     501   0     0     24    2   6   4   7   3   1   1   
+16:       16      P             P             LAO   7     501   0     0     27    6   6   2   4   7   0   2   
+
+
+#Number  :008
+Country  :LAO
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      22     9      12     14     
+Away      16     11     9      22     11     
+Third     14     17     17     19     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     49    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     31    7   1   5   4   4   3   7   
+03:       3       C             C             LAO   3     501   0     0     22    4   0   0   7   4   0   7   
+04:       4       D             D             LAO   3     501   0     0     29    5   3   1   6   3   6   5   
+05:       5       E             E             LAO   2     501   0     0     24    2   2   6   5   4   5   0   
+06:       6       F             F             LAO   4     501   0     0     24    0   6   3   1   7   1   6   
+07:       7       G             G             LAO   6     501   0     0     22    4   0   6   4   7   0   1   
+08:       8       H             H             LAO   6     501   0     0     31    7   5   6   0   7   3   3   
+09:       9       I             I             LAO   5     501   0     0     33    3   3   3   7   6   7   4   
+10:       10      J             J             LAO   7     501   0     0     32    0   5   6   6   5   3   7   
+11:       11      K             K             LAO   7     501   0     0     22    7   4   4   5   2   0   0   
+12:       12      L             L             LAO   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     20    1   1   2   4   7   0   5   
+14:       14      N             N             LAO   6     501   0     0     20    2   5   2   4   0   6   1   
+15:       15      O             O             LAO   7     501   0     0     18    2   7   5   2   1   0   1   
+16:       16      P             P             LAO   7     501   0     0     35    6   7   4   6   4   7   1   
+
+
+#Number  :009
+Country  :LAO
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     19     19     7      2      
+Away      2      10     4      1      0      
+Third     7      10     9      13     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     18    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     28    6   7   0   1   6   6   2   
+03:       3       C             C             LAO   3     501   0     0     23    4   2   1   3   2   4   7   
+04:       4       D             D             LAO   3     501   0     0     26    3   1   2   5   1   7   7   
+05:       5       E             E             LAO   2     501   0     0     26    0   5   7   3   3   7   1   
+06:       6       F             F             LAO   4     501   0     0     25    7   2   6   0   3   1   6   
+07:       7       G             G             LAO   6     501   0     0     26    4   3   5   0   7   5   2   
+08:       8       H             H             LAO   6     501   0     0     31    5   1   5   7   3   5   5   
+09:       9       I             I             LAO   5     501   0     0     21    6   2   0   3   7   2   1   
+10:       10      J             J             LAO   7     501   0     0     35    3   7   7   4   5   3   6   
+11:       11      K             K             LAO   7     501   0     0     25    1   5   1   1   6   7   4   
+12:       12      L             L             LAO   0     501   0     0     42    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     33    7   7   3   2   6   6   2   
+14:       14      N             N             LAO   6     501   0     0     23    5   1   2   4   6   1   4   
+15:       15      O             O             LAO   7     501   0     0     20    5   3   0   5   1   3   3   
+16:       16      P             P             LAO   7     501   0     0     19    1   3   2   5   3   0   5   
+
+
+#Number  :010
+Country  :LAO
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     5      17     16     9      
+Away      12     6      2      7      15     
+Third     13     20     1      11     5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     32    7   5   4   0   2   7   7   
+03:       3       C             C             LAO   3     501   0     0     19    4   5   6   1   0   2   1   
+04:       4       D             D             LAO   3     501   0     0     29    6   5   6   2   3   1   6   
+05:       5       E             E             LAO   2     501   0     0     29    1   2   4   6   5   5   6   
+06:       6       F             F             LAO   4     501   0     0     29    5   1   4   6   5   4   4   
+07:       7       G             G             LAO   6     501   0     0     24    0   0   5   4   7   6   2   
+08:       8       H             H             LAO   6     501   0     0     32    5   6   6   1   7   4   3   
+09:       9       I             I             LAO   5     501   0     0     24    6   6   3   5   4   0   0   
+10:       10      J             J             LAO   7     501   0     0     27    0   2   7   4   2   7   5   
+11:       11      K             K             LAO   7     501   0     0     20    0   0   3   3   7   4   3   
+12:       12      L             L             LAO   0     501   0     0     14    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     25    0   3   3   5   2   7   5   
+14:       14      N             N             LAO   6     501   0     0     23    6   3   1   3   4   1   5   
+15:       15      O             O             LAO   7     501   0     0     27    0   0   7   5   2   7   6   
+16:       16      P             P             LAO   7     501   0     0     14    1   0   0   7   3   2   1   
+
+
+#Number  :011
+Country  :LAO
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     2      2      5      14     
+Away      5      9      5      4      7      
+Third     11     3      15     19     0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     15    2   3   3   1   1   3   2   
+03:       3       C             C             LAO   3     501   0     0     9     5   1   1   2   0   0   0   
+04:       4       D             D             LAO   3     501   0     0     32    3   5   6   6   0   7   5   
+05:       5       E             E             LAO   2     501   0     0     31    4   2   6   4   6   2   7   
+06:       6       F             F             LAO   4     501   0     0     18    3   6   0   3   4   0   2   
+07:       7       G             G             LAO   6     501   0     0     26    5   6   3   2   4   4   2   
+08:       8       H             H             LAO   6     501   0     0     15    0   7   0   1   0   6   1   
+09:       9       I             I             LAO   5     501   0     0     32    7   6   5   2   3   5   4   
+10:       10      J             J             LAO   7     501   0     0     20    4   1   2   4   2   0   7   
+11:       11      K             K             LAO   7     501   0     0     22    4   2   0   4   7   2   3   
+12:       12      L             L             LAO   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     29    5   6   6   6   1   4   1   
+14:       14      N             N             LAO   6     501   0     0     37    7   2   7   6   6   6   3   
+15:       15      O             O             LAO   7     501   0     0     15    1   0   2   0   0   7   5   
+16:       16      P             P             LAO   7     501   0     0     12    3   7   0   0   1   1   0   
+
+
+#Number  :012
+Country  :LAO
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      22     4      19     11     
+Away      4      20     16     17     22     
+Third     14     22     12     0      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     21    0   3   6   1   1   7   3   
+03:       3       C             C             LAO   3     501   0     0     25    5   7   4   2   0   3   4   
+04:       4       D             D             LAO   3     501   0     0     19    3   2   0   6   2   1   5   
+05:       5       E             E             LAO   2     501   0     0     26    6   6   3   1   3   7   0   
+06:       6       F             F             LAO   4     501   0     0     35    2   6   5   6   4   7   5   
+07:       7       G             G             LAO   6     501   0     0     12    6   0   0   2   2   2   0   
+08:       8       H             H             LAO   6     501   0     0     26    4   0   5   1   5   4   7   
+09:       9       I             I             LAO   5     501   0     0     28    3   2   4   7   0   6   6   
+10:       10      J             J             LAO   7     501   0     0     29    4   7   7   1   4   6   0   
+11:       11      K             K             LAO   7     501   0     0     29    4   5   6   7   0   1   6   
+12:       12      L             L             LAO   0     501   0     0     45    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     26    5   0   6   4   0   4   7   
+14:       14      N             N             LAO   6     501   0     0     31    0   7   7   3   6   2   6   
+15:       15      O             O             LAO   7     501   0     0     19    0   4   1   4   3   0   7   
+16:       16      P             P             LAO   7     501   0     0     26    4   6   2   1   7   4   2   
+
+
+#Number  :013
+Country  :LAO
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      20     3      6      19     
+Away      0      1      19     19     3      
+Third     7      6      5      5      1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     29    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     36    3   7   6   7   2   4   7   
+03:       3       C             C             LAO   3     501   0     0     25    1   6   7   1   6   4   0   
+04:       4       D             D             LAO   3     501   0     0     24    4   4   3   6   2   5   0   
+05:       5       E             E             LAO   2     501   0     0     18    5   2   0   2   3   3   3   
+06:       6       F             F             LAO   4     501   0     0     18    1   2   5   2   2   5   1   
+07:       7       G             G             LAO   6     501   0     0     28    4   6   5   5   1   4   3   
+08:       8       H             H             LAO   6     501   0     0     24    4   3   4   5   1   0   7   
+09:       9       I             I             LAO   5     501   0     0     23    2   1   3   4   0   7   6   
+10:       10      J             J             LAO   7     501   0     0     24    2   5   2   5   7   2   1   
+11:       11      K             K             LAO   7     501   0     0     23    4   1   5   4   7   2   0   
+12:       12      L             L             LAO   0     501   0     0     5     0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     24    1   7   4   1   3   6   2   
+14:       14      N             N             LAO   6     501   0     0     22    5   0   1   6   5   1   4   
+15:       15      O             O             LAO   7     501   0     0     33    6   6   6   0   7   6   2   
+16:       16      P             P             LAO   7     501   0     0     30    3   6   5   6   0   6   4   
+
+
+#Number  :014
+Country  :LAO
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     20     2      7      7      
+Away      16     9      20     11     9      
+Third     14     8      20     0      6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     28    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     28    2   3   3   6   3   5   6   
+03:       3       C             C             LAO   3     501   0     0     20    1   3   7   5   0   0   4   
+04:       4       D             D             LAO   3     501   0     0     29    0   3   2   6   4   7   7   
+05:       5       E             E             LAO   2     501   0     0     22    3   6   6   3   1   3   0   
+06:       6       F             F             LAO   4     501   0     0     27    4   2   6   0   6   6   3   
+07:       7       G             G             LAO   6     501   0     0     19    2   1   0   7   3   1   5   
+08:       8       H             H             LAO   6     501   0     0     31    4   4   7   5   6   3   2   
+09:       9       I             I             LAO   5     501   0     0     16    2   6   2   0   5   0   1   
+10:       10      J             J             LAO   7     501   0     0     19    2   5   0   1   6   2   3   
+11:       11      K             K             LAO   7     501   0     0     41    4   4   7   7   7   7   5   
+12:       12      L             L             LAO   0     501   0     0     22    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     24    3   1   5   6   6   0   3   
+14:       14      N             N             LAO   6     501   0     0     25    5   7   5   2   1   0   5   
+15:       15      O             O             LAO   7     501   0     0     28    6   6   0   3   6   0   7   
+16:       16      P             P             LAO   7     501   0     0     21    1   4   4   3   5   1   3   
+
+
+#Number  :015
+Country  :LAO
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      20     20     0      5      
+Away      2      21     19     16     6      
+Third     11     6      21     7      16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     31    3   4   7   3   1   6   7   
+03:       3       C             C             LAO   3     501   0     0     22    1   1   2   5   5   5   3   
+04:       4       D             D             LAO   3     501   0     0     22    0   2   5   0   3   6   6   
+05:       5       E             E             LAO   2     501   0     0     21    7   3   1   6   1   3   0   
+06:       6       F             F             LAO   4     501   0     0     23    6   2   1   5   2   5   2   
+07:       7       G             G             LAO   6     501   0     0     27    5   3   4   4   6   5   0   
+08:       8       H             H             LAO   6     501   0     0     13    0   6   1   0   1   2   3   
+09:       9       I             I             LAO   5     501   0     0     20    3   2   2   0   2   4   7   
+10:       10      J             J             LAO   7     501   0     0     26    7   5   3   4   3   2   2   
+11:       11      K             K             LAO   7     501   0     0     25    4   3   4   6   1   3   4   
+12:       12      L             L             LAO   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     19    0   2   2   6   5   1   3   
+14:       14      N             N             LAO   6     501   0     0     19    2   0   3   6   2   2   4   
+15:       15      O             O             LAO   7     501   0     0     19    1   1   6   1   0   3   7   
+16:       16      P             P             LAO   7     501   0     0     24    7   1   4   3   7   1   1   
+
+
+#Number  :016
+Country  :LAO
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      10     9      2      22     
+Away      16     5      22     19     17     
+Third     18     2      14     22     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     0     0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     21    4   4   5   3   4   1   0   
+03:       3       C             C             LAO   3     501   0     0     25    6   2   2   6   5   3   1   
+04:       4       D             D             LAO   3     501   0     0     16    2   0   2   2   0   5   5   
+05:       5       E             E             LAO   2     501   0     0     24    6   2   0   5   6   2   3   
+06:       6       F             F             LAO   4     501   0     0     21    2   7   2   2   0   6   2   
+07:       7       G             G             LAO   6     501   0     0     23    3   2   1   2   7   5   3   
+08:       8       H             H             LAO   6     501   0     0     19    4   4   3   1   0   5   2   
+09:       9       I             I             LAO   5     501   0     0     21    7   4   5   0   0   2   3   
+10:       10      J             J             LAO   7     501   0     0     33    4   6   5   4   6   2   6   
+11:       11      K             K             LAO   7     501   0     0     34    6   7   2   7   7   5   0   
+12:       12      L             L             LAO   0     501   0     0     34    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     26    4   3   1   3   6   6   3   
+14:       14      N             N             LAO   6     501   0     0     28    7   2   2   5   4   4   4   
+15:       15      O             O             LAO   7     501   0     0     15    0   6   0   7   0   1   1   
+16:       16      P             P             LAO   7     501   0     0     25    4   2   5   4   5   0   5   
+
+
+#Number  :017
+Country  :LAO
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     10     20     11     14     
+Away      7      0      18     16     9      
+Third     14     13     2      14     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     30    1   5   5   4   6   4   5   
+03:       3       C             C             LAO   3     501   0     0     17    6   7   1   0   0   2   1   
+04:       4       D             D             LAO   3     501   0     0     20    2   2   0   6   7   1   2   
+05:       5       E             E             LAO   2     501   0     0     27    5   0   3   4   4   6   5   
+06:       6       F             F             LAO   4     501   0     0     24    3   2   2   6   1   7   3   
+07:       7       G             G             LAO   6     501   0     0     27    1   6   3   7   6   3   1   
+08:       8       H             H             LAO   6     501   0     0     25    5   1   5   1   6   5   2   
+09:       9       I             I             LAO   5     501   0     0     27    6   5   1   4   7   1   3   
+10:       10      J             J             LAO   7     501   0     0     38    5   5   6   6   7   3   6   
+11:       11      K             K             LAO   7     501   0     0     33    5   5   5   2   7   6   3   
+12:       12      L             L             LAO   0     501   0     0     35    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     23    5   6   6   1   2   0   3   
+14:       14      N             N             LAO   6     501   0     0     24    4   0   5   0   5   6   4   
+15:       15      O             O             LAO   7     501   0     0     31    7   7   5   1   1   7   3   
+16:       16      P             P             LAO   7     501   0     0     26    2   2   5   7   2   2   6   
+
+
+#Number  :018
+Country  :LAO
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     16     3      18     1      
+Away      10     10     7      19     11     
+Third     9      21     20     1      10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             LAO   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             LAO   1     501   0     0     33    3   7   3   4   7   7   2   
+03:       3       C             C             LAO   3     501   0     0     20    0   7   2   4   0   7   0   
+04:       4       D             D             LAO   3     501   0     0     26    2   0   3   3   7   5   6   
+05:       5       E             E             LAO   2     501   0     0     28    6   2   0   3   5   5   7   
+06:       6       F             F             LAO   4     501   0     0     18    0   7   2   3   1   0   5   
+07:       7       G             G             LAO   6     501   0     0     20    3   0   6   4   5   0   2   
+08:       8       H             H             LAO   6     501   0     0     21    6   0   2   0   3   6   4   
+09:       9       I             I             LAO   5     501   0     0     23    1   0   5   0   6   7   4   
+10:       10      J             J             LAO   7     501   0     0     19    3   4   0   0   7   2   3   
+11:       11      K             K             LAO   7     501   0     0     22    5   3   3   3   1   3   4   
+12:       12      L             L             LAO   0     501   0     0     10    0   0   0   0   0   0   0   
+13:       13      M             M             LAO   3     501   0     0     33    1   4   6   6   3   6   7   
+14:       14      N             N             LAO   6     501   0     0     26    2   3   7   2   0   6   6   
+15:       15      O             O             LAO   7     501   0     0     26    3   0   2   7   4   7   3   
+16:       16      P             P             LAO   7     501   0     0     31    7   6   3   0   7   3   5   
+
+

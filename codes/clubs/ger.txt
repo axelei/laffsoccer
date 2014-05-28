@@ -1,0 +1,79 @@
+> 1.Bundesliga
+000 1860 München
+001 Bayer Leverkusen
+002 Bayern München
+003 Bochum
+004 Bor. M'gladbach
+005 Borussia Dortmund
+006 Eintracht Frankfurt
+007 Freiburg
+008 Hamburger SV
+009 Hannover 96
+010 Hertha BSC Berlin
+011 Kaiserslautern
+012 Köln
+013 Rostock
+014 Schalke 04
+015 VfB Stuttgart
+016 Werder Bremen
+017 Wolfsburg
+
+> 2.Bundesliga
+018 Ahlen
+019 Alem. Aachen
+020 Bielefeld
+021 Burghausen
+022 Cottbus
+023 Duisburg
+024 Erzgebirge Aue
+025 Greuther Fürth
+026 J. Regensburg
+027 Karlsruhe
+028 Lübeck
+029 Mainz
+030 Nürnberg
+031 Oberhausen
+032 Osnabrück
+033 Trier
+034 Union Berlin
+035 Unterhaching
+
+> Regionalliga Nord
+036 Braunschweig
+037 Chemnitzer FC
+038 Dortmund (A)
+039 Dynamo Dresden
+040 Hamburger SV (A)
+041 Holstein Kiel
+042 Köln (A)
+043 Neumünster
+044 Paderborn
+045 Preussen Münster
+046 RW Essen
+047 Sachsen Leipzig
+048 Schalke 04 (A)
+049 St. Pauli
+050 Uerdingen
+051 Wattenscheid
+052 Werder Bremen (A)
+053 Wuppertaler SV
+
+> Regionalliga Süd
+054 Augsburg
+055 Bayern München (A)
+056 Elversberg
+057 Eschborn
+058 Feucht
+059 Hoffenheim
+060 Kaiserslautern (A)
+061 Kickers Offenbach
+062 Mainz 05 (A)
+063 Pfullendorf
+064 RW Erfurt
+065 Saarbrücken
+066 Schweinfurt
+067 Spfr. Siegen
+068 Stuttgarter Kickers
+069 VfB Stuttgart (A)
+070 VfR Aalen
+071 Wehen

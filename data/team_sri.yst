@@ -1,0 +1,702 @@
+#Number  :001
+Country  :SRI
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     18     1      16     22     
+Away      1      17     17     13     10     
+Third     6      16     22     15     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     12    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     33    6   6   1   2   7   4   7   
+03:       3       C             C             SRI   3     501   0     0     35    5   7   6   5   2   4   6   
+04:       4       D             D             SRI   3     501   0     0     16    4   2   1   3   1   1   4   
+05:       5       E             E             SRI   2     501   0     0     26    4   0   7   6   4   3   2   
+06:       6       F             F             SRI   4     501   0     0     26    0   7   6   3   1   3   6   
+07:       7       G             G             SRI   6     501   0     0     28    2   7   2   5   6   2   4   
+08:       8       H             H             SRI   6     501   0     0     15    0   0   5   2   4   0   4   
+09:       9       I             I             SRI   5     501   0     0     23    1   1   2   6   2   4   7   
+10:       10      J             J             SRI   7     501   0     0     26    2   6   7   1   5   1   4   
+11:       11      K             K             SRI   7     501   0     0     30    0   2   4   7   3   7   7   
+12:       12      L             L             SRI   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     11    2   3   2   0   4   0   0   
+14:       14      N             N             SRI   6     501   0     0     22    4   1   4   3   6   2   2   
+15:       15      O             O             SRI   7     501   0     0     22    5   3   3   1   2   5   3   
+16:       16      P             P             SRI   7     501   0     0     20    2   5   1   6   3   1   2   
+
+
+#Number  :002
+Country  :SRI
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      8      19     13     8      
+Away      9      20     22     7      19     
+Third     0      12     12     2      16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     28    6   4   2   0   2   7   7   
+03:       3       C             C             SRI   3     501   0     0     26    7   2   0   3   3   7   4   
+04:       4       D             D             SRI   3     501   0     0     25    5   6   1   5   1   4   3   
+05:       5       E             E             SRI   2     501   0     0     24    3   0   6   6   1   3   5   
+06:       6       F             F             SRI   4     501   0     0     23    4   7   1   0   3   2   6   
+07:       7       G             G             SRI   6     501   0     0     33    5   3   7   5   1   7   5   
+08:       8       H             H             SRI   6     501   0     0     19    4   2   0   4   1   7   1   
+09:       9       I             I             SRI   5     501   0     0     13    0   3   3   0   6   1   0   
+10:       10      J             J             SRI   7     501   0     0     28    0   5   7   6   3   2   5   
+11:       11      K             K             SRI   7     501   0     0     24    6   0   5   1   5   1   6   
+12:       12      L             L             SRI   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     23    2   1   3   5   7   3   2   
+14:       14      N             N             SRI   6     501   0     0     16    1   1   1   1   0   7   5   
+15:       15      O             O             SRI   7     501   0     0     29    3   7   1   5   2   6   5   
+16:       16      P             P             SRI   7     501   0     0     24    4   5   4   6   0   1   4   
+
+
+#Number  :003
+Country  :SRI
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      18     3      7      18     
+Away      15     3      13     20     13     
+Third     0      22     21     14     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     36    6   5   6   6   5   7   1   
+03:       3       C             C             SRI   3     501   0     0     24    0   7   7   0   5   3   2   
+04:       4       D             D             SRI   3     501   0     0     26    2   6   6   4   2   2   4   
+05:       5       E             E             SRI   2     501   0     0     18    4   4   3   0   0   3   4   
+06:       6       F             F             SRI   4     501   0     0     22    2   2   5   4   0   6   3   
+07:       7       G             G             SRI   6     501   0     0     21    1   1   7   5   1   2   4   
+08:       8       H             H             SRI   6     501   0     0     24    2   4   7   3   7   0   1   
+09:       9       I             I             SRI   5     501   0     0     31    7   3   4   4   4   2   7   
+10:       10      J             J             SRI   7     501   0     0     19    0   4   6   0   2   5   2   
+11:       11      K             K             SRI   7     501   0     0     25    3   0   4   6   7   3   2   
+12:       12      L             L             SRI   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     23    2   6   6   0   2   6   1   
+14:       14      N             N             SRI   6     501   0     0     20    2   2   6   0   2   4   4   
+15:       15      O             O             SRI   7     501   0     0     25    2   1   2   4   5   7   4   
+16:       16      P             P             SRI   7     501   0     0     42    6   5   5   7   7   7   5   
+
+
+#Number  :004
+Country  :SRI
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      5      6      15     16     
+Away      12     3      17     16     16     
+Third     13     3      18     17     8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     23    7   6   7   1   0   2   0   
+03:       3       C             C             SRI   3     501   0     0     12    0   4   0   2   6   0   0   
+04:       4       D             D             SRI   3     501   0     0     14    2   0   0   5   2   2   3   
+05:       5       E             E             SRI   2     501   0     0     24    7   3   7   0   0   4   3   
+06:       6       F             F             SRI   4     501   0     0     27    2   2   3   5   3   5   7   
+07:       7       G             G             SRI   6     501   0     0     23    3   4   5   4   2   0   5   
+08:       8       H             H             SRI   6     501   0     0     17    3   1   2   2   5   0   4   
+09:       9       I             I             SRI   5     501   0     0     22    2   6   2   2   3   7   0   
+10:       10      J             J             SRI   7     501   0     0     24    3   4   4   4   1   5   3   
+11:       11      K             K             SRI   7     501   0     0     32    7   3   7   7   1   2   5   
+12:       12      L             L             SRI   0     501   0     0     49    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     22    0   5   7   3   0   5   2   
+14:       14      N             N             SRI   6     501   0     0     24    4   1   2   7   7   1   2   
+15:       15      O             O             SRI   7     501   0     0     30    7   4   1   5   5   2   6   
+16:       16      P             P             SRI   7     501   0     0     24    7   1   3   5   2   6   0   
+
+
+#Number  :005
+Country  :SRI
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      17     10     15     18     
+Away      8      15     19     17     8      
+Third     5      22     18     11     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     20    4   0   0   3   7   2   4   
+03:       3       C             C             SRI   3     501   0     0     28    2   5   6   1   1   6   7   
+04:       4       D             D             SRI   3     501   0     0     21    2   7   2   1   5   2   2   
+05:       5       E             E             SRI   2     501   0     0     21    1   5   0   3   7   0   5   
+06:       6       F             F             SRI   4     501   0     0     25    1   6   1   3   5   5   4   
+07:       7       G             G             SRI   6     501   0     0     18    1   0   6   4   2   5   0   
+08:       8       H             H             SRI   6     501   0     0     22    5   2   0   4   4   3   4   
+09:       9       I             I             SRI   5     501   0     0     23    4   7   6   2   1   1   2   
+10:       10      J             J             SRI   7     501   0     0     14    0   3   1   2   3   2   3   
+11:       11      K             K             SRI   7     501   0     0     22    1   2   2   5   4   1   7   
+12:       12      L             L             SRI   0     501   0     0     36    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     29    5   7   4   1   7   3   2   
+14:       14      N             N             SRI   6     501   0     0     32    4   6   5   3   3   6   5   
+15:       15      O             O             SRI   7     501   0     0     18    3   3   1   0   0   4   7   
+16:       16      P             P             SRI   7     501   0     0     33    5   0   4   5   7   6   6   
+
+
+#Number  :006
+Country  :SRI
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     16     3      2      4      
+Away      8      21     15     1      0      
+Third     4      7      0      15     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     2     0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     26    3   6   2   6   2   3   4   
+03:       3       C             C             SRI   3     501   0     0     34    5   6   6   6   5   5   1   
+04:       4       D             D             SRI   3     501   0     0     17    4   0   6   1   1   3   2   
+05:       5       E             E             SRI   2     501   0     0     19    0   0   3   5   7   1   3   
+06:       6       F             F             SRI   4     501   0     0     24    4   1   7   5   5   1   1   
+07:       7       G             G             SRI   6     501   0     0     23    3   2   5   5   1   0   7   
+08:       8       H             H             SRI   6     501   0     0     21    3   3   3   3   3   2   4   
+09:       9       I             I             SRI   5     501   0     0     27    5   6   1   7   4   0   4   
+10:       10      J             J             SRI   7     501   0     0     28    1   4   3   4   3   7   6   
+11:       11      K             K             SRI   7     501   0     0     22    0   7   1   5   1   6   2   
+12:       12      L             L             SRI   0     501   0     0     20    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     17    4   1   3   1   5   3   0   
+14:       14      N             N             SRI   6     501   0     0     29    1   3   6   5   3   7   4   
+15:       15      O             O             SRI   7     501   0     0     23    3   3   2   6   3   6   0   
+16:       16      P             P             SRI   7     501   0     0     29    7   4   7   2   1   7   1   
+
+
+#Number  :007
+Country  :SRI
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      13     13     3      1      
+Away      14     1      21     12     8      
+Third     1      5      6      18     20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     47    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     28    6   6   6   2   2   1   5   
+03:       3       C             C             SRI   3     501   0     0     22    7   3   1   1   7   1   2   
+04:       4       D             D             SRI   3     501   0     0     16    4   4   3   1   4   0   0   
+05:       5       E             E             SRI   2     501   0     0     31    5   5   4   2   7   5   3   
+06:       6       F             F             SRI   4     501   0     0     27    7   4   5   3   3   2   3   
+07:       7       G             G             SRI   6     501   0     0     29    5   0   5   5   5   6   3   
+08:       8       H             H             SRI   6     501   0     0     23    2   5   6   5   4   1   0   
+09:       9       I             I             SRI   5     501   0     0     16    2   0   5   5   0   0   4   
+10:       10      J             J             SRI   7     501   0     0     26    0   6   5   7   2   1   5   
+11:       11      K             K             SRI   7     501   0     0     24    4   7   1   3   1   3   5   
+12:       12      L             L             SRI   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     32    3   2   6   4   7   7   3   
+14:       14      N             N             SRI   6     501   0     0     29    0   4   3   4   6   6   6   
+15:       15      O             O             SRI   7     501   0     0     38    7   7   7   0   4   7   6   
+16:       16      P             P             SRI   7     501   0     0     18    2   1   3   3   2   0   7   
+
+
+#Number  :008
+Country  :SRI
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     2      17     15     19     
+Away      13     4      2      11     21     
+Third     6      5      19     22     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     24    7   3   6   3   4   1   0   
+03:       3       C             C             SRI   3     501   0     0     32    7   0   6   7   5   5   2   
+04:       4       D             D             SRI   3     501   0     0     36    7   7   6   2   7   3   4   
+05:       5       E             E             SRI   2     501   0     0     29    4   1   3   4   4   6   7   
+06:       6       F             F             SRI   4     501   0     0     16    2   3   7   1   3   0   0   
+07:       7       G             G             SRI   6     501   0     0     24    1   4   6   0   5   1   7   
+08:       8       H             H             SRI   6     501   0     0     24    6   2   4   5   0   0   7   
+09:       9       I             I             SRI   5     501   0     0     25    6   1   3   4   4   7   0   
+10:       10      J             J             SRI   7     501   0     0     28    0   7   5   4   5   0   7   
+11:       11      K             K             SRI   7     501   0     0     29    7   0   0   7   1   7   7   
+12:       12      L             L             SRI   0     501   0     0     40    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     10    0   0   2   4   1   0   3   
+14:       14      N             N             SRI   6     501   0     0     29    1   4   3   7   2   5   7   
+15:       15      O             O             SRI   7     501   0     0     34    7   4   0   4   6   7   6   
+16:       16      P             P             SRI   7     501   0     0     19    6   5   0   4   0   3   1   
+
+
+#Number  :009
+Country  :SRI
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      1      6      6      6      
+Away      11     5      11     16     3      
+Third     7      20     15     14     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     30    6   5   3   6   2   7   1   
+03:       3       C             C             SRI   3     501   0     0     22    3   7   7   1   4   0   0   
+04:       4       D             D             SRI   3     501   0     0     33    3   2   7   5   5   5   6   
+05:       5       E             E             SRI   2     501   0     0     26    7   2   3   3   2   2   7   
+06:       6       F             F             SRI   4     501   0     0     21    3   3   3   2   5   5   0   
+07:       7       G             G             SRI   6     501   0     0     20    1   1   3   5   1   2   7   
+08:       8       H             H             SRI   6     501   0     0     28    4   5   2   7   6   0   4   
+09:       9       I             I             SRI   5     501   0     0     12    1   0   5   1   0   0   5   
+10:       10      J             J             SRI   7     501   0     0     29    4   7   7   4   1   3   3   
+11:       11      K             K             SRI   7     501   0     0     22    1   4   4   2   7   2   2   
+12:       12      L             L             SRI   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     32    7   4   5   6   5   1   4   
+14:       14      N             N             SRI   6     501   0     0     14    5   1   1   0   7   0   0   
+15:       15      O             O             SRI   7     501   0     0     11    2   1   6   0   1   1   0   
+16:       16      P             P             SRI   7     501   0     0     33    7   6   3   3   6   3   5   
+
+
+#Number  :010
+Country  :SRI
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     16     10     14     22     
+Away      3      13     4      2      0      
+Third     1      5      3      3      0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     25    1   6   3   3   2   7   3   
+03:       3       C             C             SRI   3     501   0     0     25    2   4   5   5   7   2   0   
+04:       4       D             D             SRI   3     501   0     0     19    1   3   4   6   3   2   0   
+05:       5       E             E             SRI   2     501   0     0     25    3   1   6   6   6   1   2   
+06:       6       F             F             SRI   4     501   0     0     28    1   6   7   1   7   4   2   
+07:       7       G             G             SRI   6     501   0     0     37    4   7   5   7   3   7   4   
+08:       8       H             H             SRI   6     501   0     0     27    4   2   4   3   6   5   3   
+09:       9       I             I             SRI   5     501   0     0     25    4   7   7   3   1   3   0   
+10:       10      J             J             SRI   7     501   0     0     25    0   3   4   4   2   6   6   
+11:       11      K             K             SRI   7     501   0     0     36    2   4   7   7   6   6   4   
+12:       12      L             L             SRI   0     501   0     0     42    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     28    5   6   6   2   0   3   6   
+14:       14      N             N             SRI   6     501   0     0     23    1   7   7   1   4   2   1   
+15:       15      O             O             SRI   7     501   0     0     18    2   0   7   4   1   2   2   
+16:       16      P             P             SRI   7     501   0     0     27    6   4   2   7   4   0   4   
+
+
+#Number  :011
+Country  :SRI
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      1      6      4      22     
+Away      12     8      22     13     15     
+Third     13     18     4      21     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     33    7   5   5   7   6   1   2   
+03:       3       C             C             SRI   3     501   0     0     33    2   6   4   7   6   1   7   
+04:       4       D             D             SRI   3     501   0     0     27    2   3   7   7   3   5   0   
+05:       5       E             E             SRI   2     501   0     0     26    7   0   2   7   1   6   3   
+06:       6       F             F             SRI   4     501   0     0     19    4   0   4   7   2   2   0   
+07:       7       G             G             SRI   6     501   0     0     28    6   7   7   4   3   1   0   
+08:       8       H             H             SRI   6     501   0     0     23    0   0   7   3   6   4   3   
+09:       9       I             I             SRI   5     501   0     0     21    5   2   6   1   2   2   3   
+10:       10      J             J             SRI   7     501   0     0     16    3   4   5   0   0   4   0   
+11:       11      K             K             SRI   7     501   0     0     28    2   6   2   4   4   3   7   
+12:       12      L             L             SRI   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     31    1   7   3   7   7   5   1   
+14:       14      N             N             SRI   6     501   0     0     21    5   0   6   1   2   4   3   
+15:       15      O             O             SRI   7     501   0     0     11    1   0   0   6   3   0   1   
+16:       16      P             P             SRI   7     501   0     0     19    5   4   1   5   0   1   3   
+
+
+#Number  :012
+Country  :SRI
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      6      17     3      15     
+Away      13     7      4      17     7      
+Third     4      8      3      12     19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     47    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     32    2   3   5   5   4   7   6   
+03:       3       C             C             SRI   3     501   0     0     30    0   3   6   0   7   7   7   
+04:       4       D             D             SRI   3     501   0     0     14    1   0   6   0   3   1   3   
+05:       5       E             E             SRI   2     501   0     0     22    0   3   2   7   7   3   0   
+06:       6       F             F             SRI   4     501   0     0     19    6   6   0   1   4   0   2   
+07:       7       G             G             SRI   6     501   0     0     19    7   3   4   0   5   0   0   
+08:       8       H             H             SRI   6     501   0     0     18    1   1   1   3   6   1   5   
+09:       9       I             I             SRI   5     501   0     0     32    5   7   1   6   3   4   6   
+10:       10      J             J             SRI   7     501   0     0     18    0   3   1   5   0   6   3   
+11:       11      K             K             SRI   7     501   0     0     21    2   5   5   3   3   0   3   
+12:       12      L             L             SRI   0     501   0     0     26    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     22    0   3   7   1   2   5   4   
+14:       14      N             N             SRI   6     501   0     0     23    4   7   2   1   2   7   0   
+15:       15      O             O             SRI   7     501   0     0     24    4   3   5   3   2   2   5   
+16:       16      P             P             SRI   7     501   0     0     19    1   7   7   0   2   1   1   
+
+
+#Number  :013
+Country  :SRI
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      20     6      17     13     
+Away      3      12     10     13     12     
+Third     1      20     9      21     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     28    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     28    1   7   3   0   7   4   6   
+03:       3       C             C             SRI   3     501   0     0     25    1   5   1   1   5   6   6   
+04:       4       D             D             SRI   3     501   0     0     20    6   6   1   0   4   3   0   
+05:       5       E             E             SRI   2     501   0     0     23    1   5   0   7   3   4   3   
+06:       6       F             F             SRI   4     501   0     0     24    2   6   7   6   1   0   2   
+07:       7       G             G             SRI   6     501   0     0     21    1   2   4   5   2   4   3   
+08:       8       H             H             SRI   6     501   0     0     32    6   3   5   7   3   6   2   
+09:       9       I             I             SRI   5     501   0     0     19    0   2   7   4   1   0   5   
+10:       10      J             J             SRI   7     501   0     0     26    1   5   7   5   3   0   5   
+11:       11      K             K             SRI   7     501   0     0     23    7   2   3   0   2   3   6   
+12:       12      L             L             SRI   0     501   0     0     12    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     20    2   6   0   2   1   2   7   
+14:       14      N             N             SRI   6     501   0     0     17    0   2   7   1   4   0   3   
+15:       15      O             O             SRI   7     501   0     0     27    2   6   7   1   3   7   1   
+16:       16      P             P             SRI   7     501   0     0     19    2   7   0   0   1   2   7   
+
+
+#Number  :014
+Country  :SRI
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     11     10     11     5      
+Away      7      21     8      2      14     
+Third     5      15     22     21     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     39    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     32    3   6   7   5   1   5   5   
+03:       3       C             C             SRI   3     501   0     0     24    3   1   3   3   5   5   4   
+04:       4       D             D             SRI   3     501   0     0     35    7   5   2   5   2   7   7   
+05:       5       E             E             SRI   2     501   0     0     23    7   1   4   2   1   6   2   
+06:       6       F             F             SRI   4     501   0     0     8     1   0   0   6   1   0   0   
+07:       7       G             G             SRI   6     501   0     0     25    5   2   6   0   3   5   4   
+08:       8       H             H             SRI   6     501   0     0     9     1   0   2   2   1   1   2   
+09:       9       I             I             SRI   5     501   0     0     17    1   0   2   4   6   3   1   
+10:       10      J             J             SRI   7     501   0     0     27    3   3   7   3   4   2   5   
+11:       11      K             K             SRI   7     501   0     0     26    6   7   4   5   1   3   0   
+12:       12      L             L             SRI   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     26    3   0   6   7   2   6   2   
+14:       14      N             N             SRI   6     501   0     0     28    6   6   3   0   6   5   2   
+15:       15      O             O             SRI   7     501   0     0     34    5   5   3   6   4   4   7   
+16:       16      P             P             SRI   7     501   0     0     29    4   5   4   6   3   5   2   
+
+
+#Number  :015
+Country  :SRI
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     7      6      2      22     
+Away      14     20     2      5      19     
+Third     12     8      16     0      3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     46    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     7     0   1   2   1   2   0   1   
+03:       3       C             C             SRI   3     501   0     0     31    6   1   4   7   5   7   1   
+04:       4       D             D             SRI   3     501   0     0     25    3   1   3   5   0   7   6   
+05:       5       E             E             SRI   2     501   0     0     30    2   6   7   0   5   5   5   
+06:       6       F             F             SRI   4     501   0     0     13    2   2   4   1   2   1   1   
+07:       7       G             G             SRI   6     501   0     0     27    2   6   1   4   6   2   6   
+08:       8       H             H             SRI   6     501   0     0     23    0   6   2   5   3   1   6   
+09:       9       I             I             SRI   5     501   0     0     17    3   4   2   0   3   2   3   
+10:       10      J             J             SRI   7     501   0     0     13    5   0   2   6   0   0   0   
+11:       11      K             K             SRI   7     501   0     0     8     0   0   2   1   4   1   0   
+12:       12      L             L             SRI   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     25    3   1   4   4   5   1   7   
+14:       14      N             N             SRI   6     501   0     0     18    4   3   2   7   0   0   2   
+15:       15      O             O             SRI   7     501   0     0     14    1   0   4   2   7   0   0   
+16:       16      P             P             SRI   7     501   0     0     27    2   1   7   7   1   4   5   
+
+
+#Number  :016
+Country  :SRI
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     5      5      10     10     
+Away      6      10     16     1      13     
+Third     1      6      3      17     15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     27    3   0   1   7   6   7   3   
+03:       3       C             C             SRI   3     501   0     0     9     1   2   0   2   1   0   3   
+04:       4       D             D             SRI   3     501   0     0     13    2   4   0   2   0   3   2   
+05:       5       E             E             SRI   2     501   0     0     22    1   6   3   3   2   5   2   
+06:       6       F             F             SRI   4     501   0     0     14    3   4   1   1   0   4   1   
+07:       7       G             G             SRI   6     501   0     0     24    1   2   4   0   3   7   7   
+08:       8       H             H             SRI   6     501   0     0     24    7   0   2   3   3   7   2   
+09:       9       I             I             SRI   5     501   0     0     25    1   0   5   1   4   7   7   
+10:       10      J             J             SRI   7     501   0     0     21    7   4   5   0   0   4   1   
+11:       11      K             K             SRI   7     501   0     0     24    4   6   0   5   1   3   5   
+12:       12      L             L             SRI   0     501   0     0     20    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     20    2   0   1   2   5   4   6   
+14:       14      N             N             SRI   6     501   0     0     21    7   2   1   6   3   2   0   
+15:       15      O             O             SRI   7     501   0     0     26    7   0   5   0   5   6   3   
+16:       16      P             P             SRI   7     501   0     0     19    3   0   1   2   7   4   2   
+
+
+#Number  :017
+Country  :SRI
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      19     8      16     14     
+Away      6      0      8      12     4      
+Third     7      3      6      15     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     49    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     23    3   0   1   0   6   7   6   
+03:       3       C             C             SRI   3     501   0     0     27    6   1   7   1   4   5   3   
+04:       4       D             D             SRI   3     501   0     0     21    1   3   3   1   0   6   7   
+05:       5       E             E             SRI   2     501   0     0     26    4   3   4   3   6   5   1   
+06:       6       F             F             SRI   4     501   0     0     22    2   2   6   1   3   6   2   
+07:       7       G             G             SRI   6     501   0     0     20    1   0   2   6   2   7   2   
+08:       8       H             H             SRI   6     501   0     0     11    1   1   2   0   1   0   6   
+09:       9       I             I             SRI   5     501   0     0     24    4   3   2   5   3   7   0   
+10:       10      J             J             SRI   7     501   0     0     25    1   1   7   5   3   6   2   
+11:       11      K             K             SRI   7     501   0     0     26    6   1   1   6   5   2   5   
+12:       12      L             L             SRI   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     22    1   5   0   5   5   0   6   
+14:       14      N             N             SRI   6     501   0     0     21    4   3   2   0   4   3   5   
+15:       15      O             O             SRI   7     501   0     0     27    5   1   6   3   3   7   2   
+16:       16      P             P             SRI   7     501   0     0     26    2   1   7   4   5   0   7   
+
+
+#Number  :018
+Country  :SRI
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     11     12     15     5      
+Away      2      13     5      10     4      
+Third     6      9      15     2      15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SRI   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             SRI   1     501   0     0     28    3   0   7   5   6   5   2   
+03:       3       C             C             SRI   3     501   0     0     25    5   2   6   0   5   0   7   
+04:       4       D             D             SRI   3     501   0     0     21    7   1   4   1   4   2   2   
+05:       5       E             E             SRI   2     501   0     0     28    0   2   5   2   7   6   6   
+06:       6       F             F             SRI   4     501   0     0     31    7   2   7   7   4   3   1   
+07:       7       G             G             SRI   6     501   0     0     25    0   7   5   3   2   6   2   
+08:       8       H             H             SRI   6     501   0     0     25    2   3   2   6   1   6   5   
+09:       9       I             I             SRI   5     501   0     0     17    0   5   1   0   4   4   3   
+10:       10      J             J             SRI   7     501   0     0     11    1   0   2   2   0   1   5   
+11:       11      K             K             SRI   7     501   0     0     29    5   4   5   4   5   6   0   
+12:       12      L             L             SRI   0     501   0     0     45    0   0   0   0   0   0   0   
+13:       13      M             M             SRI   3     501   0     0     26    7   6   2   5   3   3   0   
+14:       14      N             N             SRI   6     501   0     0     20    6   4   3   2   2   3   0   
+15:       15      O             O             SRI   7     501   0     0     29    6   4   6   7   2   4   0   
+16:       16      P             P             SRI   7     501   0     0     29    1   7   3   3   3   7   5   
+
+

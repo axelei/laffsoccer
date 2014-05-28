@@ -1,0 +1,702 @@
+#Number  :001
+Country  :BHU
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      14     9      19     13     
+Away      9      15     7      2      9      
+Third     0      11     9      15     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     9     0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     36    5   7   4   7   4   6   3   
+03:       3       C             C             BHU   3     501   0     0     18    4   7   2   0   2   0   3   
+04:       4       D             D             BHU   3     501   0     0     29    5   4   0   3   7   7   3   
+05:       5       E             E             BHU   2     501   0     0     29    3   3   5   6   1   4   7   
+06:       6       F             F             BHU   4     501   0     0     14    1   3   1   7   0   2   0   
+07:       7       G             G             BHU   6     501   0     0     31    6   5   2   5   6   1   6   
+08:       8       H             H             BHU   6     501   0     0     32    2   7   6   4   1   7   5   
+09:       9       I             I             BHU   5     501   0     0     33    7   6   0   4   2   7   7   
+10:       10      J             J             BHU   7     501   0     0     35    7   0   7   7   7   2   5   
+11:       11      K             K             BHU   7     501   0     0     31    3   5   5   6   1   5   6   
+12:       12      L             L             BHU   0     501   0     0     14    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     14    1   3   0   3   0   0   7   
+14:       14      N             N             BHU   6     501   0     0     30    2   6   1   5   2   7   7   
+15:       15      O             O             BHU   7     501   0     0     33    7   4   7   5   5   5   0   
+16:       16      P             P             BHU   7     501   0     0     25    5   2   3   6   2   4   3   
+
+
+#Number  :002
+Country  :BHU
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     2      10     1      10     
+Away      12     17     17     15     20     
+Third     1      20     20     17     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     32    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     27    7   4   2   5   6   3   0   
+03:       3       C             C             BHU   3     501   0     0     14    2   3   1   1   1   3   3   
+04:       4       D             D             BHU   3     501   0     0     29    4   2   3   6   4   4   6   
+05:       5       E             E             BHU   2     501   0     0     31    4   2   5   6   4   3   7   
+06:       6       F             F             BHU   4     501   0     0     25    4   5   4   7   4   0   1   
+07:       7       G             G             BHU   6     501   0     0     29    5   4   3   5   0   6   6   
+08:       8       H             H             BHU   6     501   0     0     14    1   0   2   5   1   2   3   
+09:       9       I             I             BHU   5     501   0     0     18    0   3   0   7   6   1   1   
+10:       10      J             J             BHU   7     501   0     0     28    7   5   2   2   4   4   4   
+11:       11      K             K             BHU   7     501   0     0     28    6   6   2   2   7   3   2   
+12:       12      L             L             BHU   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     29    0   3   3   3   6   7   7   
+14:       14      N             N             BHU   6     501   0     0     27    5   6   4   0   3   2   7   
+15:       15      O             O             BHU   7     501   0     0     20    2   3   7   1   6   1   0   
+16:       16      P             P             BHU   7     501   0     0     19    4   3   2   5   1   2   2   
+
+
+#Number  :003
+Country  :BHU
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      13     9      10     22     
+Away      18     9      20     15     16     
+Third     0      17     16     21     20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     41    6   7   5   6   7   7   3   
+03:       3       C             C             BHU   3     501   0     0     20    2   6   1   1   7   0   3   
+04:       4       D             D             BHU   3     501   0     0     28    4   3   6   2   7   6   0   
+05:       5       E             E             BHU   2     501   0     0     25    7   1   5   5   7   0   0   
+06:       6       F             F             BHU   4     501   0     0     22    2   4   3   0   7   5   1   
+07:       7       G             G             BHU   6     501   0     0     26    4   7   0   6   6   0   3   
+08:       8       H             H             BHU   6     501   0     0     28    3   7   5   4   5   4   0   
+09:       9       I             I             BHU   5     501   0     0     15    4   2   3   2   3   0   1   
+10:       10      J             J             BHU   7     501   0     0     19    2   2   4   3   2   3   3   
+11:       11      K             K             BHU   7     501   0     0     25    3   3   2   4   6   7   0   
+12:       12      L             L             BHU   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     27    3   3   0   7   5   6   3   
+14:       14      N             N             BHU   6     501   0     0     29    6   6   3   6   3   0   5   
+15:       15      O             O             BHU   7     501   0     0     21    6   2   2   5   6   0   0   
+16:       16      P             P             BHU   7     501   0     0     27    7   0   0   5   6   5   4   
+
+
+#Number  :004
+Country  :BHU
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     2      5      13     16     
+Away      5      6      17     16     18     
+Third     10     19     3      7      13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     25    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     29    5   5   6   6   3   4   0   
+03:       3       C             C             BHU   3     501   0     0     23    2   5   4   2   3   6   1   
+04:       4       D             D             BHU   3     501   0     0     21    2   3   3   5   2   0   6   
+05:       5       E             E             BHU   2     501   0     0     18    4   2   6   1   0   0   5   
+06:       6       F             F             BHU   4     501   0     0     25    4   0   6   4   3   3   5   
+07:       7       G             G             BHU   6     501   0     0     29    3   3   0   6   7   3   7   
+08:       8       H             H             BHU   6     501   0     0     10    0   1   1   0   6   0   2   
+09:       9       I             I             BHU   5     501   0     0     26    4   5   0   1   6   3   7   
+10:       10      J             J             BHU   7     501   0     0     26    5   1   2   4   2   7   5   
+11:       11      K             K             BHU   7     501   0     0     23    1   6   1   4   4   3   4   
+12:       12      L             L             BHU   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     15    0   7   3   2   0   1   2   
+14:       14      N             N             BHU   6     501   0     0     38    4   7   7   5   3   5   7   
+15:       15      O             O             BHU   7     501   0     0     24    0   7   1   1   4   6   5   
+16:       16      P             P             BHU   7     501   0     0     28    4   6   4   4   3   0   7   
+
+
+#Number  :005
+Country  :BHU
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     14     9      16     16     
+Away      18     7      14     17     13     
+Third     13     16     6      18     22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     19    5   1   2   5   3   1   2   
+03:       3       C             C             BHU   3     501   0     0     25    0   3   3   4   5   5   5   
+04:       4       D             D             BHU   3     501   0     0     24    2   3   5   7   0   2   5   
+05:       5       E             E             BHU   2     501   0     0     26    2   6   5   1   6   0   6   
+06:       6       F             F             BHU   4     501   0     0     23    0   3   7   5   6   1   1   
+07:       7       G             G             BHU   6     501   0     0     23    0   0   7   1   4   4   7   
+08:       8       H             H             BHU   6     501   0     0     33    3   4   6   4   6   5   5   
+09:       9       I             I             BHU   5     501   0     0     24    2   6   5   4   7   0   0   
+10:       10      J             J             BHU   7     501   0     0     22    2   5   3   6   2   1   3   
+11:       11      K             K             BHU   7     501   0     0     29    7   0   7   1   4   7   3   
+12:       12      L             L             BHU   0     501   0     0     36    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     17    3   4   2   4   2   0   2   
+14:       14      N             N             BHU   6     501   0     0     30    3   6   4   7   6   2   2   
+15:       15      O             O             BHU   7     501   0     0     26    5   2   3   2   7   0   7   
+16:       16      P             P             BHU   7     501   0     0     20    5   2   2   4   0   1   6   
+
+
+#Number  :006
+Country  :BHU
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      17     5      3      12     
+Away      2      21     9      13     10     
+Third     9      1      10     10     10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     0     0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     36    6   7   7   5   7   3   1   
+03:       3       C             C             BHU   3     501   0     0     20    0   3   3   3   4   4   3   
+04:       4       D             D             BHU   3     501   0     0     27    7   5   3   0   5   5   2   
+05:       5       E             E             BHU   2     501   0     0     21    5   3   1   0   5   7   0   
+06:       6       F             F             BHU   4     501   0     0     23    7   5   6   1   1   2   1   
+07:       7       G             G             BHU   6     501   0     0     25    0   1   3   4   5   7   5   
+08:       8       H             H             BHU   6     501   0     0     22    5   4   0   2   6   3   2   
+09:       9       I             I             BHU   5     501   0     0     18    3   7   0   1   1   0   6   
+10:       10      J             J             BHU   7     501   0     0     31    4   2   1   5   6   7   6   
+11:       11      K             K             BHU   7     501   0     0     30    7   7   1   3   3   7   2   
+12:       12      L             L             BHU   0     501   0     0     35    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     35    6   6   3   5   7   1   7   
+14:       14      N             N             BHU   6     501   0     0     29    2   4   7   4   6   0   6   
+15:       15      O             O             BHU   7     501   0     0     14    0   1   5   1   3   4   0   
+16:       16      P             P             BHU   7     501   0     0     18    7   6   1   1   0   2   1   
+
+
+#Number  :007
+Country  :BHU
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      8      8      7      7      
+Away      13     22     6      15     10     
+Third     15     16     11     18     0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     7     0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     27    5   1   3   5   7   0   6   
+03:       3       C             C             BHU   3     501   0     0     21    4   3   4   2   1   1   6   
+04:       4       D             D             BHU   3     501   0     0     32    1   6   7   5   7   5   1   
+05:       5       E             E             BHU   2     501   0     0     14    0   0   1   6   2   4   1   
+06:       6       F             F             BHU   4     501   0     0     27    2   3   7   0   7   7   1   
+07:       7       G             G             BHU   6     501   0     0     24    4   0   4   7   2   3   4   
+08:       8       H             H             BHU   6     501   0     0     17    1   3   4   1   1   0   7   
+09:       9       I             I             BHU   5     501   0     0     32    7   1   3   7   3   4   7   
+10:       10      J             J             BHU   7     501   0     0     23    7   4   2   1   0   2   7   
+11:       11      K             K             BHU   7     501   0     0     26    2   5   6   4   3   5   1   
+12:       12      L             L             BHU   0     501   0     0     5     0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     19    3   4   1   7   1   0   3   
+14:       14      N             N             BHU   6     501   0     0     22    6   0   0   6   5   3   2   
+15:       15      O             O             BHU   7     501   0     0     23    2   3   1   5   2   7   3   
+16:       16      P             P             BHU   7     501   0     0     23    6   5   0   6   3   2   1   
+
+
+#Number  :008
+Country  :BHU
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      3      1      3      10     
+Away      16     16     11     21     16     
+Third     18     1      10     5      0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     34    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     26    0   7   2   5   3   6   3   
+03:       3       C             C             BHU   3     501   0     0     20    0   1   6   4   3   1   5   
+04:       4       D             D             BHU   3     501   0     0     28    2   7   2   3   2   7   5   
+05:       5       E             E             BHU   2     501   0     0     39    7   3   6   7   4   6   6   
+06:       6       F             F             BHU   4     501   0     0     26    4   1   7   7   5   0   2   
+07:       7       G             G             BHU   6     501   0     0     31    3   4   7   4   3   4   6   
+08:       8       H             H             BHU   6     501   0     0     23    3   0   1   4   6   3   6   
+09:       9       I             I             BHU   5     501   0     0     21    3   0   7   3   4   1   3   
+10:       10      J             J             BHU   7     501   0     0     37    6   3   7   5   7   7   2   
+11:       11      K             K             BHU   7     501   0     0     32    6   7   7   3   3   6   0   
+12:       12      L             L             BHU   0     501   0     0     5     0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     20    3   4   0   7   6   0   0   
+14:       14      N             N             BHU   6     501   0     0     21    5   6   0   0   0   7   3   
+15:       15      O             O             BHU   7     501   0     0     25    6   1   7   5   1   4   1   
+16:       16      P             P             BHU   7     501   0     0     30    4   2   6   4   3   4   7   
+
+
+#Number  :009
+Country  :BHU
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     21     0      0      19     
+Away      2      19     20     11     9      
+Third     4      15     9      2      3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     31    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     26    2   5   4   3   3   6   3   
+03:       3       C             C             BHU   3     501   0     0     16    1   5   1   2   3   1   3   
+04:       4       D             D             BHU   3     501   0     0     29    6   7   1   4   6   5   0   
+05:       5       E             E             BHU   2     501   0     0     26    4   1   4   2   6   7   2   
+06:       6       F             F             BHU   4     501   0     0     15    1   1   4   7   2   0   0   
+07:       7       G             G             BHU   6     501   0     0     30    6   3   7   6   6   0   2   
+08:       8       H             H             BHU   6     501   0     0     31    6   6   0   0   7   6   6   
+09:       9       I             I             BHU   5     501   0     0     26    5   3   1   7   2   3   5   
+10:       10      J             J             BHU   7     501   0     0     25    2   5   5   5   1   2   5   
+11:       11      K             K             BHU   7     501   0     0     13    0   1   0   3   1   2   6   
+12:       12      L             L             BHU   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     25    6   2   5   3   0   3   6   
+14:       14      N             N             BHU   6     501   0     0     24    0   1   0   7   6   6   4   
+15:       15      O             O             BHU   7     501   0     0     25    1   6   0   7   5   3   3   
+16:       16      P             P             BHU   7     501   0     0     23    6   1   1   7   2   0   6   
+
+
+#Number  :010
+Country  :BHU
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      11     8      7      21     
+Away      4      19     7      12     5      
+Third     14     4      4      2      4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     43    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     30    7   4   6   6   2   5   0   
+03:       3       C             C             BHU   3     501   0     0     20    3   4   1   3   0   6   3   
+04:       4       D             D             BHU   3     501   0     0     15    4   4   1   6   0   0   0   
+05:       5       E             E             BHU   2     501   0     0     25    7   3   2   1   7   0   5   
+06:       6       F             F             BHU   4     501   0     0     27    7   0   2   5   2   4   7   
+07:       7       G             G             BHU   6     501   0     0     14    2   2   3   3   2   0   2   
+08:       8       H             H             BHU   6     501   0     0     19    7   5   1   3   0   3   0   
+09:       9       I             I             BHU   5     501   0     0     25    6   4   5   2   0   4   4   
+10:       10      J             J             BHU   7     501   0     0     24    6   0   3   5   5   4   1   
+11:       11      K             K             BHU   7     501   0     0     32    2   5   5   5   7   5   3   
+12:       12      L             L             BHU   0     501   0     0     40    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     24    3   7   2   1   2   7   2   
+14:       14      N             N             BHU   6     501   0     0     28    5   1   7   3   5   7   0   
+15:       15      O             O             BHU   7     501   0     0     28    3   5   1   4   4   5   6   
+16:       16      P             P             BHU   7     501   0     0     18    4   0   0   6   4   4   0   
+
+
+#Number  :011
+Country  :BHU
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      10     12     0      0      
+Away      0      19     1      3      0      
+Third     12     11     3      21     6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     16    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     22    6   6   1   6   1   2   0   
+03:       3       C             C             BHU   3     501   0     0     22    1   7   4   3   1   4   2   
+04:       4       D             D             BHU   3     501   0     0     24    5   0   0   3   5   7   4   
+05:       5       E             E             BHU   2     501   0     0     15    5   1   1   0   1   6   1   
+06:       6       F             F             BHU   4     501   0     0     24    3   3   2   7   5   1   3   
+07:       7       G             G             BHU   6     501   0     0     24    6   6   0   2   3   2   5   
+08:       8       H             H             BHU   6     501   0     0     18    1   0   5   6   1   3   2   
+09:       9       I             I             BHU   5     501   0     0     16    1   7   0   2   2   2   2   
+10:       10      J             J             BHU   7     501   0     0     26    2   7   4   7   1   1   4   
+11:       11      K             K             BHU   7     501   0     0     23    0   4   0   3   7   2   7   
+12:       12      L             L             BHU   0     501   0     0     16    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     20    5   1   2   2   7   3   0   
+14:       14      N             N             BHU   6     501   0     0     19    0   2   5   6   1   5   0   
+15:       15      O             O             BHU   7     501   0     0     31    5   3   6   2   6   3   6   
+16:       16      P             P             BHU   7     501   0     0     22    5   2   1   0   2   6   6   
+
+
+#Number  :012
+Country  :BHU
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      2      7      3      5      
+Away      9      21     4      15     4      
+Third     5      8      10     10     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     2     0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     19    1   3   1   3   5   0   6   
+03:       3       C             C             BHU   3     501   0     0     25    7   1   7   1   5   2   2   
+04:       4       D             D             BHU   3     501   0     0     19    6   6   2   1   2   0   2   
+05:       5       E             E             BHU   2     501   0     0     16    1   3   4   1   0   4   3   
+06:       6       F             F             BHU   4     501   0     0     24    2   4   0   2   6   3   7   
+07:       7       G             G             BHU   6     501   0     0     25    4   4   2   7   4   4   0   
+08:       8       H             H             BHU   6     501   0     0     22    1   4   3   4   6   3   1   
+09:       9       I             I             BHU   5     501   0     0     17    4   3   1   7   0   0   2   
+10:       10      J             J             BHU   7     501   0     0     21    0   1   2   1   5   6   6   
+11:       11      K             K             BHU   7     501   0     0     23    0   5   0   3   6   2   7   
+12:       12      L             L             BHU   0     501   0     0     42    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     25    2   6   0   7   4   5   1   
+14:       14      N             N             BHU   6     501   0     0     23    3   4   3   2   4   6   1   
+15:       15      O             O             BHU   7     501   0     0     22    1   6   5   1   5   3   1   
+16:       16      P             P             BHU   7     501   0     0     15    2   3   1   1   1   1   6   
+
+
+#Number  :013
+Country  :BHU
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      1      18     17     16     
+Away      3      6      10     9      2      
+Third     8      20     7      2      6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     12    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     21    3   7   3   2   1   1   4   
+03:       3       C             C             BHU   3     501   0     0     25    0   3   5   6   0   6   5   
+04:       4       D             D             BHU   3     501   0     0     24    7   1   6   2   7   0   1   
+05:       5       E             E             BHU   2     501   0     0     29    6   3   3   7   1   7   2   
+06:       6       F             F             BHU   4     501   0     0     15    4   1   0   0   7   1   2   
+07:       7       G             G             BHU   6     501   0     0     29    4   6   5   7   3   1   3   
+08:       8       H             H             BHU   6     501   0     0     25    4   1   4   3   6   3   4   
+09:       9       I             I             BHU   5     501   0     0     26    4   0   2   7   2   6   5   
+10:       10      J             J             BHU   7     501   0     0     15    2   4   1   3   1   0   4   
+11:       11      K             K             BHU   7     501   0     0     28    6   3   1   3   7   3   5   
+12:       12      L             L             BHU   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     27    4   2   4   1   5   5   6   
+14:       14      N             N             BHU   6     501   0     0     34    3   7   1   7   3   6   7   
+15:       15      O             O             BHU   7     501   0     0     17    6   0   1   0   2   7   1   
+16:       16      P             P             BHU   7     501   0     0     36    5   7   7   7   7   1   2   
+
+
+#Number  :014
+Country  :BHU
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     18     4      3      17     
+Away      14     8      16     18     9      
+Third     16     1      19     9      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     23    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     20    1   1   1   5   4   2   6   
+03:       3       C             C             BHU   3     501   0     0     33    5   2   7   0   7   6   6   
+04:       4       D             D             BHU   3     501   0     0     29    2   1   6   6   3   5   6   
+05:       5       E             E             BHU   2     501   0     0     19    2   7   3   4   0   0   3   
+06:       6       F             F             BHU   4     501   0     0     25    2   1   2   3   7   7   3   
+07:       7       G             G             BHU   6     501   0     0     24    2   1   6   2   7   3   3   
+08:       8       H             H             BHU   6     501   0     0     29    1   6   6   7   0   7   2   
+09:       9       I             I             BHU   5     501   0     0     30    4   2   7   4   4   5   4   
+10:       10      J             J             BHU   7     501   0     0     29    1   3   7   3   5   7   3   
+11:       11      K             K             BHU   7     501   0     0     22    0   4   6   4   5   1   2   
+12:       12      L             L             BHU   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     26    6   1   6   0   7   6   0   
+14:       14      N             N             BHU   6     501   0     0     18    1   3   6   3   1   2   2   
+15:       15      O             O             BHU   7     501   0     0     26    1   3   6   2   3   4   7   
+16:       16      P             P             BHU   7     501   0     0     31    2   7   4   6   5   4   3   
+
+
+#Number  :015
+Country  :BHU
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     10     1      12     21     
+Away      16     16     14     8      16     
+Third     7      3      11     22     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     16    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     22    1   7   4   0   1   6   3   
+03:       3       C             C             BHU   3     501   0     0     29    1   7   2   6   0   6   7   
+04:       4       D             D             BHU   3     501   0     0     37    6   4   7   4   3   7   6   
+05:       5       E             E             BHU   2     501   0     0     25    5   7   3   4   0   6   0   
+06:       6       F             F             BHU   4     501   0     0     29    3   7   7   7   0   1   4   
+07:       7       G             G             BHU   6     501   0     0     25    7   4   6   5   1   2   0   
+08:       8       H             H             BHU   6     501   0     0     23    0   1   3   5   3   5   6   
+09:       9       I             I             BHU   5     501   0     0     30    5   4   7   0   7   7   0   
+10:       10      J             J             BHU   7     501   0     0     32    4   7   4   6   1   4   6   
+11:       11      K             K             BHU   7     501   0     0     15    1   3   0   3   5   2   1   
+12:       12      L             L             BHU   0     501   0     0     22    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     32    6   4   6   3   5   4   4   
+14:       14      N             N             BHU   6     501   0     0     33    4   5   7   6   7   4   0   
+15:       15      O             O             BHU   7     501   0     0     16    0   1   3   6   1   3   2   
+16:       16      P             P             BHU   7     501   0     0     28    0   7   6   5   6   4   0   
+
+
+#Number  :016
+Country  :BHU
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     4      7      9      6      
+Away      6      18     8      14     17     
+Third     15     6      12     22     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     25    5   0   3   3   7   2   5   
+03:       3       C             C             BHU   3     501   0     0     20    3   0   7   0   0   4   6   
+04:       4       D             D             BHU   3     501   0     0     27    5   0   5   5   4   6   2   
+05:       5       E             E             BHU   2     501   0     0     19    2   1   2   1   3   4   6   
+06:       6       F             F             BHU   4     501   0     0     21    1   4   0   4   2   7   3   
+07:       7       G             G             BHU   6     501   0     0     26    4   3   4   4   1   3   7   
+08:       8       H             H             BHU   6     501   0     0     30    3   6   0   7   6   5   3   
+09:       9       I             I             BHU   5     501   0     0     19    5   0   5   7   1   1   0   
+10:       10      J             J             BHU   7     501   0     0     22    6   6   0   4   2   1   3   
+11:       11      K             K             BHU   7     501   0     0     19    2   3   0   3   6   0   5   
+12:       12      L             L             BHU   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     17    1   3   2   3   6   2   0   
+14:       14      N             N             BHU   6     501   0     0     29    2   7   0   6   4   4   6   
+15:       15      O             O             BHU   7     501   0     0     26    5   6   1   2   2   4   6   
+16:       16      P             P             BHU   7     501   0     0     31    4   3   4   7   2   7   4   
+
+
+#Number  :017
+Country  :BHU
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      20     13     17     13     
+Away      12     8      5      1      8      
+Third     10     7      11     18     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     47    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     28    3   1   7   5   1   5   6   
+03:       3       C             C             BHU   3     501   0     0     23    6   1   7   3   2   2   2   
+04:       4       D             D             BHU   3     501   0     0     32    7   4   7   5   2   1   6   
+05:       5       E             E             BHU   2     501   0     0     17    1   1   2   2   2   6   3   
+06:       6       F             F             BHU   4     501   0     0     32    7   4   7   6   1   6   1   
+07:       7       G             G             BHU   6     501   0     0     31    5   5   6   5   6   3   1   
+08:       8       H             H             BHU   6     501   0     0     31    4   6   5   4   6   2   4   
+09:       9       I             I             BHU   5     501   0     0     26    7   7   4   0   0   3   5   
+10:       10      J             J             BHU   7     501   0     0     25    3   6   5   4   5   0   2   
+11:       11      K             K             BHU   7     501   0     0     23    3   1   6   3   3   5   2   
+12:       12      L             L             BHU   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     35    7   2   3   3   7   7   6   
+14:       14      N             N             BHU   6     501   0     0     19    2   2   0   2   6   4   3   
+15:       15      O             O             BHU   7     501   0     0     18    2   7   2   3   2   1   1   
+16:       16      P             P             BHU   7     501   0     0     29    1   7   2   7   0   5   7   
+
+
+#Number  :018
+Country  :BHU
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      21     7      20     3      
+Away      15     12     11     18     20     
+Third     17     2      12     22     8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             BHU   0     501   0     0     42    0   0   0   0   0   0   0   
+02:       2       B             B             BHU   1     501   0     0     20    2   3   2   2   2   7   2   
+03:       3       C             C             BHU   3     501   0     0     27    3   6   7   2   1   1   7   
+04:       4       D             D             BHU   3     501   0     0     34    4   5   7   6   7   0   5   
+05:       5       E             E             BHU   2     501   0     0     29    4   3   4   3   6   5   4   
+06:       6       F             F             BHU   4     501   0     0     31    4   7   4   4   5   5   2   
+07:       7       G             G             BHU   6     501   0     0     25    3   1   6   7   2   0   6   
+08:       8       H             H             BHU   6     501   0     0     21    2   2   1   1   1   7   7   
+09:       9       I             I             BHU   5     501   0     0     26    6   4   4   2   3   1   6   
+10:       10      J             J             BHU   7     501   0     0     21    1   6   0   7   4   1   2   
+11:       11      K             K             BHU   7     501   0     0     13    2   2   1   3   1   3   1   
+12:       12      L             L             BHU   0     501   0     0     38    0   0   0   0   0   0   0   
+13:       13      M             M             BHU   3     501   0     0     24    6   3   1   4   4   6   0   
+14:       14      N             N             BHU   6     501   0     0     30    4   4   1   2   7   6   6   
+15:       15      O             O             BHU   7     501   0     0     24    4   1   5   4   4   1   5   
+16:       16      P             P             BHU   7     501   0     0     22    3   4   2   1   1   7   4   
+
+

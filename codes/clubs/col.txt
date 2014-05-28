@@ -1,0 +1,18 @@
+001 Indep Santa Fe
+002 Millonarios
+003 America de Cali
+004 Atletico Nacional
+005 Indep Medellin
+006 Atl Bucaramanga
+007 Atletico Huila
+008 Deportivo Pasto
+009 Union Magdalena
+010 Atletico Junior
+011 Deportes Tolima
+012 Envigado FC
+013 Deportes Quindio
+014 Once Caldas
+015 Deportivo Pereira
+016 Boyaca Chico FC
+017 Real Cartagena
+018 Deportivo Cali

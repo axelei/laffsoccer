@@ -1,0 +1,702 @@
+#Number  :001
+Country  :TGA
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     3      12     5      20     
+Away      10     16     3      3      8      
+Third     10     20     3      8      17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     19    0   5   0   1   1   7   5   
+03:       3       C             C             TGA   3     501   0     0     13    2   2   5   1   1   1   1   
+04:       4       D             D             TGA   3     501   0     0     20    0   2   3   6   1   1   7   
+05:       5       E             E             TGA   2     501   0     0     23    3   0   3   3   5   7   2   
+06:       6       F             F             TGA   4     501   0     0     26    6   0   5   1   7   5   2   
+07:       7       G             G             TGA   6     501   0     0     34    1   6   6   6   3   5   7   
+08:       8       H             H             TGA   6     501   0     0     20    2   3   2   1   4   1   7   
+09:       9       I             I             TGA   5     501   0     0     24    3   2   3   4   5   1   6   
+10:       10      J             J             TGA   7     501   0     0     19    1   4   6   1   1   4   2   
+11:       11      K             K             TGA   7     501   0     0     26    3   4   5   2   3   5   4   
+12:       12      L             L             TGA   0     501   0     0     49    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     12    1   0   2   2   3   2   2   
+14:       14      N             N             TGA   6     501   0     0     20    5   2   4   3   2   1   3   
+15:       15      O             O             TGA   7     501   0     0     23    7   0   5   4   4   1   2   
+16:       16      P             P             TGA   7     501   0     0     27    5   6   5   4   6   1   0   
+
+
+#Number  :002
+Country  :TGA
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      22     2      1      19     
+Away      7      2      11     7      1      
+Third     6      14     14     8      22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     18    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     18    1   0   4   3   2   2   6   
+03:       3       C             C             TGA   3     501   0     0     23    4   1   4   6   4   0   4   
+04:       4       D             D             TGA   3     501   0     0     26    2   3   6   7   3   0   5   
+05:       5       E             E             TGA   2     501   0     0     27    5   4   5   2   5   2   4   
+06:       6       F             F             TGA   4     501   0     0     34    1   7   5   7   2   5   7   
+07:       7       G             G             TGA   6     501   0     0     36    5   7   6   4   6   3   5   
+08:       8       H             H             TGA   6     501   0     0     24    3   4   5   2   1   5   4   
+09:       9       I             I             TGA   5     501   0     0     16    4   1   6   1   2   0   2   
+10:       10      J             J             TGA   7     501   0     0     31    3   6   1   7   4   6   4   
+11:       11      K             K             TGA   7     501   0     0     11    2   0   7   0   2   0   0   
+12:       12      L             L             TGA   0     501   0     0     12    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     30    3   4   5   1   7   4   6   
+14:       14      N             N             TGA   6     501   0     0     24    1   4   7   0   7   1   4   
+15:       15      O             O             TGA   7     501   0     0     23    3   1   3   3   3   4   6   
+16:       16      P             P             TGA   7     501   0     0     28    6   3   0   5   6   7   1   
+
+
+#Number  :003
+Country  :TGA
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      16     22     14     0      
+Away      17     7      15     15     4      
+Third     9      1      13     14     15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     28    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     22    4   3   0   2   5   6   2   
+03:       3       C             C             TGA   3     501   0     0     21    1   7   0   6   0   2   5   
+04:       4       D             D             TGA   3     501   0     0     20    5   7   0   2   0   2   4   
+05:       5       E             E             TGA   2     501   0     0     20    3   2   6   6   2   0   1   
+06:       6       F             F             TGA   4     501   0     0     24    0   2   1   6   3   5   7   
+07:       7       G             G             TGA   6     501   0     0     27    0   6   7   3   3   5   3   
+08:       8       H             H             TGA   6     501   0     0     25    1   2   3   2   5   6   6   
+09:       9       I             I             TGA   5     501   0     0     26    1   6   3   4   0   6   6   
+10:       10      J             J             TGA   7     501   0     0     32    1   5   3   6   4   7   6   
+11:       11      K             K             TGA   7     501   0     0     28    2   7   7   1   1   4   6   
+12:       12      L             L             TGA   0     501   0     0     29    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     27    3   3   3   4   7   4   3   
+14:       14      N             N             TGA   6     501   0     0     31    6   7   1   7   2   2   6   
+15:       15      O             O             TGA   7     501   0     0     19    0   0   4   1   7   6   1   
+16:       16      P             P             TGA   7     501   0     0     26    1   4   3   4   6   6   2   
+
+
+#Number  :004
+Country  :TGA
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      5      18     15     3      
+Away      18     18     21     14     18     
+Third     4      4      0      3      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     3     0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     28    4   7   1   4   7   0   5   
+03:       3       C             C             TGA   3     501   0     0     17    7   3   0   0   1   2   4   
+04:       4       D             D             TGA   3     501   0     0     28    2   3   3   1   7   7   5   
+05:       5       E             E             TGA   2     501   0     0     24    3   1   7   6   6   1   0   
+06:       6       F             F             TGA   4     501   0     0     17    1   1   3   5   1   0   6   
+07:       7       G             G             TGA   6     501   0     0     13    4   0   4   0   3   1   1   
+08:       8       H             H             TGA   6     501   0     0     19    1   2   5   0   5   4   2   
+09:       9       I             I             TGA   5     501   0     0     25    1   5   6   0   6   7   0   
+10:       10      J             J             TGA   7     501   0     0     16    0   0   0   7   1   6   2   
+11:       11      K             K             TGA   7     501   0     0     28    3   3   6   7   4   5   0   
+12:       12      L             L             TGA   0     501   0     0     34    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     14    1   5   2   3   0   1   2   
+14:       14      N             N             TGA   6     501   0     0     19    2   3   3   0   5   5   1   
+15:       15      O             O             TGA   7     501   0     0     28    4   7   4   4   1   6   2   
+16:       16      P             P             TGA   7     501   0     0     19    7   0   4   6   0   1   1   
+
+
+#Number  :005
+Country  :TGA
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      5      10     16     7      
+Away      12     17     12     3      3      
+Third     12     22     2      14     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     32    3   7   0   7   4   5   6   
+03:       3       C             C             TGA   3     501   0     0     33    6   4   6   2   7   1   7   
+04:       4       D             D             TGA   3     501   0     0     23    0   7   0   4   5   5   2   
+05:       5       E             E             TGA   2     501   0     0     31    2   6   1   6   5   5   6   
+06:       6       F             F             TGA   4     501   0     0     20    7   1   1   0   3   2   6   
+07:       7       G             G             TGA   6     501   0     0     22    2   5   2   1   4   4   4   
+08:       8       H             H             TGA   6     501   0     0     23    7   0   1   5   5   2   3   
+09:       9       I             I             TGA   5     501   0     0     15    5   0   2   4   2   0   2   
+10:       10      J             J             TGA   7     501   0     0     23    7   6   4   1   0   5   0   
+11:       11      K             K             TGA   7     501   0     0     17    4   1   3   6   1   1   1   
+12:       12      L             L             TGA   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     25    5   2   1   3   2   6   6   
+14:       14      N             N             TGA   6     501   0     0     20    0   2   6   3   1   4   4   
+15:       15      O             O             TGA   7     501   0     0     21    2   6   1   2   4   3   3   
+16:       16      P             P             TGA   7     501   0     0     38    7   6   5   5   7   6   2   
+
+
+#Number  :006
+Country  :TGA
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      7      14     12     15     
+Away      11     15     0      12     4      
+Third     5      3      15     14     6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     26    6   7   0   1   2   4   6   
+03:       3       C             C             TGA   3     501   0     0     33    7   6   2   7   2   7   2   
+04:       4       D             D             TGA   3     501   0     0     28    5   5   6   2   1   2   7   
+05:       5       E             E             TGA   2     501   0     0     31    4   7   6   5   1   6   2   
+06:       6       F             F             TGA   4     501   0     0     29    4   4   6   6   3   4   2   
+07:       7       G             G             TGA   6     501   0     0     35    7   0   7   7   3   6   5   
+08:       8       H             H             TGA   6     501   0     0     38    6   5   4   3   7   6   7   
+09:       9       I             I             TGA   5     501   0     0     28    7   0   5   7   2   2   5   
+10:       10      J             J             TGA   7     501   0     0     23    1   6   2   5   2   1   6   
+11:       11      K             K             TGA   7     501   0     0     28    3   0   1   5   7   5   7   
+12:       12      L             L             TGA   0     501   0     0     29    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     15    0   4   2   2   2   1   4   
+14:       14      N             N             TGA   6     501   0     0     25    6   7   4   1   1   6   0   
+15:       15      O             O             TGA   7     501   0     0     24    2   4   6   7   0   2   3   
+16:       16      P             P             TGA   7     501   0     0     23    1   2   3   5   1   7   4   
+
+
+#Number  :007
+Country  :TGA
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     9      21     7      4      
+Away      1      14     12     22     5      
+Third     8      6      7      20     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     14    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     19    2   1   2   6   2   1   5   
+03:       3       C             C             TGA   3     501   0     0     17    2   2   2   4   1   0   6   
+04:       4       D             D             TGA   3     501   0     0     30    3   2   7   4   7   1   6   
+05:       5       E             E             TGA   2     501   0     0     16    7   0   3   2   2   0   2   
+06:       6       F             F             TGA   4     501   0     0     21    4   0   6   5   4   2   0   
+07:       7       G             G             TGA   6     501   0     0     27    4   2   1   6   5   7   2   
+08:       8       H             H             TGA   6     501   0     0     25    0   0   4   6   3   5   7   
+09:       9       I             I             TGA   5     501   0     0     18    1   0   6   7   2   1   1   
+10:       10      J             J             TGA   7     501   0     0     15    0   3   0   1   1   6   4   
+11:       11      K             K             TGA   7     501   0     0     17    2   2   2   0   1   3   7   
+12:       12      L             L             TGA   0     501   0     0     48    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     32    7   5   3   6   7   2   2   
+14:       14      N             N             TGA   6     501   0     0     22    2   1   2   2   4   7   4   
+15:       15      O             O             TGA   7     501   0     0     21    2   4   2   3   2   7   1   
+16:       16      P             P             TGA   7     501   0     0     24    2   6   5   6   3   0   2   
+
+
+#Number  :008
+Country  :TGA
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      6      8      15     0      
+Away      10     22     13     20     1      
+Third     1      15     12     17     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     26    5   3   1   7   7   3   0   
+03:       3       C             C             TGA   3     501   0     0     11    0   3   0   6   1   1   0   
+04:       4       D             D             TGA   3     501   0     0     25    3   6   7   0   2   0   7   
+05:       5       E             E             TGA   2     501   0     0     30    6   4   7   4   6   1   2   
+06:       6       F             F             TGA   4     501   0     0     16    2   3   1   1   1   3   5   
+07:       7       G             G             TGA   6     501   0     0     18    7   1   7   0   1   2   0   
+08:       8       H             H             TGA   6     501   0     0     24    5   3   2   6   3   5   0   
+09:       9       I             I             TGA   5     501   0     0     35    6   3   6   6   4   6   4   
+10:       10      J             J             TGA   7     501   0     0     12    3   5   2   0   1   1   0   
+11:       11      K             K             TGA   7     501   0     0     33    6   7   3   2   2   7   6   
+12:       12      L             L             TGA   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     20    3   1   4   7   2   2   1   
+14:       14      N             N             TGA   6     501   0     0     27    5   6   1   0   6   6   3   
+15:       15      O             O             TGA   7     501   0     0     24    0   2   4   1   7   5   5   
+16:       16      P             P             TGA   7     501   0     0     22    5   7   0   2   2   0   6   
+
+
+#Number  :009
+Country  :TGA
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      15     12     7      3      
+Away      6      7      12     3      7      
+Third     11     20     6      19     19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     29    4   5   6   2   7   2   3   
+03:       3       C             C             TGA   3     501   0     0     17    3   2   4   1   5   0   2   
+04:       4       D             D             TGA   3     501   0     0     19    2   4   6   5   1   0   1   
+05:       5       E             E             TGA   2     501   0     0     19    5   1   4   0   5   3   1   
+06:       6       F             F             TGA   4     501   0     0     18    4   4   6   1   1   0   2   
+07:       7       G             G             TGA   6     501   0     0     26    7   4   3   0   4   2   6   
+08:       8       H             H             TGA   6     501   0     0     30    7   2   4   4   4   2   7   
+09:       9       I             I             TGA   5     501   0     0     33    5   6   5   4   6   0   7   
+10:       10      J             J             TGA   7     501   0     0     19    3   3   3   1   6   2   1   
+11:       11      K             K             TGA   7     501   0     0     26    2   4   7   0   7   0   6   
+12:       12      L             L             TGA   0     501   0     0     38    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     33    6   5   6   6   4   6   0   
+14:       14      N             N             TGA   6     501   0     0     24    1   0   6   3   4   3   7   
+15:       15      O             O             TGA   7     501   0     0     23    5   5   0   7   2   3   1   
+16:       16      P             P             TGA   7     501   0     0     29    6   6   4   6   5   1   1   
+
+
+#Number  :010
+Country  :TGA
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     5      18     20     5      
+Away      6      12     22     15     21     
+Third     6      19     7      13     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     5     0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     28    5   5   5   0   4   7   2   
+03:       3       C             C             TGA   3     501   0     0     27    4   4   3   5   4   3   4   
+04:       4       D             D             TGA   3     501   0     0     27    5   2   7   5   2   5   1   
+05:       5       E             E             TGA   2     501   0     0     35    7   3   1   6   7   5   6   
+06:       6       F             F             TGA   4     501   0     0     28    3   4   6   1   7   6   1   
+07:       7       G             G             TGA   6     501   0     0     26    6   0   7   1   6   1   5   
+08:       8       H             H             TGA   6     501   0     0     23    0   5   7   5   5   1   0   
+09:       9       I             I             TGA   5     501   0     0     24    3   1   6   3   6   4   1   
+10:       10      J             J             TGA   7     501   0     0     19    6   2   0   2   1   7   1   
+11:       11      K             K             TGA   7     501   0     0     22    5   3   2   3   1   1   7   
+12:       12      L             L             TGA   0     501   0     0     12    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     35    6   7   3   7   1   5   6   
+14:       14      N             N             TGA   6     501   0     0     14    2   3   2   3   2   1   1   
+15:       15      O             O             TGA   7     501   0     0     34    7   7   3   3   3   7   4   
+16:       16      P             P             TGA   7     501   0     0     26    4   6   5   3   0   5   3   
+
+
+#Number  :011
+Country  :TGA
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     4      6      18     3      
+Away      11     16     7      0      15     
+Third     17     10     8      20     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     45    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     31    2   6   2   5   7   7   2   
+03:       3       C             C             TGA   3     501   0     0     25    2   7   4   3   1   6   2   
+04:       4       D             D             TGA   3     501   0     0     21    3   6   3   3   6   0   0   
+05:       5       E             E             TGA   2     501   0     0     14    4   3   5   0   2   0   0   
+06:       6       F             F             TGA   4     501   0     0     27    1   6   6   0   7   0   7   
+07:       7       G             G             TGA   6     501   0     0     35    3   6   5   5   6   7   3   
+08:       8       H             H             TGA   6     501   0     0     28    4   3   6   6   0   7   2   
+09:       9       I             I             TGA   5     501   0     0     25    6   6   5   3   5   0   0   
+10:       10      J             J             TGA   7     501   0     0     24    1   3   6   5   4   0   5   
+11:       11      K             K             TGA   7     501   0     0     22    7   1   7   2   1   4   0   
+12:       12      L             L             TGA   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     15    0   1   5   0   2   4   3   
+14:       14      N             N             TGA   6     501   0     0     23    3   0   5   7   4   1   3   
+15:       15      O             O             TGA   7     501   0     0     30    5   4   6   6   1   3   5   
+16:       16      P             P             TGA   7     501   0     0     29    2   7   6   2   2   7   3   
+
+
+#Number  :012
+Country  :TGA
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     9      5      16     14     
+Away      4      19     19     3      0      
+Third     14     13     22     15     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     17    0   2   5   2   2   3   3   
+03:       3       C             C             TGA   3     501   0     0     24    5   0   2   5   6   2   4   
+04:       4       D             D             TGA   3     501   0     0     27    0   6   5   0   7   6   3   
+05:       5       E             E             TGA   2     501   0     0     34    3   7   4   3   6   7   4   
+06:       6       F             F             TGA   4     501   0     0     33    4   4   6   5   3   5   6   
+07:       7       G             G             TGA   6     501   0     0     29    6   5   7   4   0   3   4   
+08:       8       H             H             TGA   6     501   0     0     16    1   2   5   6   1   1   0   
+09:       9       I             I             TGA   5     501   0     0     23    2   2   4   2   2   7   4   
+10:       10      J             J             TGA   7     501   0     0     28    3   7   6   5   6   1   0   
+11:       11      K             K             TGA   7     501   0     0     30    6   3   4   7   1   5   4   
+12:       12      L             L             TGA   0     501   0     0     36    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     23    0   6   0   2   4   7   4   
+14:       14      N             N             TGA   6     501   0     0     15    5   1   0   0   0   6   3   
+15:       15      O             O             TGA   7     501   0     0     30    6   5   6   6   3   2   2   
+16:       16      P             P             TGA   7     501   0     0     20    5   5   2   4   2   0   2   
+
+
+#Number  :013
+Country  :TGA
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      8      12     6      10     
+Away      18     18     7      20     3      
+Third     0      8      0      17     15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     26    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     24    6   2   5   1   0   6   4   
+03:       3       C             C             TGA   3     501   0     0     17    1   2   1   5   4   1   3   
+04:       4       D             D             TGA   3     501   0     0     25    0   7   7   2   2   0   7   
+05:       5       E             E             TGA   2     501   0     0     25    2   4   0   5   5   2   7   
+06:       6       F             F             TGA   4     501   0     0     24    3   1   5   5   4   6   0   
+07:       7       G             G             TGA   6     501   0     0     26    3   1   3   7   5   3   4   
+08:       8       H             H             TGA   6     501   0     0     32    3   7   7   2   3   7   3   
+09:       9       I             I             TGA   5     501   0     0     21    4   2   3   3   3   6   0   
+10:       10      J             J             TGA   7     501   0     0     16    2   5   1   2   1   0   5   
+11:       11      K             K             TGA   7     501   0     0     24    6   6   1   2   1   6   2   
+12:       12      L             L             TGA   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     23    4   2   5   4   4   3   1   
+14:       14      N             N             TGA   6     501   0     0     19    3   1   1   6   2   0   6   
+15:       15      O             O             TGA   7     501   0     0     26    5   2   3   1   4   6   5   
+16:       16      P             P             TGA   7     501   0     0     27    3   3   0   7   5   5   4   
+
+
+#Number  :014
+Country  :TGA
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     6      16     16     6      
+Away      13     3      10     4      0      
+Third     15     3      3      5      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     24    4   3   2   5   6   0   4   
+03:       3       C             C             TGA   3     501   0     0     33    4   5   1   7   4   6   6   
+04:       4       D             D             TGA   3     501   0     0     24    5   4   5   5   3   1   1   
+05:       5       E             E             TGA   2     501   0     0     21    2   6   5   3   0   4   1   
+06:       6       F             F             TGA   4     501   0     0     20    4   1   6   1   1   2   5   
+07:       7       G             G             TGA   6     501   0     0     25    2   3   3   7   2   4   4   
+08:       8       H             H             TGA   6     501   0     0     24    3   1   0   7   5   6   2   
+09:       9       I             I             TGA   5     501   0     0     20    2   2   7   0   1   3   5   
+10:       10      J             J             TGA   7     501   0     0     25    4   7   0   7   3   0   4   
+11:       11      K             K             TGA   7     501   0     0     19    1   7   0   2   0   3   6   
+12:       12      L             L             TGA   0     501   0     0     39    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     26    7   5   1   7   0   3   3   
+14:       14      N             N             TGA   6     501   0     0     20    4   1   4   5   2   0   4   
+15:       15      O             O             TGA   7     501   0     0     27    5   7   0   2   5   4   4   
+16:       16      P             P             TGA   7     501   0     0     19    0   3   4   3   1   4   4   
+
+
+#Number  :015
+Country  :TGA
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      4      11     6      20     
+Away      11     21     19     6      5      
+Third     14     19     1      13     19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     27    4   4   6   7   0   1   5   
+03:       3       C             C             TGA   3     501   0     0     19    0   3   0   7   6   0   3   
+04:       4       D             D             TGA   3     501   0     0     42    4   5   6   7   7   6   7   
+05:       5       E             E             TGA   2     501   0     0     34    3   4   7   5   6   3   6   
+06:       6       F             F             TGA   4     501   0     0     15    1   6   3   1   4   0   0   
+07:       7       G             G             TGA   6     501   0     0     17    2   5   2   6   0   1   1   
+08:       8       H             H             TGA   6     501   0     0     32    3   4   5   7   4   3   6   
+09:       9       I             I             TGA   5     501   0     0     34    6   3   4   7   3   7   4   
+10:       10      J             J             TGA   7     501   0     0     20    1   0   6   6   4   2   1   
+11:       11      K             K             TGA   7     501   0     0     26    3   7   6   1   5   0   4   
+12:       12      L             L             TGA   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     15    1   1   4   5   1   1   2   
+14:       14      N             N             TGA   6     501   0     0     26    1   6   6   1   7   5   0   
+15:       15      O             O             TGA   7     501   0     0     17    4   6   0   0   3   2   2   
+16:       16      P             P             TGA   7     501   0     0     30    5   4   2   4   6   5   4   
+
+
+#Number  :016
+Country  :TGA
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      15     16     12     12     
+Away      10     21     11     5      19     
+Third     1      6      6      18     19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     25    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     34    4   4   7   7   5   1   6   
+03:       3       C             C             TGA   3     501   0     0     27    0   6   2   5   4   6   4   
+04:       4       D             D             TGA   3     501   0     0     21    0   0   3   7   7   2   2   
+05:       5       E             E             TGA   2     501   0     0     23    5   7   2   4   4   0   1   
+06:       6       F             F             TGA   4     501   0     0     16    3   2   6   3   0   0   2   
+07:       7       G             G             TGA   6     501   0     0     25    5   7   0   1   2   3   7   
+08:       8       H             H             TGA   6     501   0     0     11    0   5   1   1   2   0   2   
+09:       9       I             I             TGA   5     501   0     0     23    4   5   5   0   5   3   1   
+10:       10      J             J             TGA   7     501   0     0     11    0   3   1   3   0   0   4   
+11:       11      K             K             TGA   7     501   0     0     21    6   4   1   3   0   1   6   
+12:       12      L             L             TGA   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     20    1   1   1   4   6   1   6   
+14:       14      N             N             TGA   6     501   0     0     23    4   0   3   7   6   3   0   
+15:       15      O             O             TGA   7     501   0     0     25    7   0   4   3   6   2   3   
+16:       16      P             P             TGA   7     501   0     0     24    3   2   6   3   2   5   3   
+
+
+#Number  :017
+Country  :TGA
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      19     3      4      2      
+Away      13     17     9      10     7      
+Third     17     5      16     13     6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     29    6   2   7   6   2   5   1   
+03:       3       C             C             TGA   3     501   0     0     32    7   4   7   1   3   5   5   
+04:       4       D             D             TGA   3     501   0     0     29    0   2   5   6   4   7   5   
+05:       5       E             E             TGA   2     501   0     0     25    5   3   3   0   7   5   2   
+06:       6       F             F             TGA   4     501   0     0     10    3   2   0   3   0   2   0   
+07:       7       G             G             TGA   6     501   0     0     23    5   0   5   4   2   3   4   
+08:       8       H             H             TGA   6     501   0     0     19    7   5   1   0   2   4   0   
+09:       9       I             I             TGA   5     501   0     0     23    0   6   6   5   3   3   0   
+10:       10      J             J             TGA   7     501   0     0     18    0   0   5   6   2   1   4   
+11:       11      K             K             TGA   7     501   0     0     31    2   3   6   6   3   7   4   
+12:       12      L             L             TGA   0     501   0     0     11    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     25    1   5   2   3   5   4   5   
+14:       14      N             N             TGA   6     501   0     0     31    5   6   7   2   4   7   0   
+15:       15      O             O             TGA   7     501   0     0     29    4   3   4   7   4   6   1   
+16:       16      P             P             TGA   7     501   0     0     18    1   6   3   0   2   5   1   
+
+
+#Number  :018
+Country  :TGA
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     0      19     12     4      
+Away      10     3      16     15     7      
+Third     18     0      8      1      15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             TGA   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       B             B             TGA   1     501   0     0     24    7   1   6   0   2   3   5   
+03:       3       C             C             TGA   3     501   0     0     23    1   3   1   0   7   4   7   
+04:       4       D             D             TGA   3     501   0     0     18    2   4   3   0   1   5   3   
+05:       5       E             E             TGA   2     501   0     0     28    4   6   4   4   3   2   5   
+06:       6       F             F             TGA   4     501   0     0     30    5   3   3   2   5   5   7   
+07:       7       G             G             TGA   6     501   0     0     25    1   7   5   5   1   4   2   
+08:       8       H             H             TGA   6     501   0     0     19    1   5   5   3   2   2   1   
+09:       9       I             I             TGA   5     501   0     0     24    4   4   3   5   1   5   2   
+10:       10      J             J             TGA   7     501   0     0     29    2   3   3   7   6   3   5   
+11:       11      K             K             TGA   7     501   0     0     34    3   3   6   4   4   7   7   
+12:       12      L             L             TGA   0     501   0     0     22    0   0   0   0   0   0   0   
+13:       13      M             M             TGA   3     501   0     0     26    1   0   4   7   7   0   7   
+14:       14      N             N             TGA   6     501   0     0     23    4   3   2   5   6   1   2   
+15:       15      O             O             TGA   7     501   0     0     26    7   3   1   4   0   4   7   
+16:       16      P             P             TGA   7     501   0     0     24    5   0   2   1   3   7   6   
+
+

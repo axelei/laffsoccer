@@ -1,0 +1,10 @@
+000 Argentina
+001 Bolivia
+002 Brazil
+003 Chile
+004 Colombia
+005 Ecuador
+006 Paraguay
+007 Peru
+008 Uruguay
+009 Venezuela

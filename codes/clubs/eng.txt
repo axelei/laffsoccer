@@ -1,0 +1,95 @@
+000 Arsenal
+001 Aston Villa
+002 Birmingham
+003 Blackburn Rovers
+004 Bolton
+005 Charlton Athletic
+006 Chelsea
+007 Everton
+008 Fulham
+009 Leeds United
+010 Leicester
+011 Liverpool
+012 Manchester City
+013 Manchester United
+014 Middlesbrough
+015 Newcastle
+016 Portsmouth
+017 Southampton
+018 Tottenham Hotspur
+019 Wolverhampton Wanderers
+ 
+020 Bradford
+021 Burnley
+022 Cardiff City
+023 Coventry
+024 Crewe Alex.
+025 Crystal Palace
+026 Derby County
+027 Gillingham
+028 Ipswich Town
+029 Millwall
+030 Norwich City
+031 Nottingham Forest
+032 Preston
+033 Reading
+034 Rotherham
+035 Sheffield United
+036 Stoke City
+037 Sunderland
+038 Walsall
+039 Watford
+040 West Bromwich Albion
+041 West Ham
+042 Wigan
+043 Wimbledon
+ 
+044 Barnsley
+045 Blackpool
+046 Bournemouth
+047 Brentford
+048 Brighton
+049 Bristol City
+050 Chesterfield
+051 Colchester United
+052 Grimsby
+053 Hartlepool United
+054 Luton Town
+055 Notts County
+056 Oldham Athletic
+057 Peterborough
+058 Plymouth
+059 Port Vale
+060 Queen Park Rangers (QPR)
+061 Rushden & Diamonds
+062 Sheffield Wednesday
+063 Stockport
+064 Swindon Town
+065 Tranmere Rovers
+066 Wrexham
+067 Wycombe
+ 
+068 Boston United
+069 Bristol Rovers
+070 Bury
+071 Cambridge
+072 Carlisle
+073 Cheltenham Town
+074 Darlington
+075 Doncaster Rovers
+076 Huddersfield
+077 Hull
+078 Kidderminster Harriers
+079 Leyton Orient
+080 Lincoln
+081 Macclesfield Town
+082 Mansfield
+083 Northampton
+084 Oxford United
+085 Rochdale
+086 Scunthorpe
+087 Southend U.
+088 Swansea
+089 Torquay
+090 Yeovil
+091 York City

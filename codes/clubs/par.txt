@@ -1,0 +1,10 @@
+001 12 de Octubre
+002 3 de Febrero
+003 Cerro Porteno
+004 General Caballero
+005 Guarani
+006 Libertad
+007 Nacional Assuncion
+008 Olimpia
+009 Sportivo Luqueno
+010 Tucuary FBC

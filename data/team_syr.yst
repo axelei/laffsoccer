@@ -1,0 +1,702 @@
+#Number  :001
+Country  :SYR
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     13     0      19     11     
+Away      12     15     4      8      3      
+Third     0      9      12     21     6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     14    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     23    1   5   2   6   6   3   0   
+03:       3       C             C             SYR   3     501   0     0     21    0   3   5   2   0   7   4   
+04:       4       D             D             SYR   3     501   0     0     31    6   5   1   2   6   6   5   
+05:       5       E             E             SYR   2     501   0     0     27    1   6   6   4   7   1   2   
+06:       6       F             F             SYR   4     501   0     0     25    0   0   5   5   7   1   7   
+07:       7       G             G             SYR   6     501   0     0     35    5   6   3   7   4   3   7   
+08:       8       H             H             SYR   6     501   0     0     24    0   5   3   7   5   3   1   
+09:       9       I             I             SYR   5     501   0     0     30    6   6   7   7   2   1   1   
+10:       10      J             J             SYR   7     501   0     0     34    2   5   5   7   7   3   5   
+11:       11      K             K             SYR   7     501   0     0     16    2   0   1   4   1   6   2   
+12:       12      L             L             SYR   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     23    6   2   4   4   5   2   0   
+14:       14      N             N             SYR   6     501   0     0     23    5   4   0   2   6   6   0   
+15:       15      O             O             SYR   7     501   0     0     24    2   6   0   3   4   5   4   
+16:       16      P             P             SYR   7     501   0     0     22    4   3   1   2   4   7   1   
+
+
+#Number  :002
+Country  :SYR
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      18     13     12     13     
+Away      4      22     1      0      1      
+Third     10     4      15     15     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     23    0   2   5   1   7   2   6   
+03:       3       C             C             SYR   3     501   0     0     22    6   2   2   3   2   2   5   
+04:       4       D             D             SYR   3     501   0     0     30    0   6   7   2   5   4   6   
+05:       5       E             E             SYR   2     501   0     0     16    2   6   1   2   5   0   0   
+06:       6       F             F             SYR   4     501   0     0     24    6   4   2   5   6   0   1   
+07:       7       G             G             SYR   6     501   0     0     22    4   2   4   1   2   5   4   
+08:       8       H             H             SYR   6     501   0     0     31    6   1   5   7   6   3   3   
+09:       9       I             I             SYR   5     501   0     0     22    1   1   4   3   7   1   5   
+10:       10      J             J             SYR   7     501   0     0     20    0   3   7   3   3   3   1   
+11:       11      K             K             SYR   7     501   0     0     29    0   5   2   7   5   7   3   
+12:       12      L             L             SYR   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     33    6   0   4   6   5   5   7   
+14:       14      N             N             SYR   6     501   0     0     20    2   4   1   5   1   7   0   
+15:       15      O             O             SYR   7     501   0     0     8     4   0   1   1   1   1   0   
+16:       16      P             P             SYR   7     501   0     0     27    6   1   2   4   7   5   2   
+
+
+#Number  :003
+Country  :SYR
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      9      17     9      3      
+Away      5      11     14     8      22     
+Third     16     13     2      22     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     21    1   6   2   3   6   2   1   
+03:       3       C             C             SYR   3     501   0     0     30    7   5   1   7   4   5   1   
+04:       4       D             D             SYR   3     501   0     0     13    0   4   1   3   1   3   1   
+05:       5       E             E             SYR   2     501   0     0     21    1   2   1   2   4   5   6   
+06:       6       F             F             SYR   4     501   0     0     32    6   3   2   7   6   1   7   
+07:       7       G             G             SYR   6     501   0     0     32    3   5   5   2   6   6   5   
+08:       8       H             H             SYR   6     501   0     0     24    5   3   3   1   2   7   3   
+09:       9       I             I             SYR   5     501   0     0     27    0   4   5   6   2   3   7   
+10:       10      J             J             SYR   7     501   0     0     32    1   7   5   7   5   4   3   
+11:       11      K             K             SYR   7     501   0     0     17    0   3   4   4   6   0   0   
+12:       12      L             L             SYR   0     501   0     0     42    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     24    7   1   6   7   1   0   2   
+14:       14      N             N             SYR   6     501   0     0     16    0   2   5   1   2   0   6   
+15:       15      O             O             SYR   7     501   0     0     21    2   3   2   7   2   5   0   
+16:       16      P             P             SYR   7     501   0     0     23    1   7   3   3   3   2   4   
+
+
+#Number  :004
+Country  :SYR
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     21     8      1      10     
+Away      13     17     3      6      15     
+Third     3      13     0      10     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     43    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     34    7   2   2   6   5   7   5   
+03:       3       C             C             SYR   3     501   0     0     27    4   4   6   5   3   2   3   
+04:       4       D             D             SYR   3     501   0     0     17    2   0   6   4   2   3   0   
+05:       5       E             E             SYR   2     501   0     0     22    2   7   4   2   1   4   2   
+06:       6       F             F             SYR   4     501   0     0     18    0   3   6   3   2   4   0   
+07:       7       G             G             SYR   6     501   0     0     19    5   6   4   1   2   0   1   
+08:       8       H             H             SYR   6     501   0     0     21    0   0   1   6   3   4   7   
+09:       9       I             I             SYR   5     501   0     0     30    7   0   7   5   2   7   2   
+10:       10      J             J             SYR   7     501   0     0     23    3   2   4   5   4   0   5   
+11:       11      K             K             SYR   7     501   0     0     25    7   5   0   1   7   2   3   
+12:       12      L             L             SYR   0     501   0     0     18    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     28    6   3   5   3   4   0   7   
+14:       14      N             N             SYR   6     501   0     0     24    4   6   0   4   5   3   2   
+15:       15      O             O             SYR   7     501   0     0     28    4   3   3   7   4   0   7   
+16:       16      P             P             SYR   7     501   0     0     21    1   7   3   5   0   0   5   
+
+
+#Number  :005
+Country  :SYR
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     9      2      1      6      
+Away      1      4      7      12     10     
+Third     14     1      15     13     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     11    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     26    7   4   2   4   3   3   3   
+03:       3       C             C             SYR   3     501   0     0     22    1   0   2   1   6   5   7   
+04:       4       D             D             SYR   3     501   0     0     14    2   3   2   5   1   0   1   
+05:       5       E             E             SYR   2     501   0     0     18    4   0   0   1   6   4   3   
+06:       6       F             F             SYR   4     501   0     0     23    0   5   2   4   3   2   7   
+07:       7       G             G             SYR   6     501   0     0     29    5   6   1   7   3   2   5   
+08:       8       H             H             SYR   6     501   0     0     23    2   7   6   4   2   0   2   
+09:       9       I             I             SYR   5     501   0     0     22    2   0   6   0   5   2   7   
+10:       10      J             J             SYR   7     501   0     0     36    3   4   7   4   7   6   5   
+11:       11      K             K             SYR   7     501   0     0     21    6   4   0   1   4   0   6   
+12:       12      L             L             SYR   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     37    3   3   7   5   5   7   7   
+14:       14      N             N             SYR   6     501   0     0     20    2   3   2   4   7   1   1   
+15:       15      O             O             SYR   7     501   0     0     29    5   3   1   5   4   7   4   
+16:       16      P             P             SYR   7     501   0     0     18    2   0   4   4   2   1   5   
+
+
+#Number  :006
+Country  :SYR
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      15     19     3      8      
+Away      15     19     13     6      22     
+Third     15     16     6      4      1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     14    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     30    7   5   0   3   7   5   3   
+03:       3       C             C             SYR   3     501   0     0     27    6   0   3   5   3   6   4   
+04:       4       D             D             SYR   3     501   0     0     30    2   4   7   6   5   3   3   
+05:       5       E             E             SYR   2     501   0     0     16    0   0   1   7   5   1   2   
+06:       6       F             F             SYR   4     501   0     0     20    1   2   7   0   3   5   2   
+07:       7       G             G             SYR   6     501   0     0     18    2   0   3   1   1   7   4   
+08:       8       H             H             SYR   6     501   0     0     23    5   5   7   2   0   2   2   
+09:       9       I             I             SYR   5     501   0     0     28    7   5   2   1   7   0   6   
+10:       10      J             J             SYR   7     501   0     0     28    7   6   5   0   2   6   2   
+11:       11      K             K             SYR   7     501   0     0     30    2   2   6   7   2   6   5   
+12:       12      L             L             SYR   0     501   0     0     35    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     22    6   6   2   0   4   3   1   
+14:       14      N             N             SYR   6     501   0     0     35    7   0   7   3   6   6   6   
+15:       15      O             O             SYR   7     501   0     0     25    5   6   5   2   1   0   6   
+16:       16      P             P             SYR   7     501   0     0     17    1   0   5   6   0   5   0   
+
+
+#Number  :007
+Country  :SYR
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      13     3      20     5      
+Away      12     16     14     1      0      
+Third     3      3      3      9      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     9     0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     29    1   7   4   4   5   3   5   
+03:       3       C             C             SYR   3     501   0     0     14    2   2   2   2   1   3   2   
+04:       4       D             D             SYR   3     501   0     0     25    1   7   1   1   5   5   5   
+05:       5       E             E             SYR   2     501   0     0     25    0   3   0   5   6   4   7   
+06:       6       F             F             SYR   4     501   0     0     26    5   6   6   5   0   2   2   
+07:       7       G             G             SYR   6     501   0     0     20    3   0   3   5   7   0   2   
+08:       8       H             H             SYR   6     501   0     0     26    4   1   4   1   7   7   2   
+09:       9       I             I             SYR   5     501   0     0     25    0   6   1   7   3   6   2   
+10:       10      J             J             SYR   7     501   0     0     29    1   3   6   7   4   3   5   
+11:       11      K             K             SYR   7     501   0     0     36    6   4   7   6   4   4   5   
+12:       12      L             L             SYR   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     15    1   3   0   2   3   4   2   
+14:       14      N             N             SYR   6     501   0     0     31    3   5   4   7   5   5   2   
+15:       15      O             O             SYR   7     501   0     0     13    3   2   1   1   2   0   4   
+16:       16      P             P             SYR   7     501   0     0     29    6   3   7   4   2   2   5   
+
+
+#Number  :008
+Country  :SYR
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      1      15     12     12     
+Away      11     15     9      17     17     
+Third     8      13     5      14     0      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     21    0   0   7   5   4   2   3   
+03:       3       C             C             SYR   3     501   0     0     34    7   3   6   7   0   4   7   
+04:       4       D             D             SYR   3     501   0     0     20    2   1   1   3   5   3   5   
+05:       5       E             E             SYR   2     501   0     0     28    6   1   7   6   6   1   1   
+06:       6       F             F             SYR   4     501   0     0     33    4   7   1   6   3   5   7   
+07:       7       G             G             SYR   6     501   0     0     21    2   6   3   3   2   2   3   
+08:       8       H             H             SYR   6     501   0     0     32    5   2   3   7   6   6   3   
+09:       9       I             I             SYR   5     501   0     0     27    7   1   1   7   6   3   2   
+10:       10      J             J             SYR   7     501   0     0     26    2   0   6   5   1   7   5   
+11:       11      K             K             SYR   7     501   0     0     20    1   0   3   5   7   2   2   
+12:       12      L             L             SYR   0     501   0     0     8     0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     28    6   4   3   5   2   5   3   
+14:       14      N             N             SYR   6     501   0     0     24    2   4   7   1   5   2   3   
+15:       15      O             O             SYR   7     501   0     0     28    6   6   6   4   1   3   2   
+16:       16      P             P             SYR   7     501   0     0     34    7   3   5   3   7   5   4   
+
+
+#Number  :009
+Country  :SYR
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     7      6      15     4      
+Away      5      8      19     9      22     
+Third     5      11     3      6      10     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     25    2   3   4   2   6   3   5   
+03:       3       C             C             SYR   3     501   0     0     21    0   7   1   3   2   7   1   
+04:       4       D             D             SYR   3     501   0     0     27    6   1   7   0   7   1   5   
+05:       5       E             E             SYR   2     501   0     0     27    4   2   4   4   7   2   4   
+06:       6       F             F             SYR   4     501   0     0     13    1   7   0   0   4   0   1   
+07:       7       G             G             SYR   6     501   0     0     14    0   3   3   1   5   1   1   
+08:       8       H             H             SYR   6     501   0     0     31    5   5   7   2   6   4   2   
+09:       9       I             I             SYR   5     501   0     0     29    4   0   1   7   6   5   6   
+10:       10      J             J             SYR   7     501   0     0     28    5   6   4   3   4   2   4   
+11:       11      K             K             SYR   7     501   0     0     23    4   6   4   0   5   0   4   
+12:       12      L             L             SYR   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     24    7   1   7   3   0   5   1   
+14:       14      N             N             SYR   6     501   0     0     31    3   7   2   5   2   5   7   
+15:       15      O             O             SYR   7     501   0     0     26    0   6   2   3   5   4   6   
+16:       16      P             P             SYR   7     501   0     0     20    6   6   2   3   0   3   0   
+
+
+#Number  :010
+Country  :SYR
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     18     22     14     21     
+Away      7      6      13     4      11     
+Third     0      0      19     2      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     29    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     25    5   4   0   6   5   2   3   
+03:       3       C             C             SYR   3     501   0     0     25    2   4   3   7   3   4   2   
+04:       4       D             D             SYR   3     501   0     0     25    3   2   1   5   2   6   6   
+05:       5       E             E             SYR   2     501   0     0     30    6   4   2   5   6   2   5   
+06:       6       F             F             SYR   4     501   0     0     23    0   5   3   7   4   3   1   
+07:       7       G             G             SYR   6     501   0     0     34    1   6   7   2   5   7   6   
+08:       8       H             H             SYR   6     501   0     0     27    2   6   6   4   0   5   4   
+09:       9       I             I             SYR   5     501   0     0     30    6   3   4   4   4   4   5   
+10:       10      J             J             SYR   7     501   0     0     23    0   6   4   1   4   1   7   
+11:       11      K             K             SYR   7     501   0     0     16    6   4   0   0   0   4   2   
+12:       12      L             L             SYR   0     501   0     0     41    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     27    3   0   2   7   4   5   6   
+14:       14      N             N             SYR   6     501   0     0     28    4   2   7   6   2   0   7   
+15:       15      O             O             SYR   7     501   0     0     32    5   2   7   2   6   7   3   
+16:       16      P             P             SYR   7     501   0     0     19    6   2   0   3   5   1   2   
+
+
+#Number  :011
+Country  :SYR
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     6      11     12     3      
+Away      5      3      0      4      20     
+Third     16     12     9      21     4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     23    0   3   7   5   6   1   1   
+03:       3       C             C             SYR   3     501   0     0     23    4   2   0   3   3   5   6   
+04:       4       D             D             SYR   3     501   0     0     23    2   5   0   7   1   1   7   
+05:       5       E             E             SYR   2     501   0     0     23    4   5   4   1   2   0   7   
+06:       6       F             F             SYR   4     501   0     0     23    7   3   3   2   1   3   4   
+07:       7       G             G             SYR   6     501   0     0     21    1   0   2   7   6   4   1   
+08:       8       H             H             SYR   6     501   0     0     30    6   5   7   1   0   6   5   
+09:       9       I             I             SYR   5     501   0     0     24    4   2   3   6   4   5   0   
+10:       10      J             J             SYR   7     501   0     0     34    7   7   5   2   5   6   2   
+11:       11      K             K             SYR   7     501   0     0     30    2   5   6   1   7   6   3   
+12:       12      L             L             SYR   0     501   0     0     19    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     20    1   3   2   5   0   3   6   
+14:       14      N             N             SYR   6     501   0     0     18    2   0   2   7   5   0   2   
+15:       15      O             O             SYR   7     501   0     0     22    4   7   1   1   0   4   5   
+16:       16      P             P             SYR   7     501   0     0     18    1   7   0   2   6   2   0   
+
+
+#Number  :012
+Country  :SYR
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     8      7      5      17     
+Away      7      12     15     13     14     
+Third     7      1      18     0      21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     12    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     19    3   0   1   0   4   4   7   
+03:       3       C             C             SYR   3     501   0     0     27    5   5   2   6   3   1   5   
+04:       4       D             D             SYR   3     501   0     0     14    1   0   1   4   0   1   7   
+05:       5       E             E             SYR   2     501   0     0     28    4   4   4   6   6   1   3   
+06:       6       F             F             SYR   4     501   0     0     26    6   3   7   0   7   2   1   
+07:       7       G             G             SYR   6     501   0     0     23    3   3   4   0   1   5   7   
+08:       8       H             H             SYR   6     501   0     0     26    2   3   2   3   7   2   7   
+09:       9       I             I             SYR   5     501   0     0     20    1   3   3   2   5   2   4   
+10:       10      J             J             SYR   7     501   0     0     13    0   4   1   2   4   2   0   
+11:       11      K             K             SYR   7     501   0     0     17    1   6   5   1   2   1   1   
+12:       12      L             L             SYR   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     30    4   7   5   4   0   4   6   
+14:       14      N             N             SYR   6     501   0     0     14    0   2   7   0   2   1   2   
+15:       15      O             O             SYR   7     501   0     0     19    7   2   2   1   3   4   0   
+16:       16      P             P             SYR   7     501   0     0     27    7   1   3   6   4   0   6   
+
+
+#Number  :013
+Country  :SYR
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     20     2      3      17     
+Away      4      21     2      0      21     
+Third     1      4      21     18     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     42    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     25    6   0   1   7   2   6   3   
+03:       3       C             C             SYR   3     501   0     0     21    4   4   2   2   3   4   2   
+04:       4       D             D             SYR   3     501   0     0     13    1   4   1   0   2   1   4   
+05:       5       E             E             SYR   2     501   0     0     22    6   1   6   2   0   2   5   
+06:       6       F             F             SYR   4     501   0     0     32    7   1   7   4   6   1   6   
+07:       7       G             G             SYR   6     501   0     0     28    1   7   0   4   7   4   5   
+08:       8       H             H             SYR   6     501   0     0     6     0   1   2   1   2   0   0   
+09:       9       I             I             SYR   5     501   0     0     26    5   7   5   3   3   1   2   
+10:       10      J             J             SYR   7     501   0     0     23    1   5   6   0   5   1   5   
+11:       11      K             K             SYR   7     501   0     0     27    4   5   0   3   6   2   7   
+12:       12      L             L             SYR   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     22    7   6   1   5   0   1   2   
+14:       14      N             N             SYR   6     501   0     0     30    6   4   2   1   6   5   6   
+15:       15      O             O             SYR   7     501   0     0     35    5   3   7   4   5   5   6   
+16:       16      P             P             SYR   7     501   0     0     31    5   3   4   4   6   4   5   
+
+
+#Number  :014
+Country  :SYR
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     18     7      14     8      
+Away      16     2      7      10     13     
+Third     5      6      20     9      13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     19    2   4   2   0   4   6   1   
+03:       3       C             C             SYR   3     501   0     0     27    4   1   2   7   6   3   4   
+04:       4       D             D             SYR   3     501   0     0     26    4   4   1   7   1   3   6   
+05:       5       E             E             SYR   2     501   0     0     19    4   5   3   4   0   3   0   
+06:       6       F             F             SYR   4     501   0     0     18    3   4   0   6   1   1   3   
+07:       7       G             G             SYR   6     501   0     0     28    3   3   6   2   6   6   2   
+08:       8       H             H             SYR   6     501   0     0     23    2   1   7   3   2   5   3   
+09:       9       I             I             SYR   5     501   0     0     23    2   7   0   6   7   0   1   
+10:       10      J             J             SYR   7     501   0     0     31    5   5   1   7   4   2   7   
+11:       11      K             K             SYR   7     501   0     0     25    0   2   7   6   5   2   3   
+12:       12      L             L             SYR   0     501   0     0     49    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     13    2   0   0   3   1   0   7   
+14:       14      N             N             SYR   6     501   0     0     18    1   4   6   3   1   2   1   
+15:       15      O             O             SYR   7     501   0     0     40    7   6   7   7   1   6   6   
+16:       16      P             P             SYR   7     501   0     0     32    7   5   6   1   3   6   4   
+
+
+#Number  :015
+Country  :SYR
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     14     14     20     14     
+Away      3      10     15     3      6      
+Third     10     19     10     4      7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     49    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     16    1   1   2   2   4   5   1   
+03:       3       C             C             SYR   3     501   0     0     34    4   5   5   7   7   4   2   
+04:       4       D             D             SYR   3     501   0     0     34    7   6   2   4   3   6   6   
+05:       5       E             E             SYR   2     501   0     0     21    2   2   2   7   2   4   2   
+06:       6       F             F             SYR   4     501   0     0     24    5   5   2   2   4   2   4   
+07:       7       G             G             SYR   6     501   0     0     29    1   5   7   6   0   5   5   
+08:       8       H             H             SYR   6     501   0     0     24    2   6   1   7   0   5   3   
+09:       9       I             I             SYR   5     501   0     0     30    4   4   6   7   2   4   3   
+10:       10      J             J             SYR   7     501   0     0     27    7   2   2   2   7   0   7   
+11:       11      K             K             SYR   7     501   0     0     26    4   6   3   3   3   4   3   
+12:       12      L             L             SYR   0     501   0     0     43    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     27    5   1   5   5   5   4   2   
+14:       14      N             N             SYR   6     501   0     0     19    2   0   1   7   4   0   5   
+15:       15      O             O             SYR   7     501   0     0     15    0   5   0   0   3   6   1   
+16:       16      P             P             SYR   7     501   0     0     27    4   4   6   3   1   4   5   
+
+
+#Number  :016
+Country  :SYR
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      2      0      10     12     
+Away      15     0      15     16     5      
+Third     3      10     9      7      22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     18    5   4   1   0   3   0   5   
+03:       3       C             C             SYR   3     501   0     0     22    1   1   4   5   5   2   4   
+04:       4       D             D             SYR   3     501   0     0     29    7   6   4   0   6   6   0   
+05:       5       E             E             SYR   2     501   0     0     29    6   7   7   0   4   3   2   
+06:       6       F             F             SYR   4     501   0     0     28    5   3   6   6   7   1   0   
+07:       7       G             G             SYR   6     501   0     0     28    5   6   3   6   0   4   4   
+08:       8       H             H             SYR   6     501   0     0     32    2   5   7   4   1   6   7   
+09:       9       I             I             SYR   5     501   0     0     30    0   5   7   7   1   4   6   
+10:       10      J             J             SYR   7     501   0     0     21    1   4   7   5   0   0   4   
+11:       11      K             K             SYR   7     501   0     0     33    5   5   4   7   4   4   4   
+12:       12      L             L             SYR   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     20    3   4   0   4   6   2   1   
+14:       14      N             N             SYR   6     501   0     0     31    4   4   2   7   6   2   6   
+15:       15      O             O             SYR   7     501   0     0     28    7   7   2   2   6   1   3   
+16:       16      P             P             SYR   7     501   0     0     21    2   1   3   7   2   0   6   
+
+
+#Number  :017
+Country  :SYR
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      0      17     8      5      
+Away      13     19     4      20     14     
+Third     2      0      9      11     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     5     0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     32    7   5   0   4   5   5   6   
+03:       3       C             C             SYR   3     501   0     0     24    6   1   2   3   3   4   5   
+04:       4       D             D             SYR   3     501   0     0     28    6   4   7   1   2   5   3   
+05:       5       E             E             SYR   2     501   0     0     24    0   3   5   3   6   7   0   
+06:       6       F             F             SYR   4     501   0     0     26    7   5   7   1   0   4   2   
+07:       7       G             G             SYR   6     501   0     0     28    3   4   3   6   6   1   5   
+08:       8       H             H             SYR   6     501   0     0     21    6   2   0   4   1   1   7   
+09:       9       I             I             SYR   5     501   0     0     24    7   6   0   3   1   4   3   
+10:       10      J             J             SYR   7     501   0     0     40    7   7   2   7   6   4   7   
+11:       11      K             K             SYR   7     501   0     0     25    5   6   4   4   5   1   0   
+12:       12      L             L             SYR   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     30    2   3   5   6   7   1   6   
+14:       14      N             N             SYR   6     501   0     0     26    3   4   6   2   2   2   7   
+15:       15      O             O             SYR   7     501   0     0     35    3   7   3   7   3   5   7   
+16:       16      P             P             SYR   7     501   0     0     34    6   5   7   5   6   3   2   
+
+
+#Number  :018
+Country  :SYR
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      8      13     21     17     
+Away      11     10     15     0      14     
+Third     14     3      9      21     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             SYR   0     501   0     0     42    0   0   0   0   0   0   0   
+02:       2       B             B             SYR   1     501   0     0     21    7   2   5   6   0   0   1   
+03:       3       C             C             SYR   3     501   0     0     17    5   3   0   0   1   4   4   
+04:       4       D             D             SYR   3     501   0     0     36    7   6   5   5   2   7   4   
+05:       5       E             E             SYR   2     501   0     0     27    3   5   7   1   6   1   4   
+06:       6       F             F             SYR   4     501   0     0     34    3   7   3   2   7   6   6   
+07:       7       G             G             SYR   6     501   0     0     35    7   6   7   3   4   6   2   
+08:       8       H             H             SYR   6     501   0     0     23    7   0   5   0   1   6   4   
+09:       9       I             I             SYR   5     501   0     0     27    0   4   2   3   7   7   4   
+10:       10      J             J             SYR   7     501   0     0     17    3   5   1   1   2   2   3   
+11:       11      K             K             SYR   7     501   0     0     14    0   1   1   7   1   1   3   
+12:       12      L             L             SYR   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             SYR   3     501   0     0     28    3   6   5   1   4   4   5   
+14:       14      N             N             SYR   6     501   0     0     25    5   2   4   3   4   0   7   
+15:       15      O             O             SYR   7     501   0     0     40    7   7   7   5   0   7   7   
+16:       16      P             P             SYR   7     501   0     0     34    7   7   7   0   3   5   5   
+
+

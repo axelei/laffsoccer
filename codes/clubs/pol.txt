@@ -1,0 +1,98 @@
+000 Amica Wronki
+001 Cracovia Kraków
+002 GKS Katowice
+003 Górnik £êczna
+004 Górnik Zabrze
+005 Groclin Grodzisk Wielkopolski
+006 Lech Poznañ						Primier Div
+007 Legia Warszawa
+008 Odra Wodzis³aw
+009 Pogoñ Szczecin
+010 Polonia Warszawa
+011 Wis³a Kraków
+012 Wis³a P³ock
+013 Zag³êbie Lubin
+
+014 Arka Gdynia
+015 GKS Be³chatów
+016 Górnik Polkowice
+017 Jagiellonia Bia³ystok
+018 Korona Kielce
+019 Kujawiak W³oc³awek
+020 £KS £ódŸ
+021 MKS M³awa
+022 Piast Gliwice
+023 Podbeskidzie Bielsko-Bia³a				First Div						
+024 Radomiak Radom
+025 RKS Radomsko
+026 Ruch Chorzów
+027 Stasiak KSZO Ostrowiec Œwiêtokrzyski
+028 Œwit Nowy Dwór Mazowiecki
+029 Szczakowianka Jaworzno
+030 Widzew £ódŸ
+031 Zag³êbie Sosnowiec
+
+032 Ceramika Parady¿
+033 Drwêca Nowe Miasto Lubawskie
+034 Gwardia Warszawa
+035 Legia II Warszawa
+036 Legionovia Legionowo
+037 £KS £om¿a
+038 Mazowsze Grójec
+039 MG MZKS Kozienice
+040 Okêcie Warszawa				Second Div (north-eastern)
+041 OKS 1945 Olsztyn
+042 Pelikan £owicz
+043 Ruch Wysokie Mazowieckie
+044 Stal G³owno
+045 Unia Skierniewice
+046 Warmia Grajewo
+047 Znicz Pruszków_________________________________________________________________
+048 Amica II Wronki
+049 Chemik Bydgoszcz
+050 Flota Œwinoujœcie
+051 Kaszubia Koœcierzyna
+052 Kotwica Ko³obrzeg
+053 Lech II Poznañ
+054 Lechia Gdañsk
+055 Mieszko Gniezno				Second Div (north-western)
+056 Obra Koœcian
+057 Odra Chojna
+058 Pogoñ II Szczecin
+059 TKP Toruñ
+060 Tur Turek
+061 Unia Janikowo
+062 Unia Tczew
+063 Warta Poznañ__________________________________________________________________
+064 Arka Nowa Sól
+065 Chrobry G³ogów
+066 Górnik Jastrzêbie Zdrój
+067 Lech Zielona Góra
+068 MiedŸ Legnica
+069 Motobi K¹ty Wroc³awskie
+070 Odra Opole
+071 Polar Wroc³aw
+072 Polonia Bytom					Second Div (south-western)
+073 Polonia S³ubice
+074 Promieñ ¯ary
+075 Rozwój Katowice
+076 Ruch Radzionków
+077 Œl¹sk Wroc³aw
+078 TOR Dobrzeñ Wielki
+079 Walka Zabrze-Makoszowy_____________________________________________________________
+080 Górnik Wieliczka
+081 Heko Czermno
+082 Hetman Zamoœæ
+083 Hutnik Kraków
+084 Kmita Zabierzów
+085 Lewart Lubartów
+085 Motor Lublin
+086 Pogoñ Le¿ajsk
+087 Pogoñ Staszów				Second Div (south-eastern)
+088 Polonia Przemyœl				
+089 Sandecja Nowy S¹cz
+090 Stal Rzeszów
+091 Stal Stalowa Wola
+092 T³oki Gorzyce
+093 Wierna Ma³ogoszcz
+094 Wis³a Kraków II

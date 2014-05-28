@@ -1,0 +1,702 @@
+#Number  :001
+Country  :IRQ
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      3      9      21     6      
+Away      12     7      0      4      17     
+Third     13     0      16     16     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     46    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     28    5   0   6   7   7   3   0   
+03:       3       C             C             IRQ   3     501   0     0     29    2   3   7   0   7   6   4   
+04:       4       D             D             IRQ   3     501   0     0     19    3   4   3   3   4   2   0   
+05:       5       E             E             IRQ   2     501   0     0     24    0   6   2   3   7   5   1   
+06:       6       F             F             IRQ   4     501   0     0     19    0   1   1   4   7   6   0   
+07:       7       G             G             IRQ   6     501   0     0     18    1   2   1   7   0   5   2   
+08:       8       H             H             IRQ   6     501   0     0     33    4   4   7   6   3   7   2   
+09:       9       I             I             IRQ   5     501   0     0     23    4   1   5   5   4   1   3   
+10:       10      J             J             IRQ   7     501   0     0     29    5   7   0   5   6   3   3   
+11:       11      K             K             IRQ   7     501   0     0     13    3   2   3   5   0   0   0   
+12:       12      L             L             IRQ   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     15    0   2   4   1   3   4   1   
+14:       14      N             N             IRQ   6     501   0     0     24    3   4   3   4   5   0   5   
+15:       15      O             O             IRQ   7     501   0     0     18    0   5   0   5   5   1   2   
+16:       16      P             P             IRQ   7     501   0     0     18    4   3   5   6   0   0   0   
+
+
+#Number  :002
+Country  :IRQ
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     17     18     8      2      
+Away      9      12     4      20     11     
+Third     18     3      3      12     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     0     0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     23    0   0   3   7   5   3   5   
+03:       3       C             C             IRQ   3     501   0     0     23    4   4   2   2   4   7   0   
+04:       4       D             D             IRQ   3     501   0     0     19    3   6   1   5   1   3   0   
+05:       5       E             E             IRQ   2     501   0     0     33    5   7   3   5   2   6   5   
+06:       6       F             F             IRQ   4     501   0     0     31    6   0   7   7   2   2   7   
+07:       7       G             G             IRQ   6     501   0     0     15    1   0   4   2   6   0   2   
+08:       8       H             H             IRQ   6     501   0     0     14    0   1   0   2   1   5   5   
+09:       9       I             I             IRQ   5     501   0     0     20    4   6   4   2   2   1   1   
+10:       10      J             J             IRQ   7     501   0     0     29    0   2   4   5   7   5   6   
+11:       11      K             K             IRQ   7     501   0     0     19    0   5   4   0   6   0   4   
+12:       12      L             L             IRQ   0     501   0     0     27    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     22    1   1   4   2   6   5   3   
+14:       14      N             N             IRQ   6     501   0     0     22    4   7   2   2   0   0   7   
+15:       15      O             O             IRQ   7     501   0     0     14    3   4   6   0   0   1   0   
+16:       16      P             P             IRQ   7     501   0     0     22    1   7   3   1   3   1   6   
+
+
+#Number  :003
+Country  :IRQ
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      0      19     18     21     
+Away      8      20     8      4      19     
+Third     6      2      21     1      16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     7     0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     27    3   6   2   5   3   4   4   
+03:       3       C             C             IRQ   3     501   0     0     29    5   1   6   3   6   7   1   
+04:       4       D             D             IRQ   3     501   0     0     34    5   7   7   5   2   6   2   
+05:       5       E             E             IRQ   2     501   0     0     23    4   6   0   7   1   2   3   
+06:       6       F             F             IRQ   4     501   0     0     21    4   4   5   5   2   0   1   
+07:       7       G             G             IRQ   6     501   0     0     35    6   6   4   6   1   6   6   
+08:       8       H             H             IRQ   6     501   0     0     32    6   6   1   7   7   3   2   
+09:       9       I             I             IRQ   5     501   0     0     31    5   2   3   3   6   7   5   
+10:       10      J             J             IRQ   7     501   0     0     17    3   1   2   2   2   7   0   
+11:       11      K             K             IRQ   7     501   0     0     29    4   4   3   7   2   4   5   
+12:       12      L             L             IRQ   0     501   0     0     15    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     32    4   0   6   5   3   7   7   
+14:       14      N             N             IRQ   6     501   0     0     38    5   7   4   6   4   6   6   
+15:       15      O             O             IRQ   7     501   0     0     35    7   4   2   5   7   3   7   
+16:       16      P             P             IRQ   7     501   0     0     26    1   3   6   4   4   6   2   
+
+
+#Number  :004
+Country  :IRQ
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      18     8      11     13     
+Away      14     11     12     4      19     
+Third     13     13     8      15     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     19    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     31    5   4   1   6   7   5   3   
+03:       3       C             C             IRQ   3     501   0     0     23    0   7   1   0   5   4   6   
+04:       4       D             D             IRQ   3     501   0     0     20    0   2   2   5   0   6   5   
+05:       5       E             E             IRQ   2     501   0     0     19    7   2   5   0   0   1   4   
+06:       6       F             F             IRQ   4     501   0     0     23    0   5   6   2   1   7   2   
+07:       7       G             G             IRQ   6     501   0     0     35    3   7   3   7   7   2   6   
+08:       8       H             H             IRQ   6     501   0     0     25    6   1   4   6   3   1   4   
+09:       9       I             I             IRQ   5     501   0     0     29    7   4   2   2   4   6   4   
+10:       10      J             J             IRQ   7     501   0     0     29    4   2   2   5   6   4   6   
+11:       11      K             K             IRQ   7     501   0     0     18    3   3   3   7   1   0   1   
+12:       12      L             L             IRQ   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     14    3   2   1   7   0   1   0   
+14:       14      N             N             IRQ   6     501   0     0     23    2   6   0   3   6   3   3   
+15:       15      O             O             IRQ   7     501   0     0     29    2   3   4   6   2   7   5   
+16:       16      P             P             IRQ   7     501   0     0     29    5   0   7   3   5   3   6   
+
+
+#Number  :005
+Country  :IRQ
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     4      0      6      0      
+Away      0      1      18     6      2      
+Third     13     4      12     4      1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     18    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     28    4   7   3   1   6   4   3   
+03:       3       C             C             IRQ   3     501   0     0     31    0   7   3   5   7   2   7   
+04:       4       D             D             IRQ   3     501   0     0     25    6   0   2   6   4   0   7   
+05:       5       E             E             IRQ   2     501   0     0     22    1   2   4   4   7   3   1   
+06:       6       F             F             IRQ   4     501   0     0     34    3   2   6   6   5   5   7   
+07:       7       G             G             IRQ   6     501   0     0     31    0   7   6   1   4   7   6   
+08:       8       H             H             IRQ   6     501   0     0     29    7   4   1   6   6   0   5   
+09:       9       I             I             IRQ   5     501   0     0     32    6   5   2   6   4   7   2   
+10:       10      J             J             IRQ   7     501   0     0     24    4   3   5   4   0   3   5   
+11:       11      K             K             IRQ   7     501   0     0     32    6   5   7   1   6   7   0   
+12:       12      L             L             IRQ   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     37    0   6   5   7   6   7   6   
+14:       14      N             N             IRQ   6     501   0     0     20    4   2   7   2   0   1   4   
+15:       15      O             O             IRQ   7     501   0     0     31    5   4   7   0   3   5   7   
+16:       16      P             P             IRQ   7     501   0     0     24    2   0   5   4   7   3   3   
+
+
+#Number  :006
+Country  :IRQ
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      18     1      18     13     17     
+Away      3      9      16     18     17     
+Third     15     17     2      18     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     34    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     27    2   3   7   3   2   5   5   
+03:       3       C             C             IRQ   3     501   0     0     35    6   7   4   4   4   6   4   
+04:       4       D             D             IRQ   3     501   0     0     22    0   5   3   5   1   3   5   
+05:       5       E             E             IRQ   2     501   0     0     24    5   6   1   1   5   4   2   
+06:       6       F             F             IRQ   4     501   0     0     21    3   0   4   6   3   4   1   
+07:       7       G             G             IRQ   6     501   0     0     19    1   1   6   2   4   0   5   
+08:       8       H             H             IRQ   6     501   0     0     31    7   2   7   0   7   3   5   
+09:       9       I             I             IRQ   5     501   0     0     30    5   0   6   3   6   5   5   
+10:       10      J             J             IRQ   7     501   0     0     19    1   3   6   5   4   0   0   
+11:       11      K             K             IRQ   7     501   0     0     27    6   4   1   2   5   4   5   
+12:       12      L             L             IRQ   0     501   0     0     41    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     21    5   3   3   1   0   5   4   
+14:       14      N             N             IRQ   6     501   0     0     27    3   6   5   6   0   5   2   
+15:       15      O             O             IRQ   7     501   0     0     17    2   1   3   0   2   4   5   
+16:       16      P             P             IRQ   7     501   0     0     25    4   1   2   2   5   4   7   
+
+
+#Number  :007
+Country  :IRQ
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      6      1      2      13     5      
+Away      18     3      1      9      11     
+Third     10     19     11     5      22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     39    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     34    6   6   4   7   3   3   5   
+03:       3       C             C             IRQ   3     501   0     0     31    4   4   7   1   7   7   1   
+04:       4       D             D             IRQ   3     501   0     0     15    0   2   4   4   0   5   0   
+05:       5       E             E             IRQ   2     501   0     0     32    6   1   6   6   7   1   5   
+06:       6       F             F             IRQ   4     501   0     0     29    7   6   4   6   3   3   0   
+07:       7       G             G             IRQ   6     501   0     0     23    4   5   1   0   4   2   7   
+08:       8       H             H             IRQ   6     501   0     0     19    2   0   0   3   6   3   5   
+09:       9       I             I             IRQ   5     501   0     0     29    2   3   6   7   5   1   5   
+10:       10      J             J             IRQ   7     501   0     0     22    0   1   4   6   1   6   4   
+11:       11      K             K             IRQ   7     501   0     0     21    0   2   2   4   4   7   2   
+12:       12      L             L             IRQ   0     501   0     0     8     0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     23    1   4   4   1   7   0   6   
+14:       14      N             N             IRQ   6     501   0     0     31    3   4   4   6   5   7   2   
+15:       15      O             O             IRQ   7     501   0     0     19    2   0   2   4   4   4   3   
+16:       16      P             P             IRQ   7     501   0     0     22    6   5   1   1   2   3   4   
+
+
+#Number  :008
+Country  :IRQ
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     8      10     22     20     
+Away      7      14     4      4      3      
+Third     11     18     19     21     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     27    2   4   1   6   7   7   0   
+03:       3       C             C             IRQ   3     501   0     0     27    1   7   6   2   4   7   0   
+04:       4       D             D             IRQ   3     501   0     0     26    3   2   7   5   2   6   1   
+05:       5       E             E             IRQ   2     501   0     0     26    1   7   1   3   3   7   4   
+06:       6       F             F             IRQ   4     501   0     0     36    5   5   6   7   0   7   6   
+07:       7       G             G             IRQ   6     501   0     0     32    7   3   4   4   7   2   5   
+08:       8       H             H             IRQ   6     501   0     0     29    6   4   7   3   3   4   2   
+09:       9       I             I             IRQ   5     501   0     0     28    3   4   3   3   6   5   4   
+10:       10      J             J             IRQ   7     501   0     0     19    7   0   0   2   2   1   7   
+11:       11      K             K             IRQ   7     501   0     0     30    5   1   7   3   4   6   4   
+12:       12      L             L             IRQ   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     30    3   6   4   1   7   5   4   
+14:       14      N             N             IRQ   6     501   0     0     26    1   6   4   2   0   6   7   
+15:       15      O             O             IRQ   7     501   0     0     23    4   7   6   2   2   2   0   
+16:       16      P             P             IRQ   7     501   0     0     17    2   3   4   6   2   0   0   
+
+
+#Number  :009
+Country  :IRQ
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      19     15     0      5      
+Away      15     3      19     1      11     
+Third     1      11     7      13     1      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     39    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     18    2   0   0   4   4   4   4   
+03:       3       C             C             IRQ   3     501   0     0     23    0   4   6   5   4   3   1   
+04:       4       D             D             IRQ   3     501   0     0     23    4   7   3   3   0   2   4   
+05:       5       E             E             IRQ   2     501   0     0     20    3   4   1   4   1   0   7   
+06:       6       F             F             IRQ   4     501   0     0     16    4   2   0   1   6   3   0   
+07:       7       G             G             IRQ   6     501   0     0     23    1   2   5   1   7   3   4   
+08:       8       H             H             IRQ   6     501   0     0     18    6   1   3   2   1   2   3   
+09:       9       I             I             IRQ   5     501   0     0     20    5   3   0   2   7   1   2   
+10:       10      J             J             IRQ   7     501   0     0     19    1   4   7   5   0   0   2   
+11:       11      K             K             IRQ   7     501   0     0     34    3   6   4   2   7   5   7   
+12:       12      L             L             IRQ   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     26    5   0   5   4   1   5   6   
+14:       14      N             N             IRQ   6     501   0     0     28    5   2   3   4   0   7   7   
+15:       15      O             O             IRQ   7     501   0     0     32    4   6   2   7   0   7   6   
+16:       16      P             P             IRQ   7     501   0     0     28    6   7   0   2   3   7   3   
+
+
+#Number  :010
+Country  :IRQ
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      4      3      19     18     
+Away      0      2      16     8      14     
+Third     8      15     10     12     22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     26    5   6   1   1   6   4   3   
+03:       3       C             C             IRQ   3     501   0     0     31    7   2   4   7   0   7   4   
+04:       4       D             D             IRQ   3     501   0     0     23    6   4   1   5   3   0   4   
+05:       5       E             E             IRQ   2     501   0     0     12    1   2   3   0   3   3   0   
+06:       6       F             F             IRQ   4     501   0     0     26    4   4   4   2   5   2   5   
+07:       7       G             G             IRQ   6     501   0     0     28    3   1   5   6   4   5   4   
+08:       8       H             H             IRQ   6     501   0     0     21    4   1   1   3   0   6   6   
+09:       9       I             I             IRQ   5     501   0     0     25    0   0   7   6   4   4   4   
+10:       10      J             J             IRQ   7     501   0     0     27    6   2   7   4   1   1   6   
+11:       11      K             K             IRQ   7     501   0     0     18    0   0   1   4   6   3   4   
+12:       12      L             L             IRQ   0     501   0     0     29    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     9     0   2   0   1   1   4   1   
+14:       14      N             N             IRQ   6     501   0     0     23    4   3   0   7   3   4   2   
+15:       15      O             O             IRQ   7     501   0     0     21    2   1   6   4   7   0   1   
+16:       16      P             P             IRQ   7     501   0     0     23    2   3   0   3   3   7   5   
+
+
+#Number  :011
+Country  :IRQ
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     8      0      16     6      
+Away      0      14     15     11     16     
+Third     8      6      11     3      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     13    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     25    3   1   3   4   2   5   7   
+03:       3       C             C             IRQ   3     501   0     0     25    0   7   3   4   2   3   6   
+04:       4       D             D             IRQ   3     501   0     0     37    5   6   5   7   7   6   1   
+05:       5       E             E             IRQ   2     501   0     0     16    6   1   3   2   3   1   0   
+06:       6       F             F             IRQ   4     501   0     0     28    1   4   4   3   5   6   5   
+07:       7       G             G             IRQ   6     501   0     0     39    6   5   6   6   6   6   4   
+08:       8       H             H             IRQ   6     501   0     0     27    2   5   7   5   6   0   2   
+09:       9       I             I             IRQ   5     501   0     0     15    0   4   2   0   1   5   3   
+10:       10      J             J             IRQ   7     501   0     0     28    4   7   6   3   5   3   0   
+11:       11      K             K             IRQ   7     501   0     0     33    3   6   4   1   7   6   6   
+12:       12      L             L             IRQ   0     501   0     0     23    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     23    1   6   4   6   0   5   1   
+14:       14      N             N             IRQ   6     501   0     0     23    1   0   5   2   1   7   7   
+15:       15      O             O             IRQ   7     501   0     0     30    7   3   6   0   1   7   6   
+16:       16      P             P             IRQ   7     501   0     0     18    5   1   1   4   1   1   5   
+
+
+#Number  :012
+Country  :IRQ
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      12     22     15     16     10     
+Away      16     0      12     10     21     
+Third     5      0      13     13     15     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     13    1   1   3   2   4   0   2   
+03:       3       C             C             IRQ   3     501   0     0     14    5   4   1   0   1   2   1   
+04:       4       D             D             IRQ   3     501   0     0     27    5   6   3   0   4   4   5   
+05:       5       E             E             IRQ   2     501   0     0     31    7   7   4   4   3   2   4   
+06:       6       F             F             IRQ   4     501   0     0     16    2   1   2   6   2   1   2   
+07:       7       G             G             IRQ   6     501   0     0     25    4   5   1   4   5   4   2   
+08:       8       H             H             IRQ   6     501   0     0     31    6   6   5   1   5   2   6   
+09:       9       I             I             IRQ   5     501   0     0     16    2   0   3   2   4   0   5   
+10:       10      J             J             IRQ   7     501   0     0     30    5   5   4   6   7   2   1   
+11:       11      K             K             IRQ   7     501   0     0     36    3   6   6   7   5   6   3   
+12:       12      L             L             IRQ   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     27    5   1   5   6   4   5   1   
+14:       14      N             N             IRQ   6     501   0     0     28    2   2   0   5   6   6   7   
+15:       15      O             O             IRQ   7     501   0     0     25    6   3   0   7   7   2   0   
+16:       16      P             P             IRQ   7     501   0     0     26    5   5   5   2   2   2   5   
+
+
+#Number  :013
+Country  :IRQ
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     15     10     22     15     
+Away      8      14     19     7      18     
+Third     8      15     6      3      17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     28    2   4   0   4   7   5   6   
+03:       3       C             C             IRQ   3     501   0     0     30    7   0   3   5   4   7   4   
+04:       4       D             D             IRQ   3     501   0     0     25    2   4   1   3   3   5   7   
+05:       5       E             E             IRQ   2     501   0     0     32    7   4   6   5   4   6   0   
+06:       6       F             F             IRQ   4     501   0     0     29    2   4   5   6   1   6   5   
+07:       7       G             G             IRQ   6     501   0     0     36    3   6   7   6   5   6   3   
+08:       8       H             H             IRQ   6     501   0     0     30    7   5   0   1   6   7   4   
+09:       9       I             I             IRQ   5     501   0     0     18    5   2   2   6   0   3   0   
+10:       10      J             J             IRQ   7     501   0     0     17    0   5   0   5   1   1   5   
+11:       11      K             K             IRQ   7     501   0     0     19    1   2   5   1   2   5   3   
+12:       12      L             L             IRQ   0     501   0     0     11    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     14    1   1   0   7   0   2   3   
+14:       14      N             N             IRQ   6     501   0     0     26    6   4   1   1   7   6   1   
+15:       15      O             O             IRQ   7     501   0     0     19    3   3   1   3   6   1   2   
+16:       16      P             P             IRQ   7     501   0     0     28    3   4   1   6   6   1   7   
+
+
+#Number  :014
+Country  :IRQ
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     9      10     21     4      
+Away      3      18     0      22     15     
+Third     0      17     19     14     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     23    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     30    4   7   5   4   2   6   2   
+03:       3       C             C             IRQ   3     501   0     0     12    1   0   7   1   2   0   1   
+04:       4       D             D             IRQ   3     501   0     0     16    3   3   3   7   0   0   0   
+05:       5       E             E             IRQ   2     501   0     0     28    4   3   2   4   5   6   4   
+06:       6       F             F             IRQ   4     501   0     0     32    7   0   7   7   1   5   5   
+07:       7       G             G             IRQ   6     501   0     0     24    0   5   4   1   7   2   5   
+08:       8       H             H             IRQ   6     501   0     0     27    4   5   4   2   6   5   1   
+09:       9       I             I             IRQ   5     501   0     0     22    5   1   5   0   0   7   4   
+10:       10      J             J             IRQ   7     501   0     0     24    0   7   0   0   6   6   5   
+11:       11      K             K             IRQ   7     501   0     0     22    2   2   1   5   0   7   5   
+12:       12      L             L             IRQ   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     20    4   2   1   3   7   0   3   
+14:       14      N             N             IRQ   6     501   0     0     32    6   4   4   2   7   5   4   
+15:       15      O             O             IRQ   7     501   0     0     22    2   2   4   2   0   5   7   
+16:       16      P             P             IRQ   7     501   0     0     18    2   5   0   3   1   1   6   
+
+
+#Number  :015
+Country  :IRQ
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      5      8      22     6      
+Away      13     19     7      1      13     
+Third     10     2      16     19     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     28    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     23    0   7   2   5   4   2   3   
+03:       3       C             C             IRQ   3     501   0     0     32    4   4   7   5   2   3   7   
+04:       4       D             D             IRQ   3     501   0     0     20    7   2   0   6   4   1   0   
+05:       5       E             E             IRQ   2     501   0     0     17    7   2   0   2   0   1   5   
+06:       6       F             F             IRQ   4     501   0     0     20    3   1   0   1   4   4   7   
+07:       7       G             G             IRQ   6     501   0     0     22    7   1   2   7   3   2   0   
+08:       8       H             H             IRQ   6     501   0     0     36    3   4   4   7   4   7   7   
+09:       9       I             I             IRQ   5     501   0     0     22    5   1   0   4   5   6   1   
+10:       10      J             J             IRQ   7     501   0     0     30    6   1   5   5   4   3   6   
+11:       11      K             K             IRQ   7     501   0     0     30    6   7   5   0   3   2   7   
+12:       12      L             L             IRQ   0     501   0     0     16    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     27    2   7   7   2   2   6   1   
+14:       14      N             N             IRQ   6     501   0     0     21    0   2   3   4   3   6   3   
+15:       15      O             O             IRQ   7     501   0     0     15    2   6   2   2   2   0   1   
+16:       16      P             P             IRQ   7     501   0     0     29    5   0   6   7   4   0   7   
+
+
+#Number  :016
+Country  :IRQ
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      5      10     17     4      
+Away      15     18     18     19     13     
+Third     6      18     8      7      13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     27    2   4   1   7   6   1   6   
+03:       3       C             C             IRQ   3     501   0     0     17    0   3   0   4   3   5   2   
+04:       4       D             D             IRQ   3     501   0     0     12    0   2   5   1   0   4   0   
+05:       5       E             E             IRQ   2     501   0     0     21    1   2   4   6   4   1   3   
+06:       6       F             F             IRQ   4     501   0     0     19    0   2   3   7   4   3   0   
+07:       7       G             G             IRQ   6     501   0     0     28    4   4   7   1   6   3   3   
+08:       8       H             H             IRQ   6     501   0     0     24    5   3   3   1   3   7   2   
+09:       9       I             I             IRQ   5     501   0     0     34    6   6   5   4   5   6   2   
+10:       10      J             J             IRQ   7     501   0     0     17    1   3   5   1   0   1   6   
+11:       11      K             K             IRQ   7     501   0     0     14    3   2   0   0   0   6   3   
+12:       12      L             L             IRQ   0     501   0     0     16    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     24    5   0   0   7   7   0   5   
+14:       14      N             N             IRQ   6     501   0     0     23    0   3   5   0   7   2   6   
+15:       15      O             O             IRQ   7     501   0     0     20    3   2   6   3   1   1   4   
+16:       16      P             P             IRQ   7     501   0     0     31    5   5   5   3   7   1   5   
+
+
+#Number  :017
+Country  :IRQ
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     10     7      9      21     
+Away      2      17     10     18     7      
+Third     4      21     16     11     20     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     45    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     24    3   0   7   0   6   1   7   
+03:       3       C             C             IRQ   3     501   0     0     16    0   4   5   1   1   2   3   
+04:       4       D             D             IRQ   3     501   0     0     32    1   6   4   7   6   2   6   
+05:       5       E             E             IRQ   2     501   0     0     23    5   1   0   2   7   6   2   
+06:       6       F             F             IRQ   4     501   0     0     28    5   7   3   2   2   4   5   
+07:       7       G             G             IRQ   6     501   0     0     15    5   2   2   2   0   4   0   
+08:       8       H             H             IRQ   6     501   0     0     33    3   2   7   6   7   1   7   
+09:       9       I             I             IRQ   5     501   0     0     19    1   5   6   1   5   0   1   
+10:       10      J             J             IRQ   7     501   0     0     17    4   4   3   0   0   3   3   
+11:       11      K             K             IRQ   7     501   0     0     27    7   0   3   6   7   1   3   
+12:       12      L             L             IRQ   0     501   0     0     7     0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     33    6   6   3   4   7   4   3   
+14:       14      N             N             IRQ   6     501   0     0     20    2   7   0   1   2   1   7   
+15:       15      O             O             IRQ   7     501   0     0     18    3   6   1   2   6   0   0   
+16:       16      P             P             IRQ   7     501   0     0     18    0   3   4   1   7   0   3   
+
+
+#Number  :018
+Country  :IRQ
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      21     4      15     8      
+Away      13     11     21     6      7      
+Third     4      12     20     16     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             IRQ   0     501   0     0     23    0   0   0   0   0   0   0   
+02:       2       B             B             IRQ   1     501   0     0     29    1   6   6   4   5   7   0   
+03:       3       C             C             IRQ   3     501   0     0     23    5   0   5   4   2   2   5   
+04:       4       D             D             IRQ   3     501   0     0     25    7   1   1   4   4   2   6   
+05:       5       E             E             IRQ   2     501   0     0     29    4   6   2   2   4   5   6   
+06:       6       F             F             IRQ   4     501   0     0     31    7   6   6   4   5   2   1   
+07:       7       G             G             IRQ   6     501   0     0     23    7   1   1   7   1   6   0   
+08:       8       H             H             IRQ   6     501   0     0     16    5   2   3   4   2   0   0   
+09:       9       I             I             IRQ   5     501   0     0     17    6   0   6   1   1   2   1   
+10:       10      J             J             IRQ   7     501   0     0     27    0   6   1   7   6   1   6   
+11:       11      K             K             IRQ   7     501   0     0     18    3   2   1   4   3   0   5   
+12:       12      L             L             IRQ   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             IRQ   3     501   0     0     21    5   6   0   0   1   2   7   
+14:       14      N             N             IRQ   6     501   0     0     24    4   1   4   7   5   1   2   
+15:       15      O             O             IRQ   7     501   0     0     29    3   0   7   5   3   5   6   
+16:       16      P             P             IRQ   7     501   0     0     24    0   6   6   0   6   2   4   
+
+

@@ -1,0 +1,702 @@
+#Number  :001
+Country  :VEN
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     3      10     15     8      
+Away      1      15     10     10     13     
+Third     10     4      15     12     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     33    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     16    0   4   5   6   0   1   0   
+03:       3       C             C             VEN   3     501   0     0     22    5   6   2   1   3   2   3   
+04:       4       D             D             VEN   3     501   0     0     35    0   7   5   6   4   6   7   
+05:       5       E             E             VEN   2     501   0     0     20    2   1   4   0   3   3   7   
+06:       6       F             F             VEN   4     501   0     0     30    2   2   4   7   7   4   4   
+07:       7       G             G             VEN   6     501   0     0     20    2   5   1   5   1   3   3   
+08:       8       H             H             VEN   6     501   0     0     26    2   6   4   3   5   1   5   
+09:       9       I             I             VEN   5     501   0     0     21    0   7   1   2   4   2   5   
+10:       10      J             J             VEN   7     501   0     0     26    4   6   4   6   3   1   2   
+11:       11      K             K             VEN   7     501   0     0     22    2   7   7   2   0   4   0   
+12:       12      L             L             VEN   0     501   0     0     42    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     30    6   6   4   6   7   0   1   
+14:       14      N             N             VEN   6     501   0     0     31    7   7   5   0   4   3   5   
+15:       15      O             O             VEN   7     501   0     0     22    0   4   1   2   6   4   5   
+16:       16      P             P             VEN   7     501   0     0     15    5   5   0   0   0   1   4   
+
+
+#Number  :002
+Country  :VEN
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     8      6      4      21     
+Away      14     14     20     12     7      
+Third     4      18     20     11     4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     16    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     27    3   3   6   5   1   4   5   
+03:       3       C             C             VEN   3     501   0     0     17    5   1   2   0   2   2   5   
+04:       4       D             D             VEN   3     501   0     0     23    3   5   3   1   0   6   5   
+05:       5       E             E             VEN   2     501   0     0     26    5   4   5   5   2   3   2   
+06:       6       F             F             VEN   4     501   0     0     18    5   7   2   0   3   1   0   
+07:       7       G             G             VEN   6     501   0     0     23    2   1   7   0   6   1   6   
+08:       8       H             H             VEN   6     501   0     0     29    5   7   0   1   3   6   7   
+09:       9       I             I             VEN   5     501   0     0     28    4   5   0   5   7   4   3   
+10:       10      J             J             VEN   7     501   0     0     14    4   7   1   0   2   0   0   
+11:       11      K             K             VEN   7     501   0     0     25    6   2   3   1   4   7   2   
+12:       12      L             L             VEN   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     37    4   6   7   4   5   5   6   
+14:       14      N             N             VEN   6     501   0     0     30    4   6   5   6   0   7   2   
+15:       15      O             O             VEN   7     501   0     0     24    6   1   4   3   7   1   2   
+16:       16      P             P             VEN   7     501   0     0     17    1   0   0   4   5   3   4   
+
+
+#Number  :003
+Country  :VEN
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      5      21     5      22     2      
+Away      14     17     0      18     8      
+Third     6      12     20     19     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     22    4   0   3   6   7   1   1   
+03:       3       C             C             VEN   3     501   0     0     22    5   1   1   2   6   1   6   
+04:       4       D             D             VEN   3     501   0     0     14    7   1   2   0   4   0   0   
+05:       5       E             E             VEN   2     501   0     0     26    4   4   0   6   5   7   0   
+06:       6       F             F             VEN   4     501   0     0     12    2   1   0   6   0   2   1   
+07:       7       G             G             VEN   6     501   0     0     27    0   2   2   7   6   4   6   
+08:       8       H             H             VEN   6     501   0     0     25    0   7   2   6   5   5   0   
+09:       9       I             I             VEN   5     501   0     0     19    4   4   0   3   7   1   0   
+10:       10      J             J             VEN   7     501   0     0     24    5   4   4   1   1   6   3   
+11:       11      K             K             VEN   7     501   0     0     21    7   1   5   1   4   2   1   
+12:       12      L             L             VEN   0     501   0     0     35    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     24    2   4   7   1   5   0   5   
+14:       14      N             N             VEN   6     501   0     0     27    2   7   7   7   2   1   1   
+15:       15      O             O             VEN   7     501   0     0     31    4   1   6   6   4   3   7   
+16:       16      P             P             VEN   7     501   0     0     27    5   2   4   5   4   6   1   
+
+
+#Number  :004
+Country  :VEN
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      3      20     2      14     
+Away      18     15     13     21     1      
+Third     4      10     5      10     6      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     22    4   1   5   0   4   2   6   
+03:       3       C             C             VEN   3     501   0     0     24    3   4   6   2   6   2   1   
+04:       4       D             D             VEN   3     501   0     0     22    6   3   0   4   2   4   3   
+05:       5       E             E             VEN   2     501   0     0     26    6   3   3   4   1   6   3   
+06:       6       F             F             VEN   4     501   0     0     21    4   3   2   0   6   6   0   
+07:       7       G             G             VEN   6     501   0     0     12    1   0   1   3   1   3   3   
+08:       8       H             H             VEN   6     501   0     0     26    6   2   6   2   5   0   5   
+09:       9       I             I             VEN   5     501   0     0     25    7   7   5   1   0   5   0   
+10:       10      J             J             VEN   7     501   0     0     36    6   2   6   3   6   6   7   
+11:       11      K             K             VEN   7     501   0     0     21    5   5   2   0   7   2   0   
+12:       12      L             L             VEN   0     501   0     0     13    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     29    4   6   2   6   7   1   3   
+14:       14      N             N             VEN   6     501   0     0     27    2   5   4   6   4   2   4   
+15:       15      O             O             VEN   7     501   0     0     25    1   4   6   1   6   5   2   
+16:       16      P             P             VEN   7     501   0     0     17    5   1   1   0   4   0   6   
+
+
+#Number  :005
+Country  :VEN
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     1      17     13     6      
+Away      3      4      1      19     17     
+Third     6      20     11     3      8      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     23    7   0   5   4   0   1   6   
+03:       3       C             C             VEN   3     501   0     0     8     1   3   1   3   0   0   0   
+04:       4       D             D             VEN   3     501   0     0     20    5   2   3   2   5   0   3   
+05:       5       E             E             VEN   2     501   0     0     31    7   1   6   2   7   6   2   
+06:       6       F             F             VEN   4     501   0     0     23    2   3   7   1   0   3   7   
+07:       7       G             G             VEN   6     501   0     0     11    3   1   0   1   2   2   2   
+08:       8       H             H             VEN   6     501   0     0     22    4   0   0   7   5   5   1   
+09:       9       I             I             VEN   5     501   0     0     18    6   0   1   4   2   3   2   
+10:       10      J             J             VEN   7     501   0     0     20    0   4   5   3   5   3   0   
+11:       11      K             K             VEN   7     501   0     0     24    0   5   7   6   1   4   1   
+12:       12      L             L             VEN   0     501   0     0     44    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     20    6   3   2   0   3   4   2   
+14:       14      N             N             VEN   6     501   0     0     22    4   5   0   4   5   3   1   
+15:       15      O             O             VEN   7     501   0     0     28    5   5   0   7   5   6   0   
+16:       16      P             P             VEN   7     501   0     0     26    3   4   5   4   7   2   1   
+
+
+#Number  :006
+Country  :VEN
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     0      19     12     20     
+Away      13     15     0      15     8      
+Third     0      16     12     3      21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     34    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     20    4   5   2   0   7   1   1   
+03:       3       C             C             VEN   3     501   0     0     26    5   4   5   5   2   4   1   
+04:       4       D             D             VEN   3     501   0     0     22    1   4   4   3   3   7   0   
+05:       5       E             E             VEN   2     501   0     0     28    4   1   7   7   1   7   1   
+06:       6       F             F             VEN   4     501   0     0     34    1   7   3   7   6   7   3   
+07:       7       G             G             VEN   6     501   0     0     32    5   7   5   1   2   7   5   
+08:       8       H             H             VEN   6     501   0     0     32    7   6   2   2   7   3   5   
+09:       9       I             I             VEN   5     501   0     0     26    1   5   4   6   3   2   5   
+10:       10      J             J             VEN   7     501   0     0     36    5   7   2   7   5   3   7   
+11:       11      K             K             VEN   7     501   0     0     24    2   6   1   3   2   6   4   
+12:       12      L             L             VEN   0     501   0     0     26    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     31    7   5   4   1   5   7   2   
+14:       14      N             N             VEN   6     501   0     0     16    1   3   0   1   5   5   1   
+15:       15      O             O             VEN   7     501   0     0     29    5   2   5   7   2   2   6   
+16:       16      P             P             VEN   7     501   0     0     18    7   1   3   3   0   4   0   
+
+
+#Number  :007
+Country  :VEN
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      19     16     3      9      
+Away      6      10     20     15     18     
+Third     4      22     12     1      17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     28    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     28    6   2   1   6   1   5   7   
+03:       3       C             C             VEN   3     501   0     0     21    0   6   3   6   4   1   1   
+04:       4       D             D             VEN   3     501   0     0     31    7   1   6   6   0   7   4   
+05:       5       E             E             VEN   2     501   0     0     23    7   2   3   6   3   2   0   
+06:       6       F             F             VEN   4     501   0     0     27    3   2   7   3   7   4   1   
+07:       7       G             G             VEN   6     501   0     0     15    0   7   0   0   3   2   3   
+08:       8       H             H             VEN   6     501   0     0     35    1   7   3   5   5   7   7   
+09:       9       I             I             VEN   5     501   0     0     20    0   4   3   4   1   5   3   
+10:       10      J             J             VEN   7     501   0     0     22    4   0   4   6   4   1   3   
+11:       11      K             K             VEN   7     501   0     0     22    4   5   4   5   2   1   1   
+12:       12      L             L             VEN   0     501   0     0     32    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     20    5   2   1   4   4   4   0   
+14:       14      N             N             VEN   6     501   0     0     21    4   1   0   4   6   6   0   
+15:       15      O             O             VEN   7     501   0     0     24    4   0   2   3   6   6   3   
+16:       16      P             P             VEN   7     501   0     0     29    4   5   7   4   1   3   5   
+
+
+#Number  :008
+Country  :VEN
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     15     12     4      22     
+Away      17     9      15     4      11     
+Third     7      1      4      13     14     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     34    0   5   5   7   5   5   7   
+03:       3       C             C             VEN   3     501   0     0     17    0   1   2   5   2   4   3   
+04:       4       D             D             VEN   3     501   0     0     25    2   5   6   0   1   5   6   
+05:       5       E             E             VEN   2     501   0     0     28    7   6   7   4   1   3   0   
+06:       6       F             F             VEN   4     501   0     0     32    6   1   3   3   7   5   7   
+07:       7       G             G             VEN   6     501   0     0     19    1   7   7   0   3   0   1   
+08:       8       H             H             VEN   6     501   0     0     20    6   1   0   0   6   4   3   
+09:       9       I             I             VEN   5     501   0     0     27    1   1   4   7   2   6   6   
+10:       10      J             J             VEN   7     501   0     0     32    5   1   7   2   7   3   7   
+11:       11      K             K             VEN   7     501   0     0     27    5   6   7   3   1   1   4   
+12:       12      L             L             VEN   0     501   0     0     20    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     29    5   1   6   3   1   6   7   
+14:       14      N             N             VEN   6     501   0     0     15    1   3   0   0   4   2   5   
+15:       15      O             O             VEN   7     501   0     0     25    0   5   7   5   2   2   4   
+16:       16      P             P             VEN   7     501   0     0     26    1   7   2   3   7   3   3   
+
+
+#Number  :009
+Country  :VEN
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      12     20     18     21     
+Away      2      0      16     22     11     
+Third     15     20     15     4      11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     41    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     29    7   0   7   3   6   6   0   
+03:       3       C             C             VEN   3     501   0     0     23    6   0   1   5   5   2   4   
+04:       4       D             D             VEN   3     501   0     0     21    7   5   1   2   1   5   0   
+05:       5       E             E             VEN   2     501   0     0     33    5   2   1   6   7   5   7   
+06:       6       F             F             VEN   4     501   0     0     29    4   3   4   6   6   6   0   
+07:       7       G             G             VEN   6     501   0     0     27    3   6   6   1   4   1   6   
+08:       8       H             H             VEN   6     501   0     0     31    3   7   3   7   5   4   2   
+09:       9       I             I             VEN   5     501   0     0     26    6   2   4   2   0   7   5   
+10:       10      J             J             VEN   7     501   0     0     23    7   4   3   3   3   0   3   
+11:       11      K             K             VEN   7     501   0     0     36    7   6   5   1   6   7   4   
+12:       12      L             L             VEN   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     30    4   4   2   7   6   2   5   
+14:       14      N             N             VEN   6     501   0     0     22    3   3   7   5   2   2   0   
+15:       15      O             O             VEN   7     501   0     0     34    6   1   7   6   4   3   7   
+16:       16      P             P             VEN   7     501   0     0     26    2   5   6   3   3   5   2   
+
+
+#Number  :010
+Country  :VEN
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      22     13     16     18     
+Away      16     9      17     1      1      
+Third     13     6      3      20     11     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     13    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     19    1   2   4   2   2   5   3   
+03:       3       C             C             VEN   3     501   0     0     15    0   6   1   3   0   5   0   
+04:       4       D             D             VEN   3     501   0     0     34    6   6   7   1   7   0   7   
+05:       5       E             E             VEN   2     501   0     0     24    2   0   6   4   2   4   6   
+06:       6       F             F             VEN   4     501   0     0     20    7   4   4   0   2   2   1   
+07:       7       G             G             VEN   6     501   0     0     31    7   2   7   1   4   4   6   
+08:       8       H             H             VEN   6     501   0     0     14    2   7   2   0   0   3   0   
+09:       9       I             I             VEN   5     501   0     0     37    7   2   7   4   3   7   7   
+10:       10      J             J             VEN   7     501   0     0     19    1   2   6   4   4   2   0   
+11:       11      K             K             VEN   7     501   0     0     27    6   6   4   2   3   3   3   
+12:       12      L             L             VEN   0     501   0     0     20    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     22    5   2   0   2   2   5   6   
+14:       14      N             N             VEN   6     501   0     0     22    2   3   2   0   3   5   7   
+15:       15      O             O             VEN   7     501   0     0     18    1   2   3   4   6   2   0   
+16:       16      P             P             VEN   7     501   0     0     36    5   4   2   7   7   5   6   
+
+
+#Number  :011
+Country  :VEN
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      16     21     12     0      19     
+Away      12     2      5      5      4      
+Third     5      18     21     16     7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     27    6   0   5   7   3   1   5   
+03:       3       C             C             VEN   3     501   0     0     27    3   0   7   0   4   7   6   
+04:       4       D             D             VEN   3     501   0     0     37    4   3   6   6   6   7   5   
+05:       5       E             E             VEN   2     501   0     0     25    7   0   3   4   3   7   1   
+06:       6       F             F             VEN   4     501   0     0     30    5   7   2   2   1   7   6   
+07:       7       G             G             VEN   6     501   0     0     23    1   3   3   5   4   7   0   
+08:       8       H             H             VEN   6     501   0     0     16    1   0   2   0   7   4   2   
+09:       9       I             I             VEN   5     501   0     0     22    4   3   2   1   1   5   6   
+10:       10      J             J             VEN   7     501   0     0     30    5   7   3   4   1   7   3   
+11:       11      K             K             VEN   7     501   0     0     22    4   2   2   6   2   2   4   
+12:       12      L             L             VEN   0     501   0     0     25    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     28    7   3   3   2   2   4   7   
+14:       14      N             N             VEN   6     501   0     0     33    5   6   5   4   0   6   7   
+15:       15      O             O             VEN   7     501   0     0     26    6   3   7   5   1   3   1   
+16:       16      P             P             VEN   7     501   0     0     24    2   0   6   7   1   2   6   
+
+
+#Number  :012
+Country  :VEN
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      7      12     16     8      
+Away      18     19     10     4      2      
+Third     7      4      15     17     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     30    6   6   5   0   7   2   4   
+03:       3       C             C             VEN   3     501   0     0     35    7   0   6   5   5   6   6   
+04:       4       D             D             VEN   3     501   0     0     29    2   2   4   7   4   4   6   
+05:       5       E             E             VEN   2     501   0     0     26    7   3   5   4   4   1   2   
+06:       6       F             F             VEN   4     501   0     0     24    5   0   3   3   4   7   2   
+07:       7       G             G             VEN   6     501   0     0     26    5   3   1   6   4   3   4   
+08:       8       H             H             VEN   6     501   0     0     31    5   2   3   6   7   3   5   
+09:       9       I             I             VEN   5     501   0     0     9     1   0   1   2   0   3   2   
+10:       10      J             J             VEN   7     501   0     0     28    1   6   5   7   4   3   2   
+11:       11      K             K             VEN   7     501   0     0     20    0   2   7   4   4   3   0   
+12:       12      L             L             VEN   0     501   0     0     42    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     11    5   1   2   0   0   3   0   
+14:       14      N             N             VEN   6     501   0     0     21    0   4   4   2   3   5   3   
+15:       15      O             O             VEN   7     501   0     0     34    7   7   3   4   7   4   2   
+16:       16      P             P             VEN   7     501   0     0     13    2   4   0   0   2   2   3   
+
+
+#Number  :013
+Country  :VEN
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     7      6      11     9      
+Away      10     15     14     7      13     
+Third     5      19     15     4      18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     18    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     28    6   1   6   0   4   6   5   
+03:       3       C             C             VEN   3     501   0     0     30    0   4   5   4   7   6   4   
+04:       4       D             D             VEN   3     501   0     0     27    5   3   1   2   6   3   7   
+05:       5       E             E             VEN   2     501   0     0     34    5   4   4   6   7   5   3   
+06:       6       F             F             VEN   4     501   0     0     20    5   0   3   1   1   4   6   
+07:       7       G             G             VEN   6     501   0     0     32    4   3   7   2   6   5   5   
+08:       8       H             H             VEN   6     501   0     0     15    2   1   7   1   2   1   1   
+09:       9       I             I             VEN   5     501   0     0     18    2   3   3   3   1   0   6   
+10:       10      J             J             VEN   7     501   0     0     21    2   0   1   3   4   7   4   
+11:       11      K             K             VEN   7     501   0     0     21    6   0   2   6   4   3   0   
+12:       12      L             L             VEN   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     25    1   6   6   4   6   0   2   
+14:       14      N             N             VEN   6     501   0     0     29    6   5   0   5   7   5   1   
+15:       15      O             O             VEN   7     501   0     0     23    4   3   1   6   6   3   0   
+16:       16      P             P             VEN   7     501   0     0     21    4   0   6   3   0   5   3   
+
+
+#Number  :014
+Country  :VEN
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      11     5      18     0      
+Away      7      21     20     15     13     
+Third     11     6      7      7      22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     47    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     23    7   3   2   1   4   0   6   
+03:       3       C             C             VEN   3     501   0     0     23    5   0   5   2   7   3   1   
+04:       4       D             D             VEN   3     501   0     0     22    0   5   2   6   3   6   0   
+05:       5       E             E             VEN   2     501   0     0     24    6   3   4   7   1   0   3   
+06:       6       F             F             VEN   4     501   0     0     16    4   5   0   2   0   2   3   
+07:       7       G             G             VEN   6     501   0     0     30    1   7   6   6   5   3   2   
+08:       8       H             H             VEN   6     501   0     0     20    7   1   4   0   7   0   1   
+09:       9       I             I             VEN   5     501   0     0     21    7   1   1   3   0   7   2   
+10:       10      J             J             VEN   7     501   0     0     23    4   6   7   0   0   5   1   
+11:       11      K             K             VEN   7     501   0     0     24    6   6   0   3   7   0   2   
+12:       12      L             L             VEN   0     501   0     0     1     0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     23    4   7   5   3   2   2   0   
+14:       14      N             N             VEN   6     501   0     0     19    3   0   5   1   1   3   6   
+15:       15      O             O             VEN   7     501   0     0     25    3   6   7   1   5   0   3   
+16:       16      P             P             VEN   7     501   0     0     37    5   7   3   5   7   3   7   
+
+
+#Number  :015
+Country  :VEN
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      7      2      20     7      3      
+Away      3      1      22     12     2      
+Third     10     15     6      0      22     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     5     0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     30    6   6   2   5   1   3   7   
+03:       3       C             C             VEN   3     501   0     0     24    2   5   0   7   7   1   2   
+04:       4       D             D             VEN   3     501   0     0     20    1   7   0   3   0   3   6   
+05:       5       E             E             VEN   2     501   0     0     21    1   0   2   6   7   0   5   
+06:       6       F             F             VEN   4     501   0     0     18    2   6   0   1   3   2   4   
+07:       7       G             G             VEN   6     501   0     0     23    3   3   5   4   3   4   1   
+08:       8       H             H             VEN   6     501   0     0     18    3   4   3   0   3   3   2   
+09:       9       I             I             VEN   5     501   0     0     27    7   2   1   2   7   5   3   
+10:       10      J             J             VEN   7     501   0     0     22    3   4   6   0   2   2   5   
+11:       11      K             K             VEN   7     501   0     0     35    7   6   6   2   3   7   4   
+12:       12      L             L             VEN   0     501   0     0     3     0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     33    3   0   7   7   7   2   7   
+14:       14      N             N             VEN   6     501   0     0     22    2   4   1   4   2   5   4   
+15:       15      O             O             VEN   7     501   0     0     20    2   1   4   2   2   6   3   
+16:       16      P             P             VEN   7     501   0     0     22    3   0   5   2   4   7   1   
+
+
+#Number  :016
+Country  :VEN
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     12     12     5      0      
+Away      18     0      4      10     3      
+Third     4      15     3      1      9      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     20    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     30    7   4   6   1   4   2   6   
+03:       3       C             C             VEN   3     501   0     0     25    4   6   3   3   7   0   2   
+04:       4       D             D             VEN   3     501   0     0     15    0   3   5   0   4   0   3   
+05:       5       E             E             VEN   2     501   0     0     27    3   4   4   4   1   5   6   
+06:       6       F             F             VEN   4     501   0     0     16    6   6   0   1   1   2   0   
+07:       7       G             G             VEN   6     501   0     0     26    5   6   3   0   5   5   2   
+08:       8       H             H             VEN   6     501   0     0     18    6   4   0   3   2   1   2   
+09:       9       I             I             VEN   5     501   0     0     16    3   1   6   0   2   0   4   
+10:       10      J             J             VEN   7     501   0     0     19    7   1   2   3   1   1   4   
+11:       11      K             K             VEN   7     501   0     0     27    7   0   4   0   6   5   5   
+12:       12      L             L             VEN   0     501   0     0     46    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     27    6   7   1   3   4   1   5   
+14:       14      N             N             VEN   6     501   0     0     30    5   4   7   3   4   1   6   
+15:       15      O             O             VEN   7     501   0     0     20    2   3   1   7   2   2   3   
+16:       16      P             P             VEN   7     501   0     0     23    0   7   2   3   6   4   1   
+
+
+#Number  :017
+Country  :VEN
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     10     22     1      15     
+Away      8      21     13     18     13     
+Third     12     0      1      9      5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     39    0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     19    5   2   0   0   4   6   2   
+03:       3       C             C             VEN   3     501   0     0     21    1   7   1   1   6   3   2   
+04:       4       D             D             VEN   3     501   0     0     24    7   5   4   3   1   2   2   
+05:       5       E             E             VEN   2     501   0     0     25    1   2   5   6   3   2   6   
+06:       6       F             F             VEN   4     501   0     0     22    2   1   7   7   4   0   1   
+07:       7       G             G             VEN   6     501   0     0     20    2   7   7   0   1   1   2   
+08:       8       H             H             VEN   6     501   0     0     24    5   6   3   2   3   4   1   
+09:       9       I             I             VEN   5     501   0     0     24    2   4   5   4   2   0   7   
+10:       10      J             J             VEN   7     501   0     0     25    0   5   6   6   0   6   2   
+11:       11      K             K             VEN   7     501   0     0     30    2   7   4   3   3   4   7   
+12:       12      L             L             VEN   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     23    0   7   2   3   2   5   4   
+14:       14      N             N             VEN   6     501   0     0     31    6   3   4   4   4   3   7   
+15:       15      O             O             VEN   7     501   0     0     10    0   2   1   1   3   3   0   
+16:       16      P             P             VEN   7     501   0     0     29    0   4   6   4   4   4   7   
+
+
+#Number  :018
+Country  :VEN
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      10     16     8      19     2      
+Away      13     6      7      9      4      
+Third     14     0      12     0      4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             VEN   0     501   0     0     6     0   0   0   0   0   0   0   
+02:       2       B             B             VEN   1     501   0     0     19    3   0   4   2   7   2   1   
+03:       3       C             C             VEN   3     501   0     0     30    4   6   4   6   5   4   1   
+04:       4       D             D             VEN   3     501   0     0     20    4   1   5   4   1   2   3   
+05:       5       E             E             VEN   2     501   0     0     27    4   6   5   1   4   0   7   
+06:       6       F             F             VEN   4     501   0     0     31    4   5   5   5   5   7   0   
+07:       7       G             G             VEN   6     501   0     0     16    2   6   5   0   1   1   1   
+08:       8       H             H             VEN   6     501   0     0     12    6   0   1   0   1   0   4   
+09:       9       I             I             VEN   5     501   0     0     18    6   2   4   3   1   0   2   
+10:       10      J             J             VEN   7     501   0     0     30    7   7   0   4   5   1   6   
+11:       11      K             K             VEN   7     501   0     0     18    2   1   5   1   4   2   3   
+12:       12      L             L             VEN   0     501   0     0     28    0   0   0   0   0   0   0   
+13:       13      M             M             VEN   3     501   0     0     18    4   2   1   3   3   4   1   
+14:       14      N             N             VEN   6     501   0     0     33    7   0   6   7   7   5   1   
+15:       15      O             O             VEN   7     501   0     0     31    4   5   5   6   6   1   4   
+16:       16      P             P             VEN   7     501   0     0     23    0   6   4   7   2   1   3   
+
+

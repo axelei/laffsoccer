@@ -1,0 +1,702 @@
+#Number  :001
+Country  :GAB
+Name     :TEAM A
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     12     15     6      9      
+Away      16     1      1      1      6      
+Third     18     22     19     15     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     49    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     21    1   2   3   6   5   0   4   
+03:       3       C             C             GAB   3     501   0     0     30    7   2   2   5   1   6   7   
+04:       4       D             D             GAB   3     501   0     0     24    1   1   5   3   3   7   4   
+05:       5       E             E             GAB   2     501   0     0     21    5   4   0   5   3   0   4   
+06:       6       F             F             GAB   4     501   0     0     27    0   5   1   6   6   5   4   
+07:       7       G             G             GAB   6     501   0     0     30    5   6   5   1   1   6   6   
+08:       8       H             H             GAB   6     501   0     0     29    7   7   5   1   4   0   5   
+09:       9       I             I             GAB   5     501   0     0     29    4   7   4   3   7   4   0   
+10:       10      J             J             GAB   7     501   0     0     21    4   5   4   3   3   1   1   
+11:       11      K             K             GAB   7     501   0     0     16    1   0   1   7   7   0   0   
+12:       12      L             L             GAB   0     501   0     0     16    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     29    3   4   7   2   3   5   5   
+14:       14      N             N             GAB   6     501   0     0     21    1   7   5   1   1   5   1   
+15:       15      O             O             GAB   7     501   0     0     24    4   1   1   4   4   5   5   
+16:       16      P             P             GAB   7     501   0     0     21    4   0   7   3   0   5   2   
+
+
+#Number  :002
+Country  :GAB
+Name     :TEAM B
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     4      21     13     9      
+Away      14     11     11     1      5      
+Third     14     4      1      16     5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     25    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     31    7   4   2   5   2   5   6   
+03:       3       C             C             GAB   3     501   0     0     22    3   1   0   7   3   4   4   
+04:       4       D             D             GAB   3     501   0     0     24    2   5   5   0   6   5   1   
+05:       5       E             E             GAB   2     501   0     0     32    6   3   6   4   7   6   0   
+06:       6       F             F             GAB   4     501   0     0     23    2   7   6   2   0   3   3   
+07:       7       G             G             GAB   6     501   0     0     27    7   2   3   1   2   5   7   
+08:       8       H             H             GAB   6     501   0     0     20    3   0   7   4   1   1   4   
+09:       9       I             I             GAB   5     501   0     0     25    7   2   3   7   4   2   0   
+10:       10      J             J             GAB   7     501   0     0     17    7   3   0   0   2   3   2   
+11:       11      K             K             GAB   7     501   0     0     22    5   0   3   2   7   4   1   
+12:       12      L             L             GAB   0     501   0     0     31    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     23    3   5   6   2   6   0   1   
+14:       14      N             N             GAB   6     501   0     0     37    7   1   5   5   6   6   7   
+15:       15      O             O             GAB   7     501   0     0     26    4   7   6   0   2   6   1   
+16:       16      P             P             GAB   7     501   0     0     30    2   4   1   6   7   6   4   
+
+
+#Number  :003
+Country  :GAB
+Name     :TEAM C
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      11     1      2      1      19     
+Away      12     2      16     21     13     
+Third     4      15     2      19     4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     29    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     23    7   2   1   0   6   0   7   
+03:       3       C             C             GAB   3     501   0     0     17    1   4   3   1   5   0   3   
+04:       4       D             D             GAB   3     501   0     0     18    5   0   6   4   2   0   1   
+05:       5       E             E             GAB   2     501   0     0     19    1   5   5   0   1   0   7   
+06:       6       F             F             GAB   4     501   0     0     20    1   7   2   1   0   4   5   
+07:       7       G             G             GAB   6     501   0     0     30    2   6   5   7   5   5   0   
+08:       8       H             H             GAB   6     501   0     0     30    5   7   2   5   6   0   5   
+09:       9       I             I             GAB   5     501   0     0     19    4   0   2   6   3   1   3   
+10:       10      J             J             GAB   7     501   0     0     20    3   3   3   2   5   4   0   
+11:       11      K             K             GAB   7     501   0     0     21    6   5   0   2   5   3   0   
+12:       12      L             L             GAB   0     501   0     0     7     0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     20    3   2   1   4   3   0   7   
+14:       14      N             N             GAB   6     501   0     0     16    4   1   5   4   0   0   2   
+15:       15      O             O             GAB   7     501   0     0     25    3   3   3   6   3   0   7   
+16:       16      P             P             GAB   7     501   0     0     22    7   2   3   2   3   4   1   
+
+
+#Number  :004
+Country  :GAB
+Name     :TEAM D
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      7      6      16     19     
+Away      12     11     19     4      18     
+Third     5      2      7      16     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     48    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     28    2   2   4   6   3   4   7   
+03:       3       C             C             GAB   3     501   0     0     34    5   5   2   7   6   5   4   
+04:       4       D             D             GAB   3     501   0     0     19    7   1   2   7   0   1   1   
+05:       5       E             E             GAB   2     501   0     0     13    3   3   1   0   0   1   5   
+06:       6       F             F             GAB   4     501   0     0     26    7   2   2   6   3   3   3   
+07:       7       G             G             GAB   6     501   0     0     17    0   3   0   2   5   7   0   
+08:       8       H             H             GAB   6     501   0     0     22    1   5   1   7   3   1   4   
+09:       9       I             I             GAB   5     501   0     0     18    4   3   1   4   3   0   3   
+10:       10      J             J             GAB   7     501   0     0     15    0   4   3   4   4   0   0   
+11:       11      K             K             GAB   7     501   0     0     20    2   4   1   2   6   4   1   
+12:       12      L             L             GAB   0     501   0     0     38    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     35    3   3   7   1   7   7   7   
+14:       14      N             N             GAB   6     501   0     0     26    6   1   5   7   4   2   1   
+15:       15      O             O             GAB   7     501   0     0     28    2   2   7   7   7   2   1   
+16:       16      P             P             GAB   7     501   0     0     25    2   7   1   3   7   4   1   
+
+
+#Number  :005
+Country  :GAB
+Name     :TEAM E
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      10     17     14     16     
+Away      10     6      15     8      18     
+Third     15     20     0      12     17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     14    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     30    7   6   7   2   0   6   2   
+03:       3       C             C             GAB   3     501   0     0     34    2   5   6   7   2   7   5   
+04:       4       D             D             GAB   3     501   0     0     25    7   7   4   0   5   0   2   
+05:       5       E             E             GAB   2     501   0     0     34    4   3   4   4   7   6   6   
+06:       6       F             F             GAB   4     501   0     0     27    0   6   2   1   6   7   5   
+07:       7       G             G             GAB   6     501   0     0     9     2   0   0   0   4   2   1   
+08:       8       H             H             GAB   6     501   0     0     30    7   3   7   4   3   3   3   
+09:       9       I             I             GAB   5     501   0     0     22    5   4   4   1   1   4   3   
+10:       10      J             J             GAB   7     501   0     0     29    2   5   7   5   3   5   2   
+11:       11      K             K             GAB   7     501   0     0     29    7   6   6   6   0   2   2   
+12:       12      L             L             GAB   0     501   0     0     41    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     20    7   1   1   4   7   0   0   
+14:       14      N             N             GAB   6     501   0     0     27    4   7   1   2   6   6   1   
+15:       15      O             O             GAB   7     501   0     0     27    0   6   4   1   4   7   5   
+16:       16      P             P             GAB   7     501   0     0     32    6   5   5   3   5   4   4   
+
+
+#Number  :006
+Country  :GAB
+Name     :TEAM F
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      7      14     3      1      
+Away      1      15     14     12     8      
+Third     8      22     4      22     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     26    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     22    5   3   2   3   2   2   5   
+03:       3       C             C             GAB   3     501   0     0     16    0   1   3   1   6   4   1   
+04:       4       D             D             GAB   3     501   0     0     30    1   4   5   0   6   7   7   
+05:       5       E             E             GAB   2     501   0     0     18    1   2   3   2   2   6   2   
+06:       6       F             F             GAB   4     501   0     0     28    6   2   7   5   4   1   3   
+07:       7       G             G             GAB   6     501   0     0     21    6   0   6   0   1   5   3   
+08:       8       H             H             GAB   6     501   0     0     35    7   6   7   7   1   1   6   
+09:       9       I             I             GAB   5     501   0     0     34    4   2   7   0   7   7   7   
+10:       10      J             J             GAB   7     501   0     0     35    2   5   3   4   7   7   7   
+11:       11      K             K             GAB   7     501   0     0     29    3   1   6   5   5   2   7   
+12:       12      L             L             GAB   0     501   0     0     0     0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     18    5   1   7   3   0   2   0   
+14:       14      N             N             GAB   6     501   0     0     22    3   4   2   3   2   7   1   
+15:       15      O             O             GAB   7     501   0     0     24    2   5   3   6   2   3   3   
+16:       16      P             P             GAB   7     501   0     0     32    3   7   6   7   0   3   6   
+
+
+#Number  :007
+Country  :GAB
+Name     :TEAM G
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      9      16     12     5      5      
+Away      4      8      22     15     18     
+Third     7      10     4      9      19     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     22    6   0   5   3   7   1   0   
+03:       3       C             C             GAB   3     501   0     0     27    1   5   6   5   1   7   2   
+04:       4       D             D             GAB   3     501   0     0     35    6   0   7   6   6   7   3   
+05:       5       E             E             GAB   2     501   0     0     22    4   1   5   1   4   6   1   
+06:       6       F             F             GAB   4     501   0     0     27    3   7   6   4   1   6   0   
+07:       7       G             G             GAB   6     501   0     0     18    5   2   3   2   0   3   3   
+08:       8       H             H             GAB   6     501   0     0     26    5   0   4   7   0   6   4   
+09:       9       I             I             GAB   5     501   0     0     13    3   0   1   4   3   2   0   
+10:       10      J             J             GAB   7     501   0     0     20    6   1   0   0   1   7   5   
+11:       11      K             K             GAB   7     501   0     0     38    5   7   7   4   1   7   7   
+12:       12      L             L             GAB   0     501   0     0     34    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     24    4   1   7   1   1   3   7   
+14:       14      N             N             GAB   6     501   0     0     22    0   2   5   6   6   3   0   
+15:       15      O             O             GAB   7     501   0     0     22    7   1   1   0   2   6   5   
+16:       16      P             P             GAB   7     501   0     0     23    4   0   3   4   0   7   5   
+
+
+#Number  :008
+Country  :GAB
+Name     :TEAM H
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      15     1      11     18     7      
+Away      17     21     7      19     4      
+Third     10     11     0      16     16     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     44    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     32    4   7   3   6   7   5   0   
+03:       3       C             C             GAB   3     501   0     0     30    5   5   5   5   6   1   3   
+04:       4       D             D             GAB   3     501   0     0     24    2   5   6   1   4   5   1   
+05:       5       E             E             GAB   2     501   0     0     25    1   6   5   5   3   3   2   
+06:       6       F             F             GAB   4     501   0     0     23    3   3   5   3   1   4   4   
+07:       7       G             G             GAB   6     501   0     0     32    5   6   5   7   2   1   6   
+08:       8       H             H             GAB   6     501   0     0     23    2   5   0   0   3   6   7   
+09:       9       I             I             GAB   5     501   0     0     26    4   4   6   7   1   0   4   
+10:       10      J             J             GAB   7     501   0     0     31    6   5   6   5   0   5   4   
+11:       11      K             K             GAB   7     501   0     0     30    7   0   5   7   6   2   3   
+12:       12      L             L             GAB   0     501   0     0     37    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     34    4   4   7   7   3   5   4   
+14:       14      N             N             GAB   6     501   0     0     29    7   4   7   4   3   3   1   
+15:       15      O             O             GAB   7     501   0     0     29    3   5   7   1   0   6   7   
+16:       16      P             P             GAB   7     501   0     0     23    1   5   7   7   0   2   1   
+
+
+#Number  :009
+Country  :GAB
+Name     :TEAM I
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      4      13     14     11     16     
+Away      11     17     9      1      7      
+Third     10     6      5      0      21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     19    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     31    7   3   3   3   5   4   6   
+03:       3       C             C             GAB   3     501   0     0     16    2   2   1   4   4   3   0   
+04:       4       D             D             GAB   3     501   0     0     27    2   6   5   1   4   7   2   
+05:       5       E             E             GAB   2     501   0     0     27    5   6   4   5   2   0   5   
+06:       6       F             F             GAB   4     501   0     0     27    6   4   5   0   4   7   1   
+07:       7       G             G             GAB   6     501   0     0     31    6   4   4   4   1   7   5   
+08:       8       H             H             GAB   6     501   0     0     32    7   7   3   0   4   5   6   
+09:       9       I             I             GAB   5     501   0     0     16    0   4   2   0   2   6   2   
+10:       10      J             J             GAB   7     501   0     0     18    5   1   0   4   5   3   0   
+11:       11      K             K             GAB   7     501   0     0     34    2   7   5   6   7   3   4   
+12:       12      L             L             GAB   0     501   0     0     4     0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     39    7   7   6   3   7   4   5   
+14:       14      N             N             GAB   6     501   0     0     15    1   0   1   4   5   0   4   
+15:       15      O             O             GAB   7     501   0     0     16    1   1   1   5   1   2   5   
+16:       16      P             P             GAB   7     501   0     0     14    1   2   7   0   2   2   0   
+
+
+#Number  :010
+Country  :GAB
+Name     :TEAM J
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      9      3      20     22     
+Away      17     20     4      11     19     
+Third     3      13     5      20     18     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     4     0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     31    4   6   1   4   7   2   7   
+03:       3       C             C             GAB   3     501   0     0     22    2   3   2   2   4   7   2   
+04:       4       D             D             GAB   3     501   0     0     26    0   6   0   1   6   7   6   
+05:       5       E             E             GAB   2     501   0     0     21    2   1   4   5   2   2   5   
+06:       6       F             F             GAB   4     501   0     0     29    4   6   0   0   7   6   6   
+07:       7       G             G             GAB   6     501   0     0     26    4   4   1   6   6   1   4   
+08:       8       H             H             GAB   6     501   0     0     27    0   7   0   6   6   6   2   
+09:       9       I             I             GAB   5     501   0     0     22    3   2   3   3   5   5   1   
+10:       10      J             J             GAB   7     501   0     0     20    3   0   1   2   5   4   5   
+11:       11      K             K             GAB   7     501   0     0     25    7   2   0   5   6   5   0   
+12:       12      L             L             GAB   0     501   0     0     20    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     23    4   3   5   2   5   1   3   
+14:       14      N             N             GAB   6     501   0     0     17    0   5   4   3   2   1   2   
+15:       15      O             O             GAB   7     501   0     0     21    6   1   4   1   4   1   4   
+16:       16      P             P             GAB   7     501   0     0     30    2   2   4   4   4   7   7   
+
+
+#Number  :011
+Country  :GAB
+Name     :TEAM K
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      13     5      20     2      
+Away      12     4      9      13     15     
+Third     10     3      7      9      4      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     41    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     26    7   0   7   1   2   6   3   
+03:       3       C             C             GAB   3     501   0     0     25    4   6   5   0   4   0   6   
+04:       4       D             D             GAB   3     501   0     0     21    1   2   5   1   4   6   2   
+05:       5       E             E             GAB   2     501   0     0     26    6   5   1   5   5   3   1   
+06:       6       F             F             GAB   4     501   0     0     20    0   5   5   2   4   0   4   
+07:       7       G             G             GAB   6     501   0     0     22    0   6   2   1   6   2   5   
+08:       8       H             H             GAB   6     501   0     0     32    6   0   6   3   6   4   7   
+09:       9       I             I             GAB   5     501   0     0     30    6   3   5   7   3   4   2   
+10:       10      J             J             GAB   7     501   0     0     25    1   4   6   4   7   2   1   
+11:       11      K             K             GAB   7     501   0     0     10    0   1   1   5   0   2   1   
+12:       12      L             L             GAB   0     501   0     0     46    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     20    2   0   6   6   0   1   5   
+14:       14      N             N             GAB   6     501   0     0     9     1   2   3   0   0   1   2   
+15:       15      O             O             GAB   7     501   0     0     30    4   2   2   7   5   3   7   
+16:       16      P             P             GAB   7     501   0     0     16    2   1   4   1   3   0   5   
+
+
+#Number  :012
+Country  :GAB
+Name     :TEAM L
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      17     11     16     3      15     
+Away      1      12     4      4      1      
+Third     15     13     3      14     13     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     34    4   6   3   3   7   5   6   
+03:       3       C             C             GAB   3     501   0     0     28    1   6   6   4   3   4   4   
+04:       4       D             D             GAB   3     501   0     0     34    4   6   6   4   7   4   3   
+05:       5       E             E             GAB   2     501   0     0     19    1   1   0   4   2   4   7   
+06:       6       F             F             GAB   4     501   0     0     22    0   5   1   5   4   0   7   
+07:       7       G             G             GAB   6     501   0     0     36    6   6   7   3   7   3   4   
+08:       8       H             H             GAB   6     501   0     0     24    2   6   3   3   7   0   3   
+09:       9       I             I             GAB   5     501   0     0     30    4   7   5   7   6   0   1   
+10:       10      J             J             GAB   7     501   0     0     18    0   4   1   0   3   4   6   
+11:       11      K             K             GAB   7     501   0     0     26    2   0   0   5   7   5   7   
+12:       12      L             L             GAB   0     501   0     0     36    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     35    7   7   0   6   6   5   4   
+14:       14      N             N             GAB   6     501   0     0     23    2   0   5   5   3   5   3   
+15:       15      O             O             GAB   7     501   0     0     17    2   4   3   4   1   1   2   
+16:       16      P             P             GAB   7     501   0     0     31    2   1   7   5   5   7   4   
+
+
+#Number  :013
+Country  :GAB
+Name     :TEAM M
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      8      11     14     8      22     
+Away      9      15     5      14     6      
+Third     8      14     2      8      5      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     40    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     16    0   1   0   4   4   6   1   
+03:       3       C             C             GAB   3     501   0     0     29    5   7   5   7   3   1   1   
+04:       4       D             D             GAB   3     501   0     0     33    3   6   7   5   2   4   6   
+05:       5       E             E             GAB   2     501   0     0     16    1   3   4   0   7   1   0   
+06:       6       F             F             GAB   4     501   0     0     12    2   2   0   1   7   0   0   
+07:       7       G             G             GAB   6     501   0     0     30    2   4   4   0   6   7   7   
+08:       8       H             H             GAB   6     501   0     0     25    0   4   6   4   0   4   7   
+09:       9       I             I             GAB   5     501   0     0     30    3   5   0   5   4   7   6   
+10:       10      J             J             GAB   7     501   0     0     17    5   1   2   2   5   0   2   
+11:       11      K             K             GAB   7     501   0     0     30    1   3   6   6   7   4   3   
+12:       12      L             L             GAB   0     501   0     0     9     0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     23    3   5   6   2   0   3   4   
+14:       14      N             N             GAB   6     501   0     0     19    2   3   2   4   5   1   2   
+15:       15      O             O             GAB   7     501   0     0     33    7   7   6   5   1   5   2   
+16:       16      P             P             GAB   7     501   0     0     12    0   5   1   0   1   2   3   
+
+
+#Number  :014
+Country  :GAB
+Name     :TEAM N
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      6      17     5      11     
+Away      8      22     6      9      16     
+Third     16     20     5      13     21     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     1     0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     18    5   5   5   1   0   2   0   
+03:       3       C             C             GAB   3     501   0     0     21    5   1   0   5   4   1   5   
+04:       4       D             D             GAB   3     501   0     0     23    6   3   0   7   2   2   3   
+05:       5       E             E             GAB   2     501   0     0     28    7   3   4   3   1   5   5   
+06:       6       F             F             GAB   4     501   0     0     34    5   6   3   3   6   5   6   
+07:       7       G             G             GAB   6     501   0     0     35    6   7   6   4   0   6   6   
+08:       8       H             H             GAB   6     501   0     0     24    5   5   7   0   5   0   2   
+09:       9       I             I             GAB   5     501   0     0     30    7   5   7   3   3   2   3   
+10:       10      J             J             GAB   7     501   0     0     27    5   7   4   1   3   7   0   
+11:       11      K             K             GAB   7     501   0     0     21    3   4   7   1   1   4   1   
+12:       12      L             L             GAB   0     501   0     0     47    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     25    4   3   1   5   5   5   2   
+14:       14      N             N             GAB   6     501   0     0     27    4   5   7   3   0   7   1   
+15:       15      O             O             GAB   7     501   0     0     24    2   4   3   2   6   0   7   
+16:       16      P             P             GAB   7     501   0     0     35    3   6   7   3   7   3   6   
+
+
+#Number  :015
+Country  :GAB
+Name     :TEAM O
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      16     3      1      14     
+Away      6      3      15     8      20     
+Third     16     9      2      2      7      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     9     0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     25    1   5   6   5   2   3   3   
+03:       3       C             C             GAB   3     501   0     0     31    6   3   4   6   6   3   3   
+04:       4       D             D             GAB   3     501   0     0     31    6   5   1   4   5   4   6   
+05:       5       E             E             GAB   2     501   0     0     20    4   5   1   4   5   0   1   
+06:       6       F             F             GAB   4     501   0     0     31    5   2   3   7   7   7   0   
+07:       7       G             G             GAB   6     501   0     0     26    0   4   6   4   7   2   3   
+08:       8       H             H             GAB   6     501   0     0     27    6   6   4   5   3   1   2   
+09:       9       I             I             GAB   5     501   0     0     26    0   1   6   5   3   6   5   
+10:       10      J             J             GAB   7     501   0     0     22    6   0   3   0   1   7   5   
+11:       11      K             K             GAB   7     501   0     0     23    0   5   1   6   5   4   2   
+12:       12      L             L             GAB   0     501   0     0     39    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     26    7   5   1   6   3   0   4   
+14:       14      N             N             GAB   6     501   0     0     20    6   2   2   1   2   7   0   
+15:       15      O             O             GAB   7     501   0     0     17    5   2   2   0   0   5   3   
+16:       16      P             P             GAB   7     501   0     0     30    4   6   5   5   7   1   2   
+
+
+#Number  :016
+Country  :GAB
+Name     :TEAM P
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     18     16     5      13     
+Away      10     21     14     22     19     
+Third     8      4      5      1      9      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     35    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     24    1   2   7   4   4   1   5   
+03:       3       C             C             GAB   3     501   0     0     28    5   3   7   4   5   4   0   
+04:       4       D             D             GAB   3     501   0     0     21    3   0   3   5   0   5   5   
+05:       5       E             E             GAB   2     501   0     0     25    5   2   4   3   4   3   4   
+06:       6       F             F             GAB   4     501   0     0     26    6   6   1   1   4   1   7   
+07:       7       G             G             GAB   6     501   0     0     33    5   7   6   2   1   6   6   
+08:       8       H             H             GAB   6     501   0     0     20    3   4   4   7   0   0   2   
+09:       9       I             I             GAB   5     501   0     0     23    4   1   4   1   4   3   6   
+10:       10      J             J             GAB   7     501   0     0     27    2   6   4   7   2   3   3   
+11:       11      K             K             GAB   7     501   0     0     39    2   4   7   7   5   7   7   
+12:       12      L             L             GAB   0     501   0     0     33    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     32    6   0   7   7   4   4   4   
+14:       14      N             N             GAB   6     501   0     0     27    2   6   7   7   1   4   0   
+15:       15      O             O             GAB   7     501   0     0     20    3   1   2   5   4   4   1   
+16:       16      P             P             GAB   7     501   0     0     22    2   2   7   5   4   1   1   
+
+
+#Number  :017
+Country  :GAB
+Name     :TEAM Q
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      7      7      9      5      
+Away      2      14     7      12     4      
+Third     18     6      21     12     3      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     18    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     31    7   6   5   1   4   5   3   
+03:       3       C             C             GAB   3     501   0     0     20    0   4   3   1   5   6   1   
+04:       4       D             D             GAB   3     501   0     0     26    1   6   1   7   6   1   4   
+05:       5       E             E             GAB   2     501   0     0     31    6   1   6   2   6   4   6   
+06:       6       F             F             GAB   4     501   0     0     31    4   6   1   3   5   5   7   
+07:       7       G             G             GAB   6     501   0     0     23    6   3   4   2   1   1   6   
+08:       8       H             H             GAB   6     501   0     0     25    3   7   5   2   0   7   1   
+09:       9       I             I             GAB   5     501   0     0     17    0   5   0   0   6   3   3   
+10:       10      J             J             GAB   7     501   0     0     27    7   4   1   4   3   2   6   
+11:       11      K             K             GAB   7     501   0     0     27    3   5   4   4   4   0   7   
+12:       12      L             L             GAB   0     501   0     0     7     0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     21    1   4   3   1   6   3   3   
+14:       14      N             N             GAB   6     501   0     0     25    3   0   3   6   0   7   6   
+15:       15      O             O             GAB   7     501   0     0     29    4   4   0   6   7   1   7   
+16:       16      P             P             GAB   7     501   0     0     28    2   3   6   3   6   2   6   
+
+
+#Number  :018
+Country  :GAB
+Name     :TEAM R
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      13     1      6      0      4      
+Away      11     5      6      14     6      
+Third     5      4      15     2      17     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             GAB   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       B             B             GAB   1     501   0     0     25    7   0   2   7   6   0   3   
+03:       3       C             C             GAB   3     501   0     0     19    0   5   6   3   1   4   0   
+04:       4       D             D             GAB   3     501   0     0     20    7   0   1   2   1   5   4   
+05:       5       E             E             GAB   2     501   0     0     33    5   6   7   5   2   2   6   
+06:       6       F             F             GAB   4     501   0     0     17    3   4   2   4   1   1   2   
+07:       7       G             G             GAB   6     501   0     0     36    7   3   4   5   5   7   5   
+08:       8       H             H             GAB   6     501   0     0     22    1   3   4   2   5   3   4   
+09:       9       I             I             GAB   5     501   0     0     32    0   4   7   7   5   6   3   
+10:       10      J             J             GAB   7     501   0     0     16    0   2   1   6   3   4   0   
+11:       11      K             K             GAB   7     501   0     0     28    6   4   3   3   7   4   1   
+12:       12      L             L             GAB   0     501   0     0     36    0   0   0   0   0   0   0   
+13:       13      M             M             GAB   3     501   0     0     22    3   1   0   7   4   5   2   
+14:       14      N             N             GAB   6     501   0     0     27    7   0   5   0   4   6   5   
+15:       15      O             O             GAB   7     501   0     0     25    5   4   2   1   7   3   3   
+16:       16      P             P             GAB   7     501   0     0     33    6   6   6   3   5   6   1   
+
+

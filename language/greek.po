@@ -1,0 +1,2373 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-12 17:22+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../t_menu_replay_match.bmx:21
+#: ../t_match_intro.bmx:205
+#: ../t_menu_nationals_confederation.bmx:43
+#: ../t_menu_select_teams.bmx:274
+#: ../t_menu_view_selected_teams.bmx:31
+#: ../t_menu_view_selected_teams.bmx:146
+#: ../t_menu_match_presentation.bmx:136
+#: ../t_menu_friendly.bmx:25
+#: ../t_menu_clubs_confederation.bmx:32
+#: ../t_menu_main.bmx:72
+msgid "FRIENDLY"
+msgstr "ΦIΛIKOΣ AΓΩNAΣ"
+
+#: ../t_menu_replay_match.bmx:29
+#: ../t_menu_match_presentation.bmx:258
+#: ../t_menu_set_team.bmx:247
+msgid "PLAY MATCH"
+msgstr "ENAΡΞH AΓΩNA"
+
+#: ../t_menu_replay_match.bmx:39
+#: ../t_menu_tactics_save_warning.bmx:45
+#: ../t_menu_tactics_import.bmx:63
+#: ../t_menu_play_league.bmx:271
+#: ../t_menu_select_tactics_to_edit.bmx:40
+#: ../t_menu_select_teams.bmx:175
+#: ../t_menu_cup_info.bmx:229
+#: ../t_menu_edit_tactics.bmx:253
+#: ../t_menu_view_selected_teams.bmx:112
+#: ../t_menu_diy_competition.bmx:55
+#: ../t_menu_view_team.bmx:182
+#: ../t_menu_match_presentation.bmx:268
+#: ../t_menu_load_teams.bmx:64
+#: ../t_menu_training_settings.bmx:176
+#: ../t_menu_edit_players.bmx:319
+#: ../t_menu_friendly.bmx:99
+#: ../t_menu_top_scorers.bmx:85
+#: ../t_menu_view_statistics.bmx:53
+#: ../t_menu_design_diy_league.bmx:252
+#: ../t_menu_play_cup.bmx:273
+#: ../t_menu_select_squad_to_view.bmx:68
+#: ../t_menu_edit_team.bmx:358
+#: ../t_menu_design_diy_cup.bmx:294
+#: ../t_menu_clubs_country.bmx:99
+#: ../t_menu_league_info.bmx:161
+#: ../t_menu_control.bmx:210
+#: ../t_menu_game_options.bmx:179
+#: ../t_menu_set_team.bmx:258
+#: ../t_menu_select_team.bmx:127
+#: ../t_menu_match_options.bmx:215
+#: ../t_menu_clubs_division.bmx:97
+msgid "EXIT"
+msgstr "EΞOΔOΣ"
+
+#: ../lib_language.bmx:100
+msgid "KEY_BACKSPACE"
+msgstr "BACKSPACE"
+
+#: ../lib_language.bmx:101
+msgid "KEY_TAB"
+msgstr "TAB"
+
+#: ../lib_language.bmx:102
+msgid "KEY_CLEAR"
+msgstr "CLEAR"
+
+#: ../lib_language.bmx:103
+msgid "KEY_RETURN"
+msgstr "RETURN"
+
+#: ../lib_language.bmx:104
+msgid "KEY_PAGEUP"
+msgstr "PAGEUP"
+
+#: ../lib_language.bmx:105
+msgid "KEY_PAGEDOWN"
+msgstr "PAGEDOWN"
+
+#: ../lib_language.bmx:106
+msgid "KEY_END"
+msgstr "END"
+
+#: ../lib_language.bmx:107
+msgid "KEY_HOME"
+msgstr "HOME"
+
+#: ../lib_language.bmx:108
+msgid "KEY_LEFT"
+msgstr "LEFT"
+
+#: ../lib_language.bmx:109
+msgid "KEY_UP"
+msgstr "UP"
+
+#: ../lib_language.bmx:110
+msgid "KEY_RIGHT"
+msgstr "RIGHT"
+
+#: ../lib_language.bmx:111
+msgid "KEY_DOWN"
+msgstr "DOWN"
+
+#: ../lib_language.bmx:112
+msgid "KEY_INSERT"
+msgstr "INSERT"
+
+#: ../lib_language.bmx:113
+msgid "KEY_DELETE"
+msgstr "DELETE"
+
+#: ../lib_language.bmx:114
+msgid "KEY_0"
+msgstr "0"
+
+#: ../lib_language.bmx:115
+msgid "KEY_1"
+msgstr "1"
+
+#: ../lib_language.bmx:116
+msgid "KEY_2"
+msgstr "2"
+
+#: ../lib_language.bmx:117
+msgid "KEY_3"
+msgstr "3"
+
+#: ../lib_language.bmx:118
+msgid "KEY_4"
+msgstr "4"
+
+#: ../lib_language.bmx:119
+msgid "KEY_5"
+msgstr "5"
+
+#: ../lib_language.bmx:120
+msgid "KEY_6"
+msgstr "6"
+
+#: ../lib_language.bmx:121
+msgid "KEY_7"
+msgstr "7"
+
+#: ../lib_language.bmx:122
+msgid "KEY_8"
+msgstr "8"
+
+#: ../lib_language.bmx:123
+msgid "KEY_9"
+msgstr "9"
+
+#: ../lib_language.bmx:124
+msgid "KEY_A"
+msgstr "A"
+
+#: ../lib_language.bmx:125
+msgid "KEY_B"
+msgstr "B"
+
+#: ../lib_language.bmx:126
+msgid "KEY_C"
+msgstr "C"
+
+#: ../lib_language.bmx:127
+msgid "KEY_D"
+msgstr "D"
+
+#: ../lib_language.bmx:128
+msgid "KEY_E"
+msgstr "E"
+
+#: ../lib_language.bmx:129
+msgid "KEY_F"
+msgstr "F"
+
+#: ../lib_language.bmx:130
+msgid "KEY_G"
+msgstr "G"
+
+#: ../lib_language.bmx:131
+msgid "KEY_H"
+msgstr "H"
+
+#: ../lib_language.bmx:132
+msgid "KEY_I"
+msgstr "I"
+
+#: ../lib_language.bmx:133
+msgid "KEY_J"
+msgstr "J"
+
+#: ../lib_language.bmx:134
+msgid "KEY_K"
+msgstr "K"
+
+#: ../lib_language.bmx:135
+msgid "KEY_L"
+msgstr "L"
+
+#: ../lib_language.bmx:136
+msgid "KEY_M"
+msgstr "M"
+
+#: ../lib_language.bmx:137
+msgid "KEY_N"
+msgstr "N"
+
+#: ../lib_language.bmx:138
+msgid "KEY_O"
+msgstr "O"
+
+#: ../lib_language.bmx:139
+msgid "KEY_P"
+msgstr "P"
+
+#: ../lib_language.bmx:140
+msgid "KEY_Q"
+msgstr "Q"
+
+#: ../lib_language.bmx:141
+msgid "KEY_R"
+msgstr "R"
+
+#: ../lib_language.bmx:142
+msgid "KEY_S"
+msgstr "S"
+
+#: ../lib_language.bmx:143
+msgid "KEY_T"
+msgstr "T"
+
+#: ../lib_language.bmx:144
+msgid "KEY_U"
+msgstr "U"
+
+#: ../lib_language.bmx:145
+msgid "KEY_V"
+msgstr "V"
+
+#: ../lib_language.bmx:146
+msgid "KEY_W"
+msgstr "W"
+
+#: ../lib_language.bmx:147
+msgid "KEY_X"
+msgstr "X"
+
+#: ../lib_language.bmx:148
+msgid "KEY_Y"
+msgstr "Y"
+
+#: ../lib_language.bmx:149
+msgid "KEY_Z"
+msgstr "Z"
+
+#: ../lib_language.bmx:150
+msgid "KEY_NUM0"
+msgstr "NUM0"
+
+#: ../lib_language.bmx:151
+msgid "KEY_NUM1"
+msgstr "NUM1"
+
+#: ../lib_language.bmx:152
+msgid "KEY_NUM2"
+msgstr "NUM2"
+
+#: ../lib_language.bmx:153
+msgid "KEY_NUM3"
+msgstr "NUM3"
+
+#: ../lib_language.bmx:154
+msgid "KEY_NUM4"
+msgstr "NUM4"
+
+#: ../lib_language.bmx:155
+msgid "KEY_NUM5"
+msgstr "NUM5"
+
+#: ../lib_language.bmx:156
+msgid "KEY_NUM6"
+msgstr "NUM6"
+
+#: ../lib_language.bmx:157
+msgid "KEY_NUM7"
+msgstr "NUM7"
+
+#: ../lib_language.bmx:158
+msgid "KEY_NUM8"
+msgstr "NUM8"
+
+#: ../lib_language.bmx:159
+msgid "KEY_NUM9"
+msgstr "NUM9"
+
+#: ../lib_language.bmx:160
+msgid "KEY_LSHIFT"
+msgstr "ΑΡΙΣΤΕΡΟ SHIFT"
+
+#: ../lib_language.bmx:161
+msgid "KEY_RSHIFT"
+msgstr "ΔΕΞΙΟ SHIFT"
+
+#: ../lib_language.bmx:162
+msgid "KEY_LCONTROL"
+msgstr "ΑΡΙΣΤΕΡΟ CONTROL"
+
+#: ../lib_language.bmx:163
+msgid "KEY_RCONTROL"
+msgstr "ΔΕΞΙΟ CONTROL"
+
+#: ../lib_language.bmx:164
+msgid "KEY_LALT"
+msgstr "ΑΡΙΣΤΕΡΟ ALT"
+
+#: ../lib_language.bmx:165
+msgid "KEY_RALT"
+msgstr "ΔΕΞΙΟ ALT"
+
+#: ../lib_language.bmx:166
+msgid "KEY_SEMICOLON"
+msgstr "SEMICOLON"
+
+#: ../lib_language.bmx:167
+msgid "KEY_EQUALS"
+msgstr "EQUALS"
+
+#: ../lib_language.bmx:168
+msgid "KEY_COMMA"
+msgstr "ΚΟΜΜΑ"
+
+#: ../lib_language.bmx:169
+msgid "KEY_MINUS"
+msgstr "MINUS"
+
+#: ../lib_language.bmx:170
+msgid "KEY_PERIOD"
+msgstr "ΤΕΛΕΙΑ"
+
+#: ../lib_language.bmx:171
+msgid "KEY_SLASH"
+msgstr "SLASH"
+
+#: ../lib_language.bmx:172
+msgid "KEY_TILDE"
+msgstr "TILDE"
+
+#: ../lib_language.bmx:173
+msgid "KEY_OPENBRACKET"
+msgstr "OPENBRACKET"
+
+#: ../lib_language.bmx:174
+msgid "KEY_CLOSEBRACKET"
+msgstr "CLOSEBRACKET"
+
+#: ../lib_language.bmx:175
+msgid "KEY_QUOTES"
+msgstr "QUOTES"
+
+#: ../lib_language.bmx:176
+msgid "KEY_BACKSLASH"
+msgstr "BACKSLASH"
+
+#: ../t_associations_files.bmx:19
+msgid "ALBANIA"
+msgstr "AΛBANIA"
+
+#: ../t_associations_files.bmx:20
+msgid "ANDORRA"
+msgstr "ΑΝΔΟΡΑ"
+
+#: ../t_associations_files.bmx:21
+msgid "ARMENIA"
+msgstr "ΑΡΜΕΝΙΑ"
+
+#: ../t_associations_files.bmx:22
+msgid "AUSTRIA"
+msgstr "AYΣTΡIA"
+
+#: ../t_associations_files.bmx:23
+msgid "AZERBAIJAN"
+msgstr "ΑΖΕΡΜΠΑΙΤΖΑΝ"
+
+#: ../t_associations_files.bmx:24
+msgid "BELARUS"
+msgstr "ΛEYKOΡΩΣIA"
+
+#: ../t_associations_files.bmx:25
+msgid "BELGIUM"
+msgstr "BEΛΓIO"
+
+#: ../t_associations_files.bmx:26
+msgid "BOSNIA HERZEGOVINA"
+msgstr "ΒΟΣΝΙΑ"
+
+#: ../t_associations_files.bmx:27
+msgid "BULGARIA"
+msgstr "BOYΛΓAΡIA"
+
+#: ../t_associations_files.bmx:28
+msgid "CROATIA"
+msgstr "KΡOATIA"
+
+#: ../t_associations_files.bmx:29
+msgid "CYPRUS"
+msgstr "KYΠΡOΣ"
+
+#: ../t_associations_files.bmx:30
+msgid "CZECH REPUBLIC"
+msgstr "TΣEXIA"
+
+#: ../t_associations_files.bmx:31
+msgid "DENMARK"
+msgstr "ΔANIA"
+
+#: ../t_associations_files.bmx:32
+msgid "ENGLAND"
+msgstr "AΓΓΛIA"
+
+#: ../t_associations_files.bmx:33
+msgid "ESTONIA"
+msgstr "EΣΘONIA"
+
+#: ../t_associations_files.bmx:34
+msgid "FAROE ISLANDS"
+msgstr "NHΣIA ΦEΡOE"
+
+#: ../t_associations_files.bmx:35
+msgid "FINLAND"
+msgstr "ΦIΛANΔIA"
+
+#: ../t_associations_files.bmx:36
+msgid "FRANCE"
+msgstr "ΓAΛΛIA"
+
+#: ../t_associations_files.bmx:37
+msgid "GEORGIA"
+msgstr "ΓΕΩΡΓΙΑ"
+
+#: ../t_associations_files.bmx:38
+msgid "GERMANY"
+msgstr "ΓEΡMANIA"
+
+#: ../t_associations_files.bmx:39
+msgid "GREECE"
+msgstr "EΛΛAΔA"
+
+#: ../t_associations_files.bmx:40
+msgid "HUNGARY"
+msgstr "OYΓΓAΡIA"
+
+#: ../t_associations_files.bmx:41
+msgid "ICELAND"
+msgstr "IΣΛANΔIA"
+
+#: ../t_associations_files.bmx:42
+msgid "IRELAND REPUBLIC"
+msgstr "IΡΛANΔIA"
+
+#: ../t_associations_files.bmx:43
+msgid "ISRAEL"
+msgstr "IΣΡAHΛ"
+
+#: ../t_associations_files.bmx:44
+msgid "ITALY"
+msgstr "ITAΛIA"
+
+#: ../t_associations_files.bmx:45
+msgid "KAZAKHSTAN"
+msgstr "ΚΑΖΑΚΑΣΤΑΝ"
+
+#: ../t_associations_files.bmx:46
+msgid "LATVIA"
+msgstr "ΛETONIA"
+
+#: ../t_associations_files.bmx:47
+msgid "LIECHTENSTEIN"
+msgstr "ΛΙΧΤΕΝΣΤΑΙΝ"
+
+#: ../t_associations_files.bmx:48
+msgid "LITHUANIA"
+msgstr "ΛIΘOYANIA"
+
+#: ../t_associations_files.bmx:49
+msgid "LUXEMBOURG"
+msgstr "ΛOYΞEMBOYΡΓO"
+
+#: ../t_associations_files.bmx:50
+msgid "MACEDONIA FYR"
+msgstr "ΣΚΟΠΙΑ"
+
+#: ../t_associations_files.bmx:51
+msgid "MALTA"
+msgstr "MAΛTA"
+
+#: ../t_associations_files.bmx:52
+msgid "MOLDOVA"
+msgstr "ΜΟΛΔΑΒΙΑ"
+
+#: ../t_associations_files.bmx:53
+msgid "MONTENEGRO"
+msgstr "ΜΑΥΡΟΒΟΎΝΙΟ"
+
+#: ../t_associations_files.bmx:54
+msgid "NETHERLANDS"
+msgstr "OΛΛANΔIA"
+
+#: ../t_associations_files.bmx:55
+msgid "NORTHERN IRELAND"
+msgstr "BOΡEIA IΡΛANΔIA"
+
+#: ../t_associations_files.bmx:56
+msgid "NORWAY"
+msgstr "NOΡBHΓIA"
+
+#: ../t_associations_files.bmx:57
+msgid "POLAND"
+msgstr "ΠOΛΩNIA"
+
+#: ../t_associations_files.bmx:58
+msgid "PORTUGAL"
+msgstr "ΠOΡTOΓAΛIA"
+
+#: ../t_associations_files.bmx:59
+msgid "ROMANIA"
+msgstr "ΡOYMANIA"
+
+#: ../t_associations_files.bmx:60
+msgid "RUSSIA"
+msgstr "ΡΩΣIA"
+
+#: ../t_associations_files.bmx:61
+msgid "SAN MARINO"
+msgstr "ΣAN MAΡINO"
+
+#: ../t_associations_files.bmx:62
+msgid "SCOTLAND"
+msgstr "ΣKΩTIA"
+
+#: ../t_associations_files.bmx:63
+msgid "SERBIA"
+msgstr "ΣEΡBIA"
+
+#: ../t_associations_files.bmx:64
+msgid "SLOVAKIA"
+msgstr "ΣΛOBAKIA"
+
+#: ../t_associations_files.bmx:65
+msgid "SLOVENIA"
+msgstr "ΣΛOBENIA"
+
+#: ../t_associations_files.bmx:66
+msgid "SPAIN"
+msgstr "IΣΠANIA"
+
+#: ../t_associations_files.bmx:67
+msgid "SWEDEN"
+msgstr "ΣOYHΔIA"
+
+#: ../t_associations_files.bmx:68
+msgid "SWITZERLAND"
+msgstr "EΛBETIA"
+
+#: ../t_associations_files.bmx:69
+msgid "TURKEY"
+msgstr "TOYΡKIA"
+
+#: ../t_associations_files.bmx:70
+msgid "UKRAINE"
+msgstr "OYKΡANIA"
+
+#: ../t_associations_files.bmx:71
+msgid "WALES"
+msgstr "OYAΛIA"
+
+#: ../t_associations_files.bmx:73
+msgid "ANGUILLA"
+msgstr "ΑΝΓΚΟΥΊΛΑ"
+
+#: ../t_associations_files.bmx:74
+msgid "ANTIGUA & BARBUDA"
+msgstr "ΑΝΤΊΓΚΟΥΑ ΚΑΙ Μ."
+
+#: ../t_associations_files.bmx:75
+msgid "ARUBA"
+msgstr "ΑΡΟΎΜΠΑ"
+
+#: ../t_associations_files.bmx:76
+msgid "BAHAMAS"
+msgstr "ΜΠΑΧΑΜΕΣ"
+
+#: ../t_associations_files.bmx:77
+msgid "BARBADOS"
+msgstr "ΜΠΑΜΠΕΙΝΤΟΣ"
+
+#: ../t_associations_files.bmx:78
+msgid "BELIZE"
+msgstr "ΜΠΕΛΙΖΕ"
+
+#: ../t_associations_files.bmx:79
+msgid "BERMUDA"
+msgstr "ΒΕΡΜΟΥΔΕΣ"
+
+#: ../t_associations_files.bmx:80
+msgid "BR.VIRGIN ISLANDS"
+msgstr "ΠΑΡΘΕΝΟΙ ΝΗΣΟΙ"
+
+#: ../t_associations_files.bmx:81
+msgid "CANADA"
+msgstr "ΚΑΝΑΔΑΣ"
+
+#: ../t_associations_files.bmx:82
+msgid "CAYMAN ISLANDS"
+msgstr "ΝΗΣΙΑ ΚΑΥΜΑΝ"
+
+#: ../t_associations_files.bmx:83
+msgid "COSTA RICA"
+msgstr "KOΣTA ΡIKA"
+
+#: ../t_associations_files.bmx:84
+msgid "CUBA"
+msgstr "ΚΟΥΒΑ"
+
+#: ../t_associations_files.bmx:85
+msgid "CURAÇAO"
+msgstr "ΚΟΥΡΑΣΆΟ"
+
+#: ../t_associations_files.bmx:86
+msgid "DOMINICA"
+msgstr "ΔΟΜΙΝΙΚΑ"
+
+#: ../t_associations_files.bmx:87
+msgid "DOMINICAN REPUBLIC"
+msgstr "ΔΟΜΙΚΑΝΗ ΔΗΜ."
+
+#: ../t_associations_files.bmx:88
+msgid "EL SALVADOR"
+msgstr "EΛ ΣAΛBAΔOΡ"
+
+#: ../t_associations_files.bmx:89
+msgid "GRENADA"
+msgstr "ΓΡΕΝΑΔΑ"
+
+#: ../t_associations_files.bmx:90
+msgid "GUATEMALA"
+msgstr "ΓΟΥΑΤΕΜΑΛΑ"
+
+#: ../t_associations_files.bmx:91
+msgid "GUYANA"
+msgstr "ΓΟΥΙΑΝΑ"
+
+#: ../t_associations_files.bmx:92
+msgid "HAITI"
+msgstr "ΑΙΤΗ"
+
+#: ../t_associations_files.bmx:93
+msgid "HONDURAS"
+msgstr "ΟΝΔΟΥΡΑ"
+
+#: ../t_associations_files.bmx:94
+msgid "JAMAICA"
+msgstr "ΤΖΑΜΑΙΚΑ"
+
+#: ../t_associations_files.bmx:95
+msgid "MEXICO"
+msgstr "MEΞIKO"
+
+#: ../t_associations_files.bmx:96
+msgid "MONTSERRAT"
+msgstr "ΜΟΝΣΕΡΑ"
+
+#: ../t_associations_files.bmx:97
+msgid "NICARAGUA"
+msgstr "ΝΙΚΑΡΑΓΟΥΑ"
+
+#: ../t_associations_files.bmx:98
+msgid "PANAMA"
+msgstr "ΠΑΝΑΜΑΣ"
+
+#: ../t_associations_files.bmx:99
+msgid "PUERTO RICO"
+msgstr "ΠΟΥΕΡΤΟ ΡΙΚΟ"
+
+#: ../t_associations_files.bmx:100
+msgid "ST.KITTS & NEVIS"
+msgstr "ΑΓΙΟΣ ΚΙΤΣ ΚΑΙ Ν."
+
+#: ../t_associations_files.bmx:101
+msgid "SAINT LUCIA"
+msgstr "ΑΓΙΑ ΛΟΥΚΙΑ"
+
+#: ../t_associations_files.bmx:102
+msgid "ST.VINCENT & GREN."
+msgstr "ΑΓΙΟΣ ΒΙΚΕΝΔΙΟΣ"
+
+#: ../t_associations_files.bmx:103
+msgid "SURINAM"
+msgstr "ΗΣΙΜΕΡΙΝΟΣ"
+
+#: ../t_associations_files.bmx:104
+msgid "TRINIDAD & TOBAGO"
+msgstr "ΤΡΙΝΙΝΤΑΝΤ ΚΑΙ Τ."
+
+#: ../t_associations_files.bmx:105
+msgid "TURKS & CAICOS IS."
+msgstr "ΝΗΣΙΑ ΤΟΥΡΚΣ"
+
+#: ../t_associations_files.bmx:106
+msgid "US VIRGIN ISLANDS"
+msgstr "ΠΑΡΘΕΝΟΙ ΝΗΣΟΙ"
+
+#: ../t_associations_files.bmx:107
+msgid "UNITED STATES"
+msgstr "HΠA"
+
+#: ../t_associations_files.bmx:109
+msgid "ARGENTINA"
+msgstr "AΡΓENTINH"
+
+#: ../t_associations_files.bmx:110
+msgid "BOLIVIA"
+msgstr "BOΛIBIA"
+
+#: ../t_associations_files.bmx:111
+msgid "BRAZIL"
+msgstr "BΡAZIΛIA"
+
+#: ../t_associations_files.bmx:112
+msgid "CHILE"
+msgstr "XIΛH"
+
+#: ../t_associations_files.bmx:113
+msgid "COLOMBIA"
+msgstr "KOΛOMBIA"
+
+#: ../t_associations_files.bmx:114
+msgid "ECUADOR"
+msgstr "EKOYAΔOΡ"
+
+#: ../t_associations_files.bmx:115
+msgid "PARAGUAY"
+msgstr "ΠAΡAΓOYAH"
+
+#: ../t_associations_files.bmx:116
+msgid "PERU"
+msgstr "ΠEΡOY"
+
+#: ../t_associations_files.bmx:117
+msgid "URUGUAY"
+msgstr "OYΡOYΓOYAH"
+
+#: ../t_associations_files.bmx:118
+msgid "VENEZUELA"
+msgstr "BENEZOYEΛA"
+
+#: ../t_associations_files.bmx:120
+msgid "ALGERIA"
+msgstr "AΛΓEΡIA"
+
+#: ../t_associations_files.bmx:121
+msgid "ANGOLA"
+msgstr "ΑΝΓΚΟΛΑ"
+
+#: ../t_associations_files.bmx:122
+msgid "BENIN"
+msgstr "ΜΠΕΝΙΝ"
+
+#: ../t_associations_files.bmx:123
+msgid "BOTSWANA"
+msgstr "ΜΠΟΤΣΟΥΑΝΑ"
+
+#: ../t_associations_files.bmx:124
+msgid "BURKINA FASO"
+msgstr "ΜΠΟΥΡΓΚΙΝΑ ΦΑΣΟ"
+
+#: ../t_associations_files.bmx:125
+msgid "BURUNDI"
+msgstr "ΜΠΟΥΡΟΥΝΤΙ"
+
+#: ../t_associations_files.bmx:126
+msgid "CAMEROON"
+msgstr "ΚΑΜΕΡΟΥΝ"
+
+#: ../t_associations_files.bmx:127
+msgid "CAPE VERDE ISLANDS"
+msgstr "ΑΚΡΟΤΗΡΙΟ ΒΕΡΝΤΕ"
+
+#: ../t_associations_files.bmx:128
+msgid "CENTR.AFRICAN REP."
+msgstr "ΚΕΝΤΡ. ΑΦΡ. ΔΗΜ."
+
+#: ../t_associations_files.bmx:129
+msgid "CHAD"
+msgstr "ΤΣΑΝΤ"
+
+#: ../t_associations_files.bmx:130
+msgid "COMOROS"
+msgstr "ΚΟΜΟΡΕΣ"
+
+#: ../t_associations_files.bmx:131
+msgid "CONGO"
+msgstr "ΚΟΝΓΚΟ"
+
+#: ../t_associations_files.bmx:132
+msgid "CONGO DR"
+msgstr "ΔΗΜ. ΤΟΥ ΚΟΝΚΓΟ"
+
+#: ../t_associations_files.bmx:133
+msgid "CÔTE D'IVOIRE"
+msgstr "ΑΚΤΗ. ΕΛΕΦΑΝΤ."
+
+#: ../t_associations_files.bmx:134
+msgid "DJIBOUTI"
+msgstr "ΤΣΙΜΠΟΥΤΙ"
+
+#: ../t_associations_files.bmx:135
+msgid "EGYPT"
+msgstr "ΑΙΓΥΠΤΟΣ"
+
+#: ../t_associations_files.bmx:136
+msgid "EQUATORIAL GUINEA"
+msgstr "ΙΣΗΜ. ΓΟΥΙΝΕΑ"
+
+#: ../t_associations_files.bmx:137
+msgid "ERITREA"
+msgstr "ΕΡΙΘΡΕΑ"
+
+#: ../t_associations_files.bmx:138
+msgid "ETHIOPIA"
+msgstr "ΑΙΘΙΟΠΊΑ"
+
+#: ../t_associations_files.bmx:139
+msgid "GABON"
+msgstr "ΓΚΑΜΠΟΝ"
+
+#: ../t_associations_files.bmx:140
+msgid "GAMBIA"
+msgstr "ΓΚΑΜΠΙΑ"
+
+#: ../t_associations_files.bmx:141
+msgid "GHANA"
+msgstr "ΓKANA"
+
+#: ../t_associations_files.bmx:142
+msgid "GUINEA"
+msgstr "ΓΟΥΙΝΕΑ"
+
+#: ../t_associations_files.bmx:143
+msgid "GUINEA-BISSAU"
+msgstr "ΓΟΥΙΝΕΑ Β."
+
+#: ../t_associations_files.bmx:144
+msgid "KENYA"
+msgstr "ΚΕΝΥΑ"
+
+#: ../t_associations_files.bmx:145
+msgid "LESOTHO"
+msgstr "ΛΕΣΟΘΟ"
+
+#: ../t_associations_files.bmx:146
+msgid "LIBERIA"
+msgstr "ΛΙΒΕΡΙΑ"
+
+#: ../t_associations_files.bmx:147
+msgid "LIBYA"
+msgstr "ΛΥΒΙΗ"
+
+#: ../t_associations_files.bmx:148
+msgid "MADAGASCAR"
+msgstr "ΜΑΔΑΓΑΣΚΑΡΗ"
+
+#: ../t_associations_files.bmx:149
+msgid "MALAWI"
+msgstr "ΜΑΛΑΟΥΙ"
+
+#: ../t_associations_files.bmx:150
+msgid "MALI"
+msgstr "ΜΑΛΙ"
+
+#: ../t_associations_files.bmx:151
+msgid "MAURITANIA"
+msgstr "ΜΑΥΡΙΤΑΝΙΑ"
+
+#: ../t_associations_files.bmx:152
+msgid "MAURITIUS"
+msgstr "ΜΑΥΡΙΚΙΟΣ"
+
+#: ../t_associations_files.bmx:153
+msgid "MOROCCO"
+msgstr "ΜΑΡΟΚΟ"
+
+#: ../t_associations_files.bmx:154
+msgid "MOZAMBIQUE"
+msgstr "ΜΟΖΑΜΒΙΚΗ"
+
+#: ../t_associations_files.bmx:155
+msgid "NAMIBIA"
+msgstr "ΝΑΜΙΜΠΙΑ"
+
+#: ../t_associations_files.bmx:156
+msgid "NIGER"
+msgstr "ΝΙΓΗΡΑΣ"
+
+#: ../t_associations_files.bmx:157
+msgid "NIGERIA"
+msgstr "ΝΙΓΗΡΙΑ"
+
+#: ../t_associations_files.bmx:158
+msgid "RWANDA"
+msgstr "ΡΟΥΑΝΤΑ"
+
+#: ../t_associations_files.bmx:159
+msgid "SÃO TOMÉ PRÍNCIPE"
+msgstr "ΠΡΙΓΚΙΠ. ΝΗΣΟΙ"
+
+#: ../t_associations_files.bmx:160
+msgid "SENEGAL"
+msgstr "ΣΕΝΕΓΑΛΗ"
+
+#: ../t_associations_files.bmx:161
+msgid "SEYCHELLES"
+msgstr "ΣΕΥΧΕΛΕΣ"
+
+#: ../t_associations_files.bmx:162
+msgid "SIERRA LEONE"
+msgstr "ΣΙΕΡΑ ΛΕΟΝΕ"
+
+#: ../t_associations_files.bmx:163
+msgid "SOMALIA"
+msgstr "ΣΟΜΑΛΙΑ"
+
+#: ../t_associations_files.bmx:164
+msgid "SOUTH AFRICA"
+msgstr "NOTIA AΦΡIKH"
+
+#: ../t_associations_files.bmx:165
+msgid "SOUTH SUDAN"
+msgstr "ΝΌΤΙΟ ΣΟΥΔΆΝ"
+
+#: ../t_associations_files.bmx:166
+msgid "SUDAN"
+msgstr "ΣΟΥΔΑΝ"
+
+#: ../t_associations_files.bmx:167
+msgid "SWAZILAND"
+msgstr "ΖΟΥΑΖΙΛΑΝΔΗ"
+
+#: ../t_associations_files.bmx:168
+msgid "TANZANIA"
+msgstr "ΤΑΝΖΑΝΙΑ"
+
+#: ../t_associations_files.bmx:169
+msgid "TOGO"
+msgstr "ΤΟΝΓΚΟ"
+
+#: ../t_associations_files.bmx:170
+msgid "TUNISIA"
+msgstr "ΤΥΝΗΣΙΑ"
+
+#: ../t_associations_files.bmx:171
+msgid "UGANDA"
+msgstr "ΟΥΓΚΑΝΤΑ"
+
+#: ../t_associations_files.bmx:172
+msgid "ZAMBIA"
+msgstr "ΖΑΜΠΙΑ"
+
+#: ../t_associations_files.bmx:173
+msgid "ZIMBABWE"
+msgstr "ΖΙΜΠΑΜΠΟΥΕ"
+
+#: ../t_associations_files.bmx:175
+msgid "AFGHANISTAN"
+msgstr "ΑΦΓΑΝΙΣΤΑΝ"
+
+#: ../t_associations_files.bmx:176
+msgid "AUSTRALIA"
+msgstr "AYΣTΡAΛIA"
+
+#: ../t_associations_files.bmx:177
+msgid "BAHRAIN"
+msgstr "ΜΠΑΧΡΕΙΝ"
+
+#: ../t_associations_files.bmx:178
+msgid "BANGLADESH"
+msgstr "ΜΠΑΓΚΛAΝΤΕΣ"
+
+#: ../t_associations_files.bmx:179
+msgid "BHUTAN"
+msgstr "ΜΠΟΥΤΑΝ"
+
+#: ../t_associations_files.bmx:180
+msgid "BRUNEI DARUSSALAM"
+msgstr "ΜΠΡΟΥΝΕΙ"
+
+#: ../t_associations_files.bmx:181
+msgid "CAMBODIA"
+msgstr "ΚΑΜΠΟΤΖΗ"
+
+#: ../t_associations_files.bmx:182
+msgid "CHINA PR"
+msgstr "ΚΙΝΑ"
+
+#: ../t_associations_files.bmx:183
+msgid "TAIWAN"
+msgstr "TAIBAN"
+
+#: ../t_associations_files.bmx:184
+msgid "GUAM"
+msgstr "ΓΚΟΥΑΜ ΗΠΑ"
+
+#: ../t_associations_files.bmx:185
+msgid "HONG KONG"
+msgstr "ΗΟΝΓΚ ΚΟΝΓΚ"
+
+#: ../t_associations_files.bmx:186
+msgid "INDIA"
+msgstr "INΔIA"
+
+#: ../t_associations_files.bmx:187
+msgid "INDONESIA"
+msgstr "ΙΝΔΟΝΗΣΙΑ"
+
+#: ../t_associations_files.bmx:188
+msgid "IRAN"
+msgstr "ΙΡΑΝ"
+
+#: ../t_associations_files.bmx:189
+msgid "IRAQ"
+msgstr "ΙΡΑΚ"
+
+#: ../t_associations_files.bmx:190
+msgid "JAPAN"
+msgstr "IAΠΩNIA"
+
+#: ../t_associations_files.bmx:191
+msgid "JORDAN"
+msgstr "ΙΟΡΔΑΝΙΑ"
+
+#: ../t_associations_files.bmx:192
+msgid "KOREA DPR"
+msgstr "ΒΟΡΕΙΑ ΚΟΡΕΑ"
+
+#: ../t_associations_files.bmx:193
+msgid "KOREA REPUBLIC"
+msgstr "ΝΟΤΙΑ ΚΟΡΕΑ"
+
+#: ../t_associations_files.bmx:194
+msgid "KUWAIT"
+msgstr "ΚΟΥΒΕΙΤ"
+
+#: ../t_associations_files.bmx:195
+msgid "KYRGYZSTAN"
+msgstr "ΚΙΡΓΙΣΤΑΝ"
+
+#: ../t_associations_files.bmx:196
+msgid "LAOS"
+msgstr "ΛΑΟΣ"
+
+#: ../t_associations_files.bmx:197
+msgid "LEBANON"
+msgstr "ΛΙΒΑΝΟΣ"
+
+#: ../t_associations_files.bmx:198
+msgid "MACAO"
+msgstr "ΜΑΚΑΟ"
+
+#: ../t_associations_files.bmx:199
+msgid "MALAYSIA"
+msgstr "ΜΑΛΑΙΣΙΑ"
+
+#: ../t_associations_files.bmx:200
+msgid "MALDIVES"
+msgstr "ΜΑΛΔΙΒΕΣ"
+
+#: ../t_associations_files.bmx:201
+msgid "MONGOLIA"
+msgstr "ΜΟΓΚΟΛΙΑ"
+
+#: ../t_associations_files.bmx:202
+msgid "MYANMAR"
+msgstr "ΜΙΑΝΜΑΡ"
+
+#: ../t_associations_files.bmx:203
+msgid "NEPAL"
+msgstr "ΝΕΠΑΛ"
+
+#: ../t_associations_files.bmx:204
+msgid "OMAN"
+msgstr "ΟΜΑΝ"
+
+#: ../t_associations_files.bmx:205
+msgid "PAKISTAN"
+msgstr "ΠΑΚΙΣΤΑΝ"
+
+#: ../t_associations_files.bmx:206
+msgid "PALESTINE"
+msgstr "ΠΑΛΑΙΣΤΙΝΙΝΗ"
+
+#: ../t_associations_files.bmx:207
+msgid "PHILIPPINES"
+msgstr "ΦΙΛΙΠΠΙΝΕΣ"
+
+#: ../t_associations_files.bmx:208
+msgid "QATAR"
+msgstr "ΚΑΤΑΡ"
+
+#: ../t_associations_files.bmx:209
+msgid "SAUDI ARABIA"
+msgstr "ΒΟΡΕΙΑ ΑΡΑΒΙΑ"
+
+#: ../t_associations_files.bmx:210
+msgid "SINGAPORE"
+msgstr "ΣΙΓΚΑΠΟΥΡΗ"
+
+#: ../t_associations_files.bmx:211
+msgid "SRI LANKA"
+msgstr "ΣΡΙ ΛΑΝΚΑ"
+
+#: ../t_associations_files.bmx:212
+msgid "SYRIA"
+msgstr "ΣΥΡΙΑ"
+
+#: ../t_associations_files.bmx:213
+msgid "TAJIKISTAN"
+msgstr "ΤΑΤΖΙΚΙΣΤΑΝ"
+
+#: ../t_associations_files.bmx:214
+msgid "THAILAND"
+msgstr "ΤΑΙΛΑΝΔΗ"
+
+#: ../t_associations_files.bmx:215
+msgid "TIMOR-LESTE"
+msgstr "ΤΙΜΟΡ-ΛΕΣΤΕ"
+
+#: ../t_associations_files.bmx:216
+msgid "TURKMENISTAN"
+msgstr "ΤΟΥΡΚΜΕΝΙΣΤΑΝ"
+
+#: ../t_associations_files.bmx:217
+msgid "UN. ARAB EMIRATES"
+msgstr "ΗΝ. ΑΡΑΒ. ΕΜΙΡΑΤΑ"
+
+#: ../t_associations_files.bmx:218
+msgid "UZBEKISTAN"
+msgstr "ΟΥΖΜΠΕΚΙΣΤΑΝ"
+
+#: ../t_associations_files.bmx:219
+msgid "VIETNAM SR"
+msgstr "ΒΙΕΤΝΑΜ"
+
+#: ../t_associations_files.bmx:220
+msgid "YEMEN"
+msgstr "ΥΕΜΕΝΗ"
+
+#: ../t_associations_files.bmx:222
+msgid "AMERICAN SAMOA"
+msgstr "ΑΜΕΡ. ΣΑΜΟΑ"
+
+#: ../t_associations_files.bmx:223
+msgid "COOK ISLANDS"
+msgstr "ΝΗΣΟΙ ΚΟΥΚ"
+
+#: ../t_associations_files.bmx:224
+msgid "FIJI"
+msgstr "ΦΙΤΖΙ"
+
+#: ../t_associations_files.bmx:225
+msgid "NEW CALEDONIA"
+msgstr "NEW CALEDONIA"
+
+#: ../t_associations_files.bmx:226
+msgid "NEW ZEALAND"
+msgstr "NEA ZHΛANΔIA"
+
+#: ../t_associations_files.bmx:227
+msgid "PAPUA NEW GUINEA"
+msgstr "ΝΕΑ ΓΟΥΙΝΕΑ"
+
+#: ../t_associations_files.bmx:228
+msgid "SAMOA"
+msgstr "ΣΑΜΟΑ"
+
+#: ../t_associations_files.bmx:229
+msgid "SOLOMON ISLANDS"
+msgstr "ΝΗΣΟΙ ΣΟΛΟΜΟΝΤΑ"
+
+#: ../t_associations_files.bmx:230
+msgid "TAHITI"
+msgstr "ΤΑΙΤΗ"
+
+#: ../t_associations_files.bmx:231
+msgid "TONGA"
+msgstr "ΤΟΝΓΚΑ"
+
+#: ../t_associations_files.bmx:232
+msgid "VANUATU"
+msgstr "ΒΑΝΟΥΑΤΟΥ"
+
+#: ../t_associations_files.bmx:234
+msgid "UEFA"
+msgstr "UEFA"
+
+#: ../t_associations_files.bmx:235
+msgid "CONCACAF"
+msgstr "CONCACAF"
+
+#: ../t_associations_files.bmx:236
+msgid "CONMEBOL"
+msgstr "CONMEBOL"
+
+#: ../t_associations_files.bmx:237
+msgid "CAF"
+msgstr "CAF"
+
+#: ../t_associations_files.bmx:238
+msgid "AFC"
+msgstr "AFC"
+
+#: ../t_associations_files.bmx:239
+msgid "OFC"
+msgstr "OFC"
+
+#: ../t_menu_tactics_save_warning.bmx:19
+#: ../t_menu_save_tactics.bmx:23
+msgid "SAVE TACTICS"
+msgstr "ΣΩΣΙΜΟ ΤΑΚΤΙΚΗΣ"
+
+#: ../t_menu_tactics_save_warning.bmx:27
+msgid "TACTICS HAVE BEEN CHANGED"
+msgstr "ΟΙ ΤΑΚΤΙΚΕΣ ΑΛΛΑΞΑΝ"
+
+#: ../t_menu_tactics_save_warning.bmx:35
+#: ../t_menu_edit_tactics.bmx:253
+#: ../t_menu_save_tactics.bmx:103
+#: ../t_menu_edit_players.bmx:309
+#: ../t_menu_edit_team.bmx:348
+msgid "SAVE"
+msgstr "ΣΩΣΙΜΟ"
+
+#: ../t_menu_tactics_import.bmx:19
+msgid "IMPORT TACTICS"
+msgstr "ΕΙΣΑΓΩΓΗ ΤΑΚΤΙΚΗΣ"
+
+#: ../t_menu_tactics_import.bmx:54
+msgid "LOAD"
+msgstr "ΦΟΡΤΩΣΗ"
+
+#: ../t_menu_tactics_load.bmx:23
+msgid "LOAD EDITED TACTICS"
+msgstr "ΦΟΡΤΩΣΗ ΤΑΚΤΙΚΗΣ"
+
+#: ../t_menu_tactics_load.bmx:90
+#: ../t_menu_nationals_confederation.bmx:104
+#: ../t_menu_edit_tactics.bmx:263
+#: ../t_menu_competition_warning.bmx:57
+#: ../t_menu_save_tactics.bmx:113
+#: ../t_menu_clubs_confederation.bmx:102
+#: ../t_menu_tactics_abort_warning.bmx:45
+msgid "ABORT"
+msgstr "AKYΡΩΣH"
+
+#: ../t_function_key.bmx:27
+msgid "ACTION RECORDED"
+msgstr "ΣΩΣIMO ΣTIΓMIOTYΠΩN"
+
+#: ../t_function_key.bmx:53
+msgid "CROWD CHANTS"
+msgstr "ΦΩNEΣ ΘEATΩN"
+
+#: ../t_function_key.bmx:56
+#: ../t_function_key.bmx:70
+#: ../t_function_key.bmx:84
+#: ../t_function_key.bmx:98
+#: ../t_menu_game_options.bmx:286
+#: ../t_menu_match_options.bmx:285
+#: ../t_menu_match_options.bmx:293
+#: ../t_menu_match_options.bmx:316
+#: ../t_menu_match_options.bmx:332
+msgid "ON"
+msgstr "NAI"
+
+#: ../t_function_key.bmx:58
+#: ../t_function_key.bmx:72
+#: ../t_function_key.bmx:86
+#: ../t_function_key.bmx:100
+#: ../common.bmx:1004
+#: ../t_menu_game_options.bmx:280
+#: ../t_menu_game_options.bmx:288
+#: ../t_menu_match_options.bmx:275
+#: ../t_menu_match_options.bmx:287
+#: ../t_menu_match_options.bmx:295
+#: ../t_menu_match_options.bmx:318
+#: ../t_menu_match_options.bmx:326
+#: ../t_menu_match_options.bmx:334
+msgid "OFF"
+msgstr "OXI"
+
+#: ../t_function_key.bmx:67
+#: ../t_menu_match_options.bmx:197
+msgid "COMMENTARY"
+msgstr "ΣXOΛIAΣMOΣ"
+
+#: ../t_function_key.bmx:81
+#: ../t_menu_match_options.bmx:79
+msgid "RADAR"
+msgstr ""
+
+#: ../t_function_key.bmx:95
+#: ../t_menu_match_options.bmx:97
+msgid "AUTO REPLAYS"
+msgstr "AYTOMATO REPLAY"
+
+#: ../t_function_key.bmx:118
+#: ../t_menu_match_options.bmx:177
+msgid "SOUND EFFECTS"
+msgstr "HXHTIKA EΦE"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:47
+msgid "PL // code for: PLAYED MATCHES"
+msgstr "ΑΓ"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:53
+msgid "W // code for: WON MATCHES"
+msgstr "Ν"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:59
+msgid "D // code for: DRAWN MATCHES"
+msgstr "Ι"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:65
+msgid "L // code for: LOST MATCHES"
+msgstr "Η"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:71
+msgid "F // code for: GOALS FOR"
+msgstr "Υ"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:77
+msgid "A // code for: GOALS AGAINST"
+msgstr "Κ"
+
+#. NOTE: max 4 characters
+#: ../t_menu_play_league.bmx:83
+msgid "PTS // code for: POINTS"
+msgstr "ΒΑΘΜΟΙ"
+
+#. NOTE: max 2 characters
+#: ../t_menu_play_league.bmx:193
+#: ../t_menu_play_cup.bmx:99
+#: ../t_menu_play_cup.bmx:167
+msgid "V // code for: VERSUS"
+msgstr "V"
+
+#: ../t_menu_play_league.bmx:218
+#: ../t_menu_play_cup.bmx:220
+msgid "NEXT MATCH"
+msgstr "ΕΠΟΜΕΝΟΣ ΑΓΩΝΑΣ"
+
+#: ../t_menu_play_league.bmx:231
+#: ../t_menu_play_cup.bmx:234
+msgid "MATCH"
+msgstr "ΑΓΩΝΑΣ"
+
+#: ../t_menu_play_league.bmx:233
+#: ../t_menu_play_cup.bmx:236
+msgid "VIEW MATCH"
+msgstr "ΑΓΩΝΑΣ"
+
+#: ../t_menu_play_league.bmx:246
+#: ../t_menu_play_cup.bmx:248
+msgid "RESULT"
+msgstr "ΑΠΟΤΕΛΕΣΜΑ"
+
+#: ../t_menu_play_league.bmx:249
+#: ../t_menu_play_cup.bmx:251
+msgid "VIEW RESULT"
+msgstr "ΑΠΟΤΕΛΕΣΜΑ"
+
+#: ../t_menu_play_league.bmx:263
+#: ../t_menu_play_cup.bmx:265
+msgid "STATS"
+msgstr "ΣΤΑΤΙΣΤΙΚΑ"
+
+#: ../t_menu_select_tactics_to_edit.bmx:19
+#: ../t_menu_edit_tactics.bmx:83
+#: ../t_menu_main.bmx:64
+#: ../t_menu_set_team.bmx:216
+#: ../t_menu_tactics_abort_warning.bmx:19
+msgid "EDIT TACTICS"
+msgstr "AΛΛAΓH TAKTIKHΣ"
+
+#: ../t_match_intro.bmx:288
+#: ../t_match_intro.bmx:289
+#: ../t_menu_select_teams.bmx:104
+#: ../t_menu_select_teams.bmx:112
+#: ../t_menu_view_selected_teams.bmx:52
+#: ../t_menu_view_selected_teams.bmx:60
+#: ../t_menu_edit_team.bmx:179
+#: ../t_menu_set_team.bmx:538
+msgid "COACH"
+msgstr "ΠΡOΠONHTHΣ"
+
+#: ../t_match_mode.bmx:427
+msgid "MATCH STATS"
+msgstr "ΣTATIΣTIKA AΓΩNA"
+
+#: ../t_match_mode.bmx:435
+msgid "GOALS"
+msgstr "GOALS"
+
+#: ../t_match_mode.bmx:440
+msgid "POSSESSION"
+msgstr "KATOXH"
+
+#: ../t_match_mode.bmx:445
+msgid "GOAL ATTEMPTS"
+msgstr "ΠΡOΣΠAΘEIA ΓIA GOAL"
+
+#: ../t_match_mode.bmx:450
+msgid "ON TARGET"
+msgstr "ΣTO KENTΡO"
+
+#: ../t_match_mode.bmx:455
+msgid "CORNERS WON"
+msgstr "KEΡΔIΣMENA KOΡNEΡ"
+
+#: ../t_match_mode.bmx:460
+msgid "FOULS CONCEDED"
+msgstr "FOULS"
+
+#: ../t_match_mode.bmx:465
+msgid "BOOKINGS"
+msgstr "KAΡTEΣ"
+
+#: ../t_match_mode.bmx:470
+msgid "SENDINGS OFF"
+msgstr "AΠOBOΛEΣ"
+
+#: ../t_menu_nationals_confederation.bmx:49
+#: ../t_menu_load_teams.bmx:26
+#: ../t_menu_clubs_confederation.bmx:38
+#: ../t_menu_main.bmx:88
+msgid "EDIT TEAMS"
+msgstr "ΣΥΝΘΕΣΗ ΟΜΑΔΩΝ"
+
+#: ../t_menu_nationals_confederation.bmx:51
+#: ../t_menu_load_teams.bmx:29
+#: ../t_menu_training_settings.bmx:45
+#: ../t_menu_clubs_confederation.bmx:41
+#: ../t_menu_main.bmx:96
+msgid "TRAINING"
+msgstr ""
+
+#: ../t_menu_nationals_confederation.bmx:54
+#: ../t_menu_select_teams.bmx:86
+#: ../t_menu_load_teams.bmx:48
+#: ../t_menu_friendly.bmx:83
+#: ../t_menu_design_diy_league.bmx:236
+#: ../t_menu_design_diy_cup.bmx:278
+#: ../t_menu_select_team.bmx:83
+msgid "NATIONAL TEAMS"
+msgstr "EΘNIKEΣ OMAΔEΣ"
+
+#: ../t_menu_select_teams.bmx:96
+#: ../t_menu_view_selected_teams.bmx:44
+#: ../t_menu_set_team.bmx:532
+msgid "COMPUTER"
+msgstr "YΠOΛOΓIΣTHΣ"
+
+#: ../t_menu_select_teams.bmx:104
+#: ../t_menu_view_selected_teams.bmx:52
+#: ../t_menu_set_team.bmx:535
+msgid "PLAYER"
+msgstr "ΠAIKTHΣ"
+
+#: ../t_menu_select_teams.bmx:165
+msgid "VIEW SELECTED TEAMS"
+msgstr "EMΦANIΣH EΠIΛEΓMENΩN"
+
+#: ../t_menu_select_teams.bmx:278
+#: ../t_menu_view_selected_teams.bmx:150
+#: ../t_menu_design_diy_league.bmx:29
+msgid "DIY LEAGUE"
+msgstr "ΕΚΚΙΝΗΣΗ"
+
+#: ../t_menu_select_teams.bmx:280
+#: ../t_menu_view_selected_teams.bmx:152
+#: ../t_menu_design_diy_cup.bmx:29
+msgid "DIY CUP"
+msgstr "ΤΥΧΑΙΟ ΚΥΠΕΛΟ"
+
+#. NOTE: %n is replaced automatically by the game
+#: ../t_menu_select_teams.bmx:288
+#: ../t_menu_view_selected_teams.bmx:160
+#, c-format
+msgid "SELECT %n MORE TEAMS"
+msgstr "EΠIΛEΞTE %n AKOMA OMAΔEΣ"
+
+#: ../t_menu_select_teams.bmx:290
+#: ../t_menu_view_selected_teams.bmx:162
+msgid "SELECT 1 MORE TEAM"
+msgstr "EΠIΛEΞTE AKOMA 1 OMAΔA"
+
+#: ../t_menu_select_teams.bmx:292
+#: ../t_menu_view_selected_teams.bmx:164
+msgid "SELECT 1 LESS TEAM"
+msgstr "EΠIΛEΞTE 1 OMAΔA ΛIΓOTEΡH"
+
+#. NOTE: %n is replaced automatically by the game
+#: ../t_menu_select_teams.bmx:295
+#: ../t_menu_view_selected_teams.bmx:167
+#, c-format
+msgid "SELECT %n LESS TEAMS"
+msgstr "EΠIΛEΞTE %n OMAΔEΣ ΛIΓOTEΡEΣ"
+
+#: ../t_menu_cup_info.bmx:73
+#: ../t_menu_design_diy_cup.bmx:109
+msgid "AWAY GOALS"
+msgstr "ΓΚΟΛ ΕΚ. ΕΔΡΑΣ"
+
+#: ../t_menu_cup_info.bmx:94
+#: ../t_menu_match_presentation.bmx:160
+#: ../t_menu_training_settings.bmx:53
+#: ../t_menu_design_diy_league.bmx:112
+#: ../t_menu_design_diy_cup.bmx:126
+#: ../t_menu_league_info.bmx:71
+msgid "TIME"
+msgstr "ΩΡΑ"
+
+#: ../t_menu_cup_info.bmx:109
+#: ../t_menu_design_diy_cup.bmx:143
+msgid "ROUNDS"
+msgstr "ΓΥΡΟΙ"
+
+#: ../t_menu_cup_info.bmx:124
+#: ../t_menu_friendly.bmx:33
+#: ../t_menu_design_diy_league.bmx:188
+#: ../t_menu_design_diy_cup.bmx:161
+#: ../t_menu_league_info.bmx:131
+msgid "SUBSTITUTES"
+msgstr "AΛΛAΓEΣ"
+
+#: ../t_menu_cup_info.bmx:139
+#: ../t_menu_friendly.bmx:53
+#: ../t_menu_design_diy_league.bmx:208
+#: ../t_menu_design_diy_cup.bmx:180
+#: ../t_menu_league_info.bmx:146
+msgid "BENCH SIZE"
+msgstr "ΠAIKTEΣ ΣTON ΠAΓKO"
+
+#: ../t_menu_cup_info.bmx:152
+#: ../t_menu_design_diy_cup.bmx:196
+msgid "TEAMS"
+msgstr "ΟΜΑΔΕΣ"
+
+#: ../t_menu_cup_info.bmx:158
+#: ../t_menu_design_diy_cup.bmx:202
+msgid "DESCRIPTION"
+msgstr "ΠΕΡΙΓΡΑΦΗ"
+
+#: ../t_menu_edit_tactics.bmx:216
+msgid "COPY"
+msgstr "ΑΝΤΙΓΡΑΦΗ"
+
+#: ../t_menu_edit_tactics.bmx:235
+msgid "UNDO"
+msgstr "ΑΝΑΙΡΕΣΗ"
+
+#: ../t_menu_edit_tactics.bmx:245
+msgid "IMPORT"
+msgstr "ΕΙΣΑΓΩΓΗ"
+
+#: ../t_menu_edit_tactics.bmx:601
+msgid "FLIP ON"
+msgstr "ΑΛΛΑΓ. ΝΑΙ"
+
+#: ../t_menu_edit_tactics.bmx:603
+msgid "FLIP OFF"
+msgstr "ΑΛΛΑΓ. ΟΧΙ"
+
+#: ../t_menu_competition_warning.bmx:11
+msgid "YOU ARE ABOUT TO LOSE YOUR CURRENT DIY COMPETITION"
+msgstr "ΠΡΟΚΕΙΤΑΙ ΝΑ ΤΕΡΜΑΤΙΣΕΤΕ ΤΗΝ ΔΙΟΡΓΑΝΩΣΗ"
+
+#: ../t_menu_competition_warning.bmx:22
+#: ../t_menu_main.bmx:80
+msgid "DIY COMPETITION"
+msgstr "ΔΙΟΡΓΑΝΩΣΗ"
+
+#: ../t_menu_competition_warning.bmx:49
+#: ../t_menu_main.bmx:108
+#: ../t_menu_tactics_abort_warning.bmx:35
+msgid "CONTINUE"
+msgstr "ΣΥΝΕΧΕΙΑ"
+
+#: ../t_menu_view_selected_teams.bmx:36
+msgid "SELECTED TEAMS FOR"
+msgstr "EΠIΛEΓMENEΣ OMAΔEΣ ΓIA"
+
+#: ../t_menu_diy_competition.bmx:21
+msgid "SELECT DIY COMPETITION TYPE"
+msgstr "ΕΠΙΛΟΓΗ ΤΥΠΟΥ ΔΙΟΡΓΑΝΩΣΗΣ"
+
+#: ../t_menu_diy_competition.bmx:29
+msgid "LEAGUE"
+msgstr "ΚΑΤΗΓΟΡΙΑ"
+
+#: ../t_menu_diy_competition.bmx:39
+msgid "CUP"
+msgstr "ΚΥΠΕΛΟ"
+
+#: ../t_menu_diy_competition.bmx:47
+msgid "TOURNAMENT"
+msgstr "ΤΟΥΡΝΟΥΑ"
+
+#: ../t_menu_match_presentation.bmx:185
+#: ../t_menu_training_settings.bmx:84
+msgid "PITCH"
+msgstr "ΓΗΠΕΔΟ"
+
+#: ../t_menu_match_presentation.bmx:208
+#: ../t_menu_training_settings.bmx:115
+msgid "WEATHER"
+msgstr "ΚΑΙΡΟΣ"
+
+#: ../t_menu_match_presentation.bmx:367
+#: ../t_menu_edit_team.bmx:102
+msgid "CITY"
+msgstr "ΠΟΛΗ"
+
+#: ../t_menu_match_presentation.bmx:380
+#: ../t_menu_edit_team.bmx:118
+msgid "STADIUM"
+msgstr "ΣΤΑΔΙΟ"
+
+#: ../t_menu_load_teams.bmx:38
+#: ../t_menu_friendly.bmx:73
+#: ../t_menu_design_diy_league.bmx:228
+#: ../t_menu_design_diy_cup.bmx:270
+#: ../t_menu_clubs_country.bmx:48
+#: ../t_menu_clubs_confederation.bmx:44
+#: ../t_menu_clubs_division.bmx:39
+msgid "CLUB TEAMS"
+msgstr "ΣYΛΛOΓOI"
+
+#: ../t_menu_load_teams.bmx:56
+#: ../t_menu_friendly.bmx:91
+#: ../t_menu_design_diy_league.bmx:244
+#: ../t_menu_design_diy_cup.bmx:286
+msgid "CUSTOM TEAMS"
+msgstr "ΤΥΧΑΙΕΣ ΟΜΑΔΕΣ"
+
+#: ../t_menu_save_tactics.bmx:86
+msgid "FILENAME"
+msgstr "ΟΝΟΜΑ ΑΡΧΕΙΟΥ"
+
+#: ../t_menu_training_settings.bmx:144
+msgid "FREE TRAINING"
+msgstr ""
+
+#: ../t_menu_training_settings.bmx:154
+msgid "FREE KICKS"
+msgstr ""
+
+#: ../t_menu_training_settings.bmx:165
+msgid "PENALTY KICKS"
+msgstr ""
+
+#: ../t_game_mode.bmx:437
+msgid "SWEEP"
+msgstr "ΛIMΠEΡO"
+
+#: ../t_game_mode.bmx:439
+msgid "ATTACK"
+msgstr "EΠIΘEΣH"
+
+#: ../t_game_mode.bmx:440
+msgid "DEFEND"
+msgstr "AMYNA"
+
+#: ../t_game_mode.bmx:441
+#: ../t_game_mode.bmx:442
+#: ../t_game_mode.bmx:443
+#: ../t_game_mode.bmx:444
+#: ../t_game_mode.bmx:445
+#: ../t_game_mode.bmx:446
+msgid "USER"
+msgstr "XΡ."
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:452
+msgid "G // code for: GOALKEEPER"
+msgstr "T"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:455
+msgid "RB // code for: RIGHT BACK"
+msgstr "ΔA"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:458
+msgid "LB // code for: LEFT BACK"
+msgstr "AA"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:461
+msgid "D // code for: DEFENDER"
+msgstr "A"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:464
+msgid "RW // code for: RIGHT WING"
+msgstr "ΔΠ"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:467
+msgid "LW // code for: LEFT WING"
+msgstr "AΠ"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:470
+msgid "M // code for: MIDFIELD"
+msgstr "M"
+
+#. NOTE: max 2 characters
+#: ../t_game_mode.bmx:473
+msgid "A // code for: ATTACK"
+msgstr "E"
+
+#: ../t_game_mode.bmx:478
+msgid "FROZEN"
+msgstr "ΠAΓΩMENO"
+
+#: ../t_game_mode.bmx:479
+msgid "MUDDY"
+msgstr "ΛAΣΠΩMENO"
+
+#: ../t_game_mode.bmx:480
+msgid "WET"
+msgstr "BΡEΓMENO"
+
+#: ../t_game_mode.bmx:481
+msgid "SOFT"
+msgstr "MAΛAKO"
+
+#: ../t_game_mode.bmx:482
+msgid "NORMAL"
+msgstr "KANONIKO"
+
+#: ../t_game_mode.bmx:483
+msgid "DRY"
+msgstr "ΞEΡO"
+
+#: ../t_game_mode.bmx:484
+msgid "HARD"
+msgstr "ΣKΛHΡO"
+
+#: ../t_game_mode.bmx:485
+msgid "SNOWED"
+msgstr "ΧΙΟΝΙΣΜΕΝΟ"
+
+#: ../t_game_mode.bmx:486
+msgid "WHITE"
+msgstr "ΛΕΥΚΟ"
+
+#: ../t_game_mode.bmx:487
+#: ../t_location_settings.bmx:107
+#: ../t_location_settings.bmx:117
+msgid "RANDOM"
+msgstr "TYXAIO"
+
+#: ../t_game_mode.bmx:492
+msgid "JANUARY"
+msgstr "ΙΑΝΟΥΑΡΙΟΣ"
+
+#: ../t_game_mode.bmx:493
+msgid "FEBRUARY"
+msgstr "ΦΕΒΡΟΥΑΡΙΟΣ"
+
+#: ../t_game_mode.bmx:494
+msgid "MARCH"
+msgstr "ΜΑΡΤΙΟΣ"
+
+#: ../t_game_mode.bmx:495
+msgid "APRIL"
+msgstr "ΑΠΡΙΛΙΟΣ"
+
+#: ../t_game_mode.bmx:496
+msgid "MAY"
+msgstr "ΜΑΙΟΣ"
+
+#: ../t_game_mode.bmx:497
+msgid "JUNE"
+msgstr "ΙΟΥΝΙΟΣ"
+
+#: ../t_game_mode.bmx:498
+msgid "JULY"
+msgstr "ΙΟΥΛΙΟΣ"
+
+#: ../t_game_mode.bmx:499
+msgid "AUGUST"
+msgstr "ΑΥΓΟΥΣΤΟΣ"
+
+#: ../t_game_mode.bmx:500
+msgid "SEPTEMBER"
+msgstr "ΣΕΠΤΕΜΒΡΙΟΣ"
+
+#: ../t_game_mode.bmx:501
+msgid "OCTOBER"
+msgstr "ΟΚΤΩΒΡΙΟΣ"
+
+#: ../t_game_mode.bmx:502
+msgid "NOVEMBER"
+msgstr "ΝΟΕΜΒΡΙΟΣ"
+
+#: ../t_game_mode.bmx:503
+msgid "DECEMBER"
+msgstr "ΔΕΚΕΜΒΡΙΟΣ"
+
+#: ../t_location_settings.bmx:103
+#: ../common.bmx:334
+msgid "DAY"
+msgstr "ΗΜΕΡΑ"
+
+#: ../t_location_settings.bmx:105
+#: ../common.bmx:336
+msgid "NIGHT"
+msgstr "ΝΥΧΤΑ"
+
+#: ../t_location_settings.bmx:122
+msgid "CLEAR"
+msgstr "ΚΑΘΑΡΟΣ"
+
+#: ../t_location_settings.bmx:124
+msgid "CLOUDY"
+msgstr "ΝΕΦΩΣΕΙΣ"
+
+#: ../t_location_settings.bmx:129
+msgid "LIGHT WIND"
+msgstr "ΕΛΑΦΡΗΣ ΑΝΕΜΟΣ"
+
+#: ../t_location_settings.bmx:131
+msgid "LIGHT RAIN"
+msgstr "ΕΛΑΦΡΑ ΒΡΟΧΗ"
+
+#: ../t_location_settings.bmx:133
+msgid "LIGHT SNOW"
+msgstr "ΕΛΑΦΡΑ ΧΙΟΝΟΠΤΩΣΗ"
+
+#: ../t_location_settings.bmx:135
+msgid "THIN FOG"
+msgstr "ΕΛΑΦΡΑ ΟΜΙΧΛΗ"
+
+#: ../t_location_settings.bmx:140
+msgid "STRONG WIND"
+msgstr "ΔΥΝΑΤΟΣ ΑΝΕΜΟΣ"
+
+#: ../t_location_settings.bmx:142
+msgid "STRONG RAIN"
+msgstr "ΔΥΝΑΤΗ ΒΡΟΧΗ"
+
+#: ../t_location_settings.bmx:144
+msgid "STRONG SNOW"
+msgstr "ΔΥΝΑΤΗ ΧΙΟΝΟΠΤΩΣΗ"
+
+#: ../t_location_settings.bmx:146
+msgid "THICK FOG"
+msgstr "ΔΥΝΑΤΗ ΟΜΙΧΛΗ"
+
+#: ../t_menu_edit_players.bmx:250
+#: ../common.bmx:2910
+msgid "P // 1 letter code for: PASSING"
+msgstr "Π // ΠΑΣΑΡΙΣΜΑ"
+
+#: ../t_menu_edit_players.bmx:252
+#: ../common.bmx:2918
+msgid "V // 1 letter code for: SHOOTING"
+msgstr "Σ // ΣΟΥΤ"
+
+#: ../t_menu_edit_players.bmx:254
+#: ../common.bmx:2908
+msgid "H // 1 letter code for: HEADING"
+msgstr "O // ΠΡΟΩΘΗΣΗ"
+
+#: ../t_menu_edit_players.bmx:256
+#: ../common.bmx:2906
+msgid "T // 1 letter code for: TACKLING"
+msgstr "T // ΤΑΚΛΙΝ"
+
+#: ../t_menu_edit_players.bmx:258
+#: ../common.bmx:2914
+msgid "C // 1 letter code for: BALL CONTROL"
+msgstr "X // ΧΕΙΡΙΣΜΟΣ ΜΠΑΛΑΣ"
+
+#: ../t_menu_edit_players.bmx:260
+#: ../common.bmx:2912
+msgid "S // 1 letter code for: SPEED"
+msgstr "A // ΤΑΧΥΤΗΤΑ"
+
+#: ../t_menu_edit_players.bmx:262
+#: ../common.bmx:2916
+msgid "F // 1 letter code for: FINISHING"
+msgstr "Ρ // ΤΕΛΙΚΗ ΠΡΟΣΠΑΘΕΙΑ"
+
+#: ../t_menu_edit_players.bmx:282
+msgid "TEAM"
+msgstr "ΟΜΑΔΑ"
+
+#: ../t_menu_edit_players.bmx:291
+msgid "NEW PLAYER"
+msgstr "ΝΕΟΣ ΠΑΙΚΤΗΣ"
+
+#: ../t_menu_edit_players.bmx:300
+msgid "DELETE PLAYER"
+msgstr "ΔΙΑΓΡΑΦΗ ΠΑΙΚΤΗ"
+
+#: ../t_menu_edit_players.bmx:645
+msgid "H // 1 letter code for: HAIR COLOR"
+msgstr "Μ"
+
+#: ../t_menu_edit_players.bmx:655
+msgid "T // 1 letter code for: HAIR STYLE"
+msgstr "Σ"
+
+#: ../t_menu_edit_players.bmx:665
+msgid "S // 1 letter code for: SKIN COLOR"
+msgstr "Χ"
+
+#: ../t_menu_top_scorers.bmx:77
+#: ../t_menu_view_statistics.bmx:27
+msgid "HIGHEST SCORER LIST"
+msgstr "ΛΙΣΤΑ ΣΚΟΡΕΡ"
+
+#: ../t_menu_view_statistics.bmx:19
+msgid "STATISTICS"
+msgstr "ΣΤΑΤΙΣΤΙΚΑ"
+
+#: ../t_menu_view_statistics.bmx:37
+msgid "COMPETITION INFO"
+msgstr "ΠΛΗΡΟΦΟΡΙΕΣ ΔΙΟΡΓΑΝΩΣΗΣ"
+
+#: ../t_menu_view_statistics.bmx:45
+msgid "VIEW SQUADS"
+msgstr "ΕΜΦΑΝΙΣΗ ΟΜΑΔΩΝ"
+
+#: ../t_menu_design_diy_league.bmx:36
+msgid "DESIGN DIY LEAGUE"
+msgstr "ΣΧΕΔΙΑΣΜΟΣ ΚΑΤΗΓΟΡΙΑΣ"
+
+#: ../t_menu_design_diy_league.bmx:131
+#: ../t_menu_league_info.bmx:86
+msgid "NUMBER OF TEAMS"
+msgstr "ΑΡΙΘΜΟΣ ΟΜΑΔΩΝ"
+
+#: ../t_menu_design_diy_league.bmx:151
+#: ../t_menu_league_info.bmx:101
+msgid "PLAY EACH TEAM"
+msgstr "ΑΓΩΝΕΣ ΜΕ ΚΑΘΕ ΟΜΑΔΑ"
+
+#: ../t_menu_design_diy_league.bmx:171
+#: ../t_menu_league_info.bmx:116
+msgid "POINTS FOR A WIN"
+msgstr "ΒΑΘΜΟΙ ΓΙΑ ΚΑΘΕ ΝΙΚΗ"
+
+#: ../t_menu_select_squad_to_view.bmx:24
+msgid "SELECT SQUAD TO VIEW"
+msgstr "ΕΠΙΛΕΞΤΕ ΟΜΑΔΑ ΓΙΑ ΕΜΦΑΝΙΣΗ"
+
+#: ../t_menu_edit_team.bmx:135
+msgid "CONFEDERATION"
+msgstr "ΣΥΝΟΜΟΣΠΟΝΔΙΑ"
+
+#: ../t_menu_edit_team.bmx:149
+msgid "COUNTRY"
+msgstr "ΧΩΡΑ"
+
+#: ../t_menu_edit_team.bmx:163
+msgid "DIVISION"
+msgstr "ΚΑΤΗΓΟΡΙΑ"
+
+#: ../t_menu_edit_team.bmx:195
+msgid "STYLE"
+msgstr "ΜΟΡΦΗ"
+
+#: ../t_menu_edit_team.bmx:206
+#: ../t_menu_edit_team.bmx:217
+msgid "SHIRT"
+msgstr "ΦΑΝΕΛΑ"
+
+#: ../t_menu_edit_team.bmx:228
+msgid "SHORTS"
+msgstr "ΣΟΡΤΣΑΚΙ"
+
+#: ../t_menu_edit_team.bmx:239
+msgid "SOCKS"
+msgstr "ΚΑΛΤΣΕΣ"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:250
+msgid "HOME KIT"
+msgstr "ΕΝΤΟΣ"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:259
+msgid "AWAY KIT"
+msgstr "ΕΚΤΟΣ"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:268
+msgid "THIRD KIT"
+msgstr "ΤΡΙΤΟ"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:277
+msgid "1ST CHANGE KIT"
+msgstr "ΑΛΛΑΓΗ 1"
+
+#. NOTE: max 10 characters
+#: ../t_menu_edit_team.bmx:286
+msgid "2ND CHANGE KIT"
+msgstr "ΑΛΛΑΓΗ 2"
+
+#: ../t_menu_edit_team.bmx:321
+msgid "PLAYERS"
+msgstr "ΠΑΙΚΤΕΣ"
+
+#: ../t_menu_edit_team.bmx:330
+msgid "NEW KIT"
+msgstr "ΝΕΑ ΕΜΦΑΝΙΣΗ"
+
+#: ../t_menu_edit_team.bmx:339
+msgid "DELETE KIT"
+msgstr "ΔΙΑΓΡΑΦΗ ΕΜΦΑΝΙΣΗΣ"
+
+#: ../common.bmx:325
+msgid "SEASON"
+msgstr "ΠΕΡΙΟΔΟΣ"
+
+#: ../common.bmx:327
+msgid "PITCH TYPE"
+msgstr "ΤΥΠΟΣ ΓΗΠΕΔΟΥ"
+
+#: ../common.bmx:552
+#: ../common.bmx:903
+#: ../common.bmx:986
+msgid "1ST LEG"
+msgstr "ΠΡΩΤΟΣ ΑΓΩΝΑΣ"
+
+#: ../common.bmx:849
+#: ../common.bmx:872
+#: ../common.bmx:890
+#: ../common.bmx:892
+#: ../common.bmx:910
+msgid "WIN"
+msgstr "ΝΙΚΗ"
+
+#: ../common.bmx:853
+#: ../common.bmx:876
+#: ../common.bmx:914
+msgid "ON PENALTIES"
+msgstr "ΣΤΑ ΠΕΝΑΛΤΥ"
+
+#: ../common.bmx:855
+#: ../common.bmx:862
+#: ../common.bmx:878
+#: ../common.bmx:899
+#: ../common.bmx:916
+#: ../common.bmx:919
+#: ../common.bmx:1008
+msgid "AFTER EXTRA TIME"
+msgstr "ΜΕΤΑ ΑΠΟ ΠΑΡΑΤΑΣΗ"
+
+#: ../common.bmx:857
+#: ../common.bmx:862
+#: ../common.bmx:880
+#: ../common.bmx:919
+msgid "90 MINUTES"
+msgstr "ΣΤΑ 90 ΛΕΠΤΑ"
+
+#: ../common.bmx:889
+#: ../common.bmx:896
+msgid "ON AGGREGATE"
+msgstr "ΣΤΟ ΣΥΝΟΛΙΚΟ ΣΚΟΡ"
+
+#: ../common.bmx:890
+msgid "ON AWAY GOALS"
+msgstr "ΣΤΑ ΕΚΤΟΣ ΕΔΡΑΣ ΓΚΟΛ"
+
+#: ../common.bmx:929
+msgid "FINAL"
+msgstr "ΤΕΛΙΚΟΣ"
+
+#: ../common.bmx:931
+msgid "SEMI-FINAL"
+msgstr "ΗΜΙΤΕΛΙΚΟΣ"
+
+#: ../common.bmx:934
+msgid "QUARTER-FINAL"
+msgstr "ΠΡΟΗΜΙΤΕΛΙΚΟΣ"
+
+#: ../common.bmx:937
+msgid "FIRST ROUND"
+msgstr "ΠΡΩΤΟΣ ΓΥΡΟΣ"
+
+#: ../common.bmx:940
+msgid "SECOND ROUND"
+msgstr "ΔΕΥΤΕΡΟΣ ΓΥΡΟΣ"
+
+#: ../common.bmx:943
+msgid "THIRD ROUND"
+msgstr "ΤΡΙΤΟΣ ΓΥΡΟΣ"
+
+#: ../common.bmx:960
+#: ../common.bmx:978
+#: ../common.bmx:991
+#: ../t_menu_main.bmx:106
+msgid "REPLAY"
+msgstr "ΡΙΠΛΕΥ"
+
+#: ../common.bmx:962
+#: ../common.bmx:980
+#: ../common.bmx:993
+msgid "REPLAYS"
+msgstr "1 ΡΙΠΛΕΥ"
+
+#: ../common.bmx:966
+msgid "2ND REPLAY"
+msgstr "ΔΕΥΤΕΡΟ ΡΙΠΛΕΥ"
+
+#: ../common.bmx:968
+msgid "2ND REPLAYS"
+msgstr "2 ΡΙΠΛΕΥ"
+
+#: ../common.bmx:972
+msgid "3RD REPLAY"
+msgstr "ΤΡΙΤΟ ΡΙΠΛΕΥ"
+
+#: ../common.bmx:974
+msgid "3RD REPLAYS"
+msgstr "3 ΡΙΠΛΕΥ"
+
+#: ../common.bmx:988
+msgid "2ND LEG"
+msgstr "ΔΕΥΤΕΡΟΣ ΑΓΩΝΑΣ"
+
+#: ../common.bmx:1006
+msgid "AFTER 90 MINS"
+msgstr "ΜΕΤΑ ΑΠΟ 90 ΛΕΠΤΑ"
+
+#. NOTE: max 6 characters
+#: ../common.bmx:1016
+msgid "ONE LEG"
+msgstr "1 ΜΑΤΣ"
+
+#. NOTE: max 6 characters
+#: ../common.bmx:1019
+msgid "TWO LEGS"
+msgstr "2 ΜΑΤΣ"
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1027
+msgid "NO EXTRA TIME"
+msgstr "ΧΩΡΙΣ ΠΑΡΑΤΑΣΗ"
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1030
+msgid "EXTRA TIME"
+msgstr "ΠΑΡΑΤΑΣΗ"
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1033
+msgid "EXTRA TIME IF REPLAY"
+msgstr "ΠΑΡ. ΣΤΟ 2 ΜΑΤΣ"
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1041
+msgid "NO PENALTIES"
+msgstr "ΧΩΡΙΣ ΠΕΝΑΛΤΥ"
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1044
+msgid "PENALTIES"
+msgstr "ΠΕΝΑΛΤΥ"
+
+#. NOTE: max 15 characters
+#: ../common.bmx:1047
+msgid "PENALTIES IF REPLAY"
+msgstr "ΠΕΝΑΛΤΥ ΣΤΟ 2 ΜΑΤΣ"
+
+#: ../t_team_input_device_button.bmx:30
+msgid "KEYBOARD"
+msgstr "ΠΛΗKTΡOΛOΓIO"
+
+#: ../t_team_input_device_button.bmx:32
+msgid "JOYSTICK"
+msgstr "XEIΡIΣTΙΡIO"
+
+#: ../t_menu_design_diy_cup.bmx:38
+msgid "DESIGN DIY CUP"
+msgstr "ΔΗΜΙΟΥΡΓΙΑ ΤΥΧΑΙΟΥ ΚΥΠΕΛΟΥ"
+
+#: ../t_menu_control.bmx:19
+#: ../t_menu_main.bmx:56
+msgid "CONTROL"
+msgstr "XEIΡIΣMOΣ"
+
+#: ../t_menu_control.bmx:27
+msgid "KEYS"
+msgstr "ΠΛHKTΡA"
+
+#: ../t_menu_control.bmx:49
+msgid "UP"
+msgstr "EΠANΩ"
+
+#: ../t_menu_control.bmx:57
+msgid "DOWN"
+msgstr "KATΩ"
+
+#: ../t_menu_control.bmx:65
+msgid "LEFT"
+msgstr "AΡIΣTEΡA"
+
+#: ../t_menu_control.bmx:73
+msgid "RIGHT"
+msgstr "ΔEΞIA"
+
+#: ../t_menu_control.bmx:81
+msgid "BUTTON A"
+msgstr "ΠΛHKTΡO A"
+
+#: ../t_menu_control.bmx:89
+msgid "BUTTON B"
+msgstr "ΠΛHKTΡO B"
+
+#: ../t_menu_game_options.bmx:27
+#: ../t_menu_main.bmx:38
+msgid "GAME OPTIONS"
+msgstr "ΕΠΙΛΟΓΕΣ ΠΑΙΧΝΙΔΙΟΥ"
+
+#: ../t_menu_game_options.bmx:35
+msgid "SCREEN MODE"
+msgstr "ΟΘΟΝΗ"
+
+#: ../t_menu_game_options.bmx:55
+msgid "PLAYER'S COUNTRY"
+msgstr "ΕΘΝΙΚΟΤΗΤΑ"
+
+#: ../t_menu_game_options.bmx:73
+msgid "MUSIC MODE"
+msgstr "ΛΕΙΤΟΥΡΓΙΑ ΜΟΥΣΙΚΗΣ"
+
+#: ../t_menu_game_options.bmx:93
+msgid "MUSIC VOLUME"
+msgstr "ΕΝΤΑΣΗ ΜΟΥΣΙΚΗΣ"
+
+#: ../t_menu_game_options.bmx:113
+msgid "MOUSE"
+msgstr "ΠΟΝΤΙΚΙ"
+
+#: ../t_menu_game_options.bmx:131
+msgid "LANGUAGE"
+msgstr "ΓΛΩΣΣA"
+
+#: ../t_menu_game_options.bmx:151
+msgid "AUDIO DRIVER"
+msgstr "ΟΔΗΓΟΣ ΗΧΟΥ"
+
+#: ../t_menu_game_options.bmx:171
+msgid "QUIT TO OS"
+msgstr "EΞOΔOΣ ΣTO OS"
+
+#: ../t_menu_game_options.bmx:242
+msgid "FULL SCREEN"
+msgstr "ΠΛΗΡΗΣ ΟΘΟΝΗ"
+
+#: ../t_menu_game_options.bmx:244
+msgid "WINDOW"
+msgstr "ΠΑΡΑΘΥΡΟ"
+
+#: ../t_menu_game_options.bmx:250
+msgid "FLAG"
+msgstr "ΣΗΜΑΙΑ"
+
+#: ../t_menu_game_options.bmx:252
+msgid "CODE"
+msgstr "ΑΡΧΙΚΑ ΧΩΡΑΣ"
+
+#: ../t_menu_game_options.bmx:260
+msgid "ALL"
+msgstr "ΓΕΝΙΚΗ"
+
+#: ../t_menu_game_options.bmx:263
+msgid "SHUFFLE"
+msgstr "ΜΙΞΗ"
+
+#. NOTE: the name of the language, e.g.: ENGLISH, ITALIANO, DEUTSCH
+#: ../t_menu_game_options.bmx:294
+msgid "// THIS LANGUAGE NAME //"
+msgstr "EΛΛHNIKA"
+
+#: ../t_menu_main.bmx:48
+#: ../t_menu_match_options.bmx:29
+msgid "MATCH OPTIONS"
+msgstr "ΕΠΙΛΟΓΕΣ ΑΓΩΝΑ"
+
+#: ../t_menu_set_team.bmx:207
+msgid "OPPONENT TEAM"
+msgstr "ANTIΠAΛH OMAΔA"
+
+#: ../t_menu_set_team.bmx:550
+msgid "TACTICS COMPARISON"
+msgstr "ΣYΓKΡIΣH TAKTIKHΣ"
+
+#: ../t_menu_set_team.bmx:552
+msgid "TEAM TACTICS"
+msgstr "TAKTIKH OMAΔAΣ"
+
+#: ../t_menu_match_options.bmx:37
+msgid "FRIENDLY/DIY GAME LENGTH"
+msgstr "ΔIAΡKEIA AΓΩNA"
+
+#: ../t_menu_match_options.bmx:59
+msgid "WEATHER EFFECTS"
+msgstr "ΚΑΙΡΙΚΕΣ ΣΥΝΘΗΚΕΣ"
+
+#: ../t_menu_match_options.bmx:115
+msgid "RESOLUTION"
+msgstr "ANAΛYΣH"
+
+#: ../t_menu_match_options.bmx:135
+msgid "ZOOM"
+msgstr ""
+
+#: ../t_menu_match_options.bmx:159
+msgid "ROTATION"
+msgstr ""
+
+#. NOTE: %n is replaced automatically by the game
+#: ../t_menu_match_options.bmx:269
+#, c-format
+msgid "%n MINUTES"
+msgstr "%n ΛEΠTA"
+
+#: ../t_menu_match_options.bmx:277
+msgid "LIGHT"
+msgstr "ΕΛΑΦΡΙΕΣ"
+
+#: ../t_menu_match_options.bmx:279
+msgid "STRONG"
+msgstr "ΔΥΝΑΤΕΣ"
+
+#: ../t_menu_tactics_abort_warning.bmx:27
+msgid "EDITED TACTICS WILL BE LOST"
+msgstr "ΟΙ ΤΡΟΠΟΠΟΙΗΜΕΝΕΣ ΤΑΚΤΙΚΕΣ ΘΑ ΧΑΘΟΥΝ"
+

@@ -1,0 +1,46 @@
+000 Afghanistan
+001 Australia
+002 Bahrain
+003 Bangladesh
+004 Bhutan
+005 Brunei Darussalam
+006 Cambodia
+007 China PR
+008 Chinese Taipei
+009 Guam(USA)
+010 Hong Kong(CHN)
+011 India
+012 Indonesia
+013 Iran
+014 Iraq
+015 Japan
+016 Jordan
+017 Korea DPR
+018 Korea Republic
+019 Kuwait
+020 Kyrgyzstan
+021 Laos
+022 Lebanon
+023 Macao(CHN)
+024 Malaysia
+025 Maldives
+026 Mongolia
+027 Myanmar
+028 Nepal
+029 Oman
+030 Pakistan
+031 Palestine
+032 Philippines
+033 Qatar
+034 Saudi Arabia
+035 Singapore
+036 Sri Lanka
+037 Syria
+038 Tajikistan
+039 Thailand
+040 Timor-Leste
+041 Turkmenistan
+042 United Arab Emirates
+043 Uzbekistan
+044 Vietnam SR
+045 Yemen
