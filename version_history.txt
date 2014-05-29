@@ -1,5 +1,5 @@
-- 14 (31 May 2014)
-tackles, headers, new AI, fixed player(s) control mode, zoom and rotation
+- version 14 (31 May 2014):
+tackles, headers, new AI, fixed player(s) control mode, zoom and rotation, training mode
 
 - beta_v_077 (5 June 2012):
 tactics editor, playback modes for menu music
