@@ -1,6 +1,45 @@
+#Number  :000
+Country  :UEF
+Name     :ALBANIA
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      1      0      2      4      17     
+Away      10     20     21     16     6      
+Third     10     16     11     10     12     
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             UEF   0     501   0     0     9     0   0   0   0   0   0   0   
+02:       2       B             B             UEF   1     501   0     0     36    7   7   5   7   7   2   1   
+03:       3       C             C             UEF   3     501   0     0     23    3   5   2   4   2   3   4   
+04:       4       D             D             UEF   3     501   0     0     24    3   5   0   0   7   7   2   
+05:       5       E             E             UEF   2     501   0     0     28    4   6   5   4   7   1   1   
+06:       6       F             F             UEF   4     501   0     0     13    0   2   1   3   3   4   0   
+07:       7       G             G             UEF   6     501   0     0     16    1   1   0   2   7   1   4   
+08:       8       H             H             UEF   6     501   0     0     27    1   1   4   7   6   3   5   
+09:       9       I             I             UEF   5     501   0     0     24    7   3   0   7   5   0   2   
+10:       10      J             J             UEF   7     501   0     0     26    2   6   3   6   5   1   3   
+11:       11      K             K             UEF   7     501   0     0     28    5   0   3   6   7   5   2   
+12:       12      L             L             UEF   0     501   0     0     48    0   0   0   0   0   0   0   
+13:       13      M             M             UEF   3     501   0     0     28    0   7   1   2   6   5   7   
+14:       14      N             N             UEF   6     501   0     0     15    0   0   1   1   0   6   7   
+15:       15      O             O             UEF   7     501   0     0     20    6   1   1   0   4   4   4   
+16:       16      P             P             UEF   7     501   0     0     20    4   6   0   4   3   2   1   
+
+
 #Number  :001
 Country  :UEF
-Name     :TEAM A
+Name     :ANDORRA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -39,7 +78,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :002
 Country  :UEF
-Name     :TEAM B
+Name     :ARMENIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -78,7 +117,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :003
 Country  :UEF
-Name     :TEAM C
+Name     :AUSTRIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -117,7 +156,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :004
 Country  :UEF
-Name     :TEAM D
+Name     :AZERBAIJAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -156,7 +195,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :005
 Country  :UEF
-Name     :TEAM E
+Name     :BELARUS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -195,7 +234,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :006
 Country  :UEF
-Name     :TEAM F
+Name     :BELGIUM
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -205,9 +244,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      18     17     13     21     14     
-Away      12     3      6      1      19     
-Third     12     17     8      21     19     
+Home      0      4      9      4      4      
+Away      10     2      4      2      2      
+Third     0      4      9      2      4      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -234,7 +273,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :007
 Country  :UEF
-Name     :TEAM G
+Name     :BOSNIA HERZEGOVINA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -244,9 +283,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      16     8      7      10     20     
-Away      8      10     5      8      10     
-Third     18     2      18     11     21     
+Home      0      1      12     1      1      
+Away      0      12     1      12     12     
+Third     0      1      12     12     12     
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -273,7 +312,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :008
 Country  :UEF
-Name     :TEAM H
+Name     :BULGARIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -312,7 +351,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :009
 Country  :UEF
-Name     :TEAM I
+Name     :CROATIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -322,9 +361,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      7      9      9      0      20     
-Away      10     3      2      4      18     
-Third     14     19     13     18     18     
+Home      4      1      4      1      5      
+Away      0      5      22     5      5      
+Third     4      1      4      5      5      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -351,7 +390,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :010
 Country  :UEF
-Name     :TEAM J
+Name     :CYPRUS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -390,7 +429,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :011
 Country  :UEF
-Name     :TEAM K
+Name     :CZECH REPUBLIC
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -429,7 +468,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :012
 Country  :UEF
-Name     :TEAM L
+Name     :DENMARK
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -468,7 +507,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :013
 Country  :UEF
-Name     :TEAM M
+Name     :ENGLAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -478,9 +517,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      0      1      10     13     21     
-Away      6      8      19     6      12     
-Third     16     22     14     10     2      
+Home      0      1      16     1      1      
+Away      0      16     1      1      16     
+Third     0      1      16     1      16     
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -507,7 +546,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :014
 Country  :UEF
-Name     :TEAM N
+Name     :ESTONIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -546,7 +585,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :015
 Country  :UEF
-Name     :TEAM O
+Name     :FAROE ISLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -585,7 +624,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :016
 Country  :UEF
-Name     :TEAM P
+Name     :FINLAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -624,7 +663,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :017
 Country  :UEF
-Name     :TEAM Q
+Name     :FRANCE
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -634,9 +673,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      15     13     8      6      15     
-Away      16     7      8      9      15     
-Third     5      5      7      15     8      
+Home      0      5      1      1      4      
+Away      0      1      5      5      1      
+Third     0      5      1      5      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -663,7 +702,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :018
 Country  :UEF
-Name     :TEAM R
+Name     :GEORGIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -702,7 +741,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :019
 Country  :UEF
-Name     :TEAM S
+Name     :GERMANY
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -712,9 +751,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      6      12     4      18     19     
-Away      6      4      22     10     4      
-Third     9      4      8      15     8      
+Home      8      1      2      1      1      
+Away      3      4      2      2      2      
+Third     8      1      2      2      2      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -741,7 +780,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :020
 Country  :UEF
-Name     :TEAM T
+Name     :GREECE
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -751,9 +790,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      10     1      12     10     13     
-Away      7      1      17     13     6      
-Third     13     9      7      14     10     
+Home      0      1      5      1      1      
+Away      0      5      1      5      5      
+Third     0      1      5      5      5      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -780,7 +819,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :021
 Country  :UEF
-Name     :TEAM U
+Name     :HUNGARY
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -819,7 +858,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :022
 Country  :UEF
-Name     :TEAM V
+Name     :ICELAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -858,7 +897,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :023
 Country  :UEF
-Name     :TEAM W
+Name     :IRELAND REPUBLIC
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -897,7 +936,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :024
 Country  :UEF
-Name     :TEAM X
+Name     :ISRAEL
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -936,7 +975,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :025
 Country  :UEF
-Name     :TEAM Y
+Name     :ITALY
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -946,9 +985,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      8      18     17     14     13     
-Away      11     5      13     17     6      
-Third     1      1      9      9      17     
+Home      0      5      1      1      5      
+Away      0      1      5      5      1      
+Third     0      5      1      5      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -975,7 +1014,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :026
 Country  :UEF
-Name     :TEAM Z
+Name     :KAZAKHSTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1014,7 +1053,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :027
 Country  :UEF
-Name     :TEAM AA
+Name     :LATVIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1053,7 +1092,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :028
 Country  :UEF
-Name     :TEAM AB
+Name     :LIECHTENSTEIN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1092,7 +1131,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :029
 Country  :UEF
-Name     :TEAM AC
+Name     :LITHUANIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1131,7 +1170,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :030
 Country  :UEF
-Name     :TEAM AD
+Name     :LUXEMBOURG
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1170,7 +1209,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :031
 Country  :UEF
-Name     :TEAM AE
+Name     :MACEDONIA FYR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1209,7 +1248,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :032
 Country  :UEF
-Name     :TEAM AF
+Name     :MALTA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1248,7 +1287,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :033
 Country  :UEF
-Name     :TEAM AG
+Name     :MOLDOVA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1287,7 +1326,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :034
 Country  :UEF
-Name     :TEAM AH
+Name     :NETHERLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1297,9 +1336,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      7      10     13     19     18     
-Away      6      19     16     10     13     
-Third     6      5      18     19     5      
+Home      0      3      2      3      3      
+Away      0      1      3      1      1      
+Third     0      3      2      1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -1326,7 +1365,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :035
 Country  :UEF
-Name     :TEAM AI
+Name     :NORTHERN IRELAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1365,7 +1404,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :036
 Country  :UEF
-Name     :TEAM AJ
+Name     :NORWAY
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1404,7 +1443,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :037
 Country  :UEF
-Name     :TEAM AK
+Name     :POLAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1443,7 +1482,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :038
 Country  :UEF
-Name     :TEAM AL
+Name     :PORTUGAL
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1453,9 +1492,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      0      10     8      12     7      
-Away      10     4      15     17     2      
-Third     10     13     15     8      8      
+Home      0      4      14     14     4      
+Away      17     4      14     1      1      
+Third     0      4      14     1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -1521,7 +1560,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :040
 Country  :UEF
-Name     :TEAM AN
+Name     :RUSSIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1531,9 +1570,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      8      9      21     4      16     
-Away      17     11     0      10     9      
-Third     10     21     14     19     7      
+Home      0      4      9      4      4      
+Away      0      1      4      1      1      
+Third     0      4      9      1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -1560,7 +1599,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :041
 Country  :UEF
-Name     :TEAM AO
+Name     :SAN MARINO
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1599,7 +1638,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :042
 Country  :UEF
-Name     :TEAM AP
+Name     :SCOTLAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1677,7 +1716,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :044
 Country  :UEF
-Name     :TEAM AR
+Name     :SLOVAKIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1716,7 +1755,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :045
 Country  :UEF
-Name     :TEAM AS
+Name     :SLOVENIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1755,7 +1794,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :046
 Country  :UEF
-Name     :TEAM AT
+Name     :SPAIN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1765,9 +1804,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      6      15     8      3      13     
-Away      15     9      15     0      0      
-Third     13     9      3      15     3      
+Home      8      4      9      4      4      
+Away      8      2      9      2      2      
+Third     8      4      9      2      4      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -1794,7 +1833,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :047
 Country  :UEF
-Name     :TEAM AU
+Name     :SWEDEN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1833,7 +1872,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :048
 Country  :UEF
-Name     :TEAM AV
+Name     :SWITZERLAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1843,9 +1882,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      11     9      10     22     7      
-Away      12     16     19     21     8      
-Third     15     1      3      19     19     
+Home      0      4      1      1      4      
+Away      0      1      4      4      1      
+Third     0      4      1      4      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -1872,7 +1911,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :049
 Country  :UEF
-Name     :TEAM AW
+Name     :TURKEY
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1911,7 +1950,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :050
 Country  :UEF
-Name     :TEAM AX
+Name     :UKRAINE
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1950,7 +1989,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :051
 Country  :UEF
-Name     :TEAM AY
+Name     :WALES
 Tactics  :0
 Division :1
 CoachName:COACH

@@ -41,7 +41,7 @@
 040 Russia
 041 San Marino
 042 Scotland
-043 Serbia and Montenegro
+043 Serbia
 044 Slovakia
 045 Slovenia
 046 Spain
@@ -50,3 +50,4 @@
 049 Turkey
 050 Ukraine
 051 Wales
+052 Montenegro
