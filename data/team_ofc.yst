@@ -1,6 +1,6 @@
-#Number  :001
+#Number  :000
 Country  :OFC
-Name     :TEAM A
+Name     :AMERICAN SAMOA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -37,9 +37,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     19    4   1   7   2   3   1   1   
 
 
-#Number  :002
+#Number  :001
 Country  :OFC
-Name     :TEAM B
+Name     :COOK ISLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -76,9 +76,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     22    5   1   6   4   5   0   1   
 
 
-#Number  :003
+#Number  :002
 Country  :OFC
-Name     :NEW CALEDONIA
+Name     :FIJI
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -115,9 +115,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     14    1   2   2   4   3   1   1   
 
 
-#Number  :004
+#Number  :003
 Country  :OFC
-Name     :TEAM D
+Name     :NEW CALEDONIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -154,9 +154,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     30    2   1   7   5   7   4   4   
 
 
-#Number  :005
+#Number  :004
 Country  :OFC
-Name     :TEAM E
+Name     :NEW ZEALAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -193,9 +193,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     24    0   1   1   6   4   6   6   
 
 
-#Number  :006
+#Number  :005
 Country  :OFC
-Name     :TEAM F
+Name     :PAPUA NEW GUINEA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -232,9 +232,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     34    3   6   5   4   6   6   4   
 
 
-#Number  :007
+#Number  :006
 Country  :OFC
-Name     :TEAM G
+Name     :SAMOA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -271,9 +271,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     34    7   1   4   7   3   5   7   
 
 
-#Number  :008
+#Number  :007
 Country  :OFC
-Name     :TEAM H
+Name     :SOLOMON ISLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -310,9 +310,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     28    1   7   5   7   3   0   5   
 
 
-#Number  :009
+#Number  :008
 Country  :OFC
-Name     :TEAM I
+Name     :TAHITI
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -349,9 +349,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     29    6   5   1   1   4   5   7   
 
 
-#Number  :010
+#Number  :009
 Country  :OFC
-Name     :TEAM J
+Name     :TONGA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -388,9 +388,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             OFC   7     501   0     0     20    1   1   6   1   0   5   6   
 
 
-#Number  :011
+#Number  :010
 Country  :OFC
-Name     :TEAM K
+Name     :VANUATU
 Tactics  :0
 Division :1
 CoachName:COACH
