@@ -1,6 +1,6 @@
-#Number  :001
+#Number  :000
 Country  :CNC
-Name     :TEAM A
+Name     :ANGUILLA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -37,9 +37,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     18    3   2   6   5   0   1   1   
 
 
-#Number  :002
+#Number  :001
 Country  :CNC
-Name     :TEAM B
+Name     :ANTIGUA & BARBUDA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -76,9 +76,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     8     1   1   1   0   2   1   2   
 
 
-#Number  :003
+#Number  :002
 Country  :CNC
-Name     :TEAM C
+Name     :ARUBA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -115,9 +115,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     20    4   0   0   4   5   2   5   
 
 
-#Number  :004
+#Number  :003
 Country  :CNC
-Name     :TEAM D
+Name     :BAHAMAS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -154,9 +154,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     26    5   5   7   7   0   1   1   
 
 
-#Number  :005
+#Number  :004
 Country  :CNC
-Name     :TEAM E
+Name     :BARBADOS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -193,9 +193,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     15    0   0   7   2   4   2   0   
 
 
-#Number  :006
+#Number  :005
 Country  :CNC
-Name     :TEAM F
+Name     :BELIZE
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -232,9 +232,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     19    3   4   0   6   2   1   3   
 
 
-#Number  :007
+#Number  :006
 Country  :CNC
-Name     :TEAM G
+Name     :BERMUDA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -271,9 +271,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     22    4   0   5   6   2   5   0   
 
 
-#Number  :008
+#Number  :007
 Country  :CNC
-Name     :TEAM H
+Name     :BR.VIRGIN ISLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -310,9 +310,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     27    4   3   7   1   1   7   4   
 
 
-#Number  :009
+#Number  :008
 Country  :CNC
-Name     :TEAM I
+Name     :CANADA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -349,9 +349,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     20    2   2   7   1   4   2   2   
 
 
-#Number  :010
+#Number  :009
 Country  :CNC
-Name     :TEAM J
+Name     :CAYMAN ISLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -388,10 +388,10 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     11    0   0   5   1   0   5   0   
 
 
-#Number  :011
+#Number  :010
 Country  :CNC
-Name     :TEAM K
-Tactics  :0
+Name     :COSTA RICA
+Tactics  :2
 Division :1
 CoachName:COACH
 CoachType:0
@@ -400,9 +400,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      2      14     9      9      8      
-Away      18     3      0      2      22     
-Third     11     15     7      8      8      
+Home      8      4      5      5      1      
+Away      8      1      4      1      1      
+Third     8      4      5      1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -427,9 +427,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     31    5   5   4   7   2   2   6   
 
 
-#Number  :012
+#Number  :011
 Country  :CNC
-Name     :TEAM L
+Name     :CUBA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -466,9 +466,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     18    6   6   0   1   3   1   1   
 
 
-#Number  :013
+#Number  :012
 Country  :CNC
-Name     :TEAM M
+Name     :DOMINICA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -505,9 +505,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     21    4   6   5   0   1   1   4   
 
 
-#Number  :014
+#Number  :013
 Country  :CNC
-Name     :TEAM N
+Name     :DOMINICAN REPUBLIC
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -544,9 +544,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     16    5   0   4   5   2   0   0   
 
 
-#Number  :015
+#Number  :014
 Country  :CNC
-Name     :TEAM O
+Name     :EL SALVADOR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -583,9 +583,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     20    2   2   5   1   2   3   5   
 
 
-#Number  :016
+#Number  :015
 Country  :CNC
-Name     :TEAM P
+Name     :GRENADA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -622,9 +622,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     28    3   2   6   5   6   3   3   
 
 
-#Number  :017
+#Number  :016
 Country  :CNC
-Name     :TEAM Q
+Name     :GUATEMALA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -661,9 +661,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     16    7   0   0   2   2   0   5   
 
 
-#Number  :018
+#Number  :017
 Country  :CNC
-Name     :TEAM R
+Name     :GUYANA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -700,9 +700,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     24    4   1   5   5   2   5   2   
 
 
-#Number  :019
+#Number  :018
 Country  :CNC
-Name     :TEAM S
+Name     :HAITI
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -739,9 +739,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     25    7   3   1   7   3   4   0   
 
 
-#Number  :020
+#Number  :019
 Country  :CNC
-Name     :TEAM T
+Name     :HONDURAS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -751,9 +751,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      17     7      1      20     3      
-Away      1      10     20     15     6      
-Third     5      13     20     4      7      
+Home      0      1      5      1      1      
+Away      0      5      1      5      5      
+Third     0      1      5      5      5      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -778,9 +778,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     25    4   1   3   6   3   3   5   
 
 
-#Number  :021
+#Number  :020
 Country  :CNC
-Name     :TEAM U
+Name     :JAMAICA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -817,9 +817,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     27    4   1   5   6   3   1   7   
 
 
-#Number  :022
+#Number  :021
 Country  :CNC
-Name     :TEAM V
+Name     :MEXICO
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -829,9 +829,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      13     14     4      18     0      
-Away      0      15     4      10     6      
-Third     16     8      18     15     9      
+Home      0      14     1      1      4      
+Away      0      2      9      2      2      
+Third     0      14     1      2      2      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -856,9 +856,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     28    3   7   3   6   1   2   6   
 
 
-#Number  :024
+#Number  :022
 Country  :CNC
-Name     :TEAM X
+Name     :MONTSERRAT
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -895,9 +895,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     34    6   4   7   6   4   6   1   
 
 
-#Number  :025
+#Number  :024
 Country  :CNC
-Name     :TEAM Y
+Name     :NICARAGUA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -934,9 +934,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     25    7   5   6   2   3   2   0   
 
 
-#Number  :026
+#Number  :025
 Country  :CNC
-Name     :TEAM Z
+Name     :PANAMA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -973,9 +973,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     30    3   6   2   2   6   5   6   
 
 
-#Number  :027
+#Number  :026
 Country  :CNC
-Name     :TEAM AA
+Name     :PUERTO RICO
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1012,9 +1012,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     24    1   4   4   7   1   3   4   
 
 
-#Number  :028
+#Number  :027
 Country  :CNC
-Name     :TEAM AB
+Name     :ST.KITTS & NEVIS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1051,9 +1051,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     43    5   6   7   6   7   5   7   
 
 
-#Number  :029
+#Number  :028
 Country  :CNC
-Name     :TEAM AC
+Name     :SAINT LUCIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1090,9 +1090,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     25    2   5   4   1   4   5   4   
 
 
-#Number  :030
+#Number  :029
 Country  :CNC
-Name     :TEAM AD
+Name     :ST.VINCENT & GREN.
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1129,9 +1129,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     18    1   2   5   3   6   0   1   
 
 
-#Number  :031
+#Number  :030
 Country  :CNC
-Name     :TEAM AE
+Name     :SURINAM
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1168,9 +1168,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     11    0   0   0   0   3   2   6   
 
 
-#Number  :032
+#Number  :031
 Country  :CNC
-Name     :TEAM AF
+Name     :TRINIDAD & TOBAGO
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1207,9 +1207,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     24    1   5   6   2   7   3   0   
 
 
-#Number  :033
+#Number  :032
 Country  :CNC
-Name     :TEAM AG
+Name     :TURKS & CAICOS IS.
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1246,9 +1246,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     25    4   6   2   2   7   2   2   
 
 
-#Number  :034
+#Number  :033
 Country  :CNC
-Name     :TEAM AH
+Name     :US VIRGIN ISLANDS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1285,9 +1285,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             CNC   7     501   0     0     30    0   6   4   2   7   7   4   
 
 
-#Number  :035
+#Number  :034
 Country  :CNC
-Name     :TEAM AI
+Name     :UNITED STATES
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1297,9 +1297,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      2      3      9      4      18     
-Away      6      22     2      1      21     
-Third     6      7      5      22     11     
+Home      3      4      1      1      1      
+Away      10     5      2      5      5      
+Third     3      4      1      5      5      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
