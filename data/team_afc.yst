@@ -1,6 +1,6 @@
-#Number  :001
+#Number  :000
 Country  :AFC
-Name     :TEAM A
+Name     :AFGHANISTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -37,9 +37,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     11    2   2   0   4   0   1   2   
 
 
-#Number  :002
+#Number  :001
 Country  :AFC
-Name     :TEAM B
+Name     :AUSTRALIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -49,9 +49,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      17     10     10     6      0      
-Away      17     21     1      13     6      
-Third     5      21     22     12     22     
+Home      12     20     14     14     20     
+Away      12     15     20     15     15     
+Third     12     20     14     15     15     
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -76,9 +76,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     22    1   1   4   5   7   3   1   
 
 
-#Number  :003
+#Number  :002
 Country  :AFC
-Name     :TEAM C
+Name     :BAHRAIN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -115,9 +115,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     21    4   2   1   5   2   6   1   
 
 
-#Number  :004
+#Number  :003
 Country  :AFC
-Name     :TEAM D
+Name     :BANGLADESH
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -154,9 +154,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     13    2   0   0   0   4   2   5   
 
 
-#Number  :005
+#Number  :004
 Country  :AFC
-Name     :TEAM E
+Name     :BHUTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -193,9 +193,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     11    2   3   0   0   2   1   3   
 
 
-#Number  :006
+#Number  :005
 Country  :AFC
-Name     :TEAM F
+Name     :BRUNEI DARUSSALAM
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -232,9 +232,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     25    6   3   1   5   1   5   4   
 
 
-#Number  :007
+#Number  :006
 Country  :AFC
-Name     :TEAM G
+Name     :CAMBODIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -271,9 +271,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     28    3   4   6   0   5   7   3   
 
 
-#Number  :008
+#Number  :007
 Country  :AFC
-Name     :TEAM H
+Name     :CHINA PR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -310,9 +310,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     15    3   0   5   0   6   0   1   
 
 
-#Number  :009
+#Number  :008
 Country  :AFC
-Name     :TEAM I
+Name     :TAIWAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -349,9 +349,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     17    1   0   6   0   0   6   4   
 
 
-#Number  :010
+#Number  :009
 Country  :AFC
-Name     :TEAM J
+Name     :GUAM
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -388,9 +388,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     26    6   0   0   5   5   3   7   
 
 
-#Number  :011
+#Number  :010
 Country  :AFC
-Name     :TEAM K
+Name     :HONG KONG
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -427,9 +427,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     20    3   1   6   5   4   0   1   
 
 
-#Number  :012
+#Number  :011
 Country  :AFC
-Name     :TEAM L
+Name     :INDIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -466,9 +466,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     34    4   6   5   2   7   3   7   
 
 
-#Number  :013
+#Number  :012
 Country  :AFC
-Name     :TEAM M
+Name     :INDONESIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -505,9 +505,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     27    5   2   6   3   0   6   5   
 
 
-#Number  :014
+#Number  :013
 Country  :AFC
-Name     :TEAM N
+Name     :IRAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -517,9 +517,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      12     10     10     8      20     
-Away      9      14     2      18     13     
-Third     14     21     0      18     10     
+Home      0      1      14     1      1      
+Away      0      4      14     4      4      
+Third     0      4      14     1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -544,9 +544,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     18    2   1   0   3   5   0   7   
 
 
-#Number  :015
+#Number  :014
 Country  :AFC
-Name     :TEAM O
+Name     :IRAQ
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -583,9 +583,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     23    2   1   2   1   3   7   7   
 
 
-#Number  :016
+#Number  :015
 Country  :AFC
-Name     :TEAM P
+Name     :JAPAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -595,9 +595,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      13     20     5      12     11     
-Away      2      17     2      6      15     
-Third     2      5      9      22     3      
+Home      19     15     4      15     15     
+Away      0      1      2      1      1      
+Third     19     15     4      1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -622,9 +622,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     23    1   4   0   7   2   4   5   
 
 
-#Number  :017
+#Number  :016
 Country  :AFC
-Name     :TEAM Q
+Name     :JORDAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -661,9 +661,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     17    2   1   0   2   5   2   5   
 
 
-#Number  :018
+#Number  :017
 Country  :AFC
-Name     :TEAM R
+Name     :KOREA DPR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -700,9 +700,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     26    2   7   7   3   2   3   2   
 
 
-#Number  :019
+#Number  :018
 Country  :AFC
-Name     :TEAM S
+Name     :KOREA REPUBLIC
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -712,9 +712,9 @@ Stadium  :
 StadiumID:0
 
 KITS______Type___First__Second_Shorts_Socks
-Home      15     16     11     15     22     
-Away      6      5      19     4      3      
-Third     11     4      2      18     17     
+Home      0      4      5      5      4      
+Away      0      1      4      1      1      
+Third     0      4      5      1      1      
 Change1   
 Change2   
 Goalie1   0      0      0      0      0
@@ -739,9 +739,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     12    0   0   3   2   0   4   3   
 
 
-#Number  :020
+#Number  :019
 Country  :AFC
-Name     :TEAM T
+Name     :KUWAIT
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -778,9 +778,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     35    7   7   4   3   7   0   7   
 
 
-#Number  :021
+#Number  :020
 Country  :AFC
-Name     :TEAM U
+Name     :KYRGYZSTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -817,9 +817,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     22    4   6   0   4   4   4   0   
 
 
-#Number  :022
+#Number  :021
 Country  :AFC
-Name     :TEAM V
+Name     :LAOS
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -856,9 +856,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     21    0   3   1   7   5   1   4   
 
 
-#Number  :023
+#Number  :022
 Country  :AFC
-Name     :TEAM W
+Name     :LEBANON
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -895,9 +895,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     33    2   1   6   7   7   6   4   
 
 
-#Number  :024
+#Number  :023
 Country  :AFC
-Name     :TEAM X
+Name     :MACAO
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -934,9 +934,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     25    4   3   3   1   2   7   5   
 
 
-#Number  :025
+#Number  :024
 Country  :AFC
-Name     :TEAM Y
+Name     :MALAYSIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -973,9 +973,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     23    3   5   1   1   6   0   7   
 
 
-#Number  :026
+#Number  :025
 Country  :AFC
-Name     :TEAM Z
+Name     :MALDIVES
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1012,9 +1012,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     22    2   1   6   2   5   0   6   
 
 
-#Number  :027
+#Number  :026
 Country  :AFC
-Name     :TEAM AA
+Name     :MONGOLIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1051,9 +1051,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     12    0   7   0   1   0   4   0   
 
 
-#Number  :028
+#Number  :027
 Country  :AFC
-Name     :TEAM AB
+Name     :MYANMAR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1090,9 +1090,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     26    3   4   2   7   3   0   7   
 
 
-#Number  :029
+#Number  :028
 Country  :AFC
-Name     :TEAM AC
+Name     :NEPAL
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1129,9 +1129,9 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 16:       16      P             P             AFC   7     501   0     0     22    2   1   3   6   3   3   4   
 
 
-#Number  :030
+#Number  :029
 Country  :AFC
-Name     :TEAM AD
+Name     :OMAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1166,6 +1166,45 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 14:       14      N             N             AFC   6     501   0     0     22    0   1   5   0   7   5   4   
 15:       15      O             O             AFC   7     501   0     0     17    2   4   3   6   0   0   2   
 16:       16      P             P             AFC   7     501   0     0     35    0   5   6   7   7   5   5   
+
+
+#Number  :030
+Country  :AFC
+Name     :PAKISTAN
+Tactics  :0
+Division :1
+CoachName:COACH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      14     9      19     17     14     
+Away      12     6      6      19     11     
+Third     7      3      17     6      9      
+Change1   
+Change2   
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       A             A             UEF   0     501   0     0     45    0   0   0   0   0   0   0   
+02:       2       B             B             UEF   1     501   0     0     18    1   2   6   0   3   6   0   
+03:       3       C             C             UEF   3     501   0     0     31    7   7   7   2   2   2   4   
+04:       4       D             D             UEF   3     501   0     0     29    6   3   2   6   5   1   6   
+05:       5       E             E             UEF   2     501   0     0     29    0   1   2   7   7   7   5   
+06:       6       F             F             UEF   4     501   0     0     24    4   1   6   1   5   0   7   
+07:       7       G             G             UEF   6     501   0     0     32    4   4   4   6   4   6   4   
+08:       8       H             H             UEF   6     501   0     0     26    6   6   1   1   5   7   0   
+09:       9       I             I             UEF   5     501   0     0     21    5   0   5   2   7   1   1   
+10:       10      J             J             UEF   7     501   0     0     14    0   0   5   3   0   4   2   
+11:       11      K             K             UEF   7     501   0     0     10    0   0   7   0   1   2   0   
+12:       12      L             L             UEF   0     501   0     0     21    0   0   0   0   0   0   0   
+13:       13      M             M             UEF   3     501   0     0     27    6   5   0   5   4   4   3   
+14:       14      N             N             UEF   6     501   0     0     18    0   7   3   2   2   3   1   
+15:       15      O             O             UEF   7     501   0     0     14    1   1   4   0   2   4   2   
+16:       16      P             P             UEF   7     501   0     0     29    6   0   7   5   0   6   5   
 
 
 #Number  :031
@@ -1209,7 +1248,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :032
 Country  :AFC
-Name     :TEAM AF
+Name     :PHILIPPINES
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1248,7 +1287,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :033
 Country  :AFC
-Name     :TEAM AG
+Name     :QATAR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1287,7 +1326,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :034
 Country  :AFC
-Name     :TEAM AH
+Name     :SAUDI ARABIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1326,7 +1365,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :035
 Country  :AFC
-Name     :TEAM AI
+Name     :SINGAPORE
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1365,7 +1404,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :036
 Country  :AFC
-Name     :TEAM AJ
+Name     :SRI LANKA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1404,7 +1443,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :037
 Country  :AFC
-Name     :TEAM AK
+Name     :SYRIA
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1443,7 +1482,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :038
 Country  :AFC
-Name     :TEAM AL
+Name     :TAJIKISTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1482,7 +1521,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :039
 Country  :AFC
-Name     :TEAM AM
+Name     :THAILAND
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1560,7 +1599,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :041
 Country  :AFC
-Name     :TEAM AO
+Name     :TURKMENISTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1599,7 +1638,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :042
 Country  :AFC
-Name     :TEAM AP
+Name     :UN. ARAB EMIRATES
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1638,7 +1677,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :043
 Country  :AFC
-Name     :TEAM AQ
+Name     :UZBEKISTAN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1677,7 +1716,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :044
 Country  :AFC
-Name     :TEAM AR
+Name     :VIETNAM SR
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1716,7 +1755,7 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 
 #Number  :045
 Country  :AFC
-Name     :TEAM AS
+Name     :YEMEN
 Tactics  :0
 Division :1
 CoachName:COACH
@@ -1751,44 +1790,5 @@ PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Pric
 14:       14      N             N             AFC   6     501   0     0     22    1   5   6   3   4   3   0   
 15:       15      O             O             AFC   7     501   0     0     28    3   5   3   1   3   7   6   
 16:       16      P             P             AFC   7     501   0     0     9     3   0   1   2   1   1   1   
-
-
-#Number  :046
-Country  :AFC
-Name     :TEAM AT
-Tactics  :0
-Division :1
-CoachName:COACH
-CoachType:0
-City     :
-Stadium  :
-StadiumID:0
-
-KITS______Type___First__Second_Shorts_Socks
-Home      18     20     5      9      2      
-Away      0      21     20     2      3      
-Third     18     10     18     18     22     
-Change1   
-Change2   
-Goalie1   0      0      0      0      0
-Goalie2   0      0      0      0      0
-
-PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
-01:       1       A             A             AFC   0     501   0     0     21    0   0   0   0   0   0   0   
-02:       2       B             B             AFC   1     501   0     0     24    1   4   6   1   5   7   0   
-03:       3       C             C             AFC   3     501   0     0     22    2   0   6   1   5   7   1   
-04:       4       D             D             AFC   3     501   0     0     24    6   0   1   4   0   6   7   
-05:       5       E             E             AFC   2     501   0     0     22    5   1   0   3   5   7   1   
-06:       6       F             F             AFC   4     501   0     0     21    4   6   1   5   3   1   1   
-07:       7       G             G             AFC   6     501   0     0     26    3   5   5   4   4   4   1   
-08:       8       H             H             AFC   6     501   0     0     27    5   1   7   5   2   0   7   
-09:       9       I             I             AFC   5     501   0     0     17    4   1   3   2   4   1   2   
-10:       10      J             J             AFC   7     501   0     0     26    4   1   5   2   6   3   5   
-11:       11      K             K             AFC   7     501   0     0     30    7   0   6   3   6   7   1   
-12:       12      L             L             AFC   0     501   0     0     20    0   0   0   0   0   0   0   
-13:       13      M             M             AFC   3     501   0     0     20    1   0   6   6   3   0   4   
-14:       14      N             N             AFC   6     501   0     0     25    4   1   2   6   7   3   2   
-15:       15      O             O             AFC   7     501   0     0     30    6   6   7   2   7   2   0   
-16:       16      P             P             AFC   7     501   0     0     23    1   2   6   6   2   5   1   
 
 
