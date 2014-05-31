@@ -78,7 +78,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -280, 40, 560, 40)
+		w.set_geometry(512 -280, 30, 560, 40)
 		w.set_colors($BA9206, $E9B607, $6A5304)
 		w.set_text(dictionary.gettext("EDIT TACTICS") + " (" + tactics_name[menu.tactics_to_edit] + ")", 0, 14)
 		w.active = False
@@ -212,7 +212,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 		
 		''copy
 		w = New t_button
-		w.set_geometry(10, 710, 140, 34)
+		w.set_geometry(10, 708, 140, 36)
 		w.set_text(dictionary.gettext("COPY"), 0, 14)
 		w.bind("fire1_down", "bc_copy")
 		Self.w_copy = w
@@ -221,7 +221,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 	
 		''flip
 		w = New t_button
-		w.set_geometry(154, 710, 150, 34)
+		w.set_geometry(154, 708, 150, 36)
 		w.set_colors($536B90, $7090C2, $263142)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_flip")
@@ -231,7 +231,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 	
 		''undo
 		w = New t_button
-		w.set_geometry(308, 710, 144, 34)
+		w.set_geometry(308, 708, 144, 36)
 		w.set_text(dictionary.gettext("UNDO"), 0, 14)
 		w.bind("fire1_down", "bc_undo")
 		Self.w_undo = w
@@ -240,7 +240,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 	
 		''import
 		w = New t_button
-		w.set_geometry(456, 710, 140, 34)
+		w.set_geometry(456, 708, 140, 36)
 		w.set_colors($AB148D, $DE1AB7, $780E63)
 		w.set_text(dictionary.gettext("IMPORT"), 0, 14)
 		w.bind("fire1_down", "bc_import")
@@ -248,7 +248,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 	
 		''save/exit
 		w = New t_button
-		w.set_geometry(600, 710, 240, 34)
+		w.set_geometry(600, 708, 240, 36)
 		w.set_colors($10A000, $15E000, $096000)
 		w.set_text(dictionary.gettext("SAVE") + "/" + dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_save_exit")
@@ -258,7 +258,7 @@ Type t_menu_edit_tactics Extends t_game_mode
 		
 		''abort
 		w = New t_button
-		w.set_geometry(844, 710, 170, 34)
+		w.set_geometry(844, 708, 170, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("ABORT"), 0, 14)
 		w.bind("fire1_down", "bc_abort")

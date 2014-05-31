@@ -62,7 +62,7 @@ Type t_menu_select_team Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*660, 40, 660, 40)
+		w.set_geometry(512 -0.5*660, 30, 660, 40)
 		Select menu.status
 			Case MS_EDIT
 				w.set_colors($89421B, $BB5A25, $3D1E0D)
@@ -97,19 +97,19 @@ Type t_menu_select_team Extends t_game_mode
 			w.bind("fire1_down", "bc_team", [String(team.number)])
 			If (teams <= 8)
 				w.x = 0.5*1024 -0.5*w.w
-				w.y = 386 - 32*0.5*teams + 32*tm
+				w.y = 380 - 32*0.5*teams + 32*tm
 			Else
 				col1 = Floor(teams/3.0) + 1 * ((teams Mod 3) = 2) 
 				col2 = Floor(teams/3.0) + 1 * ((teams Mod 3) > 0) 
 				If (tm <= col1)
 					w.x = 0.5*1024 -1.5*w.w - 20
-					w.y = 386 - 32*0.5*col2 + 32*tm
+					w.y = 380 - 32*0.5*col2 + 32*tm
 				Else If (tm <= col1 + col2)
 					w.x = 0.5*1024 -0.5*w.w
-					w.y = 386 - 32*0.5*col2 + 32*(tm -col1)
+					w.y = 380 - 32*0.5*col2 + 32*(tm -col1)
 				Else
 					w.x = 0.5*1024 +0.5*w.w + 20
-					w.y = 386 - 32*0.5*col2 + 32*(tm -col1 -col2)
+					w.y = 380 - 32*0.5*col2 + 32*(tm -col1 -col2)
 				EndIf					
 			EndIf
 			
@@ -122,7 +122,7 @@ Type t_menu_select_team Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")

@@ -25,7 +25,7 @@ Type t_menu_clubs_confederation Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*660, 40, 660, 40)
+		w.set_geometry(512 -0.5*660, 30, 660, 40)
 		Local s:String
 		Select menu.status
 			Case MS_FRIENDLY
@@ -97,7 +97,7 @@ Type t_menu_clubs_confederation Extends t_game_mode
 		
 		''abort
 		w = New t_button
-		w.set_geometry(512 -0.5*200, 700, 200, 34)
+		w.set_geometry(512 -0.5*200, 708, 200, 36)
 		w.set_colors($C8000E, $FF1929, $74040C)
 		w.set_text(dictionary.gettext("ABORT"), 0, 14)
 		w.bind("fire1_down", "bc_abort")

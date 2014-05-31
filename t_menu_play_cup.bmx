@@ -50,7 +50,7 @@ Type t_menu_play_cup Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*840, 40, 840, 40)
+		w.set_geometry(512 -0.5*840, 30, 840, 40)
 		w.set_colors($415600, $5E7D00, $243000)
 		w.set_text(cup.get_menu_title(), 0, 14)
 		w.active = False
@@ -145,14 +145,14 @@ Type t_menu_play_cup Extends t_game_mode
 		
 		''home team
 		w = New t_button
-		w.set_geometry(110, 660, 322, 34)
+		w.set_geometry(110, 660, 322, 36)
 		w.set_text(Self.match.teams[HOME].name, -1, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 
 		''result (home goals)
 		w = New t_button
-		w.set_geometry(512 -60, 660, 40, 34)
+		w.set_geometry(512 -60, 660, 40, 36)
 		w.set_text("", -1, 14)
 		If (Self.match.result <> Null)
 			w.text = Self.match.result[HOME]
@@ -162,7 +162,7 @@ Type t_menu_play_cup Extends t_game_mode
 
 		''versus / -
 		w = New t_button
-		w.set_geometry(512 -20, 660, 40, 34)
+		w.set_geometry(512 -20, 660, 40, 36)
 		''// NOTE: max 2 characters
 		w.set_text(first_word(dictionary.gettext("V // code for: VERSUS")), 0, 14)
 		If (Self.match.result <> Null)
@@ -173,7 +173,7 @@ Type t_menu_play_cup Extends t_game_mode
 
 		''result (away goals)
 		w = New t_button
-		w.set_geometry(512 +20, 660, 40, 34)
+		w.set_geometry(512 +20, 660, 40, 36)
 		w.set_text("", +1, 14)
 		If (Self.match.result <> Null)
 			w.text = Self.match.result[AWAY]
@@ -183,7 +183,7 @@ Type t_menu_play_cup Extends t_game_mode
 
 		''away team
 		w = New t_button
-		w.set_geometry(592, 660, 322, 34)
+		w.set_geometry(592, 660, 322, 36)
 		w.set_text(Self.match.teams[AWAY].name, +1, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
@@ -215,7 +215,7 @@ Type t_menu_play_cup Extends t_game_mode
 			
 				''next_match
 				w = New t_button
-				w.set_geometry(512 -430, 700, 460, 34)
+				w.set_geometry(512 -430, 708, 460, 36)
 				w.set_colors($138B21, $1BC12F, $004814)
 				w.set_text(dictionary.gettext("NEXT MATCH"), 0, 14)
 				w.bind("fire1_down", "bc_next_match")
@@ -227,7 +227,7 @@ Type t_menu_play_cup Extends t_game_mode
 
 				''play_match
 				w = New t_button
-				w.set_geometry(512 -430, 700, 220, 34)
+				w.set_geometry(512 -430, 708, 220, 36)
 				w.set_colors($138B21, $1BC12F, $004814)
 				w.set_text("", 0, 14)
 				If ((Self.match.teams[HOME].control <> CM_COMPUTER) Or (Self.match.teams[AWAY].control <> CM_COMPUTER))
@@ -241,7 +241,7 @@ Type t_menu_play_cup Extends t_game_mode
 	
 				''view result	
 				w = New t_button
-				w.set_geometry(512 -190, 700, 220, 34)
+				w.set_geometry(512 -190, 708, 220, 36)
 				w.set_colors($138B21, $1BC12F, $004814)
 				w.set_text("", 0, 14)
 				If ((Self.match.teams[HOME].control <> CM_COMPUTER) Or (Self.match.teams[AWAY].control <> CM_COMPUTER))
@@ -260,7 +260,7 @@ Type t_menu_play_cup Extends t_game_mode
 	
 		''view statistics	
 		w = New t_button
-		w.set_geometry(512 +50, 700, 180, 34)
+		w.set_geometry(512 +50, 708, 180, 36)
 		w.set_colors($138B21, $1BC12F, $004814)
 		w.set_text(dictionary.gettext("STATS"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_VIEW_STATISTICS)])
@@ -268,7 +268,7 @@ Type t_menu_play_cup Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 +250, 700, 180, 34)
+		w.set_geometry(512 +250, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_MAIN)])

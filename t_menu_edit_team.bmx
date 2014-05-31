@@ -190,7 +190,7 @@ Type t_menu_edit_team Extends t_game_mode
 
 		''kit type
 		w = New t_button
-		w.set_geometry(50, 768 -95 -36*5 -24*4, 140, 36)
+		w.set_geometry(42, 768 -95 -36*5 -24*4, 160, 36)
 		w.set_colors($530DB3, $6F12EE, $380977)
 		w.set_text(dictionary.gettext("STYLE"), 0, 10)
 		w.bind("fire1_down", "bc_kit_style", ["+1"])
@@ -201,7 +201,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''shirt 1
 		w = New t_button
-		w.set_geometry(50, 768 -95 -36*4 -24*3, 140, 36)
+		w.set_geometry(42, 768 -95 -36*4 -24*3, 160, 36)
 		w.set_colors($530DB3, $6F12EE, $380977)
 		w.set_text(dictionary.gettext("SHIRT") + " 1", 0, 10)
 		w.bind("fire1_down", "bc_shirt_1", ["+1"])
@@ -212,7 +212,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''shirt 2
 		w = New t_button
-		w.set_geometry(50, 768 -95 -36*3 -24*2, 140, 36)
+		w.set_geometry(42, 768 -95 -36*3 -24*2, 160, 36)
 		w.set_colors($530DB3, $6F12EE, $380977)
 		w.set_text(dictionary.gettext("SHIRT") + " 2", 0, 10)
 		w.bind("fire1_down", "bc_shirt_2", ["+1"])
@@ -223,7 +223,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''shorts
 		w = New t_button
-		w.set_geometry(50, 768 -95 -36*2 -24, 140, 36)
+		w.set_geometry(42, 768 -95 -36*2 -24, 160, 36)
 		w.set_colors($530DB3, $6F12EE, $380977)
 		w.set_text(dictionary.gettext("SHORTS"), 0, 10)
 		w.bind("fire1_down", "bc_shorts", ["+1"])
@@ -234,7 +234,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''socks
 		w = New t_button
-		w.set_geometry(50, 768 -95 -36, 140, 36)
+		w.set_geometry(42, 768 -95 -36, 160, 36)
 		w.set_colors($530DB3, $6F12EE, $380977)
 		w.set_text(dictionary.gettext("SOCKS"), 0, 10)
 		w.bind("fire1_down", "bc_socks", ["+1"])
@@ -245,7 +245,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''home
 		w = New t_button
-		w.set_geometry(440, 768 -95 -36*5 -24*4, 140, 36)
+		w.set_geometry(430, 768 -95 -36*5 -24*4, 160, 36)
 		''// NOTE: max 10 characters
 		w.set_text(dictionary.gettext("HOME KIT"), 0, 10)
 		w.bind("fire1_down", "bc_select_kit", ["0"])
@@ -254,7 +254,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''away
 		w = New t_button
-		w.set_geometry(440, 768 -95 -36*4 -24*3, 140, 36)
+		w.set_geometry(430, 768 -95 -36*4 -24*3, 160, 36)
 		''// NOTE: max 10 characters
 		w.set_text(dictionary.gettext("AWAY KIT"), 0, 10)
 		w.bind("fire1_down", "bc_select_kit", ["1"])
@@ -263,7 +263,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''third
 		w = New t_button
-		w.set_geometry(440, 768 -95 -36*3 -24*2, 140, 36)
+		w.set_geometry(430, 768 -95 -36*3 -24*2, 160, 36)
 		''// NOTE: max 10 characters
 		w.set_text(dictionary.gettext("THIRD KIT"), 0, 10)
 		w.bind("fire1_down", "bc_select_kit", ["2"])
@@ -272,7 +272,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''change1
 		w = New t_button
-		w.set_geometry(440, 768 -95 -36*2 -24, 140, 36)
+		w.set_geometry(430, 768 -95 -36*2 -24, 160, 36)
 		''// NOTE: max 10 characters
 		w.set_text(dictionary.gettext("1ST CHANGE KIT"), 0, 10)
 		w.bind("fire1_down", "bc_select_kit", ["3"])
@@ -281,7 +281,7 @@ Type t_menu_edit_team Extends t_game_mode
 	
 		''change2
 		w = New t_button
-		w.set_geometry(440, 768 -95 -36, 140, 36)
+		w.set_geometry(430, 768 -95 -36, 160, 36)
 		''// NOTE: max 10 characters
 		w.set_text(dictionary.gettext("2ND CHANGE KIT"), 0, 10)
 		w.bind("fire1_down", "bc_select_kit", ["4"])

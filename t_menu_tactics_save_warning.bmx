@@ -14,7 +14,7 @@ Type t_menu_tactics_save_warning Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -280, 40, 560, 40)
+		w.set_geometry(512 -280, 30, 560, 40)
 		w.set_colors($BA9206, $E9B607, $6A5304)
 		w.set_text(dictionary.gettext("SAVE TACTICS"), 0, 14)
 		w.active = False
@@ -30,7 +30,7 @@ Type t_menu_tactics_save_warning Extends t_game_mode
 		
 		''save
 		w = New t_button
-		w.set_geometry(512 -90, 610, 180, 34)
+		w.set_geometry(512 -90, 630, 180, 36)
 		w.set_colors($10A000, $15E000, $096000)
 		w.set_text(dictionary.gettext("SAVE"), 0, 14)
 		w.bind("fire1_down", "bc_save")
@@ -40,7 +40,7 @@ Type t_menu_tactics_save_warning Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 -90, 680, 180, 34)
+		w.set_geometry(512 -90, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")

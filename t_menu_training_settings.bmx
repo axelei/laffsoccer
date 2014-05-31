@@ -40,7 +40,7 @@ Type t_menu_training_settings Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*600, 40, 600, 40)
+		w.set_geometry(512 -0.5*600, 30, 600, 40)
 		w.set_colors($008080, $00B2B4, $004040)
 		w.set_text(dictionary.gettext("TRAINING"), 0, 14)
 		w.active = False
@@ -48,7 +48,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''time label
 		w = New t_button
-		w.set_geometry(512 -360, 150, 300, 34)
+		w.set_geometry(512 -360, 150, 300, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("TIME"), 0, 14)
 		w.active = False
@@ -56,7 +56,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''time button
 		w = New t_button
-		w.set_geometry(512 +60, 150, 300, 34)
+		w.set_geometry(512 +60, 150, 300, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_time", ["+1"])
@@ -79,7 +79,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''pitch label
 		w = New t_button
-		w.set_geometry(512 -360, 220, 300, 34)
+		w.set_geometry(512 -360, 220, 300, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("PITCH"), 0, 14)
 		w.active = False
@@ -87,7 +87,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''pitch button
 		w = New t_button
-		w.set_geometry(512 +60, 220, 300, 34)
+		w.set_geometry(512 +60, 220, 300, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_pitch", ["+1"])
@@ -110,7 +110,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''weather effect label
 		w = New t_button
-		w.set_geometry(512 -360, 290, 300, 34)
+		w.set_geometry(512 -360, 290, 300, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("WEATHER"), 0, 14)
 		w.active = False
@@ -118,7 +118,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''weather effect button
 		w = New t_button
-		w.set_geometry(512 +60, 290, 300, 34)
+		w.set_geometry(512 +60, 290, 300, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_weather")
@@ -171,7 +171,7 @@ Type t_menu_training_settings Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*144, 700, 144, 40)
+		w.set_geometry(512 -0.5*144, 708, 144, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")

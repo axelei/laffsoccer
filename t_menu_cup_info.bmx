@@ -14,7 +14,7 @@ Type t_menu_cup_info Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*520, 40, 520, 40)
+		w.set_geometry(512 -0.5*520, 30, 520, 40)
 		w.set_colors($415600, $5E7D00, $243000)
 		w.set_text(cup.name, 0, 14)
 		w.active = False
@@ -22,7 +22,7 @@ Type t_menu_cup_info Extends t_game_mode
 	
 		''season/pitch type
 		w = New t_button
-		w.set_geometry(512 -440, 195, 220, 34)
+		w.set_geometry(512 -440, 195, 220, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(cup.get_byseason_label(), 0, 14)
 		w.active = False
@@ -32,7 +32,7 @@ Type t_menu_cup_info Extends t_game_mode
 			
 			''season start
 			w = New t_button
-			w.set_geometry(512 -210, 195, 70, 34)
+			w.set_geometry(512 -210, 195, 70, 36)
 			w.set_colors($666666, $8F8D8D, $404040)
 			w.set_text(Left(month_name[cup.season_start], 3), 0, 14)
 			w.active = False
@@ -40,7 +40,7 @@ Type t_menu_cup_info Extends t_game_mode
 	
 			''season separator
 			w = New t_button
-			w.set_geometry(512 -140, 195, 40, 34)
+			w.set_geometry(512 -140, 195, 40, 36)
 			w.set_colors($666666, $8F8D8D, $404040)
 			w.set_text("-", 0, 14)
 			w.active = False
@@ -48,7 +48,7 @@ Type t_menu_cup_info Extends t_game_mode
 		
 			''season end
 			w = New t_button
-			w.set_geometry(512 -100, 195, 70, 34)
+			w.set_geometry(512 -100, 195, 70, 36)
 			w.set_colors($666666, $8F8D8D, $404040)
 			w.set_text(Left(month_name[cup.season_end], 3), 0, 14)
 			w.active = False
@@ -58,7 +58,7 @@ Type t_menu_cup_info Extends t_game_mode
 		
 			''pitch type
 			w = New t_button
-			w.set_geometry(512 -210, 195, 180, 34)
+			w.set_geometry(512 -210, 195, 180, 36)
 			w.set_colors($666666, $8F8D8D, $404040)
 			w.set_text(pitch_types[cup.pitch_type], 0, 14)
 			w.active = False
@@ -68,14 +68,14 @@ Type t_menu_cup_info Extends t_game_mode
 	
 		''away goals (off/after 90 mins/after extra time)
 		w = New t_button
-		w.set_geometry(512 -10, 195, 180, 34)
+		w.set_geometry(512 -10, 195, 180, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(dictionary.gettext("AWAY GOALS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +180, 195, 250, 34)
+		w.set_geometry(512 +180, 195, 250, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.visible	= False
 		For Local r:Int = 0 To cup.rounds-1
@@ -89,14 +89,14 @@ Type t_menu_cup_info Extends t_game_mode
 	
 		''time (day/night)
 		w = New t_button
-		w.set_geometry(512 -440, 245, 230, 34)
+		w.set_geometry(512 -440, 245, 230, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(dictionary.gettext("TIME"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 -200, 245, 180, 34)
+		w.set_geometry(512 -200, 245, 180, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(cup.get_time_label(), 0, 14)
 		w.active = False
@@ -104,14 +104,14 @@ Type t_menu_cup_info Extends t_game_mode
 	
 		''rounds
 		w = New t_button
-		w.set_geometry(512 -440, 295, 230, 34)
+		w.set_geometry(512 -440, 295, 230, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(dictionary.gettext("ROUNDS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 -200, 295, 180, 34)
+		w.set_geometry(512 -200, 295, 180, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(cup.rounds, 0, 14)
 		w.active = False
@@ -119,14 +119,14 @@ Type t_menu_cup_info Extends t_game_mode
 		
 		''substitutes
 		w = New t_button
-		w.set_geometry(512, 245, 320, 34)
+		w.set_geometry(512, 245, 320, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(dictionary.gettext("SUBSTITUTES"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +330, 245, 100, 34)
+		w.set_geometry(512 +330, 245, 100, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(cup.substitutions, 0, 14)
 		w.active = False
@@ -134,14 +134,14 @@ Type t_menu_cup_info Extends t_game_mode
 	
 		''bench size
 		w = New t_button
-		w.set_geometry(512, 295, 320, 34)
+		w.set_geometry(512, 295, 320, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(dictionary.gettext("BENCH SIZE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +330, 295, 100, 34)
+		w.set_geometry(512 +330, 295, 100, 36)
 		w.set_colors($666666, $8F8D8D, $404040)
 		w.set_text(cup.bench_size, 0, 14)
 		w.active = False
@@ -163,7 +163,7 @@ Type t_menu_cup_info Extends t_game_mode
 		For Local r:Int = 0 To cup.rounds-1
 			''name
 			w = New t_button
-			w.set_geometry(512 -440, 375 +34*r, 220, 30)
+			w.set_geometry(512 -440, 375 +34*r, 220, 32)
 			If (cup.current_round = r)
 				w.set_colors($663b5d, $8f5382, $40253a)
 			Else
@@ -175,7 +175,7 @@ Type t_menu_cup_info Extends t_game_mode
 
 			''teams
 			w = New t_button
-			w.set_geometry(512 -210, 375 +34*r, 50, 30)
+			w.set_geometry(512 -210, 375 +34*r, 50, 32)
 			If (cup.current_round = r)
 				w.set_colors($663b5d, $8f5382, $40253a)
 			Else
@@ -187,7 +187,7 @@ Type t_menu_cup_info Extends t_game_mode
 
 			''legs
 			w = New t_button
-			w.set_geometry(512 -150, 375 +34*r, 120, 30)
+			w.set_geometry(512 -150, 375 +34*r, 120, 32)
 			If (cup.current_round = r)
 				w.set_colors($663b5d, $8f5382, $40253a)
 			Else
@@ -199,7 +199,7 @@ Type t_menu_cup_info Extends t_game_mode
 
 			''extra time
 			w = New t_button
-			w.set_geometry(512 -20, 375 +34*r, 210, 30)
+			w.set_geometry(512 -20, 375 +34*r, 210, 32)
 			If (cup.current_round = r)
 				w.set_colors($663b5d, $8f5382, $40253a)
 			Else
@@ -211,7 +211,7 @@ Type t_menu_cup_info Extends t_game_mode
 
 			''penalties
 			w = New t_button
-			w.set_geometry(512 +200, 375 +34*r, 230, 30)
+			w.set_geometry(512 +200, 375 +34*r, 230, 32)
 			If (cup.current_round = r)
 				w.set_colors($663b5d, $8f5382, $40253a)
 			Else
@@ -224,7 +224,7 @@ Type t_menu_cup_info Extends t_game_mode
 			
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_VIEW_STATISTICS)])

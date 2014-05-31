@@ -111,7 +111,7 @@ Type t_menu_match_presentation Extends t_game_mode
 		''faders
 		Local fader:t_fader
 		fader = New t_fader		
-		fader.set_geometry(512 -0.5*840, 84, 840, 231)
+		fader.set_geometry(512 -0.5*840, 74, 840, 231)
 		fader.set_alpha_color(0.35)
 		Self.widgets.AddLast(fader)
 
@@ -128,7 +128,7 @@ Type t_menu_match_presentation Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*840, 40, 840, 44)
+		w.set_geometry(512 -0.5*840, 30, 840, 44)
 		w.set_colors($008080, $00B2B4, $004040)
 		Local s:String
 		Select menu.status

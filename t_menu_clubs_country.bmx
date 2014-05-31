@@ -33,7 +33,7 @@ Type t_menu_clubs_country Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*660, 40, 660, 40)
+		w.set_geometry(512 -0.5*660, 30, 660, 40)
 		Select menu.status
 			Case MS_FRIENDLY
 				w.set_colors($2D855D, $3DB37D, $1E5027)
@@ -74,13 +74,13 @@ Type t_menu_clubs_country Extends t_game_mode
 					col3 = Floor(teams/3.0) + 1 * (teams Mod 3 > 0) 
 					If (tm <= col1)
 						w.x = 0.5*1024 -1.5*w.w -20
-						w.y = 356 -34*0.5*col2 +34*tm
+						w.y = 360 -34*0.5*col2 +34*tm
 					Else If (tm <= col1 + col2)
 						w.x = 0.5*1024 -0.5*w.w
-						w.y = 356 -34*0.5*col2 +34*(tm -col1)
+						w.y = 360 -34*0.5*col2 +34*(tm -col1)
 					Else
 						w.x = 0.5*1024 +0.5*w.w +20
-						w.y = 356 -34*0.5*col2 +34*(tm -col1 -col2)
+						w.y = 360 -34*0.5*col2 +34*(tm -col1 -col2)
 					EndIf					
 				EndIf
 				
@@ -94,7 +94,7 @@ Type t_menu_clubs_country Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_CLUBS_CONFEDERATION)])

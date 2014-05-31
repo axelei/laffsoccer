@@ -20,7 +20,7 @@ Type t_menu_friendly Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*400, 40, 400, 40)
+		w.set_geometry(512 -0.5*400, 30, 400, 40)
 		w.set_colors($2D855D, $3DB37D, $1E5027)
 		w.set_text(dictionary.gettext("FRIENDLY"), 0, 14)
 		w.active = False
@@ -28,14 +28,14 @@ Type t_menu_friendly Extends t_game_mode
 	
 		''substitutes
 		w = New t_button
-		w.set_geometry(512 -440, 150, 440, 34)
+		w.set_geometry(512 -440, 200, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("SUBSTITUTES"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
-		w.set_geometry(512 + 80, 150, 240, 34)
+		w.set_geometry(512 + 80, 200, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_substitutes", ["+1"])
@@ -48,14 +48,14 @@ Type t_menu_friendly Extends t_game_mode
 		
 		''bench size
 		w = New t_button
-		w.set_geometry(512 -440, 200, 440, 34)
+		w.set_geometry(512 -440, 250, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("BENCH SIZE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 + 80, 200, 240, 34)
+		w.set_geometry(512 + 80, 250, 240, 36)
 		w.set_colors($3C3C78, $5858AC, $202040)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_bench_size", ["+1"])
@@ -94,7 +94,7 @@ Type t_menu_friendly Extends t_game_mode
 	
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_MAIN)])

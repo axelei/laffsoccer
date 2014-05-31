@@ -23,7 +23,7 @@ Type t_menu_game_options Extends t_game_mode
 		Local w:t_widget
 		w = New t_button
 		w.set_colors($536B90, $7090C2, $263142)
-		w.set_geometry(512 -200, 40, 400, 40)
+		w.set_geometry(512 -200, 30, 400, 40)
 		w.set_text(dictionary.gettext("GAME OPTIONS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
@@ -31,14 +31,14 @@ Type t_menu_game_options Extends t_game_mode
 		''screen mode
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 150, 440, 34)
+		w.set_geometry(52, 150, 440, 36)
 		w.set_text(dictionary.gettext("SCREEN MODE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($3C3C78, $5858AC, $202040)
-		w.set_geometry(512 +20, 150, 440, 34)
+		w.set_geometry(512 +20, 150, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_screen_mode")
 		w.bind("fire2_down", "bc_screen_mode")
@@ -51,14 +51,14 @@ Type t_menu_game_options Extends t_game_mode
 		''player country
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 210, 440, 34)
+		w.set_geometry(52, 210, 440, 36)
 		w.set_text(dictionary.gettext("PLAYER'S COUNTRY"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($1F1F95, $3030D4, $151563)
-		w.set_geometry(512 +20, 210, 440, 34)
+		w.set_geometry(512 +20, 210, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_player_country")
 		w.bind("fire2_down", "bc_player_country")
@@ -69,14 +69,14 @@ Type t_menu_game_options Extends t_game_mode
 		''music mode
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 270, 440, 34)
+		w.set_geometry(52, 270, 440, 36)
 		w.set_text(dictionary.gettext("MUSIC MODE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($3C3C78, $5858AC, $202040)
-		w.set_geometry(512 +20, 270, 440, 34)
+		w.set_geometry(512 +20, 270, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_music_mode", ["+1"])
 		w.bind("fire1_hold", "bc_music_mode", ["+1"])
@@ -89,14 +89,14 @@ Type t_menu_game_options Extends t_game_mode
 		''music volume
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 330, 440, 34)
+		w.set_geometry(52, 330, 440, 36)
 		w.set_text(dictionary.gettext("MUSIC VOLUME"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($1F1F95, $3030D4, $151563)
-		w.set_geometry(512 +20, 330, 440, 34)
+		w.set_geometry(512 +20, 330, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_music_volume", ["+1"])
 		w.bind("fire1_hold", "bc_music_volume", ["+1"])
@@ -109,14 +109,14 @@ Type t_menu_game_options Extends t_game_mode
 		''mouse
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 390, 440, 34)
+		w.set_geometry(52, 390, 440, 36)
 		w.set_text(dictionary.gettext("MOUSE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($3C3C78, $5858AC, $202040)
-		w.set_geometry(512 +20, 390, 440, 34)
+		w.set_geometry(512 +20, 390, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_mouse")
 		w.bind("fire2_down", "bc_mouse")
@@ -127,14 +127,14 @@ Type t_menu_game_options Extends t_game_mode
 		''language
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 450, 440, 34)
+		w.set_geometry(52, 450, 440, 36)
 		w.set_text(dictionary.gettext("LANGUAGE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($1F1F95, $3030D4, $151563)
-		w.set_geometry(512 +20, 450, 440, 34)
+		w.set_geometry(512 +20, 450, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_language", ["+1"])
 		w.bind("fire1_hold", "bc_language", ["+1"])
@@ -147,14 +147,14 @@ Type t_menu_game_options Extends t_game_mode
 		''audio driver
 		w = New t_button
 		w.set_colors($800000, $B40000, $400000)
-		w.set_geometry(52, 510, 440, 34)
+		w.set_geometry(52, 510, 440, 36)
 		w.set_text(dictionary.gettext("AUDIO DRIVER"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($3C3C78, $5858AC, $202040)
-		w.set_geometry(512 +20, 510, 440, 34)
+		w.set_geometry(512 +20, 510, 440, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_audio_driver", ["+1"])
 		w.bind("fire1_hold", "bc_audio_driver", ["+1"])
@@ -167,7 +167,7 @@ Type t_menu_game_options Extends t_game_mode
 		''quit to os
 		w = New t_button
 		w.set_colors($008080, $00B2B4, $004040)
-		w.set_geometry(512 -0.5*300, 590, 300, 34)
+		w.set_geometry(512 -0.5*300, 590, 300, 36)
 		w.set_text(dictionary.gettext("QUIT TO OS"), 0, 14)
 		w.bind("fire1_down", "bc_quit_to_os")
 		Self.widgets.AddLast(w)
@@ -175,7 +175,7 @@ Type t_menu_game_options Extends t_game_mode
 		''exit
 		w = New t_button
 		w.set_colors($C84200, $FF6519, $803300)
-		w.set_geometry(512 -0.5*180, 680, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")
 		Self.widgets.AddLast(w)

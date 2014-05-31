@@ -31,7 +31,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*520, 40, 520, 40)
+		w.set_geometry(512 -0.5*520, 30, 520, 40)
 		w.set_colors($415600, $5E7D00, $243000)
 		w.set_text(dictionary.gettext("DESIGN DIY LEAGUE"), 0, 14)
 		w.active = False
@@ -39,7 +39,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''name
 		Self.w_league_name = New t_input_button
-		Self.w_league_name.set_geometry(512 -370, 120, 700, 34)
+		Self.w_league_name.set_geometry(512 -370, 120, 700, 36)
 		Self.w_league_name.set_colors($1F1F95, $3030D4, $151563)
 		Self.w_league_name.set_text(league.name, 0, 14)
 		Self.w_league_name.set_entry_limit(24)
@@ -48,7 +48,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''season/pitch type
 		w = New t_button
-		w.set_geometry(512 -370, 165, 440, 34)
+		w.set_geometry(512 -370, 165, 440, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_season_pitch_type")
@@ -58,7 +58,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''season start
 		w = New t_button
-		w.set_geometry(512 +90, 165, 100, 34)
+		w.set_geometry(512 +90, 165, 100, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_season_start", ["+1"])
@@ -71,7 +71,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''season separator
 		w = New t_button
-		w.set_geometry(512 +190, 165, 40, 34)
+		w.set_geometry(512 +190, 165, 40, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text("-", 0, 14)
 		w.active = False
@@ -80,7 +80,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''season end
 		w = New t_button
-		w.set_geometry(512 +230, 165, 100, 34)
+		w.set_geometry(512 +230, 165, 100, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_season_end", ["+1"])
@@ -93,7 +93,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''pitch type
 		w = New t_button
-		w.set_geometry(512 +90, 165, 240, 34)
+		w.set_geometry(512 +90, 165, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.visible = False
@@ -107,14 +107,14 @@ Type t_menu_design_diy_league Extends t_game_mode
 	
 		''time (day/night)
 		w = New t_button
-		w.set_geometry(512 -370, 210, 440, 34)
+		w.set_geometry(512 -370, 210, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("TIME"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +90, 210, 240, 34)
+		w.set_geometry(512 +90, 210, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_time")
@@ -126,14 +126,14 @@ Type t_menu_design_diy_league Extends t_game_mode
 
 		''number of teams
 		w = New t_button
-		w.set_geometry(512 -370, 255, 440, 34)
+		w.set_geometry(512 -370, 255, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("NUMBER OF TEAMS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +90, 255, 240, 34)
+		w.set_geometry(512 +90, 255, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_number_of_teams", ["+1"])
@@ -146,14 +146,14 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''play each team
 		w = New t_button
-		w.set_geometry(512 -370, 300, 440, 34)
+		w.set_geometry(512 -370, 300, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("PLAY EACH TEAM"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +90, 300, 240, 34)
+		w.set_geometry(512 +90, 300, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_play_each_time", ["+1"])
@@ -166,14 +166,14 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''points for a win
 		w = New t_button
-		w.set_geometry(512 -370, 345, 440, 34)
+		w.set_geometry(512 -370, 345, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("POINTS FOR A WIN"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +90, 345, 240, 34)
+		w.set_geometry(512 +90, 345, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_points_for_a_win")
@@ -183,14 +183,14 @@ Type t_menu_design_diy_league Extends t_game_mode
 		
 		''substitutes
 		w = New t_button
-		w.set_geometry(512 -370, 390, 440, 34)
+		w.set_geometry(512 -370, 390, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("SUBSTITUTES"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +90, 390, 240, 34)
+		w.set_geometry(512 +90, 390, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_substitutes", ["+1"])
@@ -203,14 +203,14 @@ Type t_menu_design_diy_league Extends t_game_mode
 	
 		''bench size
 		w = New t_button
-		w.set_geometry(512 -370, 435, 440, 34)
+		w.set_geometry(512 -370, 435, 440, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("BENCH SIZE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +90, 435, 240, 34)
+		w.set_geometry(512 +90, 435, 240, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_bench_size", ["+1"])
@@ -247,7 +247,7 @@ Type t_menu_design_diy_league Extends t_game_mode
 	
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")

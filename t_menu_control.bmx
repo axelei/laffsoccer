@@ -18,7 +18,7 @@ Type t_menu_control Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*400, 40, 400, 40)
+		w.set_geometry(512 -0.5*400, 30, 400, 40)
 		w.set_colors($A905A3, $E808E0, $5A0259)
 		w.set_text(dictionary.gettext("CONTROL"), 0, 14)
 		w.active = False
@@ -26,21 +26,21 @@ Type t_menu_control Extends t_game_mode
 		
 		''keyboard set
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 210, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 210, 280, 36)
 		w.set_colors($548854, $70A870, $263E26)
 		w.set_text(dictionary.gettext("KEYS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
-		w.set_geometry(512 -0.5*220, 210, 220, 34)
+		w.set_geometry(512 -0.5*220, 210, 220, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text("1", 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
-		w.set_geometry(512 +0.5*220 +20, 210, 220, 34)
+		w.set_geometry(512 +0.5*220 +20, 210, 220, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text("2", 0, 14)
 		w.active = False
@@ -48,7 +48,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''up
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 280, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 280, 280, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("UP"), 0, 14)
 		w.active = False
@@ -56,7 +56,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''down
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 330, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 330, 280, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("DOWN"), 0, 14)
 		w.active = False
@@ -64,7 +64,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''left
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 380, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 380, 280, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("LEFT"), 0, 14)
 		w.active = False
@@ -72,7 +72,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''right
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 430, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 430, 280, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("RIGHT"), 0, 14)
 		w.active = False
@@ -80,7 +80,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''first button
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 480, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 480, 280, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("BUTTON A"), 0, 14)
 		w.active = False
@@ -88,7 +88,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''second button
 		w = New t_button
-		w.set_geometry(512 -280 -20 -120, 530, 280, 34)
+		w.set_geometry(512 -280 -20 -120, 530, 280, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("BUTTON B"), 0, 14)
 		w.active = False
@@ -98,7 +98,7 @@ Type t_menu_control Extends t_game_mode
 		''up
 		Local key_button:t_key_button
 		key_button = New t_key_button
-		key_button.set_geometry(512 -0.5*220, 280, 220, 34)
+		key_button.set_geometry(512 -0.5*220, 280, 220, 36)
 		key_button.set_colors($3C3C78, $5858AC, $202040)
 		key_button.set_text(keynames[game_settings.key[0].key_up], 0, 14)
 		key_button.set_key(0, "key_up")
@@ -109,7 +109,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''down
 		key_button = New t_key_button
-		key_button.set_geometry(512 -0.5*220, 330, 220, 34)
+		key_button.set_geometry(512 -0.5*220, 330, 220, 36)
 		key_button.set_colors($1F1F95, $3030D4, $151563)
 		key_button.set_text(keynames[game_settings.key[0].key_down], 0, 14)
 		key_button.set_key(0, "key_down")
@@ -118,7 +118,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''left
 		key_button = New t_key_button
-		key_button.set_geometry(512 -0.5*220, 380, 220, 34)
+		key_button.set_geometry(512 -0.5*220, 380, 220, 36)
 		key_button.set_colors($3C3C78, $5858AC, $202040)
 		key_button.set_text(keynames[game_settings.key[0].key_left], 0, 14)
 		key_button.set_key(0, "key_left")
@@ -127,7 +127,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''right
 		key_button = New t_key_button
-		key_button.set_geometry(512 -0.5*220, 430, 220, 34)
+		key_button.set_geometry(512 -0.5*220, 430, 220, 36)
 		key_button.set_colors($1F1F95, $3030D4, $151563)
 		key_button.set_text(keynames[game_settings.key[0].key_right], 0, 14)
 		key_button.set_key(0, "key_right")
@@ -136,7 +136,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''button 1
 		key_button = New t_key_button
-		key_button.set_geometry(512 -0.5*220, 480, 220, 34)
+		key_button.set_geometry(512 -0.5*220, 480, 220, 36)
 		key_button.set_colors($3C3C78, $5858AC, $202040)
 		key_button.set_text(keynames[game_settings.key[0].button_1], 0, 14)
 		key_button.set_key(0, "button_1")
@@ -145,7 +145,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''button 2
 		key_button = New t_key_button
-		key_button.set_geometry(512 -0.5*220, 530, 220, 34)
+		key_button.set_geometry(512 -0.5*220, 530, 220, 36)
 		key_button.set_colors($1F1F95, $3030D4, $151563)
 		key_button.set_text(keynames[game_settings.key[0].button_2], 0, 14)
 		key_button.set_key(0, "button_2")
@@ -155,7 +155,7 @@ Type t_menu_control Extends t_game_mode
 		''second set
 		''up
 		key_button = New t_key_button
-		key_button.set_geometry(512 +0.5*220 +20, 280, 220, 34)
+		key_button.set_geometry(512 +0.5*220 +20, 280, 220, 36)
 		key_button.set_colors($3C3C78, $5858AC, $202040)
 		key_button.set_text(keynames[game_settings.key[1].key_up], 0, 14)
 		key_button.set_key(1, "key_up")
@@ -164,7 +164,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''down
 		key_button = New t_key_button
-		key_button.set_geometry(512 +0.5*220 +20, 330, 220, 34)
+		key_button.set_geometry(512 +0.5*220 +20, 330, 220, 36)
 		key_button.set_colors($1F1F95, $3030D4, $151563)
 		key_button.set_text(keynames[game_settings.key[1].key_down], 0, 14)
 		key_button.set_key(1, "key_down")
@@ -173,7 +173,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''left
 		key_button = New t_key_button
-		key_button.set_geometry(512 +0.5*220 +20, 380, 220, 34)
+		key_button.set_geometry(512 +0.5*220 +20, 380, 220, 36)
 		key_button.set_colors($3C3C78, $5858AC, $202040)
 		key_button.set_text(keynames[game_settings.key[1].key_left], 0, 14)
 		key_button.set_key(1, "key_left")
@@ -182,7 +182,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''right
 		key_button = New t_key_button
-		key_button.set_geometry(512 +0.5*220 +20, 430, 220, 34)
+		key_button.set_geometry(512 +0.5*220 +20, 430, 220, 36)
 		key_button.set_colors($1F1F95, $3030D4, $151563)
 		key_button.set_text(keynames[game_settings.key[1].key_right], 0, 14)
 		key_button.set_key(1, "key_right")
@@ -191,7 +191,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''button 1
 		key_button = New t_key_button
-		key_button.set_geometry(512 +0.5*220 +20, 480, 220, 34)
+		key_button.set_geometry(512 +0.5*220 +20, 480, 220, 36)
 		key_button.set_colors($3C3C78, $5858AC, $202040)
 		key_button.set_text(keynames[game_settings.key[1].button_1], 0, 14)
 		key_button.set_key(1, "button_1")
@@ -200,7 +200,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''button 2
 		key_button = New t_key_button
-		key_button.set_geometry(512 +0.5*220 +20, 530, 220, 34)
+		key_button.set_geometry(512 +0.5*220 +20, 530, 220, 36)
 		key_button.set_colors($1F1F95, $3030D4, $151563)
 		key_button.set_text(keynames[game_settings.key[1].button_2], 0, 14)
 		key_button.set_key(1, "button_2")
@@ -209,7 +209,7 @@ Type t_menu_control Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 680, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_MAIN)])

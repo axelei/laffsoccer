@@ -14,7 +14,7 @@ Type t_menu_select_tactics_to_edit Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*400, 40, 400, 40)
+		w.set_geometry(512 -0.5*400, 30, 400, 40)
 		w.set_colors($BA9206, $E9B607, $6A5304)
 		w.set_text(dictionary.gettext("EDIT TACTICS"), 0, 14)
 		w.active = False
@@ -35,7 +35,7 @@ Type t_menu_select_tactics_to_edit Extends t_game_mode
 		
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")

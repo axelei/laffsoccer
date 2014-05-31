@@ -18,7 +18,7 @@ Type t_menu_save_tactics Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -280, 40, 560, 40)
+		w.set_geometry(512 -280, 30, 560, 40)
 		w.set_colors($BA9206, $E9B607, $6A5304)
 		w.set_text(dictionary.gettext("SAVE TACTICS"), 0, 14)
 		w.active = False
@@ -45,32 +45,32 @@ Type t_menu_save_tactics Extends t_game_mode
 		For Local tactics_file:String = EachIn tactics_files
 			t = t + 1
 			w = New t_button
-			w.set_size(160, 30)
+			w.set_size(160, 36)
 			w.set_colors($98691E, $C88B28, $3E2600)
 			w.set_text(tactics_file, 0, 14)
 			w.bind("fire1_down", "bc_save", [tactics_file])
 			If (tactics_count <= 8)
 				w.x = 0.5*1024 -0.5*240
-				w.y = 266 - 32*0.5*tactics_count + 32*t
+				w.y = 266 - 42*0.5*tactics_count + 42*t
 			Else
 				col1 = Floor(tactics_count/3.0) + 1 * ((tactics_count Mod 3) = 2) 
 				col2 = Floor(tactics_count/3.0) + 1 * ((tactics_count Mod 3) > 0) 
 				If (t <= col1)
 					w.x = 0.5*1024 -1.5*240 -60
-					w.y = 266 - 32*0.5*col2 +32*t
+					w.y = 266 - 42*0.5*col2 +42*t
 				Else If (t <= col1 + col2)
 					w.x = 0.5*1024 -0.5*240
-					w.y = 266 - 32*0.5*col2 +32*(t -col1)
+					w.y = 266 - 42*0.5*col2 +42*(t -col1)
 				Else
 					w.x = 0.5*1024 +0.5*240 +60
-					w.y = 266 - 32*0.5*col2 +32*(t -col1 -col2)
+					w.y = 266 - 42*0.5*col2 +42*(t -col1 -col2)
 				EndIf					
 			EndIf
 			
 			Self.widgets.AddLast(w)
 			
 			Local w2:t_widget = New t_button
-			w2.set_size(80, 30)
+			w2.set_size(80, 36)
 			w2.set_position(w.x +165, w.y)
 			w2.set_colors($98691E, $C88B28, $3E2600)
 			w2.set_text("TACT", 0, 14)
@@ -81,14 +81,14 @@ Type t_menu_save_tactics Extends t_game_mode
 		
 		''filename
 		w = New t_label
-		w.set_geometry(512 -160, 500, 160, 30)
+		w.set_geometry(512 -160, 500, 160, 36)
 		w.set_colors($9C522A, $BB5A25, $69381D)
 		w.set_text(dictionary.gettext("FILENAME")+":", -1, 14)
 		Self.widgets.AddLast(w)
 
 		Local input_button:t_input_button
 		input_button = New t_input_button
-		input_button.set_geometry(512, 500, 160, 30)
+		input_button.set_geometry(512, 500, 160, 36)
 		input_button.set_colors($1769BD, $3A90E8, $10447A)
 		input_button.set_text(Self.file_name, 0, 14)
 		input_button.set_entry_limit(8)
@@ -98,7 +98,7 @@ Type t_menu_save_tactics Extends t_game_mode
 		
 		''save
 		w = New t_button
-		w.set_geometry(512 -90, 610, 180, 34)
+		w.set_geometry(512 -90, 610, 180, 36)
 		w.set_colors($10A000, $15E000, $096000)
 		w.set_text(dictionary.gettext("SAVE"), 0, 14)
 		w.bind("fire1_down", "bc_save", [""])
@@ -108,7 +108,7 @@ Type t_menu_save_tactics Extends t_game_mode
 		
 		''abort
 		w = New t_button
-		w.set_geometry(512 -90, 680, 180, 34)
+		w.set_geometry(512 -90, 708, 180, 36)
 		w.set_colors($DC0000, $FF4141, $8C0000)
 		w.set_text(dictionary.gettext("ABORT"), 0, 14)
 		w.bind("fire1_down", "bc_abort")

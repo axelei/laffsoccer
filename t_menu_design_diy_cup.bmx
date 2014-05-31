@@ -33,7 +33,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 		''title
 		Local w:t_widget
 		w = New t_button
-		w.set_geometry(512 -0.5*520, 40, 520, 40)
+		w.set_geometry(512 -0.5*520, 30, 520, 40)
 		w.set_colors($415600, $5E7D00, $243000)
 		w.set_text(dictionary.gettext("DESIGN DIY CUP"), 0, 14)
 		w.active = False
@@ -41,7 +41,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 	
 		''name
 		Self.w_cup_name = New t_input_button
-		Self.w_cup_name.set_geometry(512 -470, 101, 930, 34)
+		Self.w_cup_name.set_geometry(512 -470, 101, 930, 36)
 		Self.w_cup_name.set_colors($1F1F95, $3030D4, $151563)
 		Self.w_cup_name.set_text(cup.name, 0, 14)
 		Self.w_cup_name.set_entry_limit(24)
@@ -50,7 +50,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 		
 		''season/pitch type
 		w = New t_button
-		w.set_geometry(512 -470, 144, 220, 34)
+		w.set_geometry(512 -470, 144, 220, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(cup.get_byseason_label(), 0, 14)
 		w.bind("fire1_down", "bc_season_pitch_type")
@@ -58,7 +58,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 	
 		''season start
 		w = New t_button
-		w.set_geometry(512 -240, 144, 70, 34)
+		w.set_geometry(512 -240, 144, 70, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(Left(month_name[cup.season_start],3), 0, 14)
 		w.bind("fire1_down", "bc_season_start", ["+1"])
@@ -70,7 +70,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 		
 		''season separator
 		w = New t_button
-		w.set_geometry(512 -170, 144, 40, 34)
+		w.set_geometry(512 -170, 144, 40, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text("-", 0, 14)
 		w.active = False
@@ -79,7 +79,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 	
 		''season end
 		w = New t_button
-		w.set_geometry(512 -130, 144, 70, 34)
+		w.set_geometry(512 -130, 144, 70, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(Left(month_name[cup.season_end],3), 0, 14)
 		w.bind("fire1_down", "bc_season_end", ["+1"])
@@ -91,7 +91,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 		
 		''pitch type
 		w = New t_button
-		w.set_geometry(512 -240, 144, 180, 34)
+		w.set_geometry(512 -240, 144, 180, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(pitch_types[cup.pitch_type], 0, 14)
 		w.visible = False
@@ -104,14 +104,14 @@ Type t_menu_design_diy_cup Extends t_game_mode
 	
 		''away goals (off/after 90 mins/after extra time)
 		w = New t_button
-		w.set_geometry(512 -40, 144, 218, 34)
+		w.set_geometry(512 -40, 144, 218, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("AWAY GOALS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +188, 144, 272, 34)
+		w.set_geometry(512 +188, 144, 272, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(cup.get_away_goals_label(), 0, 14)
 		w.bind("fire1_down", "bc_away_goals")
@@ -121,14 +121,14 @@ Type t_menu_design_diy_cup Extends t_game_mode
 	
 		''time (day/night)
 		w = New t_button
-		w.set_geometry(512 -470, 187, 230, 34)
+		w.set_geometry(512 -470, 187, 230, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("TIME"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 -230, 187, 180, 34)
+		w.set_geometry(512 -230, 187, 180, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(cup.get_time_label(), 0, 14)
 		w.bind("fire1_down", "bc_time")
@@ -138,14 +138,14 @@ Type t_menu_design_diy_cup Extends t_game_mode
 
 		''rounds
 		w = New t_button
-		w.set_geometry(512 -470, 230, 230, 34)
+		w.set_geometry(512 -470, 230, 230, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("ROUNDS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 -230, 230, 180, 34)
+		w.set_geometry(512 -230, 230, 180, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(cup.rounds, 0, 14)
 		w.bind("fire1_down", "bc_rounds", ["+1"])
@@ -156,14 +156,14 @@ Type t_menu_design_diy_cup Extends t_game_mode
 		
 		''substitutes
 		w = New t_button
-		w.set_geometry(512 -30, 187, 320, 34)
+		w.set_geometry(512 -30, 187, 320, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("SUBSTITUTES"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +300, 187, 160, 34)
+		w.set_geometry(512 +300, 187, 160, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(cup.substitutions, 0, 14)
 		w.bind("fire1_down", "bc_substitutes", ["+1"])
@@ -175,14 +175,14 @@ Type t_menu_design_diy_cup Extends t_game_mode
 
 		''bench size
 		w = New t_button
-		w.set_geometry(512 -30, 230, 320, 34)
+		w.set_geometry(512 -30, 230, 320, 36)
 		w.set_colors($800000, $B40000, $400000)
 		w.set_text(dictionary.gettext("BENCH SIZE"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 	
 		w = New t_button
-		w.set_geometry(512 +300, 230, 160, 34)
+		w.set_geometry(512 +300, 230, 160, 36)
 		w.set_colors($1F1F95, $3030D4, $151563)
 		w.set_text(cup.bench_size, 0, 14)
 		w.bind("fire1_down", "bc_bench_size", ["+1"])
@@ -209,7 +209,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 			
 			''name
 			w = New t_button
-			w.set_geometry(512 -470, 315 +32*r, 230, 30)
+			w.set_geometry(512 -470, 315 +34*r, 230, 32)
 			w.set_colors($800000, $B40000, $400000)
 			w.set_text(cup.round[r].name, 0, 14)
 			w.active = False
@@ -219,7 +219,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 
 			''teams
 			w = New t_button
-			w.set_geometry(512 -230, 315 +32*r, 50, 30)
+			w.set_geometry(512 -230, 315 +34*r, 50, 32)
 			w.set_colors($800000, $B40000, $400000)
 			w.set_text(cup.round[r].teams, 0, 14)
 			w.active = False
@@ -229,7 +229,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 
 			''legs
 			w = New t_button
-			w.set_geometry(512 -170, 315 +32*r, 130, 30)
+			w.set_geometry(512 -170, 315 +34*r, 130, 32)
 			w.set_colors($1F1F95, $3030D4, $151563)
 			w.set_text(cup.get_legs_label(r), 0, 14)
 			w.visible = visible
@@ -239,7 +239,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 
 			''extra time
 			w = New t_button
-			w.set_geometry(512 -30, 315 +32*r, 240, 30)
+			w.set_geometry(512 -30, 315 +34*r, 240, 32)
 			w.set_colors($1F1F95, $3030D4, $151563)
 			w.set_text(cup.get_extra_time_label(r), 0, 14)
 			w.visible = visible
@@ -249,7 +249,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 
 			''penalties
 			w = New t_button
-			w.set_geometry(512 +220, 315 +32*r, 240, 30)
+			w.set_geometry(512 +220, 315 +34*r, 240, 32)
 			w.set_colors($1F1F95, $3030D4, $151563)
 			w.set_text(cup.get_penalties_label(r), 0, 14)
 			w.visible = visible
@@ -289,7 +289,7 @@ Type t_menu_design_diy_cup Extends t_game_mode
 	
 		''exit
 		w = New t_button
-		w.set_geometry(512 -0.5*180, 700, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_colors($C84200, $FF6519, $803300)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_exit")

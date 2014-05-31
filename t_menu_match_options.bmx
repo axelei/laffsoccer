@@ -25,7 +25,7 @@ Type t_menu_match_options Extends t_game_mode
 		Local w:t_widget
 		w = New t_button
 		w.set_colors($6101D7, $7D1DFF, $3A0181)
-		w.set_geometry(512 -200, 40, 400, 40)
+		w.set_geometry(512 -200, 30, 400, 40)
 		w.set_text(dictionary.gettext("MATCH OPTIONS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
@@ -33,14 +33,14 @@ Type t_menu_match_options Extends t_game_mode
 		''match length
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 130, 470, 34)
+		w.set_geometry(110, 130, 470, 36)
 		w.set_text(dictionary.gettext("FRIENDLY/DIY GAME LENGTH"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($B32D95, $D555B8, $6E1C5C)
-		w.set_geometry(512 +120, 130, 240, 34)
+		w.set_geometry(512 +120, 130, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_match_length", ["+1"])
 		w.bind("fire1_hold", "bc_match_length", ["+1"])
@@ -55,14 +55,14 @@ Type t_menu_match_options Extends t_game_mode
 		''weather effects
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 190, 470, 34)
+		w.set_geometry(110, 190, 470, 36)
 		w.set_text(dictionary.gettext("WEATHER EFFECTS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($2B4A61, $3F6A8B, $1E3242)
-		w.set_geometry(512 +120, 190, 240, 34)
+		w.set_geometry(512 +120, 190, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_weather_effects", ["+1"])
 		w.bind("fire1_hold", "bc_weather_effects", ["+1"])
@@ -75,14 +75,14 @@ Type t_menu_match_options Extends t_game_mode
 		''radar
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 250, 470, 34)
+		w.set_geometry(110, 250, 470, 36)
 		w.set_text(dictionary.gettext("RADAR"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($B32D95, $D555B8, $6E1C5C)
-		w.set_geometry(512 +120, 250, 240, 34)
+		w.set_geometry(512 +120, 250, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_radar")
 		w.bind("fire2_down", "bc_radar")
@@ -93,14 +93,14 @@ Type t_menu_match_options Extends t_game_mode
 		''autoreplays
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 310, 470, 34)
+		w.set_geometry(110, 310, 470, 36)
 		w.set_text(dictionary.gettext("AUTO REPLAYS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($2B4A61, $3F6A8B, $1E3242)
-		w.set_geometry(512 +120, 310, 240, 34)
+		w.set_geometry(512 +120, 310, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_auto_replays")
 		w.bind("fire2_down", "bc_auto_replays")
@@ -111,14 +111,14 @@ Type t_menu_match_options Extends t_game_mode
 		''resolution
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 370, 470, 34)
+		w.set_geometry(110, 370, 470, 36)
 		w.set_text(dictionary.gettext("RESOLUTION"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($B32D95, $D555B8, $6E1C5C)
-		w.set_geometry(512 +120, 370, 240, 34)
+		w.set_geometry(512 +120, 370, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_resolution", ["+1"])
 		w.bind("fire1_hold", "bc_resolution", ["+1"])
@@ -131,14 +131,14 @@ Type t_menu_match_options Extends t_game_mode
 		''zoom
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 430, 470, 34)
+		w.set_geometry(110, 430, 470, 36)
 		w.set_text(dictionary.gettext("ZOOM"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($2B4A61, $3F6A8B, $1E3242)
-		w.set_geometry(512 +120, 430, 240, 34)
+		w.set_geometry(512 +120, 430, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_zoom", ["+1"])
 		w.bind("fire1_hold", "bc_zoom", ["+1"])
@@ -155,14 +155,14 @@ Type t_menu_match_options Extends t_game_mode
 		''rotation
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 490, 470, 34)
+		w.set_geometry(110, 490, 470, 36)
 		w.set_text(dictionary.gettext("ROTATION"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($B32D95, $D555B8, $6E1C5C)
-		w.set_geometry(512 +120, 490, 240, 34)
+		w.set_geometry(512 +120, 490, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_rotation")
 		w.bind("fire2_down", "bc_rotation")
@@ -173,14 +173,14 @@ Type t_menu_match_options Extends t_game_mode
 		''sound effects
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 550, 470, 34)
+		w.set_geometry(110, 550, 470, 36)
 		w.set_text(dictionary.gettext("SOUND EFFECTS"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($2B4A61, $3F6A8B, $1E3242)
-		w.set_geometry(512 +120, 550, 240, 34)
+		w.set_geometry(512 +120, 550, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_sound_effects", ["+1"])
 		w.bind("fire1_hold", "bc_sound_effects", ["+1"])
@@ -193,14 +193,14 @@ Type t_menu_match_options Extends t_game_mode
 		''commentary
 		w = New t_button
 		w.set_colors($76683C, $A99757, $463E24)
-		w.set_geometry(110, 610, 470, 34)
+		w.set_geometry(110, 610, 470, 36)
 		w.set_text(dictionary.gettext("COMMENTARY"), 0, 14)
 		w.active = False
 		Self.widgets.AddLast(w)
 		
 		w = New t_button
 		w.set_colors($B32D95, $D555B8, $6E1C5C)
-		w.set_geometry(512 +120, 610, 240, 34)
+		w.set_geometry(512 +120, 610, 240, 36)
 		w.set_text("", 0, 14)
 		w.bind("fire1_down", "bc_commentary")
 		w.bind("fire2_down", "bc_commentary")
@@ -211,7 +211,7 @@ Type t_menu_match_options Extends t_game_mode
 		''exit
 		w = New t_button
 		w.set_colors($C84200, $FF6519, $803300)
-		w.set_geometry(512 -0.5*180, 680, 180, 34)
+		w.set_geometry(512 -0.5*180, 708, 180, 36)
 		w.set_text(dictionary.gettext("EXIT"), 0, 14)
 		w.bind("fire1_down", "bc_set_menu", [String(GM.MENU_MAIN)])
 		Self.widgets.AddLast(w)
