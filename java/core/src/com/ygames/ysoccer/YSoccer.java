@@ -16,7 +16,7 @@ public class YSoccer extends ApplicationAdapter {
         camera = new OrthographicCamera();
         camera.setToOrtho(true, 1280, 720);
         batch = new SpriteBatch();
-        region = new TextureRegion(new Texture("badlogic.jpg"));
+        region = new TextureRegion(new Texture("images/backgrounds/menu_main.jpg"));
         region.flip(false, true);
     }
 
@@ -25,7 +25,7 @@ public class YSoccer extends ApplicationAdapter {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(region, 0, 0);
+        batch.draw(region, 0, 0, 1280, 720);
         batch.end();
     }
 
