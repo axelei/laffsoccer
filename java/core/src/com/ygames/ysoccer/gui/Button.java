@@ -4,18 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.GlGraphics;
 
-public class Button {
-
-    // geometry
-    int x;
-    int y;
-    int w;
-    int h;
-
-    // colors
-    int body;
-    int lightBorder;
-    int darkBorder;
+public class Button extends Widget {
 
     public void render(GlGraphics glGraphics) {
         ShapeRenderer shapeRenderer = glGraphics.shapeRenderer;
@@ -33,27 +22,6 @@ public class Button {
         }
 
         shapeRenderer.end();
-    }
-
-    public void setGeometry(int x, int y, int w, int h) {
-        setPosition(x, y);
-        setSize(w, h);
-    }
-
-    public void setPosition(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public void setSize(int w, int h) {
-        this.w = w;
-        this.h = h;
-    }
-
-    public void setColors(int body, int lightBorder, int darkBorder) {
-        this.body = body;
-        this.lightBorder = lightBorder;
-        this.darkBorder = darkBorder;
     }
 
     private void drawBorder(ShapeRenderer shapeRenderer, int bx, int by, int bw,
