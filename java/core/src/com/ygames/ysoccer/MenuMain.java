@@ -17,9 +17,7 @@ public class MenuMain implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(true, 1280, 720);
         background = new Image("images/backgrounds/menu_main.jpg");
-        gameSettingsButton = new Button();
-        gameSettingsButton.setGeometry(1280 / 2 - 30 - 320, 290, 320, 36);
-        gameSettingsButton.setColors(0x536B9000, 0x7090C200, 0x26314200);
+        gameSettingsButton = new GameSettingsButton();
     }
 
     @Override
@@ -58,5 +56,12 @@ public class MenuMain implements Screen {
     @Override
     public void dispose() {
         background.dispose();
+    }
+
+    class GameSettingsButton extends Button {
+        public GameSettingsButton() {
+            setGeometry(1280 / 2 - 30 - 320, 290, 320, 36);
+            setColors(0x536B9000, 0x7090C200, 0x26314200);
+        }
     }
 }
