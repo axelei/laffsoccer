@@ -2,6 +2,8 @@ package com.ygames.ysoccer;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 
@@ -26,15 +28,18 @@ public class MenuMain implements Screen {
 
     @Override
     public void render(float delta) {
+        SpriteBatch batch = game.glGraphics.batch;
+        ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
+
         camera.update();
-        game.batch.setProjectionMatrix(camera.combined);
-        game.shapeRenderer.setProjectionMatrix(camera.combined);
+        batch.setProjectionMatrix(camera.combined);
+        shapeRenderer.setProjectionMatrix(camera.combined);
 
-        game.batch.begin();
-        game.batch.draw(background, 0, 0, 1280, 720);
-        game.batch.end();
+        batch.begin();
+        batch.draw(background, 0, 0, 1280, 720);
+        batch.end();
 
-        gameSettingsButton.render(game);
+        gameSettingsButton.render(game.glGraphics);
     }
 
     @Override

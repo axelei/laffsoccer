@@ -1,18 +1,15 @@
 package com.ygames.ysoccer;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.ygames.ysoccer.framework.GlGraphics;
 
 public class YSoccer extends Game {
 
-    public SpriteBatch batch;
-    public ShapeRenderer shapeRenderer;
+    public GlGraphics glGraphics;
 
     @Override
     public void create() {
-        batch = new SpriteBatch();
-        shapeRenderer = new ShapeRenderer();
+        glGraphics = new GlGraphics();
         this.setScreen(new MenuMain(this));
     }
 
@@ -24,6 +21,6 @@ public class YSoccer extends Game {
     @Override
     public void dispose() {
         super.dispose();
-        batch.dispose();
+        glGraphics.dispose();
     }
 }

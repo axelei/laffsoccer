@@ -2,7 +2,7 @@ package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.ygames.ysoccer.YSoccer;
+import com.ygames.ysoccer.framework.GlGraphics;
 
 public class Button {
 
@@ -17,8 +17,8 @@ public class Button {
     int lightBorder;
     int darkBorder;
 
-    public void render(YSoccer game) {
-        ShapeRenderer shapeRenderer = game.shapeRenderer;
+    public void render(GlGraphics glGraphics) {
+        ShapeRenderer shapeRenderer = glGraphics.shapeRenderer;
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 
         // body (0x000000 = invisible)
