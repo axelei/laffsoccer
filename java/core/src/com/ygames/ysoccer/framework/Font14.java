@@ -83,4 +83,19 @@ public class Font14 {
 
         }
     }
+
+    public int textWidth(String text) {
+        int w = 0;
+        for (int i = 0; i < text.length(); i++) {
+            int c = text.charAt(i);
+
+            // carriage return/line feed
+            if (c == 13 && (i + 1 < text.length()) && text.charAt(i + 1) == 10) {
+                break;
+            }
+
+            w = w + widths[c];
+        }
+        return w;
+    }
 }
