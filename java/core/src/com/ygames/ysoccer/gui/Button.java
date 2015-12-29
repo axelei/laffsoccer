@@ -1,10 +1,12 @@
 package com.ygames.ysoccer.gui;
 
+import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlGraphics;
 import com.ygames.ysoccer.framework.GlShapeRenderer;
 
 public class Button extends Widget {
 
+    private static final double sweepSpeed = 0.4;
     private static final float alpha = 0.9f;
 
     @Override
@@ -21,6 +23,9 @@ public class Button extends Widget {
         // border ($000000 = invisible)
         if (lightBorder != 0x000000) {
             drawBorder(shapeRenderer, x, y, w, h, lightBorder, darkBorder);
+            if (isSelected && !entryMode) {
+                drawAnimatedBorder(glGraphics);
+            }
         }
 
         shapeRenderer.end();
@@ -44,6 +49,20 @@ public class Button extends Widget {
         shapeRenderer.triangle(bx + bw, by + bh, bx + bw, by + 1, bx + bw - 2, by + 2);
         shapeRenderer.triangle(bx + 2, by + bh - 2, bx + bw - 2, by + bh - 2, bx + bw - 1, by + bh);
         shapeRenderer.triangle(bx + bw - 1, by + bh, bx + 1, by + bh, bx + 2, by + bh - 2);
+    }
+
+    private void drawAnimatedBorder(GlGraphics glGraphics) {
+        // gray level
+        int gl = (int) Math.abs(((sweepSpeed * Math.abs(System.currentTimeMillis())) % 200) - 100) + 100;
+
+        // border color 1
+        int bdr1 = GlColor.rgb(gl, gl, gl);
+
+        // border color 2
+        gl = gl - 50;
+        int bdr2 = GlColor.rgb(gl, gl, gl);
+
+        drawBorder(glGraphics.shapeRenderer, x, y, w, h, bdr1, bdr2);
     }
 
     private void drawText(GlGraphics glGraphics) {

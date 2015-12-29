@@ -24,6 +24,8 @@ public abstract class Widget {
 
     // state
     protected boolean isActive;
+    protected boolean isSelected = true;
+    protected boolean entryMode;
 
     public abstract void render(GlGraphics glGraphics);
 
