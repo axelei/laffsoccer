@@ -4,6 +4,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 
@@ -67,6 +68,7 @@ public class MenuMain implements Screen {
         public GameSettingsButton() {
             setGeometry(1280 / 2 - 30 - 320, 290, 320, 36);
             setColors(0x536B9000, 0x7090C200, 0x26314200);
+            setText("SETTINGS", Font.Align.CENTER, Assets.font14);
         }
     }
 }

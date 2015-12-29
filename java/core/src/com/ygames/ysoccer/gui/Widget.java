@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.gui;
 
+import com.ygames.ysoccer.framework.Font;
+
 public abstract class Widget {
 
     // geometry
@@ -12,6 +14,12 @@ public abstract class Widget {
     int body;
     int lightBorder;
     int darkBorder;
+
+    // text
+    String text;
+    Font font;
+    Font.Align align;
+    int textOffsetX;
 
     public void setGeometry(int x, int y, int w, int h) {
         setPosition(x, y);
@@ -32,5 +40,11 @@ public abstract class Widget {
         this.body = body;
         this.lightBorder = lightBorder;
         this.darkBorder = darkBorder;
+    }
+
+    public void setText(String text, Font.Align align, Font font) {
+        this.text = text;
+        this.align = align;
+        this.font = font;
     }
 }

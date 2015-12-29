@@ -22,6 +22,8 @@ public class Button extends Widget {
         }
 
         shapeRenderer.end();
+
+        drawText(glGraphics);
     }
 
     private void drawBorder(ShapeRenderer shapeRenderer, int bx, int by, int bw,
@@ -40,5 +42,20 @@ public class Button extends Widget {
         shapeRenderer.triangle(bx + bw, by + bh, bx + bw, by + 1, bx + bw - 2, by + 2);
         shapeRenderer.triangle(bx + 2, by + bh - 2, bx + bw - 2, by + bh - 2, bx + bw - 1, by + bh);
         shapeRenderer.triangle(bx + bw - 1, by + bh, bx + 1, by + bh, bx + 2, by + bh - 2);
+    }
+
+    private void drawText(GlGraphics glGraphics) {
+        int tx = x;
+        switch (align) {
+            case RIGHT:
+                tx += w - font.size;
+                break;
+            case CENTER:
+                tx += w / 2;
+                break;
+            case LEFT:
+                tx += font.size;
+        }
+        font.draw(glGraphics.batch, text, tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
     }
 }

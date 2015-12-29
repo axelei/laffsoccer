@@ -10,6 +10,10 @@ import java.io.InputStream;
 
 public class Font {
 
+    public enum Align {
+        RIGHT, CENTER, LEFT
+    }
+
     public int size;
     public static Texture texture;
     public static int[] widths = new int[1024];
@@ -89,18 +93,18 @@ public class Font {
         }
     }
 
-    public void draw(SpriteBatch batch, String text, int x, int y, int align) {
+    public void draw(SpriteBatch batch, String text, int x, int y, Align align) {
         int w = textWidth(text);
 
         // x position
         switch (align) {
-            case -1:
+            case RIGHT:
                 x = x - w;
                 break;
-            case 0:
+            case CENTER:
                 x = x - w / 2;
                 break;
-            case 1:
+            case LEFT:
                 // do nothing
                 break;
         }
