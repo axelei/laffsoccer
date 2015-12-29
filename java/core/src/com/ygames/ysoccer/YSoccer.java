@@ -11,7 +11,7 @@ public class YSoccer extends Game {
     public void create() {
         glGraphics = new GlGraphics();
         Assets.load();
-        this.setScreen(new MenuMatchOptions(this));
+        this.setScreen(new MenuMain(this));
     }
 
     @Override

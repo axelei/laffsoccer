@@ -16,7 +16,7 @@ public class MenuMain extends GlScreen {
     class GameSettingsButton extends Button {
         public GameSettingsButton() {
             setGeometry(1280 / 2 - 30 - 320, 290, 320, 36);
-            setColors(0x536B9000, 0x7090C200, 0x26314200);
+            setColors(0x536B90, 0x7090C2, 0x263142);
             setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
         }
     }
