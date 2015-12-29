@@ -1,8 +1,7 @@
 package com.ygames.ysoccer.gui;
 
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GlShapeRenderer;
 
 public class Button extends Widget {
 
@@ -10,12 +9,12 @@ public class Button extends Widget {
 
     @Override
     public void render(GlGraphics glGraphics) {
-        ShapeRenderer shapeRenderer = glGraphics.shapeRenderer;
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        GlShapeRenderer shapeRenderer = glGraphics.shapeRenderer;
+        shapeRenderer.begin(GlShapeRenderer.ShapeType.Filled);
 
         // body (0x000000 = invisible)
         if (body != 0x000000) {
-            shapeRenderer.setColor(GlColor.red(body) / 255f, GlColor.green(body) / 255f, GlColor.blue(body) / 255f, alpha);
+            shapeRenderer.setColor(body, alpha);
             shapeRenderer.rect(x + 2, y + 2, w - 4, h - 4);
         }
 
@@ -29,18 +28,18 @@ public class Button extends Widget {
         drawText(glGraphics);
     }
 
-    private void drawBorder(ShapeRenderer shapeRenderer, int bx, int by, int bw,
+    private void drawBorder(GlShapeRenderer shapeRenderer, int bx, int by, int bw,
                             int bh, int topLeftColor, int bottomRightColor) {
 
         // top left border
-        shapeRenderer.setColor(GlColor.red(topLeftColor) / 255f, GlColor.green(topLeftColor) / 255f, GlColor.blue(topLeftColor) / 255f, alpha);
+        shapeRenderer.setColor(topLeftColor, alpha);
         shapeRenderer.triangle(bx, by, bx + bw, by, bx + bw - 1, by + 2);
         shapeRenderer.triangle(bx + bw - 1, by + 2, bx + 1, by + 2, bx, by);
         shapeRenderer.triangle(bx, by + 1, bx, by + bh, bx + 2, by + bh - 1);
         shapeRenderer.triangle(bx + 2, by + bh - 1, bx + 2, by + 2, bx, by + 1);
 
         // bottom right border
-        shapeRenderer.setColor(GlColor.red(bottomRightColor) / 255f, GlColor.green(bottomRightColor) / 255f, GlColor.blue(bottomRightColor) / 255f, alpha);
+        shapeRenderer.setColor(bottomRightColor, alpha);
         shapeRenderer.triangle(bx + bw - 2, by + 2, bx + bw - 2, by + bh - 1, bx + bw, by + bh);
         shapeRenderer.triangle(bx + bw, by + bh, bx + bw, by + 1, bx + bw - 2, by + 2);
         shapeRenderer.triangle(bx + 2, by + bh - 2, bx + bw - 2, by + bh - 2, bx + bw - 1, by + bh);
