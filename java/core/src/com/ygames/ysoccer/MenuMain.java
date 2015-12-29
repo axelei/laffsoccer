@@ -1,30 +1,24 @@
 package com.ygames.ysoccer;
 
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 
-public class MenuMain implements Screen {
+public class MenuMain extends GlScreen {
 
-    private YSoccer game;
     private OrthographicCamera camera;
-    private Image background;
     private Button gameSettingsButton;
 
     public MenuMain(YSoccer game) {
-        this.game = game;
+        super(game);
         camera = new OrthographicCamera();
         camera.setToOrtho(true, 1280, 720);
         background = new Image("images/backgrounds/menu_main.jpg");
         gameSettingsButton = new GameSettingsButton();
-    }
-
-    @Override
-    public void show() {
     }
 
     @Override
@@ -41,27 +35,6 @@ public class MenuMain implements Screen {
         batch.end();
 
         gameSettingsButton.render(game.glGraphics);
-    }
-
-    @Override
-    public void resize(int width, int height) {
-    }
-
-    @Override
-    public void pause() {
-    }
-
-    @Override
-    public void resume() {
-    }
-
-    @Override
-    public void hide() {
-    }
-
-    @Override
-    public void dispose() {
-        background.dispose();
     }
 
     class GameSettingsButton extends Button {
