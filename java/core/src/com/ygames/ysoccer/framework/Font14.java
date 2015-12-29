@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.io.IOException;
@@ -81,6 +82,33 @@ public class Font14 {
                 in.read(buffer);
             }
 
+        }
+    }
+
+    public void draw(SpriteBatch batch, String text, int x, int y, int align) {
+        int w = textWidth(text);
+
+        // x position
+        switch (align) {
+            case -1:
+                x = x - w;
+                break;
+            case 0:
+                x = x - w / 2;
+                break;
+            case 1:
+                // do nothing
+                break;
+        }
+
+        for (int i = 0; i < text.length(); i++) {
+
+            int c = text.charAt(i);
+            batch.begin();
+            batch.draw(regions[c], x, y, 16, 22);
+            batch.end();
+
+            x = x + widths[c];
         }
     }
 
