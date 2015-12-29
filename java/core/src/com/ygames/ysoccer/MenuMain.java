@@ -1,8 +1,5 @@
 package com.ygames.ysoccer;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
@@ -10,29 +7,10 @@ import com.ygames.ysoccer.gui.Button;
 
 public class MenuMain extends GlScreen {
 
-    private Button gameSettingsButton;
-
     public MenuMain(YSoccer game) {
         super(game);
         background = new Image("images/backgrounds/menu_main.jpg");
-        gameSettingsButton = new GameSettingsButton();
-    }
-
-    @Override
-    public void render(float delta) {
-        OrthographicCamera camera = game.glGraphics.camera;
-        SpriteBatch batch = game.glGraphics.batch;
-        ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
-
-        camera.update();
-        batch.setProjectionMatrix(camera.combined);
-        shapeRenderer.setProjectionMatrix(camera.combined);
-
-        batch.begin();
-        batch.draw(background, 0, 0, 1280, 720);
-        batch.end();
-
-        gameSettingsButton.render(game.glGraphics);
+        widgets.add(new GameSettingsButton());
     }
 
     class GameSettingsButton extends Button {

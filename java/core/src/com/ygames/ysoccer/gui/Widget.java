@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.gui;
 
 import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GlGraphics;
 
 public abstract class Widget {
 
@@ -20,6 +21,8 @@ public abstract class Widget {
     Font font;
     Font.Align align;
     int textOffsetX;
+
+    public abstract void render(GlGraphics glGraphics);
 
     public void setGeometry(int x, int y, int w, int h) {
         setPosition(x, y);
