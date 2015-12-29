@@ -22,6 +22,9 @@ public abstract class Widget {
     Font.Align align;
     int textOffsetX;
 
+    // state
+    protected boolean isActive;
+
     public abstract void render(GlGraphics glGraphics);
 
     public void setGeometry(int x, int y, int w, int h) {
@@ -49,5 +52,9 @@ public abstract class Widget {
         this.text = text;
         this.align = align;
         this.font = font;
+    }
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
     }
 }
