@@ -10,19 +10,17 @@ import com.ygames.ysoccer.gui.Button;
 
 public class MenuMain extends GlScreen {
 
-    private OrthographicCamera camera;
     private Button gameSettingsButton;
 
     public MenuMain(YSoccer game) {
         super(game);
-        camera = new OrthographicCamera();
-        camera.setToOrtho(true, 1280, 720);
         background = new Image("images/backgrounds/menu_main.jpg");
         gameSettingsButton = new GameSettingsButton();
     }
 
     @Override
     public void render(float delta) {
+        OrthographicCamera camera = game.glGraphics.camera;
         SpriteBatch batch = game.glGraphics.batch;
         ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
 
