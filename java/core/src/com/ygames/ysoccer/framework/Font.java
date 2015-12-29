@@ -8,23 +8,27 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Font14 {
+public class Font {
 
-    public static int size = 14;
+    public int size;
     public static Texture texture;
     public static int[] widths = new int[1024];
     public static TextureRegion[] regions = new TextureRegion[1024];
 
+    public Font(int size) {
+        this.size = size;
+    }
+
     public void load() {
-        texture = new Texture("images/font_14.png");
-        loadFontWidths(widths, "font_14.txt");
+        texture = new Texture("images/font_" + size + ".png");
+        loadFontWidths(widths, "font_" + size + ".txt");
         for (int i = 0; i < 1024; i++) {
             regions[i] = new TextureRegion(texture, 16 * (i & 0x3F), 23 * (i >> 6), 16, 22);
             regions[i].flip(false, true);
         }
     }
 
-    private static void loadFontWidths(int[] fontWidths, String filePath) {
+    protected static void loadFontWidths(int[] fontWidths, String filePath) {
         InputStream in = null;
 
         try {
@@ -126,4 +130,5 @@ public class Font14 {
         }
         return w;
     }
+
 }
