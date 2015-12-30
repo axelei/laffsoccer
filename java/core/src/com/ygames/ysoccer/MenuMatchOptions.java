@@ -16,7 +16,7 @@ public class MenuMatchOptions extends GlScreen {
     class TitleButton extends Button {
         public TitleButton() {
             setColors(0x536B90, 0x7090C2, 0x263142);
-            setGeometry((1280 - 400) / 2, 20, 400, 40);
+            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
             setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
