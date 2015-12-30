@@ -28,6 +28,10 @@ public abstract class Widget {
     protected boolean entryMode;
     public boolean isVisible;
 
+    public enum Event {
+        NONE, FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
+    }
+
     public Widget() {
         isVisible = true;
     }
@@ -69,4 +73,21 @@ public abstract class Widget {
         this.isSelected = isSelected;
     }
 
+    public void onFire1Down() {
+    }
+
+    public void onFire1Hold() {
+    }
+
+    public void onFire1Up() {
+    }
+
+    public void onFire2Down() {
+    }
+
+    public void onFire2Hold() {
+    }
+
+    public void onFire2Up() {
+    }
 }

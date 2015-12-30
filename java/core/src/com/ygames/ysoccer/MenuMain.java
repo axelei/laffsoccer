@@ -13,7 +13,7 @@ public class MenuMain extends GlScreen {
         background = new Image("images/backgrounds/menu_main.jpg");
 
         Widget w;
-        w = new GameSettingsButton();
+        w = new GameOptionsButton();
         widgets.add(w);
         selectedWidget = w;
 
@@ -21,12 +21,17 @@ public class MenuMain extends GlScreen {
         widgets.add(w);
     }
 
-    class GameSettingsButton extends Button {
-        public GameSettingsButton() {
+    class GameOptionsButton extends Button {
+        public GameOptionsButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 290, 320, 36);
             setColors(0x536B90, 0x7090C2, 0x263142);
             setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
             setSelected(true);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new MenuGameOptions(game));
         }
     }
 

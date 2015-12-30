@@ -4,13 +4,17 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Widget;
 
-public class MenuMatchOptions extends GlScreen {
+public class MenuGameOptions extends GlScreen {
 
-    public MenuMatchOptions(YSoccer game) {
+    public MenuGameOptions(YSoccer game) {
         super(game);
         background = new Image("images/backgrounds/menu_game_options.jpg");
-        widgets.add(new TitleButton());
+
+        Widget w;
+        w = new TitleButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {

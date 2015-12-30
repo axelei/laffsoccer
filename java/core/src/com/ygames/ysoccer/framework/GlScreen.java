@@ -32,6 +32,57 @@ public abstract class GlScreen implements Screen {
 
         selectedWidget = readMenuInput();
 
+        YSoccer.MenuInput menuInput = game.menuInput;
+        Widget.Event widgetEvent = Widget.Event.NONE;
+
+        // fire 1 events
+        if (!menuInput.fire1Old && menuInput.fire1) {
+            widgetEvent = Widget.Event.FIRE1_DOWN;
+        }
+        if (!menuInput.fire1 && menuInput.fire1Old && menuInput.fire1Timer == 0) {
+            widgetEvent = Widget.Event.FIRE1_HOLD;
+        }
+        if (menuInput.fire1Old && !menuInput.fire1) {
+            widgetEvent = Widget.Event.FIRE1_UP;
+        }
+
+        // fire 2 events
+        if (!menuInput.fire2Old && menuInput.fire2) {
+            widgetEvent = Widget.Event.FIRE2_DOWN;
+        }
+        if (menuInput.fire2 && menuInput.fire2Old && menuInput.fire2Timer == 0) {
+            widgetEvent = Widget.Event.FIRE2_HOLD;
+        }
+        if (menuInput.fire2Old && !menuInput.fire2) {
+            widgetEvent = Widget.Event.FIRE2_UP;
+        }
+
+        if (selectedWidget != null && selectedWidget.isActive) {
+            switch (widgetEvent) {
+                case FIRE1_DOWN:
+                    selectedWidget.onFire1Down();
+                    break;
+                case FIRE1_HOLD:
+                    selectedWidget.onFire1Hold();
+                    break;
+                case FIRE1_UP:
+                    selectedWidget.onFire1Up();
+                    break;
+                case FIRE2_DOWN:
+                    selectedWidget.onFire2Down();
+                    break;
+                case FIRE2_HOLD:
+                    selectedWidget.onFire2Hold();
+                    break;
+                case FIRE2_UP:
+                    selectedWidget.onFire2Up();
+                    break;
+                case NONE:
+                    //do nothing
+                    break;
+            }
+        }
+
         OrthographicCamera camera = game.glGraphics.camera;
         SpriteBatch batch = game.glGraphics.batch;
         ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
