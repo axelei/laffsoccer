@@ -7,4 +7,8 @@ public class Emath {
     static public float aTan2(float y, float x) {
         return (float) (Math.atan2(y, x) * TO_DEGREES);
     }
+
+    static public float hypo(float diffX, float diffY) {
+        return (float) Math.sqrt(diffX * diffX + diffY * diffY);
+    }
 }

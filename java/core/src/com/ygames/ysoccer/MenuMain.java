@@ -4,14 +4,21 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Widget;
 
 public class MenuMain extends GlScreen {
 
     public MenuMain(YSoccer game) {
         super(game);
         background = new Image("images/backgrounds/menu_main.jpg");
-        widgets.add(new GameSettingsButton());
-        widgets.add(new FriendlyButton());
+
+        Widget w;
+        w = new GameSettingsButton();
+        widgets.add(w);
+        selectedWidget = w;
+
+        w = new FriendlyButton();
+        widgets.add(w);
     }
 
     class GameSettingsButton extends Button {
@@ -30,5 +37,4 @@ public class MenuMain extends GlScreen {
             setText(Assets.strings.get("FRIENDLY"), Font.Align.CENTER, Assets.font14);
         }
     }
-
 }

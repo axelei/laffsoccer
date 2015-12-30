@@ -6,10 +6,10 @@ import com.ygames.ysoccer.framework.GlGraphics;
 public abstract class Widget {
 
     // geometry
-    int x;
-    int y;
-    int w;
-    int h;
+    public int x;
+    public int y;
+    public int w;
+    public int h;
 
     // colors
     int body;
@@ -23,9 +23,14 @@ public abstract class Widget {
     int textOffsetX;
 
     // state
-    protected boolean isActive;
-    protected boolean isSelected;
+    public boolean isActive;
+    public boolean isSelected;
     protected boolean entryMode;
+    public boolean isVisible;
+
+    public Widget() {
+        isVisible = true;
+    }
 
     public abstract void render(GlGraphics glGraphics);
 

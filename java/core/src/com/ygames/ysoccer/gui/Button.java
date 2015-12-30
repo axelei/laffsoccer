@@ -9,8 +9,16 @@ public class Button extends Widget {
     private static final double sweepSpeed = 0.4;
     private static final float alpha = 0.9f;
 
+    public Button() {
+        isActive = true;
+    }
+
     @Override
     public void render(GlGraphics glGraphics) {
+        if (!isVisible) {
+            return;
+        }
+
         GlShapeRenderer shapeRenderer = glGraphics.shapeRenderer;
         shapeRenderer.begin(GlShapeRenderer.ShapeType.Filled);
 
