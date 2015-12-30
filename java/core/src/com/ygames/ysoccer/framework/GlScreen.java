@@ -23,6 +23,11 @@ public abstract class GlScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        int len = game.inputDevices.size();
+        for (int i = 0; i < len; i++) {
+            game.inputDevices.get(i).update();
+        }
+
         OrthographicCamera camera = game.glGraphics.camera;
         SpriteBatch batch = game.glGraphics.batch;
         ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
@@ -39,7 +44,7 @@ public abstract class GlScreen implements Screen {
 
         // widgets
         shapeRenderer.setProjectionMatrix(camera.combined);
-        int len = widgets.size();
+        len = widgets.size();
         for (int i = 0; i < len; i++) {
             widgets.get(i).render(game.glGraphics);
         }
