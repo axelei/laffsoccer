@@ -24,7 +24,7 @@ public class YSoccer extends Game {
 
     @Override
     public void render() {
-        keyboard.read();
+        keyboard.update();
         super.render();
     }
 
