@@ -24,7 +24,7 @@ public abstract class Widget {
 
     // state
     protected boolean isActive;
-    protected boolean isSelected = true;
+    protected boolean isSelected;
     protected boolean entryMode;
 
     public abstract void render(GlGraphics glGraphics);
@@ -59,4 +59,9 @@ public abstract class Widget {
     public void setActive(boolean isActive) {
         this.isActive = isActive;
     }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
+
 }
