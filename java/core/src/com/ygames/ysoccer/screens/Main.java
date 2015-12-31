@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -46,7 +47,7 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new Friendly(game));
+            game.setScreen(new Friendly(game, Gdx.files.local("data/")));
         }
     }
 }
