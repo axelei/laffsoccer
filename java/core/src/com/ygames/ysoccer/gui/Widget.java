@@ -59,6 +59,10 @@ public abstract class Widget {
         this.darkBorder = darkBorder;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public void setText(String text, Font.Align align, Font font) {
         this.text = text;
         this.align = align;

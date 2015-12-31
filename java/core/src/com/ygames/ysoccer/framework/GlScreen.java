@@ -39,7 +39,7 @@ public abstract class GlScreen implements Screen {
         if (!menuInput.fire1Old && menuInput.fire1) {
             widgetEvent = Widget.Event.FIRE1_DOWN;
         }
-        if (!menuInput.fire1 && menuInput.fire1Old && menuInput.fire1Timer == 0) {
+        if (menuInput.fire1 && menuInput.fire1Old && menuInput.fire1Timer == 0) {
             widgetEvent = Widget.Event.FIRE1_HOLD;
         }
         if (menuInput.fire1Old && !menuInput.fire1) {

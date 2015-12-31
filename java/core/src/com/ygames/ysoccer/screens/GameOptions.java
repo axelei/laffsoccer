@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.math.Emath;
 
 public class GameOptions extends GlScreen {
 
@@ -21,9 +22,12 @@ public class GameOptions extends GlScreen {
         w = new LanguageLabel();
         widgets.add(w);
 
-        w = new ExitButton();
+        w = new LanguageButton();
         widgets.add(w);
         selectedWidget = w;
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -44,6 +48,42 @@ public class GameOptions extends GlScreen {
         }
     }
 
+    class LanguageButton extends Button {
+        public LanguageButton() {
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 390, 440, 36);
+            setText(Assets.strings.get("// THIS LANGUAGE NAME //"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateLanguage(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateLanguage(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateLanguage(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateLanguage(-1);
+        }
+
+        private void updateLanguage(int direction) {
+            int index = Assets.locales.indexOf(game.settings.locale);
+            game.settings.locale = Assets.locales.get(Emath.rotate(index, 0, Assets.locales.size() - 1, direction));
+            Assets.loadStrings(game.settings);
+            setText(Assets.strings.get("// THIS LANGUAGE NAME //"));
+        }
+    }
+
+
     class ExitButton extends Button {
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
@@ -53,6 +93,7 @@ public class GameOptions extends GlScreen {
 
         @Override
         public void onFire1Down() {
+            game.settings.save();
             game.setScreen(new Main(game));
         }
     }

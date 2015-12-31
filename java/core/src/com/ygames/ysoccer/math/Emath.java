@@ -11,4 +11,8 @@ public class Emath {
     static public float hypo(float diffX, float diffY) {
         return (float) Math.sqrt(diffX * diffX + diffY * diffY);
     }
+
+    public static int rotate(int value, int low, int high, int direction) {
+        return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
+    }
 }
