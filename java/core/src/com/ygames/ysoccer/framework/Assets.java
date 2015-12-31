@@ -11,8 +11,12 @@ public class Assets {
     public static Font font14;
 
     public static void load(Settings settings) {
-        strings = I18NBundle.createBundle(Gdx.files.internal("i18n/strings"), new Locale(settings.locale));
+        loadStrings(settings);
         font14 = new Font(14);
         font14.load();
+    }
+
+    public static void loadStrings(Settings settings) {
+        strings = I18NBundle.createBundle(Gdx.files.internal("i18n/strings"), new Locale(settings.locale));
     }
 }
