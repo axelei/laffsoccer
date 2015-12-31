@@ -9,6 +9,9 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Friendly extends GlScreen {
 
     private FileHandle fileHandle;
@@ -25,18 +28,19 @@ public class Friendly extends GlScreen {
         w = new TitleBar();
         widgets.add(w);
 
+        List<Widget> folders = new ArrayList<Widget>();
         FileHandle[] files = fileHandle.list();
-        int i = 0;
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
-                w.setPosition((game.settings.GUI_WIDTH - 340) / 2, 300 + 60 * i);
+                folders.add(w);
                 widgets.add(w);
-                if (i == 0) {
-                    selectedWidget = w;
-                }
-                i++;
             }
+        }
+
+        if (folders.size() > 0) {
+            Widget.arrange(game.settings, 50, folders);
+            selectedWidget = folders.get(0);
         }
 
         w = new ExitButton();

@@ -2,6 +2,10 @@ package com.ygames.ysoccer.gui;
 
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.Settings;
+import com.ygames.ysoccer.math.Emath;
+
+import java.util.List;
 
 public abstract class Widget {
 
@@ -93,5 +97,30 @@ public abstract class Widget {
     }
 
     public void onFire2Up() {
+    }
+
+    public static void arrange(Settings settings, int rowHeight, List<Widget> widgetList) {
+        Widget w;
+        int len = widgetList.size();
+        int col1 = Emath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
+        int col2 = Emath.floor(len / 3.0) + ((len % 3) > 0 ? 1 : 0);
+        for (int i = 0; i < len; i++) {
+            w = widgetList.get(i);
+            if (len <= 8) {
+                w.x = (settings.GUI_WIDTH - w.w) / 2;
+                w.y = 350 + rowHeight * (i - len / 2);
+            } else {
+                if (i < col1) {
+                    w.x = (settings.GUI_WIDTH - 3 * w.w) / 2 - 20;
+                    w.y = 350 + rowHeight * (i - col2 / 2);
+                } else if (i < col1 + col2) {
+                    w.x = (settings.GUI_WIDTH - w.w) / 2;
+                    w.y = 350 + rowHeight * ((i - col1) - col2 / 2);
+                } else {
+                    w.x = (settings.GUI_WIDTH + w.w) / 2 + 20;
+                    w.y = 350 + rowHeight * ((i - col1 - col2) - col2 / 2);
+                }
+            }
+        }
     }
 }

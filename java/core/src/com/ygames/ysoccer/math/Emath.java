@@ -15,4 +15,8 @@ public class Emath {
     public static int rotate(int value, int low, int high, int direction) {
         return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
     }
+
+    public static int floor(double value) {
+        return (int) Math.floor(value);
+    }
 }
