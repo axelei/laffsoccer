@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.Assets;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;

@@ -2,7 +2,6 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.Assets;
 
 import java.util.ArrayList;
 import java.util.List;

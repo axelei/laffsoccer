@@ -1,8 +1,7 @@
-package com.ygames.ysoccer;
+package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.I18NBundle;
-import com.ygames.ysoccer.framework.Font;
 
 import java.util.Locale;
 
