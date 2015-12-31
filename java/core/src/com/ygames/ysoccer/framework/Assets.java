@@ -10,8 +10,8 @@ public class Assets {
     public static I18NBundle strings;
     public static Font font14;
 
-    public static void load() {
-        strings = I18NBundle.createBundle(Gdx.files.internal("i18n/strings"), new Locale("en"));
+    public static void load(Settings settings) {
+        strings = I18NBundle.createBundle(Gdx.files.internal("i18n/strings"), new Locale(settings.locale));
         font14 = new Font(14);
         font14.load();
     }

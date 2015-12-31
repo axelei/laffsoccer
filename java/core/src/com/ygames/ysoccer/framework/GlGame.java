@@ -17,7 +17,7 @@ public class GlGame extends Game {
     public void create() {
         settings = new Settings();
         glGraphics = new GlGraphics();
-        Assets.load();
+        Assets.load(settings);
 
         inputDevices = new ArrayList<InputDevice>();
         menuInput = new MenuInput();
