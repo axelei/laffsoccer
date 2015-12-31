@@ -43,5 +43,10 @@ public class Main extends GlScreen {
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setText(Assets.strings.get("FRIENDLY"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Friendly(game));
+        }
     }
 }
