@@ -31,6 +31,12 @@ public class Friendly extends GlScreen {
                 i++;
             }
         }
+
+        w = new ExitButton();
+        widgets.add(w);
+        if (selectedWidget == null) {
+            selectedWidget = w;
+        }
     }
 
     class TitleBar extends Button {
@@ -51,6 +57,20 @@ public class Friendly extends GlScreen {
             setSize(340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(fileHandle.name().toUpperCase(), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
+    class ExitButton extends Button {
+        public ExitButton() {
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 708, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.settings.save();
+            game.setScreen(new Main(game));
         }
     }
 }
