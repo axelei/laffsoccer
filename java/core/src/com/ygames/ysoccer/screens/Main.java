@@ -1,5 +1,6 @@
-package com.ygames.ysoccer;
+package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
@@ -7,9 +8,9 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
-public class MenuMain extends GlScreen {
+public class Main extends GlScreen {
 
-    public MenuMain(GlGame game) {
+    public Main(GlGame game) {
         super(game);
         background = new Image("images/backgrounds/menu_main.jpg");
 
@@ -32,7 +33,7 @@ public class MenuMain extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new MenuGameOptions(game));
+            game.setScreen(new GameOptions(game));
         }
     }
 

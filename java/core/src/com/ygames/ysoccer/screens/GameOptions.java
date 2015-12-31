@@ -1,5 +1,6 @@
-package com.ygames.ysoccer;
+package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
@@ -7,9 +8,9 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
-public class MenuGameOptions extends GlScreen {
+public class GameOptions extends GlScreen {
 
-    public MenuGameOptions(GlGame game) {
+    public GameOptions(GlGame game) {
         super(game);
         background = new Image("images/backgrounds/menu_game_options.jpg");
 
