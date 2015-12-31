@@ -47,7 +47,7 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new Friendly(game, Gdx.files.local("data/")));
+            game.setScreen(new Friendly(game, Assets.dataFolder));
         }
     }
 }
