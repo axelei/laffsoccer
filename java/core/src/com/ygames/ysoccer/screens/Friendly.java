@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Json;
+import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -28,19 +30,34 @@ public class Friendly extends GlScreen {
         w = new TitleBar();
         widgets.add(w);
 
-        List<Widget> folders = new ArrayList<Widget>();
+        List<Widget> list = new ArrayList<Widget>();
         FileHandle[] files = fileHandle.list();
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
-                folders.add(w);
+                list.add(w);
                 widgets.add(w);
             }
         }
 
-        if (folders.size() > 0) {
-            Widget.arrange(game.settings, 50, folders);
-            selectedWidget = folders.get(0);
+        if (list.size() > 0) {
+            Widget.arrange(game.settings, 50, list);
+            selectedWidget = list.get(0);
+        } else {
+            FileHandle leagueFile = fileHandle.child("leagues.json");
+            if (leagueFile.exists()) {
+                Json json = new Json();
+                League[] leagues = json.fromJson(League[].class, leagueFile.readString());
+                for (League league : leagues) {
+                    w = new LeagueButton(league);
+                    list.add(w);
+                    widgets.add(w);
+                }
+                if (leagues.length > 0) {
+                    Widget.arrange(game.settings, 50, list);
+                    selectedWidget = list.get(0);
+                }
+            }
         }
 
         w = new ExitButton();
@@ -79,6 +96,18 @@ public class Friendly extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new Friendly(game, fileHandle));
+        }
+    }
+
+    class LeagueButton extends Button {
+
+        League league;
+
+        public LeagueButton(League league) {
+            this.league = league;
+            setSize(340, 40);
+            setColors(0x1B4D85, 0x256AB7, 0x001D3E);
+            setText(league.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
         }
     }
 
