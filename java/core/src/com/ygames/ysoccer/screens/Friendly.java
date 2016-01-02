@@ -109,6 +109,11 @@ public class Friendly extends GlScreen {
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
             setText(league.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectTeams(game, fileHandle, league));
+        }
     }
 
     class ExitButton extends Button {
