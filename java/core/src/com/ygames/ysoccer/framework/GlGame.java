@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class GlGame extends Game {
     Keyboard keyboard;
     public List<InputDevice> inputDevices;
     public MenuInput menuInput;
+    public List<Team> teamList;
 
     @Override
     public void create() {
@@ -24,6 +26,8 @@ public class GlGame extends Game {
         keyboard = new Keyboard();
         keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.COMMA, Input.Keys.PERIOD);
         inputDevices.add(keyboard);
+
+        teamList = new ArrayList<Team>();
     }
 
     @Override
