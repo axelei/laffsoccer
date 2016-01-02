@@ -51,6 +51,12 @@ public class SelectTeams extends GlScreen {
             Widget.arrange(game.settings, 32, list);
             selectedWidget = list.get(0);
         }
+
+        w = new ExitButton();
+        widgets.add(w);
+        if (selectedWidget == null) {
+            selectedWidget = w;
+        }
     }
 
     class ComputerButton extends Button {
@@ -128,6 +134,19 @@ public class SelectTeams extends GlScreen {
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
+        }
+    }
+
+    class ExitButton extends Button {
+        public ExitButton() {
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 708, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Friendly(game, fileHandle));
         }
     }
 }
