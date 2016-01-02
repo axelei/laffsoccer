@@ -27,6 +27,9 @@ public class SelectTeams extends GlScreen {
 
         Widget w;
 
+        w = new TitleButton();
+        widgets.add(w);
+
         w = new ComputerButton();
         widgets.add(w);
 
@@ -65,6 +68,17 @@ public class SelectTeams extends GlScreen {
         widgets.add(w);
         if (selectedWidget == null) {
             selectedWidget = w;
+        }
+    }
+
+    class TitleButton extends Button {
+        public TitleButton() {
+            String title = Assets.strings.get("FRIENDLY") + " - " + fileHandle.name().toUpperCase();
+            int w = Math.max(400, 80 + 16 * title.length());
+            setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
+            setColors(0x2D855D, 0x3DB37D, 0x1E5027);
+            setText(title, Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
