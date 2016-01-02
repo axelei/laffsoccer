@@ -30,6 +30,9 @@ public class SelectTeams extends GlScreen {
         w = new ComputerButton();
         widgets.add(w);
 
+        w = new CoachButton();
+        widgets.add(w);
+
         List<Widget> list = new ArrayList<Widget>();
         for (Team teamStub : league.teams) {
             FileHandle teamFile = fileHandle.child("team." + teamStub.code + ".json");
@@ -52,6 +55,15 @@ public class SelectTeams extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
             setColors(0x981E1E, 0xC72929, 0x640000);
             setText(Assets.strings.get("COMPUTER"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    class CoachButton extends Button {
+        public CoachButton() {
+            setGeometry((game.settings.GUI_WIDTH + 300) / 2 + 20, 86, 300, 30);
+            setColors(0x009BDC, 0x19BBFF, 0x0071A0);
+            setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
