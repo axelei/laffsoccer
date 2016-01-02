@@ -30,6 +30,9 @@ public class SelectTeams extends GlScreen {
         w = new ComputerButton();
         widgets.add(w);
 
+        w = new PlayerCoachButton();
+        widgets.add(w);
+
         w = new CoachButton();
         widgets.add(w);
 
@@ -55,6 +58,15 @@ public class SelectTeams extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
             setColors(0x981E1E, 0xC72929, 0x640000);
             setText(Assets.strings.get("COMPUTER"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    class PlayerCoachButton extends Button {
+        public PlayerCoachButton() {
+            setGeometry((game.settings.GUI_WIDTH - 300) / 2, 86, 300, 30);
+            setColors(0x0000C8, 0x1919FF, 0x000078);
+            setText(Assets.strings.get("PLAYER") + "-" + Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
