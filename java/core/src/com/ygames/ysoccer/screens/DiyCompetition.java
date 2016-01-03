@@ -19,6 +19,10 @@ public class DiyCompetition extends GlScreen {
 
         w = new TitleBar();
         widgets.add(w);
+
+        w = new LeagueButton();
+        widgets.add(w);
+        selectedWidget = w;
     }
 
     class TitleBar extends Button {
@@ -28,6 +32,15 @@ public class DiyCompetition extends GlScreen {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class LeagueButton extends Button {
+
+        public LeagueButton() {
+            setGeometry((game.settings.GUI_WIDTH - 340) /2, 300, 340, 40);
+            setColors(0x568200, 0x77B400, 0x243E00);
+            setText(Assets.strings.get("LEAGUE"), Font.Align.CENTER, Assets.font14);
         }
     }
 }
