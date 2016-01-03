@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -21,6 +20,9 @@ public class Main extends GlScreen {
         selectedWidget = w;
 
         w = new FriendlyButton();
+        widgets.add(w);
+
+        w = new DiyCompetitionButton();
         widgets.add(w);
     }
 
@@ -50,4 +52,13 @@ public class Main extends GlScreen {
             game.setScreen(new Friendly(game, Assets.dataFolder));
         }
     }
+
+    class DiyCompetitionButton extends Button {
+        public DiyCompetitionButton() {
+            setColors(0x415600, 0x5E7D00, 0x243000);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 340, 320, 36);
+            setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
 }
