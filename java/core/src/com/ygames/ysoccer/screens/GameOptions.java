@@ -42,7 +42,7 @@ public class GameOptions extends GlScreen {
     class LanguageLabel extends Button {
         public LanguageLabel() {
             setColors(0x800000, 0xB40000, 0x400000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 390, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 360, 440, 36);
             setText(Assets.strings.get("LANGUAGE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -51,7 +51,7 @@ public class GameOptions extends GlScreen {
     class LanguageButton extends Button {
         public LanguageButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 390, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 360, 440, 36);
             setText(Assets.strings.get("// THIS LANGUAGE NAME //"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -87,7 +87,7 @@ public class GameOptions extends GlScreen {
     class ExitButton extends Button {
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 708, 180, 36);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
