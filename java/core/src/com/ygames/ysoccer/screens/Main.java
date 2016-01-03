@@ -59,6 +59,11 @@ public class Main extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 + 30, 340, 320, 36);
             setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DiyCompetition(game));
+        }
     }
 
 }
