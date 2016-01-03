@@ -19,6 +19,9 @@ public class Main extends GlScreen {
         widgets.add(w);
         selectedWidget = w;
 
+        w = new MatchOptionsButton();
+        widgets.add(w);
+
         w = new FriendlyButton();
         widgets.add(w);
 
@@ -27,6 +30,7 @@ public class Main extends GlScreen {
     }
 
     class GameOptionsButton extends Button {
+
         public GameOptionsButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 290, 320, 36);
             setColors(0x536B90, 0x7090C2, 0x263142);
@@ -40,7 +44,17 @@ public class Main extends GlScreen {
         }
     }
 
+    class MatchOptionsButton extends Button {
+
+        public MatchOptionsButton() {
+            setColors(0x6101D7, 0x7D1DFF, 0x3A0181);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 340, 320, 36);
+            setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
     class FriendlyButton extends Button {
+
         public FriendlyButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 + 30, 290, 320, 36);
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
@@ -54,6 +68,7 @@ public class Main extends GlScreen {
     }
 
     class DiyCompetitionButton extends Button {
+
         public DiyCompetitionButton() {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setGeometry(game.settings.GUI_WIDTH / 2 + 30, 340, 320, 36);
