@@ -22,6 +22,9 @@ public class Main extends GlScreen {
         w = new MatchOptionsButton();
         widgets.add(w);
 
+        w = new ControlButton();
+        widgets.add(w);
+
         w = new FriendlyButton();
         widgets.add(w);
 
@@ -50,6 +53,15 @@ public class Main extends GlScreen {
             setColors(0x6101D7, 0x7D1DFF, 0x3A0181);
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 340, 320, 36);
             setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
+    class ControlButton extends Button {
+
+        public ControlButton() {
+            setColors(0xA905A3, 0xE808E0, 0x5A0259);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 390, 320, 36);
+            setText(Assets.strings.get("CONTROL"), Font.Align.CENTER, Assets.font14);
         }
     }
 
