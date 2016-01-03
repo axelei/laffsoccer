@@ -26,6 +26,9 @@ public class DiyCompetition extends GlScreen {
 
         w = new CupButton();
         widgets.add(w);
+
+        w = new TournamentButton();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -53,6 +56,16 @@ public class DiyCompetition extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 340) / 2, 380, 340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CUP"), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
+    class TournamentButton extends Button {
+
+        public TournamentButton() {
+            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 460, 340, 40);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get("TOURNAMENT"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
