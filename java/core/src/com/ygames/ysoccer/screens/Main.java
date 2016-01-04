@@ -25,6 +25,9 @@ public class Main extends GlScreen {
         w = new ControlButton();
         widgets.add(w);
 
+        w = new EditTacticsButton();
+        widgets.add(w);
+
         w = new FriendlyButton();
         widgets.add(w);
 
@@ -62,6 +65,15 @@ public class Main extends GlScreen {
             setColors(0xA905A3, 0xE808E0, 0x5A0259);
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 390, 320, 36);
             setText(Assets.strings.get("CONTROL"), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
+    class EditTacticsButton extends Button {
+
+        public EditTacticsButton() {
+            setColors(0xBA9206, 0xE9B607, 0x6A5304);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 320, 440, 320, 36);
+            setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font14);
         }
     }
 
