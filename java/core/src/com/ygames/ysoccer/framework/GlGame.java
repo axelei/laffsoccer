@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class GlGame extends Game {
     public List<InputDevice> inputDevices;
     public MenuInput menuInput;
     public List<Team> teamList;
+    public Competition competition;
 
     @Override
     public void create() {

@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -14,6 +15,9 @@ public class DiyLeague extends GlScreen {
         super(game);
 
         background = new Image("images/backgrounds/menu_competition.jpg");
+
+        game.competition = new League();
+        game.competition.name = Assets.strings.get("DIY LEAGUE");
 
         Widget w;
 
