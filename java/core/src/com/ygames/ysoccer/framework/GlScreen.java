@@ -32,6 +32,16 @@ public abstract class GlScreen implements Screen {
 
         selectedWidget = readMenuInput();
 
+        len = widgets.size();
+        for (int i = 0; i < len; i++) {
+            Widget widget = widgets.get(i);
+            widget.update();
+            if (widget.getChanged()) {
+                widget.onUpdate();
+            }
+            widget.setChanged(false);
+        }
+
         YSoccer.MenuInput menuInput = game.menuInput;
         Widget.Event widgetEvent = Widget.Event.NONE;
 

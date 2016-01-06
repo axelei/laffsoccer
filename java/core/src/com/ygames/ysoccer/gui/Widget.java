@@ -21,7 +21,7 @@ public abstract class Widget {
     int darkBorder;
 
     // text
-    String text;
+    protected String text;
     Font font;
     Font.Align align;
     int textOffsetX;
@@ -32,12 +32,18 @@ public abstract class Widget {
     protected boolean entryMode;
     public boolean isVisible;
 
+    // misc
+    protected boolean changed;
+
     public enum Event {
         NONE, FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
     }
 
     public Widget() {
         isVisible = true;
+    }
+
+    public void update() {
     }
 
     public abstract void render(GlGraphics glGraphics);
@@ -97,6 +103,17 @@ public abstract class Widget {
     }
 
     public void onFire2Up() {
+    }
+
+    public void onUpdate() {
+    }
+
+    public boolean getChanged() {
+        return changed;
+    }
+
+    public void setChanged(boolean changed) {
+        this.changed = changed;
     }
 
     public static void arrange(Settings settings, int rowHeight, List<Widget> widgetList) {

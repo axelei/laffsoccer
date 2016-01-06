@@ -85,6 +85,10 @@ public class Button extends Widget {
             case LEFT:
                 tx += font.size;
         }
-        font.draw(glGraphics.batch, text, tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
+        font.draw(glGraphics.batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
+    }
+
+    public String getText() {
+        return text;
     }
 }
