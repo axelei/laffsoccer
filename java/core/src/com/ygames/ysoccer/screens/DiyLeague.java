@@ -12,8 +12,6 @@ import com.ygames.ysoccer.gui.Widget;
 
 public class DiyLeague extends GlScreen {
 
-    LeagueNameButton leagueName;
-
     public DiyLeague(GlGame game) {
         super(game);
 
@@ -27,10 +25,13 @@ public class DiyLeague extends GlScreen {
         w = new TitleButton();
         widgets.add(w);
 
-        leagueName = new LeagueNameButton();
-        widgets.add(leagueName);
+        w = new LeagueNameButton();
+        widgets.add(w);
 
-        selectedWidget = leagueName;
+        selectedWidget = w;
+
+        w = new SeasonPitchTypeButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -55,6 +56,27 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             game.competition.name = text;
+        }
+    }
+
+    class SeasonPitchTypeButton extends Button {
+
+        public SeasonPitchTypeButton() {
+            setGeometry((game.settings.GUI_WIDTH - 700) / 2, 165, 440, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+            update();
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.competition.bySeason = !game.competition.bySeason;
+            update();
+        }
+
+        @Override
+        public void update() {
+            setText(Assets.strings.get(game.competition.bySeason ? "SEASON" : "PITCH TYPE"));
         }
     }
 }
