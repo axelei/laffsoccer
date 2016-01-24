@@ -9,6 +9,9 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.math.Emath;
+
+import java.util.Calendar;
 
 public class DiyLeague extends GlScreen {
 
@@ -31,6 +34,9 @@ public class DiyLeague extends GlScreen {
         selectedWidget = w;
 
         w = new SeasonPitchTypeButton();
+        widgets.add(w);
+
+        w = new SeasonStartButton();
         widgets.add(w);
     }
 
@@ -62,7 +68,7 @@ public class DiyLeague extends GlScreen {
     class SeasonPitchTypeButton extends Button {
 
         public SeasonPitchTypeButton() {
-            setGeometry((game.settings.GUI_WIDTH - 700) / 2, 165, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 165, 350, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
             update();
@@ -77,6 +83,43 @@ public class DiyLeague extends GlScreen {
         @Override
         public void update() {
             setText(Assets.strings.get(game.competition.bySeason ? "SEASON" : "PITCH TYPE"));
+        }
+    }
+
+    class SeasonStartButton extends Button {
+        public SeasonStartButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 10, 165, 180, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSeasonStart(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSeasonStart(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSeasonStart(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSeasonStart(-1);
+        }
+
+        private void updateSeasonStart(int n) {
+            game.competition.seasonStart = Emath.rotate(game.competition.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
+        }
+
+        @Override
+        public void update() {
+            setText(Assets.monthNames.get(game.competition.seasonStart));
         }
     }
 }
