@@ -41,6 +41,7 @@ public abstract class Widget {
 
     public Widget() {
         isVisible = true;
+        changed = true;
     }
 
     public void update() {

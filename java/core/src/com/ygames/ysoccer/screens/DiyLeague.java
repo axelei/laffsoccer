@@ -77,17 +77,16 @@ public class DiyLeague extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 350, 165, 290, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
-            update();
         }
 
         @Override
         public void onFire1Down() {
             game.competition.bySeason = !game.competition.bySeason;
-            update();
+            setChanged(true);
         }
 
         @Override
-        public void update() {
+        public void onUpdate() {
             setText(Assets.strings.get(game.competition.bySeason ? "SEASON" : "PITCH TYPE"));
         }
     }
@@ -122,10 +121,11 @@ public class DiyLeague extends GlScreen {
 
         private void updateSeasonStart(int n) {
             game.competition.seasonStart = Emath.rotate(game.competition.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
+            setChanged(true);
         }
 
         @Override
-        public void update() {
+        public void onUpdate() {
             setText(Assets.monthNames.get(game.competition.seasonStart));
         }
     }
@@ -170,10 +170,11 @@ public class DiyLeague extends GlScreen {
 
         private void updateSeasonEnd(int n) {
             game.competition.seasonEnd = Emath.rotate(game.competition.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
+            setChanged(true);
         }
 
         @Override
-        public void update() {
+        public void onUpdate() {
             setText(Assets.monthNames.get(game.competition.seasonEnd));
         }
     }
