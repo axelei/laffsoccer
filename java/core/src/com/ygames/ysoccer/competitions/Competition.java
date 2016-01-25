@@ -9,9 +9,11 @@ public class Competition {
     public Team[] teams;
     public boolean bySeason; // true = by season, false = by pitch type
     public int seasonStart;
+    public int seasonEnd;
 
     public Competition() {
         bySeason = true;
         seasonStart = Calendar.AUGUST;
+        seasonEnd = Calendar.MAY;
     }
 }

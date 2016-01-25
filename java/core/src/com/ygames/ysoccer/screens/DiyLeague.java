@@ -39,7 +39,10 @@ public class DiyLeague extends GlScreen {
         w = new SeasonStartButton();
         widgets.add(w);
 
-        w = new SeasonSeparator();
+        w = new SeasonSeparatorButton();
+        widgets.add(w);
+
+        w = new SeasonEndButton();
         widgets.add(w);
     }
 
@@ -71,7 +74,7 @@ public class DiyLeague extends GlScreen {
     class SeasonPitchTypeButton extends Button {
 
         public SeasonPitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 165, 350, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 165, 290, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
             update();
@@ -92,7 +95,7 @@ public class DiyLeague extends GlScreen {
     class SeasonStartButton extends Button {
 
         public SeasonStartButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 10, 165, 180, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 165, 180, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -127,13 +130,51 @@ public class DiyLeague extends GlScreen {
         }
     }
 
-    class SeasonSeparator extends Button {
+    class SeasonSeparatorButton extends Button {
 
-        public SeasonSeparator() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 190, 165, 40, 36);
+        public SeasonSeparatorButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 130, 165, 40, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText("-", Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class SeasonEndButton extends Button {
+
+        public SeasonEndButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 170, 165, 180, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSeasonEnd(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSeasonEnd(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSeasonEnd(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSeasonEnd(-1);
+        }
+
+        private void updateSeasonEnd(int n) {
+            game.competition.seasonEnd = Emath.rotate(game.competition.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
+        }
+
+        @Override
+        public void update() {
+            setText(Assets.monthNames.get(game.competition.seasonEnd));
         }
     }
 }
