@@ -38,6 +38,9 @@ public class DiyLeague extends GlScreen {
 
         w = new SeasonStartButton();
         widgets.add(w);
+
+        w = new SeasonSeparator();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -87,6 +90,7 @@ public class DiyLeague extends GlScreen {
     }
 
     class SeasonStartButton extends Button {
+
         public SeasonStartButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 + 10, 165, 180, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
@@ -120,6 +124,16 @@ public class DiyLeague extends GlScreen {
         @Override
         public void update() {
             setText(Assets.monthNames.get(game.competition.seasonStart));
+        }
+    }
+
+    class SeasonSeparator extends Button {
+
+        public SeasonSeparator() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 190, 165, 40, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText("-", Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
