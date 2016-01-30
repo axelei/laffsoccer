@@ -285,7 +285,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.timeNames.get(game.competition.time));
+            setText(Assets.strings.get(Time.names[game.competition.time]));
         }
     }
 }

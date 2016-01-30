@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.match.Time;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,7 +18,6 @@ public class Assets {
     public static FileHandle dataFolder;
     public static List<String> monthNames;
     public static List<String> pitchNames;
-    public static List<String> timeNames;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -29,7 +27,6 @@ public class Assets {
         dataFolder = Gdx.files.local("data/");
         setMonthNames();
         setPitchNames();
-        setTimeNames();
     }
 
     private static void loadLocales() {
@@ -77,12 +74,5 @@ public class Assets {
         pitchNames.add(Pitch.SNOWED, Assets.strings.get("PITCH.SNOWED"));
         pitchNames.add(Pitch.WHITE, Assets.strings.get("PITCH.WHITE"));
         pitchNames.add(Pitch.RANDOM, Assets.strings.get("RANDOM"));
-    }
-
-    private static void setTimeNames() {
-        timeNames = new ArrayList<String>();
-        timeNames.add(Time.DAY, Assets.strings.get("TIME.DAY"));
-        timeNames.add(Time.NIGHT, Assets.strings.get("TIME.NIGHT"));
-        timeNames.add(Time.RANDOM, Assets.strings.get("RANDOM"));
     }
 }
