@@ -11,4 +11,16 @@ public class Pitch {
     public static final int SNOWED = 7;
     public static final int WHITE = 8;
     public static final int RANDOM = 9;
+    public static final String[] names = {
+            "PITCH.FROZEN",
+            "PITCH.MUDDY",
+            "PITCH.WET",
+            "PITCH.SOFT",
+            "PITCH.NORMAL",
+            "PITCH.DRY",
+            "PITCH.HARD",
+            "PITCH.SNOWED",
+            "PITCH.WHITE",
+            "RANDOM"
+    };
 }

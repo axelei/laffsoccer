@@ -3,7 +3,6 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.I18NBundle;
-import com.ygames.ysoccer.match.Pitch;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,7 +16,6 @@ public class Assets {
     public static Font font14;
     public static FileHandle dataFolder;
     public static List<String> monthNames;
-    public static List<String> pitchNames;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -26,7 +24,6 @@ public class Assets {
         font14.load();
         dataFolder = Gdx.files.local("data/");
         setMonthNames();
-        setPitchNames();
     }
 
     private static void loadLocales() {
@@ -60,19 +57,5 @@ public class Assets {
         monthNames.add(Calendar.OCTOBER, Assets.strings.get("OCTOBER"));
         monthNames.add(Calendar.NOVEMBER, Assets.strings.get("NOVEMBER"));
         monthNames.add(Calendar.DECEMBER, Assets.strings.get("DECEMBER"));
-    }
-
-    private static void setPitchNames() {
-        pitchNames = new ArrayList<String>();
-        pitchNames.add(Pitch.FROZEN, Assets.strings.get("PITCH.FROZEN"));
-        pitchNames.add(Pitch.MUDDY, Assets.strings.get("PITCH.MUDDY"));
-        pitchNames.add(Pitch.WET, Assets.strings.get("PITCH.WET"));
-        pitchNames.add(Pitch.SOFT, Assets.strings.get("PITCH.SOFT"));
-        pitchNames.add(Pitch.NORMAL, Assets.strings.get("PITCH.NORMAL"));
-        pitchNames.add(Pitch.DRY, Assets.strings.get("PITCH.DRY"));
-        pitchNames.add(Pitch.HARD, Assets.strings.get("PITCH.HARD"));
-        pitchNames.add(Pitch.SNOWED, Assets.strings.get("PITCH.SNOWED"));
-        pitchNames.add(Pitch.WHITE, Assets.strings.get("PITCH.WHITE"));
-        pitchNames.add(Pitch.RANDOM, Assets.strings.get("RANDOM"));
     }
 }

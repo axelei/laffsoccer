@@ -245,7 +245,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.pitchNames.get(game.competition.pitchType));
+            setText(Assets.strings.get(Pitch.names[game.competition.pitchType]));
             setVisible(!game.competition.bySeason);
         }
     }
