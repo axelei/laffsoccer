@@ -9,11 +9,17 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Calendar;
 
 public class DiyLeague extends GlScreen {
+
+    Widget seasonStartButton;
+    Widget seasonSeparatorButton;
+    Widget seasonEndButton;
+    Widget pitchTypeButton;
 
     public DiyLeague(GlGame game) {
         super(game);
@@ -38,12 +44,19 @@ public class DiyLeague extends GlScreen {
 
         w = new SeasonStartButton();
         widgets.add(w);
+        seasonStartButton = w;
 
         w = new SeasonSeparatorButton();
         widgets.add(w);
+        seasonSeparatorButton = w;
 
         w = new SeasonEndButton();
         widgets.add(w);
+        seasonEndButton = w;
+
+        w = new PitchTypeButton();
+        widgets.add(w);
+        pitchTypeButton = w;
     }
 
     class TitleButton extends Button {
@@ -83,6 +96,10 @@ public class DiyLeague extends GlScreen {
         public void onFire1Down() {
             game.competition.bySeason = !game.competition.bySeason;
             setChanged(true);
+            seasonStartButton.setChanged(true);
+            seasonSeparatorButton.setChanged(true);
+            seasonEndButton.setChanged(true);
+            pitchTypeButton.setChanged(true);
         }
 
         @Override
@@ -127,6 +144,7 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(Assets.monthNames.get(game.competition.seasonStart));
+            setVisible(game.competition.bySeason);
         }
     }
 
@@ -137,6 +155,11 @@ public class DiyLeague extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText("-", Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(game.competition.bySeason);
         }
     }
 
@@ -176,6 +199,47 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(Assets.monthNames.get(game.competition.seasonEnd));
+            setVisible(game.competition.bySeason);
+        }
+    }
+
+    class PitchTypeButton extends Button {
+
+        public PitchTypeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 165, 400, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePitchType(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updatePitchType(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePitchType(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updatePitchType(-1);
+        }
+
+        private void updatePitchType(int n) {
+            game.competition.pitchType = Emath.rotate(game.competition.pitchType, 0, Pitch.RANDOM, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.pitchNames.get(game.competition.pitchType));
+            setVisible(!game.competition.bySeason);
         }
     }
 }
