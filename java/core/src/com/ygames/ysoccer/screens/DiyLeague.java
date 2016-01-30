@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Pitch;
+import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Calendar;
@@ -37,8 +38,6 @@ public class DiyLeague extends GlScreen {
         w = new LeagueNameButton();
         widgets.add(w);
 
-        selectedWidget = w;
-
         w = new SeasonPitchTypeButton();
         widgets.add(w);
 
@@ -60,6 +59,11 @@ public class DiyLeague extends GlScreen {
 
         w = new TimeLabel();
         widgets.add(w);
+
+        w = new TimeButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     class TitleButton extends Button {
@@ -253,6 +257,35 @@ public class DiyLeague extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class TimeButton extends Button {
+
+        public TimeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 210, 240, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateTime(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateTime(-1);
+        }
+
+        private void updateTime(int n) {
+            game.competition.time = Emath.rotate(game.competition.time, Time.DAY, Time.NIGHT, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.timeNames.get(game.competition.time));
         }
     }
 }
