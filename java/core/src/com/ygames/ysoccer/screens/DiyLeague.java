@@ -57,6 +57,9 @@ public class DiyLeague extends GlScreen {
         w = new PitchTypeButton();
         widgets.add(w);
         pitchTypeButton = w;
+
+        w = new TimeLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -240,6 +243,16 @@ public class DiyLeague extends GlScreen {
         public void onUpdate() {
             setText(Assets.pitchNames.get(game.competition.pitchType));
             setVisible(!game.competition.bySeason);
+        }
+    }
+
+    class TimeLabel extends Button {
+
+        public TimeLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 210, 440, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
