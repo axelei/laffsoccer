@@ -16,6 +16,10 @@ public class Emath {
         return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
     }
 
+    public static int slide(int value, int low, int high, int step) {
+        return Math.min(Math.max(value + step, low), high);
+    }
+
     public static int floor(double value) {
         return (int) Math.floor(value);
     }

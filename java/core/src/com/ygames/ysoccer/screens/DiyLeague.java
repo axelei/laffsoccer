@@ -17,6 +17,7 @@ import java.util.Calendar;
 
 public class DiyLeague extends GlScreen {
 
+    League league;
     Widget seasonStartButton;
     Widget seasonSeparatorButton;
     Widget seasonEndButton;
@@ -27,8 +28,10 @@ public class DiyLeague extends GlScreen {
 
         background = new Image("images/backgrounds/menu_competition.jpg");
 
-        game.competition = new League();
-        game.competition.name = Assets.strings.get("DIY LEAGUE");
+        league = new League();
+        league.name = Assets.strings.get("DIY LEAGUE");
+
+        game.competition = league;
 
         Widget w;
 
@@ -67,6 +70,9 @@ public class DiyLeague extends GlScreen {
 
         w = new NumberOfTeamsLabel();
         widgets.add(w);
+
+        w = new NumberOfTeamsButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -84,13 +90,13 @@ public class DiyLeague extends GlScreen {
         public LeagueNameButton() {
             setGeometry((game.settings.GUI_WIDTH - 700) / 2, 120, 700, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
-            setText(game.competition.name, Font.Align.CENTER, Assets.font14);
+            setText(league.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(24);
         }
 
         @Override
         public void onUpdate() {
-            game.competition.name = text;
+            league.name = text;
         }
     }
 
@@ -104,7 +110,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition.bySeason = !game.competition.bySeason;
+            league.bySeason = !league.bySeason;
             setChanged(true);
             seasonStartButton.setChanged(true);
             seasonSeparatorButton.setChanged(true);
@@ -114,7 +120,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(game.competition.bySeason ? "SEASON" : "PITCH TYPE"));
+            setText(Assets.strings.get(league.bySeason ? "SEASON" : "PITCH TYPE"));
         }
     }
 
@@ -147,14 +153,14 @@ public class DiyLeague extends GlScreen {
         }
 
         private void updateSeasonStart(int n) {
-            game.competition.seasonStart = Emath.rotate(game.competition.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
+            league.seasonStart = Emath.rotate(league.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
             setChanged(true);
         }
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Time.monthNames[game.competition.seasonStart]));
-            setVisible(game.competition.bySeason);
+            setText(Assets.strings.get(Time.monthNames[league.seasonStart]));
+            setVisible(league.bySeason);
         }
     }
 
@@ -169,7 +175,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setVisible(game.competition.bySeason);
+            setVisible(league.bySeason);
         }
     }
 
@@ -202,14 +208,14 @@ public class DiyLeague extends GlScreen {
         }
 
         private void updateSeasonEnd(int n) {
-            game.competition.seasonEnd = Emath.rotate(game.competition.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
+            league.seasonEnd = Emath.rotate(league.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
             setChanged(true);
         }
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Time.monthNames[game.competition.seasonEnd]));
-            setVisible(game.competition.bySeason);
+            setText(Assets.strings.get(Time.monthNames[league.seasonEnd]));
+            setVisible(league.bySeason);
         }
     }
 
@@ -242,14 +248,14 @@ public class DiyLeague extends GlScreen {
         }
 
         private void updatePitchType(int n) {
-            game.competition.pitchType = Emath.rotate(game.competition.pitchType, 0, Pitch.RANDOM, n);
+            league.pitchType = Emath.rotate(league.pitchType, 0, Pitch.RANDOM, n);
             setChanged(true);
         }
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Pitch.names[game.competition.pitchType]));
-            setVisible(!game.competition.bySeason);
+            setText(Assets.strings.get(Pitch.names[league.pitchType]));
+            setVisible(!league.bySeason);
         }
     }
 
@@ -282,13 +288,13 @@ public class DiyLeague extends GlScreen {
         }
 
         private void updateTime(int n) {
-            game.competition.time = Emath.rotate(game.competition.time, Time.DAY, Time.NIGHT, n);
+            league.time = Emath.rotate(league.time, Time.DAY, Time.NIGHT, n);
             setChanged(true);
         }
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Time.names[game.competition.time]));
+            setText(Assets.strings.get(Time.names[league.time]));
         }
     }
 
@@ -299,6 +305,45 @@ public class DiyLeague extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("NUMBER OF TEAMS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class NumberOfTeamsButton extends Button {
+
+        public NumberOfTeamsButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 255, 240, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateNumberOfTeams(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateNumberOfTeams(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateNumberOfTeams(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateNumberOfTeams(-1);
+        }
+
+        private void updateNumberOfTeams(int n) {
+            league.numberOfTeams = Emath.slide(league.numberOfTeams, 2, 24, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(league.numberOfTeams);
         }
     }
 }

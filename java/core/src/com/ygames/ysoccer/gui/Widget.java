@@ -74,6 +74,10 @@ public abstract class Widget {
         this.text = text;
     }
 
+    public void setText(int i) {
+        setText("" + i);
+    }
+
     public void setText(String text, Font.Align align, Font font) {
         this.text = text;
         this.align = align;
