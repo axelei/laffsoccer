@@ -150,7 +150,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.monthNames.get(game.competition.seasonStart));
+            setText(Assets.strings.get(Time.monthNames[game.competition.seasonStart]));
             setVisible(game.competition.bySeason);
         }
     }
@@ -205,7 +205,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.monthNames.get(game.competition.seasonEnd));
+            setText(Assets.strings.get(Time.monthNames[game.competition.seasonEnd]));
             setVisible(game.competition.bySeason);
         }
     }

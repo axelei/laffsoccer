@@ -9,4 +9,18 @@ public class Time {
             "TIME.NIGHT",
             "RANDOM"
     };
+    public static final String[] monthNames = {
+            "JANUARY",
+            "FEBRUARY",
+            "MARCH",
+            "APRIL",
+            "MAY",
+            "JUNE",
+            "JULY",
+            "AUGUST",
+            "SEPTEMBER",
+            "OCTOBER",
+            "NOVEMBER",
+            "DECEMBER"
+    };
 }
