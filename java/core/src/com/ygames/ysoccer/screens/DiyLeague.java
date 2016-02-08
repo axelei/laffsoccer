@@ -88,6 +88,9 @@ public class DiyLeague extends GlScreen {
 
         w = new SubstitutesLabel();
         widgets.add(w);
+
+        w = new SubstitutesButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -457,6 +460,45 @@ public class DiyLeague extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class SubstitutesButton extends Button {
+
+        public SubstitutesButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 390, 240, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSubstitutes(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSubstitutes(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSubstitutes(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSubstitutes(-1);
+        }
+
+        private void updateSubstitutes(int n) {
+            league.substitutions = Emath.slide(league.substitutions, 2, league.benchSize, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(league.substitutions);
         }
     }
 }

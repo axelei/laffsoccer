@@ -13,6 +13,8 @@ public class Competition {
     public int seasonStart;
     public int seasonEnd;
     public int pitchType;
+    public int substitutions;
+    public int benchSize;
     public int time;
 
     public Competition() {
@@ -20,6 +22,8 @@ public class Competition {
         seasonStart = Calendar.AUGUST;
         seasonEnd = Calendar.MAY;
         pitchType = Pitch.RANDOM;
+        substitutions = 3;
+        benchSize = 5;
         time = Time.DAY;
     }
 }
