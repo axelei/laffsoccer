@@ -85,6 +85,9 @@ public class DiyLeague extends GlScreen {
 
         w = new PointsForAWinButton();
         widgets.add(w);
+
+        w = new SubstitutesLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -444,6 +447,16 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(league.pointsForAWin);
+        }
+    }
+
+    class SubstitutesLabel extends Button {
+
+        public SubstitutesLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 390, 440, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
