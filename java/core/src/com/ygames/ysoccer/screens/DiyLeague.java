@@ -76,6 +76,9 @@ public class DiyLeague extends GlScreen {
 
         w = new PlayEachTeamLabel();
         widgets.add(w);
+
+        w = new PlayEachTeamButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -357,6 +360,45 @@ public class DiyLeague extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("PLAY EACH TEAM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class PlayEachTeamButton extends Button {
+
+        public PlayEachTeamButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 300, 240, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePlayEachTeam(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updatePlayEachTeam(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePlayEachTeam(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updatePlayEachTeam(-1);
+        }
+
+        private void updatePlayEachTeam(int n) {
+            league.rounds = Emath.slide(league.rounds, 1, 10, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(((char) 215) + "" + league.rounds);
         }
     }
 }
