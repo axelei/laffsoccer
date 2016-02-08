@@ -91,6 +91,9 @@ public class DiyLeague extends GlScreen {
 
         w = new SubstitutesButton();
         widgets.add(w);
+
+        w = new BenchSizeLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -499,6 +502,16 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(league.substitutions);
+        }
+    }
+
+    class BenchSizeLabel extends Button {
+
+        public BenchSizeLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 435, 440, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
