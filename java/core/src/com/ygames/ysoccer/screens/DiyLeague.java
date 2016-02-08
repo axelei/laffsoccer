@@ -73,6 +73,9 @@ public class DiyLeague extends GlScreen {
 
         w = new NumberOfTeamsButton();
         widgets.add(w);
+
+        w = new PlayEachTeamLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -344,6 +347,16 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(league.numberOfTeams);
+        }
+    }
+
+    class PlayEachTeamLabel extends Button {
+
+        public PlayEachTeamLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 300, 440, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("PLAY EACH TEAM"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
