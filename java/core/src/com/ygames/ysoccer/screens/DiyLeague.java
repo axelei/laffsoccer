@@ -79,6 +79,9 @@ public class DiyLeague extends GlScreen {
 
         w = new PlayEachTeamButton();
         widgets.add(w);
+
+        w = new PointsForAWinLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -399,6 +402,16 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(((char) 215) + "" + league.rounds);
+        }
+    }
+
+    class PointsForAWinLabel extends Button {
+
+        public PointsForAWinLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 345, 440, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("POINTS FOR A WIN"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
