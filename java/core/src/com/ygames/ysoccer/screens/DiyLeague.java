@@ -22,6 +22,7 @@ public class DiyLeague extends GlScreen {
     Widget seasonSeparatorButton;
     Widget seasonEndButton;
     Widget pitchTypeButton;
+    Widget substitutesButton;
 
     public DiyLeague(GlGame game) {
         super(game);
@@ -91,8 +92,12 @@ public class DiyLeague extends GlScreen {
 
         w = new SubstitutesButton();
         widgets.add(w);
+        substitutesButton = w;
 
         w = new BenchSizeLabel();
+        widgets.add(w);
+
+        w = new BenchSizeButton();
         widgets.add(w);
     }
 
@@ -512,6 +517,47 @@ public class DiyLeague extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class BenchSizeButton extends Button {
+
+        public BenchSizeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 435, 240, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateBenchSize(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateBenchSize(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateBenchSize(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateBenchSize(-1);
+        }
+
+        private void updateBenchSize(int n) {
+            league.benchSize = Emath.slide(league.benchSize, 2, 5, n);
+            league.substitutions = Math.min(league.substitutions, league.benchSize);
+            setChanged(true);
+            substitutesButton.setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(league.benchSize);
         }
     }
 }
