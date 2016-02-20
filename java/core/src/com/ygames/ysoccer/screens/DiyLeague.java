@@ -100,6 +100,9 @@ public class DiyLeague extends GlScreen {
         w = new BenchSizeButton();
         widgets.add(w);
 
+        w = new OkButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -132,7 +135,7 @@ public class DiyLeague extends GlScreen {
     class SeasonPitchTypeButton extends Button {
 
         public SeasonPitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 165, 290, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 175, 290, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -156,7 +159,7 @@ public class DiyLeague extends GlScreen {
     class SeasonStartButton extends Button {
 
         public SeasonStartButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 165, 180, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 175, 180, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -196,7 +199,7 @@ public class DiyLeague extends GlScreen {
     class SeasonSeparatorButton extends Button {
 
         public SeasonSeparatorButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 130, 165, 40, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 130, 175, 40, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText("-", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -211,7 +214,7 @@ public class DiyLeague extends GlScreen {
     class SeasonEndButton extends Button {
 
         public SeasonEndButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 170, 165, 180, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 170, 175, 180, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -251,7 +254,7 @@ public class DiyLeague extends GlScreen {
     class PitchTypeButton extends Button {
 
         public PitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 165, 400, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 175, 400, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -291,7 +294,7 @@ public class DiyLeague extends GlScreen {
     class TimeLabel extends Button {
 
         public TimeLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 210, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 230, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -301,7 +304,7 @@ public class DiyLeague extends GlScreen {
     class TimeButton extends Button {
 
         public TimeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 210, 240, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 230, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -330,7 +333,7 @@ public class DiyLeague extends GlScreen {
     class NumberOfTeamsLabel extends Button {
 
         public NumberOfTeamsLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 255, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 285, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("NUMBER OF TEAMS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -340,7 +343,7 @@ public class DiyLeague extends GlScreen {
     class NumberOfTeamsButton extends Button {
 
         public NumberOfTeamsButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 255, 240, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 285, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -379,7 +382,7 @@ public class DiyLeague extends GlScreen {
     class PlayEachTeamLabel extends Button {
 
         public PlayEachTeamLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 300, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 340, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("PLAY EACH TEAM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -389,7 +392,7 @@ public class DiyLeague extends GlScreen {
     class PlayEachTeamButton extends Button {
 
         public PlayEachTeamButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 300, 240, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 340, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -428,7 +431,7 @@ public class DiyLeague extends GlScreen {
     class PointsForAWinLabel extends Button {
 
         public PointsForAWinLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 345, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 395, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("POINTS FOR A WIN"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -438,7 +441,7 @@ public class DiyLeague extends GlScreen {
     class PointsForAWinButton extends Button {
 
         public PointsForAWinButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 345, 240, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 395, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -467,7 +470,7 @@ public class DiyLeague extends GlScreen {
     class SubstitutesLabel extends Button {
 
         public SubstitutesLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 390, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 450, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -477,7 +480,7 @@ public class DiyLeague extends GlScreen {
     class SubstitutesButton extends Button {
 
         public SubstitutesButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 390, 240, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 450, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -516,7 +519,7 @@ public class DiyLeague extends GlScreen {
     class BenchSizeLabel extends Button {
 
         public BenchSizeLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 435, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 505, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -526,7 +529,7 @@ public class DiyLeague extends GlScreen {
     class BenchSizeButton extends Button {
 
         public BenchSizeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 435, 240, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 505, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -561,6 +564,19 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             setText(league.benchSize);
+        }
+    }
+
+    class OkButton extends Button {
+        public OkButton() {
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
+            setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO: game.setScreen(???);
         }
     }
 
