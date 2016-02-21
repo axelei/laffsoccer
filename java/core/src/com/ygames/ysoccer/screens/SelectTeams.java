@@ -169,7 +169,7 @@ public class SelectTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new Friendly(game, fileHandle));
+            game.setScreen(new SelectFolder(game, fileHandle));
         }
     }
 }
