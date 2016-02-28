@@ -14,6 +14,13 @@ public class GlGame extends Game {
     Keyboard keyboard;
     public List<InputDevice> inputDevices;
     public MenuInput menuInput;
+
+    public enum State {
+        NONE, FRIENDLY, COMPETITION, EDIT, TRAINING
+    }
+
+    public State state;
+
     public List<Team> teamList;
     public Competition competition;
 
@@ -28,6 +35,8 @@ public class GlGame extends Game {
         keyboard = new Keyboard();
         keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.COMMA, Input.Keys.PERIOD);
         inputDevices.add(keyboard);
+
+        state = State.NONE;
 
         teamList = new ArrayList<Team>();
     }

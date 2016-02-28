@@ -32,6 +32,7 @@ public class DiyLeague extends GlScreen {
         league = new League();
         league.name = Assets.strings.get("DIY LEAGUE");
 
+        game.state = GlGame.State.COMPETITION;
         game.competition = league;
 
         Widget w;
@@ -576,7 +577,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: game.setScreen(???);
+            game.setScreen(new SelectFolder(game, Assets.dataFolder));
         }
     }
 

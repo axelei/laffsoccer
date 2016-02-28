@@ -23,6 +23,7 @@ public class DesignFriendly extends GlScreen {
         friendly = new Friendly();
         friendly.name = Assets.strings.get("FRIENDLY");
 
+        game.state = GlGame.State.FRIENDLY;
         game.competition = friendly;
 
         Widget w;
