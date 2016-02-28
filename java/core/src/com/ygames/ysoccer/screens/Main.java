@@ -14,6 +14,8 @@ public class Main extends GlScreen {
         super(game);
         background = new Image("images/backgrounds/menu_main.jpg");
 
+        game.teamList.clear();
+
         Widget w;
         w = new GameOptionsButton();
         widgets.add(w);

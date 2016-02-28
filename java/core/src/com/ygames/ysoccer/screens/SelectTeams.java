@@ -18,6 +18,7 @@ import java.util.List;
 public class SelectTeams extends GlScreen {
 
     private FileHandle fileHandle;
+    private Widget playButton;
 
     public SelectTeams(GlGame game, FileHandle fileHandle, League league) {
         super(game);
@@ -78,6 +79,10 @@ public class SelectTeams extends GlScreen {
         if (selectedWidget == null) {
             selectedWidget = w;
         }
+
+        w = new PlayButton();
+        widgets.add(w);
+        playButton = w;
     }
 
     class TitleButton extends Button {
@@ -156,6 +161,7 @@ public class SelectTeams extends GlScreen {
                 game.teamList.add(team);
             }
             updateColors();
+            playButton.setChanged(true);
         }
 
         private void updateColors() {
@@ -186,6 +192,47 @@ public class SelectTeams extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new SelectFolder(game, fileHandle));
+        }
+    }
+
+    class PlayButton extends Button {
+        public PlayButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 660, 360, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            int diff = game.competition.numberOfTeams - game.teamList.size();
+            if (diff == 0) {
+                switch (game.competition.type) {
+                    case FRIENDLY:
+                        setText(Assets.strings.get("PLAY FRIENDLY"));
+                        break;
+                    case LEAGUE:
+                        setText(Assets.strings.get("PLAY LEAGUE"));
+                        break;
+                }
+                setColors(0x138B21, 0x1BC12F, 0x004814);
+                setActive(true);
+            } else {
+                if (diff > 1) {
+                    setText(Assets.strings.get("SELECT %n MORE TEAMS").replace("%n", "" + diff));
+                } else if (diff == 1) {
+                    setText(Assets.strings.get("SELECT 1 MORE TEAM"));
+                } else if (diff == -1) {
+                    setText(Assets.strings.get("SELECT 1 LESS TEAM"));
+                } else {
+                    setText(Assets.strings.get("SELECT %n LESS TEAMS").replace("%n", "" + (-diff)));
+                }
+                setColors(0x000000, 0x000000, 0x000000);
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
         }
     }
 }

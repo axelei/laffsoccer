@@ -6,6 +6,7 @@ public class League extends Competition {
     public int pointsForAWin;
 
     public League() {
+        type = Type.LEAGUE;
         numberOfTeams = 2;
         rounds = 1;
         pointsForAWin = 3;

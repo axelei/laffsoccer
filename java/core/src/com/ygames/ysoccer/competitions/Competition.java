@@ -8,6 +8,13 @@ import java.util.Calendar;
 
 public class Competition {
     public String name;
+
+    public enum Type {
+        FRIENDLY, LEAGUE, CUP
+    }
+
+    public Type type;
+
     public int numberOfTeams;
     public Team[] teams;
     public boolean bySeason; // true = by season, false = by pitch type
