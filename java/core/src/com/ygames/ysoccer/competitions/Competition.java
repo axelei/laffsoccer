@@ -8,6 +8,7 @@ import java.util.Calendar;
 
 public class Competition {
     public String name;
+    public int numberOfTeams;
     public Team[] teams;
     public boolean bySeason; // true = by season, false = by pitch type
     public int seasonStart;

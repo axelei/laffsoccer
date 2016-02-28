@@ -102,7 +102,7 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new Friendly(game));
+            game.setScreen(new DesignFriendly(game));
         }
     }
 

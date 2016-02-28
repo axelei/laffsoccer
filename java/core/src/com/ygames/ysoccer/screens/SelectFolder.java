@@ -70,7 +70,7 @@ public class SelectFolder extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            String title = Assets.strings.get("FRIENDLY");
+            String title = game.competition.name;
             if (!isDataRoot) {
                 title += " - " + fileHandle.name().toUpperCase();
             }
