@@ -15,10 +15,7 @@ public abstract class Widget {
     public int w;
     public int h;
 
-    // colors
-    int body;
-    int lightBorder;
-    int darkBorder;
+    WidgetColor color;
 
     // text
     protected String text;
@@ -40,6 +37,7 @@ public abstract class Widget {
     }
 
     public Widget() {
+        color = new WidgetColor();
         isVisible = true;
         changed = true;
     }
@@ -65,9 +63,7 @@ public abstract class Widget {
     }
 
     public void setColors(int body, int lightBorder, int darkBorder) {
-        this.body = body;
-        this.lightBorder = lightBorder;
-        this.darkBorder = darkBorder;
+        this.color.set(body, lightBorder, darkBorder);
     }
 
     public void setText(String text) {

@@ -23,14 +23,14 @@ public class Button extends Widget {
         shapeRenderer.begin(GlShapeRenderer.ShapeType.Filled);
 
         // body (0x000000 = invisible)
-        if (body != 0x000000) {
-            shapeRenderer.setColor(body, alpha);
+        if (color.body != 0x000000) {
+            shapeRenderer.setColor(color.body, alpha);
             shapeRenderer.rect(x + 2, y + 2, w - 4, h - 4);
         }
 
         // border ($000000 = invisible)
-        if (lightBorder != 0x000000) {
-            drawBorder(shapeRenderer, x, y, w, h, lightBorder, darkBorder);
+        if (color.lightBorder != 0x000000) {
+            drawBorder(shapeRenderer, x, y, w, h, color.lightBorder, color.darkBorder);
             if (isSelected && !entryMode) {
                 drawAnimatedBorder(glGraphics);
             }
