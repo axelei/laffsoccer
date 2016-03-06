@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Serie A 1964-1965",
+    "pointsForAWin": 2,
+    "teams": [
+      {
+        "code": "ata"
+      },
+      {
+        "code": "bol"
+      },
+      {
+        "code": "cag"
+      },
+      {
+        "code": "cat"
+      },
+      {
+        "code": "fio"
+      },
+      {
+        "code": "fog"
+      },
+      {
+        "code": "gen"
+      },
+      {
+        "code": "int"
+      },
+      {
+        "code": "juv"
+      },
+      {
+        "code": "lrv"
+      },
+      {
+        "code": "laz"
+      },
+      {
+        "code": "man"
+      },
+      {
+        "code": "mes"
+      },
+      {
+        "code": "mil"
+      },
+      {
+        "code": "rom"
+      },
+      {
+        "code": "sam"
+      },
+      {
+        "code": "tor"
+      },
+      {
+        "code": "var"
+      }
+    ]
+  }
+]

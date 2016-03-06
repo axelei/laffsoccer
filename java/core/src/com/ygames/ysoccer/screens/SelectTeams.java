@@ -60,7 +60,7 @@ public class SelectTeams extends GlScreen {
             }
         }
         if (list.size() > 0) {
-            Widget.arrange(game.settings, 32, list);
+            Widget.arrange(game.settings, 350, 32, list);
             selectedWidget = list.get(0);
         }
 

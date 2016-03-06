@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -13,15 +14,15 @@ import com.ygames.ysoccer.gui.Widget;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectFolder extends GlScreen {
+public class SelectCompetition extends GlScreen {
 
     private FileHandle fileHandle;
     private boolean isDataRoot;
 
-    public SelectFolder(GlGame game, FileHandle fileHandle) {
+    public SelectCompetition(GlGame game, FileHandle fileHandle) {
         super(game);
         this.fileHandle = fileHandle;
-        isDataRoot = (fileHandle.path().equals(Assets.teamsFolder.path()));
+        isDataRoot = (fileHandle.path().equals(Assets.competitionsFolder.path()));
 
         background = game.stateBackground;
 
@@ -29,34 +30,41 @@ public class SelectFolder extends GlScreen {
         w = new TitleBar();
         widgets.add(w);
 
-        List<Widget> list = new ArrayList<Widget>();
-        FileHandle[] files = fileHandle.list();
-        for (FileHandle file : files) {
-            if (file.isDirectory()) {
-                w = new FolderButton(file);
-                list.add(w);
+        // Competitions buttons
+        List<Widget> competitionsList = new ArrayList<Widget>();
+
+        FileHandle leaguesFile = fileHandle.child("leagues.json");
+        if (leaguesFile.exists()) {
+            Json json = new Json();
+            League[] leagues = json.fromJson(League[].class, leaguesFile.readString());
+            for (League league : leagues) {
+                w = new CompetitionButton(league);
+                competitionsList.add(w);
                 widgets.add(w);
             }
         }
 
-        if (list.size() > 0) {
-            Widget.arrange(game.settings, 350, 50, list);
-            selectedWidget = list.get(0);
-        } else {
-            FileHandle leagueFile = fileHandle.child("leagues.json");
-            if (leagueFile.exists()) {
-                Json json = new Json();
-                League[] leagues = json.fromJson(League[].class, leagueFile.readString());
-                for (League league : leagues) {
-                    w = new LeagueButton(league);
-                    list.add(w);
-                    widgets.add(w);
-                }
-                if (leagues.length > 0) {
-                    Widget.arrange(game.settings, 350, 50, list);
-                    selectedWidget = list.get(0);
-                }
+        // Folders buttons
+        List<Widget> foldersList = new ArrayList<Widget>();
+        FileHandle[] files = fileHandle.list();
+        for (FileHandle file : files) {
+            if (file.isDirectory()) {
+                w = new FolderButton(file);
+                foldersList.add(w);
+                widgets.add(w);
             }
+        }
+
+        int topY = 365 - 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2;
+        int centerY = topY + 30 * competitionsList.size() / 2;
+        if (competitionsList.size() > 0) {
+            Widget.arrange(game.settings, centerY, 30, competitionsList);
+            selectedWidget = competitionsList.get(0);
+        }
+        centerY += 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2 + 6;
+        if (foldersList.size() > 0) {
+            Widget.arrange(game.settings, centerY, 30, foldersList);
+            selectedWidget = foldersList.get(0);
         }
 
         w = new ExitButton();
@@ -69,7 +77,7 @@ public class SelectFolder extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            String title = game.competition.name;
+            String title = Assets.strings.get("CHOOSE PRESET COMPETITION");
             if (!isDataRoot) {
                 title += " - " + fileHandle.name().toUpperCase();
             }
@@ -87,31 +95,31 @@ public class SelectFolder extends GlScreen {
 
         public FolderButton(FileHandle fileHandle) {
             this.fileHandle = fileHandle;
-            setSize(340, 40);
+            setSize(340, 30);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(fileHandle.name().toUpperCase(), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectFolder(game, fileHandle));
+            game.setScreen(new SelectCompetition(game, fileHandle));
         }
     }
 
-    class LeagueButton extends Button {
+    class CompetitionButton extends Button {
 
-        League league;
+        Competition competition;
 
-        public LeagueButton(League league) {
-            this.league = league;
-            setSize(340, 40);
+        public CompetitionButton(Competition competition) {
+            this.competition = competition;
+            setSize(480, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
-            setText(league.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(competition.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeams(game, fileHandle, league));
+            // TODO: game.setScreen(new CompetitionSelectedTeams(game, fileHandle, competition));
         }
     }
 
@@ -128,7 +136,7 @@ public class SelectFolder extends GlScreen {
             if (isDataRoot) {
                 game.setScreen(new Main(game));
             } else {
-                game.setScreen(new SelectFolder(game, fileHandle.parent()));
+                game.setScreen(new SelectCompetition(game, fileHandle.parent()));
             }
         }
     }

@@ -135,7 +135,10 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: game.setScreen(new SelectCompetition(game));
+            game.state = GlGame.State.COMPETITION;
+            game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
+            game.stateColor.set(0x415600, 0x5E7D00, 0x243000);
+            game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
         }
     }
 

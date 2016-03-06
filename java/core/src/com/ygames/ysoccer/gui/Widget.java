@@ -125,7 +125,7 @@ public abstract class Widget {
         this.changed = changed;
     }
 
-    public static void arrange(Settings settings, int rowHeight, List<Widget> widgetList) {
+    public static void arrange(Settings settings, int centerY, int rowHeight, List<Widget> widgetList) {
         Widget w;
         int len = widgetList.size();
         int col1 = Emath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
@@ -134,19 +134,25 @@ public abstract class Widget {
             w = widgetList.get(i);
             if (len <= 8) {
                 w.x = (settings.GUI_WIDTH - w.w) / 2;
-                w.y = 350 + rowHeight * (i - len / 2);
+                w.y = centerY + rowHeight * (i - len / 2);
             } else {
                 if (i < col1) {
                     w.x = (settings.GUI_WIDTH - 3 * w.w) / 2 - 20;
-                    w.y = 350 + rowHeight * (i - col2 / 2);
+                    w.y = centerY + (int) (rowHeight * (i - col2 / 2.0));
                 } else if (i < col1 + col2) {
                     w.x = (settings.GUI_WIDTH - w.w) / 2;
-                    w.y = 350 + rowHeight * ((i - col1) - col2 / 2);
+                    w.y = centerY + (int) (rowHeight * ((i - col1) - col2 / 2.0));
                 } else {
                     w.x = (settings.GUI_WIDTH + w.w) / 2 + 20;
-                    w.y = 350 + rowHeight * ((i - col1 - col2) - col2 / 2);
+                    w.y = centerY + (int) (rowHeight * ((i - col1 - col2) - col2 / 2.0));
                 }
             }
         }
     }
+
+    public static int getRows(List<Widget> widgetList) {
+        int len = widgetList.size();
+        return len <= 8 ? len : Emath.floor(len / 3.0) + 1;
+    }
+
 }

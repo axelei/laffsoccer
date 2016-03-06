@@ -13,14 +13,16 @@ public class Assets {
     public static I18NBundle strings;
     public static List<String> locales;
     public static Font font14;
-    public static FileHandle dataFolder;
+    public static FileHandle teamsFolder;
+    public static FileHandle competitionsFolder;
 
     public static void load(Settings settings) {
         loadLocales();
         loadStrings(settings);
         font14 = new Font(14);
         font14.load();
-        dataFolder = Gdx.files.local("data/");
+        teamsFolder = Gdx.files.local("data/teams");
+        competitionsFolder = Gdx.files.local("data/competitions");
     }
 
     private static void loadLocales() {
