@@ -3,6 +3,7 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class GlGame extends Game {
     }
 
     public State state;
+    public WidgetColor stateColor;
 
     public List<Team> teamList;
     public Competition competition;
@@ -37,6 +39,7 @@ public class GlGame extends Game {
         inputDevices.add(keyboard);
 
         state = State.NONE;
+        stateColor = new WidgetColor();
 
         teamList = new ArrayList<Team>();
     }

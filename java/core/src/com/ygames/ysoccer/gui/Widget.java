@@ -66,6 +66,10 @@ public abstract class Widget {
         this.color.set(body, lightBorder, darkBorder);
     }
 
+    public void setColors(WidgetColor color) {
+        this.color.set(color.body, color.lightBorder, color.darkBorder);
+    }
+
     public void setText(String text) {
         this.text = text;
     }

@@ -24,6 +24,7 @@ public class DesignFriendly extends GlScreen {
         friendly.name = Assets.strings.get("FRIENDLY");
 
         game.state = GlGame.State.FRIENDLY;
+        game.stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
         game.competition = friendly;
 
         Widget w;

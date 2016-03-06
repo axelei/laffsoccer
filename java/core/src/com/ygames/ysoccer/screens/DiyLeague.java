@@ -33,6 +33,7 @@ public class DiyLeague extends GlScreen {
         league.name = Assets.strings.get("DIY LEAGUE");
 
         game.state = GlGame.State.COMPETITION;
+        game.stateColor.set(0x376E2F, 0x4E983F, 0x214014);
         game.competition = league;
 
         Widget w;
@@ -112,7 +113,7 @@ public class DiyLeague extends GlScreen {
 
         public TitleButton() {
             setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
-            setColors(0x415600, 0x5E7D00, 0x243000);
+            setColors(game.stateColor);
             setText(Assets.strings.get("DESIGN DIY LEAGUE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }

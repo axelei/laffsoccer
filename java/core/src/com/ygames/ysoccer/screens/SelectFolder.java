@@ -86,14 +86,7 @@ public class SelectFolder extends GlScreen {
             }
             int w = Math.max(400, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
-            switch (game.state) {
-                case FRIENDLY:
-                    setColors(0x2D855D, 0x3DB37D, 0x1E5027);
-                    break;
-                case COMPETITION:
-                    setColors(0x415600, 0x5E7D00, 0x243000);
-                    break;
-            }
+            setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
