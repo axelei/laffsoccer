@@ -39,6 +39,9 @@ public class Main extends GlScreen {
         w = new DiyCompetitionButton();
         widgets.add(w);
 
+        w = new PresetCompetitionButton();
+        widgets.add(w);
+
         w = new TrainingButton();
         widgets.add(w);
     }
@@ -111,7 +114,7 @@ public class Main extends GlScreen {
     class DiyCompetitionButton extends Button {
 
         public DiyCompetitionButton() {
-            setColors(0x415600, 0x5E7D00, 0x243000);
+            setColors(0x376E2F, 0x4E983F, 0x214014);
             setGeometry(game.settings.GUI_WIDTH / 2 + 40, 340, 320, 36);
             setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
         }
@@ -119,6 +122,20 @@ public class Main extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new DiyCompetition(game));
+        }
+    }
+
+    class PresetCompetitionButton extends Button {
+
+        public PresetCompetitionButton() {
+            setColors(0x415600, 0x5E7D00, 0x243000);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 40, 390, 320, 36);
+            setText(Assets.strings.get("PRESET COMPETITION"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO: game.setScreen(new SelectCompetition(game));
         }
     }
 
