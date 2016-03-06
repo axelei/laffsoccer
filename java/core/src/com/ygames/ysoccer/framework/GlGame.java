@@ -21,6 +21,7 @@ public class GlGame extends Game {
     }
 
     public State state;
+    public Image stateBackground;
     public WidgetColor stateColor;
 
     public List<Team> teamList;

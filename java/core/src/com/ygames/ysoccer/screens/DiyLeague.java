@@ -5,7 +5,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
@@ -27,13 +26,11 @@ public class DiyLeague extends GlScreen {
     public DiyLeague(GlGame game) {
         super(game);
 
-        background = new Image("images/backgrounds/menu_competition.jpg");
+        background = game.stateBackground;
 
         league = new League();
         league.name = Assets.strings.get("DIY LEAGUE");
 
-        game.state = GlGame.State.COMPETITION;
-        game.stateColor.set(0x376E2F, 0x4E983F, 0x214014);
         game.competition = league;
 
         Widget w;

@@ -7,7 +7,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
@@ -24,16 +23,7 @@ public class SelectTeams extends GlScreen {
         super(game);
         this.fileHandle = fileHandle;
 
-        String filename = "";
-        switch (game.state) {
-            case FRIENDLY:
-                filename = "menu_friendly.jpg";
-                break;
-            case COMPETITION:
-                filename = "menu_competition.jpg";
-                break;
-        }
-        background = new Image("images/backgrounds/" + filename);
+        background = game.stateBackground;
 
         Widget w;
 

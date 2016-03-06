@@ -18,14 +18,15 @@ public class DesignFriendly extends GlScreen {
     public DesignFriendly(GlGame game) {
         super(game);
 
-        background = new Image("images/backgrounds/menu_friendly.jpg");
-
         friendly = new Friendly();
         friendly.name = Assets.strings.get("FRIENDLY");
 
         game.state = GlGame.State.FRIENDLY;
+        game.stateBackground = new Image("images/backgrounds/menu_friendly.jpg");
         game.stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
         game.competition = friendly;
+
+        background = game.stateBackground;
 
         Widget w;
         w = new TitleBar();

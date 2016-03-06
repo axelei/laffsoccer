@@ -13,7 +13,11 @@ public class DiyCompetition extends GlScreen {
     public DiyCompetition(GlGame game) {
         super(game);
 
-        background = new Image("images/backgrounds/menu_competition.jpg");
+        game.state = GlGame.State.COMPETITION;
+        game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
+        game.stateColor.set(0x376E2F, 0x4E983F, 0x214014);
+
+        background = game.stateBackground;
 
         Widget w;
 

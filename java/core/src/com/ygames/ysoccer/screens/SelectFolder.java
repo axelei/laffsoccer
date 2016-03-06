@@ -7,7 +7,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -24,17 +23,7 @@ public class SelectFolder extends GlScreen {
         this.fileHandle = fileHandle;
         isDataRoot = (fileHandle.path().equals(Assets.dataFolder.path()));
 
-        // background
-        String filename = "";
-        switch (game.state) {
-            case FRIENDLY:
-                filename = "menu_friendly.jpg";
-                break;
-            case COMPETITION:
-                filename = "menu_competition.jpg";
-                break;
-        }
-        background = new Image("images/backgrounds/" + filename);
+        background = game.stateBackground;
 
         Widget w;
         w = new TitleBar();
