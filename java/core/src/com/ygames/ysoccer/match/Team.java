@@ -6,7 +6,6 @@ public class Team {
 
     public String name;
     public String path;
-    public String code;
     public String country;
     public String tactics;
     public ControlMode controlMode;
@@ -18,6 +17,6 @@ public class Team {
     @Override
     public boolean equals(Object obj) {
         Team t = (Team) obj;
-        return path.equals(t.path) && code.equals(t.code);
+        return path.equals(t.path);
     }
 }

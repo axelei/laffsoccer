@@ -3,58 +3,58 @@
     "name": "Serie A",
     "teams": [
       {
-        "code": "ata"
+        "path": "1964-65/club teams/europe/italy/team.ata.json"
       },
       {
-        "code": "bol"
+        "path": "1964-65/club teams/europe/italy/team.bol.json"
       },
       {
-        "code": "cag"
+        "path": "1964-65/club teams/europe/italy/team.cag.json"
       },
       {
-        "code": "cat"
+        "path": "1964-65/club teams/europe/italy/team.cat.json"
       },
       {
-        "code": "fio"
+        "path": "1964-65/club teams/europe/italy/team.fio.json"
       },
       {
-        "code": "fog"
+        "path": "1964-65/club teams/europe/italy/team.fog.json"
       },
       {
-        "code": "gen"
+        "path": "1964-65/club teams/europe/italy/team.gen.json"
       },
       {
-        "code": "int"
+        "path": "1964-65/club teams/europe/italy/team.int.json"
       },
       {
-        "code": "juv"
+        "path": "1964-65/club teams/europe/italy/team.juv.json"
       },
       {
-        "code": "lrv"
+        "path": "1964-65/club teams/europe/italy/team.lrv.json"
       },
       {
-        "code": "laz"
+        "path": "1964-65/club teams/europe/italy/team.laz.json"
       },
       {
-        "code": "man"
+        "path": "1964-65/club teams/europe/italy/team.man.json"
       },
       {
-        "code": "mes"
+        "path": "1964-65/club teams/europe/italy/team.mes.json"
       },
       {
-        "code": "mil"
+        "path": "1964-65/club teams/europe/italy/team.mil.json"
       },
       {
-        "code": "rom"
+        "path": "1964-65/club teams/europe/italy/team.rom.json"
       },
       {
-        "code": "sam"
+        "path": "1964-65/club teams/europe/italy/team.sam.json"
       },
       {
-        "code": "tor"
+        "path": "1964-65/club teams/europe/italy/team.tor.json"
       },
       {
-        "code": "var"
+        "path": "1964-65/club teams/europe/italy/team.var.json"
       }
     ]
   }
