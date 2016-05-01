@@ -1,8 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Json;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -14,13 +12,12 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectTeams extends GlScreen {
+public class AllSelectedTeams extends GlScreen {
 
     private FileHandle fileHandle;
-    private Widget viewSelectedTeamsButton;
     private Widget playButton;
 
-    public SelectTeams(GlGame game, FileHandle fileHandle, League league) {
+    public AllSelectedTeams(GlGame game, FileHandle fileHandle) {
         super(game);
         this.fileHandle = fileHandle;
 
@@ -41,37 +38,13 @@ public class SelectTeams extends GlScreen {
         widgets.add(w);
 
         List<Widget> list = new ArrayList<Widget>();
-        for (Team teamStub : league.teams) {
-            if (game.teamList.contains(teamStub)) {
-                w = new TeamButton(game.teamList.get(game.teamList.indexOf(teamStub)));
-                list.add(w);
-                widgets.add(w);
-            } else {
-                FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
-                if (teamFile.exists()) {
-                    Json json = new Json();
-                    Team team = json.fromJson(Team.class, teamFile.readString());
-                    team.path = teamStub.path;
-                    w = new TeamButton(team);
-                    list.add(w);
-                    widgets.add(w);
-                }
-            }
+        for (Team team : game.teamList) {
+            w = new TeamButton(team);
+            list.add(w);
+            widgets.add(w);
         }
-        if (list.size() > 0) {
-            Widget.arrange(game.settings, 350, 32, list);
-            selectedWidget = list.get(0);
-        }
-
-        w = new ViewSelectedTeamsButton();
-        widgets.add(w);
-        viewSelectedTeamsButton = w;
-
-        w = new ExitButton();
-        widgets.add(w);
-        if (selectedWidget == null) {
-            selectedWidget = w;
-        }
+        Widget.arrange(game.settings, 350, 32, list);
+        selectedWidget = list.get(0);
 
         w = new PlayButton();
         widgets.add(w);
@@ -80,7 +53,7 @@ public class SelectTeams extends GlScreen {
 
     class TitleButton extends Button {
         public TitleButton() {
-            String title = game.competition.name + " - " + fileHandle.name().toUpperCase();
+            String title = Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + game.competition.name + " - " + fileHandle.name().toUpperCase();
             int w = Math.max(400, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
@@ -147,7 +120,6 @@ public class SelectTeams extends GlScreen {
                 game.teamList.add(team);
             }
             updateColors();
-            viewSelectedTeamsButton.setChanged(true);
             playButton.setChanged(true);
         }
 
@@ -166,37 +138,6 @@ public class SelectTeams extends GlScreen {
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
-        }
-    }
-
-    class ViewSelectedTeamsButton extends Button {
-        public ViewSelectedTeamsButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
-            setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
-            setText(Assets.strings.get("VIEW SELECTED TEAMS"), Font.Align.CENTER, Assets.font14);
-        }
-
-        @Override
-        public void onFire1Down() {
-            game.setScreen(new AllSelectedTeams(game, fileHandle));
-        }
-
-        @Override
-        public void onUpdate() {
-            setVisible(game.teamList.size() > 0);
-        }
-    }
-
-    class ExitButton extends Button {
-        public ExitButton() {
-            setColors(0xC84200, 0xFF6519, 0x803300);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
-        }
-
-        @Override
-        public void onFire1Down() {
-            game.setScreen(new SelectFolder(game, fileHandle));
         }
     }
 
