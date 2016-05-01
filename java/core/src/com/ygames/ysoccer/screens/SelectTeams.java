@@ -17,6 +17,7 @@ import java.util.List;
 public class SelectTeams extends GlScreen {
 
     private FileHandle fileHandle;
+    private Widget viewSelectedTeamsButton;
     private Widget playButton;
 
     public SelectTeams(GlGame game, FileHandle fileHandle, League league) {
@@ -61,6 +62,10 @@ public class SelectTeams extends GlScreen {
             Widget.arrange(game.settings, 350, 32, list);
             selectedWidget = list.get(0);
         }
+
+        w = new ViewSelectedTeamsButton();
+        widgets.add(w);
+        viewSelectedTeamsButton = w;
 
         w = new ExitButton();
         widgets.add(w);
@@ -142,6 +147,7 @@ public class SelectTeams extends GlScreen {
                 game.teamList.add(team);
             }
             updateColors();
+            viewSelectedTeamsButton.setChanged(true);
             playButton.setChanged(true);
         }
 
@@ -160,6 +166,24 @@ public class SelectTeams extends GlScreen {
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
+        }
+    }
+
+    class ViewSelectedTeamsButton extends Button {
+        public ViewSelectedTeamsButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
+            setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
+            setText(Assets.strings.get("VIEW SELECTED TEAMS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO;
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(game.teamList.size() > 0);
         }
     }
 
