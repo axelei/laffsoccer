@@ -12,7 +12,6 @@ import java.util.List;
 public class GlGame extends Game {
     public Settings settings;
     public GlGraphics glGraphics;
-    Keyboard keyboard;
     public List<InputDevice> inputDevices;
     public MenuInput menuInput;
 
@@ -35,8 +34,15 @@ public class GlGame extends Game {
 
         inputDevices = new ArrayList<InputDevice>();
         menuInput = new MenuInput();
+
+        // Keyboard 1
+        Keyboard keyboard = new Keyboard();
+        keyboard.setKeys(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.CONTROL_RIGHT, Input.Keys.SHIFT_RIGHT);
+        inputDevices.add(keyboard);
+
+        // Keyboard 2
         keyboard = new Keyboard();
-        keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.COMMA, Input.Keys.PERIOD);
+        keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.CONTROL_LEFT, Input.Keys.SHIFT_LEFT);
         inputDevices.add(keyboard);
 
         state = State.NONE;
