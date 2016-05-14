@@ -46,6 +46,9 @@ public class AllSelectedTeams extends GlScreen {
         Widget.arrange(game.settings, 350, 32, list);
         selectedWidget = list.get(0);
 
+        w = new AbortButton();
+        widgets.add(w);
+
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
@@ -138,6 +141,19 @@ public class AllSelectedTeams extends GlScreen {
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
+        }
+    }
+
+    class AbortButton extends Button {
+        public AbortButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC8000E, 0xFF1929, 0x74040C);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 
