@@ -47,7 +47,6 @@ public class AllSelectedTeams extends GlScreen {
 
         w = new ChangeTeamsButton();
         widgets.add(w);
-        selectedWidget = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -55,6 +54,7 @@ public class AllSelectedTeams extends GlScreen {
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
+        selectedWidget = w;
     }
 
     class TitleButton extends Button {
@@ -212,7 +212,17 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
+            switch (game.competition.type) {
+                case FRIENDLY:
+                    // TODO
+                    break;
+                case LEAGUE:
+                    game.setScreen(new PlayLeague(game));
+                    break;
+                case CUP:
+                    // TODO
+                    break;
+            }
         }
     }
 }

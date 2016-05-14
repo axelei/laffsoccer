@@ -78,7 +78,8 @@ public class SelectTeams extends GlScreen {
 
     class TitleButton extends Button {
         public TitleButton() {
-            String title = game.competition.name + " - " + fileHandle.name().toUpperCase();
+            String title = game.competition.name.toUpperCase()
+                    + " - " + fileHandle.name().toUpperCase();
             int w = Math.max(400, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
@@ -235,7 +236,17 @@ public class SelectTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
+            switch (game.competition.type) {
+                case FRIENDLY:
+                    // TODO
+                    break;
+                case LEAGUE:
+                    game.setScreen(new PlayLeague(game));
+                    break;
+                case CUP:
+                    // TODO
+                    break;
+            }
         }
     }
 }
