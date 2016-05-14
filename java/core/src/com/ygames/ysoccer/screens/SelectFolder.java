@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Json;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -45,8 +44,7 @@ public class SelectFolder extends GlScreen {
         } else {
             FileHandle leagueFile = fileHandle.child("leagues.json");
             if (leagueFile.exists()) {
-                Json json = new Json();
-                League[] leagues = json.fromJson(League[].class, leagueFile.readString());
+                League[] leagues = Assets.json.fromJson(League[].class, leagueFile.readString());
                 for (League league : leagues) {
                     w = new LeagueButton(league);
                     list.add(w);

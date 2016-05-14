@@ -59,7 +59,9 @@ public class AllSelectedTeams extends GlScreen {
 
     class TitleButton extends Button {
         public TitleButton() {
-            String title = Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + game.competition.name + " - " + fileHandle.name().toUpperCase();
+            String title = Assets.strings.get("ALL SELECTED TEAMS FOR")
+                    + " " + game.competition.name.toUpperCase()
+                    + " - " + fileHandle.name().toUpperCase();
             int w = Math.max(400, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);

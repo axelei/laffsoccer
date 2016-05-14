@@ -3,6 +3,7 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.I18NBundle;
+import com.badlogic.gdx.utils.Json;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Assets {
     public static Font font14;
     public static FileHandle teamsFolder;
     public static FileHandle competitionsFolder;
+    public static Json json;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -23,6 +25,7 @@ public class Assets {
         font14.load();
         teamsFolder = Gdx.files.local("data/teams");
         competitionsFolder = Gdx.files.local("data/competitions");
+        json = new Json();
     }
 
     private static void loadLocales() {

@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Json;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
@@ -10,6 +9,7 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +35,9 @@ public class SelectCompetition extends GlScreen {
 
         FileHandle leaguesFile = fileHandle.child("leagues.json");
         if (leaguesFile.exists()) {
-            Json json = new Json();
-            League[] leagues = json.fromJson(League[].class, leaguesFile.readString());
+            League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString());
             for (League league : leagues) {
+                league.numberOfTeams = league.teams.length;
                 w = new CompetitionButton(league);
                 competitionsList.add(w);
                 widgets.add(w);
@@ -119,7 +119,17 @@ public class SelectCompetition extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: game.setScreen(new CompetitionSelectedTeams(game, fileHandle, competition));
+            game.competition = competition;
+            for (Team teamStub : competition.teams) {
+                FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
+                if (teamFile.exists()) {
+                    Team team = Assets.json.fromJson(Team.class, teamFile.readString());
+                    team.path = teamStub.path;
+                    team.controlMode = Team.ControlMode.COMPUTER;
+                    game.teamList.add(team);
+                }
+            }
+            game.setScreen(new AllSelectedTeams(game, fileHandle));
         }
     }
 
