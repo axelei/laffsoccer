@@ -44,7 +44,10 @@ public class AllSelectedTeams extends GlScreen {
             widgets.add(w);
         }
         Widget.arrange(game.settings, 350, 32, list);
-        selectedWidget = list.get(0);
+
+        w = new ChangeTeamsButton();
+        widgets.add(w);
+        selectedWidget = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -141,6 +144,19 @@ public class AllSelectedTeams extends GlScreen {
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
+        }
+    }
+
+    class ChangeTeamsButton extends Button {
+        public ChangeTeamsButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
+            setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
+            setText(Assets.strings.get("CHANGE TEAMS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectFolder(game, fileHandle));
         }
     }
 
