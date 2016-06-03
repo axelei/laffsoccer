@@ -8,6 +8,8 @@ import java.util.Calendar;
 
 public class Competition {
     public String name;
+    public String path;
+    public String absolutePath;
 
     public enum Type {
         FRIENDLY, LEAGUE, CUP
@@ -26,6 +28,7 @@ public class Competition {
     public int time;
 
     public Competition() {
+        path = "";
         bySeason = true;
         seasonStart = Calendar.AUGUST;
         seasonEnd = Calendar.MAY;

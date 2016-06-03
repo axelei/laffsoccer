@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.competitions;
 
+import com.ygames.ysoccer.framework.Assets;
+
 public class League extends Competition {
 
     public int rounds;
@@ -10,5 +12,10 @@ public class League extends Competition {
         numberOfTeams = 2;
         rounds = 1;
         pointsForAWin = 3;
+    }
+
+    public void init() {
+        numberOfTeams = teams.length;
+        absolutePath = Assets.teamsFolder.child(path).path();
     }
 }

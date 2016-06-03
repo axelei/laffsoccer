@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -170,6 +171,7 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
+            FileHandle fileHandle = Gdx.files.local(game.competition.absolutePath);
             game.setScreen(new SelectFolder(game, fileHandle));
         }
     }
