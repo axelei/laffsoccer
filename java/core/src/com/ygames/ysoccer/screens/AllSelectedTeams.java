@@ -16,6 +16,7 @@ public class AllSelectedTeams extends GlScreen {
 
     private FileHandle fileHandle;
     private Widget playButton;
+    private Widget changeTeamsButton;
 
     public AllSelectedTeams(GlGame game, FileHandle fileHandle) {
         super(game);
@@ -47,6 +48,8 @@ public class AllSelectedTeams extends GlScreen {
 
         w = new ChangeTeamsButton();
         widgets.add(w);
+        changeTeamsButton = w;
+        selectedWidget = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -54,7 +57,10 @@ public class AllSelectedTeams extends GlScreen {
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
-        selectedWidget = w;
+        int diff = game.competition.numberOfTeams - game.teamList.size();
+        if (diff == 0) {
+            selectedWidget = w;
+        }
     }
 
     class TitleButton extends Button {
@@ -62,7 +68,7 @@ public class AllSelectedTeams extends GlScreen {
             String title = Assets.strings.get("ALL SELECTED TEAMS FOR")
                     + " " + game.competition.name.toUpperCase()
                     + " - " + fileHandle.name().toUpperCase();
-            int w = Math.max(400, 80 + 16 * title.length());
+            int w = Math.max(960, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
@@ -129,6 +135,7 @@ public class AllSelectedTeams extends GlScreen {
             }
             updateColors();
             playButton.setChanged(true);
+            changeTeamsButton.setChanged(true);
         }
 
         private void updateColors() {
@@ -153,7 +160,12 @@ public class AllSelectedTeams extends GlScreen {
         public ChangeTeamsButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
             setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
-            setText(Assets.strings.get("CHANGE TEAMS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            int diff = game.competition.numberOfTeams - game.teamList.size();
+            setText(Assets.strings.get((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
