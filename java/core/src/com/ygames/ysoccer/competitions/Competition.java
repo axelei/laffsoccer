@@ -9,6 +9,7 @@ import java.util.Calendar;
 
 public abstract class Competition {
     public String name;
+    public String longName;
     public String path;
     public String absolutePath;
 
@@ -40,7 +41,7 @@ public abstract class Competition {
     }
 
     public String getMenuTitle() {
-        return name;
+        return longName;
     }
 
     public void start(ArrayList<Team> teams) {
