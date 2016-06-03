@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PlayLeague extends GlScreen {
 
@@ -44,6 +45,8 @@ public class PlayLeague extends GlScreen {
         }
 
         ArrayList<Team> teams = (ArrayList<Team>) game.competition.teams.clone();
+
+        Collections.sort(teams, new Team.CompareByStats());
 
         // table
         int tm = 0;
