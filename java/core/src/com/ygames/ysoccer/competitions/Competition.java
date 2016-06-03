@@ -4,6 +4,7 @@ import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public abstract class Competition {
@@ -18,7 +19,7 @@ public abstract class Competition {
     public Type type;
 
     public int numberOfTeams;
-    public Team[] teams;
+    public ArrayList<Team> teams;
     public boolean bySeason; // true = by season, false = by pitch type
     public int seasonStart;
     public int seasonEnd;
@@ -40,5 +41,9 @@ public abstract class Competition {
 
     public String getMenuTitle() {
         return name;
+    }
+
+    public void start(ArrayList<Team> teams) {
+        this.teams = (ArrayList<Team>) teams.clone();
     }
 }

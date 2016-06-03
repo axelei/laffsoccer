@@ -231,6 +231,7 @@ public class AllSelectedTeams extends GlScreen {
                     // TODO
                     break;
                 case LEAGUE:
+                    game.competition.start(game.teamList);
                     game.setScreen(new PlayLeague(game));
                     break;
                 case CUP:

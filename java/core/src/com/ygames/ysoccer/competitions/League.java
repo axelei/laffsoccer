@@ -15,7 +15,7 @@ public class League extends Competition {
     }
 
     public void init() {
-        numberOfTeams = teams.length;
+        numberOfTeams = teams.size();
         absolutePath = Assets.teamsFolder.child(path).path();
     }
 }

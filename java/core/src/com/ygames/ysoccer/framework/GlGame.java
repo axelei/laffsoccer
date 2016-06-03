@@ -23,7 +23,7 @@ public class GlGame extends Game {
     public Image stateBackground;
     public WidgetColor stateColor;
 
-    public List<Team> teamList;
+    public ArrayList<Team> teamList;
     public Competition competition;
 
     @Override

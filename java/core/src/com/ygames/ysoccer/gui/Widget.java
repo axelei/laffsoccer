@@ -84,6 +84,12 @@ public abstract class Widget {
         this.font = font;
     }
 
+    public void setText(int i, Font.Align align, Font font) {
+        this.text = "" + i;
+        this.align = align;
+        this.font = font;
+    }
+
     public void setActive(boolean isActive) {
         this.isActive = isActive;
     }
