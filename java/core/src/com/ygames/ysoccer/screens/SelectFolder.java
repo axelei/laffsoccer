@@ -67,11 +67,13 @@ public class SelectFolder extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            String title = game.competition.name;
+            int diff = game.competition.numberOfTeams - game.teamList.size();
+            String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
+                    + " " + game.competition.name.toUpperCase();
             if (!isDataRoot) {
                 title += " - " + fileHandle.name().toUpperCase();
             }
-            int w = Math.max(400, 80 + 16 * title.length());
+            int w = Math.max(960, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
