@@ -6,7 +6,7 @@ import com.ygames.ysoccer.match.Time;
 
 import java.util.Calendar;
 
-public class Competition {
+public abstract class Competition {
     public String name;
     public String path;
     public String absolutePath;
@@ -36,5 +36,9 @@ public class Competition {
         substitutions = 3;
         benchSize = 5;
         time = Time.DAY;
+    }
+
+    public String getMenuTitle() {
+        return name;
     }
 }
