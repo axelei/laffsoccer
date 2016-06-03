@@ -24,10 +24,14 @@ public abstract class Competition {
     public boolean bySeason; // true = by season, false = by pitch type
     public int seasonStart;
     public int seasonEnd;
+    public int currentMonth;
     public int pitchType;
     public int substitutions;
     public int benchSize;
     public int time;
+    public boolean ended;
+    public int currentRound;
+    public int currentMatch;
 
     public Competition() {
         path = "";
