@@ -15,9 +15,9 @@ public class Font {
     }
 
     public int size;
-    public static Texture texture;
-    public static int[] widths = new int[1024];
-    public static TextureRegion[] regions = new TextureRegion[1024];
+    public Texture texture;
+    public int[] widths = new int[1024];
+    public TextureRegion[] regions = new TextureRegion[1024];
 
     public Font(int size) {
         this.size = size;
@@ -27,7 +27,14 @@ public class Font {
         texture = new Texture("images/font_" + size + ".png");
         loadFontWidths(widths, "font_" + size + ".txt");
         for (int i = 0; i < 1024; i++) {
-            regions[i] = new TextureRegion(texture, 16 * (i & 0x3F), 23 * (i >> 6), 16, 22);
+            switch (size) {
+                case 14:
+                    regions[i] = new TextureRegion(texture, 16 * (i & 0x3F), 23 * (i >> 6), 16, 22);
+                    break;
+                case 10:
+                    regions[i] = new TextureRegion(texture, 13 * (i & 0x3F), 17 * (i >> 6), 12, 16);
+                    break;
+            }
             regions[i].flip(false, true);
         }
     }
@@ -113,7 +120,14 @@ public class Font {
 
             int c = text.charAt(i);
             batch.begin();
-            batch.draw(regions[c], x, y, 16, 22);
+            switch (size) {
+                case 14:
+                    batch.draw(regions[c], x, y, 16, 22);
+                    break;
+                case 10:
+                    batch.draw(regions[c], x, y, 12, 16);
+                    break;
+            }
             batch.end();
 
             x = x + widths[c];

@@ -14,6 +14,7 @@ public class Assets {
     public static I18NBundle strings;
     public static List<String> locales;
     public static Font font14;
+    public static Font font10;
     public static FileHandle teamsFolder;
     public static FileHandle competitionsFolder;
     public static Json json;
@@ -23,6 +24,8 @@ public class Assets {
         loadStrings(settings);
         font14 = new Font(14);
         font14.load();
+        font10 = new Font(10);
+        font10.load();
         teamsFolder = Gdx.files.local("data/teams");
         competitionsFolder = Gdx.files.local("data/competitions");
         json = new Json();
