@@ -5,9 +5,20 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 
 public class PlayLeague extends GlScreen {
+
+    private String[] headers = {
+            "GRID HEADER.PLAYED MATCHES",
+            "GRID HEADER.WON MATCHES",
+            "GRID HEADER.DRAWN MATCHES",
+            "GRID HEADER.LOST MATCHES",
+            "GRID HEADER.GOALS FOR",
+            "GRID HEADER.GOALS AGAINST",
+            "GRID HEADER.POINTS"
+    };
 
     public PlayLeague(GlGame game) {
         super(game);
@@ -17,6 +28,17 @@ public class PlayLeague extends GlScreen {
         Widget w;
         w = new TitleBar();
         widgets.add(w);
+
+        // table headers
+        int dx = 460;
+        int dy = 100 + 11 * (24 - game.competition.numberOfTeams);
+        for (String header : headers) {
+            w = new Label();
+            w.setGeometry(dx, dy, 62, 21);
+            w.setText(Assets.strings.get(header), Font.Align.CENTER, Assets.font10);
+            widgets.add(w);
+            dx += 60;
+        }
     }
 
     class TitleBar extends Button {
