@@ -30,6 +30,7 @@ public class PlayLeague extends GlScreen {
     private League league;
     private Match match;
     private Widget playMatchButton;
+    private Widget nextMatchButton;
     private Widget viewResultButton;
 
     public PlayLeague(GlGame game) {
@@ -192,12 +193,24 @@ public class PlayLeague extends GlScreen {
             widgets.add(w);
             playMatchButton = w;
 
+            w = new NextMatchButton();
+            widgets.add(w);
+            nextMatchButton = w;
+
             w = new ViewResultButton();
             widgets.add(w);
             viewResultButton = w;
         }
 
-        selectedWidget = viewResultButton;
+        if (!league.ended) {
+            if (game.showCompetitionResult) {
+                selectedWidget = nextMatchButton;
+            } else if (match.bothComputers() || league.userPrefersResult) {
+                selectedWidget = viewResultButton;
+            } else {
+                selectedWidget = playMatchButton;
+            }
+        }
     }
 
     class TitleBar extends Button {
@@ -227,6 +240,32 @@ public class PlayLeague extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO
+        }
+    }
+
+    class NextMatchButton extends Button {
+
+        public NextMatchButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 460, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
+            setVisible(game.showCompetitionResult);
+        }
+
+        @Override
+        public void onFire1Down() {
+            nextMatch();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            nextMatch();
+        }
+
+        private void nextMatch() {
+            league.nextMatch();
+            game.showCompetitionResult = false;
+            game.setScreen(new PlayLeague(game));
         }
     }
 
