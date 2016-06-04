@@ -29,6 +29,7 @@ public class PlayLeague extends GlScreen {
     private League league;
     private Match match;
     private Widget playMatchButton;
+    private Widget viewResultButton;
 
     public PlayLeague(GlGame game) {
         super(game);
@@ -189,6 +190,10 @@ public class PlayLeague extends GlScreen {
             w = new PlayMatchButton();
             widgets.add(w);
             playMatchButton = w;
+
+            w = new ViewResultButton();
+            widgets.add(w);
+            viewResultButton = w;
         }
     }
 
@@ -213,11 +218,45 @@ public class PlayLeague extends GlScreen {
             } else {
                 setText("- " + Assets.strings.get("MATCH") + " -");
             }
-            setVisible(!league.showResult);
+            setVisible(!game.showCompetitionResult);
         }
 
         @Override
         public void onFire1Down() {
+            // TODO
+        }
+    }
+
+    class ViewResultButton extends Button {
+
+        public ViewResultButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 190, 660, 220, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText("", Font.Align.CENTER, Assets.font14);
+            if (match.bothComputers()) {
+                setText(Assets.strings.get("VIEW RESULT"));
+            } else {
+                setText("- " + Assets.strings.get("RESULT") + " -");
+            }
+            setVisible(!game.showCompetitionResult);
+        }
+
+        @Override
+        public void onFire1Down() {
+            viewResult();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            if (match.bothComputers()) {
+                viewResult();
+            }
+        }
+
+        private void viewResult() {
+            if (!match.bothComputers()) {
+                league.userPrefersResult = true;
+            }
             // TODO
         }
     }
