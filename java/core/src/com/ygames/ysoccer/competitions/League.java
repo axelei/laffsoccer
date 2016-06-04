@@ -84,4 +84,13 @@ public class League extends Competition {
         currentRound = 0;
         updateMonth();
     }
+
+    public void setResult(int homeGoals, int awayGoals) {
+        Match match = getMatch();
+        match.stats[Match.HOME].goals = homeGoals;
+        match.stats[Match.AWAY].goals = awayGoals;
+        match.team[Match.HOME].updateStats(homeGoals, awayGoals, pointsForAWin);
+        match.team[Match.AWAY].updateStats(awayGoals, homeGoals, pointsForAWin);
+        match.ended = true;
+    }
 }

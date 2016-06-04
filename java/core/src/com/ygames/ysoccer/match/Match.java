@@ -2,8 +2,8 @@ package com.ygames.ysoccer.match;
 
 public class Match {
 
-    static final int HOME = 0;
-    static final int AWAY = 1;
+    public static final int HOME = 0;
+    public static final int AWAY = 1;
 
     public final Team team[];
     public Stats[] stats = new Stats[2];

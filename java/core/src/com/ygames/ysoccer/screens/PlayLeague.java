@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -195,6 +196,8 @@ public class PlayLeague extends GlScreen {
             widgets.add(w);
             viewResultButton = w;
         }
+
+        selectedWidget = viewResultButton;
     }
 
     class TitleBar extends Button {
@@ -257,7 +260,17 @@ public class PlayLeague extends GlScreen {
             if (!match.bothComputers()) {
                 league.userPrefersResult = true;
             }
-            // TODO
+
+            // TODO: generate result
+            int goalA = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+            int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+
+            league.setResult(goalA, goalB);
+            game.showCompetitionResult = true;
+
+            // TODO: generate scorers
+
+            game.setScreen(new PlayLeague(game));
         }
     }
 }

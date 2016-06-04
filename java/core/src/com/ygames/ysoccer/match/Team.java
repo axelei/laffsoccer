@@ -55,4 +55,18 @@ public class Team {
             return o1.name.compareTo(o2.name);
         }
     }
+
+    public void updateStats(int goalsFor, int goalsAgainst, int pointsForAWin) {
+        this.goalsFor += goalsFor;
+        this.goalsAgainst += goalsAgainst;
+        if (goalsFor > goalsAgainst) {
+            won += 1;
+            points += pointsForAWin;
+        } else if (goalsFor == goalsAgainst) {
+            drawn += 1;
+            points += 1;
+        } else {
+            lost += 1;
+        }
+    }
 }
