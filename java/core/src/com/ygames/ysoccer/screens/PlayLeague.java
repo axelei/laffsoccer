@@ -146,14 +146,43 @@ public class PlayLeague extends GlScreen {
 
             // team A
             w = new Label();
-            w.setGeometry(240, 660, 322, 36);
+            w.setGeometry(240, 612, 322, 36);
             w.setText(match.team[0].name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
             // team B
             w = new Label();
-            w.setGeometry(720, 660, 322, 36);
+            w.setGeometry(720, 612, 322, 36);
             w.setText(match.team[1].name.toUpperCase(), Font.Align.LEFT, Assets.font14);
+            widgets.add(w);
+
+            // result (home goals)
+            w = new Label();
+            w.setGeometry(game.settings.GUI_WIDTH / 2 - 60, 612, 40, 36);
+            w.setText("", Font.Align.RIGHT, Assets.font14);
+            if (match.ended) {
+                w.setText(match.stats[0].goals);
+            }
+            widgets.add(w);
+
+            // versus / -
+            w = new Label();
+            w.setGeometry(game.settings.GUI_WIDTH / 2 - 20, 612, 40, 36);
+            w.setText("", Font.Align.CENTER, Assets.font14);
+            if (match.ended) {
+                w.setText("-");
+            } else {
+                w.setText(Assets.strings.get("VERSUS (short)"));
+            }
+            widgets.add(w);
+
+            // result (away goals)
+            w = new Label();
+            w.setGeometry(game.settings.GUI_WIDTH / 2 + 20, 612, 40, 36);
+            w.setText("", Font.Align.LEFT, Assets.font14);
+            if (match.ended) {
+                w.setText(match.stats[1].goals);
+            }
             widgets.add(w);
         }
     }
