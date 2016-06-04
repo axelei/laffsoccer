@@ -15,6 +15,10 @@ public class Match {
         stats[AWAY] = new Stats();
     }
 
+    public boolean bothComputers() {
+        return team[HOME].controlMode == Team.ControlMode.COMPUTER && team[AWAY].controlMode == Team.ControlMode.COMPUTER;
+    }
+
     public class Stats {
         public int goals;
         public int ballPossession = 1;

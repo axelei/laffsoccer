@@ -28,6 +28,7 @@ public class PlayLeague extends GlScreen {
 
     private League league;
     private Match match;
+    private Widget playMatchButton;
 
     public PlayLeague(GlGame game) {
         super(game);
@@ -42,7 +43,7 @@ public class PlayLeague extends GlScreen {
 
         // table headers
         int dx = 590;
-        int dy = 100 + 11 * (24 - league.numberOfTeams);
+        int dy = 86 + 10 * (24 - league.numberOfTeams);
         for (String header : headers) {
             w = new Label();
             w.setGeometry(dx, dy, 62, 21);
@@ -60,13 +61,13 @@ public class PlayLeague extends GlScreen {
         dx = 590;
         for (Team team : teams) {
             w = new Button();
-            w.setGeometry(230, dy + 20 + 22 * tm, 36, 24);
+            w.setGeometry(230, dy + 20 + 21 * tm, 36, 23);
             w.setText(tm + 1, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
             w = new Button();
-            w.setGeometry(270, dy + 20 + 22 * tm, 322, 24);
+            w.setGeometry(270, dy + 20 + 21 * tm, 322, 23);
             switch (team.controlMode) {
                 case COMPUTER:
                     w.setColors(0x981E1E, 0x000001, 0x000001);
@@ -84,7 +85,7 @@ public class PlayLeague extends GlScreen {
 
             // played
             w = new Button();
-            w.setGeometry(dx, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.won + team.drawn + team.lost, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -92,7 +93,7 @@ public class PlayLeague extends GlScreen {
 
             // won
             w = new Button();
-            w.setGeometry(dx + 60, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx + 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.won, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -100,7 +101,7 @@ public class PlayLeague extends GlScreen {
 
             // drawn
             w = new Button();
-            w.setGeometry(dx + 2 * 60, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx + 2 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.drawn, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -108,7 +109,7 @@ public class PlayLeague extends GlScreen {
 
             // lost
             w = new Button();
-            w.setGeometry(dx + 3 * 60, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx + 3 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.lost, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -116,7 +117,7 @@ public class PlayLeague extends GlScreen {
 
             // goals for
             w = new Button();
-            w.setGeometry(dx + 4 * 60, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx + 4 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.goalsFor, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -124,7 +125,7 @@ public class PlayLeague extends GlScreen {
 
             // goals against
             w = new Button();
-            w.setGeometry(dx + 5 * 60, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx + 5 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.goalsAgainst, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -132,7 +133,7 @@ public class PlayLeague extends GlScreen {
 
             // points
             w = new Button();
-            w.setGeometry(dx + 6 * 60, dy + 20 + 22 * tm, 62, 24);
+            w.setGeometry(dx + 6 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(team.points, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -146,19 +147,19 @@ public class PlayLeague extends GlScreen {
 
             // team A
             w = new Label();
-            w.setGeometry(240, 612, 322, 36);
+            w.setGeometry(240, 618, 322, 36);
             w.setText(match.team[0].name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
             // team B
             w = new Label();
-            w.setGeometry(720, 612, 322, 36);
+            w.setGeometry(720, 618, 322, 36);
             w.setText(match.team[1].name.toUpperCase(), Font.Align.LEFT, Assets.font14);
             widgets.add(w);
 
             // result (home goals)
             w = new Label();
-            w.setGeometry(game.settings.GUI_WIDTH / 2 - 60, 612, 40, 36);
+            w.setGeometry(game.settings.GUI_WIDTH / 2 - 60, 618, 40, 36);
             w.setText("", Font.Align.RIGHT, Assets.font14);
             if (match.ended) {
                 w.setText(match.stats[0].goals);
@@ -167,7 +168,7 @@ public class PlayLeague extends GlScreen {
 
             // versus / -
             w = new Label();
-            w.setGeometry(game.settings.GUI_WIDTH / 2 - 20, 612, 40, 36);
+            w.setGeometry(game.settings.GUI_WIDTH / 2 - 20, 618, 40, 36);
             w.setText("", Font.Align.CENTER, Assets.font14);
             if (match.ended) {
                 w.setText("-");
@@ -178,12 +179,16 @@ public class PlayLeague extends GlScreen {
 
             // result (away goals)
             w = new Label();
-            w.setGeometry(game.settings.GUI_WIDTH / 2 + 20, 612, 40, 36);
+            w.setGeometry(game.settings.GUI_WIDTH / 2 + 20, 618, 40, 36);
             w.setText("", Font.Align.LEFT, Assets.font14);
             if (match.ended) {
                 w.setText(match.stats[1].goals);
             }
             widgets.add(w);
+
+            w = new PlayMatchButton();
+            widgets.add(w);
+            playMatchButton = w;
         }
     }
 
@@ -194,6 +199,26 @@ public class PlayLeague extends GlScreen {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(league.getMenuTitle().toUpperCase(), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class PlayMatchButton extends Button {
+
+        public PlayMatchButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 220, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText("", Font.Align.CENTER, Assets.font14);
+            if (match.bothComputers()) {
+                setText(Assets.strings.get("VIEW MATCH"));
+            } else {
+                setText("- " + Assets.strings.get("MATCH") + " -");
+            }
+            setVisible(!league.showResult);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
         }
     }
 }

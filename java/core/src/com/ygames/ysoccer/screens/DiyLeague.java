@@ -128,6 +128,7 @@ public class DiyLeague extends GlScreen {
         @Override
         public void onUpdate() {
             league.name = text;
+            league.longName = text;
         }
     }
 
