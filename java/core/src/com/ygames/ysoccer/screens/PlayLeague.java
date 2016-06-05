@@ -29,9 +29,6 @@ public class PlayLeague extends GlScreen {
 
     private League league;
     private Match match;
-    private Widget playMatchButton;
-    private Widget nextMatchButton;
-    private Widget viewResultButton;
 
     public PlayLeague(GlGame game) {
         super(game);
@@ -145,8 +142,19 @@ public class PlayLeague extends GlScreen {
             tm = tm + 1;
         }
 
-        if (!league.ended) {
-            match = league.getMatch();
+        w = new ViewStatisticsButton();
+        widgets.add(w);
+
+        Widget exitButton = new ExitButton();
+        widgets.add(exitButton);
+
+        match = league.getMatch();
+
+        if (match == null) {
+
+            selectedWidget = exitButton;
+
+        } else {
 
             // team A
             w = new Label();
@@ -189,23 +197,15 @@ public class PlayLeague extends GlScreen {
             }
             widgets.add(w);
 
-            w = new PlayMatchButton();
-            widgets.add(w);
-            playMatchButton = w;
+            Widget playMatchButton = new PlayMatchButton();
+            widgets.add(playMatchButton);
 
-            w = new NextMatchButton();
-            widgets.add(w);
-            nextMatchButton = w;
+            Widget nextMatchButton = new NextMatchButton();
+            widgets.add(nextMatchButton);
 
-            w = new ViewResultButton();
-            widgets.add(w);
-            viewResultButton = w;
-        }
+            Widget viewResultButton = new ViewResultButton();
+            widgets.add(viewResultButton);
 
-        w = new ViewStatisticsButton();
-        widgets.add(w);
-
-        if (!league.ended) {
             if (game.showCompetitionResult) {
                 selectedWidget = nextMatchButton;
             } else if (match.bothComputers() || league.userPrefersResult) {
@@ -327,6 +327,20 @@ public class PlayLeague extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO: open view statistics menu
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 250, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }

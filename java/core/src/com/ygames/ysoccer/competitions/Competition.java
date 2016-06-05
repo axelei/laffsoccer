@@ -29,7 +29,6 @@ public abstract class Competition {
     public int substitutions;
     public int benchSize;
     public int time;
-    public boolean ended;
     public boolean userPrefersResult;
     public int currentRound;
     public int currentMatch;
