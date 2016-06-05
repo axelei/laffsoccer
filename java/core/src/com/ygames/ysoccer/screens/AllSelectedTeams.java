@@ -185,6 +185,7 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
+            game.competition = null;
             game.setScreen(new Main(game));
         }
     }

@@ -51,4 +51,8 @@ public abstract class Competition {
     public void start(ArrayList<Team> teams) {
         this.teams = (ArrayList<Team>) teams.clone();
     }
+
+    public boolean isEnded() {
+        return true;
+    }
 }

@@ -31,12 +31,12 @@ public class League extends Competition {
     }
 
     public Match getMatch() {
-        if (currentRound == rounds) {
-            // league has ended
-            return null;
-        } else {
-            return calendarCurrent.get(currentMatch);
-        }
+        return calendarCurrent.get(currentMatch);
+    }
+
+    @Override
+    public boolean isEnded() {
+        return currentRound == rounds;
     }
 
     public void nextMatch() {

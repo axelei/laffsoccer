@@ -148,13 +148,13 @@ public class PlayLeague extends GlScreen {
         Widget exitButton = new ExitButton();
         widgets.add(exitButton);
 
-        match = league.getMatch();
-
-        if (match == null) {
+        if (league.isEnded()) {
 
             selectedWidget = exitButton;
 
         } else {
+
+            match = league.getMatch();
 
             // team A
             w = new Label();

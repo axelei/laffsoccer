@@ -44,6 +44,11 @@ public class Main extends GlScreen {
 
         w = new TrainingButton();
         widgets.add(w);
+
+        if (game.competition != null) {
+            w = new ReplayContinueCompetitionButton();
+            widgets.add(w);
+        }
     }
 
     class GameOptionsButton extends Button {
@@ -148,6 +153,21 @@ public class Main extends GlScreen {
             setColors(0x1B8A7F, 0x25BDAE, 0x115750);
             setGeometry(game.settings.GUI_WIDTH / 2 + 40, 440, 320, 36);
             setText(Assets.strings.get("TRAINING"), Font.Align.CENTER, Assets.font14);
+        }
+    }
+
+    class ReplayContinueCompetitionButton extends Button {
+
+        public ReplayContinueCompetitionButton() {
+            setColors(0x568200, 0x77B400, 0x243E00);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 260, 560, 520, 36);
+            String s = Assets.strings.get(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
+            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO: set competition menu
         }
     }
 }

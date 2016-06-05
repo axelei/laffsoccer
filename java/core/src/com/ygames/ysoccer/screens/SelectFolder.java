@@ -132,6 +132,7 @@ public class SelectFolder extends GlScreen {
         @Override
         public void onFire1Down() {
             if (isDataRoot) {
+                game.competition = null;
                 game.setScreen(new Main(game));
             } else {
                 game.setScreen(new SelectFolder(game, fileHandle.parent()));
