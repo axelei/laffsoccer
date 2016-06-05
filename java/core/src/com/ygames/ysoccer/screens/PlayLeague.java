@@ -202,6 +202,9 @@ public class PlayLeague extends GlScreen {
             viewResultButton = w;
         }
 
+        w = new ViewStatisticsButton();
+        widgets.add(w);
+
         if (!league.ended) {
             if (game.showCompetitionResult) {
                 selectedWidget = nextMatchButton;
@@ -310,6 +313,20 @@ public class PlayLeague extends GlScreen {
             // TODO: generate scorers
 
             game.setScreen(new PlayLeague(game));
+        }
+    }
+
+    class ViewStatisticsButton extends Button {
+
+        public ViewStatisticsButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 50, 660, 180, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText(Assets.strings.get("STATS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO: open view statistics menu
         }
     }
 }
