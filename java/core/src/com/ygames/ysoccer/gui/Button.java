@@ -38,7 +38,9 @@ public class Button extends Widget {
 
         shapeRenderer.end();
 
-        drawText(glGraphics);
+        if (font != null) {
+            drawText(glGraphics);
+        }
     }
 
     private void drawBorder(GlShapeRenderer shapeRenderer, int bx, int by, int bw,

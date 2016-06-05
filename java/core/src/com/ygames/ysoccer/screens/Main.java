@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -126,7 +127,11 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new DiyCompetition(game));
+            if (game.competition == null) {
+                game.setScreen(new DiyCompetition(game));
+            } else {
+                game.setScreen(new CreateWarning(game, Competition.Category.DIY));
+            }
         }
     }
 
@@ -140,10 +145,14 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.state = GlGame.State.COMPETITION;
-            game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
-            game.stateColor.set(0x415600, 0x5E7D00, 0x243000);
-            game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
+            if (game.competition == null) {
+                game.state = GlGame.State.COMPETITION;
+                game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
+                game.stateColor.set(0x415600, 0x5E7D00, 0x243000);
+                game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
+            } else {
+                game.setScreen(new CreateWarning(game, Competition.Category.PRESET));
+            }
         }
     }
 

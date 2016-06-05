@@ -37,6 +37,7 @@ public class SelectCompetition extends GlScreen {
             League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString());
             for (League league : leagues) {
                 league.init();
+                league.category = Competition.Category.PRESET;
                 w = new CompetitionButton(league);
                 competitionsList.add(w);
                 widgets.add(w);

@@ -15,6 +15,12 @@ public abstract class Competition {
     public String path;
     public String absolutePath;
 
+    public enum Category {
+        DIY, PRESET
+    }
+
+    public Category category;
+
     public enum Type {
         FRIENDLY, LEAGUE, CUP
     }
@@ -73,5 +79,31 @@ public abstract class Competition {
             }
         }
         return teamList;
+    }
+
+    public static String getCategoryLabel(Category category) {
+        String label = "";
+        switch (category) {
+            case DIY:
+                label = "DIY COMPETITION";
+                break;
+            case PRESET:
+                label = "PRESET COMPETITION";
+                break;
+        }
+        return label;
+    }
+
+    public static String getWarningLabel(Category category) {
+        String label = "";
+        switch (category) {
+            case DIY:
+                label = "YOU ARE ABOUT TO LOSE CURRENT DIY COMPETITION";
+                break;
+            case PRESET:
+                label = "YOU ARE ABOUT TO LOSE CURRENT PRESET COMPETITION";
+                break;
+        }
+        return label;
     }
 }

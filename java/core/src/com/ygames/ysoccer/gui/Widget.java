@@ -38,6 +38,7 @@ public abstract class Widget {
 
     public Widget() {
         color = new WidgetColor();
+        align = Font.Align.CENTER;
         isVisible = true;
         changed = true;
     }
