@@ -12,8 +12,11 @@ import com.ygames.ysoccer.gui.Widget;
 
 public class CreateWarning extends GlScreen {
 
+    private Competition.Category createCategory;
+
     public CreateWarning(GlGame game, Competition.Category createCategory) {
         super(game);
+        this.createCategory = createCategory;
 
         game.state = GlGame.State.COMPETITION;
         game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
@@ -23,7 +26,7 @@ public class CreateWarning extends GlScreen {
 
         Widget w;
 
-        w = new TitleBar(createCategory);
+        w = new TitleBar();
         widgets.add(w);
 
         // warning
@@ -46,16 +49,40 @@ public class CreateWarning extends GlScreen {
         w.setPosition(game.settings.GUI_WIDTH / 2, 380);
         widgets.add(w);
 
+        w = new ContinueButton();
+        widgets.add(w);
     }
 
     public class TitleBar extends Button {
 
-        public TitleBar(Competition.Category createCategory) {
+        public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             String label = Competition.getCategoryLabel(createCategory);
             setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    public class ContinueButton extends Button {
+
+        public ContinueButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 630, 180, 36);
+            setColors(0x568200, 0x77B400, 0x243E00);
+            setText(Assets.strings.get("CONTINUE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.competition = null;
+            switch (createCategory) {
+                case DIY:
+                    game.setScreen(new CreateWarning(game, Competition.Category.DIY));
+                    break;
+                case PRESET:
+                    game.setScreen(new CreateWarning(game, Competition.Category.PRESET));
+                    break;
+            }
         }
     }
 }
