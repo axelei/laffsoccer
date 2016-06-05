@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.competitions;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
@@ -52,7 +54,24 @@ public abstract class Competition {
         this.teams = (ArrayList<Team>) teams.clone();
     }
 
+    public void restart() {
+    }
+
     public boolean isEnded() {
         return true;
+    }
+
+    public ArrayList<Team> loadTeams() {
+        ArrayList<Team> teamList = new ArrayList<Team>();
+        for (Team teamStub : teams) {
+            FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
+            if (teamFile.exists()) {
+                Team team = Assets.json.fromJson(Team.class, teamFile.readString());
+                team.path = teamStub.path;
+                team.controlMode = Team.ControlMode.COMPUTER;
+                teamList.add(team);
+            }
+        }
+        return teamList;
     }
 }

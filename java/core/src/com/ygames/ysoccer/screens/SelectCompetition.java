@@ -9,7 +9,6 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,15 +119,7 @@ public class SelectCompetition extends GlScreen {
         @Override
         public void onFire1Down() {
             game.competition = competition;
-            for (Team teamStub : competition.teams) {
-                FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
-                if (teamFile.exists()) {
-                    Team team = Assets.json.fromJson(Team.class, teamFile.readString());
-                    team.path = teamStub.path;
-                    team.controlMode = Team.ControlMode.COMPUTER;
-                    game.teamList.add(team);
-                }
-            }
+            game.teamList = game.competition.loadTeams();
             game.setScreen(new AllSelectedTeams(game, fileHandle));
         }
     }

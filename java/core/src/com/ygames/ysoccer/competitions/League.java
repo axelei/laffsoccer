@@ -30,6 +30,14 @@ public class League extends Competition {
         calendarGenerate();
     }
 
+    @Override
+    public void restart() {
+        currentRound = 0;
+        currentMatch = 0;
+        calendarGenerate();
+        start(loadTeams());
+    }
+
     public Match getMatch() {
         return calendarCurrent.get(currentMatch);
     }

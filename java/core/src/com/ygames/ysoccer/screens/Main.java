@@ -166,8 +166,20 @@ public class Main extends GlScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            // TODO: set competition menu
+        public void onFire1Up() {
+            if (game.competition.isEnded()) {
+                game.competition.restart();
+                game.showCompetitionResult = false;
+            }
+            game.state = GlGame.State.COMPETITION;
+            switch (game.competition.type) {
+                case LEAGUE:
+                    game.setScreen(new PlayLeague(game));
+                    break;
+                case CUP:
+                    // TODO: set PlayCup screen
+                    break;
+            }
         }
     }
 }
