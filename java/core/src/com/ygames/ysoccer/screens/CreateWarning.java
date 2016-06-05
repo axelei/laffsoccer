@@ -18,11 +18,7 @@ public class CreateWarning extends GlScreen {
         super(game);
         this.createCategory = createCategory;
 
-        game.state = GlGame.State.COMPETITION;
-        game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
-        game.stateColor.set(0x376E2F, 0x4E983F, 0x214014);
-
-        background = game.stateBackground;
+        background = new Image("images/backgrounds/menu_competition.jpg");
 
         Widget w;
 
@@ -51,13 +47,25 @@ public class CreateWarning extends GlScreen {
 
         w = new ContinueButton();
         widgets.add(w);
+
+        w = new AbortButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     public class TitleBar extends Button {
 
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
-            setColors(0x415600, 0x5E7D00, 0x243000);
+            switch (createCategory) {
+                case DIY:
+                    setColors(0x376E2F, 0x4E983F, 0x214014);
+                    break;
+                case PRESET:
+                    setColors(0x415600, 0x5E7D00, 0x243000);
+                    break;
+            }
             String label = Competition.getCategoryLabel(createCategory);
             setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -67,7 +75,7 @@ public class CreateWarning extends GlScreen {
     public class ContinueButton extends Button {
 
         public ContinueButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 630, 180, 36);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CONTINUE"), Font.Align.CENTER, Assets.font14);
         }
@@ -77,12 +85,29 @@ public class CreateWarning extends GlScreen {
             game.competition = null;
             switch (createCategory) {
                 case DIY:
-                    game.setScreen(new CreateWarning(game, Competition.Category.DIY));
+                    game.setScreen(new DiyCompetition(game));
                     break;
                 case PRESET:
-                    game.setScreen(new CreateWarning(game, Competition.Category.PRESET));
+                    game.state = GlGame.State.COMPETITION;
+                    game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
+                    game.stateColor.set(0x415600, 0x5E7D00, 0x243000);
+                    game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
                     break;
             }
+        }
+    }
+
+    public class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }

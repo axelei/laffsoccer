@@ -128,9 +128,14 @@ public class SelectCompetition extends GlScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setColors(0xC84200, 0xFF6519, 0x803300);
+            if (isDataRoot) {
+                setColors(0xC8000E, 0xFF1929, 0x74040C);
+                setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            } else {
+                setColors(0xC84200, 0xFF6519, 0x803300);
+                setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            }
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
