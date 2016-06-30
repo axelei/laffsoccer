@@ -26,6 +26,9 @@ public class SaveActivity extends GlScreen {
         w = new FilenameButton();
         widgets.add(w);
         selectedWidget = w;
+
+        w = new AbortButton();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -64,6 +67,20 @@ public class SaveActivity extends GlScreen {
                 game.activity.save();
                 game.setScreen(new Main(game));
             }
+        }
+    }
+
+    class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC8000E, 0xFF1929, 0x74040C);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }
