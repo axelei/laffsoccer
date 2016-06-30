@@ -2,7 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Team;
 
@@ -16,15 +16,15 @@ public class GlGame extends Game {
     public MenuInput menuInput;
 
     public enum State {
-        NONE, FRIENDLY, COMPETITION, EDIT, TRAINING
+        NONE, FRIENDLY, ACTIVITY, EDIT, TRAINING
     }
 
-    public State state;
+    private State state;
     public Image stateBackground;
     public WidgetColor stateColor;
 
     public ArrayList<Team> teamList;
-    public Competition competition;
+    public Activity activity;
     public boolean showCompetitionResult;
 
     @Override
@@ -81,5 +81,37 @@ public class GlGame extends Game {
         protected int yTimer;
         protected int fire1Timer;
         protected int fire2Timer;
+    }
+
+    public void setState(State state, Activity.Category category) {
+        switch (state) {
+            case ACTIVITY:
+                stateBackground = new Image("images/backgrounds/menu_competition.jpg");
+                switch (category) {
+                    case DIY_COMPETITION:
+                        stateColor.set(0x376E2F, 0x4E983F, 0x214014);
+                        break;
+                    case PRESET_COMPETITION:
+                        stateColor.set(0x415600, 0x5E7D00, 0x243000);
+                        break;
+                }
+                break;
+            case FRIENDLY:
+                stateBackground = new Image("images/backgrounds/menu_friendly.jpg");
+                stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
+                break;
+        }
+    }
+
+    public boolean hasActivity() {
+        return activity != null;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+    public void clearActivity() {
+        this.activity = null;
     }
 }

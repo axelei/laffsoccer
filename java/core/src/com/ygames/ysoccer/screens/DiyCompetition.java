@@ -1,10 +1,10 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -13,9 +13,7 @@ public class DiyCompetition extends GlScreen {
     public DiyCompetition(GlGame game) {
         super(game);
 
-        game.state = GlGame.State.COMPETITION;
-        game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
-        game.stateColor.set(0x376E2F, 0x4E983F, 0x214014);
+        game.setState(GlGame.State.ACTIVITY, Activity.Category.DIY_COMPETITION);
 
         background = game.stateBackground;
 

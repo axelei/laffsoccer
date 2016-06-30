@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -12,9 +12,9 @@ import com.ygames.ysoccer.gui.Widget;
 
 public class CreateWarning extends GlScreen {
 
-    private Competition.Category createCategory;
+    private Activity.Category createCategory;
 
-    public CreateWarning(GlGame game, Competition.Category createCategory) {
+    public CreateWarning(GlGame game, Activity.Category createCategory) {
         super(game);
         this.createCategory = createCategory;
 
@@ -32,7 +32,7 @@ public class CreateWarning extends GlScreen {
         w.setActive(false);
         widgets.add(w);
 
-        String msg = Assets.strings.get(Competition.getWarningLabel(game.competition.category));
+        String msg = Assets.strings.get(Activity.getWarningLabel(game.activity.category));
         int cut = msg.indexOf(" ", msg.length() / 2);
 
         w = new Label();
@@ -59,14 +59,14 @@ public class CreateWarning extends GlScreen {
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
             switch (createCategory) {
-                case DIY:
+                case DIY_COMPETITION:
                     setColors(0x376E2F, 0x4E983F, 0x214014);
                     break;
-                case PRESET:
+                case PRESET_COMPETITION:
                     setColors(0x415600, 0x5E7D00, 0x243000);
                     break;
             }
-            String label = Competition.getCategoryLabel(createCategory);
+            String label = Activity.getCategoryLabel(createCategory);
             setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -82,15 +82,13 @@ public class CreateWarning extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition = null;
+            game.clearActivity();
             switch (createCategory) {
-                case DIY:
+                case DIY_COMPETITION:
                     game.setScreen(new DiyCompetition(game));
                     break;
-                case PRESET:
-                    game.state = GlGame.State.COMPETITION;
-                    game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
-                    game.stateColor.set(0x415600, 0x5E7D00, 0x243000);
+                case PRESET_COMPETITION:
+                    game.setState(GlGame.State.ACTIVITY, Activity.Category.PRESET_COMPETITION);
                     game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
                     break;
             }

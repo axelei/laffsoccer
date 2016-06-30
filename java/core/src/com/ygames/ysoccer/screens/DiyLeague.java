@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -31,7 +31,7 @@ public class DiyLeague extends GlScreen {
 
         league = new League();
         league.name = Assets.strings.get("DIY LEAGUE");
-        league.category = Competition.Category.DIY;
+        league.category = Activity.Category.DIY_COMPETITION;
 
         Widget w;
 
@@ -576,8 +576,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition = league;
-            game.setScreen(new SelectFolder(game, Assets.teamsFolder));
+            game.setScreen(new SelectFolder(game, Assets.teamsFolder, league));
         }
     }
 

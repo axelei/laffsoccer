@@ -5,7 +5,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
@@ -21,10 +20,7 @@ public class DesignFriendly extends GlScreen {
         friendly = new Friendly();
         friendly.name = Assets.strings.get("FRIENDLY");
 
-        game.state = GlGame.State.FRIENDLY;
-        game.stateBackground = new Image("images/backgrounds/menu_friendly.jpg");
-        game.stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
-        game.competition = friendly;
+        game.setState(GlGame.State.FRIENDLY, null);
 
         background = game.stateBackground;
 
@@ -174,7 +170,7 @@ public class DesignFriendly extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectFolder(game, Assets.teamsFolder));
+            game.setScreen(new SelectFolder(game, Assets.teamsFolder, friendly));
         }
     }
 

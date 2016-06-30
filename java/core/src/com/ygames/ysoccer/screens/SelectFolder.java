@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -16,10 +17,12 @@ public class SelectFolder extends GlScreen {
 
     private FileHandle fileHandle;
     private boolean isDataRoot;
+    private Competition competition;
 
-    public SelectFolder(GlGame game, FileHandle fileHandle) {
+    public SelectFolder(GlGame game, FileHandle fileHandle, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
+        this.competition = competition;
         isDataRoot = (fileHandle.path().equals(Assets.teamsFolder.path()));
 
         background = game.stateBackground;
@@ -67,9 +70,9 @@ public class SelectFolder extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            int diff = game.competition.numberOfTeams - game.teamList.size();
+            int diff = competition.numberOfTeams - game.teamList.size();
             String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
-                    + " " + game.competition.name.toUpperCase();
+                    + " " + competition.name.toUpperCase();
             if (!isDataRoot) {
                 title += " - " + fileHandle.name().toUpperCase();
             }
@@ -94,8 +97,8 @@ public class SelectFolder extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition.absolutePath = fileHandle.path();
-            game.setScreen(new SelectFolder(game, fileHandle));
+            competition.absolutePath = fileHandle.path();
+            game.setScreen(new SelectFolder(game, fileHandle, competition));
         }
     }
 
@@ -112,7 +115,7 @@ public class SelectFolder extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeams(game, fileHandle, league));
+            game.setScreen(new SelectTeams(game, fileHandle, league, competition));
         }
     }
 
@@ -132,10 +135,9 @@ public class SelectFolder extends GlScreen {
         @Override
         public void onFire1Down() {
             if (isDataRoot) {
-                game.competition = null;
                 game.setScreen(new Main(game));
             } else {
-                game.setScreen(new SelectFolder(game, fileHandle.parent()));
+                game.setScreen(new SelectFolder(game, fileHandle.parent(), competition));
             }
         }
     }

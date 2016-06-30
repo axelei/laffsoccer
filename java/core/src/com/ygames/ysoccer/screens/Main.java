@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -46,8 +47,8 @@ public class Main extends GlScreen {
         w = new TrainingButton();
         widgets.add(w);
 
-        if (game.competition != null) {
-            w = new ReplayContinueCompetitionButton();
+        if (game.hasActivity()) {
+            w = new ReplayContinueActivityButton();
             widgets.add(w);
         }
     }
@@ -127,10 +128,10 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            if (game.competition == null) {
-                game.setScreen(new DiyCompetition(game));
+            if (game.hasActivity()) {
+                game.setScreen(new CreateWarning(game, Activity.Category.DIY_COMPETITION));
             } else {
-                game.setScreen(new CreateWarning(game, Competition.Category.DIY));
+                game.setScreen(new DiyCompetition(game));
             }
         }
     }
@@ -145,13 +146,11 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            if (game.competition == null) {
-                game.state = GlGame.State.COMPETITION;
-                game.stateBackground = new Image("images/backgrounds/menu_competition.jpg");
-                game.stateColor.set(0x415600, 0x5E7D00, 0x243000);
-                game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
+            if (game.hasActivity()) {
+                game.setScreen(new CreateWarning(game, Activity.Category.PRESET_COMPETITION));
             } else {
-                game.setScreen(new CreateWarning(game, Competition.Category.PRESET));
+                game.setState(GlGame.State.ACTIVITY, Activity.Category.PRESET_COMPETITION);
+                game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
             }
         }
     }
@@ -165,28 +164,34 @@ public class Main extends GlScreen {
         }
     }
 
-    class ReplayContinueCompetitionButton extends Button {
+    class ReplayContinueActivityButton extends Button {
 
-        public ReplayContinueCompetitionButton() {
+        public ReplayContinueActivityButton() {
             setColors(0x568200, 0x77B400, 0x243E00);
             setGeometry(game.settings.GUI_WIDTH / 2 - 260, 560, 520, 36);
-            String s = Assets.strings.get(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
-            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
+            String s = Assets.strings.get(game.activity.isEnded() ? "REPLAY %s" : "CONTINUE %s");
+            setText(s.replace("%s", game.activity.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Up() {
-            if (game.competition.isEnded()) {
-                game.competition.restart();
+            if (game.activity.isEnded()) {
+                game.activity.restart();
                 game.showCompetitionResult = false;
             }
-            game.state = GlGame.State.COMPETITION;
-            switch (game.competition.type) {
-                case LEAGUE:
-                    game.setScreen(new PlayLeague(game));
-                    break;
-                case CUP:
-                    // TODO: set PlayCup screen
+
+            switch (game.activity.category) {
+                case DIY_COMPETITION:
+                case PRESET_COMPETITION:
+                    game.setState(GlGame.State.ACTIVITY, game.activity.category);
+                    switch (((Competition) game.activity).type) {
+                        case LEAGUE:
+                            game.setScreen(new PlayLeague(game));
+                            break;
+                        case CUP:
+                            // TODO: set PlayCup screen
+                            break;
+                    }
                     break;
             }
         }

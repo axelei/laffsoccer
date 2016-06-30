@@ -33,7 +33,7 @@ public class PlayLeague extends GlScreen {
     public PlayLeague(GlGame game) {
         super(game);
 
-        league = (League) game.competition;
+        league = (League) game.activity;
 
         background = game.stateBackground;
 

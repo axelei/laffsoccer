@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -18,10 +19,12 @@ public class AllSelectedTeams extends GlScreen {
     private FileHandle fileHandle;
     private Widget playButton;
     private Widget changeTeamsButton;
+    private Competition competition;
 
-    public AllSelectedTeams(GlGame game, FileHandle fileHandle) {
+    public AllSelectedTeams(GlGame game, FileHandle fileHandle, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
+        this.competition = competition;
 
         background = game.stateBackground;
 
@@ -58,7 +61,7 @@ public class AllSelectedTeams extends GlScreen {
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
-        int diff = game.competition.numberOfTeams - game.teamList.size();
+        int diff = competition.numberOfTeams - game.teamList.size();
         if (diff == 0) {
             selectedWidget = w;
         }
@@ -67,7 +70,7 @@ public class AllSelectedTeams extends GlScreen {
     class TitleButton extends Button {
         public TitleButton() {
             String title = Assets.strings.get("ALL SELECTED TEAMS FOR")
-                    + " " + game.competition.name.toUpperCase()
+                    + " " + competition.name.toUpperCase()
                     + " - " + fileHandle.name().toUpperCase();
             int w = Math.max(960, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
@@ -165,14 +168,14 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onUpdate() {
-            int diff = game.competition.numberOfTeams - game.teamList.size();
+            int diff = competition.numberOfTeams - game.teamList.size();
             setText(Assets.strings.get((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            FileHandle fileHandle = Gdx.files.local(game.competition.absolutePath);
-            game.setScreen(new SelectFolder(game, fileHandle));
+            FileHandle fileHandle = Gdx.files.local(competition.absolutePath);
+            game.setScreen(new SelectFolder(game, fileHandle, competition));
         }
     }
 
@@ -185,7 +188,6 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition = null;
             game.setScreen(new Main(game));
         }
     }
@@ -198,9 +200,9 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onUpdate() {
-            int diff = game.competition.numberOfTeams - game.teamList.size();
+            int diff = competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
-                switch (game.competition.type) {
+                switch (competition.type) {
                     case FRIENDLY:
                         setText(Assets.strings.get("PLAY FRIENDLY"));
                         break;
@@ -227,12 +229,13 @@ public class AllSelectedTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            switch (game.competition.type) {
+            switch (competition.type) {
                 case FRIENDLY:
                     // TODO
                     break;
                 case LEAGUE:
-                    game.competition.start(game.teamList);
+                    competition.start(game.teamList);
+                    game.setActivity(competition);
                     game.setScreen(new PlayLeague(game));
                     break;
                 case CUP:
