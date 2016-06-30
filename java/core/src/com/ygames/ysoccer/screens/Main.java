@@ -211,7 +211,7 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Up() {
-            // TODO: set SaveActivity screen
+            game.setScreen(new SaveActivity(game));
         }
     }
 }
