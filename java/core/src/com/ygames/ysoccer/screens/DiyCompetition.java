@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.competitions.Activity;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -13,7 +13,7 @@ public class DiyCompetition extends GlScreen {
     public DiyCompetition(GlGame game) {
         super(game);
 
-        game.setState(GlGame.State.ACTIVITY, Activity.Category.DIY_COMPETITION);
+        game.setState(GlGame.State.COMPETITION, Competition.Category.DIY_COMPETITION);
 
         background = game.stateBackground;
 

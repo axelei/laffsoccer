@@ -9,9 +9,9 @@ import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 
-public class SaveActivity extends GlScreen {
+public class SaveCompetition extends GlScreen {
 
-    public SaveActivity(GlGame game) {
+    public SaveCompetition(GlGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -37,7 +37,7 @@ public class SaveActivity extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             String s = Assets.strings.get("SAVE %s");
-            setText(s.replace("%s", game.activity.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
+            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -56,15 +56,15 @@ public class SaveActivity extends GlScreen {
         public FilenameButton() {
             setGeometry(game.settings.GUI_WIDTH / 2, 500, 160, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
-            setText(game.activity.filename.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(game.competition.filename.toUpperCase(), Font.Align.CENTER, Assets.font14);
             setEntryLimit(8);
         }
 
         @Override
         public void onUpdate() {
-            if (getText().toLowerCase().compareTo(game.activity.filename) != 0) {
-                game.activity.filename = getText().toLowerCase();
-                game.activity.save();
+            if (getText().toLowerCase().compareTo(game.competition.filename) != 0) {
+                game.competition.filename = getText().toLowerCase();
+                game.competition.save();
                 game.setScreen(new Main(game));
             }
         }

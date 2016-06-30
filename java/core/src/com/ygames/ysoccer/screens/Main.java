@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -47,11 +46,11 @@ public class Main extends GlScreen {
         w = new TrainingButton();
         widgets.add(w);
 
-        if (game.hasActivity()) {
-            w = new ReplayContinueActivityButton();
+        if (game.hasCompetition()) {
+            w = new ReplayContinueCompetitionButton();
             widgets.add(w);
 
-            w = new SaveActivityButton();
+            w = new SaveCompetitionButton();
             widgets.add(w);
         }
     }
@@ -131,8 +130,8 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            if (game.hasActivity()) {
-                game.setScreen(new CreateWarning(game, Activity.Category.DIY_COMPETITION));
+            if (game.hasCompetition()) {
+                game.setScreen(new CreateWarning(game, Competition.Category.DIY_COMPETITION));
             } else {
                 game.setScreen(new DiyCompetition(game));
             }
@@ -149,10 +148,10 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            if (game.hasActivity()) {
-                game.setScreen(new CreateWarning(game, Activity.Category.PRESET_COMPETITION));
+            if (game.hasCompetition()) {
+                game.setScreen(new CreateWarning(game, Competition.Category.PRESET_COMPETITION));
             } else {
-                game.setState(GlGame.State.ACTIVITY, Activity.Category.PRESET_COMPETITION);
+                game.setState(GlGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
                 game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
             }
         }
@@ -167,27 +166,27 @@ public class Main extends GlScreen {
         }
     }
 
-    class ReplayContinueActivityButton extends Button {
+    class ReplayContinueCompetitionButton extends Button {
 
-        public ReplayContinueActivityButton() {
+        public ReplayContinueCompetitionButton() {
             setColors(0x568200, 0x77B400, 0x243E00);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, 535, 600, 36);
-            String s = Assets.strings.get(game.activity.isEnded() ? "REPLAY %s" : "CONTINUE %s");
-            setText(s.replace("%s", game.activity.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
+            String s = Assets.strings.get(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
+            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Up() {
-            if (game.activity.isEnded()) {
-                game.activity.restart();
+            if (game.competition.isEnded()) {
+                game.competition.restart();
                 game.showCompetitionResult = false;
             }
 
-            switch (game.activity.category) {
+            switch (game.competition.category) {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
-                    game.setState(GlGame.State.ACTIVITY, game.activity.category);
-                    switch (((Competition) game.activity).type) {
+                    game.setState(GlGame.State.COMPETITION, game.competition.category);
+                    switch (game.competition.type) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));
                             break;
@@ -200,18 +199,18 @@ public class Main extends GlScreen {
         }
     }
 
-    class SaveActivityButton extends Button {
+    class SaveCompetitionButton extends Button {
 
-        public SaveActivityButton() {
+        public SaveCompetitionButton() {
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, 585, 600, 36);
             String s = Assets.strings.get("SAVE %s");
-            setText(s.replace("%s", game.activity.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
+            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Up() {
-            game.setScreen(new SaveActivity(game));
+            game.setScreen(new SaveCompetition(game));
         }
     }
 }

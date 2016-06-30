@@ -2,7 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.competitions.Activity;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Team;
 
@@ -16,7 +16,7 @@ public class GlGame extends Game {
     public MenuInput menuInput;
 
     public enum State {
-        NONE, FRIENDLY, ACTIVITY, EDIT, TRAINING
+        NONE, FRIENDLY, COMPETITION, EDIT, TRAINING
     }
 
     private State state;
@@ -24,7 +24,7 @@ public class GlGame extends Game {
     public WidgetColor stateColor;
 
     public ArrayList<Team> teamList;
-    public Activity activity;
+    public Competition competition;
     public boolean showCompetitionResult;
 
     @Override
@@ -83,9 +83,9 @@ public class GlGame extends Game {
         protected int fire2Timer;
     }
 
-    public void setState(State state, Activity.Category category) {
+    public void setState(State state, Competition.Category category) {
         switch (state) {
-            case ACTIVITY:
+            case COMPETITION:
                 stateBackground = new Image("images/backgrounds/menu_competition.jpg");
                 switch (category) {
                     case DIY_COMPETITION:
@@ -103,15 +103,15 @@ public class GlGame extends Game {
         }
     }
 
-    public boolean hasActivity() {
-        return activity != null;
+    public boolean hasCompetition() {
+        return competition != null;
     }
 
-    public void setActivity(Activity activity) {
-        this.activity = activity;
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
     }
 
-    public void clearActivity() {
-        this.activity = null;
+    public void clearCompetition() {
+        this.competition = null;
     }
 }

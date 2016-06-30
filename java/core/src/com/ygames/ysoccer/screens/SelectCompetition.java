@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.ygames.ysoccer.competitions.Activity;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
@@ -38,7 +37,7 @@ public class SelectCompetition extends GlScreen {
             League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString());
             for (League league : leagues) {
                 league.init();
-                league.category = Activity.Category.PRESET_COMPETITION;
+                league.category = Competition.Category.PRESET_COMPETITION;
                 w = new CompetitionButton(league);
                 competitionsList.add(w);
                 widgets.add(w);
