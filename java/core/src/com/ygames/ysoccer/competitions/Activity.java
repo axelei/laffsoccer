@@ -1,8 +1,12 @@
 package com.ygames.ysoccer.competitions;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.framework.Assets;
+
 public abstract class Activity {
 
     public String longName;
+    public String filename;
 
     public enum Category {
         DIY_COMPETITION,
@@ -10,6 +14,10 @@ public abstract class Activity {
     }
 
     public Category category;
+
+    public Activity() {
+        filename = "";
+    }
 
     public boolean isEnded() {
         return true;
@@ -42,5 +50,19 @@ public abstract class Activity {
                 break;
         }
         return label;
+    }
+
+    public void save() {
+        String saveName = filename;
+        switch (category) {
+            case DIY_COMPETITION:
+                saveName += ".diy.json";
+                break;
+            case PRESET_COMPETITION:
+                saveName += ".preset.json";
+                break;
+        }
+        FileHandle fileHandle = Assets.savesFolder.child(saveName);
+        Assets.json.toJson(this, Activity.class, fileHandle);
     }
 }

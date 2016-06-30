@@ -64,7 +64,10 @@
   },
   {
     "name": "Serie B",
+    "longName": "Serie B 1964-65",
+    "rounds": 2,
     "pointsForAWin": 2,
+    "path": "1964-65/club teams/europe/italy",
     "teams": [
       {
         "path": "1964-65/club teams/europe/italy/team.alessandria.json"

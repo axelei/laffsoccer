@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonWriter;
+import com.ygames.ysoccer.competitions.League;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +21,7 @@ public class Assets {
     public static Font font10;
     public static FileHandle teamsFolder;
     public static FileHandle competitionsFolder;
+    public static FileHandle savesFolder;
     public static Json json;
     public static int[] calendars = new int[4600];
 
@@ -31,7 +34,10 @@ public class Assets {
         font10.load();
         teamsFolder = Gdx.files.local("data/teams");
         competitionsFolder = Gdx.files.local("data/competitions");
+        savesFolder = Gdx.files.local("data/saves");
         json = new Json();
+        json.addClassTag("league", League.class);
+        json.setOutputType(JsonWriter.OutputType.json);
         loadCalendars();
     }
 
