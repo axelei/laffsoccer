@@ -10,13 +10,10 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 
-public class CreateWarning extends GlScreen {
+public class LoadCompetitionWarning extends GlScreen {
 
-    private Competition.Category createCategory;
-
-    public CreateWarning(GlGame game, Competition.Category createCategory) {
+    public LoadCompetitionWarning(GlGame game) {
         super(game);
-        this.createCategory = createCategory;
 
         background = new Image("images/backgrounds/menu_competition.jpg");
 
@@ -58,16 +55,8 @@ public class CreateWarning extends GlScreen {
 
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
-            switch (createCategory) {
-                case DIY_COMPETITION:
-                    setColors(0x376E2F, 0x4E983F, 0x214014);
-                    break;
-                case PRESET_COMPETITION:
-                    setColors(0x415600, 0x5E7D00, 0x243000);
-                    break;
-            }
-            String label = Competition.getCategoryLabel(createCategory);
-            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
+            setColors(0x2898c7, 0x32bffa, 0x1e7194);
+            setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -83,15 +72,7 @@ public class CreateWarning extends GlScreen {
         @Override
         public void onFire1Down() {
             game.clearCompetition();
-            switch (createCategory) {
-                case DIY_COMPETITION:
-                    game.setScreen(new DiyCompetition(game));
-                    break;
-                case PRESET_COMPETITION:
-                    game.setState(GlGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
-                    game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
-                    break;
-            }
+            // TODO set LoadCompetition screen
         }
     }
 

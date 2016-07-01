@@ -137,7 +137,7 @@ public class Main extends GlScreen {
         @Override
         public void onFire1Down() {
             if (game.hasCompetition()) {
-                game.setScreen(new CreateWarning(game, Competition.Category.DIY_COMPETITION));
+                game.setScreen(new CreateCompetitionWarning(game, Competition.Category.DIY_COMPETITION));
             } else {
                 game.setScreen(new DiyCompetition(game));
             }
@@ -155,7 +155,7 @@ public class Main extends GlScreen {
         @Override
         public void onFire1Down() {
             if (game.hasCompetition()) {
-                game.setScreen(new CreateWarning(game, Competition.Category.PRESET_COMPETITION));
+                game.setScreen(new CreateCompetitionWarning(game, Competition.Category.PRESET_COMPETITION));
             } else {
                 game.setState(GlGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
                 game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
@@ -226,6 +226,15 @@ public class Main extends GlScreen {
             setColors(0x2898c7, 0x32bffa, 0x1e7194);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, y, 600, 32);
             setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Up() {
+            if (game.hasCompetition()) {
+                game.setScreen(new LoadCompetitionWarning(game));
+            } else {
+                // TODO set LoadCompetition screen
+            }
         }
     }
 }
