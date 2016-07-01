@@ -75,21 +75,17 @@ public class League extends Competition {
             }
             pos = pos + 2 * currentMatch - currentRound * numberOfTeams * (numberOfTeams - 1);
 
-            // get teams
-            Team teamA;
-            Team teamB;
+            // create match
+            Match match = new Match();
             if ((currentRound % 2) == 0) {
-                teamA = teams.get(Assets.calendars[pos]);
-                teamB = teams.get(Assets.calendars[pos + 1]);
+                match.team[Match.HOME] = Assets.calendars[pos];
+                match.team[Match.AWAY] = Assets.calendars[pos + 1];
             } else {
-                teamA = teams.get(Assets.calendars[pos + 1]);
-                teamB = teams.get(Assets.calendars[pos]);
+                match.team[Match.HOME] = Assets.calendars[pos + 1];
+                match.team[Match.AWAY] = Assets.calendars[pos];
             }
-
-            Team team[] = {teamA, teamB};
-            Match match = new Match(team);
-
             calendarCurrent.add(match);
+
             nextMatch();
         }
 
@@ -102,8 +98,13 @@ public class League extends Competition {
         Match match = getMatch();
         match.stats[Match.HOME].goals = homeGoals;
         match.stats[Match.AWAY].goals = awayGoals;
-        match.team[Match.HOME].updateStats(homeGoals, awayGoals, pointsForAWin);
-        match.team[Match.AWAY].updateStats(awayGoals, homeGoals, pointsForAWin);
+        teams.get(match.team[Match.HOME]).updateStats(homeGoals, awayGoals, pointsForAWin);
+        teams.get(match.team[Match.AWAY]).updateStats(awayGoals, homeGoals, pointsForAWin);
         match.ended = true;
+    }
+
+    public boolean bothComputers() {
+        Match match = getMatch();
+        return teams.get(match.team[Match.HOME]).controlMode == Team.ControlMode.COMPUTER && teams.get(match.team[Match.AWAY]).controlMode == Team.ControlMode.COMPUTER;
     }
 }

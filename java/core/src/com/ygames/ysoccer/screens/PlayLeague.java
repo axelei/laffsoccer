@@ -52,14 +52,14 @@ public class PlayLeague extends GlScreen {
             dx += 60;
         }
 
-        ArrayList<Team> teams = (ArrayList<Team>) league.teams.clone();
+        ArrayList<Team> teamsList = (ArrayList<Team>) league.teams.clone();
 
-        Collections.sort(teams, new Team.CompareByStats());
+        Collections.sort(teamsList, new Team.CompareByStats());
 
         // table
         int tm = 0;
         dx = 590;
-        for (Team team : teams) {
+        for (Team team : teamsList) {
             w = new Button();
             w.setGeometry(230, dy + 20 + 21 * tm, 36, 23);
             w.setText(tm + 1, Font.Align.CENTER, Assets.font10);
@@ -159,13 +159,13 @@ public class PlayLeague extends GlScreen {
             // team A
             w = new Label();
             w.setGeometry(240, 618, 322, 36);
-            w.setText(match.team[0].name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
+            w.setText(league.teams.get(match.team[0]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
             // team B
             w = new Label();
             w.setGeometry(720, 618, 322, 36);
-            w.setText(match.team[1].name.toUpperCase(), Font.Align.LEFT, Assets.font14);
+            w.setText(league.teams.get(match.team[1]).name.toUpperCase(), Font.Align.LEFT, Assets.font14);
             widgets.add(w);
 
             // result (home goals)
@@ -208,7 +208,7 @@ public class PlayLeague extends GlScreen {
 
             if (game.showCompetitionResult) {
                 selectedWidget = nextMatchButton;
-            } else if (match.bothComputers() || league.userPrefersResult) {
+            } else if (league.bothComputers() || league.userPrefersResult) {
                 selectedWidget = viewResultButton;
             } else {
                 selectedWidget = playMatchButton;
@@ -232,7 +232,7 @@ public class PlayLeague extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
-            if (match.bothComputers()) {
+            if (league.bothComputers()) {
                 setText(Assets.strings.get("VIEW MATCH"));
             } else {
                 setText("- " + Assets.strings.get("MATCH") + " -");
@@ -278,7 +278,7 @@ public class PlayLeague extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 190, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
-            if (match.bothComputers()) {
+            if (league.bothComputers()) {
                 setText(Assets.strings.get("VIEW RESULT"));
             } else {
                 setText("- " + Assets.strings.get("RESULT") + " -");
@@ -293,13 +293,13 @@ public class PlayLeague extends GlScreen {
 
         @Override
         public void onFire1Hold() {
-            if (match.bothComputers()) {
+            if (league.bothComputers()) {
                 viewResult();
             }
         }
 
         private void viewResult() {
-            if (!match.bothComputers()) {
+            if (!league.bothComputers()) {
                 league.userPrefersResult = true;
             }
 
