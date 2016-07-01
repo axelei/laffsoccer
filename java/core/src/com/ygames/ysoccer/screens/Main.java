@@ -233,7 +233,7 @@ public class Main extends GlScreen {
             if (game.hasCompetition()) {
                 game.setScreen(new LoadCompetitionWarning(game));
             } else {
-                // TODO set LoadCompetition screen
+                game.setScreen(new LoadCompetition(game));
             }
         }
     }

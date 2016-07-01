@@ -72,7 +72,7 @@ public class LoadCompetitionWarning extends GlScreen {
         @Override
         public void onFire1Down() {
             game.clearCompetition();
-            // TODO set LoadCompetition screen
+            game.setScreen(new LoadCompetition(game));
         }
     }
 
