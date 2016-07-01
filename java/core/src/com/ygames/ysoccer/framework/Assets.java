@@ -10,6 +10,7 @@ import com.ygames.ysoccer.competitions.League;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
@@ -35,7 +36,7 @@ public class Assets {
         font10.load();
         teamsFolder = Gdx.files.local("data/teams");
         competitionsFolder = Gdx.files.local("data/competitions");
-        savesFolder = Gdx.files.local("data/saves");
+        savesFolder = Gdx.files.local("data/saves/competitions");
         json = new Json();
         json.addClassTag("league", League.class);
         json.setOutputType(JsonWriter.OutputType.json);
@@ -54,6 +55,7 @@ public class Assets {
                 locales.add("en");
             }
         }
+        Collections.sort(locales, new Assets.CompareStringsByName());
     }
 
     public static void loadStrings(Settings settings) {
@@ -88,4 +90,11 @@ public class Assets {
         }
     }
 
+    public static class CompareStringsByName implements Comparator<String> {
+
+        @Override
+        public int compare(String o1, String o2) {
+            return o1.compareTo(o2);
+        }
+    }
 }
