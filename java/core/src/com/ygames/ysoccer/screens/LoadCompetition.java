@@ -57,10 +57,10 @@ public class LoadCompetition extends GlScreen {
             int len = competitionButtonsList.size();
             for (int i = 0; i < len; i++) {
                 w = competitionButtonsList.get(i);
-                w.x = (game.settings.GUI_WIDTH) / 2 - w.w + 120;
+                w.x = (game.settings.GUI_WIDTH) / 2 - w.w + 180;
                 w.y = 320 + 34 * (i - len / 2);
                 w = categoryLabelsList.get(i);
-                w.x = (game.settings.GUI_WIDTH) / 2 + 120;
+                w.x = (game.settings.GUI_WIDTH) / 2 + 180;
                 w.y = 320 + 34 * (i - len / 2);
             }
             selectedWidget = competitionButtonsList.get(0);
@@ -70,7 +70,7 @@ public class LoadCompetition extends GlScreen {
     public class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
+            setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
             setColors(0x2898c7, 0x32bffa, 0x1e7194);
             setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -83,7 +83,7 @@ public class LoadCompetition extends GlScreen {
 
         public CompetitionButton(String filename, Competition competition) {
             this.competition = competition;
-            setSize(480, 30);
+            setSize(540, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
             setText(filename, Font.Align.CENTER, Assets.font14);
         }
@@ -111,9 +111,9 @@ public class LoadCompetition extends GlScreen {
     public class CategoryLabel extends Button {
 
         public CategoryLabel(Competition competition) {
-            setSize(240, 30);
+            setSize(180, 30);
             setText(competition.getCategoryFolder().toUpperCase(), Font.Align.CENTER, Assets.font14);
-            setColors(0x2898c7, 0x32bffa, 0x1e7194);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
             setActive(false);
         }
     }

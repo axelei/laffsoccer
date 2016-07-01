@@ -11,6 +11,8 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SelectCompetition extends GlScreen {
@@ -46,7 +48,8 @@ public class SelectCompetition extends GlScreen {
 
         // Folders buttons
         List<Widget> foldersList = new ArrayList<Widget>();
-        FileHandle[] files = fileHandle.list();
+        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(fileHandle.list()));
+        Collections.sort(files, new Assets.CompareFileHandlesByName());
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
