@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
@@ -111,17 +112,18 @@ public abstract class Competition {
     }
 
     public void save() {
-        String saveName = filename;
-        switch (category) {
-            case DIY_COMPETITION:
-                saveName += ".diy.json";
-                break;
-            case PRESET_COMPETITION:
-                saveName += ".preset.json";
-                break;
-        }
-        FileHandle fileHandle = Assets.savesFolder.child(saveName);
+        FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json");
         Assets.json.toJson(this, Competition.class, fileHandle);
     }
 
+    public String getCategoryFolder() {
+        switch (category) {
+            case DIY_COMPETITION:
+                return "diy";
+            case PRESET_COMPETITION:
+                return "preset";
+            default:
+                throw new GdxRuntimeException("Unknown category");
+        }
+    }
 }

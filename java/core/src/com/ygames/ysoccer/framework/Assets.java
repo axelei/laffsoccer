@@ -10,6 +10,7 @@ import com.ygames.ysoccer.competitions.League;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -38,6 +39,7 @@ public class Assets {
         json = new Json();
         json.addClassTag("league", League.class);
         json.setOutputType(JsonWriter.OutputType.json);
+        json.setUsePrototypes(false);
         loadCalendars();
     }
 
@@ -77,4 +79,13 @@ public class Assets {
                 }
         }
     }
+
+    public static class CompareFileHandlesByName implements Comparator<FileHandle> {
+
+        @Override
+        public int compare(FileHandle o1, FileHandle o2) {
+            return o1.name().compareTo(o2.name());
+        }
+    }
+
 }

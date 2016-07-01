@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -7,6 +9,11 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class LoadCompetition extends GlScreen {
 
@@ -19,6 +26,45 @@ public class LoadCompetition extends GlScreen {
 
         w = new TitleBar();
         widgets.add(w);
+
+        // Competitions buttons
+        List<Widget> competitionButtonsList = new ArrayList<Widget>();
+        List<Widget> categoryLabelsList = new ArrayList<Widget>();
+
+        ArrayList<FileHandle> folders = new ArrayList<FileHandle>(Arrays.asList(Assets.savesFolder.list()));
+        Collections.sort(folders, new Assets.CompareFileHandlesByName());
+        for (FileHandle folder : folders) {
+            if (folder.isDirectory()) {
+                ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list()));
+                Collections.sort(files, new Assets.CompareFileHandlesByName());
+                for (FileHandle file : files) {
+                    if (!file.isDirectory() && file.extension().equals("json")) {
+                        Competition competition = Assets.json.fromJson(Competition.class, file);
+
+                        w = new CompetitionButton(file.nameWithoutExtension().toUpperCase(), competition);
+                        competitionButtonsList.add(w);
+                        widgets.add(w);
+
+                        w = new CategoryLabel(competition);
+                        categoryLabelsList.add(w);
+                        widgets.add(w);
+                    }
+                }
+            }
+        }
+
+        if (competitionButtonsList.size() > 0) {
+            int len = competitionButtonsList.size();
+            for (int i = 0; i < len; i++) {
+                w = competitionButtonsList.get(i);
+                w.x = (game.settings.GUI_WIDTH) / 2 - w.w + 120;
+                w.y = 320 + 34 * (i - len / 2);
+                w = categoryLabelsList.get(i);
+                w.x = (game.settings.GUI_WIDTH) / 2 + 120;
+                w.y = 320 + 34 * (i - len / 2);
+            }
+            selectedWidget = competitionButtonsList.get(0);
+        }
     }
 
     public class TitleBar extends Button {
@@ -27,6 +73,47 @@ public class LoadCompetition extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
             setColors(0x2898c7, 0x32bffa, 0x1e7194);
             setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    public class CompetitionButton extends Button {
+
+        private Competition competition;
+
+        public CompetitionButton(String filename, Competition competition) {
+            this.competition = competition;
+            setSize(480, 30);
+            setColors(0x1B4D85, 0x256AB7, 0x001D3E);
+            setText(filename, Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setCompetition(competition);
+            switch (game.competition.category) {
+                case DIY_COMPETITION:
+                case PRESET_COMPETITION:
+                    game.setState(GlGame.State.COMPETITION, game.competition.category);
+                    switch (game.competition.type) {
+                        case LEAGUE:
+                            game.setScreen(new PlayLeague(game));
+                            break;
+                        case CUP:
+                            // TODO: set PlayCup screen
+                            break;
+                    }
+                    break;
+            }
+        }
+    }
+
+    public class CategoryLabel extends Button {
+
+        public CategoryLabel(Competition competition) {
+            setSize(240, 30);
+            setText(competition.getCategoryFolder().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setColors(0x2898c7, 0x32bffa, 0x1e7194);
             setActive(false);
         }
     }
