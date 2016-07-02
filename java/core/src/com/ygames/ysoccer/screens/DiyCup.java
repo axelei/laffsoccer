@@ -85,6 +85,9 @@ public class DiyCup extends GlScreen {
         w = new RoundsButton();
         widgets.add(w);
         selectedWidget = w;
+
+        w = new AwayGoalsLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -424,7 +427,7 @@ public class DiyCup extends GlScreen {
     public class RoundsButton extends Button {
 
         public RoundsButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 232, 230, 178, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 232, 230, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -457,6 +460,16 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             setText(cup.rounds);
+        }
+    }
+
+    public class AwayGoalsLabel extends Button {
+
+        public AwayGoalsLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 64, 230, 228, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
