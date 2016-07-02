@@ -64,6 +64,12 @@ public class SaveCompetition extends GlScreen {
         widgets.add(w);
         selectedWidget = w;
 
+        if (game.competition.filename.length() > 0) {
+            w = new SaveButton();
+            widgets.add(w);
+            selectedWidget = w;
+        }
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -133,6 +139,21 @@ public class SaveCompetition extends GlScreen {
                 game.competition.save();
                 game.setScreen(new Main(game));
             }
+        }
+    }
+
+    class SaveButton extends Button {
+
+        public SaveButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.competition.save();
+            game.setScreen(new Main(game));
         }
     }
 
