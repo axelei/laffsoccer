@@ -79,6 +79,9 @@ public class DiyCup extends GlScreen {
         w = new BenchSizeButton();
         widgets.add(w);
 
+        w = new RoundsLabel();
+        widgets.add(w);
+
         selectedWidget = w;
     }
 
@@ -403,6 +406,16 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             setText(cup.benchSize);
+        }
+    }
+
+    public class RoundsLabel extends Button {
+
+        public RoundsLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 230, 230, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("ROUNDS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
