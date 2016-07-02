@@ -9,10 +9,15 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Time;
+import com.ygames.ysoccer.math.Emath;
+
+import java.util.Calendar;
 
 public class DiyCup extends GlScreen {
 
     Cup cup;
+    Widget seasonStartButton;
 
     public DiyCup(GlGame game) {
         super(game);
@@ -33,6 +38,10 @@ public class DiyCup extends GlScreen {
 
         w = new SeasonPitchTypeButton();
         widgets.add(w);
+
+        w = new SeasonStartButton();
+        widgets.add(w);
+        seasonStartButton = w;
 
         selectedWidget = w;
     }
@@ -75,11 +84,52 @@ public class DiyCup extends GlScreen {
         public void onFire1Down() {
             cup.bySeason = !cup.bySeason;
             setChanged(true);
+            seasonStartButton.setChanged(true);
         }
 
         @Override
         public void onUpdate() {
             setText(Assets.strings.get(cup.getBySeasonLabel()));
+        }
+    }
+
+    class SeasonStartButton extends Button {
+
+        public SeasonStartButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 230, 144, 180, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSeasonStart(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSeasonStart(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSeasonStart(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSeasonStart(-1);
+        }
+
+        private void updateSeasonStart(int n) {
+            cup.seasonStart = Emath.rotate(cup.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(Time.monthNames[cup.seasonStart]));
+            setVisible(cup.bySeason);
         }
     }
 }

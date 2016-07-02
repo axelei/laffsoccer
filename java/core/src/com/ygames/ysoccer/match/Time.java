@@ -10,17 +10,17 @@ public class Time {
             "RANDOM"
     };
     public static final String[] monthNames = {
-            "JANUARY",
-            "FEBRUARY",
-            "MARCH",
-            "APRIL",
-            "MAY",
-            "JUNE",
-            "JULY",
-            "AUGUST",
-            "SEPTEMBER",
-            "OCTOBER",
-            "NOVEMBER",
-            "DECEMBER"
+            "MONTHS.JANUARY",
+            "MONTHS.FEBRUARY",
+            "MONTHS.MARCH",
+            "MONTHS.APRIL",
+            "MONTHS.MAY",
+            "MONTHS.JUNE",
+            "MONTHS.JULY",
+            "MONTHS.AUGUST",
+            "MONTHS.SEPTEMBER",
+            "MONTHS.OCTOBER",
+            "MONTHS.NOVEMBER",
+            "MONTHS.DECEMBER"
     };
 }
