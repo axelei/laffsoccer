@@ -19,6 +19,7 @@ public class DiyCup extends GlScreen {
     Cup cup;
     Widget seasonStartButton;
     Widget seasonSeparatorButton;
+    Widget seasonEndButton;
 
     public DiyCup(GlGame game) {
         super(game);
@@ -47,6 +48,10 @@ public class DiyCup extends GlScreen {
         w = new SeasonSeparatorButton();
         widgets.add(w);
         seasonSeparatorButton = w;
+
+        w = new SeasonEndButton();
+        widgets.add(w);
+        seasonEndButton = w;
 
         selectedWidget = w;
     }
@@ -91,6 +96,7 @@ public class DiyCup extends GlScreen {
             setChanged(true);
             seasonStartButton.setChanged(true);
             seasonSeparatorButton.setChanged(true);
+            seasonEndButton.setChanged(true);
         }
 
         @Override
@@ -150,6 +156,46 @@ public class DiyCup extends GlScreen {
 
         @Override
         public void onUpdate() {
+            setVisible(cup.bySeason);
+        }
+    }
+
+    class SeasonEndButton extends Button {
+
+        public SeasonEndButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 20, 144, 180, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSeasonEnd(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSeasonEnd(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSeasonEnd(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSeasonEnd(-1);
+        }
+
+        private void updateSeasonEnd(int n) {
+            cup.seasonEnd = Emath.rotate(cup.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]));
             setVisible(cup.bySeason);
         }
     }
