@@ -65,6 +65,13 @@ public class LoadCompetition extends GlScreen {
             }
             selectedWidget = competitionButtonsList.get(0);
         }
+
+        w = new AbortButton();
+        widgets.add(w);
+
+        if (selectedWidget == null) {
+            selectedWidget = w;
+        }
     }
 
     public class TitleBar extends Button {
@@ -115,6 +122,20 @@ public class LoadCompetition extends GlScreen {
             setText(competition.getCategoryFolder().toUpperCase(), Font.Align.CENTER, Assets.font14);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setActive(false);
+        }
+    }
+
+    class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC8000E, 0xFF1929, 0x74040C);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }
