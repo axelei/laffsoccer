@@ -59,6 +59,9 @@ public class DiyCup extends GlScreen {
         widgets.add(w);
         pitchTypeButton = w;
 
+        w = new TimeLabel();
+        widgets.add(w);
+
         selectedWidget = w;
     }
 
@@ -244,6 +247,16 @@ public class DiyCup extends GlScreen {
         public void onUpdate() {
             setText(Assets.strings.get(Pitch.names[cup.pitchType]));
             setVisible(!cup.bySeason);
+        }
+    }
+
+    class TimeLabel extends Button {
+
+        public TimeLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 170, 144, 140, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
