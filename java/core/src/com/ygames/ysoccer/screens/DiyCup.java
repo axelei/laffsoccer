@@ -73,6 +73,9 @@ public class DiyCup extends GlScreen {
         widgets.add(w);
         substitutesButton = w;
 
+        w = new BenchSizeLabel();
+        widgets.add(w);
+
         selectedWidget = w;
     }
 
@@ -303,7 +306,7 @@ public class DiyCup extends GlScreen {
     class SubstitutesLabel extends Button {
 
         public SubstitutesLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 187, 303, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 187, 305, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -313,7 +316,7 @@ public class DiyCup extends GlScreen {
     class SubstitutesButton extends Button {
 
         public SubstitutesButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 165, 187, 160, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 163, 187, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -346,6 +349,16 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             setText(cup.substitutions);
+        }
+    }
+
+    class BenchSizeLabel extends Button {
+
+        public BenchSizeLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 5, 187, 305, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
