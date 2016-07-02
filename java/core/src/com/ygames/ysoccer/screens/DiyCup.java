@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
@@ -20,6 +21,7 @@ public class DiyCup extends GlScreen {
     Widget seasonStartButton;
     Widget seasonSeparatorButton;
     Widget seasonEndButton;
+    Widget pitchTypeButton;
 
     public DiyCup(GlGame game) {
         super(game);
@@ -52,6 +54,10 @@ public class DiyCup extends GlScreen {
         w = new SeasonEndButton();
         widgets.add(w);
         seasonEndButton = w;
+
+        w = new PitchTypeButton();
+        widgets.add(w);
+        pitchTypeButton = w;
 
         selectedWidget = w;
     }
@@ -97,6 +103,7 @@ public class DiyCup extends GlScreen {
             seasonStartButton.setChanged(true);
             seasonSeparatorButton.setChanged(true);
             seasonEndButton.setChanged(true);
+            pitchTypeButton.setChanged(true);
         }
 
         @Override
@@ -197,6 +204,46 @@ public class DiyCup extends GlScreen {
         public void onUpdate() {
             setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]));
             setVisible(cup.bySeason);
+        }
+    }
+
+    class PitchTypeButton extends Button {
+
+        public PitchTypeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 240, 144, 400, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePitchType(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updatePitchType(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePitchType(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updatePitchType(-1);
+        }
+
+        private void updatePitchType(int n) {
+            cup.pitchType = Emath.rotate(cup.pitchType, 0, Pitch.RANDOM, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(Pitch.names[cup.pitchType]));
+            setVisible(!cup.bySeason);
         }
     }
 }
