@@ -82,6 +82,8 @@ public class DiyCup extends GlScreen {
         w = new RoundsLabel();
         widgets.add(w);
 
+        w = new RoundsButton();
+        widgets.add(w);
         selectedWidget = w;
     }
 
@@ -412,10 +414,49 @@ public class DiyCup extends GlScreen {
     public class RoundsLabel extends Button {
 
         public RoundsLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 230, 230, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 230, 236, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("ROUNDS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    public class RoundsButton extends Button {
+
+        public RoundsButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 232, 230, 178, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRounds(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateRounds(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRounds(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateRounds(-1);
+        }
+
+        private void updateRounds(int n) {
+            cup.setRounds(Emath.slide(cup.rounds, 1, 6, n));
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(cup.rounds);
         }
     }
 }

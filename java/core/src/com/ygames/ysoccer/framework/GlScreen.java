@@ -196,9 +196,8 @@ public abstract class GlScreen implements Screen {
             }
         }
 
-        int bias = 7;
-
         // up/down
+        int bias = 1;
         if (menuInput.y == -1 && menuInput.yTimer == 0) {
             Widget current = selectedWidget;
             float distMin = 50000;
@@ -238,6 +237,7 @@ public abstract class GlScreen implements Screen {
         }
 
         // left/right
+        bias = 9;
         if (menuInput.x == -1 && menuInput.xTimer == 0) {
             Widget current = selectedWidget;
             float distMin = 50000;
