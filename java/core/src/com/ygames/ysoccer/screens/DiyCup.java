@@ -22,6 +22,7 @@ public class DiyCup extends GlScreen {
     Widget seasonSeparatorButton;
     Widget seasonEndButton;
     Widget pitchTypeButton;
+    Widget substitutesButton;
 
     public DiyCup(GlGame game) {
         super(game);
@@ -68,6 +69,10 @@ public class DiyCup extends GlScreen {
         w = new SubstitutesLabel();
         widgets.add(w);
 
+        w = new SubstitutesButton();
+        widgets.add(w);
+        substitutesButton = w;
+
         selectedWidget = w;
     }
 
@@ -100,7 +105,7 @@ public class DiyCup extends GlScreen {
     class SeasonPitchTypeButton extends Button {
 
         public SeasonPitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 144, 230, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 144, 236, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -124,7 +129,7 @@ public class DiyCup extends GlScreen {
     class SeasonStartButton extends Button {
 
         public SeasonStartButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 240, 144, 180, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 232, 144, 176, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -164,7 +169,7 @@ public class DiyCup extends GlScreen {
     class SeasonSeparatorButton extends Button {
 
         public SeasonSeparatorButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 60, 144, 40, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 54, 144, 36, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -179,7 +184,7 @@ public class DiyCup extends GlScreen {
     class SeasonEndButton extends Button {
 
         public SeasonEndButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 20, 144, 180, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 16, 144, 176, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -219,7 +224,7 @@ public class DiyCup extends GlScreen {
     class PitchTypeButton extends Button {
 
         public PitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 240, 144, 400, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 232, 144, 392, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -269,7 +274,7 @@ public class DiyCup extends GlScreen {
     class TimeButton extends Button {
 
         public TimeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 310, 144, 160, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 312, 144, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -298,10 +303,49 @@ public class DiyCup extends GlScreen {
     class SubstitutesLabel extends Button {
 
         public SubstitutesLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 187, 320, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 187, 303, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class SubstitutesButton extends Button {
+
+        public SubstitutesButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 165, 187, 160, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSubstitutes(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSubstitutes(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSubstitutes(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSubstitutes(-1);
+        }
+
+        private void updateSubstitutes(int n) {
+            cup.substitutions = Emath.slide(cup.substitutions, 2, cup.benchSize, n);
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(cup.substitutions);
         }
     }
 }
