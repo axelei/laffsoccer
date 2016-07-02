@@ -76,6 +76,9 @@ public class DiyCup extends GlScreen {
         w = new BenchSizeLabel();
         widgets.add(w);
 
+        w = new BenchSizeButton();
+        widgets.add(w);
+
         selectedWidget = w;
     }
 
@@ -359,6 +362,47 @@ public class DiyCup extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class BenchSizeButton extends Button {
+
+        public BenchSizeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 312, 187, 158, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateBenchSize(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateBenchSize(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateBenchSize(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateBenchSize(-1);
+        }
+
+        private void updateBenchSize(int n) {
+            cup.benchSize = Emath.slide(cup.benchSize, 2, 5, n);
+            cup.substitutions = Math.min(cup.substitutions, cup.benchSize);
+            setChanged(true);
+            substitutesButton.setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(cup.benchSize);
         }
     }
 }
