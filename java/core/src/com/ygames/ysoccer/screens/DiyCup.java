@@ -65,6 +65,9 @@ public class DiyCup extends GlScreen {
         w = new TimeButton();
         widgets.add(w);
 
+        w = new SubstitutesLabel();
+        widgets.add(w);
+
         selectedWidget = w;
     }
 
@@ -289,6 +292,16 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             setText(Assets.strings.get(Time.names[cup.time]));
+        }
+    }
+
+    class SubstitutesLabel extends Button {
+
+        public SubstitutesLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 187, 320, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
