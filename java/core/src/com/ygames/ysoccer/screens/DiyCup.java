@@ -18,6 +18,7 @@ public class DiyCup extends GlScreen {
 
     Cup cup;
     Widget seasonStartButton;
+    Widget seasonSeparatorButton;
 
     public DiyCup(GlGame game) {
         super(game);
@@ -42,6 +43,10 @@ public class DiyCup extends GlScreen {
         w = new SeasonStartButton();
         widgets.add(w);
         seasonStartButton = w;
+
+        w = new SeasonSeparatorButton();
+        widgets.add(w);
+        seasonSeparatorButton = w;
 
         selectedWidget = w;
     }
@@ -85,6 +90,7 @@ public class DiyCup extends GlScreen {
             cup.bySeason = !cup.bySeason;
             setChanged(true);
             seasonStartButton.setChanged(true);
+            seasonSeparatorButton.setChanged(true);
         }
 
         @Override
@@ -96,7 +102,7 @@ public class DiyCup extends GlScreen {
     class SeasonStartButton extends Button {
 
         public SeasonStartButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 230, 144, 180, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 240, 144, 180, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -129,6 +135,21 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             setText(Assets.strings.get(Time.monthNames[cup.seasonStart]));
+            setVisible(cup.bySeason);
+        }
+    }
+
+    class SeasonSeparatorButton extends Button {
+
+        public SeasonSeparatorButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 60, 144, 40, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText("-", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
             setVisible(cup.bySeason);
         }
     }
