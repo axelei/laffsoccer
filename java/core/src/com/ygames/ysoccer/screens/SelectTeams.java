@@ -222,7 +222,7 @@ public class SelectTeams extends GlScreen {
         public void onUpdate() {
             int diff = competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
-                switch (competition.type) {
+                switch (competition.getType()) {
                     case FRIENDLY:
                         setText(Assets.strings.get("PLAY FRIENDLY"));
                         break;
@@ -249,7 +249,7 @@ public class SelectTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.type) {
+            switch (competition.getType()) {
                 case FRIENDLY:
                     // TODO
                     break;

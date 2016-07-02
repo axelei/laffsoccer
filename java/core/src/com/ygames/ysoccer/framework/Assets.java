@@ -38,7 +38,7 @@ public class Assets {
         competitionsFolder = Gdx.files.local("data/competitions");
         savesFolder = Gdx.files.local("data/saves/competitions");
         json = new Json();
-        json.addClassTag("league", League.class);
+        json.addClassTag("LEAGUE", League.class);
         json.setOutputType(JsonWriter.OutputType.json);
         json.setUsePrototypes(false);
         loadCalendars();

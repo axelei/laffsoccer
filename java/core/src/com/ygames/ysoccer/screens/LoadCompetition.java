@@ -102,7 +102,7 @@ public class LoadCompetition extends GlScreen {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
                     game.setState(GlGame.State.COMPETITION, game.competition.category);
-                    switch (game.competition.type) {
+                    switch (game.competition.getType()) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));
                             break;

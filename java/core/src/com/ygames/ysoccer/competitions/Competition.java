@@ -21,8 +21,6 @@ public abstract class Competition {
         FRIENDLY, LEAGUE, CUP
     }
 
-    public Type type;
-
     public enum Category {
         DIY_COMPETITION,
         PRESET_COMPETITION
@@ -55,6 +53,8 @@ public abstract class Competition {
         benchSize = 5;
         time = Time.DAY;
     }
+
+    public abstract Type getType();
 
     public String getMenuTitle() {
         return longName;

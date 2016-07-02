@@ -13,11 +13,14 @@ public class League extends Competition {
     public ArrayList<Match> calendarCurrent;
 
     public League() {
-        type = Type.LEAGUE;
         numberOfTeams = 2;
         rounds = 1;
         pointsForAWin = 3;
         calendarCurrent = new ArrayList<Match>();
+    }
+
+    public Type getType() {
+        return Type.LEAGUE;
     }
 
     public void init() {
