@@ -67,6 +67,11 @@ public class DiyCompetition extends GlScreen {
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CUP"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DiyCup(game));
+        }
     }
 
     class TournamentButton extends Button {
