@@ -152,7 +152,7 @@ public class DiyLeague extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(league.bySeason ? "SEASON" : "PITCH TYPE"));
+            setText(Assets.strings.get(league.getBySeasonLabel()));
         }
     }
 

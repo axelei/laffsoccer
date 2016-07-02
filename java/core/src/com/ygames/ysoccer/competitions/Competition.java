@@ -111,6 +111,10 @@ public abstract class Competition {
         return label;
     }
 
+    public String getBySeasonLabel() {
+        return bySeason ? "SEASON" : "PITCH TYPE";
+    }
+
     public void save() {
         FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json");
         Assets.json.toJson(this, Competition.class, fileHandle);

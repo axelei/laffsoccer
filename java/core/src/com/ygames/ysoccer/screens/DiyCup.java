@@ -30,6 +30,11 @@ public class DiyCup extends GlScreen {
 
         w = new CupNameButton();
         widgets.add(w);
+
+        w = new SeasonPitchTypeButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     class TitleButton extends Button {
@@ -55,6 +60,26 @@ public class DiyCup extends GlScreen {
         public void onUpdate() {
             cup.name = text;
             cup.longName = text;
+        }
+    }
+
+    class SeasonPitchTypeButton extends Button {
+
+        public SeasonPitchTypeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 144, 230, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            cup.bySeason = !cup.bySeason;
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(cup.getBySeasonLabel()));
         }
     }
 }
