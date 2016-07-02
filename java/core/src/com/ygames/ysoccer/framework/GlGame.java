@@ -25,7 +25,6 @@ public class GlGame extends Game {
 
     public ArrayList<Team> teamList;
     public Competition competition;
-    public boolean showCompetitionResult;
 
     @Override
     public void create() {

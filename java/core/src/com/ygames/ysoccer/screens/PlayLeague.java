@@ -197,21 +197,22 @@ public class PlayLeague extends GlScreen {
             }
             widgets.add(w);
 
-            Widget playMatchButton = new PlayMatchButton();
-            widgets.add(playMatchButton);
-
-            Widget nextMatchButton = new NextMatchButton();
-            widgets.add(nextMatchButton);
-
-            Widget viewResultButton = new ViewResultButton();
-            widgets.add(viewResultButton);
-
-            if (game.showCompetitionResult) {
+            if (match.ended) {
+                Widget nextMatchButton = new NextMatchButton();
+                widgets.add(nextMatchButton);
                 selectedWidget = nextMatchButton;
-            } else if (league.bothComputers() || league.userPrefersResult) {
-                selectedWidget = viewResultButton;
             } else {
-                selectedWidget = playMatchButton;
+                Widget playMatchButton = new PlayMatchButton();
+                widgets.add(playMatchButton);
+
+                Widget viewResultButton = new ViewResultButton();
+                widgets.add(viewResultButton);
+
+                if (league.bothComputers() || league.userPrefersResult) {
+                    selectedWidget = viewResultButton;
+                } else {
+                    selectedWidget = playMatchButton;
+                }
             }
         }
     }
@@ -237,7 +238,6 @@ public class PlayLeague extends GlScreen {
             } else {
                 setText("- " + Assets.strings.get("MATCH") + " -");
             }
-            setVisible(!game.showCompetitionResult);
         }
 
         @Override
@@ -252,7 +252,6 @@ public class PlayLeague extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 460, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
-            setVisible(game.showCompetitionResult);
         }
 
         @Override
@@ -267,7 +266,6 @@ public class PlayLeague extends GlScreen {
 
         private void nextMatch() {
             league.nextMatch();
-            game.showCompetitionResult = false;
             game.setScreen(new PlayLeague(game));
         }
     }
@@ -283,7 +281,6 @@ public class PlayLeague extends GlScreen {
             } else {
                 setText("- " + Assets.strings.get("RESULT") + " -");
             }
-            setVisible(!game.showCompetitionResult);
         }
 
         @Override
@@ -308,7 +305,6 @@ public class PlayLeague extends GlScreen {
             int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
 
             league.setResult(goalA, goalB);
-            game.showCompetitionResult = true;
 
             // TODO: generate scorers
 

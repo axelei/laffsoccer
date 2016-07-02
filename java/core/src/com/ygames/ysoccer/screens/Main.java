@@ -185,7 +185,6 @@ public class Main extends GlScreen {
         public void onFire1Up() {
             if (game.competition.isEnded()) {
                 game.competition.restart();
-                game.showCompetitionResult = false;
             }
 
             switch (game.competition.category) {
