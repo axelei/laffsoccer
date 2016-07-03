@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
@@ -93,6 +94,9 @@ public class DiyCup extends GlScreen {
         w = new AwayGoalsButton();
         widgets.add(w);
         awayGoalsButton = w;
+
+        w = new TeamsLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -505,6 +509,14 @@ public class DiyCup extends GlScreen {
         public void onUpdate() {
             setText(Assets.strings.get(cup.getAwayGoalsLabel()));
             setVisible(cup.hasTwoLegsRound());
+        }
+    }
+
+    class TeamsLabel extends Label {
+
+        public TeamsLabel() {
+            setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.settings.GUI_WIDTH / 2 - 205, 296);
         }
     }
 }
