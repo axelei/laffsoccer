@@ -97,6 +97,9 @@ public class DiyCup extends GlScreen {
 
         w = new TeamsLabel();
         widgets.add(w);
+
+        w = new DescriptionLabel();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -517,6 +520,14 @@ public class DiyCup extends GlScreen {
         public TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
             setPosition(game.settings.GUI_WIDTH / 2 - 205, 296);
+        }
+    }
+
+    class DescriptionLabel extends Label {
+
+        public DescriptionLabel() {
+            setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.settings.GUI_WIDTH / 2 - 10 + 105, 296);
         }
     }
 }
