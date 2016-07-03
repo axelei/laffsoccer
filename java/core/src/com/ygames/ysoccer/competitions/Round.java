@@ -20,7 +20,7 @@ public class Round {
         IF_REPLAY
     }
 
-    Penalties penalties;
+    public Penalties penalties;
 
     public Round() {
         legs = 1;
@@ -49,6 +49,19 @@ public class Round {
                 return "EXTRA TIME.IF REPLAY";
             default:
                 throw new GdxRuntimeException("Unknown extraTime value");
+        }
+    }
+
+    public String getPenaltiesLabel() {
+        switch (penalties) {
+            case OFF:
+                return "PENALTIES.OFF";
+            case ON:
+                return "PENALTIES.ON";
+            case IF_REPLAY:
+                return "PENALTIES.IF REPLAY";
+            default:
+                throw new GdxRuntimeException("Unknown penalties value");
         }
     }
 }

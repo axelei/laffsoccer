@@ -30,6 +30,7 @@ public class DiyCup extends GlScreen {
     Widget[] roundTeamsLabels = new Widget[6];
     Widget[] roundLegsButtons = new Widget[6];
     Widget[] roundExtraTimeButtons = new Widget[6];
+    Widget[] roundPenaltiesButtons = new Widget[6];
 
     public DiyCup(GlGame game) {
         super(game);
@@ -127,6 +128,10 @@ public class DiyCup extends GlScreen {
             w = new RoundExtraTimeButton(i);
             widgets.add(w);
             roundExtraTimeButtons[i] = w;
+
+            w = new RoundPenaltiesButton(i);
+            widgets.add(w);
+            roundPenaltiesButtons[i] = w;
         }
     }
 
@@ -504,6 +509,7 @@ public class DiyCup extends GlScreen {
                 roundTeamsLabels[i].setChanged(true);
                 roundLegsButtons[i].setChanged(true);
                 roundExtraTimeButtons[i].setChanged(true);
+                roundPenaltiesButtons[i].setChanged(true);
             }
             awayGoalsButton.setChanged(true);
         }
@@ -558,7 +564,7 @@ public class DiyCup extends GlScreen {
 
         public TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.settings.GUI_WIDTH / 2 - 180, 296);
+            setPosition(game.settings.GUI_WIDTH / 2 - 186, 296);
         }
     }
 
@@ -566,7 +572,7 @@ public class DiyCup extends GlScreen {
 
         public DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.settings.GUI_WIDTH / 2 + 125, 296);
+            setPosition(game.settings.GUI_WIDTH / 2 + 115, 296);
         }
     }
 
@@ -576,7 +582,7 @@ public class DiyCup extends GlScreen {
 
         public RoundNameLabel(int round) {
             this.round = round;
-            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 315 + 34 * round, 250, 32);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 315 + 34 * round, 248, 32);
             setColors(0x800000, 0xB40000, 0x400000);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -597,7 +603,7 @@ public class DiyCup extends GlScreen {
 
         public RoundTeamsLabel(int round) {
             this.round = round;
-            setGeometry(game.settings.GUI_WIDTH / 2 - 206, 315 + 34 * round, 50, 32);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 212, 315 + 34 * round, 50, 32);
             setColors(0x800000, 0xB40000, 0x400000);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -616,7 +622,7 @@ public class DiyCup extends GlScreen {
 
         public RoundLegsButton(int round) {
             this.round = round;
-            setGeometry(game.settings.GUI_WIDTH / 2 - 142, 315 + 34 * round, 138, 32);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 152, 315 + 34 * round, 138, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -652,7 +658,7 @@ public class DiyCup extends GlScreen {
 
         public RoundExtraTimeButton(int round) {
             this.round = round;
-            setGeometry(game.settings.GUI_WIDTH / 2 - 2, 315 + 34 * round, 240, 32);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 12, 315 + 34 * round, 240, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -678,6 +684,46 @@ public class DiyCup extends GlScreen {
             setVisible(round < cup.rounds.size());
             if (isVisible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
+            }
+        }
+    }
+
+    class RoundPenaltiesButton extends Button {
+
+        private int round;
+
+        public RoundPenaltiesButton(int round) {
+            this.round = round;
+            setGeometry(game.settings.GUI_WIDTH / 2 + 230, 315 + 34 * round, 240, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+
+            // TODO: remove after penalties are implemented
+            setActive(false);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            //
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePenalties(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePenalties(-1);
+        }
+
+        private void updatePenalties(int n) {
+            cup.rounds.get(round).penalties = Round.Penalties.values()[Emath.rotate(cup.rounds.get(round).penalties.ordinal(), 0, 2, n)];
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(round < cup.rounds.size());
+            if (isVisible) {
+                setText(Assets.strings.get(cup.rounds.get(round).getPenaltiesLabel()));
             }
         }
     }
