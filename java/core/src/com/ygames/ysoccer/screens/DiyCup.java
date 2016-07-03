@@ -23,6 +23,7 @@ public class DiyCup extends GlScreen {
     Widget seasonEndButton;
     Widget pitchTypeButton;
     Widget substitutesButton;
+    Widget awayGoalsButton;
 
     public DiyCup(GlGame game) {
         super(game);
@@ -88,6 +89,10 @@ public class DiyCup extends GlScreen {
 
         w = new AwayGoalsLabel();
         widgets.add(w);
+
+        w = new AwayGoalsButton();
+        widgets.add(w);
+        awayGoalsButton = w;
     }
 
     class TitleButton extends Button {
@@ -470,6 +475,36 @@ public class DiyCup extends GlScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    public class AwayGoalsButton extends Button {
+
+        public AwayGoalsButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 166, 230, 304, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateAwayGoals(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateAwayGoals(-1);
+        }
+
+        private void updateAwayGoals(int n) {
+            cup.awayGoals = Cup.AwayGoals.values()[Emath.rotate(cup.awayGoals.ordinal(), 0, 2, n)];
+            setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(cup.getAwayGoalsLabel()));
+            setVisible(cup.hasTwoLegsRound());
         }
     }
 }
