@@ -27,6 +27,7 @@ public class DiyCup extends GlScreen {
     Widget awayGoalsButton;
     Widget[] roundNameLabels = new Widget[6];
     Widget[] roundTeamsLabels = new Widget[6];
+    Widget[] roundLegsButtons = new Widget[6];
 
     public DiyCup(GlGame game) {
         super(game);
@@ -116,6 +117,10 @@ public class DiyCup extends GlScreen {
             w = new RoundTeamsLabel(i);
             widgets.add(w);
             roundTeamsLabels[i] = w;
+
+            w = new RoundLegsButton(i);
+            widgets.add(w);
+            roundLegsButtons[i] = w;
         }
     }
 
@@ -491,7 +496,9 @@ public class DiyCup extends GlScreen {
             for (int i = 0; i < 6; i++) {
                 roundNameLabels[i].setChanged(true);
                 roundTeamsLabels[i].setChanged(true);
+                roundLegsButtons[i].setChanged(true);
             }
+            awayGoalsButton.setChanged(true);
         }
 
         @Override
@@ -570,8 +577,10 @@ public class DiyCup extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(cup.getRoundName(round));
             setVisible(round < cup.rounds.size());
+            if (isVisible) {
+                setText(Assets.strings.get(cup.getRoundName(round)));
+            }
         }
     }
 
@@ -591,6 +600,42 @@ public class DiyCup extends GlScreen {
         public void onUpdate() {
             setText(cup.getRoundTeams(round));
             setVisible(round < cup.rounds.size());
+        }
+    }
+
+    class RoundLegsButton extends Button {
+
+        private int round;
+
+        public RoundLegsButton(int round) {
+            this.round = round;
+            setGeometry(game.settings.GUI_WIDTH / 2 - 142, 315 + 34 * round, 138, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateLegs(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateLegs(-1);
+        }
+
+        private void updateLegs(int n) {
+            cup.rounds.get(round).legs = Emath.rotate(cup.rounds.get(round).legs, 1, 2, n);
+            setChanged(true);
+            awayGoalsButton.setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(round < cup.rounds.size());
+            if (isVisible) {
+                setText(Assets.strings.get(cup.rounds.get(round).getLegsLabel()));
+            }
         }
     }
 }

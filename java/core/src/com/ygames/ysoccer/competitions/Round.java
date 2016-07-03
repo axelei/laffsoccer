@@ -1,8 +1,11 @@
 package com.ygames.ysoccer.competitions;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.ygames.ysoccer.framework.Assets;
+
 public class Round {
 
-    int legs;
+    public int legs;
 
     public enum ExtraTime {
         OFF,
@@ -24,5 +27,16 @@ public class Round {
         legs = 1;
         extraTime = ExtraTime.ON;
         penalties = Penalties.OFF;
+    }
+
+    public String getLegsLabel() {
+        switch (legs) {
+            case 1:
+                return "ONE LEG";
+            case 2:
+                return "TWO LEGS";
+            default:
+                throw new GdxRuntimeException("Wrong legs value");
+        }
     }
 }
