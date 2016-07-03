@@ -38,6 +38,22 @@ public class Cup extends Competition {
         }
     }
 
+    public String getRoundName(int round) {
+        if (round == rounds.size() - 1) {
+            return Assets.strings.get("FINAL");
+        } else if (round == rounds.size() - 2) {
+            return Assets.strings.get("SEMI-FINAL");
+        } else if (round == rounds.size() - 3) {
+            return Assets.strings.get("QUARTER-FINAL");
+        } else if (round == 0) {
+            return Assets.strings.get("FIRST ROUND");
+        } else if (round == 1) {
+            return Assets.strings.get("SECOND ROUND");
+        } else {
+            return Assets.strings.get("THIRD ROUND");
+        }
+    }
+
     public String getAwayGoalsLabel() {
         switch (awayGoals) {
             case OFF:

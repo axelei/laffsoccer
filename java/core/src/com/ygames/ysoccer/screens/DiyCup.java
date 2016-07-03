@@ -25,6 +25,7 @@ public class DiyCup extends GlScreen {
     Widget pitchTypeButton;
     Widget substitutesButton;
     Widget awayGoalsButton;
+    Widget[] roundNameButtons = new Widget[6];
 
     public DiyCup(GlGame game) {
         super(game);
@@ -34,6 +35,10 @@ public class DiyCup extends GlScreen {
         cup = new Cup();
         cup.name = Assets.strings.get("DIY CUP");
         cup.category = Competition.Category.DIY_COMPETITION;
+        cup.addRound();
+        cup.addRound();
+        cup.addRound();
+        cup.addRound();
 
         Widget w;
 
@@ -100,6 +105,13 @@ public class DiyCup extends GlScreen {
 
         w = new DescriptionLabel();
         widgets.add(w);
+
+        // rounds
+        for (int i = 0; i < 6; i++) {
+            w = new RoundNameLabel(i);
+            widgets.add(w);
+            roundNameButtons[i] = w;
+        }
     }
 
     class TitleButton extends Button {
@@ -465,13 +477,20 @@ public class DiyCup extends GlScreen {
         }
 
         private void updateRounds(int n) {
-            cup.setRounds(Emath.slide(cup.rounds, 1, 6, n));
+            if (n == 1) {
+                cup.addRound();
+            } else {
+                cup.removeRound();
+            }
             setChanged(true);
+            for (int i = 0; i < 6; i++) {
+                roundNameButtons[i].setChanged(true);
+            }
         }
 
         @Override
         public void onUpdate() {
-            setText(cup.rounds);
+            setText(cup.rounds.size());
         }
     }
 
@@ -519,7 +538,7 @@ public class DiyCup extends GlScreen {
 
         public TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.settings.GUI_WIDTH / 2 - 205, 296);
+            setPosition(game.settings.GUI_WIDTH / 2 - 175, 296);
         }
     }
 
@@ -527,7 +546,26 @@ public class DiyCup extends GlScreen {
 
         public DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.settings.GUI_WIDTH / 2 - 10 + 105, 296);
+            setPosition(game.settings.GUI_WIDTH / 2 - 10 + 125, 296);
+        }
+    }
+
+    class RoundNameLabel extends Button {
+
+        private int round;
+
+        public RoundNameLabel(int round) {
+            this.round = round;
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 315 + 34 * round, 250, 32);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(cup.getRoundName(round));
+            setVisible(round < cup.rounds.size());
         }
     }
 }
