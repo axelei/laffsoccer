@@ -209,6 +209,9 @@ public class AllSelectedTeams extends GlScreen {
                     case LEAGUE:
                         setText(Assets.strings.get("PLAY LEAGUE"));
                         break;
+                    case CUP:
+                        setText(Assets.strings.get("PLAY CUP"));
+                        break;
                 }
                 setColors(0x138B21, 0x1BC12F, 0x004814);
                 setActive(true);

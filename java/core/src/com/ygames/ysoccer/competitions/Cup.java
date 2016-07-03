@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.ygames.ysoccer.framework.Assets;
 
 import java.util.ArrayList;
 
@@ -30,12 +29,14 @@ public class Cup extends Competition {
         if (rounds.size() < 6) {
             rounds.add(new Round());
         }
+        numberOfTeams = getRoundTeams(0);
     }
 
     public void removeRound() {
         if (rounds.size() > 1) {
             rounds.remove(rounds.size() - 1);
         }
+        numberOfTeams = getRoundTeams(0);
     }
 
     public String getRoundName(int round) {
