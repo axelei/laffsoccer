@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.ygames.ysoccer.framework.Assets;
 
 public class Round {
 
@@ -13,7 +12,7 @@ public class Round {
         IF_REPLAY
     }
 
-    ExtraTime extraTime;
+    public ExtraTime extraTime;
 
     public enum Penalties {
         OFF,
@@ -37,6 +36,19 @@ public class Round {
                 return "TWO LEGS";
             default:
                 throw new GdxRuntimeException("Wrong legs value");
+        }
+    }
+
+    public String getExtraTimeLabel() {
+        switch (extraTime) {
+            case OFF:
+                return "EXTRA TIME.OFF";
+            case ON:
+                return "EXTRA TIME.ON";
+            case IF_REPLAY:
+                return "EXTRA TIME.IF REPLAY";
+            default:
+                throw new GdxRuntimeException("Unknown extraTime value");
         }
     }
 }

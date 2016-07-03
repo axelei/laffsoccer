@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.Cup;
+import com.ygames.ysoccer.competitions.Round;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -28,6 +29,7 @@ public class DiyCup extends GlScreen {
     Widget[] roundNameLabels = new Widget[6];
     Widget[] roundTeamsLabels = new Widget[6];
     Widget[] roundLegsButtons = new Widget[6];
+    Widget[] roundExtraTimeButtons = new Widget[6];
 
     public DiyCup(GlGame game) {
         super(game);
@@ -121,6 +123,10 @@ public class DiyCup extends GlScreen {
             w = new RoundLegsButton(i);
             widgets.add(w);
             roundLegsButtons[i] = w;
+
+            w = new RoundExtraTimeButton(i);
+            widgets.add(w);
+            roundExtraTimeButtons[i] = w;
         }
     }
 
@@ -497,6 +503,7 @@ public class DiyCup extends GlScreen {
                 roundNameLabels[i].setChanged(true);
                 roundTeamsLabels[i].setChanged(true);
                 roundLegsButtons[i].setChanged(true);
+                roundExtraTimeButtons[i].setChanged(true);
             }
             awayGoalsButton.setChanged(true);
         }
@@ -635,6 +642,42 @@ public class DiyCup extends GlScreen {
             setVisible(round < cup.rounds.size());
             if (isVisible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getLegsLabel()));
+            }
+        }
+    }
+
+    class RoundExtraTimeButton extends Button {
+
+        private int round;
+
+        public RoundExtraTimeButton(int round) {
+            this.round = round;
+            setGeometry(game.settings.GUI_WIDTH / 2 - 2, 315 + 34 * round, 240, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateExtraTime(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateExtraTime(-1);
+        }
+
+        private void updateExtraTime(int n) {
+            cup.rounds.get(round).extraTime = Round.ExtraTime.values()[Emath.rotate(cup.rounds.get(round).extraTime.ordinal(), 0, 2, n)];
+            setChanged(true);
+            awayGoalsButton.setChanged(true);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(round < cup.rounds.size());
+            if (isVisible) {
+                setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
             }
         }
     }
