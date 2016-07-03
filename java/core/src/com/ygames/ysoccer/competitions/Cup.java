@@ -1,10 +1,13 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.ygames.ysoccer.framework.Assets;
+
+import java.util.ArrayList;
 
 public class Cup extends Competition {
 
-    public int rounds;
+    public ArrayList<Round> rounds;
 
     public enum AwayGoals {
         OFF,
@@ -15,7 +18,7 @@ public class Cup extends Competition {
     public AwayGoals awayGoals;
 
     public Cup() {
-        setRounds(4);
+        rounds = new ArrayList<Round>();
         awayGoals = AwayGoals.OFF;
     }
 
@@ -23,8 +26,16 @@ public class Cup extends Competition {
         return Type.CUP;
     }
 
-    public void setRounds(int n) {
-        rounds = n;
+    public void addRound() {
+        if (rounds.size() < 6) {
+            rounds.add(new Round());
+        }
+    }
+
+    public void removeRound() {
+        if (rounds.size() > 1) {
+            rounds.remove(rounds.size() - 1);
+        }
     }
 
     public String getAwayGoalsLabel() {
