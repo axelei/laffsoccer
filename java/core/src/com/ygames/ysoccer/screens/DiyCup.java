@@ -25,7 +25,8 @@ public class DiyCup extends GlScreen {
     Widget pitchTypeButton;
     Widget substitutesButton;
     Widget awayGoalsButton;
-    Widget[] roundNameButtons = new Widget[6];
+    Widget[] roundNameLabels = new Widget[6];
+    Widget[] roundTeamsLabels = new Widget[6];
 
     public DiyCup(GlGame game) {
         super(game);
@@ -110,7 +111,11 @@ public class DiyCup extends GlScreen {
         for (int i = 0; i < 6; i++) {
             w = new RoundNameLabel(i);
             widgets.add(w);
-            roundNameButtons[i] = w;
+            roundNameLabels[i] = w;
+
+            w = new RoundTeamsLabel(i);
+            widgets.add(w);
+            roundTeamsLabels[i] = w;
         }
     }
 
@@ -484,7 +489,8 @@ public class DiyCup extends GlScreen {
             }
             setChanged(true);
             for (int i = 0; i < 6; i++) {
-                roundNameButtons[i].setChanged(true);
+                roundNameLabels[i].setChanged(true);
+                roundTeamsLabels[i].setChanged(true);
             }
         }
 
@@ -538,7 +544,7 @@ public class DiyCup extends GlScreen {
 
         public TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.settings.GUI_WIDTH / 2 - 175, 296);
+            setPosition(game.settings.GUI_WIDTH / 2 - 180, 296);
         }
     }
 
@@ -546,7 +552,7 @@ public class DiyCup extends GlScreen {
 
         public DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.settings.GUI_WIDTH / 2 - 10 + 125, 296);
+            setPosition(game.settings.GUI_WIDTH / 2 + 125, 296);
         }
     }
 
@@ -565,6 +571,25 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             setText(cup.getRoundName(round));
+            setVisible(round < cup.rounds.size());
+        }
+    }
+
+    class RoundTeamsLabel extends Button {
+
+        private int round;
+
+        public RoundTeamsLabel(int round) {
+            this.round = round;
+            setGeometry(game.settings.GUI_WIDTH / 2 - 206, 315 + 34 * round, 50, 32);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(cup.getRoundTeams(round));
             setVisible(round < cup.rounds.size());
         }
     }

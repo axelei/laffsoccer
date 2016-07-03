@@ -54,6 +54,10 @@ public class Cup extends Competition {
         }
     }
 
+    public int getRoundTeams(int round) {
+        return (int)Math.pow(2, (rounds.size() - round));
+    }
+
     public String getAwayGoalsLabel() {
         switch (awayGoals) {
             case OFF:
