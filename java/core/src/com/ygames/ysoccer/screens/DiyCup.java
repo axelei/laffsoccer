@@ -136,6 +136,9 @@ public class DiyCup extends GlScreen {
 
         w = new OkButton();
         widgets.add(w);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -740,6 +743,19 @@ public class DiyCup extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new SelectFolder(game, Assets.teamsFolder, cup));
+        }
+    }
+
+    class ExitButton extends Button {
+        public ExitButton() {
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }
