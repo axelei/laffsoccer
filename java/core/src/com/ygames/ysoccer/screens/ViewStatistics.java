@@ -28,6 +28,9 @@ public class ViewStatistics extends GlScreen {
 
         w = new ViewSquadsButton();
         widgets.add(w);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     public class TitleBar extends Button {
@@ -79,6 +82,27 @@ public class ViewStatistics extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO
+        }
+    }
+
+    public class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            switch (game.competition.getType()) {
+                case LEAGUE:
+                    game.setScreen(new PlayLeague(game));
+                    break;
+                case CUP:
+                    // TODO: set PlayCup screen
+                    break;
+            }
         }
     }
 }
