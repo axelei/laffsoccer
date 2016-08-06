@@ -322,7 +322,7 @@ public class PlayLeague extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: open view statistics menu
+            game.setScreen(new ViewStatistics(game));
         }
     }
 
