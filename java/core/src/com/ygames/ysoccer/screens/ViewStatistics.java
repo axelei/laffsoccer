@@ -22,6 +22,9 @@ public class ViewStatistics extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new CompetitionInfoButton();
+        widgets.add(w);
     }
 
     public class TitleBar extends Button {
@@ -37,9 +40,23 @@ public class ViewStatistics extends GlScreen {
     public class HighestScorerButton extends Button {
 
         public HighestScorerButton() {
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 300, 340, 40);
+            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 270, 340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("HIGHEST SCORER LIST"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
+        }
+    }
+
+    public class CompetitionInfoButton extends Button {
+
+        public CompetitionInfoButton() {
+            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 350, 340, 40);
+            setColors(0x568200, 0x77B400, 0x243E00);
+            setText(Assets.strings.get("COMPETITION INFO"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
