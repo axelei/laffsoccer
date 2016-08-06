@@ -25,6 +25,9 @@ public class ViewStatistics extends GlScreen {
 
         w = new CompetitionInfoButton();
         widgets.add(w);
+
+        w = new ViewSquadsButton();
+        widgets.add(w);
     }
 
     public class TitleBar extends Button {
@@ -57,6 +60,20 @@ public class ViewStatistics extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 340) / 2, 350, 340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("COMPETITION INFO"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
+        }
+    }
+
+    public class ViewSquadsButton extends Button {
+
+        public ViewSquadsButton() {
+            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 430, 340, 40);
+            setColors(0x568200, 0x77B400, 0x243E00);
+            setText(Assets.strings.get("VIEW SQUADS"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
