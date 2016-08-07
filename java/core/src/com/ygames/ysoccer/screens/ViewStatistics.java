@@ -53,7 +53,7 @@ public class ViewStatistics extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
+            game.setScreen(new TopScorers(game));
         }
     }
 
