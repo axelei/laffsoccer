@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import java.util.Comparator;
+import java.util.List;
 
 public class Team {
 
@@ -11,6 +12,8 @@ public class Team {
     public String country;
     public String tactics;
     public ControlMode controlMode;
+
+    List<Player> players;
 
     public int won;
     public int drawn;

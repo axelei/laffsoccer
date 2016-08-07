@@ -1,5 +1,127 @@
 {
   "name": "Inter",
   "country": "ITA",
-  "tactics": "433"
+  "tactics": "433",
+  "players": [
+    {
+      "name": "Giuliano Sarti",
+      "shirtName": "Sarti",
+      "number": 1
+    },
+    {
+      "name": "Tarcisio Burgnich",
+      "shirtName": "Burgnich",
+      "number": 2
+    },
+    {
+      "name": "Giacinto Facchetti",
+      "shirtName": "Facchetti",
+      "number": 3
+    },
+    {
+      "name": "Gianfranco Bedin",
+      "shirtName": "Bedin",
+      "number": 4
+    },
+    {
+      "name": "Aristide Guarneri",
+      "shirtName": "Guarneri",
+      "number": 5
+    },
+    {
+      "name": "Armando Picchi",
+      "shirtName": "Picchi",
+      "number": 6
+    },
+    {
+      "name": "Jair da Costa",
+      "shirtName": "Jair",
+      "number": 7
+    },
+    {
+      "name": "Sandro Mazzola",
+      "shirtName": "Mazzola",
+      "number": 8
+    },
+    {
+      "name": "Joaquín Peiró",
+      "shirtName": "Peiró",
+      "number": 9
+    },
+    {
+      "name": "Luis Suárez",
+      "shirtName": "Suárez",
+      "number": 10
+    },
+    {
+      "name": "Mario Corso",
+      "shirtName": "Corso",
+      "number": 11
+    },
+    {
+      "name": "Ottavio Bugatti",
+      "shirtName": "Bugatti",
+      "number": 12
+    },
+    {
+      "name": "Rosario Di Vincenzo",
+      "shirtName": "Di Vincenzo",
+      "number": 13
+    },
+    {
+      "name": "Giovanni Ferretti",
+      "shirtName": "Ferretti",
+      "number": 14
+    },
+    {
+      "name": "Spartaco Landini",
+      "shirtName": "Landini",
+      "number": 15
+    },
+    {
+      "name": "Giorgio Della Giovanna",
+      "shirtName": "Della Giovanna",
+      "number": 16
+    },
+    {
+      "name": "Sergio Gori",
+      "shirtName": "Gori",
+      "number": 17
+    },
+    {
+      "name": "Saul Malatrasi",
+      "shirtName": "Malatrasi",
+      "number": 18
+    },
+    {
+      "name": "Carlo Tagnin",
+      "shirtName": "Tagnin",
+      "number": 19
+    },
+    {
+      "name": "Franco Zaglio",
+      "shirtName": "Zaglio",
+      "number": 20
+    },
+    {
+      "name": "Angelo Domenghini",
+      "shirtName": "Domenghini",
+      "number": 21
+    },
+    {
+      "name": "Francesco Canella",
+      "shirtName": "Canella",
+      "number": 22
+    },
+    {
+      "name": "Aurelio Milani",
+      "shirtName": "Milani",
+      "number": 23
+    },
+    {
+      "name": "Bruno Petroni",
+      "shirtName": "Petroni",
+      "number": 24
+    }
+  ]
 }
