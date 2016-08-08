@@ -23,6 +23,26 @@ public class TopScorers extends GlScreen {
         List<Player> scorers = getScorersList(game);
 
         Widget w;
+        int row = 0;
+        int goals = 10000;
+        for (Player player : scorers) {
+            // goals group
+            if (player.goals < goals) {
+                row = row + 2;
+                w = new GoalsGroupBar(22 * row, player.goals);
+                widgets.add(w);
+                goals = player.goals;
+            }
+
+            row = row + 1;
+        }
+
+        // center list
+        int y0 = 375 - 11 * row;
+        for (Widget widget : widgets) {
+            widget.y = widget.y + y0;
+        }
+
         w = new TitleBar();
         widgets.add(w);
     }
@@ -39,6 +59,16 @@ public class TopScorers extends GlScreen {
 
         Collections.sort(scorers, new Player.CompareByGoals());
         return scorers;
+    }
+
+    public class GoalsGroupBar extends Button {
+
+        public GoalsGroupBar(int y, int goals) {
+            setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
+            setColors(0x00825F, 0x00C28E, 0x00402F);
+            setText(goals, Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
     }
 
     public class TitleBar extends Button {
