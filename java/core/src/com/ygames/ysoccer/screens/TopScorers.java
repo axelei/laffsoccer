@@ -11,6 +11,7 @@ import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class TopScorers extends GlScreen {
@@ -20,23 +21,23 @@ public class TopScorers extends GlScreen {
 
         background = game.stateBackground;
 
-        List<Player> scorers = getScorersList(game);
+        List<Scorer> scorers = getScorersList(game);
 
         Widget w;
         int row = 0;
         int goals = 10000;
-        for (Player player : scorers) {
+        for (Scorer scorer : scorers) {
             // goals group
-            if (player.goals < goals) {
+            if (scorer.goals < goals) {
                 row = row + 2;
-                w = new GoalsGroupBar(22 * row, player.goals);
+                w = new GoalsGroupBar(22 * row, scorer.goals);
                 widgets.add(w);
-                goals = player.goals;
+                goals = scorer.goals;
             }
 
             row = row + 1;
 
-            w = new ScorerNameButton(22 * row, player.shirtName.toUpperCase());
+            w = new ScorerNameButton(22 * row, scorer.name.toUpperCase());
             widgets.add(w);
         }
 
@@ -50,17 +51,21 @@ public class TopScorers extends GlScreen {
         widgets.add(w);
     }
 
-    private List<Player> getScorersList(GlGame game) {
-        List<Player> scorers = new ArrayList<Player>();
+    private List<Scorer> getScorersList(GlGame game) {
+        List<Scorer> scorers = new ArrayList<Scorer>();
         for (Team team : game.competition.teams) {
             for (Player player : team.players) {
                 if (player.goals > 0) {
-                    scorers.add(player);
+                    Scorer scorer = new Scorer();
+                    scorer.name = player.shirtName;
+                    scorer.goals = player.goals;
+                    scorer.team = team.name;
+                    scorers.add(scorer);
                 }
             }
         }
 
-        Collections.sort(scorers, new Player.CompareByGoals());
+        Collections.sort(scorers, new CompareScorerByGoals());
         return scorers;
     }
 
@@ -91,6 +96,31 @@ public class TopScorers extends GlScreen {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(Assets.strings.get("HIGHEST SCORER LIST"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class Scorer {
+        public String name;
+        public int goals;
+        public String team;
+    }
+
+    public static class CompareScorerByGoals implements Comparator<Scorer> {
+
+        @Override
+        public int compare(Scorer o1, Scorer o2) {
+            // by goals
+            if (o1.goals != o2.goals) {
+                return o2.goals - o1.goals;
+            }
+
+            // by team
+            if (!o1.team.equals(o2.team)) {
+                return o1.team.compareTo(o2.team);
+            }
+
+            // by names
+            return o1.name.compareTo(o2.name);
         }
     }
 }
