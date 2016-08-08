@@ -50,13 +50,18 @@ public class TopScorers extends GlScreen {
         }
 
         // center list
-        int y0 = 375 - 11 * row;
+        int y0 = 350 - 11 * row;
         for (Widget widget : widgets) {
             widget.y = widget.y + y0;
         }
 
         w = new TitleBar();
         widgets.add(w);
+
+        w = new ExitButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     private List<Scorer> getScorersList(GlGame game) {
@@ -112,6 +117,20 @@ public class TopScorers extends GlScreen {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(Assets.strings.get("HIGHEST SCORER LIST"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    public class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ViewStatistics(game));
         }
     }
 
