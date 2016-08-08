@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.math.Emath;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -70,6 +72,13 @@ public class Team {
             points += 1;
         } else {
             lost += 1;
+        }
+    }
+
+    public void generateScorers(int goals) {
+        for (int g = 1; g <= goals; g++) {
+            int i = Emath.floor(11 * Math.random());
+            players.get(i).goals++;
         }
     }
 }

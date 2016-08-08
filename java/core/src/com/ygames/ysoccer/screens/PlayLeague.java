@@ -306,7 +306,8 @@ public class PlayLeague extends GlScreen {
 
             league.setResult(goalA, goalB);
 
-            // TODO: generate scorers
+            league.teams.get(league.getMatch().team[Match.HOME]).generateScorers(goalA);
+            league.teams.get(league.getMatch().team[Match.AWAY]).generateScorers(goalB);
 
             game.setScreen(new PlayLeague(game));
         }

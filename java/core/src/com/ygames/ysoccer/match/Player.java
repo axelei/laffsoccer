@@ -4,4 +4,6 @@ public class Player {
     String name;
     String shirtName;
     int number;
+
+    int goals;
 }

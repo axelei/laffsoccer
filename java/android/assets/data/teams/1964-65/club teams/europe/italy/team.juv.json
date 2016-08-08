@@ -1,5 +1,97 @@
 {
   "name": "Juventus",
   "country": "ITA",
-  "tactics": "442"
+  "tactics": "442",
+  "players": [
+    {
+      "name": "Roberto Anzolin",
+      "shirtName": "Anzolin",
+      "number": 1
+    },
+    {
+      "name": "Adolfo Gori",
+      "shirtName": "Gori",
+      "number": 2
+    },
+    {
+      "name": "Benito Sarti",
+      "shirtName": "Sarti",
+      "number": 3
+    },
+    {
+      "name": "Sandro Salvadore",
+      "shirtName": "Salvadore",
+      "number": 4
+    },
+    {
+      "name": "Giancarlo Bercellino I",
+      "shirtName": "Bercellino",
+      "number": 5
+    },
+    {
+      "name": "Giovanni Sacco",
+      "shirtName": "Sacco",
+      "number": 6
+    },
+    {
+      "name": "Gianfranco Leoncini",
+      "shirtName": "Leoncini",
+      "number": 7
+    },
+    {
+      "name": "Gino Stacchini",
+      "shirtName": "Stacchini",
+      "number": 8
+    },
+    {
+      "name": "	Giampaolo Menichelli",
+      "shirtName": "Menichelli",
+      "number": 9
+    },
+    {
+      "name": "Nestor Combin",
+      "shirtName": "Combin",
+      "number": 10
+    },
+    {
+      "name": "Omar Sivori",
+      "shirtName": "Sivori",
+      "number": 11
+    },
+    {
+      "name": "Carlo Mattrel",
+      "shirtName": "Mattrel",
+      "number": 12
+    },
+    {
+      "name": "Ernesto Càstano",
+      "shirtName": "Càstano",
+      "number": 13
+    },
+    {
+      "name": "Alberto Coramini",
+      "shirtName": "Coramini",
+      "number": 14
+    },
+    {
+      "name": "Dino da Costa",
+      "shirtName": "da Costa",
+      "number": 15
+    },
+    {
+      "name": "Luis del Sol",
+      "shirtName": "del Sol",
+      "number": 16
+    },
+    {
+      "name": "Bruno Mazzia",
+      "shirtName": "Mazzia",
+      "number": 17
+    },
+    {
+      "name": "Carlo Dell'Omodarme",
+      "shirtName": "Dell'Omodarme",
+      "number": 18
+    }
+  ]
 }
