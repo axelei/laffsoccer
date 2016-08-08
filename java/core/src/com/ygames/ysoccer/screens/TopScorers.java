@@ -6,6 +6,12 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Team;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TopScorers extends GlScreen {
 
@@ -14,9 +20,25 @@ public class TopScorers extends GlScreen {
 
         background = game.stateBackground;
 
+        List<Player> scorers = getScorersList(game);
+
         Widget w;
         w = new TitleBar();
         widgets.add(w);
+    }
+
+    private List<Player> getScorersList(GlGame game) {
+        List<Player> scorers = new ArrayList<Player>();
+        for (Team team : game.competition.teams) {
+            for (Player player : team.players) {
+                if (player.goals > 0) {
+                    scorers.add(player);
+                }
+            }
+        }
+
+        Collections.sort(scorers, new Player.CompareByGoals());
+        return scorers;
     }
 
     public class TitleBar extends Button {

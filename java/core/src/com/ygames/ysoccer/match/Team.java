@@ -15,7 +15,7 @@ public class Team {
     public String tactics;
     public ControlMode controlMode;
 
-    List<Player> players;
+    public List<Player> players;
 
     public int won;
     public int drawn;
