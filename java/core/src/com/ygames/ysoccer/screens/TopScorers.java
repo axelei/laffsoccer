@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
@@ -39,6 +40,13 @@ public class TopScorers extends GlScreen {
 
             w = new ScorerNameButton(22 * row, scorer.name.toUpperCase());
             widgets.add(w);
+
+            w = new TeamNameLabel(22 * row, scorer.team.toUpperCase());
+            widgets.add(w);
+
+            if (row > 24) {
+                break;
+            }
         }
 
         // center list
@@ -86,6 +94,14 @@ public class TopScorers extends GlScreen {
             setColors(0x1F1F95, 0x000000, 0x000000);
             setText(name, Font.Align.CENTER, Assets.font10);
             setActive(false);
+        }
+    }
+
+    public class TeamNameLabel extends Label {
+
+        public TeamNameLabel(int y, String name) {
+            setGeometry((game.settings.GUI_WIDTH / 2) + 130, y, 240, 22);
+            setText(" (" + name + ")", Font.Align.LEFT, Assets.font10);
         }
     }
 
