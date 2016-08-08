@@ -4,6 +4,14 @@
     "longName": "Serie A 1964-65",
     "rounds": 2,
     "pointsForAWin": 2,
+    "bySeason": true,
+    "seasonStart": 8,
+    "seasonEnd": 5,
+    "substitutions": 3,
+    "benchSize": 5,
+    "time": 0,
+    "rounds": 2,
+    "pointsForAWin": 2,
     "path": "1964-65/club teams/europe/italy",
     "teams": [
       {

@@ -67,7 +67,14 @@ public class ViewStatistics extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
+            switch (game.competition.getType()) {
+                case LEAGUE:
+                    game.setScreen(new LeagueInfo(game));
+                    break;
+                case CUP:
+                    // TODO: set CupInfo screen
+                    break;
+            }
         }
     }
 
