@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class Player {
     String name;
-    String shirtName;
+    public String shirtName;
     int number;
 
     public int goals;

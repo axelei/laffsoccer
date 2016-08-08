@@ -35,6 +35,9 @@ public class TopScorers extends GlScreen {
             }
 
             row = row + 1;
+
+            w = new ScorerNameButton(22 * row, player.shirtName.toUpperCase());
+            widgets.add(w);
         }
 
         // center list
@@ -67,6 +70,16 @@ public class TopScorers extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
             setColors(0x00825F, 0x00C28E, 0x00402F);
             setText(goals, Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+    }
+
+    public class ScorerNameButton extends Button {
+
+        public ScorerNameButton(int y, String name) {
+            setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
+            setColors(0x1F1F95, 0x000000, 0x000000);
+            setText(name, Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
