@@ -25,6 +25,9 @@ public class ViewTeam extends GlScreen {
 
             w = new PlayerNumberLabel(p, player);
             widgets.add(w);
+
+            w = new PlayerNameButton(p, player, team);
+            widgets.add(w);
         }
 
         w = new TitleBar(team);
@@ -35,11 +38,24 @@ public class ViewTeam extends GlScreen {
     class PlayerNumberLabel extends Label {
 
         public PlayerNumberLabel(int p, Player player) {
-            setGeometry(54, 126 + 19 * p, 30, 17);
+            setGeometry(54, 126 + 18 * p, 30, 17);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
                 setText(player.number);
             }
+        }
+    }
+
+    class PlayerNameButton extends Button {
+
+        public PlayerNameButton(int p, Player player, Team team) {
+            setGeometry(84, 126 + 18 * p, 276, 17);
+            setText("", Font.Align.LEFT, Assets.font10);
+            setPlayerWidgetColor(this, p, game, team);
+            if (player != null) {
+                setText(player.name.toUpperCase());
+            }
+            setActive(false);
         }
     }
 
@@ -52,4 +68,28 @@ public class ViewTeam extends GlScreen {
             setActive(false);
         }
     }
+
+    static void setPlayerWidgetColor(Widget w, int p, GlGame game, Team team) {
+        // goalkeeper
+        if (p == 0) {
+            w.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);
+        }
+        // other player
+        else if (p < Team.TEAM_SIZE) {
+            w.setColors(0x003FDE, 0x255EFF, 0x00247E);
+        }
+        // bench
+        else if (p < Team.TEAM_SIZE + game.competition.benchSize) {
+            w.setColors(0x111188, 0x2D2DB3, 0x001140);
+        }
+        // reserve
+        else if (p < team.players.size()) {
+            w.setColors(0x404040, 0x606060, 0x202020);
+        }
+        // empty
+        else {
+            w.setColors(0x202020, 0x404040, 0x101010);
+        }
+    }
+
 }
