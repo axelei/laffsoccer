@@ -34,9 +34,12 @@ public class CompetitionViewTeams extends GlScreen {
             }
         }
         Widget.arrange(game.settings, 350, 32, list);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
-    public class TitleBar extends Button {
+    class TitleBar extends Button {
 
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 660) / 2, 30, 660, 40);
@@ -60,6 +63,20 @@ public class CompetitionViewTeams extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ViewStatistics(game));
         }
     }
 }
