@@ -10,11 +10,11 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 
-public class LeagueInfo extends GlScreen {
+public class InfoLeague extends GlScreen {
 
     League league;
 
-    public LeagueInfo(GlGame game) {
+    public InfoLeague(GlGame game) {
         super(game);
 
         background = game.stateBackground;
