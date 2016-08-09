@@ -7,10 +7,6 @@ import java.util.List;
 
 public class Team {
 
-    public static int TEAM_SIZE = 11;
-    public static int BASE_TEAM = 16;
-    public static int FULL_TEAM = 32;
-
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 
     public String name;

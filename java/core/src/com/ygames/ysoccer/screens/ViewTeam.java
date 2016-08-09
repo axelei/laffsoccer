@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -7,12 +8,13 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
 public class ViewTeam extends GlScreen {
 
-    public ViewTeam(GlGame game, Team team) {
+    public ViewTeam(GlGame game, Team team, Competition competition) {
         super(game);
 
         background = game.stateBackground;
@@ -20,13 +22,13 @@ public class ViewTeam extends GlScreen {
         Widget w;
 
         // players
-        for (int p = 0; p < Team.FULL_TEAM; p++) {
+        for (int p = 0; p < Const.FULL_TEAM; p++) {
             Player player = team.playerAtPosition(p);
 
             w = new PlayerNumberLabel(p, player);
             widgets.add(w);
 
-            w = new PlayerNameButton(p, player, team);
+            w = new PlayerNameButton(p, player, team, competition);
             widgets.add(w);
         }
 
@@ -48,10 +50,10 @@ public class ViewTeam extends GlScreen {
 
     class PlayerNameButton extends Button {
 
-        public PlayerNameButton(int p, Player player, Team team) {
+        public PlayerNameButton(int p, Player player, Team team, Competition competition) {
             setGeometry(84, 126 + 18 * p, 276, 17);
             setText("", Font.Align.LEFT, Assets.font10);
-            setPlayerWidgetColor(this, p, game, team);
+            setPlayerWidgetColor(this, p, team, competition);
             if (player != null) {
                 setText(player.name.toUpperCase());
             }
@@ -69,17 +71,17 @@ public class ViewTeam extends GlScreen {
         }
     }
 
-    static void setPlayerWidgetColor(Widget w, int p, GlGame game, Team team) {
+    static void setPlayerWidgetColor(Widget w, int p, Team team, Competition competition) {
         // goalkeeper
         if (p == 0) {
             w.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);
         }
         // other player
-        else if (p < Team.TEAM_SIZE) {
+        else if (p < Const.TEAM_SIZE) {
             w.setColors(0x003FDE, 0x255EFF, 0x00247E);
         }
         // bench
-        else if (p < Team.TEAM_SIZE + game.competition.benchSize) {
+        else if (p < Const.TEAM_SIZE + competition.benchSize) {
             w.setColors(0x111188, 0x2D2DB3, 0x001140);
         }
         // reserve

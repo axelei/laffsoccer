@@ -62,7 +62,7 @@ public class CompetitionViewTeams extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new ViewTeam(game, team));
+            game.setScreen(new ViewTeam(game, team, game.competition));
         }
     }
 
