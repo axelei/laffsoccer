@@ -5,6 +5,7 @@ import java.util.Comparator;
 public class Player {
     public String name;
     public String shirtName;
+    public String nationality;
     public int number;
 
     public int goals;

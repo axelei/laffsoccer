@@ -1,5 +1,6 @@
 {
   "name": "Torino",
+  "type": "CLUB",
   "country": "ITA",
   "tactics": "442"
 }

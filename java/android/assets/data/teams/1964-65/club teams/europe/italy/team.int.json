@@ -1,126 +1,151 @@
 {
   "name": "Inter",
+  "type": "CLUB",
   "country": "ITA",
   "tactics": "433",
   "players": [
     {
       "name": "Giuliano Sarti",
       "shirtName": "Sarti",
+      "nationality": "ITA",
       "number": 1
     },
     {
       "name": "Tarcisio Burgnich",
       "shirtName": "Burgnich",
+      "nationality": "ITA",
       "number": 2
     },
     {
       "name": "Giacinto Facchetti",
       "shirtName": "Facchetti",
+      "nationality": "ITA",
       "number": 3
     },
     {
       "name": "Gianfranco Bedin",
       "shirtName": "Bedin",
+      "nationality": "ITA",
       "number": 4
     },
     {
       "name": "Aristide Guarneri",
       "shirtName": "Guarneri",
+      "nationality": "ITA",
       "number": 5
     },
     {
       "name": "Armando Picchi",
       "shirtName": "Picchi",
+      "nationality": "ITA",
       "number": 6
     },
     {
       "name": "Jair da Costa",
       "shirtName": "Jair",
+      "nationality": "BRA",
       "number": 7
     },
     {
       "name": "Sandro Mazzola",
       "shirtName": "Mazzola",
+      "nationality": "ITA",
       "number": 8
     },
     {
       "name": "Joaquín Peiró",
       "shirtName": "Peiró",
+      "nationality": "ESP",
       "number": 9
     },
     {
       "name": "Luis Suárez",
       "shirtName": "Suárez",
+      "nationality": "ESP",
       "number": 10
     },
     {
       "name": "Mario Corso",
       "shirtName": "Corso",
+      "nationality": "ITA",
       "number": 11
     },
     {
       "name": "Ottavio Bugatti",
       "shirtName": "Bugatti",
+      "nationality": "ITA",
       "number": 12
     },
     {
       "name": "Rosario Di Vincenzo",
       "shirtName": "Di Vincenzo",
+      "nationality": "ITA",
       "number": 13
     },
     {
       "name": "Giovanni Ferretti",
       "shirtName": "Ferretti",
+      "nationality": "ITA",
       "number": 14
     },
     {
       "name": "Spartaco Landini",
       "shirtName": "Landini",
+      "nationality": "ITA",
       "number": 15
     },
     {
       "name": "Giorgio Della Giovanna",
       "shirtName": "Della Giovanna",
+      "nationality": "ITA",
       "number": 16
     },
     {
       "name": "Sergio Gori",
       "shirtName": "Gori",
+      "nationality": "ITA",
       "number": 17
     },
     {
       "name": "Saul Malatrasi",
       "shirtName": "Malatrasi",
+      "nationality": "ITA",
       "number": 18
     },
     {
       "name": "Carlo Tagnin",
       "shirtName": "Tagnin",
+      "nationality": "ITA",
       "number": 19
     },
     {
       "name": "Franco Zaglio",
       "shirtName": "Zaglio",
+      "nationality": "ITA",
       "number": 20
     },
     {
       "name": "Angelo Domenghini",
       "shirtName": "Domenghini",
+      "nationality": "ITA",
       "number": 21
     },
     {
       "name": "Francesco Canella",
       "shirtName": "Canella",
+      "nationality": "ITA",
       "number": 22
     },
     {
       "name": "Aurelio Milani",
       "shirtName": "Milani",
+      "nationality": "ITA",
       "number": 23
     },
     {
       "name": "Bruno Petroni",
       "shirtName": "Petroni",
+      "nationality": "ITA",
       "number": 24
     }
   ]

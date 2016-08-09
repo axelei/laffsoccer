@@ -1,96 +1,115 @@
 {
   "name": "Juventus",
+  "type": "CLUB",
   "country": "ITA",
   "tactics": "442",
   "players": [
     {
       "name": "Roberto Anzolin",
       "shirtName": "Anzolin",
+      "nationality": "ITA",
       "number": 1
     },
     {
       "name": "Adolfo Gori",
       "shirtName": "Gori",
+      "nationality": "ITA",
       "number": 2
     },
     {
       "name": "Benito Sarti",
       "shirtName": "Sarti",
+      "nationality": "ITA",
       "number": 3
     },
     {
       "name": "Sandro Salvadore",
       "shirtName": "Salvadore",
+      "nationality": "ITA",
       "number": 4
     },
     {
       "name": "Giancarlo Bercellino I",
       "shirtName": "Bercellino",
+      "nationality": "ITA",
       "number": 5
     },
     {
       "name": "Giovanni Sacco",
       "shirtName": "Sacco",
+      "nationality": "ITA",
       "number": 6
     },
     {
       "name": "Gianfranco Leoncini",
       "shirtName": "Leoncini",
+      "nationality": "ITA",
       "number": 7
     },
     {
       "name": "Gino Stacchini",
       "shirtName": "Stacchini",
+      "nationality": "ITA",
       "number": 8
     },
     {
       "name": "Giampaolo Menichelli",
       "shirtName": "Menichelli",
+      "nationality": "ITA",
       "number": 9
     },
     {
       "name": "Nestor Combin",
       "shirtName": "Combin",
+      "nationality": "FRA",
       "number": 10
     },
     {
       "name": "Omar Sivori",
       "shirtName": "Sivori",
+      "nationality": "ARG",
       "number": 11
     },
     {
       "name": "Carlo Mattrel",
       "shirtName": "Mattrel",
+      "nationality": "ITA",
       "number": 12
     },
     {
       "name": "Ernesto Càstano",
       "shirtName": "Càstano",
+      "nationality": "ITA",
       "number": 13
     },
     {
       "name": "Alberto Coramini",
       "shirtName": "Coramini",
+      "nationality": "ITA",
       "number": 14
     },
     {
       "name": "Dino da Costa",
       "shirtName": "da Costa",
+      "nationality": "ITA",
       "number": 15
     },
     {
       "name": "Luis del Sol",
       "shirtName": "del Sol",
+      "nationality": "ESP",
       "number": 16
     },
     {
       "name": "Bruno Mazzia",
       "shirtName": "Mazzia",
+      "nationality": "ITA",
       "number": 17
     },
     {
       "name": "Carlo Dell'Omodarme",
       "shirtName": "Dell'Omodarme",
+      "nationality": "ITA",
       "number": 18
     }
   ]

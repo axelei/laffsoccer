@@ -7,9 +7,12 @@ import java.util.List;
 
 public class Team {
 
+    public enum Type {CLUB, NATIONAL}
+
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 
     public String name;
+    public Type type;
     public String path;
     public String country;
     public String tactics;

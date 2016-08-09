@@ -30,6 +30,13 @@ public class ViewTeam extends GlScreen {
 
             w = new PlayerNameButton(p, player, team, competition);
             widgets.add(w);
+
+            int x = 360;
+            if (team.type == Team.Type.CLUB) {
+                w = new PlayerNationalityLabel(x, p, player);
+                widgets.add(w);
+                x = x + 57;
+            }
         }
 
         w = new TitleBar(team);
@@ -58,6 +65,17 @@ public class ViewTeam extends GlScreen {
                 setText(player.name.toUpperCase());
             }
             setActive(false);
+        }
+    }
+
+    class PlayerNationalityLabel extends Label {
+
+        public PlayerNationalityLabel(int x, int p, Player player) {
+            setGeometry(x + 3, 126 + 18 * p, 54, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            if (player != null) {
+                setText("(" + player.nationality + ")");
+            }
         }
     }
 

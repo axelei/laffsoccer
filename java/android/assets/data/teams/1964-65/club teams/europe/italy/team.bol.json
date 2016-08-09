@@ -1,5 +1,6 @@
 {
   "name": "Bologna",
+  "type": "CLUB",
   "country": "ITA",
   "tactics": "442"
 }
