@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Team {
 
+    public static int TEAM_SIZE = 11;
+    public static int BASE_TEAM = 16;
+    public static int FULL_TEAM = 32;
+
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 
     public String name;
@@ -80,5 +84,10 @@ public class Team {
             int i = Emath.floor(11 * Math.random());
             players.get(i).goals++;
         }
+    }
+
+    public Player playerAtPosition(int p) {
+        // TODO: to be implemented
+        return p < players.size() ? players.get(p) : null;
     }
 }
