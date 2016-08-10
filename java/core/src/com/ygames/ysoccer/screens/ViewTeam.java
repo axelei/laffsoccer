@@ -52,6 +52,9 @@ public class ViewTeam extends GlScreen {
                 x = x + 12;
             }
             x = x + 31;
+
+            w = new PlayerGoalsLabel(x, p, player);
+            widgets.add(w);
         }
 
         w = new TitleBar(team);
@@ -111,6 +114,17 @@ public class ViewTeam extends GlScreen {
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null && skills != null) {
                 setText(Assets.strings.get(player.getSkillLabel(skills[j])));
+            }
+        }
+    }
+
+    class PlayerGoalsLabel extends Label {
+
+        public PlayerGoalsLabel(int x, int p, Player player) {
+            setGeometry(x, 126 + 18 * p, 30, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            if (player != null) {
+                setText(player.goals);
             }
         }
     }
