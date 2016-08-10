@@ -8,108 +8,126 @@
       "name": "Roberto Anzolin",
       "shirtName": "Anzolin",
       "nationality": "ITA",
+      "role": "GOALKEEPER",
       "number": 1
     },
     {
       "name": "Adolfo Gori",
       "shirtName": "Gori",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 2
     },
     {
       "name": "Benito Sarti",
       "shirtName": "Sarti",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 3
     },
     {
       "name": "Sandro Salvadore",
       "shirtName": "Salvadore",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 4
     },
     {
       "name": "Giancarlo Bercellino I",
       "shirtName": "Bercellino",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 5
     },
     {
       "name": "Giovanni Sacco",
       "shirtName": "Sacco",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 6
     },
     {
       "name": "Gianfranco Leoncini",
       "shirtName": "Leoncini",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 7
     },
     {
       "name": "Gino Stacchini",
       "shirtName": "Stacchini",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 8
     },
     {
       "name": "Giampaolo Menichelli",
       "shirtName": "Menichelli",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 9
     },
     {
       "name": "Nestor Combin",
       "shirtName": "Combin",
       "nationality": "FRA",
+      "role": "ATTACKER",
       "number": 10
     },
     {
       "name": "Omar Sivori",
       "shirtName": "Sivori",
       "nationality": "ARG",
+      "role": "ATTACKER",
       "number": 11
     },
     {
       "name": "Carlo Mattrel",
       "shirtName": "Mattrel",
       "nationality": "ITA",
+      "role": "GOALKEEPER",
       "number": 12
     },
     {
       "name": "Ernesto Càstano",
       "shirtName": "Càstano",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 13
     },
     {
       "name": "Alberto Coramini",
       "shirtName": "Coramini",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 14
     },
     {
       "name": "Dino da Costa",
       "shirtName": "da Costa",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 15
     },
     {
       "name": "Luis del Sol",
       "shirtName": "del Sol",
       "nationality": "ESP",
+      "role": "MIDFIELDER",
       "number": 16
     },
     {
       "name": "Bruno Mazzia",
       "shirtName": "Mazzia",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 17
     },
     {
       "name": "Carlo Dell'Omodarme",
       "shirtName": "Dell'Omodarme",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 18
     }
   ]

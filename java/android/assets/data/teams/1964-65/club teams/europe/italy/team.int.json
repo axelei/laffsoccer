@@ -8,144 +8,168 @@
       "name": "Giuliano Sarti",
       "shirtName": "Sarti",
       "nationality": "ITA",
+      "role": "GOALKEEPER",
       "number": 1
     },
     {
       "name": "Tarcisio Burgnich",
       "shirtName": "Burgnich",
       "nationality": "ITA",
+      "role": "RIGHT_BACK",
       "number": 2
     },
     {
       "name": "Giacinto Facchetti",
       "shirtName": "Facchetti",
       "nationality": "ITA",
+      "role": "LEFT_BACK",
       "number": 3
     },
     {
       "name": "Gianfranco Bedin",
       "shirtName": "Bedin",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 4
     },
     {
       "name": "Aristide Guarneri",
       "shirtName": "Guarneri",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 5
     },
     {
       "name": "Armando Picchi",
       "shirtName": "Picchi",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 6
     },
     {
       "name": "Jair da Costa",
       "shirtName": "Jair",
       "nationality": "BRA",
+      "role": "RIGHT_WINGER",
       "number": 7
     },
     {
       "name": "Sandro Mazzola",
       "shirtName": "Mazzola",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 8
     },
     {
       "name": "Joaquín Peiró",
       "shirtName": "Peiró",
       "nationality": "ESP",
+      "role": "ATTACKER",
       "number": 9
     },
     {
       "name": "Luis Suárez",
       "shirtName": "Suárez",
       "nationality": "ESP",
+      "role": "MIDFIELDER",
       "number": 10
     },
     {
       "name": "Mario Corso",
       "shirtName": "Corso",
       "nationality": "ITA",
+      "role": "LEFT_WINGER",
       "number": 11
     },
     {
       "name": "Ottavio Bugatti",
       "shirtName": "Bugatti",
       "nationality": "ITA",
+      "role": "GOALKEEPER",
       "number": 12
     },
     {
       "name": "Rosario Di Vincenzo",
       "shirtName": "Di Vincenzo",
       "nationality": "ITA",
+      "role": "GOALKEEPER",
       "number": 13
     },
     {
       "name": "Giovanni Ferretti",
       "shirtName": "Ferretti",
       "nationality": "ITA",
+      "role": "GOALKEEPER",
       "number": 14
     },
     {
       "name": "Spartaco Landini",
       "shirtName": "Landini",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 15
     },
     {
       "name": "Giorgio Della Giovanna",
       "shirtName": "Della Giovanna",
       "nationality": "ITA",
+      "role": "DEFENDER",
       "number": 16
     },
     {
       "name": "Sergio Gori",
       "shirtName": "Gori",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 17
     },
     {
       "name": "Saul Malatrasi",
       "shirtName": "Malatrasi",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 18
     },
     {
       "name": "Carlo Tagnin",
       "shirtName": "Tagnin",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 19
     },
     {
       "name": "Franco Zaglio",
       "shirtName": "Zaglio",
       "nationality": "ITA",
+      "role": "MIDFIELDER",
       "number": 20
     },
     {
       "name": "Angelo Domenghini",
       "shirtName": "Domenghini",
       "nationality": "ITA",
+      "role": "ATTACKER",
       "number": 21
     },
     {
       "name": "Francesco Canella",
       "shirtName": "Canella",
       "nationality": "ITA",
+      "role": "ATTACKER",
       "number": 22
     },
     {
       "name": "Aurelio Milani",
       "shirtName": "Milani",
       "nationality": "ITA",
+      "role": "ATTACKER",
       "number": 23
     },
     {
       "name": "Bruno Petroni",
       "shirtName": "Petroni",
       "nationality": "ITA",
+      "role": "ATTACKER",
       "number": 24
     }
   ]
