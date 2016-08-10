@@ -9,168 +9,384 @@
       "shirtName": "Sarti",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 1
+      "number": 1,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Tarcisio Burgnich",
       "shirtName": "Burgnich",
       "nationality": "ITA",
       "role": "RIGHT_BACK",
-      "number": 2
+      "number": 2,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Giacinto Facchetti",
       "shirtName": "Facchetti",
       "nationality": "ITA",
       "role": "LEFT_BACK",
-      "number": 3
+      "number": 3,
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 5,
+        "speed": 7,
+        "finishing": 5
+      }
     },
     {
       "name": "Gianfranco Bedin",
       "shirtName": "Bedin",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 4
+      "number": 4,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Aristide Guarneri",
       "shirtName": "Guarneri",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 5
+      "number": 5,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Armando Picchi",
       "shirtName": "Picchi",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 6
+      "number": 6,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Jair da Costa",
       "shirtName": "Jair",
       "nationality": "BRA",
       "role": "RIGHT_WINGER",
-      "number": 7
+      "number": 7,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Sandro Mazzola",
       "shirtName": "Mazzola",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 8
+      "number": 8,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Joaquín Peiró",
       "shirtName": "Peiró",
       "nationality": "ESP",
       "role": "ATTACKER",
-      "number": 9
+      "number": 9,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Luis Suárez",
       "shirtName": "Suárez",
       "nationality": "ESP",
       "role": "MIDFIELDER",
-      "number": 10
+      "number": 10,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Mario Corso",
       "shirtName": "Corso",
       "nationality": "ITA",
       "role": "LEFT_WINGER",
-      "number": 11
+      "number": 11,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Ottavio Bugatti",
       "shirtName": "Bugatti",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 12
+      "number": 12,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Rosario Di Vincenzo",
       "shirtName": "Di Vincenzo",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 13
+      "number": 13,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Giovanni Ferretti",
       "shirtName": "Ferretti",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 14
+      "number": 14,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Spartaco Landini",
       "shirtName": "Landini",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 15
+      "number": 15,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Giorgio Della Giovanna",
       "shirtName": "Della Giovanna",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 16
+      "number": 16,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Sergio Gori",
       "shirtName": "Gori",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 17
+      "number": 17,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Saul Malatrasi",
       "shirtName": "Malatrasi",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 18
+      "number": 18,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Carlo Tagnin",
       "shirtName": "Tagnin",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 19
+      "number": 19,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Franco Zaglio",
       "shirtName": "Zaglio",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 20
+      "number": 20,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Angelo Domenghini",
       "shirtName": "Domenghini",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 21
+      "number": 21,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Francesco Canella",
       "shirtName": "Canella",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 22
+      "number": 22,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Aurelio Milani",
       "shirtName": "Milani",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 23
+      "number": 23,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Bruno Petroni",
       "shirtName": "Petroni",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 24
+      "number": 24,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     }
   ]
 }

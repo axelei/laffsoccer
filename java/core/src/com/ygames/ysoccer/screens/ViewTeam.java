@@ -41,6 +41,17 @@ public class ViewTeam extends GlScreen {
             w = new PlayerRoleLabel(x, p, player);
             widgets.add(w);
             x = x + 31;
+
+            Player.Skill[] orderedSkills = null;
+            if (player != null) {
+                orderedSkills = player.getOrderedSkills();
+            }
+            for (int j = 0; j < 3; j++) {
+                w = new PlayerSkillLabel(orderedSkills, j, x, p, player);
+                widgets.add(w);
+                x = x + 12;
+            }
+            x = x + 31;
         }
 
         w = new TitleBar(team);
@@ -89,6 +100,17 @@ public class ViewTeam extends GlScreen {
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
                 setText(Assets.strings.get(player.getRoleLabel()));
+            }
+        }
+    }
+
+    class PlayerSkillLabel extends Label {
+
+        public PlayerSkillLabel(Player.Skill[] skills, int j, int x, int p, Player player) {
+            setGeometry(x, 126 + 18 * p, 12, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            if (player != null && skills != null) {
+                setText(Assets.strings.get(player.getSkillLabel(skills[j])));
             }
         }
     }

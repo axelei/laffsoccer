@@ -9,126 +9,288 @@
       "shirtName": "Anzolin",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 1
+      "number": 1,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Adolfo Gori",
       "shirtName": "Gori",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 2
+      "number": 2,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Benito Sarti",
       "shirtName": "Sarti",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 3
+      "number": 3,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Sandro Salvadore",
       "shirtName": "Salvadore",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 4
+      "number": 4,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Giancarlo Bercellino I",
       "shirtName": "Bercellino",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 5
+      "number": 5,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Giovanni Sacco",
       "shirtName": "Sacco",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 6
+      "number": 6,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Gianfranco Leoncini",
       "shirtName": "Leoncini",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 7
+      "number": 7,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Gino Stacchini",
       "shirtName": "Stacchini",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 8
+      "number": 8,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Giampaolo Menichelli",
       "shirtName": "Menichelli",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 9
+      "number": 9,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Nestor Combin",
       "shirtName": "Combin",
       "nationality": "FRA",
       "role": "ATTACKER",
-      "number": 10
+      "number": 10,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Omar Sivori",
       "shirtName": "Sivori",
       "nationality": "ARG",
       "role": "ATTACKER",
-      "number": 11
+      "number": 11,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Carlo Mattrel",
       "shirtName": "Mattrel",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 12
+      "number": 12,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Ernesto Càstano",
       "shirtName": "Càstano",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 13
+      "number": 13,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Alberto Coramini",
       "shirtName": "Coramini",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 14
+      "number": 14,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Dino da Costa",
       "shirtName": "da Costa",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 15
+      "number": 15,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Luis del Sol",
       "shirtName": "del Sol",
       "nationality": "ESP",
       "role": "MIDFIELDER",
-      "number": 16
+      "number": 16,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Bruno Mazzia",
       "shirtName": "Mazzia",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 17
+      "number": 17,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     },
     {
       "name": "Carlo Dell'Omodarme",
       "shirtName": "Dell'Omodarme",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 18
+      "number": 18,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
     }
   ]
 }
