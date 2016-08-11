@@ -39,6 +39,38 @@ public class Cup extends Competition {
         calendarGenerate();
     }
 
+    public Match getMatch() {
+        return calendarCurrent.get(currentMatch);
+    }
+
+    @Override
+    public boolean isEnded() {
+        return currentRound == rounds.size();
+    }
+
+    public void nextMatch() {
+        currentMatch += 1;
+        if (currentMatch == calendarCurrent.size()) {
+            nextLeg();
+        }
+    }
+
+    public void nextLeg() {
+        currentLeg += 1;
+        currentMatch = 0;
+        calendarGenerate();
+        if (calendarCurrent.size() == 0) {
+            nextRound();
+        }
+    }
+
+    public void nextRound() {
+        currentRound += 1;
+        currentLeg = 0;
+        currentMatch = 0;
+        calendarGenerate();
+    }
+
     void calendarGenerate() {
         // first leg
         if (currentLeg == 0) {
@@ -158,5 +190,11 @@ public class Cup extends Competition {
             }
         }
         return false;
+    }
+
+    public boolean bothComputers() {
+        Match match = getMatch();
+        return teams.get(match.team[Match.HOME]).controlMode == Team.ControlMode.COMPUTER
+                && teams.get(match.team[Match.AWAY]).controlMode == Team.ControlMode.COMPUTER;
     }
 }

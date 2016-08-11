@@ -42,13 +42,10 @@
         "path": "1964-65/club teams/europe/italy/team.juventus.json"
       },
       {
-        "path": "1964-65/club teams/europe/italy/team.lrv.json"
-      },
-      {
         "path": "1964-65/club teams/europe/italy/team.lazio.json"
       },
       {
-        "path": "1964-65/club teams/europe/italy/team.man.json"
+        "path": "1964-65/club teams/europe/italy/team.mantova.json"
       },
       {
         "path": "1964-65/club teams/europe/italy/team.mes.json"
@@ -67,6 +64,9 @@
       },
       {
         "path": "1964-65/club teams/europe/italy/team.var.json"
+      },
+      {
+        "path": "1964-65/club teams/europe/italy/team.vicenza.json"
       }
     ]
   },

@@ -108,6 +108,7 @@ public class League extends Competition {
 
     public boolean bothComputers() {
         Match match = getMatch();
-        return teams.get(match.team[Match.HOME]).controlMode == Team.ControlMode.COMPUTER && teams.get(match.team[Match.AWAY]).controlMode == Team.ControlMode.COMPUTER;
+        return teams.get(match.team[Match.HOME]).controlMode == Team.ControlMode.COMPUTER
+                && teams.get(match.team[Match.AWAY]).controlMode == Team.ControlMode.COMPUTER;
     }
 }

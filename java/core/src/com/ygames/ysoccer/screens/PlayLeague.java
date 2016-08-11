@@ -28,7 +28,6 @@ public class PlayLeague extends GlScreen {
     };
 
     private League league;
-    private Match match;
 
     public PlayLeague(GlGame game) {
         super(game);
@@ -154,18 +153,18 @@ public class PlayLeague extends GlScreen {
 
         } else {
 
-            match = league.getMatch();
+            Match match = league.getMatch();
 
-            // team A
+            // home team
             w = new Label();
             w.setGeometry(240, 618, 322, 36);
-            w.setText(league.teams.get(match.team[0]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
+            w.setText(league.teams.get(match.team[Match.HOME]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
-            // team B
+            // away team
             w = new Label();
             w.setGeometry(720, 618, 322, 36);
-            w.setText(league.teams.get(match.team[1]).name.toUpperCase(), Font.Align.LEFT, Assets.font14);
+            w.setText(league.teams.get(match.team[Match.AWAY]).name.toUpperCase(), Font.Align.LEFT, Assets.font14);
             widgets.add(w);
 
             // result (home goals)
@@ -173,7 +172,7 @@ public class PlayLeague extends GlScreen {
             w.setGeometry(game.settings.GUI_WIDTH / 2 - 60, 618, 40, 36);
             w.setText("", Font.Align.RIGHT, Assets.font14);
             if (match.ended) {
-                w.setText(match.stats[0].goals);
+                w.setText(match.stats[Match.HOME].goals);
             }
             widgets.add(w);
 
@@ -193,14 +192,14 @@ public class PlayLeague extends GlScreen {
             w.setGeometry(game.settings.GUI_WIDTH / 2 + 20, 618, 40, 36);
             w.setText("", Font.Align.LEFT, Assets.font14);
             if (match.ended) {
-                w.setText(match.stats[1].goals);
+                w.setText(match.stats[Match.AWAY].goals);
             }
             widgets.add(w);
 
             if (match.ended) {
-                Widget nextMatchButton = new NextMatchButton();
-                widgets.add(nextMatchButton);
-                selectedWidget = nextMatchButton;
+                w = new NextMatchButton();
+                widgets.add(w);
+                selectedWidget = w;
             } else {
                 Widget playMatchButton = new PlayMatchButton();
                 widgets.add(playMatchButton);

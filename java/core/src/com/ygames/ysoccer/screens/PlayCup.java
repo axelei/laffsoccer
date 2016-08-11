@@ -64,13 +64,45 @@ public class PlayCup extends GlScreen {
             widgets.add(w);
         }
 
+        Match match = cup.getMatch();
+
+        // home team
+        w = new Label();
+        w.setGeometry(240, 618, 322, 36);
+        w.setText(cup.teams.get(match.team[Match.HOME]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
+        widgets.add(w);
+
+        // away team
+        w = new Label();
+        w.setGeometry(720, 618, 322, 36);
+        w.setText(cup.teams.get(match.team[Match.AWAY]).name.toUpperCase(), Font.Align.LEFT, Assets.font14);
+        widgets.add(w);
+
         w = new ViewStatisticsButton();
         widgets.add(w);
 
         Widget exitButton = new ExitButton();
         widgets.add(exitButton);
 
-        selectedWidget = exitButton;
+        if (cup.isEnded()) {
+
+            selectedWidget = exitButton;
+
+        } else {
+
+            if (match.ended) {
+                // TODO
+            } else {
+                Widget playMatchButton = new PlayMatchButton();
+                widgets.add(playMatchButton);
+
+                if (cup.bothComputers() || cup.userPrefersResult) {
+                    // TODO
+                } else {
+                    selectedWidget = playMatchButton;
+                }
+            }
+        }
     }
 
     class TitleBar extends Button {
@@ -113,6 +145,25 @@ public class PlayCup extends GlScreen {
                 setText("-");
             }
             setActive(false);
+        }
+    }
+
+    class PlayMatchButton extends Button {
+
+        public PlayMatchButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 220, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText("", Font.Align.CENTER, Assets.font14);
+            if (cup.bothComputers()) {
+                setText(Assets.strings.get("VIEW MATCH"));
+            } else {
+                setText("- " + Assets.strings.get("MATCH") + " -");
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
         }
     }
 
