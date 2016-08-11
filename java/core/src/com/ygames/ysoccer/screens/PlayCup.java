@@ -63,6 +63,11 @@ public class PlayCup extends GlScreen {
             resultWidgets.add(w);
             widgets.add(w);
         }
+
+        Widget exitButton = new ExitButton();
+        widgets.add(exitButton);
+
+        selectedWidget = exitButton;
     }
 
     class TitleBar extends Button {
@@ -105,6 +110,20 @@ public class PlayCup extends GlScreen {
                 setText("-");
             }
             setActive(false);
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 250, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }

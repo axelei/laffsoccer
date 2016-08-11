@@ -107,7 +107,7 @@ public class LoadCompetition extends GlScreen {
                             game.setScreen(new PlayLeague(game));
                             break;
                         case CUP:
-                            // TODO: set PlayCup screen
+                            game.setScreen(new PlayCup(game));
                             break;
                     }
                     break;

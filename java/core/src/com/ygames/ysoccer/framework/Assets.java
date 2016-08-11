@@ -5,6 +5,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
+import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class Assets {
         competitionsFolder = Gdx.files.local("data/competitions");
         savesFolder = Gdx.files.local("data/saves/competitions");
         json = new Json();
+        json.addClassTag("CUP", Cup.class);
         json.addClassTag("LEAGUE", League.class);
         json.setOutputType(JsonWriter.OutputType.json);
         json.setUsePrototypes(false);
