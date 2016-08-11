@@ -7,7 +7,12 @@ public class Match {
 
     public int team[] = {0, 1};
     public MatchStats[] stats = new MatchStats[2];
+    public MatchStats[] statsAfter90;
+    public MatchStats[] oldStats;
+    public boolean includesExtraTime;
     public boolean ended;
+    public String status;
+    public int qualified = -1;
 
     public Match() {
         stats[HOME] = new MatchStats();

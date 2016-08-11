@@ -1,12 +1,19 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Cup extends Competition {
 
     public ArrayList<Round> rounds;
+    int currentLeg;
+    ArrayList<Integer> qualifiedTeams;
+    public ArrayList<Match> calendarCurrent;
 
     public enum AwayGoals {
         OFF,
@@ -19,6 +26,78 @@ public class Cup extends Competition {
     public Cup() {
         rounds = new ArrayList<Round>();
         awayGoals = AwayGoals.OFF;
+        currentLeg = 0;
+        calendarCurrent = null;
+        qualifiedTeams = new ArrayList<Integer>();
+    }
+
+    public void start(ArrayList<Team> teams) {
+        super.start(teams);
+        for (int i = 0; i < teams.size(); i++) {
+            qualifiedTeams.add(i);
+        }
+        calendarGenerate();
+    }
+
+    void calendarGenerate() {
+        // first leg
+        if (currentLeg == 0) {
+            Collections.shuffle(qualifiedTeams);
+            calendarCurrent = new ArrayList<Match>();
+            for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
+                Match match = new Match();
+                match.team[Match.HOME] = qualifiedTeams.get(2 * i);
+                match.team[Match.AWAY] = qualifiedTeams.get(2 * i + 1);
+                match.stats = null;
+                match.oldStats = null;
+                calendarCurrent.add(match);
+            }
+            qualifiedTeams.clear();
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (rounds.get(currentRound).legs == 2)) {
+            for (int i = 0; i < calendarCurrent.size(); i++) {
+                Match match = calendarCurrent.get(i);
+                // swap teams
+                int tmp = match.team[Match.HOME];
+                match.team[Match.HOME] = match.team[Match.AWAY];
+                match.team[Match.AWAY] = tmp;
+
+                match.oldStats = match.stats;
+                match.stats = null;
+                match.includesExtraTime = false;
+                match.statsAfter90 = null;
+                match.status = Assets.strings.get("1ST LEG") +
+                        " " + match.oldStats[Match.AWAY].goals +
+                        "-" + match.oldStats[Match.HOME].goals;
+            }
+        }
+
+        // replays
+        else {
+            for (int i = 0; i < calendarCurrent.size(); i++) {
+                Match match = calendarCurrent.get(i);
+                if (match.qualified == -1) {
+                    // swap teams
+                    int tmp = match.team[Match.HOME];
+                    match.team[Match.HOME] = match.team[Match.AWAY];
+                    match.team[Match.AWAY] = tmp;
+
+                    match.stats = null;
+                    match.includesExtraTime = false;
+                    match.statsAfter90 = null;
+                    match.oldStats = null;
+                    match.status = "";
+                } else {
+                    calendarCurrent.remove(match);
+                }
+            }
+        }
+
+        // update month
+        int seasonLength = ((seasonEnd - seasonStart + 12) % 12);
+        currentMonth = (seasonStart + seasonLength * currentRound / rounds.size()) % 12;
     }
 
     public Type getType() {
