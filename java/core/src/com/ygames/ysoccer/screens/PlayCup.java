@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
@@ -18,7 +19,7 @@ public class PlayCup extends GlScreen {
     Cup cup;
     int matches;
     int offset;
-	ArrayList<Widget> resultWidgets;
+    ArrayList<Widget> resultWidgets;
 
     public PlayCup(GlGame game) {
         super(game);
@@ -54,6 +55,10 @@ public class PlayCup extends GlScreen {
             resultWidgets.add(w);
             widgets.add(w);
 
+            w = new VersusLabel(dy + 64 * m, match);
+            resultWidgets.add(w);
+            widgets.add(w);
+
             w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.team[Match.AWAY]), Font.Align.LEFT);
             resultWidgets.add(w);
             widgets.add(w);
@@ -86,6 +91,19 @@ public class PlayCup extends GlScreen {
                     break;
             }
             setText(team.name.toUpperCase(), align, Assets.font10);
+            setActive(false);
+        }
+    }
+
+    class VersusLabel extends Label {
+
+        public VersusLabel(int y, Match match) {
+            setGeometry((game.settings.GUI_WIDTH - 30) / 2, y, 30, 26);
+            // NOTE: max 2 characters
+            setText(Assets.strings.get("ABBREVIATIONS.VERSUS"), Font.Align.CENTER, Assets.font10);
+            if (match.ended) {
+                setText("-");
+            }
             setActive(false);
         }
     }
