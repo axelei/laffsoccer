@@ -220,7 +220,7 @@ public class PlayLeague extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
+            setGeometry((game.settings.GUI_WIDTH - 840) / 2, 30, 840, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(league.getMenuTitle().toUpperCase(), Font.Align.CENTER, Assets.font14);
             setActive(false);

@@ -262,7 +262,9 @@ public class SelectTeams extends GlScreen {
                     game.setScreen(new PlayLeague(game));
                     break;
                 case CUP:
-                    // TODO
+                    competition.start(game.teamList);
+                    game.setCompetition(competition);
+                    game.setScreen(new PlayCup(game));
                     break;
             }
         }
