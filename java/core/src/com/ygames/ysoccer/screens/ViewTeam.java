@@ -22,6 +22,7 @@ public class ViewTeam extends GlScreen {
         Widget w;
 
         // players
+        int x = 0;
         for (int p = 0; p < Const.FULL_TEAM; p++) {
             Player player = team.playerAtPosition(p);
 
@@ -31,7 +32,7 @@ public class ViewTeam extends GlScreen {
             w = new PlayerNameButton(p, player, team, competition);
             widgets.add(w);
 
-            int x = 360;
+            x = 360;
             if (team.type == Team.Type.CLUB) {
                 w = new PlayerNationalityLabel(x, p, player);
                 widgets.add(w);
@@ -57,9 +58,18 @@ public class ViewTeam extends GlScreen {
             widgets.add(w);
         }
 
+        w = new Label();
+        w.setText(Assets.strings.get("GOALS"), Font.Align.CENTER, Assets.font10);
+        w.setPosition(x + 15, 116);
+        widgets.add(w);
+
         w = new TitleBar(team);
         widgets.add(w);
 
+        w = new ExitButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     class PlayerNumberLabel extends Label {
@@ -136,6 +146,20 @@ public class ViewTeam extends GlScreen {
             setColors(0x6A5ACD, 0x8F83D7, 0x372989);
             setText(team.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry(game.settings.GUI_WIDTH - 185 - 30, 660, 145, 40);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new CompetitionViewTeams(game));
         }
     }
 
