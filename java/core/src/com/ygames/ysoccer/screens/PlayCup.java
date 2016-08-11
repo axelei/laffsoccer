@@ -64,6 +64,9 @@ public class PlayCup extends GlScreen {
             widgets.add(w);
         }
 
+        w = new ViewStatisticsButton();
+        widgets.add(w);
+
         Widget exitButton = new ExitButton();
         widgets.add(exitButton);
 
@@ -110,6 +113,20 @@ public class PlayCup extends GlScreen {
                 setText("-");
             }
             setActive(false);
+        }
+    }
+
+    class ViewStatisticsButton extends Button {
+
+        public ViewStatisticsButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 50, 660, 180, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText(Assets.strings.get("STATS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ViewStatistics(game));
         }
     }
 
