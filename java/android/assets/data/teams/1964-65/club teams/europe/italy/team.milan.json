@@ -2,5 +2,391 @@
   "name": "Milan",
   "type": "CLUB",
   "country": "ITA",
-  "tactics": "442"
+  "tactics": "442",
+  "players": [
+    {
+      "name": "MARIO BARLUZZI",
+      "shirtName": "BARLUZZI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": 1,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GILBERTO NOLETTI",
+      "shirtName": "NOLETTI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 2,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "AMBROGIO PELAGALLI",
+      "shirtName": "PELAGALLI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 3,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "VÍCTOR BENÍTEZ",
+      "shirtName": "BENÍTEZ",
+      "nationality": "PER",
+      "role": "MIDFIELDER",
+      "number": 4,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "CESARE MALDINI",
+      "shirtName": "MALDINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 5,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIOVANNI TRAPATTONI",
+      "shirtName": "TRAPATTONI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 6,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "BRUNO MORA",
+      "shirtName": "MORA",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 7,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIOVANNI LODETTI",
+      "shirtName": "LODETTI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 8,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "PAOLO FERRARIO",
+      "shirtName": "FERRARIO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 9,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "AMARILDO",
+      "shirtName": "AMARILDO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 10,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIANNI RIVERA",
+      "shirtName": "RIVERA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 11,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIORGIO GHEZZI",
+      "shirtName": "GHEZZI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": 12,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "MARIO TREBBI",
+      "shirtName": "TREBBI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 13,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "LUIGI RADICE",
+      "shirtName": "RADICE",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 14,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIULIANO FORTUNATO",
+      "shirtName": "FORTUNATO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 15,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "JOSÉ ALTAFINI",
+      "shirtName": "ALTAFINI",
+      "nationality": "BRA",
+      "role": "ATTACKER",
+      "number": 16,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "LUIGI BALZARINI",
+      "shirtName": "BALZARINI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": 17,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "NELLO SANTIN",
+      "shirtName": "SANTIN",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 18,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "BRUNO BACCHETTA",
+      "shirtName": "BACCHETTA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 19,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "MARIO DAVID",
+      "shirtName": "DAVID",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 20,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIANCARLO SALVI",
+      "shirtName": "SALVI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 21,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "AQUILINO BONFANTI",
+      "shirtName": "BONFANTI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 22,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GERMANO",
+      "shirtName": "GERMANO",
+      "nationality": "BRA",
+      "role": "ATTACKER",
+      "number": 23,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "CLAUDIO MANTOVANI",
+      "shirtName": "MANTOVANI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": 24,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    }
+  ]
 }

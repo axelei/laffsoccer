@@ -2,5 +2,311 @@
   "name": "Fiorentina",
   "type": "CLUB",
   "country": "ITA",
-  "tactics": "442"
+  "tactics": "442",
+  "players": [
+    {
+      "name": "ENRICO ALBERTOSI",
+      "shirtName": "ALBERTOSI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": 1,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "EGIDIO GUARNACCI",
+      "shirtName": "GUARNACCI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 2,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "SERGIO CASTELLETTI",
+      "shirtName": "CASTELLETTI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 3,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIOVAN BATTISTA PIROVANO",
+      "shirtName": "PIROVANO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 4,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GIUSEPPE BRIZI",
+      "shirtName": "BRIZI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 5,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "RINO MARCHESI",
+      "shirtName": "MARCHESI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 6,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "KURT HAMRIN",
+      "shirtName": "HAMRIN",
+      "nationality": "SWE",
+      "role": "ATTACKER",
+      "number": 7,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "MARIO BERTINI",
+      "shirtName": "BERTINI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 8,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "PAOLO NUTI",
+      "shirtName": "NUTI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 9,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "RENATO BENAGLIA",
+      "shirtName": "BENAGLIA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 10,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "JUAN CARLOS MORRONE",
+      "shirtName": "MORRONE",
+      "nationality": "ARG",
+      "role": "ATTACKER",
+      "number": 11,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "ALFREDO PAOLICCHI",
+      "shirtName": "PAOLICCHI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": 12,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "ENZO ROBOTTI",
+      "shirtName": "ROBOTTI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 13,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "MARIO BRUGNERA",
+      "shirtName": "BRUGNERA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 14,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "ALBERTO ORLANDO",
+      "shirtName": "ORLANDO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": 15,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "HUMBERTO MASCHIO",
+      "shirtName": "MASCHIO",
+      "nationality": "ARG",
+      "role": "ATTACKER",
+      "number": 16,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "PIERO GONFIANTINI",
+      "shirtName": "GONFIANTINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 17,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "UGO FERRANTE",
+      "shirtName": "FERRANTE",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": 18,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    },
+    {
+      "name": "GASTONE MARCHI",
+      "shirtName": "MARCHI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": 19,
+      "skills": {
+        "passing": 0,
+        "shooting": 0,
+        "heading": 0,
+        "tackling": 0,
+        "control": 0,
+        "speed": 0,
+        "finishing": 0
+      }
+    }
+  ]
 }

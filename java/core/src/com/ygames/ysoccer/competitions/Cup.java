@@ -355,9 +355,9 @@ public class Cup extends Competition {
     private int getQualified(Match match) {
         if (match.resultAfterPenalties != null) {
             if (match.resultAfterPenalties.homeGoals > match.resultAfterPenalties.awayGoals) {
-                return 0;
+                return match.team[Match.HOME];
             } else if (match.resultAfterPenalties.homeGoals < match.resultAfterPenalties.awayGoals) {
-                return 1;
+                return match.team[Match.AWAY];
             } else {
                 throw new GdxRuntimeException("Invalid state in cup");
             }
@@ -370,9 +370,9 @@ public class Cup extends Competition {
             switch (round.legs) {
                 case 1:
                     if (match.result.homeGoals > match.result.awayGoals) {
-                        return 0;
+                        return match.team[Match.HOME];
                     } else if (match.result.homeGoals < match.result.awayGoals) {
-                        return 1;
+                        return match.team[Match.AWAY];
                     } else {
                         return -1;
                     }
@@ -386,16 +386,16 @@ public class Cup extends Competition {
             int aggregate1 = match.result.homeGoals + match.oldResult.awayGoals;
             int aggregate2 = match.result.awayGoals + match.oldResult.homeGoals;
             if (aggregate1 > aggregate2) {
-                return 0;
+                return match.team[Match.HOME];
             } else if (aggregate1 < aggregate2) {
-                return 1;
+                return match.team[Match.AWAY];
             } else {
                 if ((awayGoals == AwayGoals.AFTER_90_MINS) ||
                         (awayGoals == AwayGoals.AFTER_EXTRA_TIME && match.includesExtraTime)) {
                     if (match.oldResult.awayGoals > match.result.awayGoals) {
-                        return 0;
+                        return match.team[Match.HOME];
                     } else if (match.oldResult.awayGoals < match.result.awayGoals) {
-                        return 1;
+                        return match.team[Match.AWAY];
                     } else {
                         return -1;
                     }
@@ -408,9 +408,9 @@ public class Cup extends Competition {
         // replays
         else {
             if (match.result.homeGoals > match.result.awayGoals) {
-                return 0;
+                return match.team[Match.HOME];
             } else if (match.result.homeGoals < match.result.awayGoals) {
-                return 1;
+                return match.team[Match.AWAY];
             } else {
                 return -1;
             }
@@ -514,6 +514,65 @@ public class Cup extends Competition {
         }
 
         return s;
+    }
+
+    @Override
+    public String getMenuTitle() {
+
+        String title = name + " " + Assets.strings.get(getRoundName(currentRound));
+        int matches = calendarCurrent.size();
+        switch (rounds.get(currentRound).legs) {
+            case 1:
+                switch (currentLeg) {
+                    case 0:
+                        break;
+                    case 1:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAYS");
+                        }
+                        break;
+                    case 2:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.2ND REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.2ND REPLAYS");
+                        }
+                        break;
+                    case 3:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.3RD REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.3RD REPLAYS");
+                        }
+                        break;
+                    default:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAYS");
+                        }
+                }
+                break;
+            case 2:
+                switch (currentLeg) {
+                    case 0:
+                        title += " " + Assets.strings.get("MATCH STATUS.1ST LEG");
+                        break;
+                    case 1:
+                        title += " " + Assets.strings.get("MATCH STATUS.2ND LEG");
+                        break;
+                    default:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAYS");
+                        }
+                }
+        }
+
+        return title;
     }
 
     public Type getType() {
