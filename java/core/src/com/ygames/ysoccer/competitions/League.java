@@ -111,8 +111,7 @@ public class League extends Competition {
 
     public void setResult(int homeGoals, int awayGoals) {
         Match match = getMatch();
-        match.stats[Match.HOME].goals = homeGoals;
-        match.stats[Match.AWAY].goals = awayGoals;
+        match.result = new Match.Result(homeGoals, awayGoals);
         teams.get(match.team[Match.HOME]).updateStats(homeGoals, awayGoals, pointsForAWin);
         teams.get(match.team[Match.AWAY]).updateStats(awayGoals, homeGoals, pointsForAWin);
         match.ended = true;

@@ -10,7 +10,6 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -73,6 +72,35 @@ public class PlayCup extends GlScreen {
         w.setText(cup.teams.get(match.team[Match.HOME]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
         widgets.add(w);
 
+        // result (home goals)
+        w = new Label();
+        w.setGeometry(game.settings.GUI_WIDTH / 2 - 60, 618, 40, 36);
+        w.setText("", Font.Align.RIGHT, Assets.font14);
+        if (match.ended) {
+            w.setText(match.result.homeGoals);
+        }
+        widgets.add(w);
+
+        // versus / -
+        w = new Label();
+        w.setGeometry(game.settings.GUI_WIDTH / 2 - 20, 618, 40, 36);
+        w.setText("", Font.Align.CENTER, Assets.font14);
+        if (match.ended) {
+            w.setText("-");
+        } else {
+            w.setText(Assets.strings.get("ABBREVIATIONS.VERSUS"));
+        }
+        widgets.add(w);
+
+        // result (away goals)
+        w = new Label();
+        w.setGeometry(game.settings.GUI_WIDTH / 2 +20, 618, 40, 36);
+        w.setText("", Font.Align.LEFT, Assets.font14);
+        if (match.ended) {
+            w.setText(match.result.awayGoals);
+        }
+        widgets.add(w);
+
         // away team
         w = new Label();
         w.setGeometry(720, 618, 322, 36);
@@ -92,7 +120,9 @@ public class PlayCup extends GlScreen {
         } else {
 
             if (match.ended) {
-                // TODO
+                w = new NextMatchButton();
+                widgets.add(w);
+                selectedWidget = w;
             } else {
                 Widget playMatchButton = new PlayMatchButton();
                 widgets.add(playMatchButton);
@@ -168,6 +198,30 @@ public class PlayCup extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO
+        }
+    }
+
+    class NextMatchButton extends Button {
+
+        public NextMatchButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 460, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            nextMatch();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            nextMatch();
+        }
+
+        private void nextMatch() {
+            cup.nextMatch();
+            game.setScreen(new PlayCup(game));
         }
     }
 

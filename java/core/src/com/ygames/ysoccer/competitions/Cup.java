@@ -107,11 +107,13 @@ public class Cup extends Competition {
         else if ((currentLeg == 1) && (rounds.get(currentRound).legs == 2)) {
             for (int i = 0; i < calendarCurrent.size(); i++) {
                 Match match = calendarCurrent.get(i);
+
                 // swap teams
                 int tmp = match.team[Match.HOME];
                 match.team[Match.HOME] = match.team[Match.AWAY];
                 match.team[Match.AWAY] = tmp;
 
+                match.ended = false;
                 match.oldResult = match.result;
                 match.result = null;
                 match.includesExtraTime = false;
@@ -132,6 +134,7 @@ public class Cup extends Competition {
                     match.team[Match.HOME] = match.team[Match.AWAY];
                     match.team[Match.AWAY] = tmp;
 
+                    match.ended = false;
                     match.result = null;
                     match.includesExtraTime = false;
                     match.resultAfter90 = null;

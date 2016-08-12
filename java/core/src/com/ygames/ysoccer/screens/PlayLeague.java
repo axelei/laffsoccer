@@ -172,7 +172,7 @@ public class PlayLeague extends GlScreen {
             w.setGeometry(game.settings.GUI_WIDTH / 2 - 60, 618, 40, 36);
             w.setText("", Font.Align.RIGHT, Assets.font14);
             if (match.ended) {
-                w.setText(match.stats[Match.HOME].goals);
+                w.setText(match.result.homeGoals);
             }
             widgets.add(w);
 
@@ -183,7 +183,7 @@ public class PlayLeague extends GlScreen {
             if (match.ended) {
                 w.setText("-");
             } else {
-                w.setText(Assets.strings.get("VERSUS (short)"));
+                w.setText(Assets.strings.get("ABBREVIATIONS.VERSUS"));
             }
             widgets.add(w);
 
@@ -192,7 +192,7 @@ public class PlayLeague extends GlScreen {
             w.setGeometry(game.settings.GUI_WIDTH / 2 + 20, 618, 40, 36);
             w.setText("", Font.Align.LEFT, Assets.font14);
             if (match.ended) {
-                w.setText(match.stats[Match.AWAY].goals);
+                w.setText(match.result.awayGoals);
             }
             widgets.add(w);
 
