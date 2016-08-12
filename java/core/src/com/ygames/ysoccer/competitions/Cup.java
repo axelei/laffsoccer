@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,6 +15,8 @@ public class Cup extends Competition {
     int currentLeg;
     ArrayList<Integer> qualifiedTeams;
     public ArrayList<Match> calendarCurrent;
+
+    public enum ResultType {AFTER_90_MINS, AFTER_EXTRA_TIME, AFTER_PENALTIES}
 
     public enum AwayGoals {
         OFF,
@@ -39,13 +42,25 @@ public class Cup extends Competition {
         calendarGenerate();
     }
 
+    @Override
+    public void restart() {
+        currentRound = 0;
+        currentMatch = 0;
+        currentLeg = 0;
+        qualifiedTeams.clear();
+        for (int i = 0; i < teams.size(); i++) {
+            qualifiedTeams.add(i);
+        }
+        calendarGenerate();
+    }
+
     public Match getMatch() {
         return calendarCurrent.get(currentMatch);
     }
 
     @Override
     public boolean isEnded() {
-        return currentRound == rounds.size();
+        return currentRound == rounds.size() - 1 && getMatch().qualified != -1;
     }
 
     public void nextMatch() {
@@ -72,6 +87,7 @@ public class Cup extends Competition {
     }
 
     void calendarGenerate() {
+
         // first leg
         if (currentLeg == 0) {
             Collections.shuffle(qualifiedTeams);
@@ -80,8 +96,8 @@ public class Cup extends Competition {
                 Match match = new Match();
                 match.team[Match.HOME] = qualifiedTeams.get(2 * i);
                 match.team[Match.AWAY] = qualifiedTeams.get(2 * i + 1);
-                match.stats = null;
-                match.oldStats = null;
+                match.result = null;
+                match.oldResult = null;
                 calendarCurrent.add(match);
             }
             qualifiedTeams.clear();
@@ -96,13 +112,13 @@ public class Cup extends Competition {
                 match.team[Match.HOME] = match.team[Match.AWAY];
                 match.team[Match.AWAY] = tmp;
 
-                match.oldStats = match.stats;
-                match.stats = null;
+                match.oldResult = match.result;
+                match.result = null;
                 match.includesExtraTime = false;
-                match.statsAfter90 = null;
+                match.resultAfter90 = null;
                 match.status = Assets.strings.get("1ST LEG") +
-                        " " + match.oldStats[Match.AWAY].goals +
-                        "-" + match.oldStats[Match.HOME].goals;
+                        " " + match.oldResult.awayGoals +
+                        "-" + match.oldResult.homeGoals;
             }
         }
 
@@ -116,10 +132,10 @@ public class Cup extends Competition {
                     match.team[Match.HOME] = match.team[Match.AWAY];
                     match.team[Match.AWAY] = tmp;
 
-                    match.stats = null;
+                    match.result = null;
                     match.includesExtraTime = false;
-                    match.statsAfter90 = null;
-                    match.oldStats = null;
+                    match.resultAfter90 = null;
+                    match.oldResult = null;
                     match.status = "";
                 } else {
                     calendarCurrent.remove(match);
@@ -130,6 +146,275 @@ public class Cup extends Competition {
         // update month
         int seasonLength = ((seasonEnd - seasonStart + 12) % 12);
         currentMonth = (seasonStart + seasonLength * currentRound / rounds.size()) % 12;
+    }
+
+    public void generateResult() {
+        // TODO: generate score
+        int goalA = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+        int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+        setResult(goalA, goalB, Cup.ResultType.AFTER_90_MINS);
+
+        if (playExtraTime()) {
+            // TODO: generate score
+            goalA += 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+            goalB += 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+            setResult(goalA, goalB, Cup.ResultType.AFTER_EXTRA_TIME);
+        }
+
+        teams.get(getMatch().team[Match.HOME]).generateScorers(goalA);
+        teams.get(getMatch().team[Match.AWAY]).generateScorers(goalB);
+
+        if (playPenalties()) {
+            do {
+                goalA = Emath.floor(6 * Math.random());
+                goalB = Emath.floor(6 * Math.random());
+            } while (goalA == goalB);
+            setResult(goalA, goalB, Cup.ResultType.AFTER_PENALTIES);
+        }
+    }
+
+    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
+        Match match = getMatch();
+        if (resultType == ResultType.AFTER_PENALTIES) {
+            match.resultAfterPenalties = new Match.Result(homeGoals, awayGoals);
+        } else {
+            match.result = new Match.Result(homeGoals, awayGoals);
+            if (resultType == ResultType.AFTER_EXTRA_TIME) {
+                match.includesExtraTime = true;
+            } else {
+                match.resultAfter90 = new Match.Result(homeGoals, awayGoals);
+            }
+        }
+        match.qualified = getQualified(match);
+        match.status = "";// TODO: getMatchStatus(match);
+        if (match.qualified != -1) {
+            qualifiedTeams.add(match.qualified);
+        }
+        match.ended = true;
+    }
+
+    // decide if extra time have to be played depending on current result, leg's type and settings
+    public boolean playExtraTime() {
+        Match match = getMatch();
+        Round round = rounds.get(currentRound);
+
+        // first leg
+        if (currentLeg == 0) {
+
+            // two legs round
+            if (round.legs == 2) {
+                return false;
+            }
+
+            // result
+            if (match.result.homeGoals != match.result.awayGoals) {
+                return false;
+            }
+
+            // settings
+            switch (round.extraTime) {
+                case OFF:
+                    return false;
+                case ON:
+                    return true;
+                case IF_REPLAY:
+                    return false;
+            }
+        }
+
+        // second leg
+        else if (currentLeg == 1 && round.legs == 2) {
+
+            // aggregate goals
+            int aggregate1 = match.result.homeGoals + match.oldResult.awayGoals;
+            int aggregate2 = match.result.awayGoals + match.oldResult.homeGoals;
+            if (aggregate1 != aggregate2) {
+                return false;
+            }
+
+            // away goals
+            if ((match.oldResult.awayGoals != match.result.awayGoals) && (awayGoals == AwayGoals.AFTER_90_MINS)) {
+                return false;
+            }
+
+            // settings
+            switch (round.extraTime) {
+                case OFF:
+                    return false;
+                case ON:
+                    return true;
+                case IF_REPLAY:
+                    return false;
+            }
+
+        }
+
+        // replays
+        else {
+            // result
+            if (match.result.homeGoals != match.result.awayGoals) {
+                return false;
+            }
+
+            // settings
+            switch (round.extraTime) {
+                case OFF:
+                    return false;
+                case ON:
+                    return true;
+                case IF_REPLAY:
+                    return true;
+            }
+        }
+
+        // should never get here
+        return false;
+    }
+
+    // decide if penalties have to be played depending on current result, leg's type and settings
+    public boolean playPenalties() {
+        Match match = getMatch();
+        Round round = rounds.get(currentRound);
+
+        // first leg
+        if (currentLeg == 0) {
+
+            // two legs round
+            if (round.legs == 2) {
+                return false;
+            }
+
+            // result
+            if (match.result.homeGoals != match.result.awayGoals) {
+                return false;
+            }
+
+            // settings
+            switch (round.penalties) {
+                case OFF:
+                    return false;
+                case ON:
+                    return true;
+                case IF_REPLAY:
+                    return false;
+            }
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (round.legs == 2)) {
+
+            // aggregate goals
+            int aggregate1 = match.result.homeGoals + match.oldResult.awayGoals;
+            int aggregate2 = match.result.awayGoals + match.oldResult.homeGoals;
+            if (aggregate1 != aggregate2) {
+                return false;
+            }
+
+            // away goals
+            if ((match.oldResult.awayGoals != match.result.awayGoals) && (awayGoals != AwayGoals.OFF)) {
+                return false;
+            }
+
+            // settings
+            switch (round.penalties) {
+                case OFF:
+                    return false;
+                case ON:
+                    return true;
+                case IF_REPLAY:
+                    return false;
+            }
+        }
+
+        // replays
+        else {
+            // result
+            if (match.result.homeGoals != match.result.awayGoals) {
+                return false;
+            }
+
+            // settings
+            switch (round.penalties) {
+                case OFF:
+                    return false;
+                case ON:
+                    // this should never happen
+                    throw new GdxRuntimeException("Invalid state in cup");
+                case IF_REPLAY:
+                    return true;
+            }
+        }
+
+        // should never get here
+        return false;
+    }
+
+    private int getQualified(Match match) {
+        if (match.resultAfterPenalties != null) {
+            if (match.resultAfterPenalties.homeGoals > match.resultAfterPenalties.awayGoals) {
+                return 0;
+            } else if (match.resultAfterPenalties.homeGoals < match.resultAfterPenalties.awayGoals) {
+                return 1;
+            } else {
+                throw new GdxRuntimeException("Invalid state in cup");
+            }
+        }
+
+        Round round = rounds.get(currentRound);
+
+        // first leg
+        if (currentLeg == 0) {
+            switch (round.legs) {
+                case 1:
+                    if (match.result.homeGoals > match.result.awayGoals) {
+                        return 0;
+                    } else if (match.result.homeGoals < match.result.awayGoals) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                case 2:
+                    return -1;
+            }
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (round.legs == 2)) {
+            int aggregate1 = match.result.homeGoals + match.oldResult.awayGoals;
+            int aggregate2 = match.result.awayGoals + match.oldResult.homeGoals;
+            if (aggregate1 > aggregate2) {
+                return 0;
+            } else if (aggregate1 < aggregate2) {
+                return 1;
+            } else {
+                if ((awayGoals == AwayGoals.AFTER_90_MINS) ||
+                        (awayGoals == AwayGoals.AFTER_EXTRA_TIME && match.includesExtraTime)) {
+                    if (match.oldResult.awayGoals > match.result.awayGoals) {
+                        return 0;
+                    } else if (match.oldResult.awayGoals < match.result.awayGoals) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                } else {
+                    return -1;
+                }
+            }
+        }
+
+        // replays
+        else {
+            if (match.result.homeGoals > match.result.awayGoals) {
+                return 0;
+            } else if (match.result.homeGoals < match.result.awayGoals) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+
+        // should never get here
+        return -1;
     }
 
     public Type getType() {

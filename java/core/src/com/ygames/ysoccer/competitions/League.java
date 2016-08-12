@@ -3,6 +3,7 @@ package com.ygames.ysoccer.competitions;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 
@@ -95,6 +96,17 @@ public class League extends Competition {
         currentMatch = 0;
         currentRound = 0;
         updateMonth();
+    }
+
+    public void generateResult() {
+        // TODO: generate result
+        int goalA = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+        int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+
+        setResult(goalA, goalB);
+
+        teams.get(getMatch().team[Match.HOME]).generateScorers(goalA);
+        teams.get(getMatch().team[Match.AWAY]).generateScorers(goalB);
     }
 
     public void setResult(int homeGoals, int awayGoals) {

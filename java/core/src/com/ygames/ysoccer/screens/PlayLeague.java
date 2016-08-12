@@ -299,14 +299,7 @@ public class PlayLeague extends GlScreen {
                 league.userPrefersResult = true;
             }
 
-            // TODO: generate result
-            int goalA = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
-            int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
-
-            league.setResult(goalA, goalB);
-
-            league.teams.get(league.getMatch().team[Match.HOME]).generateScorers(goalA);
-            league.teams.get(league.getMatch().team[Match.AWAY]).generateScorers(goalB);
+            league.generateResult();
 
             game.setScreen(new PlayLeague(game));
         }

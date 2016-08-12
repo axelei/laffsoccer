@@ -68,8 +68,7 @@ public abstract class Competition {
         return true;
     }
 
-    public void restart() {
-    }
+    public void restart() {}
 
     public ArrayList<Team> loadTeams() {
         ArrayList<Team> teamList = new ArrayList<Team>();

@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -96,8 +97,11 @@ public class PlayCup extends GlScreen {
                 Widget playMatchButton = new PlayMatchButton();
                 widgets.add(playMatchButton);
 
+                Widget viewResultButton = new ViewResultButton();
+                widgets.add(viewResultButton);
+
                 if (cup.bothComputers() || cup.userPrefersResult) {
-                    // TODO
+                    selectedWidget = viewResultButton;
                 } else {
                     selectedWidget = playMatchButton;
                 }
@@ -164,6 +168,42 @@ public class PlayCup extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO
+        }
+    }
+
+    class ViewResultButton extends Button {
+
+        public ViewResultButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 190, 660, 220, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText("", Font.Align.CENTER, Assets.font14);
+            if (cup.bothComputers()) {
+                setText(Assets.strings.get("VIEW RESULT"));
+            } else {
+                setText("- " + Assets.strings.get("RESULT") + " -");
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            viewResult();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            if (cup.bothComputers()) {
+                viewResult();
+            }
+        }
+
+        private void viewResult() {
+            if (!cup.bothComputers()) {
+                cup.userPrefersResult = true;
+            }
+
+            cup.generateResult();
+
+            game.setScreen(new PlayCup(game));
         }
     }
 
