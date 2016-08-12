@@ -118,7 +118,7 @@ public class Cup extends Competition {
                 match.result = null;
                 match.includesExtraTime = false;
                 match.resultAfter90 = null;
-                match.status = Assets.strings.get("1ST LEG") +
+                match.status = Assets.strings.get("MATCH STATUS.1ST LEG") +
                         " " + match.oldResult.awayGoals +
                         "-" + match.oldResult.homeGoals;
             }
@@ -159,8 +159,8 @@ public class Cup extends Competition {
 
         if (playExtraTime()) {
             // TODO: generate score
-            goalA += 6 - Emath.floor(Math.log10(1000000 * Math.random()));
-            goalB += 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+            goalA += 2 - Emath.floor(Math.log10(100 * Math.random()));
+            goalB += 2 - Emath.floor(Math.log10(100 * Math.random()));
             setResult(goalA, goalB, Cup.ResultType.AFTER_EXTRA_TIME);
         }
 
@@ -189,7 +189,7 @@ public class Cup extends Competition {
             }
         }
         match.qualified = getQualified(match);
-        match.status = "";// TODO: getMatchStatus(match);
+        match.status = getMatchStatus(match);
         if (match.qualified != -1) {
             qualifiedTeams.add(match.qualified);
         }
@@ -418,6 +418,102 @@ public class Cup extends Competition {
 
         // should never get here
         return -1;
+    }
+
+    private String getMatchStatus(Match match) {
+        String s = "";
+
+        // first leg
+        if (currentLeg == 0) {
+            if (match.qualified != -1) {
+                if (match.resultAfterPenalties != null) {
+                    s = teams.get(match.qualified).name.toUpperCase()
+                            + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                            + Math.max(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
+                            + "-"
+                            + Math.min(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
+                            + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
+                    if (match.includesExtraTime) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                        if ((match.result.homeGoals != match.resultAfter90.homeGoals)
+                                || (match.result.awayGoals != match.resultAfter90.awayGoals)) {
+                            s += " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                                    + " " + match.resultAfter90.homeGoals + "-" + match.resultAfter90.awayGoals;
+                        }
+                    }
+                } else if (match.includesExtraTime) {
+                    s = Assets.strings.get("AFTER EXTRA TIME")
+                            + " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                            + " " + match.resultAfter90.homeGoals + "-" + match.resultAfter90.awayGoals;
+                }
+            }
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (rounds.get(currentRound).legs == 2)) {
+            if (match.qualified != -1) {
+                // penalties
+                if (match.resultAfterPenalties != null) {
+                    s = teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                            + Math.max(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
+                            + "-"
+                            + Math.min(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
+                            + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
+                    if (match.includesExtraTime) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                        if ((match.result.homeGoals != match.resultAfter90.homeGoals)
+                                || (match.result.awayGoals != match.resultAfter90.awayGoals)) {
+                            s += " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                                    + " " + match.resultAfter90.homeGoals + "-" + match.resultAfter90.awayGoals;
+                        }
+                    }
+                } else {
+                    int agg_score_a = match.result.homeGoals + match.oldResult.awayGoals;
+                    int agg_score_b = match.result.awayGoals + match.oldResult.homeGoals;
+
+                    // away goals
+                    if (agg_score_a == agg_score_b) {
+                        s += agg_score_a + "-" + agg_score_b + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE") + " "
+                                + teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " " + Assets.strings.get("MATCH STATUS.ON AWAY GOALS");
+                    }
+                    //on aggregate
+                    else {
+                        s = teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                                + Math.max(agg_score_a, agg_score_b)
+                                + "-"
+                                + Math.min(agg_score_a, agg_score_b)
+                                + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE");
+                    }
+                    if (match.includesExtraTime) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                    }
+                }
+            } else {
+                s = Assets.strings.get("MATCH STATUS.1ST LEG") + " " + match.oldResult.homeGoals + "-" + match.oldResult.awayGoals;
+            }
+
+        }
+
+        // replays
+        else {
+            if (match.qualified != -1) {
+                if (match.resultAfterPenalties != null) {
+                    s = teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                            + Math.max(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
+                            + "-"
+                            + Math.min(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
+                            + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
+                    if (match.includesExtraTime) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                    }
+                } else if (match.includesExtraTime) {
+                    s = Assets.strings.get("AFTER EXTRA TIME") + " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                            + " " + match.resultAfter90.homeGoals + "-" + match.resultAfter90.awayGoals;
+                }
+            }
+        }
+
+        return s;
     }
 
     public Type getType() {

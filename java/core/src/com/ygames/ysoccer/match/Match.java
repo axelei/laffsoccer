@@ -13,7 +13,7 @@ public class Match {
     public Result resultAfterPenalties;
     public Result oldResult;
     public int qualified = -1;
-    public String status;
+    public String status = "";
     public boolean ended;
 
     public Match() {

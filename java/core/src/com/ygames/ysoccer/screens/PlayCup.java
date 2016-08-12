@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,14 +56,43 @@ public class PlayCup extends GlScreen {
             resultWidgets.add(w);
             widgets.add(w);
 
+            // result (home goals)
+            w = new Label();
+            w.setGeometry(640 - 45, dy + 64 * m, 30, 26);
+            w.setText("", Font.Align.RIGHT, Assets.font10);
+            if (match.ended) {
+                w.setText(match.result.homeGoals);
+            }
+            resultWidgets.add(w);
+            widgets.add(w);
+
             w = new VersusLabel(dy + 64 * m, match);
+            resultWidgets.add(w);
+            widgets.add(w);
+
+            // result (away goals)
+            w = new Label();
+            w.setGeometry(640 + 15, dy + 64 * m, 30, 26);
+            w.setText("", Font.Align.LEFT, Assets.font10);
+            if (match.ended) {
+                w.setText(match.result.awayGoals);
+            }
             resultWidgets.add(w);
             widgets.add(w);
 
             w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.team[Match.AWAY]), Font.Align.LEFT);
             resultWidgets.add(w);
             widgets.add(w);
+
+            // status
+            w = new Label();
+            w.setGeometry(game.settings.GUI_WIDTH / 2 - 360, dy + 26 + 64 * m, 720, 26);
+            // TODO: use green charset
+            w.setText(match.status, Font.Align.CENTER, Assets.font10);
+            resultWidgets.add(w);
+            widgets.add(w);
         }
+        updateResultWidgets();
 
         Match match = cup.getMatch();
 
@@ -94,7 +124,7 @@ public class PlayCup extends GlScreen {
 
         // result (away goals)
         w = new Label();
-        w.setGeometry(game.settings.GUI_WIDTH / 2 +20, 618, 40, 36);
+        w.setGeometry(game.settings.GUI_WIDTH / 2 + 20, 618, 40, 36);
         w.setText("", Font.Align.LEFT, Assets.font14);
         if (match.ended) {
             w.setText(match.result.awayGoals);
@@ -118,6 +148,14 @@ public class PlayCup extends GlScreen {
             selectedWidget = exitButton;
 
         } else {
+
+            if (matches > 8) {
+                w = new ScrollButton(94, -1);
+                widgets.add(w);
+
+                w = new ScrollButton(548, +1);
+                widgets.add(w);
+            }
 
             if (match.ended) {
                 w = new NextMatchButton();
@@ -179,6 +217,34 @@ public class PlayCup extends GlScreen {
                 setText("-");
             }
             setActive(false);
+        }
+    }
+
+    class ScrollButton extends Button {
+
+        int direction;
+
+        public ScrollButton(int y, int direction) {
+            this.direction = direction;
+            setGeometry(228, y, 20, 36);
+            setColors(0x000000, 0x1BC12F, 0x004814);
+            // TODO: replace text with scroll icon
+            setText((direction == 1) ? "D" : "U", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            scroll(direction);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            scroll(direction);
+        }
+
+        private void scroll(int direction) {
+            offset = Emath.slide(offset, 0, matches - 8, direction);
+            updateResultWidgets();
         }
     }
 
@@ -286,6 +352,21 @@ public class PlayCup extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new Main(game));
+        }
+    }
+
+    private void updateResultWidgets() {
+        if (matches > 8) {
+            int m = 0;
+            for (Widget w : resultWidgets) {
+                if ((m >= 6 * offset) && (m < 6 * (offset + 8))) {
+                    w.y = 120 + 64 * (m / 6 - offset) + ((m % 6) == 5 ? 26 : 0);
+                    w.setVisible(true);
+                } else {
+                    w.setVisible(false);
+                }
+                m = m + 1;
+            }
         }
     }
 }
