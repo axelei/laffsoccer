@@ -91,6 +91,9 @@ public class InfoCup extends GlScreen {
 
             w = new RoundExtraTimeButton(i);
             widgets.add(w);
+
+            w = new RoundPenaltiesButton(i);
+            widgets.add(w);
         }
     }
 
@@ -323,6 +326,20 @@ public class InfoCup extends GlScreen {
             if (isVisible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
             }
+        }
+    }
+
+    class RoundPenaltiesButton extends Button {
+
+        public RoundPenaltiesButton(int round) {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 230, 344 + 34 * round, 240, 32);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setVisible(round < cup.rounds.size());
+            if (isVisible) {
+                setText(Assets.strings.get(cup.rounds.get(round).getPenaltiesLabel()));
+            }
+            setActive(false);
         }
     }
 }
