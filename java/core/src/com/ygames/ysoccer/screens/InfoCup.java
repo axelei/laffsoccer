@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 
 public class InfoCup extends GlScreen {
@@ -35,6 +36,9 @@ public class InfoCup extends GlScreen {
         widgets.add(w);
 
         w = new SeasonEndButton();
+        widgets.add(w);
+
+        w = new PitchTypeButton();
         widgets.add(w);
     }
 
@@ -87,6 +91,17 @@ public class InfoCup extends GlScreen {
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]), Font.Align.CENTER, Assets.font14);
             setVisible(cup.bySeason);
+            setActive(false);
+        }
+    }
+
+    class PitchTypeButton extends Button {
+
+        public PitchTypeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 232, 165, 392, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get(Pitch.names[cup.pitchType]), Font.Align.CENTER, Assets.font14);
+            setVisible(!cup.bySeason);
             setActive(false);
         }
     }
