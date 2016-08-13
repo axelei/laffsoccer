@@ -82,6 +82,9 @@ public class InfoCup extends GlScreen {
         for (int i = 0; i < 6; i++) {
             w = new RoundNameLabel(i);
             widgets.add(w);
+
+            w = new RoundTeamsLabel(i);
+            widgets.add(w);
         }
     }
 
@@ -277,6 +280,17 @@ public class InfoCup extends GlScreen {
             if (isVisible) {
                 setText(Assets.strings.get(cup.getRoundName(round)));
             }
+        }
+    }
+
+    class RoundTeamsLabel extends Button {
+
+        public RoundTeamsLabel(int round) {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 212, 344 + 34 * round, 50, 32);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(cup.getRoundTeams(round), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+            setVisible(round < cup.rounds.size());
         }
     }
 }
