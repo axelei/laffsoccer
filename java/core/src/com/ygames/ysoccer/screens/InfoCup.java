@@ -64,6 +64,9 @@ public class InfoCup extends GlScreen {
 
         w = new RoundsButton();
         widgets.add(w);
+
+        w = new AwayGoalsLabel();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -206,6 +209,16 @@ public class InfoCup extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 232, 255, 158, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(cup.rounds.size(), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    class AwayGoalsLabel extends Button {
+
+        public AwayGoalsLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 64, 255, 228, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

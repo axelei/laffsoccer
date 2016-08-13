@@ -525,7 +525,7 @@ public class DiyCup extends GlScreen {
         }
     }
 
-    public class AwayGoalsLabel extends Button {
+    class AwayGoalsLabel extends Button {
 
         public AwayGoalsLabel() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 64, 255, 228, 36);
