@@ -23,6 +23,9 @@ public class InfoCup extends GlScreen {
 
         w = new TitleBar();
         widgets.add(w);
+
+        w = new SeasonPitchTypeButton();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -31,6 +34,16 @@ public class InfoCup extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 680) / 2, 30, 680, 40);
             setColors(game.stateColor);
             setText(cup.name, Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    class SeasonPitchTypeButton extends Button {
+
+        public SeasonPitchTypeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 165, 236, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get(cup.getBySeasonLabel()), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
