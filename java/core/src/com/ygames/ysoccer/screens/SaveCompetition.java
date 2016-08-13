@@ -80,7 +80,7 @@ public class SaveCompetition extends GlScreen {
             setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             String s = Assets.strings.get("SAVE %s");
-            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font14);
+            setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

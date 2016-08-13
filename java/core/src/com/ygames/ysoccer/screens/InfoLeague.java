@@ -86,9 +86,9 @@ public class InfoLeague extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
+            setGeometry((game.settings.GUI_WIDTH - 680) / 2, 30, 680, 40);
             setColors(game.stateColor);
-            setText(league.getMenuTitle().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(league.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

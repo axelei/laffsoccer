@@ -178,7 +178,7 @@ public class Main extends GlScreen {
             setColors(0x568200, 0x77B400, 0x243E00);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, y, 600, 32);
             String s = Assets.strings.get(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
-            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font10);
+            setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font10);
         }
 
         @Override
@@ -210,7 +210,7 @@ public class Main extends GlScreen {
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, y + 40, 600, 32);
             String s = Assets.strings.get("SAVE %s");
-            setText(s.replace("%s", game.competition.longName.toUpperCase()), Font.Align.CENTER, Assets.font10);
+            setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font10);
         }
 
         @Override

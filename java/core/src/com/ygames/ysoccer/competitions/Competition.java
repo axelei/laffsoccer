@@ -12,7 +12,6 @@ import java.util.Calendar;
 
 public abstract class Competition {
     public String name;
-    public String longName;
     public String filename;
     public String path;
     public String absolutePath;
@@ -57,7 +56,7 @@ public abstract class Competition {
     public abstract Type getType();
 
     public String getMenuTitle() {
-        return longName;
+        return name;
     }
 
     public void start(ArrayList<Team> teams) {

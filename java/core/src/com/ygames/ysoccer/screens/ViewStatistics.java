@@ -72,7 +72,7 @@ public class ViewStatistics extends GlScreen {
                     game.setScreen(new InfoLeague(game));
                     break;
                 case CUP:
-                    // TODO: set CupInfo screen
+                    game.setScreen(new InfoCup(game));
                     break;
             }
         }

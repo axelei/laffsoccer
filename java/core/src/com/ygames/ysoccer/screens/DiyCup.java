@@ -163,7 +163,6 @@ public class DiyCup extends GlScreen {
         @Override
         public void onUpdate() {
             cup.name = text;
-            cup.longName = text;
         }
     }
 
