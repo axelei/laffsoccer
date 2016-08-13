@@ -474,7 +474,7 @@ public class DiyCup extends GlScreen {
         }
     }
 
-    public class RoundsButton extends Button {
+    class RoundsButton extends Button {
 
         public RoundsButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 232, 255, 158, 36);
