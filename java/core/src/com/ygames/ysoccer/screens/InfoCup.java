@@ -55,6 +55,9 @@ public class InfoCup extends GlScreen {
 
         w = new BenchSizeLabel();
         widgets.add(w);
+
+        w = new BenchSizeButton();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -167,6 +170,16 @@ public class InfoCup extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 + 5, 210, 305, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    class BenchSizeButton extends Button {
+
+        public BenchSizeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 312, 210, 158, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(cup.benchSize, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
