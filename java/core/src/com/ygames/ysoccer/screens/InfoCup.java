@@ -43,6 +43,9 @@ public class InfoCup extends GlScreen {
 
         w = new TimeLabel();
         widgets.add(w);
+
+        w = new TimeButton();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -115,6 +118,16 @@ public class InfoCup extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 + 170, 165, 140, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    class TimeButton extends Button {
+
+        public TimeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 312, 165, 158, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get(Time.names[cup.time]), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
