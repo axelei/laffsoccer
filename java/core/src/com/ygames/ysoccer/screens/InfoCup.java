@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
@@ -69,6 +70,9 @@ public class InfoCup extends GlScreen {
         widgets.add(w);
 
         w = new AwayGoalsButton();
+        widgets.add(w);
+
+        w = new TeamsLabel();
         widgets.add(w);
     }
 
@@ -234,6 +238,14 @@ public class InfoCup extends GlScreen {
             setText(Assets.strings.get(cup.getAwayGoalsLabel()), Font.Align.CENTER, Assets.font14);
             setVisible(cup.hasTwoLegsRound());
             setActive(false);
+        }
+    }
+
+    class TeamsLabel extends Label {
+
+        public TeamsLabel() {
+            setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.settings.GUI_WIDTH / 2 - 186, 325);
         }
     }
 }
