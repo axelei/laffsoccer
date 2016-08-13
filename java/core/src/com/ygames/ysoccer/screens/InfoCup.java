@@ -95,6 +95,11 @@ public class InfoCup extends GlScreen {
             w = new RoundPenaltiesButton(i);
             widgets.add(w);
         }
+
+        w = new ExitButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     class TitleBar extends Button {
@@ -313,6 +318,7 @@ public class InfoCup extends GlScreen {
             if (isVisible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getLegsLabel()));
             }
+            setActive(false);
         }
     }
 
@@ -326,6 +332,7 @@ public class InfoCup extends GlScreen {
             if (isVisible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
             }
+            setActive(false);
         }
     }
 
@@ -340,6 +347,20 @@ public class InfoCup extends GlScreen {
                 setText(Assets.strings.get(cup.rounds.get(round).getPenaltiesLabel()));
             }
             setActive(false);
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ViewStatistics(game));
         }
     }
 }
