@@ -77,6 +77,12 @@ public class InfoCup extends GlScreen {
 
         w = new DescriptionLabel();
         widgets.add(w);
+
+        // rounds
+        for (int i = 0; i < 6; i++) {
+            w = new RoundNameLabel(i);
+            widgets.add(w);
+        }
     }
 
     class TitleBar extends Button {
@@ -257,6 +263,20 @@ public class InfoCup extends GlScreen {
         public DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
             setPosition(game.settings.GUI_WIDTH / 2 + 115, 325);
+        }
+    }
+
+    class RoundNameLabel extends Button {
+
+        public RoundNameLabel(int round) {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 470, 344 + 34 * round, 248, 32);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+            setVisible(round < cup.rounds.size());
+            if (isVisible) {
+                setText(Assets.strings.get(cup.getRoundName(round)));
+            }
         }
     }
 }
