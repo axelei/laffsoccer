@@ -33,6 +33,9 @@ public class InfoCup extends GlScreen {
 
         w = new SeasonSeparatorButton();
         widgets.add(w);
+
+        w = new SeasonEndButton();
+        widgets.add(w);
     }
 
     class TitleBar extends Button {
@@ -72,6 +75,17 @@ public class InfoCup extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 54, 165, 36, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
+            setVisible(cup.bySeason);
+            setActive(false);
+        }
+    }
+
+    class SeasonEndButton extends Button {
+
+        public SeasonEndButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 16, 165, 176, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]), Font.Align.CENTER, Assets.font14);
             setVisible(cup.bySeason);
             setActive(false);
         }
