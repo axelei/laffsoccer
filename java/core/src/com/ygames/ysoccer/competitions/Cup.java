@@ -152,20 +152,22 @@ public class Cup extends Competition {
     }
 
     public void generateResult() {
-        // TODO: generate score
-        int goalA = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
-        int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+        Match match = getMatch();
+        Team homeTeam = teams.get(match.team[Match.HOME]);
+        Team awayTeam = teams.get(match.team[Match.AWAY]);
+
+        int goalA = Match.generateScore(homeTeam, awayTeam, false);
+        int goalB = Match.generateScore(awayTeam, homeTeam, false);
         setResult(goalA, goalB, Cup.ResultType.AFTER_90_MINS);
 
         if (playExtraTime()) {
-            // TODO: generate score
-            goalA += 2 - Emath.floor(Math.log10(100 * Math.random()));
-            goalB += 2 - Emath.floor(Math.log10(100 * Math.random()));
+            goalA += Match.generateScore(homeTeam, awayTeam, true);
+            goalB += Match.generateScore(awayTeam, homeTeam, true);
             setResult(goalA, goalB, Cup.ResultType.AFTER_EXTRA_TIME);
         }
 
-        teams.get(getMatch().team[Match.HOME]).generateScorers(goalA);
-        teams.get(getMatch().team[Match.AWAY]).generateScorers(goalB);
+        homeTeam.generateScorers(goalA);
+        awayTeam.generateScorers(goalB);
 
         if (playPenalties()) {
             do {

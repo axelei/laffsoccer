@@ -154,6 +154,38 @@ public class Player {
         return orderedSkills;
     }
 
+    public int getDefenseRating() {
+        switch (role) {
+            case DEFENDER:
+            case RIGHT_BACK:
+            case LEFT_BACK:
+            case MIDFIELDER:
+                return skills.tackling
+                        + skills.heading
+                        + skills.passing
+                        + skills.speed
+                        + skills.control;
+            default:
+                return 0;
+        }
+    }
+
+    public int getOffenseRating() {
+        switch (role) {
+            case RIGHT_WINGER:
+            case LEFT_WINGER:
+            case MIDFIELDER:
+            case ATTACKER:
+                return skills.heading
+                        + skills.finishing
+                        + skills.speed
+                        + skills.shooting
+                        + skills.control;
+            default:
+                return 0;
+        }
+    }
+
     public String getSkillLabel(Skill skill) {
         return skillLabels[skill.ordinal()];
     }

@@ -33,4 +33,36 @@ public class Match {
             this.awayGoals = awayGoals;
         }
     }
+
+    public static int generateScore(Team teamA, Team teamB, boolean extraTimeResult) {
+
+        double factor = (teamA.offenseRating() - teamB.defenseRating() + 300) / 60.0;
+
+        int a, b;
+        int[] goalsProbability = new int[7];
+        for (int goals = 0; goals < 7; goals++) {
+            a = Const.goalsProbability[(int) Math.floor(factor)][goals];
+            b = Const.goalsProbability[(int) Math.ceil(factor)][goals];
+            goalsProbability[goals] = (int) Math.round(a + (b - a) * (factor - Math.floor(factor)));
+        }
+
+        goalsProbability[6] = 1000;
+        for (int goals = 0; goals <= 5; goals++) {
+            goalsProbability[6] = goalsProbability[6] - goalsProbability[goals];
+        }
+
+        int r = (int) Math.ceil(1000 * Math.random());
+        int sum = 0;
+        int goals = -1;
+        while (sum < r) {
+            goals += 1;
+            sum += goalsProbability[goals];
+        }
+
+        if (extraTimeResult) {
+            return (int) Math.floor(goals / 3);
+        } else {
+            return goals;
+        }
+    }
 }

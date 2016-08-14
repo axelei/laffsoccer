@@ -99,27 +99,36 @@ public class League extends Competition {
     }
 
     public void generateResult() {
-        // TODO: generate result
-        int goalA = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
-        int goalB = 6 - Emath.floor(Math.log10(1000000 * Math.random()));
+        Match match = getMatch();
+        Team homeTeam = teams.get(match.team[Match.HOME]);
+        Team awayTeam = teams.get(match.team[Match.AWAY]);
+
+        int goalA = Match.generateScore(homeTeam, awayTeam, false);
+        int goalB = Match.generateScore(awayTeam, homeTeam, false);
 
         setResult(goalA, goalB);
 
-        teams.get(getMatch().team[Match.HOME]).generateScorers(goalA);
-        teams.get(getMatch().team[Match.AWAY]).generateScorers(goalB);
+        homeTeam.generateScorers(goalA);
+        awayTeam.generateScorers(goalB);
     }
 
     public void setResult(int homeGoals, int awayGoals) {
         Match match = getMatch();
+        Team homeTeam = teams.get(match.team[Match.HOME]);
+        Team awayTeam = teams.get(match.team[Match.AWAY]);
+
         match.result = new Match.Result(homeGoals, awayGoals);
-        teams.get(match.team[Match.HOME]).updateStats(homeGoals, awayGoals, pointsForAWin);
-        teams.get(match.team[Match.AWAY]).updateStats(awayGoals, homeGoals, pointsForAWin);
+        homeTeam.updateStats(homeGoals, awayGoals, pointsForAWin);
+        awayTeam.updateStats(awayGoals, homeGoals, pointsForAWin);
         match.ended = true;
     }
 
     public boolean bothComputers() {
         Match match = getMatch();
-        return teams.get(match.team[Match.HOME]).controlMode == Team.ControlMode.COMPUTER
-                && teams.get(match.team[Match.AWAY]).controlMode == Team.ControlMode.COMPUTER;
+        Team homeTeam = teams.get(match.team[Match.HOME]);
+        Team awayTeam = teams.get(match.team[Match.AWAY]);
+
+        return homeTeam.controlMode == Team.ControlMode.COMPUTER
+                && awayTeam.controlMode == Team.ControlMode.COMPUTER;
     }
 }

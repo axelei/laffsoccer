@@ -733,6 +733,7 @@ public class DiyCup extends GlScreen {
     }
 
     class OkButton extends Button {
+
         public OkButton() {
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 38);
@@ -746,6 +747,7 @@ public class DiyCup extends GlScreen {
     }
 
     class ExitButton extends Button {
+
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);

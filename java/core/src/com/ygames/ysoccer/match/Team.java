@@ -89,4 +89,21 @@ public class Team {
         // TODO: to be implemented
         return p < players.size() ? players.get(p) : null;
     }
+
+    public int defenseRating() {
+        int defense = 0;
+        for (int p = 0; p < 11; p++) {
+            defense += playerAtPosition(p).getDefenseRating();
+        }
+        return defense;
+    }
+
+    public int offenseRating() {
+        int offense = 0;
+        for (int p = 0; p < 11; p++) {
+            offense += playerAtPosition(p).getOffenseRating();
+        }
+        return offense;
+    }
+
 }
