@@ -17,6 +17,7 @@ public class EditPlayers extends GlScreen {
     boolean modified;
 
     Widget[] nameButtons = new Widget[Const.FULL_TEAM];
+    Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
 
     public EditPlayers(GlGame game, Team team, Boolean modified) {
         super(game);
@@ -33,6 +34,11 @@ public class EditPlayers extends GlScreen {
             w = new PlayerNameButton(p);
             nameButtons[p] = w;
             updateNameButton(p);
+            widgets.add(w);
+
+            w = new PlayerShirtNameButton(p);
+            shirtNameButtons[p] = w;
+            updateShirtNameButton(p);
             widgets.add(w);
         }
 
@@ -52,7 +58,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(304, 86 + 18 * p, 388, 17);
+            setGeometry(304, 86 + 18 * p, 364, 17);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(28);
         }
@@ -75,6 +81,37 @@ public class EditPlayers extends GlScreen {
             nameButtons[p].setText("");
         }
         nameButtons[p].setActive(p < team.players.size());
+    }
+
+    class PlayerShirtNameButton extends InputButton {
+
+        Player player;
+
+        public PlayerShirtNameButton(int p) {
+            player = team.playerAtPosition(p);
+            setGeometry(672, 86 + 18 * p, 194, 17);
+            setText("", Font.Align.LEFT, Assets.font10);
+            setEntryLimit(14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (player != null && !player.shirtName.equals(text)) {
+                player.shirtName = text;
+                setModified();
+            }
+        }
+    }
+
+    void updateShirtNameButton(int p) {
+        setPlayerWidgetColor(shirtNameButtons[p], p);
+        if (p < team.players.size()) {
+            Player player = team.playerAtPosition(p);
+            shirtNameButtons[p].setText(player.shirtName);
+        } else {
+            shirtNameButtons[p].setText("");
+        }
+        shirtNameButtons[p].setActive(p < team.players.size());
     }
 
     class TeamNameButton extends InputButton {
