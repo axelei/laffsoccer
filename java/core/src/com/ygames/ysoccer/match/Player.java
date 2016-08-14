@@ -31,7 +31,7 @@ public class Player {
     public String shirtName;
     public String nationality;
     public Role role;
-    public int number;
+    public String number;
 
     public Skills skills;
 

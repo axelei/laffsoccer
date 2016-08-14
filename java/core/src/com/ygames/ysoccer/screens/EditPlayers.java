@@ -16,6 +16,7 @@ public class EditPlayers extends GlScreen {
     int selectedPly;
     boolean modified;
 
+    Widget[] numberButtons = new Widget[Const.FULL_TEAM];
     Widget[] nameButtons = new Widget[Const.FULL_TEAM];
     Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
 
@@ -31,6 +32,11 @@ public class EditPlayers extends GlScreen {
 
         // players
         for (int p = 0; p < Const.FULL_TEAM; p++) {
+            w = new PlayerNumberButton(p);
+            numberButtons[p] = w;
+            updateNumberButton(p);
+            widgets.add(w);
+
             w = new PlayerNameButton(p);
             nameButtons[p] = w;
             updateNameButton(p);
@@ -50,6 +56,36 @@ public class EditPlayers extends GlScreen {
 
     void setModified() {
         modified = true;
+    }
+
+    class PlayerNumberButton extends InputButton {
+
+        Player player;
+
+        public PlayerNumberButton(int p) {
+            player = team.playerAtPosition(p);
+            setGeometry(248, 86 + 18 * p, 52, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setEntryLimit(3);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (player != null && !player.number.equals(text)) {
+                player.number = text;
+                setModified();
+            }
+        }
+    }
+
+    void updateNumberButton(int p) {
+        if (p < team.players.size()) {
+            Player player = team.playerAtPosition(p);
+            numberButtons[p].setText(player.number);
+        } else {
+            numberButtons[p].setText("");
+        }
+        numberButtons[p].setActive(p < team.players.size());
     }
 
     class PlayerNameButton extends InputButton {
