@@ -83,6 +83,7 @@ public class GlGame extends Game {
     }
 
     public void setState(State state, Competition.Category category) {
+        this.state = state;
         switch (state) {
             case COMPETITION:
                 stateBackground = new Image("images/backgrounds/menu_competition.jpg");
@@ -99,7 +100,15 @@ public class GlGame extends Game {
                 stateBackground = new Image("images/backgrounds/menu_friendly.jpg");
                 stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
                 break;
+            case EDIT:
+                stateBackground = new Image("images/backgrounds/menu_edit.jpg");
+                stateColor.set(0x89421B, 0xBB5A25, 0x3D1E0D);
+                break;
         }
+    }
+
+    public State getState() {
+        return state;
     }
 
     public boolean hasCompetition() {

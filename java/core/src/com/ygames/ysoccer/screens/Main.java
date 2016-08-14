@@ -110,6 +110,12 @@ public class Main extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 40 - 340, 450, 340, 36);
             setText(Assets.strings.get("EDIT TEAMS"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setState(GlGame.State.EDIT, null);
+            game.setScreen(new SelectFolder(game, Assets.teamsFolder, null));
+        }
     }
 
     class FriendlyButton extends Button {

@@ -70,11 +70,26 @@ public class SelectFolder extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            int diff = competition.numberOfTeams - game.teamList.size();
-            String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
-                    + " " + competition.name.toUpperCase();
-            if (!isDataRoot) {
-                title += " - " + fileHandle.name().toUpperCase();
+            String title = "";
+            switch (game.getState()) {
+                case COMPETITION:
+                case FRIENDLY:
+                    int diff = competition.numberOfTeams - game.teamList.size();
+                    title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
+                            + " " + competition.name.toUpperCase();
+                    if (!isDataRoot) {
+                        title += " - " + fileHandle.name().toUpperCase();
+                    }
+                    break;
+                case EDIT:
+                    title = Assets.strings.get("EDIT TEAMS");
+                    if (!isDataRoot) {
+                        title += " - " + fileHandle.name().toUpperCase();
+                    }
+                    break;
+                case TRAINING:
+                    // TODO
+                    break;
             }
             int w = Math.max(960, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
@@ -97,7 +112,14 @@ public class SelectFolder extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            competition.absolutePath = fileHandle.path();
+            switch (game.getState()) {
+                case COMPETITION:
+                case FRIENDLY:
+                    competition.absolutePath = fileHandle.path();
+                    break;
+                default:
+                    break;
+            }
             game.setScreen(new SelectFolder(game, fileHandle, competition));
         }
     }
@@ -115,7 +137,18 @@ public class SelectFolder extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeams(game, fileHandle, league, competition));
+            switch (game.getState()) {
+                case COMPETITION:
+                case FRIENDLY:
+                    game.setScreen(new SelectTeams(game, fileHandle, league, competition));
+                    break;
+                case EDIT:
+                    game.setScreen(new SelectTeam(game, fileHandle, league));
+                    break;
+                case TRAINING:
+                    // TODO
+                    break;
+            }
         }
     }
 
