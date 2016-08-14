@@ -94,7 +94,7 @@ public class SelectTeam extends GlScreen {
         public void onFire1Down() {
             switch (game.getState()) {
                 case EDIT:
-                    // TODO set EditPlayers screen
+                    game.setScreen(new EditPlayers(game, team, false));
                     break;
                 case TRAINING:
                     // TODO
