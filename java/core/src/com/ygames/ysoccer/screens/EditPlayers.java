@@ -4,11 +4,13 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 public class EditPlayers extends GlScreen {
 
@@ -19,6 +21,7 @@ public class EditPlayers extends GlScreen {
     Widget[] numberButtons = new Widget[Const.FULL_TEAM];
     Widget[] nameButtons = new Widget[Const.FULL_TEAM];
     Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
+    Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
 
     public EditPlayers(GlGame game, Team team, Boolean modified) {
         super(game);
@@ -45,6 +48,11 @@ public class EditPlayers extends GlScreen {
             w = new PlayerShirtNameButton(p);
             shirtNameButtons[p] = w;
             updateShirtNameButton(p);
+            widgets.add(w);
+
+            w = new PlayerNationalityButton(p);
+            nationalityButtons[p] = w;
+            updateNationalityButton(p);
             widgets.add(w);
         }
 
@@ -148,6 +156,58 @@ public class EditPlayers extends GlScreen {
             shirtNameButtons[p].setText("");
         }
         shirtNameButtons[p].setActive(p < team.players.size());
+    }
+
+    class PlayerNationalityButton extends Button {
+
+        int p;
+
+        public PlayerNationalityButton(int p) {
+            this.p = p;
+            setGeometry(870, 86 + 18 * p, 56, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateNationality(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateNationality(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateNationality(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateNationality(-1);
+        }
+
+        private void updateNationality(int n) {
+            Player player = team.playerAtPosition(p);
+            int i = Assets.associations.indexOf(player.nationality);
+            if (i != 1) {
+                i = Emath.rotate(i, 0, Assets.associations.size(), n);
+                player.nationality = Assets.associations.get(i);
+            }
+            updateNationalityButton(p);
+            setModified();
+        }
+    }
+
+    void updateNationalityButton(int p) {
+        if (p < team.players.size()) {
+            Player player = team.playerAtPosition(p);
+            nationalityButtons[p].setText("(" + player.nationality + ")");
+        } else {
+            nationalityButtons[p].setText("");
+        }
+        nationalityButtons[p].setActive((p < team.players.size()) && (team.type == Team.Type.CLUB));
     }
 
     class TeamNameButton extends InputButton {

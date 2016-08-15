@@ -31,9 +31,10 @@ public class Button extends Widget {
         // border ($000000 = invisible)
         if (color.lightBorder != 0x000000) {
             drawBorder(shapeRenderer, x, y, w, h, color.lightBorder, color.darkBorder);
-            if (isSelected && !entryMode) {
-                drawAnimatedBorder(glGraphics);
-            }
+        }
+
+        if (isSelected && !entryMode) {
+            drawAnimatedBorder(glGraphics);
         }
 
         shapeRenderer.end();

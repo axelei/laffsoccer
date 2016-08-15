@@ -7,10 +7,12 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.match.Const;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -27,6 +29,7 @@ public class Assets {
     public static FileHandle savesFolder;
     public static Json json;
     public static int[] calendars = new int[4600];
+    public static List<String> associations;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -44,6 +47,7 @@ public class Assets {
         json.setOutputType(JsonWriter.OutputType.json);
         json.setUsePrototypes(false);
         loadCalendars();
+        associations = Arrays.asList(Const.associations);
     }
 
     private static void loadLocales() {
