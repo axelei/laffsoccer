@@ -82,7 +82,7 @@ public class TopScorers extends GlScreen {
         return scorers;
     }
 
-    public class GoalsGroupBar extends Button {
+    class GoalsGroupBar extends Button {
 
         public GoalsGroupBar(int y, int goals) {
             setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
@@ -92,7 +92,7 @@ public class TopScorers extends GlScreen {
         }
     }
 
-    public class ScorerNameButton extends Button {
+    class ScorerNameButton extends Button {
 
         public ScorerNameButton(int y, String name) {
             setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
@@ -102,7 +102,7 @@ public class TopScorers extends GlScreen {
         }
     }
 
-    public class TeamNameLabel extends Label {
+    class TeamNameLabel extends Label {
 
         public TeamNameLabel(int y, String name) {
             setGeometry((game.settings.GUI_WIDTH / 2) + 130, y, 240, 22);
@@ -110,7 +110,7 @@ public class TopScorers extends GlScreen {
         }
     }
 
-    public class TitleBar extends Button {
+    class TitleBar extends Button {
 
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
@@ -120,7 +120,7 @@ public class TopScorers extends GlScreen {
         }
     }
 
-    public class ExitButton extends Button {
+    class ExitButton extends Button {
 
         public ExitButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
@@ -140,7 +140,7 @@ public class TopScorers extends GlScreen {
         public String team;
     }
 
-    public static class CompareScorerByGoals implements Comparator<Scorer> {
+    static class CompareScorerByGoals implements Comparator<Scorer> {
 
         @Override
         public int compare(Scorer o1, Scorer o2) {

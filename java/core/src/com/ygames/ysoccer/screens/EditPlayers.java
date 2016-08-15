@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -14,6 +16,8 @@ import com.ygames.ysoccer.math.Emath;
 
 public class EditPlayers extends GlScreen {
 
+    FileHandle fileHandle;
+    League league;
     Team team;
     int selectedPly;
     boolean modified;
@@ -24,8 +28,10 @@ public class EditPlayers extends GlScreen {
     Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
     Widget[] roleButtons = new Widget[Const.FULL_TEAM];
 
-    public EditPlayers(GlGame game, Team team, Boolean modified) {
+    public EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
         super(game);
+        this.fileHandle = fileHandle;
+        this.league = league;
         this.team = team;
         selectedPly = -1;
         this.modified = modified;
@@ -63,6 +69,9 @@ public class EditPlayers extends GlScreen {
         }
 
         w = new TeamNameButton();
+        widgets.add(w);
+
+        w = new ExitButton();
         widgets.add(w);
 
         selectedWidget = w;
@@ -278,6 +287,19 @@ public class EditPlayers extends GlScreen {
                 team.name = text;
                 setModified();
             }
+        }
+    }
+
+    class ExitButton extends Button {
+        public ExitButton() {
+            setGeometry(958, 660, 160, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectTeam(game, fileHandle, league));
         }
     }
 

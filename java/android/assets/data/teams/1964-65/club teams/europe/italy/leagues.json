@@ -1,6 +1,6 @@
 [
   {
-    "name": "Serie A",
+    "name": "SERIE A",
     "teams": [
       {
         "path": "1964-65/club teams/europe/italy/team.atalanta.json"
@@ -59,7 +59,7 @@
     ]
   },
   {
-    "name": "Serie B",
+    "name": "SERIE B",
     "teams": [
       {
         "path": "1964-65/club teams/europe/italy/team.alessandria.json"
