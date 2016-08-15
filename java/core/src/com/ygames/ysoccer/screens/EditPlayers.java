@@ -22,6 +22,7 @@ public class EditPlayers extends GlScreen {
     Widget[] nameButtons = new Widget[Const.FULL_TEAM];
     Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
     Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
+    Widget[] roleButtons = new Widget[Const.FULL_TEAM];
 
     public EditPlayers(GlGame game, Team team, Boolean modified) {
         super(game);
@@ -53,6 +54,11 @@ public class EditPlayers extends GlScreen {
             w = new PlayerNationalityButton(p);
             nationalityButtons[p] = w;
             updateNationalityButton(p);
+            widgets.add(w);
+
+            w = new PlayerRoleButton(p);
+            roleButtons[p] = w;
+            updateRoleButton(p);
             widgets.add(w);
         }
 
@@ -208,6 +214,53 @@ public class EditPlayers extends GlScreen {
             nationalityButtons[p].setText("");
         }
         nationalityButtons[p].setActive((p < team.players.size()) && (team.type == Team.Type.CLUB));
+    }
+
+    class PlayerRoleButton extends Button {
+
+        int p;
+
+        public PlayerRoleButton(int p) {
+            setGeometry(930, 86 + 18 * p, 30, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRole(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateRole(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRole(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateRole(-1);
+        }
+
+        private void updateRole(int n) {
+            Player player = team.playerAtPosition(p);
+            player.role = Player.Role.values()[Emath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
+            updateRoleButton(p);
+            setModified();
+        }
+    }
+
+    void updateRoleButton(int p) {
+        if (p < team.players.size()) {
+            Player player = team.playerAtPosition(p);
+            roleButtons[p].setText(Assets.strings.get(player.getRoleLabel()));
+        } else {
+            roleButtons[p].setText("");
+        }
+        roleButtons[p].setActive(p < team.players.size());
     }
 
     class TeamNameButton extends InputButton {

@@ -47,7 +47,7 @@ public class Assets {
         json.setOutputType(JsonWriter.OutputType.json);
         json.setUsePrototypes(false);
         loadCalendars();
-        associations = Arrays.asList(Const.associations);
+        associations = new ArrayList<String>(Arrays.asList(Const.associations));
     }
 
     private static void loadLocales() {
