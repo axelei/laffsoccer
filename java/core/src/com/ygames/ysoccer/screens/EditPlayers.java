@@ -22,6 +22,7 @@ public class EditPlayers extends GlScreen {
     int selectedPly;
     boolean modified;
 
+    Widget[] selectButtons = new Widget[Const.FULL_TEAM];
     Widget[] numberButtons = new Widget[Const.FULL_TEAM];
     Widget[] nameButtons = new Widget[Const.FULL_TEAM];
     Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
@@ -44,6 +45,11 @@ public class EditPlayers extends GlScreen {
 
         // players
         for (int p = 0; p < Const.FULL_TEAM; p++) {
+            w = new PlayerSelectButton(p);
+            selectButtons[p] = w;
+            updateSelectButton(p);
+            widgets.add(w);
+
             w = new PlayerNumberButton(p);
             numberButtons[p] = w;
             updateNumberButton(p);
@@ -86,6 +92,51 @@ public class EditPlayers extends GlScreen {
     void setModified() {
         modified = true;
         saveButton.setChanged(true);
+    }
+
+    class PlayerSelectButton extends Button {
+
+        int p;
+        Player player;
+
+        public PlayerSelectButton(int p) {
+            this.p = p;
+            setGeometry(220, 86 + 17 * p, 24, 17);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // select
+            if (selectedPly == -1) {
+                selectedPly = p;
+                Player player = team.playerAtPosition(selectedPly);
+                // TODO: copy player
+            }
+
+            // deselect
+            else if (selectedPly == p) {
+                selectedPly = -1;
+                // TODO: clear player
+            }
+
+            // swap
+            else {
+                // TODO: swap players
+            }
+
+            updatePlayerButtons(p);
+            // TODO: update delete button
+        }
+    }
+
+    void updateSelectButton(int p) {
+        setPlayerWidgetColor(selectButtons[p], p);
+        if (p < team.players.size()) {
+            ((PlayerSelectButton) selectButtons[p]).player = team.playerAtPosition(p);
+        } else {
+            ((PlayerSelectButton) selectButtons[p]).player = null;
+        }
+        selectButtons[p].setActive(p < team.players.size());
     }
 
     class PlayerNumberButton extends InputButton {
@@ -318,7 +369,10 @@ public class EditPlayers extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: save team
+            FileHandle fileHandle = Assets.teamsFolder.child(team.path);
+            team.path = null;
+            Assets.json.toJson(team, Team.class, fileHandle);
+
             game.setScreen(new SelectTeam(game, fileHandle, league));
         }
     }
@@ -366,5 +420,15 @@ public class EditPlayers extends GlScreen {
         if (selectedPly == ply) {
             b.setColors(0x993333, 0xC24242, 0x5A1E1E);
         }
+    }
+
+    void updatePlayerButtons(int p) {
+        updateSelectButton(p);
+        updateNumberButton(p);
+
+        updateNameButton(p);
+        updateShirtNameButton(p);
+        updateNationalityButton(p);
+        updateRoleButton(p);
     }
 }
