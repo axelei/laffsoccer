@@ -28,6 +28,8 @@ public class EditPlayers extends GlScreen {
     Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
     Widget[] roleButtons = new Widget[Const.FULL_TEAM];
 
+    Widget saveButton;
+
     public EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
         super(game);
         this.fileHandle = fileHandle;
@@ -71,6 +73,10 @@ public class EditPlayers extends GlScreen {
         w = new TeamNameButton();
         widgets.add(w);
 
+        w = new SaveButton();
+        saveButton = w;
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -79,6 +85,7 @@ public class EditPlayers extends GlScreen {
 
     void setModified() {
         modified = true;
+        saveButton.setChanged(true);
     }
 
     class PlayerNumberButton extends InputButton {
@@ -87,7 +94,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNumberButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(248, 86 + 18 * p, 52, 17);
+            setGeometry(248, 86 + 17 * p, 52, 17);
             setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(3);
         }
@@ -117,7 +124,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(304, 86 + 18 * p, 364, 17);
+            setGeometry(304, 86 + 17 * p, 364, 17);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(28);
         }
@@ -148,7 +155,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerShirtNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(672, 86 + 18 * p, 194, 17);
+            setGeometry(672, 86 + 17 * p, 194, 17);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(14);
         }
@@ -179,7 +186,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNationalityButton(int p) {
             this.p = p;
-            setGeometry(870, 86 + 18 * p, 56, 17);
+            setGeometry(870, 86 + 17 * p, 56, 17);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -230,7 +237,8 @@ public class EditPlayers extends GlScreen {
         int p;
 
         public PlayerRoleButton(int p) {
-            setGeometry(930, 86 + 18 * p, 30, 17);
+            this.p = p;
+            setGeometry(930, 86 + 17 * p, 30, 17);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -287,6 +295,31 @@ public class EditPlayers extends GlScreen {
                 team.name = text;
                 setModified();
             }
+        }
+    }
+
+    class SaveButton extends Button {
+
+        public SaveButton() {
+            setGeometry(788, 660, 160, 36);
+            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (modified) {
+                setColors(0xDC0000, 0xFF4141, 0x8C0000);
+                setActive(true);
+            } else {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO: save team
+            game.setScreen(new SelectTeam(game, fileHandle, league));
         }
     }
 

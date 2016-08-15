@@ -1,17 +1,6 @@
 [
   {
-    "name": "SERIE A 1964-65",
-    "rounds": 2,
-    "pointsForAWin": 2,
-    "bySeason": true,
-    "seasonStart": 8,
-    "seasonEnd": 5,
-    "substitutions": 3,
-    "benchSize": 5,
-    "time": 0,
-    "rounds": 2,
-    "pointsForAWin": 2,
-    "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
+    "name": "SERIE A",
     "teams": [
       {
         "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json"
@@ -70,10 +59,7 @@
     ]
   },
   {
-    "name": "SERIE B 1964-65",
-    "rounds": 2,
-    "pointsForAWin": 2,
-    "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
+    "name": "SERIE B",
     "teams": [
       {
         "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json"

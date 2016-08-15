@@ -76,15 +76,15 @@ public class SelectFolder extends GlScreen {
                 case FRIENDLY:
                     int diff = competition.numberOfTeams - game.teamList.size();
                     title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
-                            + " " + competition.name.toUpperCase();
+                            + " " + competition.name;
                     if (!isDataRoot) {
-                        title += " - " + fileHandle.name().toUpperCase();
+                        title += " - " + fileHandle.name().replace('_', ' ');
                     }
                     break;
                 case EDIT:
                     title = Assets.strings.get("EDIT TEAMS");
                     if (!isDataRoot) {
-                        title += " - " + fileHandle.name().toUpperCase();
+                        title += " - " + fileHandle.name().replace('_', ' ');
                     }
                     break;
                 case TRAINING:
@@ -107,7 +107,7 @@ public class SelectFolder extends GlScreen {
             this.fileHandle = fileHandle;
             setSize(340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
-            setText(fileHandle.name().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(fileHandle.name().replace('_', ' '), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -132,7 +132,7 @@ public class SelectFolder extends GlScreen {
             this.league = league;
             setSize(340, 40);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
-            setText(league.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(league.name, Font.Align.CENTER, Assets.font14);
         }
 
         @Override
