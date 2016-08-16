@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
@@ -34,6 +35,10 @@ public class EditTeam extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new CityLabel();
+        widgets.add(w);
+
     }
 
     void setModified() {
@@ -55,6 +60,17 @@ public class EditTeam extends GlScreen {
                 team.name = text;
                 setModified();
             }
+        }
+    }
+
+    class CityLabel extends Button {
+
+        public CityLabel() {
+            setGeometry(172, 110, 202, 30);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText(Assets.strings.get("CITY"), Font.Align.CENTER, Assets.font10);
+            setVisible(team.type == Team.Type.CLUB);
+            setActive(false);
         }
     }
 }
