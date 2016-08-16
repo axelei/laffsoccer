@@ -2,6 +2,7 @@
   "name": "FIORENTINA",
   "type": "CLUB",
   "country": "ITA",
+  "city": "FIRENZE",
   "tactics": "442",
   "players": [
     {

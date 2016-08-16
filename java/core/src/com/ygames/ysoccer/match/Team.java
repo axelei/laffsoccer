@@ -15,6 +15,7 @@ public class Team {
     public Type type;
     public String path;
     public String country;
+    public String city;
     public String tactics;
     public ControlMode controlMode;
 

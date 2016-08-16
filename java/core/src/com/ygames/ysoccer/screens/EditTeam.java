@@ -39,6 +39,8 @@ public class EditTeam extends GlScreen {
         w = new CityLabel();
         widgets.add(w);
 
+        w = new CityButton();
+        widgets.add(w);
     }
 
     void setModified() {
@@ -71,6 +73,24 @@ public class EditTeam extends GlScreen {
             setText(Assets.strings.get("CITY"), Font.Align.CENTER, Assets.font10);
             setVisible(team.type == Team.Type.CLUB);
             setActive(false);
+        }
+    }
+
+    class CityButton extends InputButton {
+
+        public CityButton() {
+            setGeometry(382, 110, 202, 30);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(team.city, Font.Align.CENTER, Assets.font10);
+            setEntryLimit(15);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (!team.city.equals(text)) {
+                team.city = text;
+                setModified();
+            }
         }
     }
 }

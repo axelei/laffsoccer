@@ -2,6 +2,7 @@
   "name": "JUVENTUS",
   "type": "CLUB",
   "country": "ITA",
+  "city": "TORINO",
   "tactics": "442",
   "players": [
     {

@@ -2,6 +2,7 @@
   "name": "MILAN",
   "type": "CLUB",
   "country": "ITA",
+  "city": "MILANO",
   "tactics": "442",
   "players": [
     {
