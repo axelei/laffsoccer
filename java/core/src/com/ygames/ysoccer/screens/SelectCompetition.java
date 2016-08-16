@@ -82,7 +82,7 @@ public class SelectCompetition extends GlScreen {
         public TitleBar() {
             String title = Assets.strings.get("CHOOSE PRESET COMPETITION");
             if (!isDataRoot) {
-                title += " - " + fileHandle.name().toUpperCase();
+                title += " - " + fileHandle.name();
             }
             int w = Math.max(400, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
@@ -100,7 +100,7 @@ public class SelectCompetition extends GlScreen {
             this.fileHandle = fileHandle;
             setSize(340, 30);
             setColors(0x568200, 0x77B400, 0x243E00);
-            setText(fileHandle.name().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(fileHandle.name(), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -117,7 +117,7 @@ public class SelectCompetition extends GlScreen {
             this.competition = competition;
             setSize(480, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
-            setText(competition.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(competition.name, Font.Align.CENTER, Assets.font14);
         }
 
         @Override

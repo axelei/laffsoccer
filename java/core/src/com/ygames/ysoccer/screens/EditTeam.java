@@ -51,6 +51,9 @@ public class EditTeam extends GlScreen {
         if (team.type == Team.Type.CLUB) {
             w = new CountryLabel();
             widgets.add(w);
+
+            w = new CountryButton();
+            widgets.add(w);
         }
     }
 
@@ -139,6 +142,16 @@ public class EditTeam extends GlScreen {
             setGeometry(172, 210, 202, 30);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("COUNTRY"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+    }
+
+    class CountryButton extends Button {
+
+        public CountryButton() {
+            setGeometry(382, 210, 364, 30);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(team.country, Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
