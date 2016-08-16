@@ -41,6 +41,9 @@ public class EditTeam extends GlScreen {
 
         w = new CityButton();
         widgets.add(w);
+
+        w = new StadiumLabel();
+        widgets.add(w);
     }
 
     void setModified() {
@@ -91,6 +94,16 @@ public class EditTeam extends GlScreen {
                 team.city = text;
                 setModified();
             }
+        }
+    }
+
+    class StadiumLabel extends Button {
+
+        public StadiumLabel() {
+            setGeometry(172, 160, 202, 30);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText(Assets.strings.get("STADIUM"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
         }
     }
 }
