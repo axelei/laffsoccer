@@ -33,7 +33,7 @@ public class ViewStatistics extends GlScreen {
         widgets.add(w);
     }
 
-    public class TitleBar extends Button {
+    class TitleBar extends Button {
 
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
@@ -43,7 +43,7 @@ public class ViewStatistics extends GlScreen {
         }
     }
 
-    public class HighestScorerButton extends Button {
+    class HighestScorerButton extends Button {
 
         public HighestScorerButton() {
             setGeometry((game.settings.GUI_WIDTH - 340) / 2, 270, 340, 40);
@@ -57,7 +57,7 @@ public class ViewStatistics extends GlScreen {
         }
     }
 
-    public class CompetitionInfoButton extends Button {
+    class CompetitionInfoButton extends Button {
 
         public CompetitionInfoButton() {
             setGeometry((game.settings.GUI_WIDTH - 340) / 2, 350, 340, 40);
@@ -78,7 +78,7 @@ public class ViewStatistics extends GlScreen {
         }
     }
 
-    public class ViewSquadsButton extends Button {
+    class ViewSquadsButton extends Button {
 
         public ViewSquadsButton() {
             setGeometry((game.settings.GUI_WIDTH - 340) / 2, 430, 340, 40);
@@ -92,7 +92,7 @@ public class ViewStatistics extends GlScreen {
         }
     }
 
-    public class ExitButton extends Button {
+    class ExitButton extends Button {
 
         public ExitButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);

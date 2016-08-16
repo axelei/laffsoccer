@@ -3,58 +3,58 @@
     "name": "SERIE A",
     "teams": [
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.ATALANTA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bologna.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.BOLOGNA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cagliari.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.CAGLIARI.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catania.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.CATANIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.FIORENTINA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.foggia.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.FOGGIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.genoa.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.GENOA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.inter.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.INTER.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.juventus.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.JUVENTUS.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lazio.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.LAZIO.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.mantova.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.MANTOVA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.messina.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.MESSINA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.milan.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.MILAN.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.roma.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.ROMA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.sampdoria.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.SAMPDORIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.torino.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.TORINO.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.varese.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.VARESE.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.vicenza.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.VICENZA.JSON"
       }
     ]
   },
@@ -62,64 +62,64 @@
     "name": "SERIE B",
     "teams": [
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.ALESSANDRIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bari.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.BARI.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.brescia.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.BRESCIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catanzaro.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.CATANZARO.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lecco.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.LECCO.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.livorno.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.LIVORNO.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.modena.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.MODENA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.monza.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.MONZA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.napoli.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.NAPOLI.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.padova.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.PADOVA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.palermo.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.PALERMO.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.parma.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.PARMA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.potenza.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.POTENZA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.propatria.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.PROPATRIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggiana.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.REGGIANA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.spal.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.SPAL.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.trani.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.TRANI.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.triestina.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.TRIESTINA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.venezia.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.VENEZIA.JSON"
       },
       {
-        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.verona.json"
+        "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/TEAM.VERONA.JSON"
       }
     ]
   }

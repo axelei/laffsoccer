@@ -70,6 +70,9 @@ public class EditTeam extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     void setModified() {
@@ -230,6 +233,20 @@ public class EditTeam extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new EditPlayers(game, fileHandle, league, team, modified));
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry(958, 660, 160, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectTeam(game, fileHandle, league));
         }
     }
 }

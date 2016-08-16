@@ -395,6 +395,7 @@ public class EditPlayers extends GlScreen {
     }
 
     class ExitButton extends Button {
+
         public ExitButton() {
             setGeometry(958, 660, 160, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
