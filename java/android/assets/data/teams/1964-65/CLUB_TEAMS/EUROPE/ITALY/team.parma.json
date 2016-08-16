@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "PARMA",
   "stadium": "ENNIO TARDINI",
+  "coach": {
+    "name": "BRUNO DAZZI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "BARI",
   "stadium": "DELLA VITTORIA",
+  "coach": {
+    "name": "PAOLO TABANELLI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

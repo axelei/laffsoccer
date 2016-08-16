@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "TRIESTE",
   "stadium": "GIUSEPPE GREZAR",
+  "coach": {
+    "name": "MARIO RENOSTO",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

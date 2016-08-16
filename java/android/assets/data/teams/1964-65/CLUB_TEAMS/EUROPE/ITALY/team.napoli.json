@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "NAPOLI",
   "stadium": "SAN PAOLO",
+  "coach": {
+    "name": "BRUNO PESAOLA",
+    "nationality": "ARG"
+  },
   "tactics": "442"
 }

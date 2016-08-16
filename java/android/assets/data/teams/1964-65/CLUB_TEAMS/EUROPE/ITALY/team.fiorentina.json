@@ -4,6 +4,10 @@
   "country": "ITA",
   "city": "FIRENZE",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "GIUSEPPE CHIAPPELLA",
+    "nationality": "ITA"
+  },
   "tactics": "442",
   "players": [
     {

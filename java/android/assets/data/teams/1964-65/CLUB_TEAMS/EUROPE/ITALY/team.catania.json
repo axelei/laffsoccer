@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "CATANIA",
   "stadium": "CIBALI",
+  "coach": {
+    "name": "CARMELO DI BELLA",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "VICENZA",
   "stadium": "ROMEO MENTI",
+  "coach": {
+    "name": "MANLIO SCOPIGNO",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

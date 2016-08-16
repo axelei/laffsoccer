@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "FERRARA",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "GIOVAN BATTISTA FABBRI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

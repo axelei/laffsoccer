@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "GENOVA",
   "stadium": "LUIGI FERRARIS",
+  "coach": {
+    "name": "ERNST OCWIRK",
+    "nationality": "AUT"
+  },
   "tactics": "442"
 }

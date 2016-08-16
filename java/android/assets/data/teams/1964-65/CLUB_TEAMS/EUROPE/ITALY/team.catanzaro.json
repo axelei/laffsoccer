@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "CATANZARO",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "LEANDRO REMONDINI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

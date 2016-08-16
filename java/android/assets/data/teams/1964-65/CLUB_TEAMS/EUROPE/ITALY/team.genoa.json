@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "GENOVA",
   "stadium": "LUIGI FERRARIS",
+  "coach": {
+    "name": "PAULO AMARAL",
+    "nationality": "BRA"
+  },
   "tactics": "442"
 }

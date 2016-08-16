@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "MONZA",
   "stadium": "CITTÀ DI MONZA",
+  "coach": {
+    "name": "VITTORIO MALAGOLI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

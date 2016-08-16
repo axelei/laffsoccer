@@ -64,6 +64,9 @@ public class EditTeam extends GlScreen {
 
         w = new CoachLabel();
         widgets.add(w);
+
+        w = new CoachButton();
+        widgets.add(w);
     }
 
     void setModified() {
@@ -192,6 +195,24 @@ public class EditTeam extends GlScreen {
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font10);
             setActive(false);
+        }
+    }
+
+    class CoachButton extends InputButton {
+
+        public CoachButton() {
+            setGeometry(362, 325, 364, 30);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(team.coach.name, Font.Align.CENTER, Assets.font10);
+            setEntryLimit(28);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (!team.coach.name.equals(text)) {
+                team.coach.name = text;
+                setModified();
+            }
         }
     }
 }

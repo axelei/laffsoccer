@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "PADOVA",
   "stadium": "SILVIO APPIANI",
+  "coach": {
+    "name": "SERAFINO MONTANARI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

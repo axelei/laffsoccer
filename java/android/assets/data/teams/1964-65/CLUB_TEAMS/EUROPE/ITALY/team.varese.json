@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "VARESE",
   "stadium": "FRANCO OSSOLA",
+  "coach": {
+    "name": "ETTORE PURICELLI",
+    "nationality": "URU"
+  },
   "tactics": "442"
 }

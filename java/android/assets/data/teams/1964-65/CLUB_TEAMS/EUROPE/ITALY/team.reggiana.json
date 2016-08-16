@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "REGGIO EMILIA",
   "stadium": "COMUNALE MIRABELLO",
+  "coach": {
+    "name": "DINO BALLACCI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

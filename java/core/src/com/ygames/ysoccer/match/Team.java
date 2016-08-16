@@ -17,6 +17,7 @@ public class Team {
     public String country;
     public String city;
     public String stadium;
+    public Coach coach;
 
     public String tactics;
     public ControlMode controlMode;

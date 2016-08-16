@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "CAGLIARI",
   "stadium": "AMSICORA",
+  "coach": {
+    "name": "ARTURO SILVESTRI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

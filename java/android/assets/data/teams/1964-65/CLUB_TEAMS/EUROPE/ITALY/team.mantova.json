@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "MANTOVA",
   "stadium": "DANILO MARTELLI",
+  "coach": {
+    "name": "OSCAR MONTEZ",
+    "nationality": "ARG"
+  },
   "tactics": "442"
 }

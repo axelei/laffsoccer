@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "ROMA",
   "stadium": "OLIMPICO",
+  "coach": {
+    "name": "UMBERTO MANNOCCI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

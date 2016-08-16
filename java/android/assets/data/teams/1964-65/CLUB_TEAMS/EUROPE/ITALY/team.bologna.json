@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "BOLOGNA",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "FULVIO BERNARDINI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

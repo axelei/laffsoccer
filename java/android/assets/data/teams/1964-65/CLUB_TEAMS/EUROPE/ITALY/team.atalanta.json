@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "BERGAMO",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "FERRUCCIO VALCAREGGI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

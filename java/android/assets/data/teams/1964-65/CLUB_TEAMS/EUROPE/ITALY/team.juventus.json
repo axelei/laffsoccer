@@ -4,6 +4,10 @@
   "country": "ITA",
   "city": "TORINO",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "HERIBERTO HERRERA",
+    "nationality": "PAR"
+  },
   "tactics": "442",
   "players": [
     {

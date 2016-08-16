@@ -4,6 +4,10 @@
   "country": "ITA",
   "city": "MILANO",
   "stadium": "SAN SIRO",
+  "coach": {
+    "name": "NILS LIEDHOLM",
+    "nationality": "SWE"
+  },
   "tactics": "442",
   "players": [
     {

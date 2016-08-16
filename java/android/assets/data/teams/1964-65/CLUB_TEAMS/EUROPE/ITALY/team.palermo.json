@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "PALERMO",
   "stadium": "LA FAVORITA",
+  "coach": {
+    "name": "LÁSZLÓ SZÉKELY",
+    "nationality": "HUN"
+  },
   "tactics": "442"
 }

@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "TORINO",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "NEREO ROCCO",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

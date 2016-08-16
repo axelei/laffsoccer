@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "FOGGIA",
   "stadium": "PINO ZACCHERIA",
+  "coach": {
+    "name": "ORONZO PUGLIESE",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

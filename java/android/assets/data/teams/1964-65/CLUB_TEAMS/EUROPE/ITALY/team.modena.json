@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "MODENA",
   "stadium": "ALBERTO BRAGLIA",
+  "coach": {
+    "name": "MAINO NERI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

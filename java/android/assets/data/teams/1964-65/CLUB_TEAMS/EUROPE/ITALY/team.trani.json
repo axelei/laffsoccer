@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "TRANI",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "VINCENZO MARSICO",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

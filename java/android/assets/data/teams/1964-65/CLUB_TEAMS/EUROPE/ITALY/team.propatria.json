@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "BUSTO ARSIZIO",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "PAOLO TODESCHINI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

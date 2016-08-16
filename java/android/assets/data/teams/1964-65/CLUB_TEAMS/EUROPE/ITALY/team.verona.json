@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "VERONA",
   "stadium": "MARCANTONIO BENTEGODI",
+  "coach": {
+    "name": "GIANCARLO CADÈ",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

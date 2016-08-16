@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "LIVORNO",
   "stadium": "COMUNALE",
+  "coach": {
+    "name": "GUIDO MAZZETTI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

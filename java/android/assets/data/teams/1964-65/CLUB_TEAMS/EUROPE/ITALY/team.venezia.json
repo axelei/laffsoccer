@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "VENEZIA",
   "stadium": "PIERLUIGI PENZO",
+  "coach": {
+    "name": "CAMILLO ACHILLI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

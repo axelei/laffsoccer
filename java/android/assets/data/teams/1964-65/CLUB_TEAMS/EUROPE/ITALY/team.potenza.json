@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "POTENZA",
   "stadium": "ALFREDO VIVIANI",
+  "coach": {
+    "name": "EGIZIO RUBINO",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

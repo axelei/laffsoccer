@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "BRESCIA",
   "stadium": "MARIO RIGAMONTI",
+  "coach": {
+    "name": "RENATO GEI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

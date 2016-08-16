@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "ALESSANDRIA",
   "stadium": "GIUSEPPE MOCCAGATTA",
+  "coach": {
+    "name": "ANSELMO GIORCELLI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

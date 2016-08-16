@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "ROMA",
   "stadium": "OLIMPICO",
+  "coach": {
+    "name": "JUAN CARLOS LORENZO",
+    "nationality": "ARG"
+  },
   "tactics": "442"
 }

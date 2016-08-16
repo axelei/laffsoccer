@@ -4,6 +4,10 @@
   "country": "ITA",
   "city": "MILANO",
   "stadium": "SAN SIRO",
+  "coach": {
+    "name": "HELENIO HERRERA",
+    "nationality": "ARG"
+  },
   "tactics": "433",
   "players": [
     {

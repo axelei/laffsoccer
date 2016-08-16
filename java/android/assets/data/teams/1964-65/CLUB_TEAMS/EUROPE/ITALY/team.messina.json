@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "MESSINA",
   "stadium": "GIOVANNI CELESTE",
+  "coach": {
+    "name": "ANTONIO COLOMBAN",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }

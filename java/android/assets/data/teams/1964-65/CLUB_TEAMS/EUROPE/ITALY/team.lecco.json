@@ -4,5 +4,9 @@
   "country": "ITA",
   "city": "LECCO",
   "stadium": "MARIO RIGAMONTI",
+  "coach": {
+    "name": "ANGELO PICCIOLI",
+    "nationality": "ITA"
+  },
   "tactics": "442"
 }
