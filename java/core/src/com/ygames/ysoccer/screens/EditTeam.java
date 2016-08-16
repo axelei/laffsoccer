@@ -34,8 +34,6 @@ public class EditTeam extends GlScreen {
         w = new TeamNameButton();
         widgets.add(w);
 
-        selectedWidget = w;
-
         w = new CityLabel();
         widgets.add(w);
 
@@ -67,6 +65,11 @@ public class EditTeam extends GlScreen {
 
         w = new CoachButton();
         widgets.add(w);
+
+        w = new EditPlayersButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     void setModified() {
@@ -213,6 +216,20 @@ public class EditTeam extends GlScreen {
                 team.coach.name = text;
                 setModified();
             }
+        }
+    }
+
+    class EditPlayersButton extends Button {
+
+        public EditPlayersButton() {
+            setGeometry(168, 660, 160, 36);
+            setColors(0x00825F, 0x00C28E, 0x00402F);
+            setText(Assets.strings.get("PLAYERS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new EditPlayers(game, fileHandle, league, team, modified));
         }
     }
 }
