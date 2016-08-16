@@ -362,7 +362,7 @@ public class EditPlayers extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: set EditTeam screen
+            game.setScreen(new EditTeam(game, fileHandle, league, team, modified));
         }
     }
 
