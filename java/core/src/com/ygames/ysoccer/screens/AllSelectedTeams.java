@@ -84,7 +84,7 @@ public class AllSelectedTeams extends GlScreen {
         public ComputerButton() {
             setGeometry((game.settings.GUI_WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
             setColors(0x981E1E, 0xC72929, 0x640000);
-            setText(Assets.strings.get("COMPUTER"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("CONTROL MODE.COMPUTER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -93,7 +93,7 @@ public class AllSelectedTeams extends GlScreen {
         public PlayerCoachButton() {
             setGeometry((game.settings.GUI_WIDTH - 300) / 2, 86, 300, 30);
             setColors(0x0000C8, 0x1919FF, 0x000078);
-            setText(Assets.strings.get("PLAYER") + "-" + Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -102,7 +102,7 @@ public class AllSelectedTeams extends GlScreen {
         public CoachButton() {
             setGeometry((game.settings.GUI_WIDTH + 300) / 2 + 20, 86, 300, 30);
             setColors(0x009BDC, 0x19BBFF, 0x0071A0);
-            setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("CONTROL MODE.COACH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
