@@ -91,8 +91,8 @@ public class SelectTeams extends GlScreen {
         public void onUpdate() {
             int diff = competition.numberOfTeams - game.teamList.size();
             String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR");
-            title += " " + competition.name.toUpperCase()
-                    + " - " + fileHandle.name().toUpperCase();
+            title += " " + competition.name
+                    + " - " + fileHandle.name();
             int w = Math.max(960, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);

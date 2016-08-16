@@ -19,6 +19,8 @@ public class EditTeam extends GlScreen {
     int selectedPly;
     boolean modified;
 
+    Widget saveButton;
+
     public EditTeam(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
         super(game);
         this.fileHandle = fileHandle;
@@ -71,12 +73,17 @@ public class EditTeam extends GlScreen {
 
         selectedWidget = w;
 
+        w = new SaveButton();
+        saveButton = w;
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
 
     void setModified() {
         modified = true;
+        saveButton.setChanged(true);
     }
 
     class TeamNameButton extends InputButton {
@@ -233,6 +240,34 @@ public class EditTeam extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new EditPlayers(game, fileHandle, league, team, modified));
+        }
+    }
+
+    class SaveButton extends Button {
+
+        public SaveButton() {
+            setGeometry(788, 660, 160, 36);
+            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (modified) {
+                setColors(0xDC0000, 0xFF4141, 0x8C0000);
+                setActive(true);
+            } else {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            FileHandle fh = Assets.teamsFolder.child(team.path);
+            team.path = null;
+            Assets.json.toJson(team, Team.class, fh);
+
+            game.setScreen(new SelectTeam(game, fileHandle, league));
         }
     }
 
