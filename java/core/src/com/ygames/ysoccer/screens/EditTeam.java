@@ -47,6 +47,11 @@ public class EditTeam extends GlScreen {
 
         w = new StadiumButton();
         widgets.add(w);
+
+        if (team.type == Team.Type.CLUB) {
+            w = new CountryLabel();
+            widgets.add(w);
+        }
     }
 
     void setModified() {
@@ -125,6 +130,16 @@ public class EditTeam extends GlScreen {
                 team.stadium = text;
                 setModified();
             }
+        }
+    }
+
+    class CountryLabel extends Button {
+
+        public CountryLabel() {
+            setGeometry(172, 210, 202, 30);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText(Assets.strings.get("COUNTRY"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
         }
     }
 }
