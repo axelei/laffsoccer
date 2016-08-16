@@ -3,6 +3,7 @@
   "type": "CLUB",
   "country": "ITA",
   "city": "MILANO",
+  "stadium": "SAN SIRO",
   "tactics": "442",
   "players": [
     {

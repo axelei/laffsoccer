@@ -3,6 +3,7 @@
   "type": "CLUB",
   "country": "ITA",
   "city": "FIRENZE",
+  "stadium": "COMUNALE",
   "tactics": "442",
   "players": [
     {

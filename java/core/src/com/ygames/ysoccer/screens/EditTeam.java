@@ -44,6 +44,9 @@ public class EditTeam extends GlScreen {
 
         w = new StadiumLabel();
         widgets.add(w);
+
+        w = new StadiumButton();
+        widgets.add(w);
     }
 
     void setModified() {
@@ -82,10 +85,10 @@ public class EditTeam extends GlScreen {
     class CityButton extends InputButton {
 
         public CityButton() {
-            setGeometry(382, 110, 202, 30);
+            setGeometry(382, 110, 364, 30);
             setColors(0x10A000, 0x15E000, 0x096000);
             setText(team.city, Font.Align.CENTER, Assets.font10);
-            setEntryLimit(15);
+            setEntryLimit(28);
         }
 
         @Override
@@ -104,6 +107,24 @@ public class EditTeam extends GlScreen {
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("STADIUM"), Font.Align.CENTER, Assets.font10);
             setActive(false);
+        }
+    }
+
+    class StadiumButton extends InputButton {
+
+        public StadiumButton() {
+            setGeometry(382, 160, 364, 30);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(team.stadium, Font.Align.CENTER, Assets.font10);
+            setEntryLimit(28);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (!team.stadium.equals(text)) {
+                team.stadium = text;
+                setModified();
+            }
         }
     }
 }

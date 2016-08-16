@@ -16,6 +16,8 @@ public class Team {
     public String path;
     public String country;
     public String city;
+    public String stadium;
+
     public String tactics;
     public ControlMode controlMode;
 
