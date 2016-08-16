@@ -57,6 +57,9 @@ public class EditTeam extends GlScreen {
 
             w = new DivisionLabel();
             widgets.add(w);
+
+            w = new DivisionButton();
+            widgets.add(w);
         }
     }
 
@@ -165,6 +168,16 @@ public class EditTeam extends GlScreen {
             setGeometry(172, 260, 202, 30);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("DIVISION"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+    }
+
+    class DivisionButton extends Button {
+
+        public DivisionButton() {
+            setGeometry(382, 260, 364, 30);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(league.name, Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }

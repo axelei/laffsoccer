@@ -70,8 +70,8 @@ public class AllSelectedTeams extends GlScreen {
     class TitleButton extends Button {
         public TitleButton() {
             String title = Assets.strings.get("ALL SELECTED TEAMS FOR")
-                    + " " + competition.name.toUpperCase()
-                    + " - " + fileHandle.name().toUpperCase();
+                    + " " + competition.name
+                    + " - " + fileHandle.name();
             int w = Math.max(960, 80 + 16 * title.length());
             setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
@@ -115,7 +115,7 @@ public class AllSelectedTeams extends GlScreen {
             this.team = team;
             setSize(270, 30);
             updateColors();
-            setText(team.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(team.name, Font.Align.CENTER, Assets.font14);
         }
 
         @Override
