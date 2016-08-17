@@ -50,4 +50,9 @@ public class Const {
     public static final int TEAM_SIZE = 11;
     public static final int BASE_TEAM = 16;
     public static final int FULL_TEAM = 32;
+
+    // tactics
+    static final int TACT_DX = 68;
+    static final int TACT_DY = 40;
+    static final int BALL_ZONES = 35;
 }

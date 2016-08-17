@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.Tactics;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +31,7 @@ public class Assets {
     public static Json json;
     public static int[] calendars = new int[4600];
     public static List<String> associations;
+    public static Tactics[] tactics = new Tactics[18];
 
     public static void load(Settings settings) {
         loadLocales();
@@ -47,6 +49,7 @@ public class Assets {
         json.setOutputType(JsonWriter.OutputType.json);
         loadCalendars();
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
+        loadTactics();
     }
 
     private static void loadLocales() {
@@ -100,6 +103,25 @@ public class Assets {
         @Override
         public int compare(String o1, String o2) {
             return o1.compareTo(o2);
+        }
+    }
+
+    private static void loadTactics() {
+        InputStream in = null;
+        for (int i = 0; i < tactics.length; i++) {
+            try {
+                tactics[i] = new Tactics();
+                in = Gdx.files.internal("data/tactics/preset/" + Tactics.fileNames[i] + ".TAC").read();
+                tactics[i].loadFile(in);
+            } catch (IOException e) {
+                throw new RuntimeException("Couldn't load tactics", e);
+            } finally {
+                if (in != null)
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                    }
+            }
         }
     }
 }
