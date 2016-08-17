@@ -30,7 +30,7 @@ public class Tactics {
             "T442", "T442"
     };
 
-    static int[][] order = new int[][]{
+    public static int[][] order = new int[][]{
             {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, // 442
             {0, 1, 2, 3, 6, 4, 5, 7, 9, 8, 10}, // 541
             {0, 1, 2, 3, 4, 5, 6, 7, 9, 8, 10}, // 451
@@ -48,7 +48,7 @@ public class Tactics {
     String name;
     int[][][] target = new int[Const.TEAM_SIZE][Const.BALL_ZONES][2];
     int[] pairs = new int[Const.TEAM_SIZE];
-    int basedOn;
+    public int basedOn;
 
     public void loadFile(InputStream in) throws IOException {
 

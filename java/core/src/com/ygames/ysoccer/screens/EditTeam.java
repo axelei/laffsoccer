@@ -14,6 +14,8 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
+import java.util.Collections;
+
 public class EditTeam extends GlScreen {
 
     FileHandle fileHandle;
@@ -99,6 +101,9 @@ public class EditTeam extends GlScreen {
 
             w = new PlayerRoleButton(pos);
             roleButtons[pos] = w;
+            widgets.add(w);
+
+            w = new PlayerSelectButton(pos);
             widgets.add(w);
         }
 
@@ -365,6 +370,44 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             Player player = team.playerAtPosition(pos);
             setText(Assets.strings.get(player.getRoleLabel()));
+        }
+    }
+
+    class PlayerSelectButton extends Button {
+
+        int pos;
+
+        public PlayerSelectButton(int pos) {
+            this.pos = pos;
+            setGeometry(676, 376 + 24 * this.pos, 460, 21);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // select
+            if (selectedPos == -1) {
+                selectedPos = pos;
+            }
+            // deselect
+            else if (selectedPos == pos) {
+                selectedPos = -1;
+            }
+            // swap
+            else {
+                int baseTactics = Assets.tactics[team.getTacticsIndex()].basedOn;
+                int ply1 = Tactics.order[baseTactics][selectedPos];
+                int ply2 = Tactics.order[baseTactics][pos];
+
+                Collections.swap(team.players, ply1, ply2);
+
+                int oldSelected = selectedPos;
+                selectedPos = -1;
+
+                updatePlayerButtons(oldSelected);
+                setModified();
+            }
+
+            updatePlayerButtons(pos);
         }
     }
 
