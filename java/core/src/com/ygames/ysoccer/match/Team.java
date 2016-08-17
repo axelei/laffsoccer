@@ -66,6 +66,13 @@ public class Team {
         return player;
     }
 
+    public boolean deletePlayer(Player player) {
+        if (players.size() > Const.BASE_TEAM) {
+            return players.remove(player);
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Team t = (Team) obj;

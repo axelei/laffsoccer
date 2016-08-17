@@ -32,6 +32,7 @@ public class EditPlayers extends GlScreen {
     Widget[] roleButtons = new Widget[Const.FULL_TEAM];
 
     Widget newPlayerButton;
+    Widget deletePlayerButton;
     Widget saveButton;
 
     public EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
@@ -91,6 +92,10 @@ public class EditPlayers extends GlScreen {
         newPlayerButton = w;
         widgets.add(w);
 
+        w = new DeletePlayerButton();
+        deletePlayerButton = w;
+        widgets.add(w);
+
         w = new SaveButton();
         saveButton = w;
         widgets.add(w);
@@ -144,7 +149,7 @@ public class EditPlayers extends GlScreen {
             }
 
             updatePlayerButtons(pos);
-            // TODO: update delete button
+            deletePlayerButton.setChanged(true);
         }
     }
 
@@ -420,7 +425,51 @@ public class EditPlayers extends GlScreen {
 
                 updatePlayerButtons(team.players.size() - 1);
                 newPlayerButton.setChanged(true);
-                // TODO: update delete player button
+                deletePlayerButton.setChanged(true);
+                setModified();
+            }
+        }
+    }
+
+    class DeletePlayerButton extends Button {
+
+        public DeletePlayerButton() {
+            setGeometry(558, 660, 220, 36);
+            setText(Assets.strings.get("DELETE PLAYER"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if ((selectedPos != -1) && (team.players.size() > Const.BASE_TEAM)) {
+                setColors(0x3217BD, 0x5639E7, 0x221080);
+                setActive(true);
+            } else {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            if ((selectedPos != -1) && (team.players.size() > Const.BASE_TEAM)) {
+
+                // swap 'selected' and 'last' player
+                int ply1 = team.playerIndexAtPosition(selectedPos);
+                int ply2 = team.playerIndexAtPosition(team.players.size() - 1);
+
+                Collections.swap(team.players, ply1, ply2);
+
+                int was_selected = selectedPos;
+                selectedPos = -1;
+                updatePlayerButtons(was_selected);
+
+                Player player = team.playerAtPosition(team.players.size() - 1);
+                team.deletePlayer(player);
+                updatePlayerButtons(team.players.size());
+
+                newPlayerButton.setChanged(true);
+                deletePlayerButton.setChanged(true);
+
                 setModified();
             }
         }
