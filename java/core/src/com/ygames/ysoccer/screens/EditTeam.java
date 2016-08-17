@@ -19,11 +19,12 @@ public class EditTeam extends GlScreen {
     FileHandle fileHandle;
     League league;
     Team team;
-    int selectedPly;
+    int selectedPos;
     boolean modified;
 
     Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
+    Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
     Widget[] tacticsButtons = new Widget[18];
 
     Widget saveButton;
@@ -33,7 +34,7 @@ public class EditTeam extends GlScreen {
         this.fileHandle = fileHandle;
         this.league = league;
         this.team = team;
-        selectedPly = -1;
+        selectedPos = -1;
         this.modified = modified;
 
         background = game.stateBackground;
@@ -88,6 +89,10 @@ public class EditTeam extends GlScreen {
 
             w = new PlayerFaceButton(pos);
             faceButtons[pos] = w;
+            widgets.add(w);
+
+            w = new PlayerNameButton(pos);
+            nameButtons[pos] = w;
             widgets.add(w);
         }
 
@@ -321,9 +326,27 @@ public class EditTeam extends GlScreen {
         }
     }
 
+    class PlayerNameButton extends Button {
+
+        int pos;
+
+        public PlayerNameButton(int pos) {
+            this.pos = pos;
+            setGeometry(684, 376 + 25 * pos, 364, 21);
+            setText("", Font.Align.LEFT, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(team.playerAtPosition(pos).name);
+            setPlayerWidgetColor(this, pos);
+        }
+    }
+
     void setPlayerWidgetColor(Widget b, int pos) {
         // selected
-        if (selectedPly == pos) {
+        if (selectedPos == pos) {
             b.setColors(0x993333, 0xC24242, 0x5A1E1E);
         }
         // goalkeeper
@@ -338,8 +361,8 @@ public class EditTeam extends GlScreen {
 
     void updatePlayerButtons(int pos) {
         numberButtons[pos].setChanged(true);
-        // TODO: update face button
-        // TODO: update name button
+        faceButtons[pos].setChanged(true);
+        nameButtons[pos].setChanged(true);
         // TODO: update role button
     }
 

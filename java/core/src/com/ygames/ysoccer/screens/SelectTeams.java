@@ -135,7 +135,7 @@ public class SelectTeams extends GlScreen {
             this.team = team;
             setSize(270, 30);
             updateColors();
-            setText(team.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(team.name, Font.Align.CENTER, Assets.font14);
         }
 
         @Override
