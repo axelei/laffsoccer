@@ -37,6 +37,35 @@ public class Team {
         controlMode = ControlMode.UNDEFINED;
     }
 
+    public Player newPlayer() {
+        if (players.size() == Const.FULL_TEAM) {
+            return null;
+        }
+
+        Player player = new Player();
+        player.name = "";
+        player.shirtName = "";
+        player.nationality = country;
+        player.role = Player.Role.GOALKEEPER;
+
+        // number
+        for (int i = 1; i <= Const.FULL_TEAM; i++) {
+            boolean used = false;
+            for (Player ply : players) {
+                if (Integer.parseInt(ply.number) == i) {
+                    used = true;
+                }
+            }
+            if (!used) {
+                player.number = "" + i;
+                break;
+            }
+        }
+        player.skills = new Player.Skills();
+        players.add(player);
+        return player;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Team t = (Team) obj;
@@ -103,6 +132,15 @@ public class Team {
             return players.get(ply);
         } else {
             return null;
+        }
+    }
+
+    public int playerIndexAtPosition(int pos) {
+        if (pos < players.size()) {
+            int baseTactics = Assets.tactics[getTacticsIndex()].basedOn;
+            return (pos < Const.TEAM_SIZE) ? Tactics.order[baseTactics][pos] : pos;
+        } else {
+            return -1;
         }
     }
 

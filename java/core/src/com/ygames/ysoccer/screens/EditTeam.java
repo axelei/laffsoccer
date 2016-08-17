@@ -394,9 +394,8 @@ public class EditTeam extends GlScreen {
             }
             // swap
             else {
-                int baseTactics = Assets.tactics[team.getTacticsIndex()].basedOn;
-                int ply1 = Tactics.order[baseTactics][selectedPos];
-                int ply2 = Tactics.order[baseTactics][pos];
+                int ply1 = team.playerIndexAtPosition(selectedPos);
+                int ply2 = team.playerIndexAtPosition(pos);
 
                 Collections.swap(team.players, ply1, ply2);
 

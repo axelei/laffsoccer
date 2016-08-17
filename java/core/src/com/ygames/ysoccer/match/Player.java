@@ -190,7 +190,7 @@ public class Player {
         return skillLabels[skill.ordinal()];
     }
 
-    private static class Skills {
+    static class Skills {
         int passing;
         int shooting;
         int heading;

@@ -14,12 +14,14 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
+import java.util.Collections;
+
 public class EditPlayers extends GlScreen {
 
     FileHandle fileHandle;
     League league;
     Team team;
-    int selectedPly;
+    int selectedPos;
     boolean modified;
 
     Widget[] selectButtons = new Widget[Const.FULL_TEAM];
@@ -29,6 +31,7 @@ public class EditPlayers extends GlScreen {
     Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
     Widget[] roleButtons = new Widget[Const.FULL_TEAM];
 
+    Widget newPlayerButton;
     Widget saveButton;
 
     public EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
@@ -36,7 +39,7 @@ public class EditPlayers extends GlScreen {
         this.fileHandle = fileHandle;
         this.league = league;
         this.team = team;
-        selectedPly = -1;
+        selectedPos = -1;
         this.modified = modified;
 
         background = game.stateBackground;
@@ -84,6 +87,10 @@ public class EditPlayers extends GlScreen {
 
         selectedWidget = w;
 
+        w = new NewPlayerButton();
+        newPlayerButton = w;
+        widgets.add(w);
+
         w = new SaveButton();
         saveButton = w;
         widgets.add(w);
@@ -99,35 +106,44 @@ public class EditPlayers extends GlScreen {
 
     class PlayerSelectButton extends Button {
 
-        int p;
+        int pos;
         Player player;
 
-        public PlayerSelectButton(int p) {
-            this.p = p;
-            setGeometry(180, 96 + 17 * p, 24, 17);
+        public PlayerSelectButton(int pos) {
+            this.pos = pos;
+            setGeometry(180, 96 + 17 * pos, 24, 17);
         }
 
         @Override
         public void onFire1Down() {
             // select
-            if (selectedPly == -1) {
-                selectedPly = p;
-                Player player = team.playerAtPosition(selectedPly);
+            if (selectedPos == -1) {
+                selectedPos = pos;
+                Player player = team.playerAtPosition(selectedPos);
                 // TODO: copy player
             }
 
             // deselect
-            else if (selectedPly == p) {
-                selectedPly = -1;
+            else if (selectedPos == pos) {
+                selectedPos = -1;
                 // TODO: clear player
             }
 
             // swap
             else {
-                // TODO: swap players
+                int ply1 = team.playerIndexAtPosition(selectedPos);
+                int ply2 = team.playerIndexAtPosition(pos);
+
+                Collections.swap(team.players, ply1, ply2);
+
+                int oldSelected = selectedPos;
+                selectedPos = -1;
+
+                updatePlayerButtons(oldSelected);
+                setModified();
             }
 
-            updatePlayerButtons(p);
+            updatePlayerButtons(pos);
             // TODO: update delete button
         }
     }
@@ -267,8 +283,8 @@ public class EditPlayers extends GlScreen {
         private void updateNationality(int n) {
             Player player = team.playerAtPosition(p);
             int i = Assets.associations.indexOf(player.nationality);
-            if (i != 1) {
-                i = Emath.rotate(i, 0, Assets.associations.size(), n);
+            if (i != -1) {
+                i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
                 player.nationality = Assets.associations.get(i);
             }
             updateNationalityButton(p);
@@ -366,6 +382,50 @@ public class EditPlayers extends GlScreen {
         }
     }
 
+    class NewPlayerButton extends Button {
+
+        public NewPlayerButton() {
+            setGeometry(338, 660, 210, 36);
+            setText(Assets.strings.get("NEW PLAYER"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (team.players.size() < Const.FULL_TEAM) {
+                setColors(0x1769BD, 0x3A90E8, 0x10447A);
+                setActive(true);
+            } else {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            Player player = team.newPlayer();
+
+            if (player != null) {
+
+                // TODO: paste selected player
+//                if (ply_temp != Null) {
+//                    paste_player(player);
+//                    int was_selected = selectedPos;
+//                    selectedPos = -1;
+//                    if (was_selected != -1) {
+//                        updatePlayerButtons(was_selected);
+//                    }
+//                }
+
+                // TODO: create face
+
+                updatePlayerButtons(team.players.size() - 1);
+                newPlayerButton.setChanged(true);
+                // TODO: update delete player button
+                setModified();
+            }
+        }
+    }
+
     class SaveButton extends Button {
 
         public SaveButton() {
@@ -435,7 +495,7 @@ public class EditPlayers extends GlScreen {
         }
 
         // selected
-        if (selectedPly == ply) {
+        if (selectedPos == ply) {
             b.setColors(0x993333, 0xC24242, 0x5A1E1E);
         }
     }
