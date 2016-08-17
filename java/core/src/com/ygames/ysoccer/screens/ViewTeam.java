@@ -90,7 +90,7 @@ public class ViewTeam extends GlScreen {
             setText("", Font.Align.LEFT, Assets.font10);
             setPlayerWidgetColor(this, p, team, competition);
             if (player != null) {
-                setText(player.name.toUpperCase());
+                setText(player.name);
             }
             setActive(false);
         }
@@ -144,7 +144,7 @@ public class ViewTeam extends GlScreen {
         public TitleBar(Team team) {
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, 45, 601, 41);
             setColors(0x6A5ACD, 0x8F83D7, 0x372989);
-            setText(team.name.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

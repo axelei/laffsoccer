@@ -22,10 +22,12 @@ public class EditTeam extends GlScreen {
     int selectedPos;
     boolean modified;
 
+    Widget[] tacticsButtons = new Widget[18];
+
     Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
     Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
-    Widget[] tacticsButtons = new Widget[18];
+    Widget[] roleButtons = new Widget[Const.TEAM_SIZE];
 
     Widget saveButton;
 
@@ -94,6 +96,10 @@ public class EditTeam extends GlScreen {
             w = new PlayerNameButton(pos);
             nameButtons[pos] = w;
             widgets.add(w);
+
+            w = new PlayerRoleButton(pos);
+            roleButtons[pos] = w;
+            widgets.add(w);
         }
 
         w = new EditPlayersButton();
@@ -120,7 +126,7 @@ public class EditTeam extends GlScreen {
 
         public TacticsButton(int t) {
             this.t = t;
-            setGeometry(678 + 110 * ((int) Math.floor(t / 9)), 130 + 26 * (t % 9), 90, 22);
+            setGeometry(678 + 110 * ((int) Math.floor(t / 9)), 148 + 24 * (t % 9), 90, 22);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -297,7 +303,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(630, 376 + 25 * pos, 30, 21);
+            setGeometry(676, 376 + 24 * pos, 34, 21);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -315,7 +321,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerFaceButton(int pos) {
             this.pos = pos;
-            setGeometry(660, 376 + 25 * pos, 24, 21);
+            setGeometry(710, 376 + 24 * pos, 24, 21);
             setActive(false);
         }
 
@@ -332,7 +338,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerNameButton(int pos) {
             this.pos = pos;
-            setGeometry(684, 376 + 25 * pos, 364, 21);
+            setGeometry(738, 376 + 24 * pos, 364, 21);
             setText("", Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
@@ -341,6 +347,24 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             setText(team.playerAtPosition(pos).name);
             setPlayerWidgetColor(this, pos);
+        }
+    }
+
+    class PlayerRoleButton extends Button {
+
+        int pos;
+
+        public PlayerRoleButton(int pos) {
+            this.pos = pos;
+            setGeometry(1102, 376 + 24 * pos, 34, 21);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = team.playerAtPosition(pos);
+            setText(Assets.strings.get(player.getRoleLabel()));
         }
     }
 
@@ -363,7 +387,7 @@ public class EditTeam extends GlScreen {
         numberButtons[pos].setChanged(true);
         faceButtons[pos].setChanged(true);
         nameButtons[pos].setChanged(true);
-        // TODO: update role button
+        roleButtons[pos].setChanged(true);
     }
 
     class EditPlayersButton extends Button {
