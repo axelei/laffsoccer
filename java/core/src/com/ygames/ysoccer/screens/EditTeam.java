@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
@@ -22,6 +23,7 @@ public class EditTeam extends GlScreen {
     boolean modified;
 
     Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
+    Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
     Widget[] tacticsButtons = new Widget[18];
 
     Widget saveButton;
@@ -82,6 +84,10 @@ public class EditTeam extends GlScreen {
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
             w = new PlayerNumberButton(pos);
             numberButtons[pos] = w;
+            widgets.add(w);
+
+            w = new PlayerFaceButton(pos);
+            faceButtons[pos] = w;
             widgets.add(w);
         }
 
@@ -294,6 +300,39 @@ public class EditTeam extends GlScreen {
         @Override
         public void onUpdate() {
             setText(team.playerAtPosition(pos).number);
+        }
+    }
+
+    class PlayerFaceButton extends Button {
+
+        int pos;
+        Player player;
+
+        public PlayerFaceButton(int pos) {
+            this.pos = pos;
+            setGeometry(660, 376 + 25 * pos, 24, 21);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setPlayerWidgetColor(this, pos);
+            player = team.playerAtPosition(pos);
+        }
+    }
+
+    void setPlayerWidgetColor(Widget b, int pos) {
+        // selected
+        if (selectedPly == pos) {
+            b.setColors(0x993333, 0xC24242, 0x5A1E1E);
+        }
+        // goalkeeper
+        else if (pos == 0) {
+            b.setColors(0x4AC058, 0x81D38B, 0x308C3B);
+        }
+        // other players
+        else {
+            b.setColors(0x308C3B, 0x4AC058, 0x1F5926);
         }
     }
 
