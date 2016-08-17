@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Comparator;
@@ -89,9 +90,20 @@ public class Team {
         }
     }
 
-    public Player playerAtPosition(int p) {
-        // TODO: to be implemented
-        return p < players.size() ? players.get(p) : null;
+    public Player playerAtPosition(int pos) {
+        return playerAtPosition(pos, null);
+    }
+
+    public Player playerAtPosition(int pos, Tactics tcs) {
+        if (tcs == null) {
+            tcs = Assets.tactics[getTacticsIndex()];
+        }
+        if (pos < players.size()) {
+            int ply = (pos < Const.TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
+            return players.get(ply);
+        } else {
+            return null;
+        }
     }
 
     public int defenseRating() {
@@ -110,4 +122,13 @@ public class Team {
         return offense;
     }
 
+    // TODO: replace with custom serialization
+    public int getTacticsIndex() {
+        for (int i = 0; i < Tactics.codes.length; i++) {
+            if (Tactics.codes[i].equals(tactics)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -102,12 +102,12 @@ public class EditTeam extends GlScreen {
         public TacticsButton(int t) {
             this.t = t;
             setGeometry(678 + 110 * ((int) Math.floor(t / 9)), 130 + 26 * (t % 9), 90, 22);
-            setText(Tactics.names[t], Font.Align.CENTER, Assets.font10);
+            setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
         @Override
         public void onUpdate() {
-            if (team.tactics.equals(Tactics.names[t])) {
+            if (team.getTacticsIndex() == t) {
                 setColors(0x9D7B03, 0xE2B004, 0x675103);
             } else {
                 setColors(0xE2B004, 0xFCCE30, 0x9D7B03);
@@ -116,8 +116,8 @@ public class EditTeam extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            if (!team.tactics.equals(Tactics.names[t])) {
-                team.tactics = Tactics.names[t];
+            if (team.getTacticsIndex() != t) {
+                team.tactics = Tactics.codes[t];
                 for (Widget w : tacticsButtons) {
                     w.setChanged(true);
                 }

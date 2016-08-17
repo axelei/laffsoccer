@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 public class Tactics {
 
-    public static String[] names = new String[]{
+    public static String[] codes = new String[]{
             "4-4-2", "5-4-1",
             "4-5-1", "5-3-2",
             "3-5-2", "4-3-3",
@@ -18,14 +18,37 @@ public class Tactics {
             "USER E", "USER F"
     };
 
-    public static String[] fileNames = {"T442", "T541", "T451", "T532",
-            "T352", "T433", "T424", "T343", "TLIBERO", "T523", "TATTACK",
-            "TDEFEND", "T442", "T442", "T442", "T442", "T442", "T442"};
+    public static String[] fileNames = {
+            "T442", "T541",
+            "T451", "T532",
+            "T352", "T433",
+            "T424", "T343",
+            "TLIBERO", "T523",
+            "TATTACK", "TDEFEND",
+            "T442", "T442",
+            "T442", "T442",
+            "T442", "T442"
+    };
+
+    static int[][] order = new int[][]{
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, // 442
+            {0, 1, 2, 3, 6, 4, 5, 7, 9, 8, 10}, // 541
+            {0, 1, 2, 3, 4, 5, 6, 7, 9, 8, 10}, // 451
+            {0, 1, 2, 3, 6, 4, 5, 7, 8, 9, 10}, // 532
+            {0, 1, 2, 4, 5, 3, 6, 7, 8, 9, 10}, // 352
+            {0, 1, 2, 3, 4, 5, 6, 8, 7, 9, 10}, // 433
+            {0, 1, 2, 3, 4, 6, 7, 5, 9, 10, 8}, // 424
+            {0, 1, 2, 4, 5, 3, 6, 8, 7, 9, 10}, // 343
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, // sweep
+            {0, 1, 2, 3, 6, 4, 7, 9, 5, 10, 8}, // 523
+            {0, 1, 2, 4, 3, 6, 5, 7, 9, 10, 8}, // attack
+            {0, 5, 1, 2, 3, 4, 8, 6, 7, 9, 10}  // defend
+    };
 
     String name;
     int[][][] target = new int[Const.TEAM_SIZE][Const.BALL_ZONES][2];
     int[] pairs = new int[Const.TEAM_SIZE];
-    int based_on;
+    int basedOn;
 
     public void loadFile(InputStream in) throws IOException {
 
@@ -82,7 +105,7 @@ public class Tactics {
         }
 
         // base tactics
-        based_on = bytes[index++] & 0xFF;
+        basedOn = bytes[index++] & 0xFF;
     }
 
     @Override
@@ -122,7 +145,7 @@ public class Tactics {
         s += "\n";
 
         // base tactics
-        s += "Based on: " + based_on + "\n";
+        s += "Based on: " + basedOn + "\n";
 
         return s;
     }
