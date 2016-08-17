@@ -15,7 +15,7 @@
       "shirtName": "BARLUZZI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 1,
+      "number": "1",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -31,7 +31,7 @@
       "shirtName": "NOLETTI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 2,
+      "number": "2",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -47,7 +47,7 @@
       "shirtName": "PELAGALLI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 3,
+      "number": "3",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -63,7 +63,7 @@
       "shirtName": "BENÍTEZ",
       "nationality": "PER",
       "role": "MIDFIELDER",
-      "number": 4,
+      "number": "4",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -79,7 +79,7 @@
       "shirtName": "MALDINI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 5,
+      "number": "5",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -95,7 +95,7 @@
       "shirtName": "TRAPATTONI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 6,
+      "number": "6",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -111,7 +111,7 @@
       "shirtName": "MORA",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 7,
+      "number": "7",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -127,7 +127,7 @@
       "shirtName": "LODETTI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 8,
+      "number": "8",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -143,7 +143,7 @@
       "shirtName": "FERRARIO",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 9,
+      "number": "9",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -159,7 +159,7 @@
       "shirtName": "AMARILDO",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 10,
+      "number": "10",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -175,7 +175,7 @@
       "shirtName": "RIVERA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 11,
+      "number": "11",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -191,7 +191,7 @@
       "shirtName": "GHEZZI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 12,
+      "number": "12",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -207,7 +207,7 @@
       "shirtName": "TREBBI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 13,
+      "number": "13",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -223,7 +223,7 @@
       "shirtName": "RADICE",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 14,
+      "number": "14",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -239,7 +239,7 @@
       "shirtName": "FORTUNATO",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 15,
+      "number": "15",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -255,7 +255,7 @@
       "shirtName": "ALTAFINI",
       "nationality": "BRA",
       "role": "ATTACKER",
-      "number": 16,
+      "number": "16",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -271,7 +271,7 @@
       "shirtName": "BALZARINI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 17,
+      "number": "17",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -287,7 +287,7 @@
       "shirtName": "SANTIN",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": 18,
+      "number": "18",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -303,7 +303,7 @@
       "shirtName": "BACCHETTA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 19,
+      "number": "19",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -319,7 +319,7 @@
       "shirtName": "DAVID",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 20,
+      "number": "20",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -335,7 +335,7 @@
       "shirtName": "SALVI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": 21,
+      "number": "21",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -351,7 +351,7 @@
       "shirtName": "BONFANTI",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": 22,
+      "number": "22",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -367,7 +367,7 @@
       "shirtName": "GERMANO",
       "nationality": "BRA",
       "role": "ATTACKER",
-      "number": 23,
+      "number": "23",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -383,7 +383,7 @@
       "shirtName": "MANTOVANI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": 24,
+      "number": "24",
       "skills": {
         "passing": 0,
         "shooting": 0,

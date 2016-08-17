@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
@@ -20,6 +21,7 @@ public class EditTeam extends GlScreen {
     int selectedPly;
     boolean modified;
 
+    Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     Widget[] tacticsButtons = new Widget[18];
 
     Widget saveButton;
@@ -77,6 +79,12 @@ public class EditTeam extends GlScreen {
         w = new CoachButton();
         widgets.add(w);
 
+        for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
+            w = new PlayerNumberButton(pos);
+            numberButtons[pos] = w;
+            widgets.add(w);
+        }
+
         w = new EditPlayersButton();
         widgets.add(w);
 
@@ -122,7 +130,9 @@ public class EditTeam extends GlScreen {
                     w.setChanged(true);
                 }
                 setModified();
-                // TODO: update player buttons
+                for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
+                    updatePlayerButtons(pos);
+                }
             }
         }
     }
@@ -268,6 +278,30 @@ public class EditTeam extends GlScreen {
                 setModified();
             }
         }
+    }
+
+    class PlayerNumberButton extends Button {
+
+        int pos;
+
+        public PlayerNumberButton(int pos) {
+            this.pos = pos;
+            setGeometry(630, 376 + 25 * pos, 30, 21);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(team.playerAtPosition(pos).number);
+        }
+    }
+
+    void updatePlayerButtons(int pos) {
+        numberButtons[pos].setChanged(true);
+        // TODO: update face button
+        // TODO: update name button
+        // TODO: update role button
     }
 
     class EditPlayersButton extends Button {
