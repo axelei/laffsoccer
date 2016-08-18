@@ -33,6 +33,8 @@ public class Player {
     public Role role;
     public String number;
 
+    public String hairType;
+
     public Skills skills;
 
     public int goals;

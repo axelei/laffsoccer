@@ -61,6 +61,7 @@ public class Team {
                 break;
             }
         }
+        player.hairType = "SMOOTH1";
         player.skills = new Player.Skills();
         players.add(player);
         return player;
