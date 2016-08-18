@@ -34,6 +34,7 @@ public class EditPlayers extends GlScreen {
     Widget newPlayerButton;
     Widget deletePlayerButton;
     Widget saveButton;
+    Widget tmpPlayerButton;
 
     public EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
         super(game);
@@ -80,6 +81,10 @@ public class EditPlayers extends GlScreen {
             widgets.add(w);
         }
 
+        w = new TmpPlayerButton();
+        tmpPlayerButton = w;
+        widgets.add(w);
+
         w = new TeamNameButton();
         widgets.add(w);
 
@@ -104,9 +109,29 @@ public class EditPlayers extends GlScreen {
         widgets.add(w);
     }
 
-    void setModified() {
+    void setModifiedFlag() {
         modified = true;
         saveButton.setChanged(true);
+    }
+
+    private void copyPlayer(Player player) {
+        if (game.tmpPlayer == null) {
+            game.tmpPlayer = new Player();
+            game.tmpPlayer.skills = new Player.Skills();
+        }
+        game.tmpPlayer.copyFrom(player);
+        tmpPlayerButton.setChanged(true);
+    }
+
+    private void pastePlayer(Player player) {
+        player.copyFrom(game.tmpPlayer);
+        game.tmpPlayer = null;
+        tmpPlayerButton.setChanged(true);
+    }
+
+    private void clearPlayer() {
+        game.tmpPlayer = null;
+        tmpPlayerButton.setChanged(true);
     }
 
     class PlayerSelectButton extends Button {
@@ -125,13 +150,13 @@ public class EditPlayers extends GlScreen {
             if (selectedPos == -1) {
                 selectedPos = pos;
                 Player player = team.playerAtPosition(selectedPos);
-                // TODO: copy player
+                copyPlayer(player);
             }
 
             // deselect
             else if (selectedPos == pos) {
                 selectedPos = -1;
-                // TODO: clear player
+                clearPlayer();
             }
 
             // swap
@@ -145,7 +170,7 @@ public class EditPlayers extends GlScreen {
                 selectedPos = -1;
 
                 updatePlayerButtons(oldSelected);
-                setModified();
+                setModifiedFlag();
             }
 
             updatePlayerButtons(pos);
@@ -178,7 +203,7 @@ public class EditPlayers extends GlScreen {
         public void onUpdate() {
             if (player != null && !player.number.equals(text)) {
                 player.number = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -208,7 +233,7 @@ public class EditPlayers extends GlScreen {
         public void onUpdate() {
             if (player != null && !player.name.equals(text)) {
                 player.name = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -239,7 +264,7 @@ public class EditPlayers extends GlScreen {
         public void onUpdate() {
             if (player != null && !player.shirtName.equals(text)) {
                 player.shirtName = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -293,7 +318,7 @@ public class EditPlayers extends GlScreen {
                 player.nationality = Assets.associations.get(i);
             }
             updateNationalityButton(p);
-            setModified();
+            setModifiedFlag();
         }
     }
 
@@ -341,7 +366,7 @@ public class EditPlayers extends GlScreen {
             Player player = team.playerAtPosition(p);
             player.role = Player.Role.values()[Emath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
             updateRoleButton(p);
-            setModified();
+            setModifiedFlag();
         }
     }
 
@@ -368,8 +393,22 @@ public class EditPlayers extends GlScreen {
         public void onUpdate() {
             if (!team.name.equals(text)) {
                 team.name = text;
-                setModified();
+                setModifiedFlag();
             }
+        }
+    }
+
+    class TmpPlayerButton extends Button {
+
+        public TmpPlayerButton() {
+            setGeometry(1100, 30, 24, 17);
+            setColors(0x1769BD, 0x3A90E8, 0x10447A);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(game.tmpPlayer != null);
         }
     }
 
@@ -410,23 +449,21 @@ public class EditPlayers extends GlScreen {
             Player player = team.newPlayer();
 
             if (player != null) {
-
-                // TODO: paste selected player
-//                if (ply_temp != Null) {
-//                    paste_player(player);
-//                    int was_selected = selectedPos;
-//                    selectedPos = -1;
-//                    if (was_selected != -1) {
-//                        updatePlayerButtons(was_selected);
-//                    }
-//                }
+                if (game.tmpPlayer != null) {
+                    pastePlayer(player);
+                    int oldSelected = selectedPos;
+                    selectedPos = -1;
+                    if (oldSelected != -1) {
+                        updatePlayerButtons(oldSelected);
+                    }
+                }
 
                 // TODO: create face
 
                 updatePlayerButtons(team.players.size() - 1);
                 newPlayerButton.setChanged(true);
                 deletePlayerButton.setChanged(true);
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -459,9 +496,9 @@ public class EditPlayers extends GlScreen {
 
                 Collections.swap(team.players, ply1, ply2);
 
-                int was_selected = selectedPos;
+                int oldSelected = selectedPos;
                 selectedPos = -1;
-                updatePlayerButtons(was_selected);
+                updatePlayerButtons(oldSelected);
 
                 Player player = team.playerAtPosition(team.players.size() - 1);
                 team.deletePlayer(player);
@@ -470,7 +507,7 @@ public class EditPlayers extends GlScreen {
                 newPlayerButton.setChanged(true);
                 deletePlayerButton.setChanged(true);
 
-                setModified();
+                setModifiedFlag();
             }
         }
     }

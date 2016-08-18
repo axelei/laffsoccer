@@ -186,11 +186,31 @@ public class Player {
         }
     }
 
+    public void copyFrom(Player player) {
+        name = player.name;
+        shirtName = player.shirtName;
+        nationality = player.nationality;
+        role = player.role;
+
+        // TODO
+//        hairType = player.hairType;
+//        hairColor = player.hairColor;
+//        skinColor = player.skinColor;
+
+        skills.passing = player.skills.passing;
+        skills.shooting = player.skills.shooting;
+        skills.heading = player.skills.heading;
+        skills.tackling = player.skills.tackling;
+        skills.control = player.skills.control;
+        skills.speed = player.skills.speed;
+        skills.finishing = player.skills.finishing;
+    }
+
     public String getSkillLabel(Skill skill) {
         return skillLabels[skill.ordinal()];
     }
 
-    static class Skills {
+    public static class Skills {
         int passing;
         int shooting;
         int heading;

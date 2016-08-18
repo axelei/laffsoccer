@@ -8,5 +8,167 @@
     "name": "NEREO ROCCO",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2"
+  "tactics": "4-4-2",
+  "players": [
+    {
+      "name": "LIDO VIERI",
+      "shirtName": "VIERI",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": "1",
+      "skills": {}
+    },
+    {
+      "name": "FABRIZIO POLETTI",
+      "shirtName": "POLETTI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "2",
+      "skills": {}
+    },
+    {
+      "name": "NATALINO FOSSATI",
+      "shirtName": "FOSSATI",
+      "nationality": "ITA",
+      "role": "LEFT_BACK",
+      "number": "3",
+      "skills": {}
+    },
+    {
+      "name": "GIORGIO PUIA",
+      "shirtName": "PUIA",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "4",
+      "skills": {}
+    },
+    {
+      "name": "ROBERTO ROSATO",
+      "shirtName": "ROSATO",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "5",
+      "skills": {}
+    },
+    {
+      "name": "AMILCARE FERRETTI",
+      "shirtName": "FERRETTI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "6",
+      "skills": {}
+    },
+    {
+      "name": "LUIGI SIMONI",
+      "shirtName": "SIMONI",
+      "nationality": "ITA",
+      "role": "LEFT_WINGER",
+      "number": "7",
+      "skills": {}
+    },
+    {
+      "name": "GIORGIO FERRINI",
+      "shirtName": "FERRINI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "8",
+      "skills": {}
+    },
+    {
+      "name": "GERRY HITCHENS",
+      "shirtName": "HITCHENS",
+      "nationality": "ENG",
+      "role": "ATTACKER",
+      "number": "9",
+      "skills": {}
+    },
+    {
+      "name": "LUIGI MERONI",
+      "shirtName": "MERONI",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "10",
+      "skills": {}
+    },
+    {
+      "name": "GIAMBATTISTA MOSCHINO",
+      "shirtName": "MOSCHINO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "11",
+      "skills": {}
+    },
+    {
+      "name": "ADRIANO REGINATO",
+      "shirtName": "REGINATO",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": "12",
+      "skills": {}
+    },
+    {
+      "name": "LUCIANO BUZZACCHERA",
+      "shirtName": "BUZZACCHERA",
+      "nationality": "ITA",
+      "role": "LEFT_BACK",
+      "number": "13",
+      "skills": {}
+    },
+    {
+      "name": "GIANCARLO CELLA",
+      "shirtName": "CELLA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "14",
+      "skills": {}
+    },
+    {
+      "name": "CARLO CRIPPA",
+      "shirtName": "CRIPPA",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "15",
+      "skills": {}
+    },
+    {
+      "name": "ENRICO ALBRIGI",
+      "shirtName": "ALBRIGI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "16",
+      "skills": {}
+    },
+    {
+      "name": "LUCIANO TENEGGI",
+      "shirtName": "TENEGGI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "17",
+      "skills": {}
+    },
+    {
+      "name": "REMO LANCIONI",
+      "shirtName": "LANCIONI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "18",
+      "skills": {}
+    },
+    {
+      "name": "ALBERTO CARELLI",
+      "shirtName": "CARELLI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "19",
+      "skills": {}
+    },
+    {
+      "name": "SERGIO BRIGHENTI",
+      "shirtName": "BRIGHENTI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "20",
+      "skills": {}
+    }
+  ]
 }

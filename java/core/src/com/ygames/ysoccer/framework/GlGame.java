@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.WidgetColor;
+import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class GlGame extends Game {
     public GlGraphics glGraphics;
     public List<InputDevice> inputDevices;
     public MenuInput menuInput;
+    public Player tmpPlayer;
 
     public enum State {
         NONE, FRIENDLY, COMPETITION, EDIT, TRAINING

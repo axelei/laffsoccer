@@ -120,7 +120,7 @@ public class EditTeam extends GlScreen {
         widgets.add(w);
     }
 
-    void setModified() {
+    void setModifiedFlag() {
         modified = true;
         saveButton.setChanged(true);
     }
@@ -151,7 +151,7 @@ public class EditTeam extends GlScreen {
                 for (Widget w : tacticsButtons) {
                     w.setChanged(true);
                 }
-                setModified();
+                setModifiedFlag();
                 for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
                     updatePlayerButtons(pos);
                 }
@@ -172,7 +172,7 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             if (!team.name.equals(text)) {
                 team.name = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -201,7 +201,7 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             if (!team.city.equals(text)) {
                 team.city = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -229,7 +229,7 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             if (!team.stadium.equals(text)) {
                 team.stadium = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -297,7 +297,7 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             if (!team.coach.name.equals(text)) {
                 team.coach.name = text;
-                setModified();
+                setModifiedFlag();
             }
         }
     }
@@ -403,7 +403,7 @@ public class EditTeam extends GlScreen {
                 selectedPos = -1;
 
                 updatePlayerButtons(oldSelected);
-                setModified();
+                setModifiedFlag();
             }
 
             updatePlayerButtons(pos);

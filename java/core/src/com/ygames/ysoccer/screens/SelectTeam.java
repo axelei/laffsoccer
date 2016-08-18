@@ -32,19 +32,13 @@ public class SelectTeam extends GlScreen {
 
         List<Widget> list = new ArrayList<Widget>();
         for (Team teamStub : league.teams) {
-            if (game.teamList.contains(teamStub)) {
-                w = new TeamButton(game.teamList.get(game.teamList.indexOf(teamStub)));
+            FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
+            if (teamFile.exists()) {
+                Team team = Assets.json.fromJson(Team.class, teamFile.readString());
+                team.path = teamStub.path;
+                w = new TeamButton(team);
                 list.add(w);
                 widgets.add(w);
-            } else {
-                FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
-                if (teamFile.exists()) {
-                    Team team = Assets.json.fromJson(Team.class, teamFile.readString());
-                    team.path = teamStub.path;
-                    w = new TeamButton(team);
-                    list.add(w);
-                    widgets.add(w);
-                }
             }
         }
         if (list.size() > 0) {
