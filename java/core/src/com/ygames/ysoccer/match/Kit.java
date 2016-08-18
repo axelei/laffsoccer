@@ -7,10 +7,10 @@ import com.ygames.ysoccer.framework.GlColor;
 public class Kit implements Json.Serializable {
 
     public String style;
-    GlColor shirt1;
-    GlColor shirt2;
-    GlColor shorts;
-    GlColor socks;
+    public GlColor shirt1;
+    public GlColor shirt2;
+    public GlColor shorts;
+    public GlColor socks;
 
     public void write(Json json) {
         json.writeValue("style", style);

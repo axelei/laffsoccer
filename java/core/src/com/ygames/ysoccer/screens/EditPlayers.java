@@ -461,7 +461,7 @@ public class EditPlayers extends GlScreen {
                 // TODO: create face
 
                 updatePlayerButtons(team.players.size() - 1);
-                newPlayerButton.setChanged(true);
+                setChanged(true);
                 deletePlayerButton.setChanged(true);
                 setModifiedFlag();
             }
@@ -505,7 +505,7 @@ public class EditPlayers extends GlScreen {
                 updatePlayerButtons(team.players.size());
 
                 newPlayerButton.setChanged(true);
-                deletePlayerButton.setChanged(true);
+                setChanged(true);
 
                 setModifiedFlag();
             }

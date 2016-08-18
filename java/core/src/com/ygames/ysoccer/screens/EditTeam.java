@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
@@ -33,6 +34,7 @@ public class EditTeam extends GlScreen {
     Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
     Widget[] roleButtons = new Widget[Const.TEAM_SIZE];
 
+    Widget newKitButton;
     Widget saveButton;
 
     public EditTeam(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
@@ -54,6 +56,12 @@ public class EditTeam extends GlScreen {
         }
 
         w = new TeamNameButton();
+        widgets.add(w);
+
+        w = new CoachLabel();
+        widgets.add(w);
+
+        w = new CoachButton();
         widgets.add(w);
 
         w = new CityLabel();
@@ -81,12 +89,6 @@ public class EditTeam extends GlScreen {
             w = new DivisionButton();
             widgets.add(w);
         }
-
-        w = new CoachLabel();
-        widgets.add(w);
-
-        w = new CoachButton();
-        widgets.add(w);
 
         for (int i = 0; i < 5; i++) {
             w = new TeamKitButton(i);
@@ -119,6 +121,10 @@ public class EditTeam extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new NewKitButton();
+        newKitButton = w;
+        widgets.add(w);
 
         w = new SaveButton();
         saveButton = w;
@@ -508,6 +514,56 @@ public class EditTeam extends GlScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new EditPlayers(game, fileHandle, league, team, modified));
+        }
+    }
+
+    class NewKitButton extends Button {
+
+        public NewKitButton() {
+            setGeometry(338, 660, 210, 36);
+            setText(Assets.strings.get("NEW KIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (team.kits.size() < Team.MAX_KITS) {
+                setColors(0x1769BD, 0x3A90E8, 0x10447A);
+                setActive(true);
+            } else {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            // add a change kit
+            Kit kit = team.newKit();
+
+            if (kit == null) return;
+
+            // copy style, shirt1 & shirt2 colors from kit 0 or 1
+            Kit other = team.kits.get(team.kits.size() - 4);
+            kit.style = other.style;
+            kit.shirt1 = other.shirt1;
+            kit.shirt2 = other.shirt2;
+
+            // copy shorts & socks colors from kit 1 or 0
+            other = team.kits.get(5 - team.kits.size());
+            kit.shorts = other.shorts;
+            kit.socks = other.socks;
+
+            team.kitIndex = team.kits.size() - 1;
+            // TODO: reload kit
+            updateKitButtons();
+            setChanged(true);
+            // TODO: update delete kit button
+
+            if (!isActive) {
+                // TODO: selectedWidget = deleteKitButton;
+            }
+
+            setModifiedFlag();
         }
     }
 

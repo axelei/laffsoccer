@@ -25,6 +25,8 @@ public class Team {
 
     public int kitIndex;
     public List<Kit> kits;
+    public static final int MIN_KITS = 3;
+    public static final int MAX_KITS = 5;
 
     public List<Player> players;
 
@@ -75,6 +77,15 @@ public class Team {
             return players.remove(player);
         }
         return false;
+    }
+
+    public Kit newKit() {
+        if (kits.size() == MAX_KITS) {
+            return null;
+        }
+        Kit kit = new Kit();
+        kits.add(kit);
+        return kit;
     }
 
     @Override
