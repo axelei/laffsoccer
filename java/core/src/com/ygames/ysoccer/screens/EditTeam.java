@@ -26,6 +26,8 @@ public class EditTeam extends GlScreen {
 
     Widget[] tacticsButtons = new Widget[18];
 
+    Widget[] kitButtons = new Widget[5];
+
     Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
     Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
@@ -86,6 +88,12 @@ public class EditTeam extends GlScreen {
         w = new CoachButton();
         widgets.add(w);
 
+        for (int i = 0; i < 5; i++) {
+            w = new TeamKitButton(i);
+            kitButtons[i] = w;
+            widgets.add(w);
+        }
+
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
             w = new PlayerNumberButton(pos);
             numberButtons[pos] = w;
@@ -131,7 +139,7 @@ public class EditTeam extends GlScreen {
 
         public TacticsButton(int t) {
             this.t = t;
-            setGeometry(678 + 110 * ((int) Math.floor(t / 9)), 148 + 24 * (t % 9), 90, 22);
+            setGeometry(678 + 94 * (t % 3), 186 + 24 * ((int) Math.floor(t / 3)), 90, 22);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -162,7 +170,7 @@ public class EditTeam extends GlScreen {
     class TeamNameButton extends InputButton {
 
         public TeamNameButton() {
-            setGeometry(188, 30, 520, 40);
+            setGeometry(110, 30, 520, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(16);
@@ -180,7 +188,7 @@ public class EditTeam extends GlScreen {
     class CityLabel extends Button {
 
         public CityLabel() {
-            setGeometry(100, 110, 182, 30);
+            setGeometry(90, 170, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("CITY"), Font.Align.CENTER, Assets.font10);
             setVisible(team.type == Team.Type.CLUB);
@@ -191,7 +199,7 @@ public class EditTeam extends GlScreen {
     class CityButton extends InputButton {
 
         public CityButton() {
-            setGeometry(290, 110, 364, 30);
+            setGeometry(280, 170, 364, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
             setText(team.city, Font.Align.CENTER, Assets.font10);
             setEntryLimit(28);
@@ -209,7 +217,7 @@ public class EditTeam extends GlScreen {
     class StadiumLabel extends Button {
 
         public StadiumLabel() {
-            setGeometry(100, 160, 182, 30);
+            setGeometry(90, 215, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("STADIUM"), Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -219,7 +227,7 @@ public class EditTeam extends GlScreen {
     class StadiumButton extends InputButton {
 
         public StadiumButton() {
-            setGeometry(290, 160, 364, 30);
+            setGeometry(280, 215, 364, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
             setText(team.stadium, Font.Align.CENTER, Assets.font10);
             setEntryLimit(28);
@@ -237,7 +245,7 @@ public class EditTeam extends GlScreen {
     class CountryLabel extends Button {
 
         public CountryLabel() {
-            setGeometry(100, 210, 182, 30);
+            setGeometry(90, 260, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("COUNTRY"), Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -247,7 +255,7 @@ public class EditTeam extends GlScreen {
     class CountryButton extends Button {
 
         public CountryButton() {
-            setGeometry(290, 210, 364, 30);
+            setGeometry(280, 260, 364, 32);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(team.country, Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -257,7 +265,7 @@ public class EditTeam extends GlScreen {
     class DivisionLabel extends Button {
 
         public DivisionLabel() {
-            setGeometry(100, 260, 182, 30);
+            setGeometry(90, 305, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("DIVISION"), Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -267,7 +275,7 @@ public class EditTeam extends GlScreen {
     class DivisionButton extends Button {
 
         public DivisionButton() {
-            setGeometry(290, 260, 364, 30);
+            setGeometry(280, 305, 364, 32);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(league.name, Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -277,7 +285,7 @@ public class EditTeam extends GlScreen {
     class CoachLabel extends Button {
 
         public CoachLabel() {
-            setGeometry(100, 325, 182, 30);
+            setGeometry(90, 110, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -287,7 +295,7 @@ public class EditTeam extends GlScreen {
     class CoachButton extends InputButton {
 
         public CoachButton() {
-            setGeometry(290, 325, 364, 30);
+            setGeometry(280, 110, 364, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
             setText(team.coach.name, Font.Align.CENTER, Assets.font10);
             setEntryLimit(28);
@@ -299,6 +307,63 @@ public class EditTeam extends GlScreen {
                 team.coach.name = text;
                 setModifiedFlag();
             }
+        }
+    }
+
+    class TeamKitButton extends Button {
+
+        int kitIndex;
+
+        public TeamKitButton(int kitIndex) {
+            this.kitIndex = kitIndex;
+            setGeometry(90, 376 + 55 * kitIndex, 180, 38);
+            String label = "";
+            switch (kitIndex) {
+                case 0:
+                    label = "KITS.HOME";
+                    break;
+                case 1:
+                    label = "KITS.AWAY";
+                    break;
+                case 2:
+                    label = "KITS.THIRD";
+                    break;
+                case 3:
+                    label = "KITS.1ST CHANGE";
+                    break;
+                case 4:
+                    label = "KITS.2ND CHANGE";
+                    break;
+            }
+            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (kitIndex >= team.kits.size()) {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            } else {
+                if (kitIndex == team.kitIndex) {
+                    setColors(0x881845, 0xDC246E, 0x510F29);
+                } else {
+                    setColors(0xDA2A70, 0xE45C92, 0xA41C52);
+                }
+                setActive(true);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            team.kitIndex = kitIndex;
+            // TODO: reload kit
+            updateKitButtons();
+        }
+    }
+
+    void updateKitButtons() {
+        for (Widget w : kitButtons) {
+            w.setChanged(true);
         }
     }
 

@@ -23,6 +23,9 @@ public class Team {
     public String tactics;
     public ControlMode controlMode;
 
+    public int kitIndex;
+    public List<Kit> kits;
+
     public List<Player> players;
 
     public int won;

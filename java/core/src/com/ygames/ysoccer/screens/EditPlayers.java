@@ -383,7 +383,7 @@ public class EditPlayers extends GlScreen {
     class TeamNameButton extends InputButton {
 
         public TeamNameButton() {
-            setGeometry(188, 30, 520, 40);
+            setGeometry(110, 30, 520, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(16);

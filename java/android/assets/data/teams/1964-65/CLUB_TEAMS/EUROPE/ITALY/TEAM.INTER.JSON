@@ -9,6 +9,29 @@
     "nationality": "ARG"
   },
   "tactics": "4-3-3",
+  "kits": [
+    {
+      "style": "VERTICAL",
+      "shirt1": "#bbccdd",
+      "shirt2": "#bbccdd",
+      "shorts": "#00ffff",
+      "socks": "#000000"
+    },
+    {
+      "style": "DIAGONAL",
+      "shirt1": "#bbccdd",
+      "shirt2": "#bbccdd",
+      "shorts": "#00ffff",
+      "socks": "#000000"
+    },
+    {
+      "style": "DOUBLE_STRIPE",
+      "shirt1": "#bbccdd",
+      "shirt2": "#bbccdd",
+      "shorts": "#00ffff",
+      "socks": "#000000"
+    }
+  ],
   "players": [
     {
       "name": "GIULIANO SARTI",
