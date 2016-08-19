@@ -115,6 +115,9 @@ public class EditTeam extends GlScreen {
         w = new Shirt1Label();
         widgets.add(w);
 
+        w = new HashLabel(528, 370 + 54 + 23);
+        widgets.add(w);
+
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
             w = new PlayerNumberButton(pos);
             numberButtons[pos] = w;
@@ -245,13 +248,14 @@ public class EditTeam extends GlScreen {
     class CoachNationalityButton extends Button {
 
         public CoachNationalityButton() {
-            setGeometry(650, 110, 56, 32);
+            setGeometry(650, 110, 60, 32);
+            setColors(0x10A000, 0x15E000, 0x096000);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
         @Override
         public void onUpdate() {
-            setText("(" + team.coach.nationality + ")");
+            setText(team.coach.nationality);
         }
 
         @Override
@@ -501,6 +505,16 @@ public class EditTeam extends GlScreen {
             setGeometry(528, 370 + 54, 160, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("KITS.SHIRT 1"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+    }
+
+    class HashLabel extends Button {
+
+        public HashLabel(int x, int y) {
+            setGeometry(x, y, 40, 23);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText("#", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
