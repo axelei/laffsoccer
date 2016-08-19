@@ -99,7 +99,7 @@ public class PlayCup extends GlScreen {
         // home team
         w = new Label();
         w.setGeometry(240, 618, 322, 36);
-        w.setText(cup.teams.get(match.team[Match.HOME]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
+        w.setText(cup.teams.get(match.team[Match.HOME]).name, Font.Align.RIGHT, Assets.font14);
         widgets.add(w);
 
         // result (home goals)
@@ -134,7 +134,7 @@ public class PlayCup extends GlScreen {
         // away team
         w = new Label();
         w.setGeometry(720, 618, 322, 36);
-        w.setText(cup.teams.get(match.team[Match.AWAY]).name.toUpperCase(), Font.Align.LEFT, Assets.font14);
+        w.setText(cup.teams.get(match.team[Match.AWAY]).name, Font.Align.LEFT, Assets.font14);
         widgets.add(w);
 
         w = new ViewStatisticsButton();
@@ -182,7 +182,7 @@ public class PlayCup extends GlScreen {
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 840) / 2, 30, 840, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
-            setText(cup.getMenuTitle().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(cup.getMenuTitle(), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -202,7 +202,7 @@ public class PlayCup extends GlScreen {
                     setColors(0x009BDC, 0x000001, 0x000001);
                     break;
             }
-            setText(team.name.toUpperCase(), align, Assets.font10);
+            setText(team.name, align, Assets.font10);
             setActive(false);
         }
     }

@@ -9,6 +9,7 @@
     "nationality": "ARG"
   },
   "tactics": "4-3-3",
+  "kitIndex": 2,
   "kits": [
     {
       "style": "VERTICAL",
@@ -30,6 +31,13 @@
       "shirt2": "#bbccdd",
       "shorts": "#00ffff",
       "socks": "#000000"
+    },
+    {
+      "style": "VERTICAL",
+      "shirt1": "#bbccdd",
+      "shirt2": "#bbccdd",
+      "shorts": "#00ffff",
+      "socks": "#000000"
     }
   ],
   "players": [
@@ -40,15 +48,7 @@
       "role": "GOALKEEPER",
       "number": "1",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "TARCISIO BURGNICH",
@@ -57,15 +57,7 @@
       "role": "RIGHT_BACK",
       "number": "2",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIACINTO FACCHETTI",
@@ -91,15 +83,7 @@
       "role": "MIDFIELDER",
       "number": "4",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ARISTIDE GUARNERI",
@@ -108,15 +92,7 @@
       "role": "DEFENDER",
       "number": "5",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ARMANDO PICCHI",
@@ -125,15 +101,7 @@
       "role": "DEFENDER",
       "number": "6",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "JAIR DA COSTA",
@@ -142,15 +110,7 @@
       "role": "RIGHT_WINGER",
       "number": "7",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "SANDRO MAZZOLA",
@@ -159,15 +119,7 @@
       "role": "MIDFIELDER",
       "number": "8",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "JOAQUÍN PEIRÓ",
@@ -176,15 +128,7 @@
       "role": "ATTACKER",
       "number": "9",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "LUIS SUÁREZ",
@@ -193,15 +137,7 @@
       "role": "MIDFIELDER",
       "number": "10",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "MARIO CORSO",
@@ -210,15 +146,7 @@
       "role": "LEFT_WINGER",
       "number": "11",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "OTTAVIO BUGATTI",
@@ -227,15 +155,7 @@
       "role": "GOALKEEPER",
       "number": "12",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ROSARIO DI VINCENZO",
@@ -244,15 +164,7 @@
       "role": "GOALKEEPER",
       "number": "13",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIOVANNI FERRETTI",
@@ -261,15 +173,7 @@
       "role": "GOALKEEPER",
       "number": "14",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "SPARTACO LANDINI",
@@ -278,15 +182,7 @@
       "role": "DEFENDER",
       "number": "15",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIORGIO DELLA GIOVANNA",
@@ -295,15 +191,7 @@
       "role": "DEFENDER",
       "number": "16",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "SERGIO GORI",
@@ -312,15 +200,7 @@
       "role": "MIDFIELDER",
       "number": "17",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "SAUL MALATRASI",
@@ -329,15 +209,7 @@
       "role": "MIDFIELDER",
       "number": "18",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "CARLO TAGNIN",
@@ -346,15 +218,7 @@
       "role": "MIDFIELDER",
       "number": "19",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "FRANCO ZAGLIO",
@@ -363,15 +227,7 @@
       "role": "MIDFIELDER",
       "number": "20",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ANGELO DOMENGHINI",
@@ -380,15 +236,7 @@
       "role": "ATTACKER",
       "number": "21",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "FRANCESCO CANELLA",
@@ -397,15 +245,7 @@
       "role": "ATTACKER",
       "number": "22",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "AURELIO MILANI",
@@ -414,15 +254,7 @@
       "role": "ATTACKER",
       "number": "23",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "BRUNO PETRONI",
@@ -431,15 +263,7 @@
       "role": "ATTACKER",
       "number": "24",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     }
   ]
 }
