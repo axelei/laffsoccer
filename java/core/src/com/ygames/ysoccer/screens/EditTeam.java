@@ -105,11 +105,14 @@ public class EditTeam extends GlScreen {
             widgets.add(w);
         }
 
-        w = new KitStyleLabel();
+        w = new StyleLabel();
         widgets.add(w);
 
-        w = new KitStyleButton();
+        w = new StyleButton();
         kitEditButtons[0] = w;
+        widgets.add(w);
+
+        w = new Shirt1Label();
         widgets.add(w);
 
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
@@ -445,8 +448,9 @@ public class EditTeam extends GlScreen {
         }
     }
 
-    class KitStyleLabel extends Button {
-        public KitStyleLabel() {
+    class StyleLabel extends Button {
+
+        public StyleLabel() {
             setGeometry(528, 370, 160, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("KITS.STYLE"), Font.Align.CENTER, Assets.font10);
@@ -454,9 +458,9 @@ public class EditTeam extends GlScreen {
         }
     }
 
-    class KitStyleButton extends Button {
+    class StyleButton extends Button {
 
-        public KitStyleButton() {
+        public StyleButton() {
             setGeometry(528, 370 + 23, 160, 23);
             setColors(0x530DB3, 0x6F12EE, 0x380977);
         }
@@ -488,6 +492,16 @@ public class EditTeam extends GlScreen {
 
         private void updateKitStyle(int n) {
             // TODO
+        }
+    }
+
+    class Shirt1Label extends Button {
+
+        public Shirt1Label() {
+            setGeometry(528, 370 + 54, 160, 23);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText(Assets.strings.get("KITS.SHIRT 1"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
         }
     }
 

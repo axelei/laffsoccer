@@ -429,7 +429,7 @@ public class Cup extends Competition {
         if (currentLeg == 0) {
             if (match.qualified != -1) {
                 if (match.resultAfterPenalties != null) {
-                    s = teams.get(match.qualified).name.toUpperCase()
+                    s = teams.get(match.qualified).name
                             + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                             + Math.max(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
                             + "-"
@@ -456,7 +456,7 @@ public class Cup extends Competition {
             if (match.qualified != -1) {
                 // penalties
                 if (match.resultAfterPenalties != null) {
-                    s = teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                    s = teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                             + Math.max(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
                             + "-"
                             + Math.min(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
@@ -476,11 +476,11 @@ public class Cup extends Competition {
                     // away goals
                     if (agg_score_a == agg_score_b) {
                         s += agg_score_a + "-" + agg_score_b + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE") + " "
-                                + teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " " + Assets.strings.get("MATCH STATUS.ON AWAY GOALS");
+                                + teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " " + Assets.strings.get("MATCH STATUS.ON AWAY GOALS");
                     }
                     //on aggregate
                     else {
-                        s = teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                        s = teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                                 + Math.max(agg_score_a, agg_score_b)
                                 + "-"
                                 + Math.min(agg_score_a, agg_score_b)
@@ -500,7 +500,7 @@ public class Cup extends Competition {
         else {
             if (match.qualified != -1) {
                 if (match.resultAfterPenalties != null) {
-                    s = teams.get(match.qualified).name.toUpperCase() + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                    s = teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                             + Math.max(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
                             + "-"
                             + Math.min(match.resultAfterPenalties.homeGoals, match.resultAfterPenalties.awayGoals)
