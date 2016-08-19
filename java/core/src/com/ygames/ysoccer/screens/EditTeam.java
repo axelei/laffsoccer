@@ -4,6 +4,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -112,11 +113,19 @@ public class EditTeam extends GlScreen {
         kitEditButtons[0] = w;
         widgets.add(w);
 
-        w = new Shirt1Label();
-        widgets.add(w);
+        for (int f = 0; f < 4; f++) {
+            w = new KitFieldLabel(Kit.Field.values()[f], 528, 424 + 54 * f);
+            widgets.add(w);
 
-        w = new HashLabel(528, 370 + 54 + 23);
-        widgets.add(w);
+            w = new HashLabel(528, 424 + 54 * f + 23);
+            widgets.add(w);
+
+            for (int c = 1; c < 4; c++) {
+                w = new ColorComponentButton(Kit.Field.values()[f], GlColor.Component.values()[c], 528 + c * 40, 424 + 54 * f + 23);
+                kitEditButtons[3 * f + c] = w;
+                widgets.add(w);
+            }
+        }
 
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
             w = new PlayerNumberButton(pos);
@@ -499,12 +508,12 @@ public class EditTeam extends GlScreen {
         }
     }
 
-    class Shirt1Label extends Button {
+    class KitFieldLabel extends Button {
 
-        public Shirt1Label() {
-            setGeometry(528, 370 + 54, 160, 23);
+        public KitFieldLabel(Kit.Field field, int x, int y) {
+            setGeometry(x, y, 160, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("KITS.SHIRT 1"), Font.Align.CENTER, Assets.font10);
+            setText(Assets.strings.get("KITS." + field.name()), Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
@@ -516,6 +525,113 @@ public class EditTeam extends GlScreen {
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText("#", Font.Align.CENTER, Assets.font10);
             setActive(false);
+        }
+    }
+
+    class ColorComponentButton extends Button {
+
+        Kit.Field field;
+        GlColor.Component component;
+        int value;
+
+        public ColorComponentButton(Kit.Field field, GlColor.Component component, int x, int y) {
+            this.field = field;
+            this.component = component;
+            setGeometry(x, y, 40, 23);
+            setColors(0x530DB3, 0x6F12EE, 0x380977);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            this.value = getColor().getComponentValue(component);
+            setText(String.format("%02X", value));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateValue(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateValue(1);
+        }
+
+        @Override
+        public void onFire1Up() {
+            updateKit();
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateValue(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateValue(-1);
+        }
+
+        @Override
+        public void onFire2Up() {
+            updateKit();
+        }
+
+        private void updateValue(int n) {
+            value = Emath.rotate(value, 0, 255, n);
+            GlColor color = getColor();
+            switch (component) {
+                case RED:
+                    color = new GlColor(value, color.getGreen(), color.getBlue());
+                    break;
+                case GREEN:
+                    color = new GlColor(color.getRed(), value, color.getBlue());
+                    break;
+                case BLUE:
+                    color = new GlColor(color.getRed(), color.getGreen(), value);
+                    break;
+            }
+            switch (field) {
+                case SHIRT1:
+                    team.kits.get(selectedKit).shirt1 = color;
+                    break;
+                case SHIRT2:
+                    team.kits.get(selectedKit).shirt2 = color;
+                    break;
+                case SHORTS:
+                    team.kits.get(selectedKit).shorts = color;
+                    break;
+                case SOCKS:
+                    team.kits.get(selectedKit).socks = color;
+                    break;
+            }
+            setChanged(true);
+            setModifiedFlag();
+        }
+
+        void updateKit() {
+            // TODO: reload kit
+        }
+
+        private GlColor getColor() {
+            GlColor color;
+            switch (field) {
+                case SHIRT1:
+                    color = team.kits.get(selectedKit).shirt1;
+                    break;
+                case SHIRT2:
+                    color = team.kits.get(selectedKit).shirt2;
+                    break;
+                case SHORTS:
+                    color = team.kits.get(selectedKit).shorts;
+                    break;
+                case SOCKS:
+                default:
+                    color = team.kits.get(selectedKit).socks;
+                    break;
+            }
+            return color;
         }
     }
 

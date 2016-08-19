@@ -6,6 +6,8 @@ import com.ygames.ysoccer.framework.GlColor;
 
 public class Kit implements Json.Serializable {
 
+    public enum Field {SHIRT1, SHIRT2, SHORTS, SOCKS}
+
     public String style;
     public GlColor shirt1;
     public GlColor shirt2;
