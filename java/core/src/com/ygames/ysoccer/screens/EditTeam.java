@@ -14,6 +14,7 @@ import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.Collections;
 
@@ -70,6 +71,9 @@ public class EditTeam extends GlScreen {
         widgets.add(w);
 
         w = new CityLabel();
+        widgets.add(w);
+
+        w = new CoachNationalityButton();
         widgets.add(w);
 
         w = new CityButton();
@@ -232,6 +236,49 @@ public class EditTeam extends GlScreen {
                 team.coach.name = text;
                 setModifiedFlag();
             }
+        }
+    }
+
+    class CoachNationalityButton extends Button {
+
+        public CoachNationalityButton() {
+            setGeometry(650, 110, 56, 32);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText("(" + team.coach.nationality + ")");
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateNationality(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateNationality(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateNationality(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateNationality(-1);
+        }
+
+        private void updateNationality(int n) {
+            int i = Assets.associations.indexOf(team.coach.nationality);
+            if (i != -1) {
+                i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
+                team.coach.nationality = Assets.associations.get(i);
+            }
+            setChanged(true);
+            setModifiedFlag();
         }
     }
 

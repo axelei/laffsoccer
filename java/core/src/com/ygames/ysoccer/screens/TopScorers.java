@@ -38,10 +38,10 @@ public class TopScorers extends GlScreen {
 
             row = row + 1;
 
-            w = new ScorerNameButton(22 * row, scorer.name.toUpperCase());
+            w = new ScorerNameButton(22 * row, scorer.name);
             widgets.add(w);
 
-            w = new TeamNameLabel(22 * row, scorer.team.toUpperCase());
+            w = new TeamNameLabel(22 * row, scorer.team);
             widgets.add(w);
 
             if (row > 24) {
