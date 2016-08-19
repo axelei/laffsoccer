@@ -22,6 +22,7 @@ public class EditTeam extends GlScreen {
     FileHandle fileHandle;
     League league;
     Team team;
+    int selectedKit;
     int selectedPos;
     boolean modified;
 
@@ -35,6 +36,7 @@ public class EditTeam extends GlScreen {
     Widget[] roleButtons = new Widget[Const.TEAM_SIZE];
 
     Widget newKitButton;
+    Widget deleteKitButton;
     Widget saveButton;
 
     public EditTeam(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
@@ -42,8 +44,10 @@ public class EditTeam extends GlScreen {
         this.fileHandle = fileHandle;
         this.league = league;
         this.team = team;
-        selectedPos = -1;
         this.modified = modified;
+
+        selectedKit = 0;
+        selectedPos = -1;
 
         background = game.stateBackground;
 
@@ -126,6 +130,10 @@ public class EditTeam extends GlScreen {
         newKitButton = w;
         widgets.add(w);
 
+        w = new DeleteKitButton();
+        deleteKitButton = w;
+        widgets.add(w);
+
         w = new SaveButton();
         saveButton = w;
         widgets.add(w);
@@ -186,6 +194,34 @@ public class EditTeam extends GlScreen {
         public void onUpdate() {
             if (!team.name.equals(text)) {
                 team.name = text;
+                setModifiedFlag();
+            }
+        }
+    }
+
+    class CoachLabel extends Button {
+
+        public CoachLabel() {
+            setGeometry(90, 110, 182, 32);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+    }
+
+    class CoachButton extends InputButton {
+
+        public CoachButton() {
+            setGeometry(280, 110, 364, 32);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(team.coach.name, Font.Align.CENTER, Assets.font10);
+            setEntryLimit(28);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (!team.coach.name.equals(text)) {
+                team.coach.name = text;
                 setModifiedFlag();
             }
         }
@@ -288,34 +324,6 @@ public class EditTeam extends GlScreen {
         }
     }
 
-    class CoachLabel extends Button {
-
-        public CoachLabel() {
-            setGeometry(90, 110, 182, 32);
-            setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font10);
-            setActive(false);
-        }
-    }
-
-    class CoachButton extends InputButton {
-
-        public CoachButton() {
-            setGeometry(280, 110, 364, 32);
-            setColors(0x10A000, 0x15E000, 0x096000);
-            setText(team.coach.name, Font.Align.CENTER, Assets.font10);
-            setEntryLimit(28);
-        }
-
-        @Override
-        public void onUpdate() {
-            if (!team.coach.name.equals(text)) {
-                team.coach.name = text;
-                setModifiedFlag();
-            }
-        }
-    }
-
     class TeamKitButton extends Button {
 
         int kitIndex;
@@ -350,7 +358,7 @@ public class EditTeam extends GlScreen {
                 setColors(0x666666, 0x8F8D8D, 0x404040);
                 setActive(false);
             } else {
-                if (kitIndex == team.kitIndex) {
+                if (kitIndex == selectedKit) {
                     setColors(0x881845, 0xDC246E, 0x510F29);
                 } else {
                     setColors(0xDA2A70, 0xE45C92, 0xA41C52);
@@ -361,7 +369,7 @@ public class EditTeam extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            team.kitIndex = kitIndex;
+            selectedKit = kitIndex;
             // TODO: reload kit
             updateKitButtons();
         }
@@ -553,15 +561,47 @@ public class EditTeam extends GlScreen {
             kit.shorts = other.shorts;
             kit.socks = other.socks;
 
-            team.kitIndex = team.kits.size() - 1;
+            selectedKit = team.kits.size() - 1;
             // TODO: reload kit
             updateKitButtons();
             setChanged(true);
-            // TODO: update delete kit button
+            deleteKitButton.setChanged(true);
 
-            if (!isActive) {
-                // TODO: selectedWidget = deleteKitButton;
+            setModifiedFlag();
+        }
+    }
+
+    class DeleteKitButton extends Button {
+
+        public DeleteKitButton() {
+            setGeometry(558, 660, 220, 36);
+            setText(Assets.strings.get("DELETE KIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (team.kits.size() > Team.MIN_KITS) {
+                setColors(0x3217BD, 0x5639E7, 0x221080);
+                setActive(true);
+            } else {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
             }
+        }
+
+        @Override
+        public void onFire1Down() {
+            boolean deleted = team.deleteKit();
+
+            if (!deleted) return;
+
+            if (selectedKit >= team.kits.size() - 1) {
+                selectedKit = team.kits.size() - 1;
+                // TODO: reload kit
+            }
+            updateKitButtons();
+            newKitButton.setChanged(true);
+            setChanged(true);
 
             setModifiedFlag();
         }

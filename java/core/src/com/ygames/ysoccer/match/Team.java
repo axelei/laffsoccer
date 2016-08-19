@@ -88,6 +88,13 @@ public class Team {
         return kit;
     }
 
+    public boolean deleteKit() {
+        if (kits.size() > MIN_KITS) {
+            return kits.remove(kits.get(kits.size() - 1));
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Team t = (Team) obj;
