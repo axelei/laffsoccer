@@ -78,7 +78,7 @@ public class PlayLeague extends GlScreen {
                     w.setColors(0x009BDC, 0x000001, 0x000001);
                     break;
             }
-            w.setText(team.name.toUpperCase(), Font.Align.LEFT, Assets.font10);
+            w.setText(team.name, Font.Align.LEFT, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -158,13 +158,13 @@ public class PlayLeague extends GlScreen {
             // home team
             w = new Label();
             w.setGeometry(240, 618, 322, 36);
-            w.setText(league.teams.get(match.team[Match.HOME]).name.toUpperCase(), Font.Align.RIGHT, Assets.font14);
+            w.setText(league.teams.get(match.team[Match.HOME]).name, Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
             // away team
             w = new Label();
             w.setGeometry(720, 618, 322, 36);
-            w.setText(league.teams.get(match.team[Match.AWAY]).name.toUpperCase(), Font.Align.LEFT, Assets.font14);
+            w.setText(league.teams.get(match.team[Match.AWAY]).name, Font.Align.LEFT, Assets.font14);
             widgets.add(w);
 
             // result (home goals)
@@ -221,7 +221,7 @@ public class PlayLeague extends GlScreen {
         public TitleBar() {
             setGeometry((game.settings.GUI_WIDTH - 840) / 2, 30, 840, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
-            setText(league.getMenuTitle().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(league.getMenuTitle(), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

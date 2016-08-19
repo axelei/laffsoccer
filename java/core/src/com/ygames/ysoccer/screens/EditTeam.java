@@ -101,6 +101,9 @@ public class EditTeam extends GlScreen {
             widgets.add(w);
         }
 
+        w = new KitStyleLabel();
+        widgets.add(w);
+
         w = new KitStyleButton();
         kitEditButtons[0] = w;
         widgets.add(w);
@@ -158,7 +161,7 @@ public class EditTeam extends GlScreen {
 
         public TacticsButton(int t) {
             this.t = t;
-            setGeometry(678 + 94 * (t % 3), 186 + 24 * ((int) Math.floor(t / 3)), 90, 22);
+            setGeometry(678 + 94 * (t % 3), 186 + 25 * ((int) Math.floor(t / 3)), 90, 22);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -395,10 +398,19 @@ public class EditTeam extends GlScreen {
         }
     }
 
+    class KitStyleLabel extends Button {
+        public KitStyleLabel() {
+            setGeometry(528, 370, 160, 23);
+            setColors(0x808080, 0xC0C0C0, 0x404040);
+            setText(Assets.strings.get("KITS.STYLE"), Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+    }
+
     class KitStyleButton extends Button {
 
         public KitStyleButton() {
-            setGeometry(528, 376 + 23, 160, 23);
+            setGeometry(528, 370 + 23, 160, 23);
             setColors(0x530DB3, 0x6F12EE, 0x380977);
         }
 
@@ -438,7 +450,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(716, 370 + 24 * pos, 34, 21);
+            setGeometry(720, 370 + 24 * pos, 34, 21);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -456,7 +468,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerFaceButton(int pos) {
             this.pos = pos;
-            setGeometry(750, 370 + 24 * pos, 24, 21);
+            setGeometry(754, 370 + 24 * pos, 24, 21);
             setActive(false);
         }
 
@@ -473,7 +485,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerNameButton(int pos) {
             this.pos = pos;
-            setGeometry(778, 370 + 24 * pos, 364, 21);
+            setGeometry(782, 370 + 24 * pos, 364, 21);
             setText("", Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
@@ -491,7 +503,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerRoleButton(int pos) {
             this.pos = pos;
-            setGeometry(1142, 370 + 24 * pos, 34, 21);
+            setGeometry(1146, 370 + 24 * pos, 34, 21);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -509,7 +521,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerSelectButton(int pos) {
             this.pos = pos;
-            setGeometry(716, 370 + 24 * this.pos, 460, 21);
+            setGeometry(720, 370 + 24 * this.pos, 460, 21);
         }
 
         @Override
