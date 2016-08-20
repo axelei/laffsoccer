@@ -51,15 +51,6 @@
       "skills": {}
     },
     {
-      "name": "TARCISIO BURGNICH",
-      "shirtName": "BURGNICH",
-      "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "2",
-      "hairType": "SMOOTH1",
-      "skills": {}
-    },
-    {
       "name": "GIACINTO FACCHETTI",
       "shirtName": "FACCHETTI",
       "nationality": "ITA",
@@ -77,11 +68,11 @@
       }
     },
     {
-      "name": "GIANFRANCO BEDIN",
-      "shirtName": "BEDIN",
+      "name": "ARMANDO PICCHI",
+      "shirtName": "PICCHI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "4",
+      "role": "DEFENDER",
+      "number": "6",
       "hairType": "SMOOTH1",
       "skills": {}
     },
@@ -95,11 +86,29 @@
       "skills": {}
     },
     {
-      "name": "ARMANDO PICCHI",
-      "shirtName": "PICCHI",
+      "name": "TARCISIO BURGNICH",
+      "shirtName": "BURGNICH",
       "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "6",
+      "role": "RIGHT_BACK",
+      "number": "2",
+      "hairType": "SMOOTH1",
+      "skills": {}
+    },
+    {
+      "name": "LUIS SUÁREZ",
+      "shirtName": "SUÁREZ",
+      "nationality": "ESP",
+      "role": "MIDFIELDER",
+      "number": "10",
+      "hairType": "SMOOTH1",
+      "skills": {}
+    },
+    {
+      "name": "GIANFRANCO BEDIN",
+      "shirtName": "BEDIN",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "4",
       "hairType": "SMOOTH1",
       "skills": {}
     },
@@ -122,29 +131,20 @@
       "skills": {}
     },
     {
-      "name": "JOAQUÍN PEIRÓ",
-      "shirtName": "PEIRÓ",
-      "nationality": "ESP",
-      "role": "ATTACKER",
-      "number": "9",
-      "hairType": "SMOOTH1",
-      "skills": {}
-    },
-    {
-      "name": "LUIS SUÁREZ",
-      "shirtName": "SUÁREZ",
-      "nationality": "ESP",
-      "role": "MIDFIELDER",
-      "number": "10",
-      "hairType": "SMOOTH1",
-      "skills": {}
-    },
-    {
       "name": "MARIO CORSO",
       "shirtName": "CORSO",
       "nationality": "ITA",
       "role": "LEFT_WINGER",
       "number": "11",
+      "hairType": "SMOOTH1",
+      "skills": {}
+    },
+    {
+      "name": "JOAQUÍN PEIRÓ",
+      "shirtName": "PEIRÓ",
+      "nationality": "ESP",
+      "role": "ATTACKER",
+      "number": "9",
       "hairType": "SMOOTH1",
       "skills": {}
     },

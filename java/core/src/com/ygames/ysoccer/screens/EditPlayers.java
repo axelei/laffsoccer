@@ -383,7 +383,7 @@ public class EditPlayers extends GlScreen {
     class TeamNameButton extends InputButton {
 
         public TeamNameButton() {
-            setGeometry(110, 30, 520, 40);
+            setGeometry(90, 30, 450, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(16);
@@ -415,7 +415,7 @@ public class EditPlayers extends GlScreen {
     class EditTeamButton extends Button {
 
         public EditTeamButton() {
-            setGeometry(168, 660, 160, 36);
+            setGeometry(100, 660, 206, 36);
             setColors(0x00825F, 0x00C28E, 0x00402F);
             setText(Assets.strings.get("TEAM"), Font.Align.CENTER, Assets.font14);
         }
@@ -429,7 +429,7 @@ public class EditPlayers extends GlScreen {
     class NewPlayerButton extends Button {
 
         public NewPlayerButton() {
-            setGeometry(338, 660, 210, 36);
+            setGeometry(310, 660, 226, 36);
             setText(Assets.strings.get("NEW PLAYER"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -471,7 +471,7 @@ public class EditPlayers extends GlScreen {
     class DeletePlayerButton extends Button {
 
         public DeletePlayerButton() {
-            setGeometry(558, 660, 220, 36);
+            setGeometry(540, 660, 226, 36);
             setText(Assets.strings.get("DELETE PLAYER"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -515,7 +515,7 @@ public class EditPlayers extends GlScreen {
     class SaveButton extends Button {
 
         public SaveButton() {
-            setGeometry(788, 660, 160, 36);
+            setGeometry(770, 660, 196, 36);
             setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -543,7 +543,7 @@ public class EditPlayers extends GlScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setGeometry(958, 660, 160, 36);
+            setGeometry(970, 660, 196, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
