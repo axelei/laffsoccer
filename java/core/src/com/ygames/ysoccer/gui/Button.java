@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.gui;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlGraphics;
 import com.ygames.ysoccer.framework.GlShapeRenderer;
@@ -39,9 +40,21 @@ public class Button extends Widget {
 
         shapeRenderer.end();
 
-        if (font != null) {
-            drawText(glGraphics);
+        glGraphics.batch.begin();
+
+        if (image != null) {
+            drawImage(glGraphics.batch);
         }
+
+        if (font != null) {
+            drawText(glGraphics.batch);
+        }
+
+        glGraphics.batch.end();
+    }
+
+    private void drawImage(SpriteBatch batch) {
+        batch.draw(image, x + 2, y + 2, image.getRegionWidth(), image.getRegionHeight());
     }
 
     private void drawBorder(GlShapeRenderer shapeRenderer, int bx, int by, int bw,
@@ -76,7 +89,7 @@ public class Button extends Widget {
         drawBorder(glGraphics.shapeRenderer, x, y, w, h, bdr1, bdr2);
     }
 
-    private void drawText(GlGraphics glGraphics) {
+    private void drawText(SpriteBatch batch) {
         int tx = x;
         switch (align) {
             case RIGHT:
@@ -88,7 +101,7 @@ public class Button extends Widget {
             case LEFT:
                 tx += font.size;
         }
-        font.draw(glGraphics.batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
+        font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
     }
 
     public String getText() {

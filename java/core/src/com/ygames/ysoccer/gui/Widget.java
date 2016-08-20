@@ -2,6 +2,7 @@ package com.ygames.ysoccer.gui;
 
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
@@ -14,6 +15,8 @@ public abstract class Widget {
     public int y;
     public int w;
     public int h;
+
+    public Image image;
 
     WidgetColor color;
 

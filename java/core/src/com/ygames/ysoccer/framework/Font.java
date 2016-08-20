@@ -119,7 +119,6 @@ public class Font {
         for (int i = 0; i < text.length(); i++) {
 
             int c = text.charAt(i);
-            batch.begin();
             switch (size) {
                 case 14:
                     batch.draw(regions[c], x, y, 16, 22);
@@ -128,7 +127,6 @@ public class Font {
                     batch.draw(regions[c], x, y, 12, 16);
                     break;
             }
-            batch.end();
 
             x = x + widths[c];
         }

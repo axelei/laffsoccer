@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 
 public class Main extends GlScreen {
@@ -14,10 +15,16 @@ public class Main extends GlScreen {
     public Main(GlGame game) {
         super(game);
         background = new Image("images/backgrounds/menu_main.jpg");
+        Image logo = new Image("images/logo.png");
 
         game.teamList.clear();
 
         Widget w;
+
+        w = new Picture(logo);
+        w.setPosition((game.settings.GUI_WIDTH - logo.getRegionWidth()) / 2, 100);
+        widgets.add(w);
+
         w = new GameOptionsButton();
         widgets.add(w);
         selectedWidget = w;

@@ -257,7 +257,7 @@ public class EditTeam extends GlScreen {
     class CoachNationalityButton extends Button {
 
         public CoachNationalityButton() {
-            setGeometry(650, 110, 60, 32);
+            setGeometry(652, 110, 60, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
             setText("", Font.Align.CENTER, Assets.font10);
         }
