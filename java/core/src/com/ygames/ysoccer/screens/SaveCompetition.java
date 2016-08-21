@@ -93,7 +93,7 @@ public class SaveCompetition extends GlScreen {
             this.filename = filename;
             setSize(540, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
-            setText(filename.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(filename, Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -108,7 +108,7 @@ public class SaveCompetition extends GlScreen {
 
         public CategoryLabel(String category) {
             setSize(180, 30);
-            setText(category.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(category, Font.Align.CENTER, Assets.font14);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setActive(false);
         }
@@ -128,14 +128,14 @@ public class SaveCompetition extends GlScreen {
         public FilenameButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 180, 500, 540, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
-            setText(game.competition.filename.toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(game.competition.filename, Font.Align.CENTER, Assets.font14);
             setEntryLimit(30);
         }
 
         @Override
         public void onUpdate() {
-            if (getText().toLowerCase().compareTo(game.competition.filename) != 0) {
-                game.competition.filename = getText().toLowerCase();
+            if (getText().compareTo(game.competition.filename) != 0) {
+                game.competition.filename = getText();
                 game.competition.save();
                 game.setScreen(new Main(game));
             }

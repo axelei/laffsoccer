@@ -38,10 +38,10 @@ public class LoadCompetition extends GlScreen {
                 ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list()));
                 Collections.sort(files, new Assets.CompareFileHandlesByName());
                 for (FileHandle file : files) {
-                    if (!file.isDirectory() && file.extension().equals("json")) {
+                    if (!file.isDirectory() && file.extension().equals("JSON")) {
                         Competition competition = Assets.json.fromJson(Competition.class, file);
 
-                        w = new CompetitionButton(file.nameWithoutExtension().toUpperCase(), competition);
+                        w = new CompetitionButton(file.nameWithoutExtension(), competition);
                         competitionButtonsList.add(w);
                         widgets.add(w);
 
@@ -119,7 +119,7 @@ public class LoadCompetition extends GlScreen {
 
         public CategoryLabel(Competition competition) {
             setSize(180, 30);
-            setText(competition.getCategoryFolder().toUpperCase(), Font.Align.CENTER, Assets.font14);
+            setText(competition.getCategoryFolder(), Font.Align.CENTER, Assets.font14);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setActive(false);
         }

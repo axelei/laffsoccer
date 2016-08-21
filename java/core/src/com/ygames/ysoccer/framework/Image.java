@@ -33,7 +33,6 @@ public class Image extends TextureRegion {
 
             byte[] bytes = IOUtils.readFully(PngEditor.editPalette(in, rgbPairs), -1, true);
             Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
-            Gdx.app.log("pixmap length", "" + bytes.length);
             return new Image(pixmap);
         } catch (IOException e) {
             throw new RuntimeException("Couldn't load tactics", e);

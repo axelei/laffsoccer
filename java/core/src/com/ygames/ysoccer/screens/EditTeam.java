@@ -499,7 +499,10 @@ public class EditTeam extends GlScreen {
 
     class StyleButton extends Button {
 
+        int kitIndex;
+
         public StyleButton() {
+            kitIndex = Assets.kits.indexOf(team.kits.get(selectedKit).style);
             setGeometry(528, 364 + 23, 175, 26);
             setColors(0x530DB3, 0x6F12EE, 0x380977);
         }
@@ -530,7 +533,11 @@ public class EditTeam extends GlScreen {
         }
 
         private void updateKitStyle(int n) {
-            // TODO
+            kitIndex = Emath.rotate(kitIndex, 0, Assets.kits.size() - 1, n);
+            team.kits.get(selectedKit).style = Assets.kits.get(kitIndex);
+            setChanged(true);
+            kitWidget.setChanged(true);
+            setModifiedFlag();
         }
     }
 

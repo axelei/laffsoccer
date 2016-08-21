@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.gui;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ygames.ysoccer.framework.GlGraphics;
 
 public class Label extends Widget {
@@ -9,10 +10,15 @@ public class Label extends Widget {
         if (!isVisible) {
             return;
         }
-        drawText(glGraphics);
+
+        glGraphics.batch.begin();
+
+        drawText(glGraphics.batch);
+
+        glGraphics.batch.end();
     }
 
-    private void drawText(GlGraphics glGraphics) {
+    private void drawText(SpriteBatch batch) {
         int tx = x;
         switch (align) {
             case RIGHT:
@@ -24,7 +30,7 @@ public class Label extends Widget {
             case LEFT:
                 tx += font.size;
         }
-        font.draw(glGraphics.batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
+        font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
     }
 
     public String getText() {

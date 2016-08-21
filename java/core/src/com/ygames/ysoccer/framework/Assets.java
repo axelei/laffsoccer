@@ -32,6 +32,7 @@ public class Assets {
     public static int[] calendars = new int[4600];
     public static List<String> associations;
     public static Tactics[] tactics = new Tactics[18];
+    public static List<String> kits;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -50,6 +51,7 @@ public class Assets {
         loadCalendars();
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
         loadTactics();
+        loadKits();
     }
 
     private static void loadLocales() {
@@ -123,5 +125,14 @@ public class Assets {
                     }
             }
         }
+    }
+
+    private static void loadKits() {
+        kits = new ArrayList<String>();
+        FileHandle fileHandle = Gdx.files.internal("images/kit");
+        for (FileHandle kitFile : fileHandle.list()) {
+            kits.add(kitFile.nameWithoutExtension());
+        }
+        Collections.sort(kits);
     }
 }

@@ -67,7 +67,8 @@ public abstract class Competition {
         return true;
     }
 
-    public void restart() {}
+    public void restart() {
+    }
 
     public ArrayList<Team> loadTeams() {
         ArrayList<Team> teamList = new ArrayList<Team>();
@@ -114,16 +115,16 @@ public abstract class Competition {
     }
 
     public void save() {
-        FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json");
+        FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".JSON");
         Assets.json.toJson(this, Competition.class, fileHandle);
     }
 
     public String getCategoryFolder() {
         switch (category) {
             case DIY_COMPETITION:
-                return "diy";
+                return "DIY";
             case PRESET_COMPETITION:
-                return "preset";
+                return "PRESET";
             default:
                 throw new GdxRuntimeException("Unknown category");
         }
