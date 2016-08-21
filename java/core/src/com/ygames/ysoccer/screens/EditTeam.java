@@ -39,6 +39,7 @@ public class EditTeam extends GlScreen {
     Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
     Widget[] roleButtons = new Widget[Const.TEAM_SIZE];
 
+    Widget kitWidget;
     Widget newKitButton;
     Widget deleteKitButton;
     Widget saveButton;
@@ -111,6 +112,11 @@ public class EditTeam extends GlScreen {
             widgets.add(w);
         }
 
+        w = new TeamKit(team);
+        w.setPosition(321, 349);
+        kitWidget = w;
+        widgets.add(w);
+
         w = new StyleLabel();
         widgets.add(w);
 
@@ -119,14 +125,14 @@ public class EditTeam extends GlScreen {
         widgets.add(w);
 
         for (int f = 0; f < 4; f++) {
-            w = new KitFieldLabel(Kit.Field.values()[f], 528, 422 + 54 * f);
+            w = new KitFieldLabel(Kit.Field.values()[f], 528, 416 + 54 * f);
             widgets.add(w);
 
-            w = new HashLabel(528, 422 + 54 * f + 23);
+            w = new HashLabel(528, 416 + 54 * f + 23);
             widgets.add(w);
 
             for (int c = 1; c < 4; c++) {
-                w = new ColorComponentButton(Kit.Field.values()[f], GlColor.Component.values()[c], 523 + c * 45, 422 + 54 * f + 23);
+                w = new ColorComponentButton(Kit.Field.values()[f], GlColor.Component.values()[c], 523 + c * 45, 416 + 54 * f + 23);
                 kitEditButtons[3 * f + c] = w;
                 widgets.add(w);
             }
@@ -406,7 +412,7 @@ public class EditTeam extends GlScreen {
 
         public SelectKitButton(int kitIndex) {
             this.kitIndex = kitIndex;
-            setGeometry(90, 376 + 54 * kitIndex, 180, 38);
+            setGeometry(90, 372 + 54 * kitIndex, 190, 38);
             String label = "";
             switch (kitIndex) {
                 case 0:
@@ -446,7 +452,7 @@ public class EditTeam extends GlScreen {
         @Override
         public void onFire1Down() {
             selectedKit = kitIndex;
-            // TODO: reload kit
+            kitWidget.setChanged(true);
             updateKitSelectionButtons();
             updateKitEditButtons();
         }
@@ -466,10 +472,25 @@ public class EditTeam extends GlScreen {
         }
     }
 
+    class TeamKit extends Button {
+        Team team;
+
+        public TeamKit(Team team) {
+            this.team = team;
+            setSize(167, 304);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            image = team.kits.get(selectedKit).loadImage();
+        }
+    }
+
     class StyleLabel extends Button {
 
         public StyleLabel() {
-            setGeometry(528, 368, 175, 23);
+            setGeometry(528, 364, 175, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("KITS.STYLE"), Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -479,7 +500,7 @@ public class EditTeam extends GlScreen {
     class StyleButton extends Button {
 
         public StyleButton() {
-            setGeometry(528, 368 + 23, 175, 26);
+            setGeometry(528, 364 + 23, 175, 26);
             setColors(0x530DB3, 0x6F12EE, 0x380977);
         }
 
@@ -543,7 +564,18 @@ public class EditTeam extends GlScreen {
             this.field = field;
             this.component = component;
             setGeometry(x, y, 45, 26);
-            setColors(0x530DB3, 0x6F12EE, 0x380977);
+            switch (component) {
+                case RED:
+                    setColors(0xDC0000, 0xFF4141, 0x8C0000);
+                    break;
+                case GREEN:
+                    setColors(0x10A000, 0x15E000, 0x096000);
+                    break;
+                case BLUE:
+                    setColors(0x530DB3, 0x6F12EE, 0x380977);
+                    break;
+            }
+
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -564,11 +596,6 @@ public class EditTeam extends GlScreen {
         }
 
         @Override
-        public void onFire1Up() {
-            updateKit();
-        }
-
-        @Override
         public void onFire2Down() {
             updateValue(-1);
         }
@@ -576,11 +603,6 @@ public class EditTeam extends GlScreen {
         @Override
         public void onFire2Hold() {
             updateValue(-1);
-        }
-
-        @Override
-        public void onFire2Up() {
-            updateKit();
         }
 
         private void updateValue(int n) {
@@ -612,11 +634,8 @@ public class EditTeam extends GlScreen {
                     break;
             }
             setChanged(true);
+            kitWidget.setChanged(true);
             setModifiedFlag();
-        }
-
-        void updateKit() {
-            // TODO: reload kit
         }
 
         private GlColor getColor() {
@@ -646,7 +665,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(730, 370 + 24 * pos, 34, 21);
+            setGeometry(734, 374 + 24 * pos, 34, 21);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -664,7 +683,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerFaceButton(int pos) {
             this.pos = pos;
-            setGeometry(764, 370 + 24 * pos, 24, 21);
+            setGeometry(768, 374 + 24 * pos, 24, 21);
             setActive(false);
         }
 
@@ -681,7 +700,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerNameButton(int pos) {
             this.pos = pos;
-            setGeometry(792, 370 + 24 * pos, 364, 21);
+            setGeometry(796, 374 + 24 * pos, 364, 21);
             setText("", Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
@@ -699,7 +718,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerRoleButton(int pos) {
             this.pos = pos;
-            setGeometry(1156, 370 + 24 * pos, 34, 21);
+            setGeometry(1160, 374 + 24 * pos, 34, 21);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -717,7 +736,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerSelectButton(int pos) {
             this.pos = pos;
-            setGeometry(730, 370 + 24 * this.pos, 460, 21);
+            setGeometry(734, 374 + 24 * this.pos, 460, 21);
         }
 
         @Override
@@ -821,7 +840,7 @@ public class EditTeam extends GlScreen {
             kit.socks = other.socks;
 
             selectedKit = team.kits.size() - 1;
-            // TODO: reload kit
+            kitWidget.setChanged(true);
             updateKitSelectionButtons();
             updateKitEditButtons();
             setChanged(true);
@@ -857,7 +876,7 @@ public class EditTeam extends GlScreen {
 
             if (selectedKit >= team.kits.size() - 1) {
                 selectedKit = team.kits.size() - 1;
-                // TODO: reload kit
+                kitWidget.setChanged(true);
             }
             updateKitSelectionButtons();
             updateKitEditButtons();

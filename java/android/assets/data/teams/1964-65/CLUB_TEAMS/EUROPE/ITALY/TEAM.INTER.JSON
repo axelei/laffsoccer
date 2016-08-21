@@ -13,31 +13,24 @@
   "kits": [
     {
       "style": "VERTICAL",
-      "shirt1": "#bbccdd",
-      "shirt2": "#bbccdd",
-      "shorts": "#00ffff",
-      "socks": "#000000"
+      "shirt1": "#3033c1",
+      "shirt2": "#1e1e1e",
+      "shorts": "#1e1e1e",
+      "socks": "#1e1e1e"
     },
     {
       "style": "DIAGONAL",
-      "shirt1": "#bbccdd",
-      "shirt2": "#bbccdd",
-      "shorts": "#00ffff",
-      "socks": "#000000"
+      "shirt1": "#dfe8eb",
+      "shirt2": "#1e1e1e",
+      "shorts": "#dfe8eb",
+      "socks": "#dfe8eb"
     },
     {
       "style": "DOUBLE_STRIPE",
-      "shirt1": "#bbccdd",
-      "shirt2": "#bbccdd",
-      "shorts": "#00ffff",
-      "socks": "#000000"
-    },
-    {
-      "style": "VERTICAL",
-      "shirt1": "#bbccdd",
-      "shirt2": "#bbccdd",
-      "shorts": "#00ffff",
-      "socks": "#000000"
+      "shirt1": "#dfe8eb",
+      "shirt2": "#3033c1",
+      "shorts": "#dfe8eb",
+      "socks": "#1e1e1e"
     }
   ],
   "players": [
