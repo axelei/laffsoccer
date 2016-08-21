@@ -7,9 +7,15 @@ import com.ygames.ysoccer.framework.Image;
 public class Picture extends Widget {
 
     public Picture(Image image) {
-        this.image = image;
-        w = image.getRegionWidth();
-        h = image.getRegionHeight();
+        setImage(image);
+    }
+
+    public void setImage(Image image) {
+        if (image != null) {
+            this.image = image;
+            w = image.getRegionWidth();
+            h = image.getRegionHeight();
+        }
     }
 
     @Override

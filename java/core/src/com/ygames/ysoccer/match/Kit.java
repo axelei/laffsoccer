@@ -41,6 +41,13 @@ public class Kit implements Json.Serializable {
         return Image.loadImage("images/kit/" + style + ".PNG", rgbPairs);
     }
 
+    public Image loadLogo() {
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        addKitColors(rgbPairs);
+        return Image.loadImage("images/logo/" + style + ".PNG", rgbPairs);
+    }
+
+
     public void addKitColors(List<RgbPair> rgbPairs) {
 
         // shirt1

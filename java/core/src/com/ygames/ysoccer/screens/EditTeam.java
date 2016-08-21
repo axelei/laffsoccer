@@ -7,8 +7,10 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
+import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
@@ -39,6 +41,7 @@ public class EditTeam extends GlScreen {
     Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
     Widget[] roleButtons = new Widget[Const.TEAM_SIZE];
 
+    LogoPicture logoWidget;
     Widget kitWidget;
     Widget newKitButton;
     Widget deleteKitButton;
@@ -66,6 +69,9 @@ public class EditTeam extends GlScreen {
 
         w = new TeamNameButton();
         widgets.add(w);
+
+        logoWidget = new LogoPicture();
+        widgets.add(logoWidget);
 
         w = new CoachLabel();
         widgets.add(w);
@@ -191,7 +197,7 @@ public class EditTeam extends GlScreen {
 
         public TacticsButton(int t) {
             this.t = t;
-            setGeometry(688 + 94 * (t % 2), 50 + 25 * ((int) Math.floor(t / 2)), 90, 22);
+            setGeometry(692 + 94 * (t % 2), 44 + 25 * ((int) Math.floor(t / 2)), 90, 22);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -222,7 +228,7 @@ public class EditTeam extends GlScreen {
     class TeamNameButton extends InputButton {
 
         public TeamNameButton() {
-            setGeometry(90, 30, 450, 40);
+            setGeometry(194, 30, 450, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(16);
@@ -234,6 +240,28 @@ public class EditTeam extends GlScreen {
                 team.name = text;
                 setModifiedFlag();
             }
+        }
+    }
+
+    class LogoPicture extends Picture {
+
+        boolean isCustom;
+
+        public LogoPicture() {
+            super(null);
+        }
+
+        @Override
+        public void onUpdate() {
+            String logoPath = team.path.replaceFirst("/TEAM.", "/LOGO.").replaceFirst(".JSON", ".PNG");
+            FileHandle customLogo = Assets.teamsFolder.child(logoPath);
+            if (customLogo.exists()) {
+                isCustom = true;
+                setImage(new Image(customLogo.path()));
+            } else {
+                setImage(team.kits.get(0).loadLogo());
+            }
+            setGeometry(135 - image.getRegionWidth() / 2, 50 - image.getRegionHeight() / 2, image.getRegionWidth(), image.getRegionHeight());
         }
     }
 
@@ -379,7 +407,7 @@ public class EditTeam extends GlScreen {
     class CountryButton extends Button {
 
         public CountryButton() {
-            setGeometry(280, 110, 260, 32);
+            setGeometry(280, 110, 364, 32);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(team.country, Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -466,9 +494,7 @@ public class EditTeam extends GlScreen {
 
     void updateKitEditButtons() {
         for (Widget w : kitEditButtons) {
-            if (w != null) { // TODO: remove
-                w.setChanged(true);
-            }
+            w.setChanged(true);
         }
     }
 
@@ -537,6 +563,9 @@ public class EditTeam extends GlScreen {
             team.kits.get(selectedKit).style = Assets.kits.get(kitIndex);
             setChanged(true);
             kitWidget.setChanged(true);
+            if (selectedKit == 0 && !logoWidget.isCustom) {
+                logoWidget.setChanged(true);
+            }
             setModifiedFlag();
         }
     }
@@ -642,6 +671,9 @@ public class EditTeam extends GlScreen {
             }
             setChanged(true);
             kitWidget.setChanged(true);
+            if (selectedKit == 0 && !logoWidget.isCustom) {
+                logoWidget.setChanged(true);
+            }
             setModifiedFlag();
         }
 
