@@ -19,6 +19,32 @@ public class Kit implements Json.Serializable {
     public GlColor shorts;
     public GlColor socks;
 
+    public static int[] colors = new int[]{
+            0xAFB2B9, // lgray
+            0xDFE8EB, // white
+            0x1E1E1E, // black
+            0xF5732C, // orange
+            0xF61C1C, // red
+            0x3033C1, // blue
+            0x993333, // brown
+            0x47BFEB, // lblue
+            0x30C52C, // green
+            0xE8EF2F, // yellow
+            0x5D2399, // violet
+            0xF59EE1, // pink
+            0x0B7DD5, // kombat blue
+            0x5083B8, // steel
+            0x417039, // mil.green
+            0x2E247A, // dark blue
+            0xA31212, // garnet
+            0xD000EF, // light violet
+            0x7BE2E3, // sky blue
+            0x81FF11, // bright green
+            0xFFD200, // dark yellow
+            0x949494, // dark gray
+            0xCAC47D, // gold
+    };
+
     public void write(Json json) {
         json.writeValue("style", style);
         json.writeValue("shirt1", shirt1.toHexString());
@@ -46,7 +72,6 @@ public class Kit implements Json.Serializable {
         addKitColors(rgbPairs);
         return Image.loadImage("images/logo/" + style + ".PNG", rgbPairs);
     }
-
 
     public void addKitColors(List<RgbPair> rgbPairs) {
 

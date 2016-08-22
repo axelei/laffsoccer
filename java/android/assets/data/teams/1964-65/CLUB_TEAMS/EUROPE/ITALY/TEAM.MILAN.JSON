@@ -9,6 +9,29 @@
     "nationality": "SWE"
   },
   "tactics": "4-4-2",
+  "kits": [
+    {
+      "style": "VERTICAL",
+      "shirt1": "#f61c1c",
+      "shirt2": "#1e1e1e",
+      "shorts": "#dfe8eb",
+      "socks": "#1e1e1e"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#dfe8eb",
+      "shirt2": "#f61c1c",
+      "shorts": "#dfe8eb",
+      "socks": "#dfe8eb"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#dfe8eb",
+      "shirt2": "#f61c1c",
+      "shorts": "#dfe8eb",
+      "socks": "#1e1e1e"
+    }
+  ],
   "players": [
     {
       "name": "MARIO BARLUZZI",
@@ -17,66 +40,16 @@
       "role": "GOALKEEPER",
       "number": "1",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GILBERTO NOLETTI",
       "shirtName": "NOLETTI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "2",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
-    },
-    {
-      "name": "AMBROGIO PELAGALLI",
-      "shirtName": "PELAGALLI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "3",
-      "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
-    },
-    {
-      "name": "VÍCTOR BENÍTEZ",
-      "shirtName": "BENÍTEZ",
-      "nationality": "PER",
-      "role": "MIDFIELDER",
-      "number": "4",
-      "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "CESARE MALDINI",
@@ -85,49 +58,25 @@
       "role": "DEFENDER",
       "number": "5",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
-      "name": "GIOVANNI TRAPATTONI",
-      "shirtName": "TRAPATTONI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "6",
+      "name": "VÍCTOR BENÍTEZ",
+      "shirtName": "BENÍTEZ",
+      "nationality": "PER",
+      "role": "MIDFIELDER",
+      "number": "4",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
-      "name": "BRUNO MORA",
-      "shirtName": "MORA",
+      "name": "AMBROGIO PELAGALLI",
+      "shirtName": "PELAGALLI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "7",
+      "role": "RIGHT_BACK",
+      "number": "3",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIOVANNI LODETTI",
@@ -136,49 +85,16 @@
       "role": "MIDFIELDER",
       "number": "8",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
-      "name": "PAOLO FERRARIO",
-      "shirtName": "FERRARIO",
+      "name": "GIOVANNI TRAPATTONI",
+      "shirtName": "TRAPATTONI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "9",
+      "role": "MIDFIELDER",
+      "number": "6",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
-    },
-    {
-      "name": "AMARILDO",
-      "shirtName": "AMARILDO",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "10",
-      "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIANNI RIVERA",
@@ -187,15 +103,34 @@
       "role": "MIDFIELDER",
       "number": "11",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
+    },
+    {
+      "name": "BRUNO MORA",
+      "shirtName": "MORA",
+      "nationality": "ITA",
+      "role": "LEFT_WINGER",
+      "number": "7",
+      "hairType": "SMOOTH1",
+      "skills": {}
+    },
+    {
+      "name": "AMARILDO TAVARES DA SILVEIRA",
+      "shirtName": "AMARILDO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "10",
+      "hairType": "SMOOTH1",
+      "skills": {}
+    },
+    {
+      "name": "PAOLO FERRARIO",
+      "shirtName": "FERRARIO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "9",
+      "hairType": "SMOOTH1",
+      "skills": {}
     },
     {
       "name": "GIORGIO GHEZZI",
@@ -204,49 +139,25 @@
       "role": "GOALKEEPER",
       "number": "12",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "MARIO TREBBI",
       "shirtName": "TREBBI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "13",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "LUIGI RADICE",
       "shirtName": "RADICE",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "14",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIULIANO FORTUNATO",
@@ -255,15 +166,7 @@
       "role": "ATTACKER",
       "number": "15",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "JOSÉ ALTAFINI",
@@ -272,15 +175,7 @@
       "role": "ATTACKER",
       "number": "16",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "LUIGI BALZARINI",
@@ -289,15 +184,7 @@
       "role": "GOALKEEPER",
       "number": "17",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "NELLO SANTIN",
@@ -306,15 +193,7 @@
       "role": "DEFENDER",
       "number": "18",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "BRUNO BACCHETTA",
@@ -323,15 +202,7 @@
       "role": "MIDFIELDER",
       "number": "19",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "MARIO DAVID",
@@ -340,15 +211,7 @@
       "role": "MIDFIELDER",
       "number": "20",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIANCARLO SALVI",
@@ -357,15 +220,7 @@
       "role": "MIDFIELDER",
       "number": "21",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "AQUILINO BONFANTI",
@@ -374,32 +229,16 @@
       "role": "ATTACKER",
       "number": "22",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
-      "name": "GERMANO",
+      "name": "JOSÉ GERMANO DE SALES",
       "shirtName": "GERMANO",
       "nationality": "BRA",
       "role": "ATTACKER",
       "number": "23",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "CLAUDIO MANTOVANI",
@@ -408,15 +247,7 @@
       "role": "GOALKEEPER",
       "number": "24",
       "hairType": "SMOOTH1",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     }
   ]
 }

@@ -134,7 +134,7 @@ public class EditTeam extends GlScreen {
             w = new KitFieldLabel(Kit.Field.values()[f], 528, 416 + 54 * f);
             widgets.add(w);
 
-            w = new HashLabel(528, 416 + 54 * f + 23);
+            w = new HashButton(Kit.Field.values()[f], 528, 416 + 54 * f + 23);
             widgets.add(w);
 
             for (int c = 1; c < 4; c++) {
@@ -580,13 +580,61 @@ public class EditTeam extends GlScreen {
         }
     }
 
-    class HashLabel extends Button {
+    class HashButton extends Button {
 
-        public HashLabel(int x, int y) {
+        Kit.Field field;
+        int colorIndex;
+
+        public HashButton(Kit.Field field, int x, int y) {
+            this.field = field;
             setGeometry(x, y, 40, 26);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("#", Font.Align.CENTER, Assets.font10);
-            setActive(false);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateColor(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateColor(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateColor(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateColor(-1);
+        }
+
+        private void updateColor(int n) {
+            colorIndex = Emath.rotate(colorIndex, 0, Kit.colors.length - 1, n);
+            GlColor color = new GlColor(Kit.colors[colorIndex]);
+            switch (field) {
+                case SHIRT1:
+                    team.kits.get(selectedKit).shirt1 = color;
+                    break;
+                case SHIRT2:
+                    team.kits.get(selectedKit).shirt2 = color;
+                    break;
+                case SHORTS:
+                    team.kits.get(selectedKit).shorts = color;
+                    break;
+                case SOCKS:
+                    team.kits.get(selectedKit).socks = color;
+                    break;
+            }
+            updateKitEditButtons();
+            kitWidget.setChanged(true);
+            if (selectedKit == 0 && !logoWidget.isCustom) {
+                logoWidget.setChanged(true);
+            }
+            setModifiedFlag();
         }
     }
 
