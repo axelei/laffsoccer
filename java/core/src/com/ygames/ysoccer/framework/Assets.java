@@ -33,6 +33,7 @@ public class Assets {
     public static List<String> associations;
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
+    public static List<String> hairStyles;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -52,6 +53,7 @@ public class Assets {
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
         loadTactics();
         loadKits();
+        loadHairStyles();
     }
 
     private static void loadLocales() {
@@ -134,5 +136,14 @@ public class Assets {
             kits.add(kitFile.nameWithoutExtension());
         }
         Collections.sort(kits);
+    }
+
+    private static void loadHairStyles() {
+        hairStyles = new ArrayList<String>();
+        FileHandle folder = Gdx.files.internal("images/player/hairstyles");
+        for (FileHandle file : folder.list(".PNG")) {
+            hairStyles.add(file.nameWithoutExtension());
+        }
+        Collections.sort(hairStyles);
     }
 }

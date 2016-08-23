@@ -39,7 +39,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -48,7 +48,7 @@
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "2",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -57,7 +57,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -66,7 +66,7 @@
       "nationality": "PER",
       "role": "MIDFIELDER",
       "number": "4",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -75,7 +75,7 @@
       "nationality": "ITA",
       "role": "RIGHT_BACK",
       "number": "3",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -84,7 +84,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -93,7 +93,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -102,7 +102,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "11",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -111,7 +111,7 @@
       "nationality": "ITA",
       "role": "LEFT_WINGER",
       "number": "7",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -120,7 +120,7 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -129,7 +129,7 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "9",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -138,7 +138,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -147,7 +147,7 @@
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "13",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -156,7 +156,7 @@
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "14",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -165,7 +165,7 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "15",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -174,7 +174,7 @@
       "nationality": "BRA",
       "role": "ATTACKER",
       "number": "16",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -183,7 +183,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "17",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -192,7 +192,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "18",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -201,7 +201,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "19",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -210,7 +210,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "20",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -219,7 +219,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "21",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -228,7 +228,7 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "22",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -237,7 +237,7 @@
       "nationality": "BRA",
       "role": "ATTACKER",
       "number": "23",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     },
     {
@@ -246,7 +246,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "24",
-      "hairType": "SMOOTH1",
+      "hairStyle": "SMOOTH_1",
       "skills": {}
     }
   ]

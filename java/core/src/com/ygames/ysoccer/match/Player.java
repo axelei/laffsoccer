@@ -33,7 +33,7 @@ public class Player {
     public Role role;
     public String number;
 
-    public String hairType;
+    public String hairStyle;
 
     public Skills skills;
 
@@ -194,7 +194,7 @@ public class Player {
         nationality = player.nationality;
         role = player.role;
 
-        hairType = player.hairType;
+        hairStyle = player.hairStyle;
         // TODO
 //        hairColor = player.hairColor;
 //        skinColor = player.skinColor;
