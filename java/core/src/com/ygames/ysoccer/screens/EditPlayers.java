@@ -28,6 +28,7 @@ public class EditPlayers extends GlScreen {
     boolean modified;
     Image[] imageSkill = new Image[8];
 
+    Widget[] hairStyleButtons = new Widget[Const.FULL_TEAM];
     Widget[] selectButtons = new Widget[Const.FULL_TEAM];
     Widget[] numberButtons = new Widget[Const.FULL_TEAM];
     Widget[] nameButtons = new Widget[Const.FULL_TEAM];
@@ -60,6 +61,10 @@ public class EditPlayers extends GlScreen {
 
         // players
         for (int p = 0; p < Const.FULL_TEAM; p++) {
+            w = new HairStyleButton(p);
+            hairStyleButtons[p] = w;
+            widgets.add(w);
+
             w = new PlayerSelectButton(p);
             selectButtons[p] = w;
             updateSelectButton(p);
@@ -155,6 +160,63 @@ public class EditPlayers extends GlScreen {
         tmpPlayerButton.setChanged(true);
     }
 
+    class HairStyleButton extends Button {
+
+        int pos;
+
+        public HairStyleButton(int pos) {
+            this.pos = pos;
+            setGeometry(54, 96 + 17 * pos, 32, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setPlayerWidgetColor(this, pos);
+            if (pos < team.players.size()) {
+                setText(Assets.strings.get("CODES.HAIR STYLE"));
+                setActive(true);
+            } else {
+                setText("");
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateHairStyle(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateHairStyle(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateHairStyle(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateHairStyle(-1);
+        }
+
+        private void updateHairStyle(int n) {
+            Player player = team.playerAtPosition(pos);
+            int i = Assets.hairStyles.indexOf(player.hairStyle);
+            if (i == -1) {
+                // not found, start from 0
+                i = 0;
+            } else {
+                i = Emath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
+            }
+            player.hairStyle = Assets.hairStyles.get(i);
+            // TODO: update face
+            setModifiedFlag();
+        }
+    }
+
     class PlayerSelectButton extends Button {
 
         int pos;
@@ -189,6 +251,7 @@ public class EditPlayers extends GlScreen {
 
                 int oldSelected = selectedPos;
                 selectedPos = -1;
+                clearPlayer();
 
                 updatePlayerButtons(oldSelected);
                 setModifiedFlag();
@@ -334,10 +397,13 @@ public class EditPlayers extends GlScreen {
         private void updateNationality(int n) {
             Player player = team.playerAtPosition(p);
             int i = Assets.associations.indexOf(player.nationality);
-            if (i != -1) {
+            if (i == -1) {
+                // not found, start from 0
+                i = 0;
+            } else {
                 i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
-                player.nationality = Assets.associations.get(i);
             }
+            player.nationality = Assets.associations.get(i);
             updateNationalityButton(p);
             setModifiedFlag();
         }
@@ -485,14 +551,21 @@ public class EditPlayers extends GlScreen {
     class TmpPlayerButton extends Button {
 
         public TmpPlayerButton() {
-            setGeometry(1100, 30, 24, 17);
+            setGeometry(1000, 30, 194, 24);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
+            setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
 
         @Override
         public void onUpdate() {
-            setVisible(game.tmpPlayer != null);
+            if (game.tmpPlayer == null) {
+                setText("");
+                setVisible(false);
+            } else {
+                setText(game.tmpPlayer.shirtName);
+                setVisible(true);
+            }
         }
     }
 
@@ -671,6 +744,7 @@ public class EditPlayers extends GlScreen {
     }
 
     void updatePlayerButtons(int p) {
+        hairStyleButtons[p].setChanged(true);
         updateSelectButton(p);
         updateNumberButton(p);
 

@@ -16,7 +16,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -33,7 +33,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "2",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -50,7 +50,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -67,7 +67,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -84,7 +84,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -101,7 +101,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -118,7 +118,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "7",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -135,7 +135,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -152,7 +152,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "9",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -169,7 +169,7 @@
       "nationality": "FRA",
       "role": "ATTACKER",
       "number": "10",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -186,7 +186,7 @@
       "nationality": "ARG",
       "role": "ATTACKER",
       "number": "11",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -203,7 +203,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -220,7 +220,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -237,7 +237,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "14",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -254,7 +254,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "15",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -271,7 +271,7 @@
       "nationality": "ESP",
       "role": "MIDFIELDER",
       "number": "16",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -288,7 +288,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "17",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
@@ -305,7 +305,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "18",
-      "hairStyle": "SMOOTH_1",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 0,
         "shooting": 0,
