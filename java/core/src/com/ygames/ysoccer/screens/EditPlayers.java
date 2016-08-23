@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
@@ -94,6 +95,11 @@ public class EditPlayers extends GlScreen {
                 skillButtons[p][i] = w;
                 widgets.add(w);
             }
+        }
+
+        for (int i = 0; i < 7; i++) {
+            w = new SkillLabel(Player.Skill.values()[i]);
+            widgets.add(w);
         }
 
         w = new TmpPlayerButton();
@@ -393,6 +399,14 @@ public class EditPlayers extends GlScreen {
             roleButtons[p].setText("");
         }
         roleButtons[p].setActive(p < team.players.size());
+    }
+
+    class SkillLabel extends Label {
+
+        public SkillLabel(Player.Skill skill) {
+            setGeometry(832 + 40 * skill.ordinal(), 96 - 17, 36, 17);
+            setText(Assets.strings.get(Player.getSkillLabel(skill)), Font.Align.CENTER, Assets.font10);
+        }
     }
 
     class SkillButton extends Button {

@@ -137,7 +137,15 @@
       "role": "LEFT_WINGER",
       "number": "11",
       "hairType": "SMOOTH1",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 4,
+        "control": 7,
+        "speed": 4,
+        "finishing": 6
+      }
     },
     {
       "name": "JOAQUÍN PEIRÓ",

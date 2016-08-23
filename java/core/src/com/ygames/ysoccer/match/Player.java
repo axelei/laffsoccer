@@ -262,7 +262,7 @@ public class Player {
         }
     }
 
-    public String getSkillLabel(Skill skill) {
+    public static String getSkillLabel(Skill skill) {
         return skillLabels[skill.ordinal()];
     }
 

@@ -123,7 +123,7 @@ public class ViewTeam extends GlScreen {
             setGeometry(x, 126 + 18 * p, 12, 17);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null && skills != null) {
-                setText(Assets.strings.get(player.getSkillLabel(skills[j])));
+                setText(Assets.strings.get(Player.getSkillLabel(skills[j])));
             }
         }
     }
