@@ -194,8 +194,8 @@ public class Player {
         nationality = player.nationality;
         role = player.role;
 
+        hairType = player.hairType;
         // TODO
-//        hairType = player.hairType;
 //        hairColor = player.hairColor;
 //        skinColor = player.skinColor;
 
@@ -206,6 +206,60 @@ public class Player {
         skills.control = player.skills.control;
         skills.speed = player.skills.speed;
         skills.finishing = player.skills.finishing;
+    }
+
+    public int getSkillValue(Skill skill) {
+        int value = 0;
+        switch (skill) {
+            case PASSING:
+                value = skills.passing;
+                break;
+            case SHOOTING:
+                value = skills.shooting;
+                break;
+            case HEADING:
+                value = skills.heading;
+                break;
+            case TACKLING:
+                value = skills.tackling;
+                break;
+            case CONTROL:
+                value = skills.control;
+                break;
+            case SPEED:
+                value = skills.speed;
+                break;
+            case FINISHING:
+                value = skills.finishing;
+                break;
+        }
+        return value;
+    }
+
+    public void setSkillValue(Skill skill, int value) {
+        switch (skill) {
+            case PASSING:
+                skills.passing = value;
+                break;
+            case SHOOTING:
+                skills.shooting = value;
+                break;
+            case HEADING:
+                skills.heading = value;
+                break;
+            case TACKLING:
+                skills.tackling = value;
+                break;
+            case CONTROL:
+                skills.control = value;
+                break;
+            case SPEED:
+                skills.speed = value;
+                break;
+            case FINISHING:
+                skills.finishing = value;
+                break;
+        }
     }
 
     public String getSkillLabel(Skill skill) {

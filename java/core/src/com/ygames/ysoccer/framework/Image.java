@@ -26,6 +26,11 @@ public class Image extends TextureRegion {
         flip(false, true);
     }
 
+    public Image(Texture texture, int x, int y, int width, int height) {
+        super(texture, x, y, width, height);
+        flip(false, true);
+    }
+
     public static Image loadImage(String internalPath, List<RgbPair> rgbPairs) {
         InputStream in = null;
         try {
@@ -35,7 +40,7 @@ public class Image extends TextureRegion {
             Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
             return new Image(pixmap);
         } catch (IOException e) {
-            throw new RuntimeException("Couldn't load tactics", e);
+            throw new RuntimeException("Couldn't load image", e);
         } finally {
             if (in != null)
                 try {

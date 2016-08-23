@@ -120,7 +120,15 @@
       "role": "MIDFIELDER",
       "number": "8",
       "hairType": "SMOOTH1",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 4,
+        "control": 7,
+        "speed": 7,
+        "finishing": 7
+      }
     },
     {
       "name": "MARIO CORSO",

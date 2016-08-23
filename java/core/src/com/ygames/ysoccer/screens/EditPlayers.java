@@ -1,11 +1,13 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
@@ -23,6 +25,7 @@ public class EditPlayers extends GlScreen {
     Team team;
     int selectedPos;
     boolean modified;
+    Image[] imageSkill = new Image[8];
 
     Widget[] selectButtons = new Widget[Const.FULL_TEAM];
     Widget[] numberButtons = new Widget[Const.FULL_TEAM];
@@ -30,6 +33,7 @@ public class EditPlayers extends GlScreen {
     Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
     Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
     Widget[] roleButtons = new Widget[Const.FULL_TEAM];
+    Widget[][] skillButtons = new Widget[Const.FULL_TEAM][7];
 
     Widget newPlayerButton;
     Widget deletePlayerButton;
@@ -45,6 +49,11 @@ public class EditPlayers extends GlScreen {
         this.modified = modified;
 
         background = game.stateBackground;
+
+        Texture texture = new Texture("images/skill.png");
+        for (int i = 0; i < 8; i++) {
+            imageSkill[i] = new Image(texture, 32 * i, 0, 32, 13);
+        }
 
         Widget w;
 
@@ -79,6 +88,12 @@ public class EditPlayers extends GlScreen {
             roleButtons[p] = w;
             updateRoleButton(p);
             widgets.add(w);
+
+            for (int i = 0; i < 7; i++) {
+                w = new SkillButton(p, Player.Skill.values()[i]);
+                skillButtons[p][i] = w;
+                widgets.add(w);
+            }
         }
 
         w = new TmpPlayerButton();
@@ -141,7 +156,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerSelectButton(int pos) {
             this.pos = pos;
-            setGeometry(180, 96 + 17 * pos, 24, 17);
+            setGeometry(90, 96 + 17 * pos, 24, 17);
         }
 
         @Override
@@ -194,7 +209,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNumberButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(208, 96 + 17 * p, 52, 17);
+            setGeometry(118, 96 + 17 * p, 52, 17);
             setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(3);
         }
@@ -224,7 +239,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(264, 96 + 17 * p, 364, 17);
+            setGeometry(174, 96 + 17 * p, 364, 17);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(28);
         }
@@ -255,7 +270,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerShirtNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(632, 96 + 17 * p, 194, 17);
+            setGeometry(542, 96 + 17 * p, 194, 17);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(14);
         }
@@ -286,7 +301,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNationalityButton(int p) {
             this.p = p;
-            setGeometry(830, 96 + 17 * p, 56, 17);
+            setGeometry(740, 96 + 17 * p, 56, 17);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -338,7 +353,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerRoleButton(int p) {
             this.p = p;
-            setGeometry(890, 96 + 17 * p, 30, 17);
+            setGeometry(800, 96 + 17 * p, 30, 17);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -378,6 +393,61 @@ public class EditPlayers extends GlScreen {
             roleButtons[p].setText("");
         }
         roleButtons[p].setActive(p < team.players.size());
+    }
+
+    class SkillButton extends Button {
+
+        int pos;
+        Player.Skill skill;
+
+        public SkillButton(int pos, Player.Skill skill) {
+            this.pos = pos;
+            this.skill = skill;
+            setGeometry(832 + 40 * skill.ordinal(), 96 + 17 * pos, 36, 17);
+        }
+
+        @Override
+        public void onUpdate() {
+            setPlayerWidgetColor(this, pos);
+            Player player = team.playerAtPosition(pos);
+            if (player != null && player.role != Player.Role.GOALKEEPER) {
+                image = imageSkill[player.getSkillValue(skill)];
+                setActive(true);
+            } else {
+                image = null;
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSkill(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSkill(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSkill(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSkill(-1);
+        }
+
+        private void updateSkill(int n) {
+            Player player = team.playerAtPosition(pos);
+            int value = Emath.slide(player.getSkillValue(skill), 0, 7, n);
+            player.setSkillValue(skill, value);
+            setChanged(true);
+            // TODO: update price
+            setModifiedFlag();
+        }
+
     }
 
     class TeamNameButton extends InputButton {
@@ -594,5 +664,9 @@ public class EditPlayers extends GlScreen {
         updateShirtNameButton(p);
         updateNationalityButton(p);
         updateRoleButton(p);
+
+        for (Widget w : skillButtons[p]) {
+            w.setChanged(true);
+        }
     }
 }
