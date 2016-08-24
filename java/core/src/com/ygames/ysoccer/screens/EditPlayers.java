@@ -13,6 +13,7 @@ import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.HairColor;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
@@ -28,6 +29,7 @@ public class EditPlayers extends GlScreen {
     boolean modified;
     Image[] imageSkill = new Image[8];
 
+    Widget[] hairColorButtons = new Widget[Const.FULL_TEAM];
     Widget[] hairStyleButtons = new Widget[Const.FULL_TEAM];
     Widget[] selectButtons = new Widget[Const.FULL_TEAM];
     Widget[] numberButtons = new Widget[Const.FULL_TEAM];
@@ -61,6 +63,10 @@ public class EditPlayers extends GlScreen {
 
         // players
         for (int p = 0; p < Const.FULL_TEAM; p++) {
+            w = new HairColorButton(p);
+            hairColorButtons[p] = w;
+            widgets.add(w);
+
             w = new HairStyleButton(p);
             hairStyleButtons[p] = w;
             widgets.add(w);
@@ -158,6 +164,69 @@ public class EditPlayers extends GlScreen {
     private void clearPlayer() {
         game.tmpPlayer = null;
         tmpPlayerButton.setChanged(true);
+    }
+
+    class HairColorButton extends Button {
+
+        int pos;
+
+        public HairColorButton(int pos) {
+            this.pos = pos;
+            setGeometry(20, 96 + 17 * pos, 32, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setPlayerWidgetColor(this, pos);
+            if (pos < team.players.size()) {
+                setText(Assets.strings.get("CODES.HAIR COLOR"));
+                setActive(true);
+            } else {
+                setText("");
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateHairColor(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateHairColor(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateHairColor(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateHairColor(-1);
+        }
+
+        private void updateHairColor(int n) {
+            Player player = team.playerAtPosition(pos);
+            int i = -1;
+            for (HairColor hairColor : Assets.hairColors) {
+                if (hairColor.name.equals(player.hairColor)) {
+                    i = Assets.hairColors.indexOf(hairColor);
+                    break;
+                }
+            }
+            if (i == -1) {
+                // not found, start from 0
+                i = 0;
+            } else {
+                i = Emath.rotate(i, 0, Assets.hairColors.size() - 1, n);
+            }
+            player.hairColor = Assets.hairColors.get(i).name;
+            // TODO: update face
+            setModifiedFlag();
+        }
     }
 
     class HairStyleButton extends Button {

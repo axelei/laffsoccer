@@ -16,16 +16,9 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "EGIDIO GUARNACCI",
@@ -33,16 +26,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "2",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "SERGIO CASTELLETTI",
@@ -50,16 +36,9 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIOVAN BATTISTA PIROVANO",
@@ -67,16 +46,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "4",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GIUSEPPE BRIZI",
@@ -84,16 +56,9 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "RINO MARCHESI",
@@ -101,16 +66,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "KURT HAMRIN",
@@ -118,16 +76,9 @@
       "nationality": "SWE",
       "role": "ATTACKER",
       "number": "7",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "MARIO BERTINI",
@@ -135,16 +86,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "PAOLO NUTI",
@@ -152,16 +96,9 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "9",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "RENATO BENAGLIA",
@@ -169,16 +106,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "10",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "JUAN CARLOS MORRONE",
@@ -186,16 +116,9 @@
       "nationality": "ARG",
       "role": "ATTACKER",
       "number": "11",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ALFREDO PAOLICCHI",
@@ -203,16 +126,9 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ENZO ROBOTTI",
@@ -220,16 +136,9 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "MARIO BRUGNERA",
@@ -237,16 +146,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "ALBERTO ORLANDO",
@@ -254,16 +156,9 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "15",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "HUMBERTO MASCHIO",
@@ -271,16 +166,9 @@
       "nationality": "ARG",
       "role": "ATTACKER",
       "number": "16",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "PIERO GONFIANTINI",
@@ -288,16 +176,9 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "17",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "UGO FERRANTE",
@@ -305,16 +186,9 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "18",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     },
     {
       "name": "GASTONE MARCHI",
@@ -322,16 +196,9 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "19",
+      "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 0,
-        "shooting": 0,
-        "heading": 0,
-        "tackling": 0,
-        "control": 0,
-        "speed": 0,
-        "finishing": 0
-      }
+      "skills": {}
     }
   ]
 }

@@ -66,6 +66,7 @@ public class Team {
                 break;
             }
         }
+        player.hairColor = "BLACK";
         player.hairStyle = "SMOOTH_A";
         player.skills = new Player.Skills();
         players.add(player);

@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.HairColor;
 import com.ygames.ysoccer.match.Tactics;
 
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class Assets {
     public static List<String> associations;
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
+    public static List<HairColor> hairColors;
     public static List<String> hairStyles;
 
     public static void load(Settings settings) {
@@ -53,6 +55,7 @@ public class Assets {
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
         loadTactics();
         loadKits();
+        loadHairColors();
         loadHairStyles();
     }
 
@@ -136,6 +139,12 @@ public class Assets {
             kits.add(kitFile.nameWithoutExtension());
         }
         Collections.sort(kits);
+    }
+
+    private static void loadHairColors() {
+        FileHandle fileHandle = Gdx.files.internal("hair_colors.json");
+        HairColor[] array = Assets.json.fromJson(HairColor[].class, fileHandle.readString());
+        hairColors = new ArrayList<HairColor>(Arrays.asList(array));
     }
 
     private static void loadHairStyles() {
