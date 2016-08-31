@@ -13,7 +13,7 @@ import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
-import com.ygames.ysoccer.match.HairColor;
+import com.ygames.ysoccer.match.GlColor3;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
@@ -211,7 +211,7 @@ public class EditPlayers extends GlScreen {
         private void updateHairColor(int n) {
             Player player = team.playerAtPosition(pos);
             int i = -1;
-            for (HairColor hairColor : Assets.hairColors) {
+            for (GlColor3 hairColor : Assets.hairColors) {
                 if (hairColor.name.equals(player.hairColor)) {
                     i = Assets.hairColors.indexOf(hairColor);
                     break;

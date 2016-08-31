@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
-import com.ygames.ysoccer.match.HairColor;
+import com.ygames.ysoccer.match.GlColor3;
 import com.ygames.ysoccer.match.Tactics;
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class Assets {
     public static List<String> associations;
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
-    public static List<HairColor> hairColors;
+    public static List<GlColor3> hairColors;
     public static List<String> hairStyles;
 
     public static void load(Settings settings) {
@@ -142,9 +142,14 @@ public class Assets {
     }
 
     private static void loadHairColors() {
-        FileHandle fileHandle = Gdx.files.internal("hair_colors.json");
-        HairColor[] array = Assets.json.fromJson(HairColor[].class, fileHandle.readString());
-        hairColors = new ArrayList<HairColor>(Arrays.asList(array));
+        FileHandle folder = Gdx.files.internal("player/haircolors");
+        hairColors = new ArrayList<GlColor3>();
+        List<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list(".json")));
+        Collections.sort(files, new CompareFileHandlesByName());
+        for (FileHandle file : files) {
+            GlColor3 color = Assets.json.fromJson(GlColor3.class, file.readString());
+            hairColors.add(color);
+        }
     }
 
     private static void loadHairStyles() {
