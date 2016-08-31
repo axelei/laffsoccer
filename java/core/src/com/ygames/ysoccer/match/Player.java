@@ -35,6 +35,7 @@ public class Player {
 
     public String hairColor;
     public String hairStyle;
+    public String skinColor;
 
     public Skills skills;
 
@@ -197,8 +198,7 @@ public class Player {
 
         hairColor = player.hairColor;
         hairStyle = player.hairStyle;
-        // TODO
-//        skinColor = player.skinColor;
+        skinColor = player.skinColor;
 
         skills.passing = player.skills.passing;
         skills.shooting = player.skills.shooting;

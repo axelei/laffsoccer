@@ -8,7 +8,6 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
-import com.ygames.ysoccer.match.GlColor3;
 import com.ygames.ysoccer.match.Tactics;
 
 import java.io.IOException;
@@ -36,6 +35,7 @@ public class Assets {
     public static List<String> kits;
     public static List<GlColor3> hairColors;
     public static List<String> hairStyles;
+    public static List<GlColor3> skinColors;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -55,8 +55,9 @@ public class Assets {
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
         loadTactics();
         loadKits();
-        loadHairColors();
-        loadHairStyles();
+        hairColors = loadColors("player/haircolors");
+        hairStyles = loadHairStyles();
+        skinColors = loadColors("player/skincolors");
     }
 
     private static void loadLocales() {
@@ -141,23 +142,25 @@ public class Assets {
         Collections.sort(kits);
     }
 
-    private static void loadHairColors() {
-        FileHandle folder = Gdx.files.internal("player/haircolors");
-        hairColors = new ArrayList<GlColor3>();
+    private static List<GlColor3> loadColors(String path) {
+        List<GlColor3> colors = new ArrayList<GlColor3>();
+        FileHandle folder = Gdx.files.internal(path);
         List<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list(".json")));
         Collections.sort(files, new CompareFileHandlesByName());
         for (FileHandle file : files) {
             GlColor3 color = Assets.json.fromJson(GlColor3.class, file.readString());
-            hairColors.add(color);
+            colors.add(color);
         }
+        return colors;
     }
 
-    private static void loadHairStyles() {
-        hairStyles = new ArrayList<String>();
+    private static List<String> loadHairStyles() {
+        List<String> hairStyles = new ArrayList<String>();
         FileHandle folder = Gdx.files.internal("images/player/hairstyles");
         for (FileHandle file : folder.list(".PNG")) {
             hairStyles.add(file.nameWithoutExtension());
         }
         Collections.sort(hairStyles);
+        return hairStyles;
     }
 }

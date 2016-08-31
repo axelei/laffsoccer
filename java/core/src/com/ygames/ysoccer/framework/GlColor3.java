@@ -1,4 +1,4 @@
-package com.ygames.ysoccer.match;
+package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
