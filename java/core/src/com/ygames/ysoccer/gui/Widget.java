@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
+import java.awt.Color;
 import java.util.List;
 
 public abstract class Widget {
@@ -72,6 +73,11 @@ public abstract class Widget {
 
     public void setColors(WidgetColor color) {
         this.color.set(color.body, color.lightBorder, color.darkBorder);
+    }
+
+    public void setColors(int color) {
+        Color c = new Color(color);
+        setColors(c.getRGB(), c.brighter().getRGB(), c.darker().getRGB());
     }
 
     public void setText(String text) {

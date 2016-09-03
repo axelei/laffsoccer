@@ -34,7 +34,7 @@ public class EditTeam extends GlScreen {
     Widget[] tacticsButtons = new Widget[18];
 
     Widget[] kitSelectionButtons = new Widget[5];
-    Widget[] kitEditButtons = new Widget[13];
+    Widget[] kitEditButtons = new Widget[17];
 
     Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
@@ -57,7 +57,7 @@ public class EditTeam extends GlScreen {
         selectedKit = 0;
         selectedPos = -1;
 
-        background = game.stateBackground;
+        background = new Image("images/backgrounds/menu_edit_team.jpg");
 
         Widget w;
 
@@ -119,7 +119,7 @@ public class EditTeam extends GlScreen {
         }
 
         w = new TeamKit(team);
-        w.setPosition(321, 349);
+        w.setPosition(321, 343);
         kitWidget = w;
         widgets.add(w);
 
@@ -134,12 +134,13 @@ public class EditTeam extends GlScreen {
             w = new KitFieldLabel(Kit.Field.values()[f], 528, 416 + 54 * f);
             widgets.add(w);
 
-            w = new HashButton(Kit.Field.values()[f], 528, 416 + 54 * f + 23);
+            w = new HashButton(Kit.Field.values()[f], 528, 418 + 54 * f + 23);
             widgets.add(w);
+            kitEditButtons[1 + 4 * f] = w;
 
             for (int c = 1; c < 4; c++) {
-                w = new ColorComponentButton(Kit.Field.values()[f], GlColor.Component.values()[c], 523 + c * 45, 416 + 54 * f + 23);
-                kitEditButtons[3 * f + c] = w;
+                w = new ColorComponentButton(Kit.Field.values()[f], GlColor.Component.values()[c], 525 + c * 45, 418 + 54 * f + 23);
+                kitEditButtons[1 + 4 * f + c] = w;
                 widgets.add(w);
             }
         }
@@ -440,7 +441,7 @@ public class EditTeam extends GlScreen {
 
         public SelectKitButton(int kitIndex) {
             this.kitIndex = kitIndex;
-            setGeometry(90, 372 + 54 * kitIndex, 190, 38);
+            setGeometry(90, 364 + 56 * kitIndex, 190, 39);
             String label = "";
             switch (kitIndex) {
                 case 0:
@@ -529,7 +530,7 @@ public class EditTeam extends GlScreen {
 
         public StyleButton() {
             kitIndex = Assets.kits.indexOf(team.kits.get(selectedKit).style);
-            setGeometry(528, 364 + 23, 175, 26);
+            setGeometry(528, 364 + 25, 175, 24);
             setColors(0x530DB3, 0x6F12EE, 0x380977);
         }
 
@@ -587,7 +588,7 @@ public class EditTeam extends GlScreen {
 
         public HashButton(Kit.Field field, int x, int y) {
             this.field = field;
-            setGeometry(x, y, 40, 26);
+            setGeometry(x, y, 40, 24);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("#", Font.Align.CENTER, Assets.font10);
         }
@@ -636,6 +637,26 @@ public class EditTeam extends GlScreen {
             }
             setModifiedFlag();
         }
+
+        @Override
+        public void onUpdate() {
+            GlColor color = null;
+            switch (field) {
+                case SHIRT1:
+                    color = team.kits.get(selectedKit).shirt1;
+                    break;
+                case SHIRT2:
+                    color = team.kits.get(selectedKit).shirt2;
+                    break;
+                case SHORTS:
+                    color = team.kits.get(selectedKit).shorts;
+                    break;
+                case SOCKS:
+                    color = team.kits.get(selectedKit).socks;
+                    break;
+            }
+            setColors(color.getRGB());
+        }
     }
 
     class ColorComponentButton extends Button {
@@ -647,16 +668,16 @@ public class EditTeam extends GlScreen {
         public ColorComponentButton(Kit.Field field, GlColor.Component component, int x, int y) {
             this.field = field;
             this.component = component;
-            setGeometry(x, y, 45, 26);
+            setGeometry(x, y, 43, 24);
             switch (component) {
                 case RED:
-                    setColors(0xDC0000, 0xFF4141, 0x8C0000);
+                    setColors(0xDC2020);
                     break;
                 case GREEN:
-                    setColors(0x10A000, 0x15E000, 0x096000);
+                    setColors(0x3DBD3D);
                     break;
                 case BLUE:
-                    setColors(0x530DB3, 0x6F12EE, 0x380977);
+                    setColors(0x2352F2);
                     break;
             }
 
@@ -717,7 +738,7 @@ public class EditTeam extends GlScreen {
                     team.kits.get(selectedKit).socks = color;
                     break;
             }
-            setChanged(true);
+            updateKitEditButtons();
             kitWidget.setChanged(true);
             if (selectedKit == 0 && !logoWidget.isCustom) {
                 logoWidget.setChanged(true);
@@ -805,7 +826,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerRoleButton(int pos) {
             this.pos = pos;
-            setGeometry(1160, 374 + 24 * pos, 34, 21);
+            setGeometry(1160, 374 + 24 * pos, 36, 21);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -823,7 +844,7 @@ public class EditTeam extends GlScreen {
 
         public PlayerSelectButton(int pos) {
             this.pos = pos;
-            setGeometry(734, 374 + 24 * this.pos, 460, 21);
+            setGeometry(734, 374 + 24 * this.pos, 462, 21);
         }
 
         @Override
