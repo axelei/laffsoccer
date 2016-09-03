@@ -9,9 +9,11 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Tactics;
+import com.ygames.ysoccer.math.Emath;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -163,4 +165,38 @@ public class Assets {
         Collections.sort(hairStyles);
         return hairStyles;
     }
+
+    public static String moneyFormat(float p) {
+        String suffix = "";
+        int e3 = Emath.floor(Math.log10(p) / 3);
+        switch (e3) {
+            case 0:
+                // no suffix
+                break;
+            case 1:
+                suffix = "MONEY.THOUSANDS";
+                break;
+            case 2:
+                suffix = "MONEY.MILLIONS";
+                break;
+            case 3:
+                suffix = "MONEY.BILLIONS";
+                break;
+        }
+
+        int e = Emath.floor(Math.log10(p));
+        float div = (float) Math.pow(10, e - 1);
+        p = Emath.floor(p / div);
+
+        int mul = e - 1 - 3 * e3;
+        if (mul >= 0) {
+            p *= (int) (Math.pow(10, mul));
+        } else if (mul < 0) {
+            p /= (Math.pow(10, -mul));
+        }
+
+        DecimalFormat df = new DecimalFormat("#,###,###,##0.##");
+        return df.format(p) + strings.get(suffix);
+    }
+
 }

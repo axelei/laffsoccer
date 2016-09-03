@@ -42,7 +42,8 @@
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
-      "skills": {}
+      "skills": {},
+      "value": 40
     },
     {
       "name": "GIACINTO FACCHETTI",
@@ -54,13 +55,13 @@
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
       "skills": {
-        "passing": 5,
-        "shooting": 5,
+        "passing": 7,
+        "shooting": 7,
         "heading": 7,
         "tackling": 7,
-        "control": 5,
+        "control": 6,
         "speed": 7,
-        "finishing": 5
+        "finishing": 6
       }
     },
     {
@@ -72,7 +73,15 @@
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 7,
+        "control": 7,
+        "speed": 6,
+        "finishing": 3
+      }
     },
     {
       "name": "ARISTIDE GUARNERI",

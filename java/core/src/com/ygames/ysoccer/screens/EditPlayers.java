@@ -39,6 +39,7 @@ public class EditPlayers extends GlScreen {
     Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
     Widget[] roleButtons = new Widget[Const.FULL_TEAM];
     Widget[][] skillButtons = new Widget[Const.FULL_TEAM][7];
+    Widget[] priceButtons = new Widget[Const.FULL_TEAM];
 
     Widget newPlayerButton;
     Widget deletePlayerButton;
@@ -111,6 +112,10 @@ public class EditPlayers extends GlScreen {
                 skillButtons[p][i] = w;
                 widgets.add(w);
             }
+
+            w = new PlayerPriceButton(p);
+            priceButtons[p] = w;
+            widgets.add(w);
         }
 
         for (int i = 0; i < 7; i++) {
@@ -589,7 +594,7 @@ public class EditPlayers extends GlScreen {
         private void updateRole(int n) {
             Player player = team.playerAtPosition(p);
             player.role = Player.Role.values()[Emath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
-            updateRoleButton(p);
+            updatePlayerButtons(p);
             setModifiedFlag();
         }
     }
@@ -661,10 +666,59 @@ public class EditPlayers extends GlScreen {
             int value = Emath.slide(player.getSkillValue(skill), 0, 7, n);
             player.setSkillValue(skill, value);
             setChanged(true);
-            // TODO: update price
+            priceButtons[pos].setChanged(true);
             setModifiedFlag();
         }
 
+    }
+
+    class PlayerPriceButton extends Button {
+        int pos;
+
+        public PlayerPriceButton(int pos) {
+            this.pos = pos;
+            setGeometry(1164, 96 + 17 * pos, 90, 17);
+            setText("", Font.Align.LEFT, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = team.playerAtPosition(pos);
+            if (player != null) {
+                setText(game.settings.currency + " " + player.getPrice(game.settings.maxPlayerPrice));
+                setActive(player.role == Player.Role.GOALKEEPER);
+            } else {
+                setText("");
+                setActive(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePrice(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updatePrice(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePrice(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updatePrice(-1);
+        }
+
+        private void updatePrice(int n) {
+            Player player = team.playerAtPosition(pos);
+            player.value = Emath.slide(player.value, 0, 49, n);
+            setChanged(true);
+            setModifiedFlag();
+        }
     }
 
     class TeamNameButton extends InputButton {
@@ -886,14 +940,13 @@ public class EditPlayers extends GlScreen {
         skinColorButtons[pos].setChanged(true);
         updateSelectButton(pos);
         updateNumberButton(pos);
-
         updateNameButton(pos);
         updateShirtNameButton(pos);
         updateNationalityButton(pos);
         updateRoleButton(pos);
-
         for (Widget w : skillButtons[pos]) {
             w.setChanged(true);
         }
+        priceButtons[pos].setChanged(true);
     }
 }

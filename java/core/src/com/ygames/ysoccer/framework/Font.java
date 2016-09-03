@@ -119,6 +119,9 @@ public class Font {
         for (int i = 0; i < text.length(); i++) {
 
             int c = text.charAt(i);
+
+            if (c == 8364) c = 128; // €
+
             switch (size) {
                 case 14:
                     batch.draw(regions[c], x, y, 16, 22);
@@ -136,6 +139,8 @@ public class Font {
         int w = 0;
         for (int i = 0; i < text.length(); i++) {
             int c = text.charAt(i);
+
+            if (c == 8364) c = 128; // €
 
             // carriage return/line feed
             if (c == 13 && (i + 1 < text.length()) && text.charAt(i + 1) == 10) {

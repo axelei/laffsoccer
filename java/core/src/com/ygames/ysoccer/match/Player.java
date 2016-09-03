@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
+
 public class Player {
 
     public enum Role {GOALKEEPER, RIGHT_BACK, LEFT_BACK, DEFENDER, RIGHT_WINGER, LEFT_WINGER, MIDFIELDER, ATTACKER}
@@ -38,6 +40,8 @@ public class Player {
     public String skinColor;
 
     public Skills skills;
+
+    public int value; // 0 to 49
 
     public int goals;
 
@@ -260,6 +264,28 @@ public class Player {
             case FINISHING:
                 skills.finishing = value;
                 break;
+        }
+    }
+
+    public int getValue() {
+        if (role == Role.GOALKEEPER) {
+            return value;
+        } else {
+            return skills.passing
+                    + skills.shooting
+                    + skills.heading
+                    + skills.tackling
+                    + skills.control
+                    + skills.speed
+                    + skills.finishing;
+        }
+    }
+
+    public String getPrice(int maxPlayerPrice) {
+        if (getValue() == 49) {
+            return Assets.moneyFormat(maxPlayerPrice) + "+";
+        } else {
+            return Assets.moneyFormat(maxPlayerPrice / (float) Math.pow(1.2, 48 - getValue()));
         }
     }
 
