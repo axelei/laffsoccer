@@ -98,7 +98,6 @@ public class EditPlayers extends GlScreen {
 
             w = new PlayerNationalityButton(p);
             nationalityButtons[p] = w;
-            updateNationalityButton(p);
             widgets.add(w);
 
             w = new PlayerRoleButton(p);
@@ -503,12 +502,24 @@ public class EditPlayers extends GlScreen {
 
     class PlayerNationalityButton extends Button {
 
-        int p;
+        int pos;
 
-        public PlayerNationalityButton(int p) {
-            this.p = p;
-            setGeometry(792, 96 + 17 * p, 56, 17);
+        public PlayerNationalityButton(int pos) {
+            this.pos = pos;
+            setGeometry(792, 96 + 17 * pos, 56, 17);
             setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = team.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+                setActive(false);
+            } else {
+                setText("(" + player.nationality + ")");
+                setActive(team.type == Team.Type.CLUB);
+            }
         }
 
         @Override
@@ -532,28 +543,18 @@ public class EditPlayers extends GlScreen {
         }
 
         private void updateNationality(int n) {
-            Player player = team.playerAtPosition(p);
+            Player player = team.playerAtPosition(pos);
             int i = Assets.associations.indexOf(player.nationality);
             if (i == -1) {
-                // not found, start from 0
-                i = 0;
+                i = 0; // not found, start from 0
             } else {
                 i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
             }
             player.nationality = Assets.associations.get(i);
-            updateNationalityButton(p);
+
+            setChanged(true);
             setModifiedFlag();
         }
-    }
-
-    void updateNationalityButton(int p) {
-        if (p < team.players.size()) {
-            Player player = team.playerAtPosition(p);
-            nationalityButtons[p].setText("(" + player.nationality + ")");
-        } else {
-            nationalityButtons[p].setText("");
-        }
-        nationalityButtons[p].setActive((p < team.players.size()) && (team.type == Team.Type.CLUB));
     }
 
     class PlayerRoleButton extends Button {
@@ -937,7 +938,7 @@ public class EditPlayers extends GlScreen {
         updateNumberButton(pos);
         updateNameButton(pos);
         updateShirtNameButton(pos);
-        updateNationalityButton(pos);
+        nationalityButtons[pos].setChanged(true);
         updateRoleButton(pos);
         for (Widget w : skillButtons[pos]) {
             w.setChanged(true);
