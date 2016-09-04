@@ -92,7 +92,15 @@
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 7,
+        "tackling": 5,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "TARCISIO BURGNICH",

@@ -26,33 +26,57 @@ public class GameOptions extends GlScreen {
         widgets.add(w);
         selectedWidget = w;
 
+        w = new MaxPlayerValueLabel();
+        widgets.add(w);
+
+        w = new MaxPlayerValueButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
 
     class TitleButton extends Button {
+
         public TitleButton() {
-            setColors(0x536B90, 0x7090C2, 0x263142);
+            setColors(0x536B90);
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
-            setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("GAME OPTIONS"));
         }
     }
 
     class LanguageLabel extends Button {
+
         public LanguageLabel() {
-            setColors(0x800000, 0xB40000, 0x400000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 360, 440, 36);
-            setText(Assets.strings.get("LANGUAGE"), Font.Align.CENTER, Assets.font14);
+            setColors(0x800000);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 330, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("LANGUAGE"));
         }
     }
 
     class LanguageButton extends Button {
+
         public LanguageButton() {
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 360, 440, 36);
-            setText(Assets.strings.get("// THIS LANGUAGE NAME //"), Font.Align.CENTER, Assets.font14);
+            setColors(0x1F1F95);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 330, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("// THIS LANGUAGE NAME //"));
         }
 
         @Override
@@ -79,16 +103,110 @@ public class GameOptions extends GlScreen {
             int index = Assets.locales.indexOf(game.settings.locale);
             game.settings.locale = Assets.locales.get(Emath.rotate(index, 0, Assets.locales.size() - 1, direction));
             Assets.loadStrings(game.settings);
-            setText(Assets.strings.get("// THIS LANGUAGE NAME //"));
+            for (Widget w : widgets) {
+                w.setChanged(true);
+            }
         }
     }
 
+    class MaxPlayerValueLabel extends Button {
+
+        public MaxPlayerValueLabel() {
+            setColors(0x800000);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 375, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("MAX PLAYER VALUE"));
+        }
+    }
+
+    class MaxPlayerValueButton extends Button {
+
+        public MaxPlayerValueButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 375, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.moneyFormat(game.settings.maxPlayerValue));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateMaxPlayerValue(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateMaxPlayerValue(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateMaxPlayerValue(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateMaxPlayerValue(-1);
+        }
+
+        private void updateMaxPlayerValue(int direction) {
+            int e = (int) Math.log10(game.settings.maxPlayerValue);
+            int m = (int) (game.settings.maxPlayerValue / Math.pow(10, e));
+            if (direction == 1) {
+                if (e < 11 || m < 5) {
+                    switch (m) {
+                        case 1:
+                            m = 2;
+                            break;
+                        case 2:
+                            m = 5;
+                            break;
+                        case 5:
+                            m = 1;
+                            e += 1;
+                            break;
+                    }
+                }
+            } else if (direction == -1) {
+                if (e > 4 || m > 1) {
+                    switch (m) {
+                        case 5:
+                            m = 2;
+                            break;
+                        case 2:
+                            m = 1;
+                            break;
+                        case 1:
+                            m = 5;
+                            e -= 1;
+                            break;
+                    }
+                }
+            }
+            game.settings.maxPlayerValue = m * Math.pow(10, e);
+            setChanged(true);
+        }
+    }
 
     class ExitButton extends Button {
+
         public ExitButton() {
-            setColors(0xC84200, 0xFF6519, 0x803300);
+            setColors(0xC84200);
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("EXIT"));
         }
 
         @Override

@@ -685,7 +685,7 @@ public class EditPlayers extends GlScreen {
         public void onUpdate() {
             Player player = team.playerAtPosition(pos);
             if (player != null) {
-                setText(game.settings.currency + " " + player.getPrice(game.settings.maxPlayerPrice));
+                setText(game.settings.currency + " " + player.getPrice(game.settings.maxPlayerValue));
                 setActive(player.role == Player.Role.GOALKEEPER);
             } else {
                 setText("");

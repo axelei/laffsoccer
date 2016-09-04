@@ -166,7 +166,7 @@ public class Assets {
         return hairStyles;
     }
 
-    public static String moneyFormat(float p) {
+    public static String moneyFormat(double p) {
         String suffix = "";
         int e3 = Emath.floor(Math.log10(p) / 3);
         switch (e3) {
@@ -174,18 +174,18 @@ public class Assets {
                 // no suffix
                 break;
             case 1:
-                suffix = "MONEY.THOUSANDS";
+                suffix = strings.get("MONEY.THOUSANDS");
                 break;
             case 2:
-                suffix = "MONEY.MILLIONS";
+                suffix = strings.get("MONEY.MILLIONS");
                 break;
             case 3:
-                suffix = "MONEY.BILLIONS";
+                suffix = strings.get("MONEY.BILLIONS");
                 break;
         }
 
         int e = Emath.floor(Math.log10(p));
-        float div = (float) Math.pow(10, e - 1);
+        double div = Math.pow(10, e - 1);
         p = Emath.floor(p / div);
 
         int mul = e - 1 - 3 * e3;
@@ -196,7 +196,7 @@ public class Assets {
         }
 
         DecimalFormat df = new DecimalFormat("#,###,###,##0.##");
-        return df.format(p) + strings.get(suffix);
+        return df.format(p) + suffix;
     }
 
 }

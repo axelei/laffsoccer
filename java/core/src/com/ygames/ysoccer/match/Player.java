@@ -281,7 +281,7 @@ public class Player {
         }
     }
 
-    public String getPrice(int maxPlayerPrice) {
+    public String getPrice(double maxPlayerPrice) {
         if (getValue() == 49) {
             return Assets.moneyFormat(maxPlayerPrice) + "+";
         } else {
