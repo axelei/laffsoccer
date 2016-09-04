@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
+import com.ygames.ysoccer.gui.LogoPicture;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
@@ -70,7 +71,7 @@ public class EditTeam extends GlScreen {
         w = new TeamNameButton();
         widgets.add(w);
 
-        logoWidget = new LogoPicture();
+        logoWidget = new LogoPicture(team);
         widgets.add(logoWidget);
 
         w = new CoachLabel();
@@ -241,28 +242,6 @@ public class EditTeam extends GlScreen {
                 team.name = text;
                 setModifiedFlag();
             }
-        }
-    }
-
-    class LogoPicture extends Picture {
-
-        boolean isCustom;
-
-        public LogoPicture() {
-            super(null);
-        }
-
-        @Override
-        public void onUpdate() {
-            String logoPath = team.path.replaceFirst("/TEAM.", "/LOGO.").replaceFirst(".JSON", ".PNG");
-            FileHandle customLogo = Assets.teamsFolder.child(logoPath);
-            if (customLogo.exists()) {
-                isCustom = true;
-                setImage(new Image(customLogo.path()));
-            } else {
-                setImage(team.kits.get(0).loadLogo());
-            }
-            setGeometry(135 - image.getRegionWidth() / 2, 50 - image.getRegionHeight() / 2, image.getRegionWidth(), image.getRegionHeight());
         }
     }
 
