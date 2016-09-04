@@ -54,7 +54,7 @@ public class Button extends Widget {
     }
 
     private void drawImage(SpriteBatch batch) {
-        batch.draw(image, x + 2, y + 2, image.getRegionWidth(), image.getRegionHeight());
+        batch.draw(image, x + 2 + imageX, y + 2 + imageY, image.getRegionWidth(), image.getRegionHeight());
     }
 
     private void drawBorder(GlShapeRenderer shapeRenderer, int bx, int by, int bw,

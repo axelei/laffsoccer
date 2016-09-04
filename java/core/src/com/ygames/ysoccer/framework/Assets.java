@@ -38,6 +38,7 @@ public class Assets {
     public static List<GlColor3> hairColors;
     public static List<String> hairStyles;
     public static List<GlColor3> skinColors;
+    public static List<GlColor2> shavedColors;
     public static List<String> currencies;
 
     public static void load(Settings settings) {
@@ -61,7 +62,8 @@ public class Assets {
         hairColors = loadColors("player/haircolors");
         hairStyles = loadHairStyles();
         skinColors = loadColors("player/skincolors");
-        currencies = loadCurrencies();
+        shavedColors = new ArrayList<GlColor2>(Arrays.asList(loadJsonFile(GlColor2[].class, "player/shaved_colors.json")));
+        currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
     }
 
     private static void loadLocales() {
@@ -158,6 +160,10 @@ public class Assets {
         return colors;
     }
 
+    private static <T> T loadJsonFile(Class<T> type, String filename) {
+        return Assets.json.fromJson(type, Gdx.files.internal(filename).readString());
+    }
+
     private static List<String> loadHairStyles() {
         List<String> hairStyles = new ArrayList<String>();
         FileHandle folder = Gdx.files.internal("images/player/hairstyles");
@@ -168,10 +174,31 @@ public class Assets {
         return hairStyles;
     }
 
-    private static List<String> loadCurrencies() {
-        FileHandle file = Gdx.files.internal("currencies.json");
-        String[] currencies = Assets.json.fromJson(String[].class, file.readString());
-        return new ArrayList<String>(Arrays.asList(currencies));
+    public static GlColor3 getHairColorByName(String name) {
+        for (GlColor3 hairColor : Assets.hairColors) {
+            if (hairColor.name.equals(name)) {
+                return hairColor;
+            }
+        }
+        return Assets.hairColors.get(0);
+    }
+
+    public static GlColor3 getSkinColorByName(String name) {
+        for (GlColor3 skinColor : Assets.skinColors) {
+            if (skinColor.name.equals(name)) {
+                return skinColor;
+            }
+        }
+        return Assets.skinColors.get(0);
+    }
+
+    public static GlColor2 getShavedColor(String skinColor, String hairColor) {
+        for (GlColor2 shavedColor : Assets.shavedColors) {
+            if (shavedColor.name.equals(skinColor + "-" + hairColor)) {
+                return shavedColor;
+            }
+        }
+        return null;
     }
 
     public static String moneyFormat(double p) {

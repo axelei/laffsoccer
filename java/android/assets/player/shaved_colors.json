@@ -1,0 +1,197 @@
+[
+  {
+    "name": "PINK-BLACK",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "PINK-BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "PINK-BROWN",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "PINK-RED",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "PINK-PLATINUM",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "PINK-GRAY",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "PINK-WHITE",
+    "color1": "#D6BE97",
+    "color2": "#AB997C"
+  },
+  {
+    "name": "PINK-PUNK_FUCHSIA",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "PINK-PUNK_BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "BLACK-BLACK",
+    "color1": "#423225",
+    "color2": "#312418"
+  },
+  {
+    "name": "PALE-BLACK",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "PALE-BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "PALE-BROWN",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "PALE-RED",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "PALE-PLATINUM",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "PALE-GRAY",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "PALE-WHITE",
+    "color1": "#D6BE97",
+    "color2": "#AB997C"
+  },
+  {
+    "name": "PALE-PUNK_FUCHSIA",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "PALE-PUNK_BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "ASIATIC-BLACK",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "ASIATIC-BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "ASIATIC-BROWN",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "ASIATIC-RED",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "ASIATIC-PLATINUM",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "ASIATIC-GRAY",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "ASIATIC-WHITE",
+    "color1": "#D6BE97",
+    "color2": "#AB997C"
+  },
+  {
+    "name": "ASIATIC-PUNK_FUCHSIA",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "ASIATIC-PUNK_BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "ARAB-BLACK",
+    "color1": "#916847",
+    "color2": "#765331"
+  },
+  {
+    "name": "MULATTO-BLACK",
+    "color1": "#916847",
+    "color2": "#765331"
+  },
+  {
+    "name": "RED-BLACK",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "RED-BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "RED-BROWN",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "RED-RED",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "RED-PLATINUM",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  },
+  {
+    "name": "RED-GRAY",
+    "color1": "#A1785F",
+    "color2": "#7D5D4A"
+  },
+  {
+    "name": "RED-WHITE",
+    "color1": "#D6BE97",
+    "color2": "#AB997C"
+  },
+  {
+    "name": "RED-PUNK_FUCHSIA",
+    "color1": "#C79341",
+    "color2": "#94713B"
+  },
+  {
+    "name": "RED-PUNK_BLOND",
+    "color1": "#BFC768",
+    "color2": "#999F54"
+  }
+]

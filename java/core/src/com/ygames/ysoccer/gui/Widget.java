@@ -18,6 +18,8 @@ public abstract class Widget {
     public int h;
 
     public Image image;
+    int imageX;
+    int imageY;
 
     WidgetColor color;
 
@@ -62,6 +64,11 @@ public abstract class Widget {
         this.y = y;
     }
 
+    public void setImagePosition(int imageX, int imageY) {
+        this.imageX = imageX;
+        this.imageY = imageY;
+    }
+
     public void setSize(int w, int h) {
         this.w = w;
         this.h = h;
@@ -71,13 +78,20 @@ public abstract class Widget {
         this.color.set(body, lightBorder, darkBorder);
     }
 
+    public void setColors(Color body, Color lightBorder, Color darkBorder) {
+        this.color.set(body.getRGB(), lightBorder.getRGB(), darkBorder.getRGB());
+    }
+
     public void setColors(WidgetColor color) {
         this.color.set(color.body, color.lightBorder, color.darkBorder);
     }
 
     public void setColors(int color) {
-        Color c = new Color(color);
-        setColors(c.getRGB(), c.brighter().getRGB(), c.darker().getRGB());
+        setColors(new Color(color));
+    }
+
+    public void setColors(Color color) {
+        setColors(color.getRGB(), color.brighter().getRGB(), color.darker().getRGB());
     }
 
     public void setText(String text) {

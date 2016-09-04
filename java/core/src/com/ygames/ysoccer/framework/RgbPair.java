@@ -16,4 +16,9 @@ public class RgbPair {
         this.rgbOld = new Color(rgbOld);
         this.rgbNew = rgbNew;
     }
+
+    public RgbPair(int rgbOld, int rgbNew) {
+        this.rgbOld = new Color(rgbOld);
+        this.rgbNew = new Color(rgbNew);
+    }
 }

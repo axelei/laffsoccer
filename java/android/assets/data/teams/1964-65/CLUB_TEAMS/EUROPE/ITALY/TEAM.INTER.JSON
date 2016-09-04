@@ -39,8 +39,8 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
+      "hairColor": "BROWN",
+      "hairStyle": "SHORT_C",
       "skinColor": "PINK",
       "skills": {},
       "value": 40
@@ -151,7 +151,7 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skinColor": "PINK",
+      "skinColor": "MULATTO",
       "skills": {}
     },
     {
@@ -161,7 +161,7 @@
       "role": "MIDFIELDER",
       "number": "8",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
+      "hairStyle": "SMOOTH_D",
       "skinColor": "PINK",
       "skills": {
         "passing": 6,
@@ -180,7 +180,7 @@
       "role": "LEFT_WINGER",
       "number": "11",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
+      "hairStyle": "SMOOTH_D",
       "skinColor": "PINK",
       "skills": {
         "passing": 7,
@@ -275,7 +275,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "18",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
       "skills": {}
@@ -286,7 +286,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "19",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
       "skills": {}
@@ -297,7 +297,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "20",
-      "hairColor": "BLACK",
+      "hairColor": "RED",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
       "skills": {}
@@ -308,7 +308,7 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "21",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
       "skills": {}

@@ -1,6 +1,13 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.GlColor2;
+import com.ygames.ysoccer.framework.GlColor3;
+import com.ygames.ysoccer.framework.Image;
+import com.ygames.ysoccer.framework.RgbPair;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
 
@@ -301,5 +308,36 @@ public class Player {
         int control;
         int speed;
         int finishing;
+    }
+
+    public Image createFace() {
+
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+
+        // skin color                                                                              ;
+        GlColor3 sc = Assets.getSkinColorByName(skinColor);
+        rgbPairs.add(new RgbPair(0xFFFF6300, sc.color1));
+        rgbPairs.add(new RgbPair(0xFFB54200, sc.color2));
+        rgbPairs.add(new RgbPair(0xFF631800, sc.color3));
+
+        // hair color
+        if (hairStyle.equals("SHAVED")) {
+            GlColor2 shavedColor = Assets.getShavedColor(skinColor, hairColor);
+            if (shavedColor != null) {
+                rgbPairs.add(new RgbPair(0xFF907130, shavedColor.color1));
+                rgbPairs.add(new RgbPair(0xFF715930, shavedColor.color2));
+            } else {
+                rgbPairs.add(new RgbPair(0xFF907130, sc.color1));
+                rgbPairs.add(new RgbPair(0xFF715930, sc.color2));
+            }
+        } else {
+            GlColor3 hc = Assets.getHairColorByName(hairColor);
+            rgbPairs.add(new RgbPair(0xFF907130, hc.color1));
+            rgbPairs.add(new RgbPair(0xFF715930, hc.color2));
+            rgbPairs.add(new RgbPair(0xFF514030, hc.color3));
+        }
+
+        String filename = "images/player/menu/" + hairStyle + ".PNG";
+        return Image.loadImage(filename, rgbPairs);
     }
 }
