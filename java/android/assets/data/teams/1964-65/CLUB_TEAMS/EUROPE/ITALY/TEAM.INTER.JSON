@@ -111,7 +111,15 @@
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 7,
+        "control": 5,
+        "speed": 7,
+        "finishing": 3
+      }
     },
     {
       "name": "LUIS SUÁREZ",

@@ -32,6 +32,9 @@ public class GameOptions extends GlScreen {
         w = new MaxPlayerValueButton();
         widgets.add(w);
 
+        w = new CurrencyButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -128,7 +131,7 @@ public class GameOptions extends GlScreen {
 
         public MaxPlayerValueButton() {
             setColors(0x1F1F95);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 375, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 375, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -192,6 +195,41 @@ public class GameOptions extends GlScreen {
                 }
             }
             game.settings.maxPlayerValue = m * Math.pow(10, e);
+            setChanged(true);
+        }
+    }
+
+    class CurrencyButton extends Button {
+
+        public CurrencyButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 340, 375, 130, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(game.settings.currency);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateCurrency(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateCurrency(-1);
+        }
+
+        private void updateCurrency(int direction) {
+            int i = Assets.currencies.indexOf(game.settings.currency);
+            if (i == -1) {
+                i = 0;
+            } else {
+                i = Emath.rotate(i, 0, Assets.currencies.size() - 1, direction);
+            }
+            game.settings.currency = Assets.currencies.get(i);
             setChanged(true);
         }
     }

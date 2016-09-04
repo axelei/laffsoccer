@@ -38,6 +38,7 @@ public class Assets {
     public static List<GlColor3> hairColors;
     public static List<String> hairStyles;
     public static List<GlColor3> skinColors;
+    public static List<String> currencies;
 
     public static void load(Settings settings) {
         loadLocales();
@@ -60,6 +61,7 @@ public class Assets {
         hairColors = loadColors("player/haircolors");
         hairStyles = loadHairStyles();
         skinColors = loadColors("player/skincolors");
+        currencies = loadCurrencies();
     }
 
     private static void loadLocales() {
@@ -166,6 +168,12 @@ public class Assets {
         return hairStyles;
     }
 
+    private static List<String> loadCurrencies() {
+        FileHandle file = Gdx.files.internal("currencies.json");
+        String[] currencies = Assets.json.fromJson(String[].class, file.readString());
+        return new ArrayList<String>(Arrays.asList(currencies));
+    }
+
     public static String moneyFormat(double p) {
         String suffix = "";
         int e3 = Emath.floor(Math.log10(p) / 3);
@@ -198,5 +206,4 @@ public class Assets {
         DecimalFormat df = new DecimalFormat("#,###,###,##0.##");
         return df.format(p) + suffix;
     }
-
 }
