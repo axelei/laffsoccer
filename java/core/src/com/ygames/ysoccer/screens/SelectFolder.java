@@ -11,6 +11,8 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SelectFolder extends GlScreen {
@@ -31,8 +33,10 @@ public class SelectFolder extends GlScreen {
         w = new TitleBar();
         widgets.add(w);
 
+        // Folders buttons
         List<Widget> list = new ArrayList<Widget>();
-        FileHandle[] files = fileHandle.list();
+        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(fileHandle.list()));
+        Collections.sort(files, new Assets.CompareFileHandlesByName());
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
@@ -44,7 +48,10 @@ public class SelectFolder extends GlScreen {
         if (list.size() > 0) {
             Widget.arrange(game.settings, 350, 50, list);
             selectedWidget = list.get(0);
-        } else {
+        }
+
+        // Leagues buttons
+        else {
             FileHandle leagueFile = fileHandle.child("LEAGUES.JSON");
             if (leagueFile.exists()) {
                 League[] leagues = Assets.json.fromJson(League[].class, leagueFile.readString());
