@@ -11,7 +11,6 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.LogoPicture;
-import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
@@ -766,18 +765,18 @@ public class EditTeam extends GlScreen {
     class PlayerFaceButton extends Button {
 
         int pos;
-        Player player;
 
         public PlayerFaceButton(int pos) {
             this.pos = pos;
             setGeometry(768, 374 + 24 * pos, 24, 21);
+            setImagePosition(2, 0);
             setActive(false);
         }
 
         @Override
         public void onUpdate() {
             setPlayerWidgetColor(this, pos);
-            player = team.playerAtPosition(pos);
+            image = team.playerAtPosition(pos).createFace();
         }
     }
 
