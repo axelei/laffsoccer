@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
@@ -254,7 +255,14 @@ public class SelectTeams extends GlScreen {
         public void onFire1Down() {
             switch (competition.getType()) {
                 case FRIENDLY:
-                    // TODO
+                    // choose the menu to set
+                    if (game.teamList.get(Match.HOME).controlMode != Team.ControlMode.COMPUTER) {
+                        game.setScreen(new SetTeam(game, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
+                    } else if (game.teamList.get(Match.AWAY).controlMode != Team.ControlMode.COMPUTER) {
+                        game.setScreen(new SetTeam(game, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
+                    } else {
+                        // TODO: set match presentation screen
+                    }
                     break;
                 case LEAGUE:
                     competition.start(game.teamList);
