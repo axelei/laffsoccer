@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 36
     },
     {
       "name": "GILBERTO NOLETTI",
@@ -49,9 +50,17 @@
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "2",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 5,
+        "speed": 6,
+        "finishing": 4
+      }
     },
     {
       "name": "CESARE MALDINI",
@@ -61,7 +70,15 @@
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 7,
+        "speed": 5,
+        "finishing": 4
+      }
     },
     {
       "name": "VÍCTOR BENÍTEZ",
@@ -71,7 +88,16 @@
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "MULATTO",
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 7,
+        "control": 6,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "AMBROGIO PELAGALLI",
@@ -79,9 +105,17 @@
       "nationality": "ITA",
       "role": "RIGHT_BACK",
       "number": "3",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 7,
+        "control": 6,
+        "speed": 5,
+        "finishing": 4
+      }
     },
     {
       "name": "GIOVANNI LODETTI",
@@ -90,8 +124,16 @@
       "role": "MIDFIELDER",
       "number": "8",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "SHORT_C",
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 6,
+        "control": 7,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "GIOVANNI TRAPATTONI",
@@ -99,9 +141,17 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 6,
+        "speed": 6,
+        "finishing": 4
+      }
     },
     {
       "name": "GIANNI RIVERA",
@@ -111,7 +161,16 @@
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "PINK",
+      "skills": {
+        "passing": 7,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 5,
+        "control": 7,
+        "speed": 6,
+        "finishing": 6
+      }
     },
     {
       "name": "BRUNO MORA",
@@ -121,7 +180,15 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 7,
+        "finishing": 7
+      }
     },
     {
       "name": "AMARILDO TAVARES DA SILVEIRA",
@@ -131,7 +198,16 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "MULATTO",
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 7,
+        "tackling": 4,
+        "control": 4,
+        "speed": 6,
+        "finishing": 7
+      }
     },
     {
       "name": "PAOLO FERRARIO",
@@ -139,9 +215,17 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "9",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 4,
+        "control": 5,
+        "speed": 6,
+        "finishing": 7
+      }
     },
     {
       "name": "GIORGIO GHEZZI",
@@ -151,7 +235,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 35
     },
     {
       "name": "MARIO TREBBI",
@@ -161,7 +246,15 @@
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 6,
+        "control": 5,
+        "speed": 6,
+        "finishing": 3
+      }
     },
     {
       "name": "LUIGI RADICE",
@@ -171,7 +264,15 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 6,
+        "control": 6,
+        "speed": 6,
+        "finishing": 2
+      }
     },
     {
       "name": "GIULIANO FORTUNATO",
@@ -181,7 +282,15 @@
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 4,
+        "control": 5,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "JOSÉ ALTAFINI",
@@ -189,9 +298,17 @@
       "nationality": "BRA",
       "role": "ATTACKER",
       "number": "16",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 7,
+        "heading": 7,
+        "tackling": 5,
+        "control": 6,
+        "speed": 6,
+        "finishing": 7
+      }
     },
     {
       "name": "LUIGI BALZARINI",
@@ -201,7 +318,8 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 31
     },
     {
       "name": "NELLO SANTIN",
@@ -211,7 +329,15 @@
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 5,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "BRUNO BACCHETTA",
@@ -221,7 +347,15 @@
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 5,
+        "control": 6,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "MARIO DAVID",
@@ -229,9 +363,17 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "20",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "GIANCARLO SALVI",
@@ -239,9 +381,17 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "21",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "AQUILINO BONFANTI",
@@ -251,7 +401,15 @@
       "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 5,
+        "control": 4,
+        "speed": 4,
+        "finishing": 6
+      }
     },
     {
       "name": "JOSÉ GERMANO DE SALES",
@@ -261,7 +419,16 @@
       "number": "23",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "BLACK",
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "CLAUDIO MANTOVANI",
@@ -271,7 +438,8 @@
       "number": "24",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 30
     }
   ]
 }

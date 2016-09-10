@@ -899,7 +899,7 @@ public class EditPlayers extends GlScreen {
         }
 
         // other players
-        else if (pos < 11) {
+        else if (pos < Const.TEAM_SIZE) {
             w.setColors(0x308C3B, 0x4AC058, 0x1F5926);
         }
 

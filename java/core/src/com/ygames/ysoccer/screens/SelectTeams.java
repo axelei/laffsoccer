@@ -257,9 +257,9 @@ public class SelectTeams extends GlScreen {
                 case FRIENDLY:
                     // choose the menu to set
                     if (game.teamList.get(Match.HOME).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
+                        game.setScreen(new SetTeam(game, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
                     } else if (game.teamList.get(Match.AWAY).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
+                        game.setScreen(new SetTeam(game, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
                     } else {
                         // TODO: set match presentation screen
                     }
