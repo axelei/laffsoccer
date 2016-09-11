@@ -13,6 +13,9 @@ import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SetTeam extends GlScreen {
 
     Competition competition;
@@ -22,7 +25,7 @@ public class SetTeam extends GlScreen {
     Team current;
     int selectedPos;
 
-    Widget[] faceButtons = new Widget[Const.FULL_TEAM];
+    List<Widget> playerButtons = new ArrayList<Widget>();
 
     public SetTeam(GlGame game, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
@@ -45,7 +48,11 @@ public class SetTeam extends GlScreen {
         // players
         for (int pos = 0; pos < Const.FULL_TEAM; pos++) {
             w = new PlayerFaceButton(pos);
-            faceButtons[pos] = w;
+            playerButtons.add(w);
+            widgets.add(w);
+
+            w = new PlayerNumberButton(pos);
+            playerButtons.add(w);
             widgets.add(w);
         }
 
@@ -61,18 +68,40 @@ public class SetTeam extends GlScreen {
         public PlayerFaceButton(int pos) {
             this.pos = pos;
             setGeometry(30, 126 + 19 * pos, 24, 17);
+            setPlayerWidgetColor(this, pos);
             setImagePosition(2, -3);
             setActive(false);
         }
 
         @Override
         public void onUpdate() {
-            setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player == null) {
                 image = null;
             } else {
                 image = player.createFace();
+            }
+        }
+    }
+
+    class PlayerNumberButton extends Button {
+
+        int pos;
+
+        public PlayerNumberButton(int pos) {
+            this.pos = pos;
+            setGeometry(54, 126 + 19 * pos, 30, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = team.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+            } else {
+                setText(player.number);
             }
         }
     }

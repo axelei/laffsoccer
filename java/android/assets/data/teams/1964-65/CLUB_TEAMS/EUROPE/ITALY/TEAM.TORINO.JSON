@@ -8,7 +8,30 @@
     "name": "NEREO ROCCO",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2",
+  "tactics": "4-3-3",
+  "kits": [
+    {
+      "style": "PLAIN",
+      "shirt1": "#55151a",
+      "shirt2": "#dfe8eb",
+      "shorts": "#dfe8eb",
+      "socks": "#55151a"
+    },
+    {
+      "style": "DIAGONAL",
+      "shirt1": "#dfe8eb",
+      "shirt2": "#55151a",
+      "shorts": "#55151a",
+      "socks": "#dfe8eb"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#0000a4",
+      "shirt2": "#0000a4",
+      "shorts": "#0000a4",
+      "socks": "#0000a4"
+    }
+  ],
   "players": [
     {
       "name": "LIDO VIERI",
@@ -18,37 +41,26 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 37
     },
     {
-      "name": "FABRIZIO POLETTI",
-      "shirtName": "POLETTI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "2",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "NATALINO FOSSATI",
-      "shirtName": "FOSSATI",
+      "name": "LUCIANO BUZZACCHERA",
+      "shirtName": "BUZZACCHERA",
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "3",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIORGIO PUIA",
-      "shirtName": "PUIA",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "4",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 5,
+        "control": 5,
+        "speed": 6,
+        "finishing": 3
+      }
     },
     {
       "name": "ROBERTO ROSATO",
@@ -58,7 +70,69 @@
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 7,
+        "speed": 7,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "GIORGIO PUIA",
+      "shirtName": "PUIA",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "4",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 5
+      }
+    },
+    {
+      "name": "FABRIZIO POLETTI",
+      "shirtName": "POLETTI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "2",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 7,
+        "control": 4,
+        "speed": 5,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "GIAMBATTISTA MOSCHINO",
+      "shirtName": "MOSCHINO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "11",
+      "hairColor": "BLACK",
+      "hairStyle": "THINNING_C",
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "AMILCARE FERRETTI",
@@ -66,19 +140,35 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 5,
+        "control": 6,
+        "speed": 6,
+        "finishing": 4
+      }
     },
     {
-      "name": "LUIGI SIMONI",
-      "shirtName": "SIMONI",
+      "name": "LUIGI MERONI",
+      "shirtName": "MERONI",
       "nationality": "ITA",
-      "role": "LEFT_WINGER",
-      "number": "7",
+      "role": "RIGHT_WINGER",
+      "number": "10",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "SMOOTH_P",
+      "skills": {
+        "passing": 7,
+        "shooting": 7,
+        "heading": 5,
+        "tackling": 5,
+        "control": 7,
+        "speed": 7,
+        "finishing": 7
+      }
     },
     {
       "name": "GIORGIO FERRINI",
@@ -88,7 +178,33 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 7,
+        "control": 6,
+        "speed": 6,
+        "finishing": 5
+      }
+    },
+    {
+      "name": "LUIGI SIMONI",
+      "shirtName": "SIMONI",
+      "nationality": "ITA",
+      "role": "LEFT_WINGER",
+      "number": "7",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 5,
+        "control": 6,
+        "speed": 6,
+        "finishing": 6
+      }
     },
     {
       "name": "GERRY HITCHENS",
@@ -96,29 +212,18 @@
       "nationality": "ENG",
       "role": "ATTACKER",
       "number": "9",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "LUIGI MERONI",
-      "shirtName": "MERONI",
-      "nationality": "ITA",
-      "role": "RIGHT_WINGER",
-      "number": "10",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIAMBATTISTA MOSCHINO",
-      "shirtName": "MOSCHINO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "11",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "PALE",
+      "skills": {
+        "passing": 6,
+        "shooting": 7,
+        "heading": 7,
+        "tackling": 4,
+        "control": 6,
+        "speed": 6,
+        "finishing": 7
+      }
     },
     {
       "name": "ADRIANO REGINATO",
@@ -128,17 +233,27 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "PINK",
+      "skills": {},
+      "value": 33
     },
     {
-      "name": "LUCIANO BUZZACCHERA",
-      "shirtName": "BUZZACCHERA",
+      "name": "NATALINO FOSSATI",
+      "shirtName": "FOSSATI",
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "13",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairColor": "BROWN",
+      "hairStyle": "SMOOTH_P",
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 6,
+        "control": 4,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "GIANCARLO CELLA",
@@ -147,18 +262,34 @@
       "role": "MIDFIELDER",
       "number": "14",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "THINNING_C",
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "CARLO CRIPPA",
       "shirtName": "CRIPPA",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "LEFT_WINGER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 3,
+        "control": 6,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "ENRICO ALBRIGI",
@@ -168,7 +299,15 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 6
+      }
     },
     {
       "name": "LUCIANO TENEGGI",
@@ -178,7 +317,15 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "REMO LANCIONI",
@@ -188,7 +335,15 @@
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "ALBERTO CARELLI",
@@ -198,7 +353,15 @@
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
       "name": "SERGIO BRIGHENTI",
@@ -208,7 +371,15 @@
       "number": "20",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 7
+      }
     }
   ]
 }
