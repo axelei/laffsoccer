@@ -14,6 +14,7 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SetTeam extends GlScreen {
@@ -54,6 +55,12 @@ public class SetTeam extends GlScreen {
             w = new PlayerNumberButton(pos);
             playerButtons.add(w);
             widgets.add(w);
+
+            w = new PlayerNameButton(pos);
+            playerButtons.add(w);
+            widgets.add(w);
+
+            selectedWidget = w;
         }
 
         // team name
@@ -68,14 +75,14 @@ public class SetTeam extends GlScreen {
         public PlayerFaceButton(int pos) {
             this.pos = pos;
             setGeometry(30, 126 + 19 * pos, 24, 17);
-            setPlayerWidgetColor(this, pos);
             setImagePosition(2, -3);
             setActive(false);
         }
 
         @Override
         public void onUpdate() {
-            Player player = team.playerAtPosition(pos);
+            setPlayerWidgetColor(this, pos);
+            Player player = current.playerAtPosition(pos);
             if (player == null) {
                 image = null;
             } else {
@@ -90,19 +97,66 @@ public class SetTeam extends GlScreen {
 
         public PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(54, 126 + 19 * pos, 30, 17);
+            setGeometry(56, 126 + 19 * pos, 34, 17);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
 
         @Override
         public void onUpdate() {
-            Player player = team.playerAtPosition(pos);
+            Player player = current.playerAtPosition(pos);
             if (player == null) {
                 setText("");
             } else {
                 setText(player.number);
             }
+        }
+    }
+
+
+    class PlayerNameButton extends Button {
+
+        int pos;
+
+        public PlayerNameButton(int pos) {
+            this.pos = pos;
+            setGeometry(92, 126 + 19 * pos, 364, 17);
+            setText("", Font.Align.LEFT, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setPlayerWidgetColor(this, pos);
+            Player player = current.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+                setActive(false);
+            } else {
+                setText(player.name);
+                setActive(current == team);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            // select
+            if (selectedPos == -1) {
+                selectedPos = pos;
+            }
+            // deselect
+            else if (selectedPos == pos) {
+                selectedPos = -1;
+            }
+            // swap
+            else {
+                int ply1 = team.playerIndexAtPosition(selectedPos);
+                int ply2 = team.playerIndexAtPosition(pos);
+
+                Collections.swap(team.players, ply1, ply2);
+
+                selectedPos = -1;
+            }
+            updatePlayerButtons();
         }
     }
 
@@ -122,6 +176,12 @@ public class SetTeam extends GlScreen {
             } else {
                 setColors(0xC14531, 0xDF897B, 0x8E3324);
             }
+        }
+    }
+
+    private void updatePlayerButtons() {
+        for (Widget w : playerButtons) {
+            w.setChanged(true);
         }
     }
 

@@ -9,6 +9,29 @@
     "nationality": "PAR"
   },
   "tactics": "4-4-2",
+  "kits": [
+    {
+      "style": "VERTICAL",
+      "shirt1": "#1e1e1e",
+      "shirt2": "#dfe8eb",
+      "shorts": "#dfe8eb",
+      "socks": "#dfe8eb"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#dfe8eb",
+      "shirt2": "#1e1e1e",
+      "shorts": "#1e1e1e",
+      "socks": "#dfe8eb"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#dfe8eb",
+      "shirt2": "#1e1e1e",
+      "shorts": "#dfe8eb",
+      "socks": "#dfe8eb"
+    }
+  ],
   "players": [
     {
       "name": "ROBERTO ANZOLIN",
