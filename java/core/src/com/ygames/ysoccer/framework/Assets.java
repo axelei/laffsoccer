@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
@@ -40,6 +41,7 @@ public class Assets {
     public static List<GlColor3> skinColors;
     public static List<GlColor2> shavedColors;
     public static List<String> currencies;
+    public static Image[] stars = new Image[10];
 
     public static void load(Settings settings) {
         loadLocales();
@@ -64,6 +66,7 @@ public class Assets {
         skinColors = loadColors("player/skincolors");
         shavedColors = new ArrayList<GlColor2>(Arrays.asList(loadJsonFile(GlColor2[].class, "player/shaved_colors.json")));
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
+        loadStars();
     }
 
     private static void loadLocales() {
@@ -241,6 +244,13 @@ public class Assets {
         } catch (Exception e) {
             Gdx.app.log("Warning", e.getMessage());
             return null;
+        }
+    }
+
+    private static void loadStars() {
+        Texture texture = new Texture("images/stars.png");
+        for (int i = 0; i < 10; i++) {
+            stars[i] = new Image(texture, 0, 16 * i, 64, 16);
         }
     }
 }

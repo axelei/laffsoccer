@@ -13,6 +13,7 @@ import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -91,6 +92,10 @@ public class SetTeam extends GlScreen {
                 widgets.add(w);
                 x += 14;
             }
+
+            w = new PlayerStarsButton(pos, x);
+            playerButtons.add(w);
+            widgets.add(w);
 
             selectedWidget = w;
         }
@@ -281,6 +286,26 @@ public class SetTeam extends GlScreen {
                 } else {
                     setText(Assets.strings.get(Player.getSkillLabel(skills[skillIndex])));
                 }
+            }
+        }
+    }
+
+    class PlayerStarsButton extends Button {
+
+        int pos;
+
+        public PlayerStarsButton(int pos, int x) {
+            this.pos = pos;
+            setGeometry(x, 126 + 19 * pos, 64, 16);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = current.playerAtPosition(pos);
+            if (player == null) {
+                image = null;
+            } else {
+                image = Assets.stars[Emath.floor((player.getValue() + 3) / 5.5)];
             }
         }
     }
