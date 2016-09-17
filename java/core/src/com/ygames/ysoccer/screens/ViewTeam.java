@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -14,10 +15,15 @@ import com.ygames.ysoccer.match.Team;
 
 public class ViewTeam extends GlScreen {
 
+    Font font10yellow;
+
     public ViewTeam(GlGame game, Team team, Competition competition) {
         super(game);
 
         background = game.stateBackground;
+
+        font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
+        font10yellow.load();
 
         Widget w;
 
@@ -121,7 +127,7 @@ public class ViewTeam extends GlScreen {
 
         public PlayerSkillLabel(Player.Skill[] skills, int j, int x, int p, Player player) {
             setGeometry(x, 126 + 18 * p, 12, 17);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", Font.Align.CENTER, font10yellow);
             if (player != null && skills != null) {
                 setText(Assets.strings.get(Player.getSkillLabel(skills[j])));
             }

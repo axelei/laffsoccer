@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
+import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
@@ -25,6 +26,7 @@ public class SetTeam extends GlScreen {
     Team opponent;
     Team current;
     int selectedPos;
+    Font font10yellow;
 
     List<Widget> playerButtons = new ArrayList<Widget>();
 
@@ -43,6 +45,9 @@ public class SetTeam extends GlScreen {
         selectedPos = -1;
 
         background = new Image("images/backgrounds/menu_set_team.jpg");
+
+        font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
+        font10yellow.load();
 
         Widget w;
 
@@ -79,6 +84,13 @@ public class SetTeam extends GlScreen {
             playerButtons.add(w);
             widgets.add(w);
             x += 32;
+
+            for (int skillIndex = 0; skillIndex < 3; skillIndex++) {
+                w = new PlayerSkillButton(pos, skillIndex, x);
+                playerButtons.add(w);
+                widgets.add(w);
+                x += 14;
+            }
 
             selectedWidget = w;
         }
@@ -240,6 +252,35 @@ public class SetTeam extends GlScreen {
                 setText("");
             } else {
                 setText(Assets.strings.get(player.getRoleLabel()));
+            }
+        }
+    }
+
+    class PlayerSkillButton extends Button {
+
+        int pos;
+        int skillIndex;
+
+        public PlayerSkillButton(int pos, int skillIndex, int x) {
+            this.pos = pos;
+            this.skillIndex = skillIndex;
+            setGeometry(x, 126 + 19 * pos, 12, 17);
+            setText("", Font.Align.CENTER, font10yellow);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = current.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+            } else {
+                Player.Skill[] skills = player.getOrderedSkills();
+                if (skills == null) {
+                    setText("");
+                } else {
+                    setText(Assets.strings.get(Player.getSkillLabel(skills[skillIndex])));
+                }
             }
         }
     }

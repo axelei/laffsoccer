@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "WILLIAM NEGRI",
+      "shirtName": "NEGRI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MANLIO MUCCINI",
+      "shirtName": "MUCCINI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MIRKO PAVINATO",
+      "shirtName": "PAVINATO",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "TAZIO ROVERSI",
+      "shirtName": "ROVERSI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,8 +74,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCESCO JANICH",
+      "shirtName": "JANICH",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,8 +84,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PARIDE TUMBURUS",
+      "shirtName": "TUMBURUS",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
@@ -94,8 +94,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ROMANO FOGLI",
+      "shirtName": "FOGLI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "7",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIACOMO BULGARELLI",
+      "shirtName": "BULGARELLI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,9 +114,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "HELMUT HALLER",
+      "shirtName": "HALLER",
+      "nationality": "GER",
       "role": "MIDFIELDER",
       "number": "9",
       "hairColor": "BLACK",
@@ -124,9 +124,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "HARALD NIELSEN",
+      "shirtName": "NIELSEN",
+      "nationality": "DEN",
       "role": "ATTACKER",
       "number": "10",
       "hairColor": "BLACK",
@@ -134,8 +134,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "EZIO PASCUTTI",
+      "shirtName": "PASCUTTI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,28 +144,28 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO FURLANIS",
+      "shirtName": "FURLANIS",
       "nationality": "ITA",
-      "role": "GOALKEEPER",
+      "role": "DEFENDER",
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MARINO PERANI",
+      "shirtName": "PERANI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "MIDFIELDER",
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FAUSTINO TURRA",
+      "shirtName": "TURRA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
@@ -174,18 +174,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MARIO MARASCHI",
+      "shirtName": "MARASCHI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANNI BUI",
+      "shirtName": "BUI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "16",
@@ -194,10 +194,10 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ROBERTO QUADALTI",
+      "shirtName": "QUADALTI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",

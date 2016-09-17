@@ -1,14 +1,21 @@
 package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import sun.misc.IOUtils;
 
 public class Font {
+
+    RgbPair rgbPair;
 
     public enum Align {
         RIGHT, CENTER, LEFT
@@ -23,8 +30,35 @@ public class Font {
         this.size = size;
     }
 
+    public Font(int size, RgbPair rgbPair) {
+        this.size = size;
+        this.rgbPair = rgbPair;
+    }
+
     public void load() {
-        texture = new Texture("images/font_" + size + ".png");
+        if (rgbPair == null) {
+            texture = new Texture("images/font_" + size + ".png");
+        } else {
+            InputStream in = null;
+            try {
+                in = Gdx.files.internal("images/font_" + size + ".png").read();
+
+                List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+                rgbPairs.add(rgbPair);
+                byte[] bytes = IOUtils.readFully(PngEditor.editPalette(in, rgbPairs), -1, true);
+
+                Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
+                texture = new Texture(pixmap);
+            } catch (IOException e) {
+                throw new RuntimeException("Couldn't load image", e);
+            } finally {
+                if (in != null)
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                    }
+            }
+        }
         loadFontWidths(widths, "font_" + size + ".txt");
         for (int i = 0; i < 1024; i++) {
             switch (size) {
