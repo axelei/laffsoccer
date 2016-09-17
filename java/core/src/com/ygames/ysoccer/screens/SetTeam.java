@@ -60,10 +60,19 @@ public class SetTeam extends GlScreen {
             playerButtons.add(w);
             widgets.add(w);
 
+            int x = 458;
             if (current.type == Team.Type.CLUB) {
-                w = new PlayerNationalityButton(pos);
-                playerButtons.add(w);
-                widgets.add(w);
+                if (game.settings.useFlags) {
+                    w = new PlayerNationalityFlagButton(pos);
+                    playerButtons.add(w);
+                    widgets.add(w);
+                    x += 26;
+                } else {
+                    w = new PlayerNationalityCodeButton(pos);
+                    playerButtons.add(w);
+                    widgets.add(w);
+                    x += 58;
+                }
             }
 
             selectedWidget = w;
@@ -119,7 +128,6 @@ public class SetTeam extends GlScreen {
         }
     }
 
-
     class PlayerNameButton extends Button {
 
         int pos;
@@ -166,11 +174,32 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerNationalityButton extends Button {
+    class PlayerNationalityFlagButton extends Button {
 
         int pos;
 
-        public PlayerNationalityButton(int pos) {
+        public PlayerNationalityFlagButton(int pos) {
+            this.pos = pos;
+            setGeometry(458, 126 + 19 * pos, 24, 17);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = current.playerAtPosition(pos);
+            if (player == null) {
+                image = null;
+            } else {
+                image = Assets.getNationalityFlag(player.nationality);
+            }
+        }
+    }
+
+    class PlayerNationalityCodeButton extends Button {
+
+        int pos;
+
+        public PlayerNationalityCodeButton(int pos) {
             this.pos = pos;
             setGeometry(458, 126 + 19 * pos, 56, 17);
             setText("", Font.Align.CENTER, Assets.font10);

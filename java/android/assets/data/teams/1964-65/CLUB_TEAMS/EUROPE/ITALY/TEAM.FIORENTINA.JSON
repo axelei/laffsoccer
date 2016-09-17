@@ -8,7 +8,7 @@
     "name": "GIUSEPPE CHIAPPELLA",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2",
+  "tactics": "4-2-4",
   "kits": [
     {
       "style": "PLAIN",
@@ -81,11 +81,11 @@
       }
     },
     {
-      "name": "UGO FERRANTE",
-      "shirtName": "FERRANTE",
+      "name": "PIERO GONFIANTINI",
+      "shirtName": "GONFIANTINI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "18",
+      "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -103,7 +103,7 @@
       "shirtName": "ROBOTTI",
       "nationality": "ITA",
       "role": "RIGHT_BACK",
-      "number": "13",
+      "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -117,21 +117,21 @@
       }
     },
     {
-      "name": "RINO MARCHESI",
-      "shirtName": "MARCHESI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
+      "name": "JUAN CARLOS MORRONE",
+      "shirtName": "MORRONE",
+      "nationality": "ARG",
+      "role": "ATTACKER",
+      "number": "11",
       "hairColor": "BLACK",
-      "hairStyle": "SHORT_A",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 6,
-        "shooting": 4,
+        "shooting": 6,
         "heading": 6,
-        "tackling": 6,
+        "tackling": 5,
         "control": 6,
-        "speed": 5,
-        "finishing": 4
+        "speed": 6,
+        "finishing": 6
       }
     },
     {
@@ -139,7 +139,7 @@
       "shirtName": "PIROVANO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "4",
+      "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SHORT_A",
       "skills": {
@@ -189,24 +189,40 @@
       }
     },
     {
-      "name": "RENATO BENAGLIA",
-      "shirtName": "BENAGLIA",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "10",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "JUAN CARLOS MORRONE",
-      "shirtName": "MORRONE",
+      "name": "HUMBERTO MASCHIO",
+      "shirtName": "MASCHIO",
       "nationality": "ARG",
       "role": "ATTACKER",
-      "number": "11",
+      "number": "10",
+      "hairColor": "BLACK",
+      "hairStyle": "SHORT_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 5,
+        "control": 5,
+        "speed": 5,
+        "finishing": 7
+      }
+    },
+    {
+      "name": "ALBERTO ORLANDO",
+      "shirtName": "ORLANDO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 4,
+        "control": 5,
+        "speed": 6,
+        "finishing": 6
+      }
     },
     {
       "name": "ALFREDO PAOLICCHI",
@@ -214,19 +230,28 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairColor": "BLOND",
+      "hairStyle": "SHORT_A",
+      "skills": {},
+      "value": 33
     },
     {
       "name": "GIUSEPPE BRIZI",
       "shirtName": "BRIZI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "5",
+      "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "MARIO BRUGNERA",
@@ -235,48 +260,88 @@
       "role": "MIDFIELDER",
       "number": "14",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "SHORT_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 5,
+        "control": 6,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
-      "name": "ALBERTO ORLANDO",
-      "shirtName": "ORLANDO",
+      "name": "RINO MARCHESI",
+      "shirtName": "MARCHESI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "15",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "HUMBERTO MASCHIO",
-      "shirtName": "MASCHIO",
-      "nationality": "ARG",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "16",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "SHORT_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 6,
+        "control": 6,
+        "speed": 5,
+        "finishing": 4
+      }
     },
     {
-      "name": "PIERO GONFIANTINI",
-      "shirtName": "GONFIANTINI",
+      "name": "RENATO BENAGLIA",
+      "shirtName": "BENAGLIA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "15",
+      "hairColor": "BLACK",
+      "hairStyle": "SHORT_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 6,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "UGO FERRANTE",
+      "shirtName": "FERRANTE",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 7,
+        "tackling": 6,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "PAOLO NUTI",
       "shirtName": "NUTI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "9",
+      "role": "RIGHT_WINGER",
+      "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 4
+      }
     },
     {
       "name": "GASTONE MARCHI",
@@ -286,7 +351,15 @@
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     }
   ]
 }

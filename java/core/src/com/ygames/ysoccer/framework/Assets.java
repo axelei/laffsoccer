@@ -233,4 +233,14 @@ public class Assets {
         DecimalFormat df = new DecimalFormat("#,###,###,##0.##");
         return df.format(p) + suffix;
     }
+
+    public static Image getNationalityFlag(String nationality) {
+        String filename = "images/flags/tiny/" + nationality + ".png";
+        try {
+            return new Image(filename);
+        } catch (Exception e) {
+            Gdx.app.log("Warning", e.getMessage());
+            return null;
+        }
+    }
 }
