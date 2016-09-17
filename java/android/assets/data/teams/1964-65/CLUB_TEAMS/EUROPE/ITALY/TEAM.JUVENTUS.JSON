@@ -41,37 +41,44 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 40
     },
     {
-      "name": "ADOLFO GORI",
-      "shirtName": "GORI",
+      "name": "GIANFRANCO LEONCINI",
+      "shirtName": "LEONCINI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "2",
+      "role": "LEFT_BACK",
+      "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 5,
+        "control": 6,
+        "speed": 6,
+        "finishing": 3
+      }
     },
     {
-      "name": "BENITO SARTI",
-      "shirtName": "SARTI",
+      "name": "ERNESTO CÀSTANO",
+      "shirtName": "CÀSTANO",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "SANDRO SALVADORE",
-      "shirtName": "SALVADORE",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "4",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 6,
+        "control": 7,
+        "speed": 6,
+        "finishing": 2
+      }
     },
     {
       "name": "GIANCARLO BERCELLINO I",
@@ -81,57 +88,123 @@
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 7,
+        "tackling": 6,
+        "control": 6,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
-      "name": "GIOVANNI SACCO",
-      "shirtName": "SACCO",
+      "name": "ADOLFO GORI",
+      "shirtName": "GORI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
+      "role": "RIGHT_BACK",
+      "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIANFRANCO LEONCINI",
-      "shirtName": "LEONCINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "7",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GINO STACCHINI",
-      "shirtName": "STACCHINI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "8",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 7,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "GIAMPAOLO MENICHELLI",
       "shirtName": "MENICHELLI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "LEFT_WINGER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 7,
+        "finishing": 6
+      }
     },
     {
-      "name": "NESTOR COMBIN",
-      "shirtName": "COMBIN",
-      "nationality": "FRA",
+      "name": "SANDRO SALVADORE",
+      "shirtName": "SALVADORE",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "4",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 7,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 7,
+        "speed": 6,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "LUIS DEL SOL",
+      "shirtName": "DEL SOL",
+      "nationality": "ESP",
+      "role": "MIDFIELDER",
+      "number": "6",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 7,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 7,
+        "control": 7,
+        "speed": 7,
+        "finishing": 6
+      }
+    },
+    {
+      "name": "CARLO DELL'OMODARME",
+      "shirtName": "DELL'OMODARME",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "8",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 5,
+        "control": 6,
+        "speed": 7,
+        "finishing": 5
+      }
+    },
+    {
+      "name": "DINO DA COSTA",
+      "shirtName": "DA COSTA",
+      "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 7,
+        "heading": 6,
+        "tackling": 4,
+        "control": 6,
+        "speed": 6,
+        "finishing": 7
+      }
     },
     {
       "name": "OMAR SIVORI",
@@ -141,7 +214,15 @@
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 7,
+        "heading": 5,
+        "tackling": 6,
+        "control": 7,
+        "speed": 7,
+        "finishing": 7
+      }
     },
     {
       "name": "CARLO MATTREL",
@@ -151,17 +232,83 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 33
     },
     {
-      "name": "ERNESTO CÀSTANO",
-      "shirtName": "CÀSTANO",
+      "name": "BENITO SARTI",
+      "shirtName": "SARTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
+      "hairColor": "BROWN",
+      "hairStyle": "SMOOTH_A",
+      "skinColor": "PINK",
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 7,
+        "tackling": 7,
+        "control": 6,
+        "speed": 6,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "GINO STACCHINI",
+      "shirtName": "STACCHINI",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 7,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "SIDNEY COLÔNIA CUNHA",
+      "shirtName": "CHINESINHO",
+      "nationality": "BRA",
+      "role": "MIDFIELDER",
+      "number": "20",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skinColor": "MULATTO",
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 4,
+        "control": 6,
+        "speed": 6,
+        "finishing": 6
+      }
+    },
+    {
+      "name": "VINCENZO TRASPEDINI",
+      "shirtName": "TRASPEDINI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "19",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skinColor": "PINK",
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "ALBERTO CORAMINI",
@@ -171,47 +318,70 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
-      "name": "DINO DA COSTA",
-      "shirtName": "DA COSTA",
+      "name": "GIOVANNI SACCO",
+      "shirtName": "SACCO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "15",
-      "hairColor": "BLACK",
+      "number": "19",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "LUIS DEL SOL",
-      "shirtName": "DEL SOL",
-      "nationality": "ESP",
-      "role": "MIDFIELDER",
-      "number": "16",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 5,
+        "control": 6,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "BRUNO MAZZIA",
       "shirtName": "MAZZIA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "17",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "CARLO DELL'OMODARME",
-      "shirtName": "DELL'OMODARME",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 5,
+        "control": 6,
+        "speed": 5,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "NESTOR COMBIN",
+      "shirtName": "COMBIN",
+      "nationality": "FRA",
+      "role": "ATTACKER",
+      "number": "16",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skinColor": "MULATTO",
+      "skills": {
+        "passing": 4,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 6
+      }
     }
   ]
 }

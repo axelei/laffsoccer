@@ -60,6 +60,12 @@ public class SetTeam extends GlScreen {
             playerButtons.add(w);
             widgets.add(w);
 
+            if (current.type == Team.Type.CLUB) {
+                w = new PlayerNationalityButton(pos);
+                playerButtons.add(w);
+                widgets.add(w);
+            }
+
             selectedWidget = w;
         }
 
@@ -157,6 +163,28 @@ public class SetTeam extends GlScreen {
                 selectedPos = -1;
             }
             updatePlayerButtons();
+        }
+    }
+
+    class PlayerNationalityButton extends Button {
+
+        int pos;
+
+        public PlayerNationalityButton(int pos) {
+            this.pos = pos;
+            setGeometry(458, 126 + 19 * pos, 56, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = current.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+            } else {
+                setText("(" + player.nationality + ")");
+            }
         }
     }
 
