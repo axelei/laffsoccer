@@ -26,6 +26,9 @@ public class GameOptions extends GlScreen {
         widgets.add(w);
         selectedWidget = w;
 
+        w = new PlayerCountryLabel();
+        widgets.add(w);
+
         w = new MaxPlayerValueLabel();
         widgets.add(w);
 
@@ -58,7 +61,7 @@ public class GameOptions extends GlScreen {
 
         public LanguageLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 330, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 285, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -73,7 +76,7 @@ public class GameOptions extends GlScreen {
 
         public LanguageButton() {
             setColors(0x1F1F95);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 330, 440, 36);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 285, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -109,6 +112,16 @@ public class GameOptions extends GlScreen {
             for (Widget w : widgets) {
                 w.setChanged(true);
             }
+        }
+    }
+
+    class PlayerCountryLabel extends Button {
+
+        public PlayerCountryLabel() {
+            setColors(0x800000);//, $B40000, $400000)
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 330, 440, 36);
+            setText(Assets.strings.get("PLAYER'S COUNTRY"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
