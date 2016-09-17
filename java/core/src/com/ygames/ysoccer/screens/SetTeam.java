@@ -75,6 +75,11 @@ public class SetTeam extends GlScreen {
                 }
             }
 
+            w = new PlayerRoleButton(x, pos);
+            playerButtons.add(w);
+            widgets.add(w);
+            x += 32;
+
             selectedWidget = w;
         }
 
@@ -213,6 +218,28 @@ public class SetTeam extends GlScreen {
                 setText("");
             } else {
                 setText("(" + player.nationality + ")");
+            }
+        }
+    }
+
+    class PlayerRoleButton extends Button {
+
+        int pos;
+
+        public PlayerRoleButton(int x, int pos) {
+            this.pos = pos;
+            setGeometry(x, 126 + 19 * pos, 30, 17);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            Player player = current.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+            } else {
+                setText(Assets.strings.get(player.getRoleLabel()));
             }
         }
     }

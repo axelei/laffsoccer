@@ -8,5 +8,200 @@
     "name": "FULVIO BERNARDINI",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2"
+  "tactics": "4-4-2",
+  "kits": [
+    {
+      "style": "VERT_HALVES",
+      "shirt1": "#114fa2",
+      "shirt2": "#ec4e36",
+      "shorts": "#dfe8eb",
+      "socks": "#114fa2"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#ddeb41",
+      "shirt2": "#114fa2",
+      "shorts": "#ddeb41",
+      "socks": "#ec4336"
+    },
+    {
+      "style": "PLAIN",
+      "shirt1": "#dfe8eb",
+      "shirt2": "#dfe8eb",
+      "shorts": "#dfe8eb",
+      "socks": "#dfe8eb"
+    }
+  ],
+  "players": [
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": "1",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "2",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "3",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "4",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "5",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "6",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "7",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "8",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "9",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "10",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "11",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": "12",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "13",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "14",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "15",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "16",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "",
+      "shirtName": "",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    }
+  ]
 }
