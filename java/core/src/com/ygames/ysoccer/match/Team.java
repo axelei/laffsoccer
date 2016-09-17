@@ -143,9 +143,52 @@ public class Team {
     }
 
     public void generateScorers(int goals) {
+        int teamFinishing = 0;
+        for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
+            Player ply = playerAtPosition(pos);
+
+            teamFinishing += ply.skills.heading + ply.skills.shooting + ply.skills.finishing;
+
+            switch (ply.role) {
+                case RIGHT_WINGER:
+                case LEFT_WINGER:
+                    teamFinishing += 10;
+                    break;
+                case MIDFIELDER:
+                    teamFinishing += 5;
+                    break;
+                case ATTACKER:
+                    teamFinishing += 30;
+                    break;
+            }
+        }
+
         for (int g = 1; g <= goals; g++) {
-            int i = Emath.floor(11 * Math.random());
-            players.get(i).goals++;
+            int target = 1 + Emath.floor(teamFinishing * Math.random());
+            int sum = teamFinishing;
+            for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
+                Player ply = playerAtPosition(pos);
+
+                sum = sum - ply.skills.heading - ply.skills.shooting - ply.skills.finishing;
+
+                switch (ply.role) {
+                    case RIGHT_WINGER:
+                    case LEFT_WINGER:
+                        sum -= 10;
+                        break;
+                    case MIDFIELDER:
+                        sum -= 5;
+                        break;
+                    case ATTACKER:
+                        sum -= 30;
+                        break;
+                }
+
+                if (sum < target) {
+                    ply.goals += 1;
+                    break;
+                }
+            }
         }
     }
 

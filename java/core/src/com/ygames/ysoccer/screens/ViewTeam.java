@@ -32,7 +32,7 @@ public class ViewTeam extends GlScreen {
             w = new PlayerNameButton(p, player, team, competition);
             widgets.add(w);
 
-            x = 360;
+            x = 448;
             if (team.type == Team.Type.CLUB) {
                 w = new PlayerNationalityLabel(x, p, player);
                 widgets.add(w);
@@ -86,7 +86,7 @@ public class ViewTeam extends GlScreen {
     class PlayerNameButton extends Button {
 
         public PlayerNameButton(int p, Player player, Team team, Competition competition) {
-            setGeometry(84, 126 + 18 * p, 276, 17);
+            setGeometry(84, 126 + 18 * p, 364, 17);
             setText("", Font.Align.LEFT, Assets.font10);
             setPlayerWidgetColor(this, p, team, competition);
             if (player != null) {

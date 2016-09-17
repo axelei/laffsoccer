@@ -29,6 +29,9 @@ public class GameOptions extends GlScreen {
         w = new PlayerCountryLabel();
         widgets.add(w);
 
+        w = new PlayerCountryButton();
+        widgets.add(w);
+
         w = new MaxPlayerValueLabel();
         widgets.add(w);
 
@@ -118,10 +121,43 @@ public class GameOptions extends GlScreen {
     class PlayerCountryLabel extends Button {
 
         public PlayerCountryLabel() {
-            setColors(0x800000);//, $B40000, $400000)
+            setColors(0x800000);
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 330, 440, 36);
-            setText(Assets.strings.get("PLAYER'S COUNTRY"), Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("PLAYER'S COUNTRY"));
+        }
+    }
+
+    class PlayerCountryButton extends Button {
+        public PlayerCountryButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 330, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(game.settings.useFlags ? "FLAG" : "CODE"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePlayerCountry();
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePlayerCountry();
+        }
+
+        private void updatePlayerCountry() {
+            game.settings.useFlags = !game.settings.useFlags;
+            setChanged(true);
         }
     }
 
