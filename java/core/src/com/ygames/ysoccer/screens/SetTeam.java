@@ -12,6 +12,7 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
@@ -23,26 +24,27 @@ public class SetTeam extends GlScreen {
 
     Competition competition;
 
-    Team team;
-    Team opponent;
-    Team current;
+    Team ownTeam;
+    Team opponentTeam;
+    Team shownTeam;
     int selectedPos;
     Font font10yellow;
 
     List<Widget> playerButtons = new ArrayList<Widget>();
+    Widget[] tacticsButtons = new Widget[18];
 
     public SetTeam(GlGame game, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
 
         this.competition = competition;
         if (teamToSet == Match.HOME) {
-            team = homeTeam;
-            opponent = awayTeam;
+            ownTeam = homeTeam;
+            opponentTeam = awayTeam;
         } else {
-            team = awayTeam;
-            opponent = homeTeam;
+            ownTeam = awayTeam;
+            opponentTeam = homeTeam;
         }
-        current = team;
+        shownTeam = ownTeam;
         selectedPos = -1;
 
         background = new Image("images/backgrounds/menu_set_team.jpg");
@@ -67,7 +69,7 @@ public class SetTeam extends GlScreen {
             widgets.add(w);
 
             int x = 458;
-            if (current.type == Team.Type.CLUB) {
+            if (shownTeam.type == Team.Type.CLUB) {
                 if (game.settings.useFlags) {
                     w = new PlayerNationalityFlagButton(pos);
                     playerButtons.add(w);
@@ -100,6 +102,12 @@ public class SetTeam extends GlScreen {
             selectedWidget = w;
         }
 
+        for (int t = 0; t < 18; t++) {
+            w = new TacticsButton(t);
+            tacticsButtons[t] = w;
+            widgets.add(w);
+        }
+
         // team name
         w = new TeamNameButton();
         widgets.add(w);
@@ -119,7 +127,7 @@ public class SetTeam extends GlScreen {
         @Override
         public void onUpdate() {
             setPlayerWidgetColor(this, pos);
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 image = null;
             } else {
@@ -141,7 +149,7 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
             } else {
@@ -163,13 +171,13 @@ public class SetTeam extends GlScreen {
         @Override
         public void onUpdate() {
             setPlayerWidgetColor(this, pos);
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
                 setActive(false);
             } else {
                 setText(player.name);
-                setActive(current == team);
+                setActive(shownTeam == ownTeam);
             }
         }
 
@@ -185,10 +193,10 @@ public class SetTeam extends GlScreen {
             }
             // swap
             else {
-                int ply1 = team.playerIndexAtPosition(selectedPos);
-                int ply2 = team.playerIndexAtPosition(pos);
+                int ply1 = ownTeam.playerIndexAtPosition(selectedPos);
+                int ply2 = ownTeam.playerIndexAtPosition(pos);
 
-                Collections.swap(team.players, ply1, ply2);
+                Collections.swap(ownTeam.players, ply1, ply2);
 
                 selectedPos = -1;
             }
@@ -208,7 +216,7 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 image = null;
             } else {
@@ -230,7 +238,7 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
             } else {
@@ -252,7 +260,7 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
             } else {
@@ -276,7 +284,7 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
             } else {
@@ -301,11 +309,41 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            Player player = current.playerAtPosition(pos);
+            Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 image = null;
             } else {
                 image = Assets.stars[Emath.floor((player.getValue() + 3) / 5.5)];
+            }
+        }
+    }
+
+    class TacticsButton extends Button {
+
+        int t;
+
+        public TacticsButton(int t) {
+            this.t = t;
+            setGeometry(game.settings.GUI_WIDTH - 30 - 90, 126 + 20 * t, 90, 18);
+            setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (shownTeam.getTacticsIndex() == t) {
+                setColors(0x9D7B03, 0xE2B004, 0x675103);
+            } else {
+                setColors(0xE2B004, 0xFCCE30, 0x9D7B03);
+            }
+            setActive(shownTeam == ownTeam);
+        }
+
+        @Override
+        public void onFire1Down() {
+            if (shownTeam.getTacticsIndex() != t) {
+                shownTeam.tactics = Tactics.codes[t];
+                updateTacticsButtons();
+                updatePlayerButtons();
             }
         }
     }
@@ -320,8 +358,8 @@ public class SetTeam extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(current.name);
-            if (current == team) {
+            setText(shownTeam.name);
+            if (shownTeam == ownTeam) {
                 setColors(0x6A5ACD, 0x8F83D7, 0x372989);
             } else {
                 setColors(0xC14531, 0xDF897B, 0x8E3324);
@@ -335,8 +373,14 @@ public class SetTeam extends GlScreen {
         }
     }
 
+    private void updateTacticsButtons() {
+        for (Widget w : tacticsButtons) {
+            w.setChanged(true);
+        }
+    }
+
     private void setPlayerWidgetColor(Widget b, int pos) {
-        if (current == team) {
+        if (shownTeam == ownTeam) {
             // goalkeeper
             if (pos == 0) {
                 b.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);
@@ -350,7 +394,7 @@ public class SetTeam extends GlScreen {
                 b.setColors(0x111188, 0x2D2DB3, 0x001140);
             }
             // reserve
-            else if (pos < current.players.size()) {
+            else if (pos < shownTeam.players.size()) {
                 b.setColors(0x404040, 0x606060, 0x202020);
             }
             // void
@@ -378,7 +422,7 @@ public class SetTeam extends GlScreen {
                 b.setColors(0x780000, 0xB40000, 0x3C0000);
             }
             // reserve
-            else if (pos < current.players.size()) {
+            else if (pos < shownTeam.players.size()) {
                 b.setColors(0x404040, 0x606060, 0x202020);
             }
             // void

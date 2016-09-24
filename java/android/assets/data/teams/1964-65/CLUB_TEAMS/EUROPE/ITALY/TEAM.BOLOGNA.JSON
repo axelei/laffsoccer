@@ -41,7 +41,26 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 38
+    },
+    {
+      "name": "MIRKO PAVINATO",
+      "shirtName": "PAVINATO",
+      "nationality": "ITA",
+      "role": "LEFT_BACK",
+      "number": "3",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 6,
+        "control": 6,
+        "speed": 6,
+        "finishing": 2
+      }
     },
     {
       "name": "MANLIO MUCCINI",
@@ -51,27 +70,15 @@
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MIRKO PAVINATO",
-      "shirtName": "PAVINATO",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "TAZIO ROVERSI",
-      "shirtName": "ROVERSI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "4",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 6,
+        "control": 6,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "FRANCESCO JANICH",
@@ -81,7 +88,33 @@
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 7,
+        "tackling": 7,
+        "control": 5,
+        "speed": 6,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "CARLO FURLANIS",
+      "shirtName": "FURLANIS",
+      "nationality": "ITA",
+      "role": "RIGHT_BACK",
+      "number": "4",
+      "hairColor": "BROWN",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 6,
+        "control": 6,
+        "speed": 6,
+        "finishing": 3
+      }
     },
     {
       "name": "PARIDE TUMBURUS",
@@ -144,24 +177,34 @@
       "skills": {}
     },
     {
-      "name": "CARLO FURLANIS",
-      "shirtName": "FURLANIS",
+      "name": "RINO RADO",
+      "shirtName": "RADO",
+      "nationality": "ITA",
+      "role": "GOALKEEPER",
+      "number": "18",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skinColor": "PINK",
+      "skills": {},
+      "value": 33
+    },
+    {
+      "name": "TAZIO ROVERSI",
+      "shirtName": "ROVERSI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "12",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MARINO PERANI",
-      "shirtName": "PERANI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "13",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "FAUSTINO TURRA",
@@ -199,6 +242,16 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "MARINO PERANI",
+      "shirtName": "PERANI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
