@@ -8,7 +8,7 @@
     "name": "FULVIO BERNARDINI",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2",
+  "tactics": "3-5-2",
   "kits": [
     {
       "style": "VERT_HALVES",
@@ -63,29 +63,11 @@
       }
     },
     {
-      "name": "MANLIO MUCCINI",
-      "shirtName": "MUCCINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "2",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 6,
-        "shooting": 4,
-        "heading": 5,
-        "tackling": 6,
-        "control": 6,
-        "speed": 5,
-        "finishing": 2
-      }
-    },
-    {
       "name": "FRANCESCO JANICH",
       "shirtName": "JANICH",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "5",
+      "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -96,6 +78,24 @@
         "control": 5,
         "speed": 6,
         "finishing": 2
+      }
+    },
+    {
+      "name": "PARIDE TUMBURUS",
+      "shirtName": "TUMBURUS",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "6",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 7,
+        "control": 5,
+        "speed": 6,
+        "finishing": 3
       }
     },
     {
@@ -117,24 +117,40 @@
       }
     },
     {
-      "name": "PARIDE TUMBURUS",
-      "shirtName": "TUMBURUS",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
-      "hairColor": "BLACK",
+      "name": "HELMUT HALLER",
+      "shirtName": "HALLER",
+      "nationality": "GER",
+      "role": "LEFT_WINGER",
+      "number": "9",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 5,
+        "control": 7,
+        "speed": 7,
+        "finishing": 6
+      }
     },
     {
       "name": "ROMANO FOGLI",
       "shirtName": "FOGLI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "7",
+      "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 6,
+        "control": 6,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "GIACOMO BULGARELLI",
@@ -144,27 +160,33 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 6,
+        "control": 7,
+        "speed": 6,
+        "finishing": 5
+      }
     },
     {
-      "name": "HELMUT HALLER",
-      "shirtName": "HALLER",
-      "nationality": "GER",
-      "role": "MIDFIELDER",
-      "number": "9",
+      "name": "MARINO PERANI",
+      "shirtName": "PERANI",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "HARALD NIELSEN",
-      "shirtName": "NIELSEN",
-      "nationality": "DEN",
-      "role": "ATTACKER",
-      "number": "10",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 5,
+        "control": 6,
+        "speed": 6,
+        "finishing": 6
+      }
     },
     {
       "name": "EZIO PASCUTTI",
@@ -173,15 +195,41 @@
       "role": "ATTACKER",
       "number": "11",
       "hairColor": "BLACK",
+      "hairStyle": "SHORT_C",
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 6,
+        "tackling": 5,
+        "control": 5,
+        "speed": 6,
+        "finishing": 7
+      }
+    },
+    {
+      "name": "HARALD NIELSEN",
+      "shirtName": "NIELSEN",
+      "nationality": "DEN",
+      "role": "ATTACKER",
+      "number": "10",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 7,
+        "heading": 7,
+        "tackling": 5,
+        "control": 5,
+        "speed": 7,
+        "finishing": 7
+      }
     },
     {
       "name": "RINO RADO",
       "shirtName": "RADO",
       "nationality": "ITA",
       "role": "GOALKEEPER",
-      "number": "18",
+      "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skinColor": "PINK",
@@ -207,6 +255,24 @@
       }
     },
     {
+      "name": "MANLIO MUCCINI",
+      "shirtName": "MUCCINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "13",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 6,
+        "control": 6,
+        "speed": 5,
+        "finishing": 2
+      }
+    },
+    {
       "name": "FAUSTINO TURRA",
       "shirtName": "TURRA",
       "nationality": "ITA",
@@ -214,47 +280,69 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 4
+      }
     },
     {
       "name": "MARIO MARASCHI",
       "shirtName": "MARASCHI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "ATTACKER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 6
+      }
+    },
+    {
+      "name": "MARCELLO TENTORIO",
+      "shirtName": "TENTORIO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "16",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 5,
+        "control": 5,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "GIANNI BUI",
       "shirtName": "BUI",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": "16",
+      "number": "18",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "ROBERTO QUADALTI",
-      "shirtName": "QUADALTI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "17",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MARINO PERANI",
-      "shirtName": "PERANI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "13",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "SHORT_C",
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 5
+      }
     }
   ]
 }

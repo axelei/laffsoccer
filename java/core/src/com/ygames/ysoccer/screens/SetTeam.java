@@ -98,8 +98,6 @@ public class SetTeam extends GlScreen {
             w = new PlayerStarsButton(pos, x);
             playerButtons.add(w);
             widgets.add(w);
-
-            selectedWidget = w;
         }
 
         for (int t = 0; t < 18; t++) {
@@ -107,6 +105,11 @@ public class SetTeam extends GlScreen {
             tacticsButtons[t] = w;
             widgets.add(w);
         }
+
+        w = new OpponentTeamButton();
+        widgets.add(w);
+
+        selectedWidget = w;
 
         // team name
         w = new TeamNameButton();
@@ -305,6 +308,7 @@ public class SetTeam extends GlScreen {
         public PlayerStarsButton(int pos, int x) {
             this.pos = pos;
             setGeometry(x, 126 + 19 * pos, 64, 16);
+            setActive(false);
         }
 
         @Override
@@ -344,6 +348,32 @@ public class SetTeam extends GlScreen {
                 shownTeam.tactics = Tactics.codes[t];
                 updateTacticsButtons();
                 updatePlayerButtons();
+            }
+        }
+    }
+
+    class OpponentTeamButton extends Button {
+
+        public OpponentTeamButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 500, 175, 34);
+            setColors(0x8B2323, 0xBF4531, 0x571717);
+            setText(Assets.strings.get("OPPONENT TEAM"), Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(shownTeam == ownTeam);
+        }
+
+        @Override
+        public void onFire1Down() {
+            if (shownTeam == ownTeam) {
+                shownTeam = opponentTeam;
+            } else {
+                shownTeam = ownTeam;
+            }
+            for (Widget w : widgets) {
+                w.setChanged(true);
             }
         }
     }
