@@ -23,6 +23,9 @@ import java.util.List;
 public class SetTeam extends GlScreen {
 
     Competition competition;
+    Team homeTeam;
+    Team awayTeam;
+    int teamToSet;
 
     Team ownTeam;
     Team opponentTeam;
@@ -37,6 +40,9 @@ public class SetTeam extends GlScreen {
         super(game);
 
         this.competition = competition;
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+        this.teamToSet = teamToSet;
         if (teamToSet == Match.HOME) {
             ownTeam = homeTeam;
             opponentTeam = awayTeam;
@@ -109,11 +115,14 @@ public class SetTeam extends GlScreen {
         w = new OpponentTeamButton();
         widgets.add(w);
 
-        selectedWidget = w;
-
         // team name
         w = new TeamNameButton();
         widgets.add(w);
+
+        w = new PlayMatchButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     class PlayerFaceButton extends Button {
@@ -381,7 +390,7 @@ public class SetTeam extends GlScreen {
     class TeamNameButton extends Button {
 
         public TeamNameButton() {
-            setGeometry(640 - 300, 45, 601, 41);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 300, 45, 601, 41);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -393,6 +402,29 @@ public class SetTeam extends GlScreen {
                 setColors(0x6A5ACD, 0x8F83D7, 0x372989);
             } else {
                 setColors(0xC14531, 0xDF897B, 0x8E3324);
+            }
+        }
+    }
+
+    class PlayMatchButton extends Button {
+
+        public PlayMatchButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, game.settings.GUI_HEIGHT - 44 / 2 - 60, 200, 44);
+            setColors(0xDC0000, 0xFF4141, 0x8C0000);
+            setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(shownTeam == ownTeam);
+        }
+
+        @Override
+        public void onFire1Down() {
+            if (teamToSet == Match.HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
+                game.setScreen(new SetTeam(game, competition, homeTeam, awayTeam, Match.AWAY));
+            } else {
+                // TODO: game.setScreen(new MatchPresentation(game, competition, homeTeam, awayTeam));
             }
         }
     }
