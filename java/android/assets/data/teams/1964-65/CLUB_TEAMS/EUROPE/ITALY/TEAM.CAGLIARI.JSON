@@ -34,14 +34,15 @@
   ],
   "players": [
     {
-      "name": "SERGIO BERTOLA",
-      "shirtName": "BERTOLA",
+      "name": "ANGELO MARTINO COLOMBO",
+      "shirtName": "COLOMBO",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 28
     },
     {
       "name": "RAFFAELLO VESCOVI",
@@ -51,27 +52,15 @@
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MARIO MARTIRADONNA",
-      "shirtName": "MARTIRADONNA",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MARIO TIDDIA",
-      "shirtName": "TIDDIA",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "4",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 6,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "MIGUEL ANGELO LONGO",
@@ -81,37 +70,51 @@
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
-      "name": "PIERLUIGI CERA",
-      "shirtName": "CERA",
+      "name": "MARIO TIDDIA",
+      "shirtName": "TIDDIA",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
+      "role": "DEFENDER",
+      "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
-      "name": "NENÉ",
-      "shirtName": "NENÉ",
-      "nationality": "BRA",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "RICCIOTTI GREATTI",
-      "shirtName": "GREATTI",
+      "name": "MARIO MARTIRADONNA",
+      "shirtName": "MARTIRADONNA",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "8",
-      "hairColor": "BLACK",
+      "role": "RIGHT_BACK",
+      "number": "3",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 7,
+        "control": 5,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "BRUNO VISENTIN",
@@ -121,7 +124,70 @@
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "PIERLUIGI CERA",
+      "shirtName": "CERA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "6",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 6,
+        "control": 6,
+        "speed": 5,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "RICCIOTTI GREATTI",
+      "shirtName": "GREATTI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "8",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 5,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "CLAUDIO OLINTO DE CARVALHO",
+      "shirtName": "NENÉ",
+      "nationality": "BRA",
+      "role": "RIGHT_WINGER",
+      "number": "7",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skinColor": "MULATTO",
+      "skills": {
+        "passing": 6,
+        "shooting": 5,
+        "heading": 6,
+        "tackling": 4,
+        "control": 6,
+        "speed": 7,
+        "finishing": 6
+      }
     },
     {
       "name": "GIGI RIVA",
@@ -131,27 +197,44 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 7,
+        "heading": 7,
+        "tackling": 5,
+        "control": 6,
+        "speed": 7,
+        "finishing": 7
+      }
     },
     {
-      "name": "FRANCESCO RIZZO",
-      "shirtName": "RIZZO",
-      "nationality": "ITA",
+      "name": "FELIX ALBERTO GALLARDO",
+      "shirtName": "GALLARDO",
+      "nationality": "PER",
       "role": "ATTACKER",
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
-      "name": "ANGELO MARTINO COLOMBO",
-      "shirtName": "COLOMBO",
+      "name": "SERGIO BERTOLA",
+      "shirtName": "BERTOLA",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 26
     },
     {
       "name": "ENRICO SPINOSI",
@@ -161,17 +244,15 @@
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "ANTONIO CONGIU",
-      "shirtName": "CONGIU",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 5,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ENRICO MAZZUCCHI",
@@ -181,7 +262,33 @@
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "FRANCESCO RIZZO",
+      "shirtName": "RIZZO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "RENZO CAPPELLARO",
@@ -191,17 +298,33 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
-      "name": "FELIX ALBERTO GALLARDO",
-      "shirtName": "GALLARDO",
-      "nationality": "PER",
-      "role": "ATTACKER",
-      "number": "17",
+      "name": "ANTONIO CONGIU",
+      "shirtName": "CONGIU",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 5,
+        "speed": 3,
+        "finishing": 3
+      }
     }
   ]
 }

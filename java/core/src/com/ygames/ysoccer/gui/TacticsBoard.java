@@ -45,6 +45,10 @@ public class TacticsBoard extends Widget {
         this(team, null);
     }
 
+    public void setViewOpponent(boolean viewOpponent) {
+        this.viewOpponent = viewOpponent;
+    }
+
     @Override
     public void render(GlGraphics glGraphics) {
         if (!isVisible) {

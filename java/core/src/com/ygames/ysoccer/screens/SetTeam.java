@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
@@ -38,6 +39,7 @@ public class SetTeam extends GlScreen {
     Font font10yellow;
 
     List<Widget> playerButtons = new ArrayList<Widget>();
+    TacticsBoard tacticsBoard;
     Widget[] tacticsButtons = new Widget[18];
 
     public SetTeam(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
@@ -111,6 +113,10 @@ public class SetTeam extends GlScreen {
             playerButtons.add(w);
             widgets.add(w);
         }
+
+        tacticsBoard = new TacticsBoard(ownTeam, opponentTeam);
+        tacticsBoard.setPosition(game.settings.GUI_WIDTH / 2 +115, 126);
+        widgets.add(tacticsBoard);
 
         for (int t = 0; t < 18; t++) {
             w = new TacticsButton(t);
@@ -387,8 +393,10 @@ public class SetTeam extends GlScreen {
         public void onFire1Down() {
             if (shownTeam == ownTeam) {
                 shownTeam = opponentTeam;
+                tacticsBoard.setViewOpponent(true);
             } else {
                 shownTeam = ownTeam;
+                tacticsBoard.setViewOpponent(false);
             }
             for (Widget w : widgets) {
                 w.setChanged(true);
