@@ -36,6 +36,7 @@ public class SetTeam extends GlScreen {
     Team opponentTeam;
     Team shownTeam;
     int selectedPos;
+    boolean compareTactics;
     Font font10yellow;
 
     List<Widget> playerButtons = new ArrayList<Widget>();
@@ -60,6 +61,7 @@ public class SetTeam extends GlScreen {
         }
         shownTeam = ownTeam;
         selectedPos = -1;
+        compareTactics = false;
 
         background = new Image("images/backgrounds/menu_set_team.jpg");
 
@@ -82,7 +84,7 @@ public class SetTeam extends GlScreen {
             playerButtons.add(w);
             widgets.add(w);
 
-            int x = 458;
+            int x = 528;
             if (shownTeam.type == Team.Type.CLUB) {
                 if (game.settings.useFlags) {
                     w = new PlayerNationalityFlagButton(pos);
@@ -115,7 +117,7 @@ public class SetTeam extends GlScreen {
         }
 
         tacticsBoard = new TacticsBoard(ownTeam, opponentTeam);
-        tacticsBoard.setPosition(game.settings.GUI_WIDTH / 2 +115, 126);
+        tacticsBoard.setPosition(game.settings.GUI_WIDTH / 2 + 115, 126);
         widgets.add(tacticsBoard);
 
         for (int t = 0; t < 18; t++) {
@@ -123,6 +125,9 @@ public class SetTeam extends GlScreen {
             tacticsButtons[t] = w;
             widgets.add(w);
         }
+
+        w = new TacticsComparisonButton();
+        widgets.add(w);
 
         w = new OpponentTeamButton();
         widgets.add(w);
@@ -146,8 +151,8 @@ public class SetTeam extends GlScreen {
 
         public PlayerFaceButton(int pos) {
             this.pos = pos;
-            setGeometry(30, 126 + 19 * pos, 24, 17);
-            setImagePosition(2, -3);
+            setGeometry(100, 126 + 20 * pos, 24, 18);
+            setImagePosition(2, -2);
             setActive(false);
         }
 
@@ -169,7 +174,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(56, 126 + 19 * pos, 34, 17);
+            setGeometry(126, 126 + 20 * pos, 34, 18);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -191,7 +196,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNameButton(int pos) {
             this.pos = pos;
-            setGeometry(92, 126 + 19 * pos, 364, 17);
+            setGeometry(162, 126 + 20 * pos, 364, 18);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -237,7 +242,8 @@ public class SetTeam extends GlScreen {
 
         public PlayerNationalityFlagButton(int pos) {
             this.pos = pos;
-            setGeometry(458, 126 + 19 * pos, 24, 17);
+            setGeometry(528, 126 + 20 * pos, 24, 18);
+            setImagePosition(0, 2);
             setActive(false);
         }
 
@@ -258,7 +264,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNationalityCodeButton(int pos) {
             this.pos = pos;
-            setGeometry(458, 126 + 19 * pos, 56, 17);
+            setGeometry(528, 126 + 20 * pos, 56, 18);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -280,7 +286,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerRoleButton(int x, int pos) {
             this.pos = pos;
-            setGeometry(x, 126 + 19 * pos, 30, 17);
+            setGeometry(x, 126 + 20 * pos, 30, 18);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -304,7 +310,7 @@ public class SetTeam extends GlScreen {
         public PlayerSkillButton(int pos, int skillIndex, int x) {
             this.pos = pos;
             this.skillIndex = skillIndex;
-            setGeometry(x, 126 + 19 * pos, 12, 17);
+            setGeometry(x, 126 + 20 * pos, 12, 18);
             setText("", Font.Align.CENTER, font10yellow);
             setActive(false);
         }
@@ -331,7 +337,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerStarsButton(int pos, int x) {
             this.pos = pos;
-            setGeometry(x, 126 + 19 * pos, 64, 16);
+            setGeometry(x, 126 + 20 * pos, 64, 18);
             setActive(false);
         }
 
@@ -352,7 +358,7 @@ public class SetTeam extends GlScreen {
 
         public TacticsButton(int t) {
             this.t = t;
-            setGeometry(game.settings.GUI_WIDTH - 30 - 90, 126 + 20 * t, 90, 18);
+            setGeometry(game.settings.GUI_WIDTH - 100 - 90, 126 + 20 * t, 90, 18);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -373,6 +379,31 @@ public class SetTeam extends GlScreen {
                 updateTacticsButtons();
                 updatePlayerButtons();
             }
+        }
+    }
+
+    class TacticsComparisonButton extends Button {
+        public TacticsComparisonButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 450, 264, 34);
+            setColors(0x824200, 0xB46A00, 0x4C2600);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(shownTeam == ownTeam);
+            if (compareTactics) {
+                setText(Assets.strings.get("TEAM TACTICS"));
+            } else {
+                setText(Assets.strings.get("TACTICS COMPARISON"));
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            compareTactics = !compareTactics;
+            tacticsBoard.setCompareTactics(compareTactics);
+            setChanged(true);
         }
     }
 
@@ -449,7 +480,7 @@ public class SetTeam extends GlScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setGeometry(game.settings.GUI_WIDTH - 145 - 30, game.settings.GUI_HEIGHT - 40 / 2 - 60, 145, 40);
+            setGeometry(game.settings.GUI_WIDTH - 145 - 100, game.settings.GUI_HEIGHT - 40 / 2 - 60, 145, 40);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

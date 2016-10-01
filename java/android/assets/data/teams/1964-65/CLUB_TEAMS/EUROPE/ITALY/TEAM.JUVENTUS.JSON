@@ -171,8 +171,8 @@
       }
     },
     {
-      "name": "CARLO DELL'OMODARME",
-      "shirtName": "DELL'OMODARME",
+      "name": "GINO STACCHINI",
+      "shirtName": "STACCHINI",
       "nationality": "ITA",
       "role": "RIGHT_WINGER",
       "number": "8",
@@ -180,12 +180,12 @@
       "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 6,
-        "shooting": 4,
+        "shooting": 5,
         "heading": 5,
-        "tackling": 5,
+        "tackling": 4,
         "control": 6,
         "speed": 7,
-        "finishing": 5
+        "finishing": 4
       }
     },
     {
@@ -255,8 +255,8 @@
       }
     },
     {
-      "name": "GINO STACCHINI",
-      "shirtName": "STACCHINI",
+      "name": "CARLO DELL'OMODARME",
+      "shirtName": "DELL'OMODARME",
       "nationality": "ITA",
       "role": "RIGHT_WINGER",
       "number": "15",
@@ -264,30 +264,30 @@
       "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 6,
-        "shooting": 5,
+        "shooting": 4,
         "heading": 5,
-        "tackling": 4,
+        "tackling": 5,
         "control": 6,
         "speed": 7,
-        "finishing": 4
+        "finishing": 5
       }
     },
     {
-      "name": "SIDNEY COLÔNIA CUNHA",
-      "shirtName": "CHINESINHO",
-      "nationality": "BRA",
-      "role": "MIDFIELDER",
-      "number": "20",
+      "name": "NESTOR COMBIN",
+      "shirtName": "COMBIN",
+      "nationality": "FRA",
+      "role": "ATTACKER",
+      "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skinColor": "MULATTO",
       "skills": {
-        "passing": 5,
-        "shooting": 5,
-        "heading": 4,
+        "passing": 4,
+        "shooting": 6,
+        "heading": 5,
         "tackling": 4,
-        "control": 6,
-        "speed": 6,
+        "control": 4,
+        "speed": 5,
         "finishing": 6
       }
     },
@@ -333,7 +333,7 @@
       "shirtName": "SACCO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "19",
+      "number": "17",
       "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -362,25 +362,6 @@
         "control": 6,
         "speed": 5,
         "finishing": 4
-      }
-    },
-    {
-      "name": "NESTOR COMBIN",
-      "shirtName": "COMBIN",
-      "nationality": "FRA",
-      "role": "ATTACKER",
-      "number": "16",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skinColor": "MULATTO",
-      "skills": {
-        "passing": 4,
-        "shooting": 6,
-        "heading": 5,
-        "tackling": 4,
-        "control": 4,
-        "speed": 5,
-        "finishing": 6
       }
     }
   ]

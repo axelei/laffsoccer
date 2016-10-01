@@ -49,6 +49,10 @@ public class TacticsBoard extends Widget {
         this.viewOpponent = viewOpponent;
     }
 
+    public void setCompareTactics(boolean compareTactics) {
+        this.compareTactics = compareTactics;
+    }
+
     @Override
     public void render(GlGraphics glGraphics) {
         if (!isVisible) {
@@ -111,7 +115,52 @@ public class TacticsBoard extends Widget {
             }
 
         } else {
-            // TODO
+            // pieces of both teams
+            for (int tm = 0; tm < 2; tm++) {
+
+                Team teamToShow;
+                if (tm == 0) {
+                    teamToShow = teamA;
+                } else {
+                    teamToShow = teamB;
+                }
+
+                int baseTactics = Assets.tactics[teamToShow.getTacticsIndex()].basedOn;
+
+                for (int ply = 0; ply < Const.TEAM_SIZE; ply++) {
+                    int tx = 0;
+                    switch (positions[baseTactics][ply][0]) {
+                        case +2:
+                            tx = x + 26;
+                            break;
+                        case +1:
+                            tx = x + w / 2 - 36 - 20;
+                            break;
+                        case 0:
+                            tx = x + w / 2 - 8;
+                            break;
+                        case -1:
+                            tx = x + w / 2 + 36;
+                            break;
+                        case -2:
+                            tx = x + w - 26 - 20;
+                            break;
+                    }
+
+                    // pieces
+                    int ty;
+                    if (tm == (viewOpponent ? 0 : 1)) {
+                        ty = y + h - 14 - 14 - 28 * positions[baseTactics][ply][1];
+                    } else {
+                        ty = y + 14 + 28 * positions[baseTactics][ply][1];
+                    }
+                    glGraphics.batch.draw(Assets.pieces[tm][ply > 0 ? 1 : 0], tx, ty);
+
+                    // number
+                    Player player = teamToShow.players.get(ply);
+                    Assets.font10.draw(glGraphics.batch, player.number, tx + 10, ty - 1, Font.Align.CENTER);
+                }
+            }
         }
 
         glGraphics.batch.end();

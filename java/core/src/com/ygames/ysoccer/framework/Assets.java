@@ -42,6 +42,7 @@ public class Assets {
     public static List<GlColor2> shavedColors;
     public static List<String> currencies;
     public static Image[] stars = new Image[10];
+    public static Image[][] pieces = new Image[2][2];
 
     public static void load(Settings settings) {
         loadLocales();
@@ -67,6 +68,7 @@ public class Assets {
         shavedColors = new ArrayList<GlColor2>(Arrays.asList(loadJsonFile(GlColor2[].class, "player/shaved_colors.json")));
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
         loadStars();
+        loadPieces();
     }
 
     private static void loadLocales() {
@@ -251,6 +253,15 @@ public class Assets {
         Texture texture = new Texture("images/stars.png");
         for (int i = 0; i < 10; i++) {
             stars[i] = new Image(texture, 0, 16 * i, 64, 16);
+        }
+    }
+
+    private static void loadPieces() {
+        Texture texture = new Texture("images/pieces.png");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                pieces[i][j] = new Image(texture, 20 * i, 14 * j, 20, 14);
+            }
         }
     }
 }
