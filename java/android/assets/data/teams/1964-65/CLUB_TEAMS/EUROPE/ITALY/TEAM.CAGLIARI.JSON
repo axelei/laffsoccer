@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "SERGIO BERTOLA",
+      "shirtName": "BERTOLA",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "RAFFAELLO VESCOVI",
+      "shirtName": "VESCOVI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MARIO MARTIRADONNA",
+      "shirtName": "MARTIRADONNA",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MARIO TIDDIA",
+      "shirtName": "TIDDIA",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,9 +74,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "MIGUEL ANGELO LONGO",
+      "shirtName": "LONGO",
+      "nationality": "ARG",
       "role": "DEFENDER",
       "number": "5",
       "hairColor": "BLACK",
@@ -84,8 +84,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PIERLUIGI CERA",
+      "shirtName": "CERA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
@@ -94,9 +94,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "NENÉ",
+      "shirtName": "NENÉ",
+      "nationality": "BRA",
       "role": "MIDFIELDER",
       "number": "7",
       "hairColor": "BLACK",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "RICCIOTTI GREATTI",
+      "shirtName": "GREATTI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,8 +114,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "BRUNO VISENTIN",
+      "shirtName": "VISENTIN",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "9",
@@ -124,8 +124,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIGI RIVA",
+      "shirtName": "RIVA",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
@@ -134,8 +134,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCESCO RIZZO",
+      "shirtName": "RIZZO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,8 +144,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ANGELO MARTINO COLOMBO",
+      "shirtName": "COLOMBO",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -154,8 +154,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ENRICO SPINOSI",
+      "shirtName": "SPINOSI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
@@ -164,8 +164,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ANTONIO CONGIU",
+      "shirtName": "CONGIU",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
@@ -174,18 +174,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ENRICO MAZZUCCHI",
+      "shirtName": "MAZZUCCHI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "RENZO CAPPELLARO",
+      "shirtName": "CAPPELLARO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "16",
@@ -194,10 +194,10 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "name": "FELIX ALBERTO GALLARDO",
+      "shirtName": "GALLARDO",
+      "nationality": "PER",
+      "role": "ATTACKER",
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",

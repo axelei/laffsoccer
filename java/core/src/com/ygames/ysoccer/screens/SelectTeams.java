@@ -18,6 +18,7 @@ import java.util.List;
 public class SelectTeams extends GlScreen {
 
     private FileHandle fileHandle;
+    private League league;
     private Widget titleButton;
     private Widget viewSelectedTeamsButton;
     private Widget playButton;
@@ -26,6 +27,7 @@ public class SelectTeams extends GlScreen {
     public SelectTeams(GlGame game, FileHandle fileHandle, League league, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
+        this.league = league;
         this.competition = competition;
 
         background = game.stateBackground;
@@ -257,9 +259,9 @@ public class SelectTeams extends GlScreen {
                 case FRIENDLY:
                     // choose the menu to set
                     if (game.teamList.get(Match.HOME).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
+                        game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
                     } else if (game.teamList.get(Match.AWAY).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
+                        game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
                     } else {
                         // TODO: set match presentation screen
                     }

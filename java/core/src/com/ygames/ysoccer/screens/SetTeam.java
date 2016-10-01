@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -22,10 +24,12 @@ import java.util.List;
 
 public class SetTeam extends GlScreen {
 
-    Competition competition;
-    Team homeTeam;
-    Team awayTeam;
-    int teamToSet;
+    private FileHandle fileHandle;
+    private League league;
+    private Competition competition;
+    private Team homeTeam;
+    private Team awayTeam;
+    private int teamToSet;
 
     Team ownTeam;
     Team opponentTeam;
@@ -36,9 +40,11 @@ public class SetTeam extends GlScreen {
     List<Widget> playerButtons = new ArrayList<Widget>();
     Widget[] tacticsButtons = new Widget[18];
 
-    public SetTeam(GlGame game, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
+    public SetTeam(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
 
+        this.fileHandle = fileHandle;
+        this.league = league;
         this.competition = competition;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
@@ -123,6 +129,9 @@ public class SetTeam extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     class PlayerFaceButton extends Button {
@@ -422,9 +431,38 @@ public class SetTeam extends GlScreen {
         @Override
         public void onFire1Down() {
             if (teamToSet == Match.HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, competition, homeTeam, awayTeam, Match.AWAY));
+                game.setScreen(new SetTeam(game, fileHandle, league, competition, homeTeam, awayTeam, Match.AWAY));
             } else {
                 // TODO: game.setScreen(new MatchPresentation(game, competition, homeTeam, awayTeam));
+            }
+        }
+    }
+
+    class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry(game.settings.GUI_WIDTH - 145 - 30, game.settings.GUI_HEIGHT - 40 / 2 - 60, 145, 40);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(shownTeam == ownTeam);
+        }
+
+        @Override
+        public void onFire1Down() {
+            switch (competition.getType()) {
+                case FRIENDLY:
+                    game.setScreen(new SelectTeams(game, fileHandle, league, competition));
+                    break;
+                case LEAGUE:
+                    game.setScreen(new PlayLeague(game));
+                    break;
+                case CUP:
+                    game.setScreen(new PlayCup(game));
+                    break;
             }
         }
     }
