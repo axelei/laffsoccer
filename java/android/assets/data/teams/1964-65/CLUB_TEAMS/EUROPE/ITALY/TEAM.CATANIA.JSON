@@ -8,7 +8,7 @@
     "name": "CARMELO DI BELLA",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2",
+  "tactics": "4-3-3",
   "kits": [
     {
       "style": "LARGE_STRIPS",
@@ -63,17 +63,17 @@
       }
     },
     {
-      "name": "GIAMPAOLO LAMPREDI",
-      "shirtName": "LAMPREDI",
+      "name": "GIORGIO MICHELOTTI",
+      "shirtName": "MICHELOTTI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "3",
+      "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 4,
-        "shooting": 3,
-        "heading": 5,
+        "shooting": 2,
+        "heading": 6,
         "tackling": 5,
         "control": 4,
         "speed": 4,
@@ -99,17 +99,17 @@
       }
     },
     {
-      "name": "GIORGIO MICHELOTTI",
-      "shirtName": "MICHELOTTI",
+      "name": "GIAMPAOLO LAMPREDI",
+      "shirtName": "LAMPREDI",
       "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "5",
+      "role": "RIGHT_BACK",
+      "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 4,
-        "shooting": 2,
-        "heading": 6,
+        "shooting": 3,
+        "heading": 5,
         "tackling": 5,
         "control": 4,
         "speed": 4,
@@ -132,24 +132,6 @@
         "control": 5,
         "speed": 4,
         "finishing": 3
-      }
-    },
-    {
-      "name": "RENZO FANTAZZI",
-      "shirtName": "FANTAZZI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 6,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 4,
-        "control": 6,
-        "speed": 4,
-        "finishing": 2
       }
     },
     {
@@ -190,10 +172,28 @@
       }
     },
     {
+      "name": "RENZO FANTAZZI",
+      "shirtName": "FANTAZZI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "7",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 4,
+        "finishing": 2
+      }
+    },
+    {
       "name": "CARLO FACCHIN",
       "shirtName": "FACCHIN",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "LEFT_WINGER",
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
