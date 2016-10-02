@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
@@ -133,6 +134,9 @@ public class SetTeam extends GlScreen {
         widgets.add(w);
 
         w = new ControlModeButton();
+        widgets.add(w);
+
+        w = new CoachNameLabel();
         widgets.add(w);
 
         w = new TeamNameButton();
@@ -438,6 +442,7 @@ public class SetTeam extends GlScreen {
     }
 
     class ControlModeButton extends Button {
+
         public ControlModeButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 + 115, 562, 175, 40);
             setText("", Font.Align.CENTER, Assets.font10);
@@ -479,6 +484,19 @@ public class SetTeam extends GlScreen {
             }
             setChanged(true);
             updatePlayerButtons();
+        }
+    }
+
+    class CoachNameLabel extends Label {
+
+        public CoachNameLabel() {
+            setPosition(game.settings.GUI_WIDTH / 2 + 115 + 175 + 10, 562 + 20);
+            setText("", Font.Align.LEFT, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(shownTeam.coach.name);
         }
     }
 

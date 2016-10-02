@@ -39,19 +39,28 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 29
     },
     {
       "name": "RENATO RAMBALDELLI",
       "shirtName": "RAMBALDELLI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 5,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "GIAMPAOLO LAMPREDI",
@@ -61,7 +70,15 @@
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 5,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "REMO BICCHIERAI",
@@ -71,27 +88,51 @@
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 5,
+        "control": 3,
+        "speed": 4,
+        "finishing": 1
+      }
     },
     {
-      "name": "RENATO ALBERTI",
-      "shirtName": "ALBERTI",
+      "name": "GIORGIO MICHELOTTI",
+      "shirtName": "MICHELOTTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 6,
+        "tackling": 5,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
-      "name": "FRANCO CORDOVA",
-      "shirtName": "CORDOVA",
+      "name": "ALVARO BIAGINI",
+      "shirtName": "BIAGINI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "RENZO FANTAZZI",
@@ -101,17 +142,15 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MARIO SAMPERI",
-      "shirtName": "SAMPERI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "8",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 6,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "SIDNEY COLÔNIA CUNHA",
@@ -133,24 +172,58 @@
       }
     },
     {
-      "name": "ALVARO BIAGINI",
-      "shirtName": "BIAGINI",
+      "name": "GIANCARLO DANOVA",
+      "shirtName": "DANOVA",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "11",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 7,
+        "finishing": 6
+      }
+    },
+    {
+      "name": "CARLO FACCHIN",
+      "shirtName": "FACCHIN",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 6
+      }
     },
     {
-      "name": "GIANCARLO DANOVA",
-      "shirtName": "DANOVA",
-      "nationality": "ITA",
+      "name": "SALVADOR CALVANESE",
+      "shirtName": "CALVANESE",
+      "nationality": "ARG",
       "role": "ATTACKER",
-      "number": "11",
+      "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 5,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "PIER LUIGI BRANDUARDI",
@@ -160,7 +233,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 26
     },
     {
       "name": "SERGIO CODOGNATO",
@@ -170,47 +244,15 @@
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "DOMENICO DI PIERRO",
-      "shirtName": "DI PIERRO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "CARLO FACCHIN",
-      "shirtName": "FACCHIN",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "15",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "SALVADOR CALVANESE",
-      "shirtName": "CALVANESE",
-      "nationality": "ARG",
-      "role": "ATTACKER",
-      "number": "16",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIORGIO MICHELOTTI",
-      "shirtName": "MICHELOTTI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "17",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 5,
+        "control": 4,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "GIANCARLO MAGI",
@@ -220,7 +262,33 @@
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "FRANCO CORDOVA",
+      "shirtName": "CORDOVA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "15",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "ORLANDO ROZZONI",
@@ -230,7 +298,69 @@
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 5,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "RENATO ALBERTI",
+      "shirtName": "ALBERTI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 5,
+        "control": 4,
+        "speed": 3,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "ISIDORO ARTICO",
+      "shirtName": "ARTICO",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "14",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "MARIO SAMPERI",
+      "shirtName": "SAMPERI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "16",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     }
   ]
 }
