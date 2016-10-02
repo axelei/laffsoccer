@@ -34,6 +34,11 @@ public class MatchPresentation extends GlScreen {
         Widget w;
         w = new TitleButton();
         widgets.add(w);
+
+        w = new PlayMatchButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     class TitleButton extends Button {
@@ -43,6 +48,20 @@ public class MatchPresentation extends GlScreen {
             setColors(0x008080, 0x00B2B4, 0x004040);
             setText(competition.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class PlayMatchButton extends Button {
+
+        public PlayMatchButton() {
+            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 375, 340, 40);
+            setColors(0xDC0000, 0xFF4141, 0x8C0000);
+            setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO: game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings));
         }
     }
 }

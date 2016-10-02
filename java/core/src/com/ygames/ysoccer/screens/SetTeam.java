@@ -157,7 +157,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerFaceButton(int pos) {
             this.pos = pos;
-            setGeometry(100, 126 + 20 * pos, 24, 18);
+            setGeometry(100, 126 + 21 * pos, 24, 19);
             setImagePosition(2, -2);
             setActive(false);
         }
@@ -180,7 +180,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(126, 126 + 20 * pos, 34, 18);
+            setGeometry(126, 126 + 21 * pos, 34, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -202,7 +202,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNameButton(int pos) {
             this.pos = pos;
-            setGeometry(162, 126 + 20 * pos, 364, 18);
+            setGeometry(162, 126 + 21 * pos, 364, 19);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -248,7 +248,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNationalityFlagButton(int pos) {
             this.pos = pos;
-            setGeometry(528, 126 + 20 * pos, 24, 18);
+            setGeometry(528, 126 + 21 * pos, 24, 19);
             setImagePosition(0, 2);
             setActive(false);
         }
@@ -270,7 +270,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerNationalityCodeButton(int pos) {
             this.pos = pos;
-            setGeometry(528, 126 + 20 * pos, 56, 18);
+            setGeometry(528, 126 + 21 * pos, 56, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -292,7 +292,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerRoleButton(int x, int pos) {
             this.pos = pos;
-            setGeometry(x, 126 + 20 * pos, 30, 18);
+            setGeometry(x, 126 + 21 * pos, 30, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -316,7 +316,7 @@ public class SetTeam extends GlScreen {
         public PlayerSkillButton(int pos, int skillIndex, int x) {
             this.pos = pos;
             this.skillIndex = skillIndex;
-            setGeometry(x, 126 + 20 * pos, 12, 18);
+            setGeometry(x, 126 + 21 * pos, 12, 19);
             setText("", Font.Align.CENTER, font10yellow);
             setActive(false);
         }
@@ -343,7 +343,7 @@ public class SetTeam extends GlScreen {
 
         public PlayerStarsButton(int pos, int x) {
             this.pos = pos;
-            setGeometry(x, 126 + 20 * pos, 64, 18);
+            setGeometry(x, 126 + 21 * pos, 64, 19);
             setActive(false);
         }
 

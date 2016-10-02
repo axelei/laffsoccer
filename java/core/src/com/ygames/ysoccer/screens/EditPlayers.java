@@ -180,7 +180,7 @@ public class EditPlayers extends GlScreen {
 
         public HairColorButton(int pos) {
             this.pos = pos;
-            setGeometry(309, 98 + 19 * pos, 17, 17);
+            setGeometry(309, 98 + 20 * pos, 17, 18);
         }
 
         @Override
@@ -236,7 +236,7 @@ public class EditPlayers extends GlScreen {
 
         public HairStyleButton(int pos) {
             this.pos = pos;
-            setGeometry(328, 98 + 19 * pos, 112, 17);
+            setGeometry(328, 98 + 20 * pos, 112, 18);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -295,7 +295,7 @@ public class EditPlayers extends GlScreen {
 
         public SkinColorButton(int pos) {
             this.pos = pos;
-            setGeometry(290, 98 + 19 * pos, 17, 17);
+            setGeometry(290, 98 + 20 * pos, 17, 18);
         }
 
         @Override
@@ -352,7 +352,7 @@ public class EditPlayers extends GlScreen {
         public PlayerSelectButton(int pos) {
             this.pos = pos;
             setImagePosition(2, -3);
-            setGeometry(264, 98 + 19 * pos, 24, 17);
+            setGeometry(264, 98 + 20 * pos, 24, 18);
         }
 
         @Override
@@ -409,7 +409,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNumberButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(32, 98 + 19 * p, 34, 17);
+            setGeometry(32, 98 + 20 * p, 34, 18);
             setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(3);
         }
@@ -439,7 +439,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(442, 98 + 19 * p, 364, 17);
+            setGeometry(442, 98 + 20 * p, 364, 18);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(28);
         }
@@ -470,7 +470,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerShirtNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(68, 98 + 19 * p, 194, 17);
+            setGeometry(68, 98 + 20 * p, 194, 18);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(14);
         }
@@ -501,7 +501,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerNationalityButton(int pos) {
             this.pos = pos;
-            setGeometry(808, 98 + 19 * pos, 56, 17);
+            setGeometry(808, 98 + 20 * pos, 56, 18);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -558,7 +558,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerRoleButton(int p) {
             this.p = p;
-            setGeometry(866, 98 + 19 * p, 30, 17);
+            setGeometry(866, 98 + 20 * p, 30, 18);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -603,7 +603,7 @@ public class EditPlayers extends GlScreen {
     class SkillLabel extends Label {
 
         public SkillLabel(Player.Skill skill) {
-            setGeometry(898 + 38 * skill.ordinal(), 98 - 19, 36, 17);
+            setGeometry(898 + 38 * skill.ordinal(), 98 - 20, 36, 18);
             setText(Assets.strings.get(Player.getSkillLabel(skill)), Font.Align.CENTER, Assets.font10);
         }
     }
@@ -616,7 +616,7 @@ public class EditPlayers extends GlScreen {
         public SkillButton(int pos, Player.Skill skill) {
             this.pos = pos;
             this.skill = skill;
-            setGeometry(898 + 38 * skill.ordinal(), 98 + 19 * pos, 36, 17);
+            setGeometry(898 + 38 * skill.ordinal(), 98 + 20 * pos, 36, 18);
         }
 
         @Override
@@ -669,7 +669,7 @@ public class EditPlayers extends GlScreen {
 
         public PlayerPriceButton(int pos) {
             this.pos = pos;
-            setGeometry(1164, 98 + 19 * pos, 90, 17);
+            setGeometry(1164, 98 + 20 * pos, 90, 18);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 

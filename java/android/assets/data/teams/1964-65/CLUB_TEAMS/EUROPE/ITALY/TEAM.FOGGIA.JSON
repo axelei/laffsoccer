@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIUSEPPE MOSCHIONI",
+      "shirtName": "MOSCHIONI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ANTONIO BETTONI",
+      "shirtName": "BETTONI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ROMANO MICELLI",
+      "shirtName": "MICELLI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MATTEO RINALDI",
+      "shirtName": "RINALDI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,8 +74,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "AMBROGIO VALADÈ",
+      "shirtName": "VALADÈ",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,8 +84,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PAOLO LAZZOTTI",
+      "shirtName": "LAZZOTTI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
@@ -94,8 +94,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIORGIO MAIOLI",
+      "shirtName": "MAIOLI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "7",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "DANTE MICHELI",
+      "shirtName": "MICHELI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,18 +114,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ERMINIO FAVALLI",
+      "shirtName": "FAVALLI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "RIGHT_WINGER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCESCO PATINO",
+      "shirtName": "PATINO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
@@ -134,8 +134,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "COSIMO NOCERA",
+      "shirtName": "NOCERA",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,8 +144,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GASTONE BALLARINI",
+      "shirtName": "BALLARINI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -154,68 +154,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "13",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "15",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "16",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "17",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "18",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
+      "name": "VASCO TAGLIAVINI",
+      "shirtName": "TAGLIAVINI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "19",
@@ -224,8 +164,58 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CATALDO GAMBINO",
+      "shirtName": "GAMBINO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "14",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "ROBERTO OLTRAMARI",
+      "shirtName": "OLTRAMARI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "15",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "ANGELO BERTUOLO",
+      "shirtName": "BERTUOLO",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "13",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "ROBERTO CORRADI",
+      "shirtName": "CORRADI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "ANTONIO GHEDINI",
+      "shirtName": "GHEDINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "18",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "VINCENZO FALEO",
+      "shirtName": "FALEO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "20",
@@ -234,41 +224,11 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "21",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
+      "name": "PASQUALE DI GIOVANNI",
+      "shirtName": "DI GIOVANNI",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": "22",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "23",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "24",
+      "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
