@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIUSEPPE VAVASSORI",
+      "shirtName": "VAVASSORI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "RENATO RAMBALDELLI",
+      "shirtName": "RAMBALDELLI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIAMPAOLO LAMPREDI",
+      "shirtName": "LAMPREDI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "REMO BICCHIERAI",
+      "shirtName": "BICCHIERAI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,8 +74,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "RENATO ALBERTI",
+      "shirtName": "ALBERTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,8 +84,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCO CORDOVA",
+      "shirtName": "CORDOVA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
@@ -94,8 +94,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "RENZO FANTAZZI",
+      "shirtName": "FANTAZZI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "7",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MARIO SAMPERI",
+      "shirtName": "SAMPERI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -133,8 +133,8 @@
       }
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ALVARO BIAGINI",
+      "shirtName": "BIAGINI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
@@ -143,8 +143,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANCARLO DANOVA",
+      "shirtName": "DANOVA",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -153,8 +153,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PIER LUIGI BRANDUARDI",
+      "shirtName": "BRANDUARDI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -163,8 +163,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "SERGIO CODOGNATO",
+      "shirtName": "CODOGNATO",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
@@ -173,8 +173,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "DOMENICO DI PIERRO",
+      "shirtName": "DI PIERRO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
@@ -183,8 +183,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO FACCHIN",
+      "shirtName": "FACCHIN",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "15",
@@ -193,9 +193,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "SALVADOR CALVANESE",
+      "shirtName": "CALVANESE",
+      "nationality": "ARG",
       "role": "ATTACKER",
       "number": "16",
       "hairColor": "BLACK",
@@ -203,8 +203,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIORGIO MICHELOTTI",
+      "shirtName": "MICHELOTTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "17",
@@ -213,8 +213,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANCARLO MAGI",
+      "shirtName": "MAGI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "18",
@@ -223,8 +223,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ORLANDO ROZZONI",
+      "shirtName": "ROZZONI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "19",

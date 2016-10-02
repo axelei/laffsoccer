@@ -132,7 +132,9 @@ public class SetTeam extends GlScreen {
         w = new OpponentTeamButton();
         widgets.add(w);
 
-        // team name
+        w = new ControlModeButton();
+        widgets.add(w);
+
         w = new TeamNameButton();
         widgets.add(w);
 
@@ -432,6 +434,51 @@ public class SetTeam extends GlScreen {
             for (Widget w : widgets) {
                 w.setChanged(true);
             }
+        }
+    }
+
+    class ControlModeButton extends Button {
+        public ControlModeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 562, 175, 40);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onUpdate() {
+            switch (shownTeam.controlMode) {
+                case COMPUTER:
+                    setText(Assets.strings.get("CONTROL MODE.COMPUTER") + ":");
+                    setColors(0x981E1E, 0xC72929, 0x640000);
+                    break;
+                case PLAYER:
+                    setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH") + ":");
+                    setColors(0x0000C8, 0x1919FF, 0x000078);
+                    break;
+                case COACH:
+                    setText(Assets.strings.get("CONTROL MODE.COACH") + ":");
+                    setColors(0x009BDC, 0x19BBFF, 0x0071A0);
+                    break;
+            }
+            setActive(shownTeam == ownTeam);
+        }
+
+        @Override
+        public void onFire1Down() {
+            switch (ownTeam.controlMode) {
+                case PLAYER:
+                    ownTeam.controlMode = Team.ControlMode.COACH;
+                    // TODO
+//                    if (ownTeam.inputDevice == null) {
+//                        ownTeam.releaseNonAiInputDevices();
+//                        ownTeam.setInputDevice(inputDevices.assignFirstAvailable());
+//                    }
+                    break;
+                case COACH:
+                    ownTeam.controlMode = Team.ControlMode.PLAYER;
+                    break;
+            }
+            setChanged(true);
+            updatePlayerButtons();
         }
     }
 
