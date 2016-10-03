@@ -554,7 +554,7 @@ public class DiyLeague extends GlScreen {
         }
 
         private void updateBenchSize(int n) {
-            league.benchSize = Emath.slide(league.benchSize, 2, 5, n);
+            league.benchSize = Emath.slide(league.benchSize, 2, 12, n);
             league.substitutions = Math.min(league.substitutions, league.benchSize);
             setChanged(true);
             substitutesButton.setChanged(true);

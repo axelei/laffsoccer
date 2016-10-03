@@ -452,7 +452,7 @@ public class DiyCup extends GlScreen {
         }
 
         private void updateBenchSize(int n) {
-            cup.benchSize = Emath.slide(cup.benchSize, 2, 5, n);
+            cup.benchSize = Emath.slide(cup.benchSize, 2, 12, n);
             cup.substitutions = Math.min(cup.substitutions, cup.benchSize);
             setChanged(true);
             substitutesButton.setChanged(true);

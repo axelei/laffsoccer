@@ -593,13 +593,16 @@ public class SetTeam extends GlScreen {
             else if (pos < Const.TEAM_SIZE) {
                 b.setColors(0x003FDE, 0x255EFF, 0x00247E);
             }
-            // bench
-            else if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                b.setColors(0x111188, 0x2D2DB3, 0x001140);
-            }
-            // reserve
+            // bench / out
             else if (pos < shownTeam.players.size()) {
-                b.setColors(0x404040, 0x606060, 0x202020);
+                // bench
+                if (pos < Const.TEAM_SIZE + competition.benchSize) {
+                    b.setColors(0x111188, 0x2D2DB3, 0x001140);
+                }
+                // out
+                else {
+                    b.setColors(0x404040, 0x606060, 0x202020);
+                }
             }
             // void
             else {
@@ -621,13 +624,16 @@ public class SetTeam extends GlScreen {
             else if (pos < Const.TEAM_SIZE) {
                 b.setColors(0xB40000, 0xE60000, 0x780000);
             }
-            // bench
-            else if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                b.setColors(0x780000, 0xB40000, 0x3C0000);
-            }
-            // reserve
+            // bench / out
             else if (pos < shownTeam.players.size()) {
-                b.setColors(0x404040, 0x606060, 0x202020);
+                // bench
+                if (pos < Const.TEAM_SIZE + competition.benchSize) {
+                    b.setColors(0x780000, 0xB40000, 0x3C0000);
+                }
+                // out
+                else {
+                    b.setColors(0x404040, 0x606060, 0x202020);
+                }
             }
             // void
             else {

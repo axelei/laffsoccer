@@ -10,7 +10,6 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -201,7 +200,7 @@ public class PlayLeague extends GlScreen {
                 widgets.add(w);
                 selectedWidget = w;
             } else {
-                Widget playMatchButton = new PlayMatchButton();
+                Widget playMatchButton = new PlayViewMatchButton();
                 widgets.add(playMatchButton);
 
                 Widget viewResultButton = new ViewResultButton();
@@ -226,9 +225,9 @@ public class PlayLeague extends GlScreen {
         }
     }
 
-    class PlayMatchButton extends Button {
+    class PlayViewMatchButton extends Button {
 
-        public PlayMatchButton() {
+        public PlayViewMatchButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 430, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -241,7 +240,19 @@ public class PlayLeague extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
+            league.userPrefersResult = false;
+
+            Match match = league.getMatch();
+            Team homeTeam = league.teams.get(match.team[Match.HOME]);
+            Team awayTeam = league.teams.get(match.team[Match.AWAY]);
+
+            if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+                game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, Match.HOME));
+            } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+                game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, Match.AWAY));
+            } else {
+                game.setScreen(new MatchPresentation(game, null, null, league, homeTeam, awayTeam));
+            }
         }
     }
 

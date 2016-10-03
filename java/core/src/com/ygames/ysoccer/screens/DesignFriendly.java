@@ -148,7 +148,7 @@ public class DesignFriendly extends GlScreen {
         }
 
         private void updateBenchSize(int n) {
-            friendly.benchSize = Emath.slide(friendly.benchSize, 2, 5, n);
+            friendly.benchSize = Emath.slide(friendly.benchSize, 2, 12, n);
             friendly.substitutions = Math.min(friendly.substitutions, friendly.benchSize);
             setChanged(true);
             substitutesButton.setChanged(true);

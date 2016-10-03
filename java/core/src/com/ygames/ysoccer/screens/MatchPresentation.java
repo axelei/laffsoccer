@@ -39,6 +39,9 @@ public class MatchPresentation extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     class TitleButton extends Button {
@@ -62,6 +65,29 @@ public class MatchPresentation extends GlScreen {
         @Override
         public void onFire1Down() {
             // TODO: game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings));
+        }
+    }
+
+    class ExitButton extends Button {
+        public ExitButton() {
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            switch (competition.getType()) {
+                case FRIENDLY:
+                    game.setScreen(new SelectTeams(game, fileHandle, league, competition));
+                    break;
+                case LEAGUE:
+                    game.setScreen(new PlayLeague(game));
+                    break;
+                case CUP:
+                    game.setScreen(new PlayCup(game));
+                    break;
+            }
         }
     }
 }
