@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Team;
 
 public class MatchPresentation extends GlScreen {
@@ -19,6 +20,7 @@ public class MatchPresentation extends GlScreen {
     private Competition competition;
     private Team homeTeam;
     private Team awayTeam;
+    private MatchSettings matchSettings;
 
     public MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -28,6 +30,8 @@ public class MatchPresentation extends GlScreen {
         this.competition = competition;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+
+        matchSettings = new MatchSettings(competition);
 
         background = new Image("images/backgrounds/menu_match_presentation.jpg");
 
