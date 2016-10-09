@@ -39,6 +39,9 @@ public class MatchPresentation extends GlScreen {
         w = new TitleButton();
         widgets.add(w);
 
+        w = new TimeLabel();
+        widgets.add(w);
+
         w = new PlayMatchButton();
         widgets.add(w);
 
@@ -58,6 +61,16 @@ public class MatchPresentation extends GlScreen {
         }
     }
 
+    class TimeLabel extends Button {
+
+        public TimeLabel() {
+            setColors(0x800000, 0xB40000, 0x400000);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
+            setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
     class PlayMatchButton extends Button {
 
         public PlayMatchButton() {
@@ -73,6 +86,7 @@ public class MatchPresentation extends GlScreen {
     }
 
     class ExitButton extends Button {
+
         public ExitButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
