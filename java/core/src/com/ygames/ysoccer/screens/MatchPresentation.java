@@ -12,6 +12,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.match.Time;
 
 public class MatchPresentation extends GlScreen {
 
@@ -42,6 +43,9 @@ public class MatchPresentation extends GlScreen {
         w = new TimeLabel();
         widgets.add(w);
 
+        w = new TimeButton();
+        widgets.add(w);
+
         w = new PlayMatchButton();
         widgets.add(w);
 
@@ -64,10 +68,36 @@ public class MatchPresentation extends GlScreen {
     class TimeLabel extends Button {
 
         public TimeLabel() {
-            setColors(0x800000, 0xB40000, 0x400000);
+            setColors(0x800000);
             setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    class TimeButton extends Button {
+
+        public TimeButton() {
+            if (competition.getType() == Competition.Type.FRIENDLY) {
+                setColors(0x1F1F95);
+            } else {
+                setColors(0x666666);
+                setActive(false);
+            }
+            setGeometry(game.settings.GUI_WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(Time.names[matchSettings.time]));
+        }
+
+        @Override
+        public void onFire1Down() {
+            matchSettings.rotateTime(1);
+            setChanged(true);
+            // TODO: timePicture.setChanged(true);
         }
     }
 
