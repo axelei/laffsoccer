@@ -22,6 +22,7 @@ public class MatchPresentation extends GlScreen {
     private Team homeTeam;
     private Team awayTeam;
     private MatchSettings matchSettings;
+    TimePicture timePicture;
 
     public MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -42,6 +43,9 @@ public class MatchPresentation extends GlScreen {
 
         w = new TimeLabel();
         widgets.add(w);
+
+        timePicture = new TimePicture();
+        widgets.add(timePicture);
 
         w = new TimeButton();
         widgets.add(w);
@@ -75,6 +79,20 @@ public class MatchPresentation extends GlScreen {
         }
     }
 
+    class TimePicture extends Button {
+
+        public TimePicture() {
+            setColors(0x666666);
+            setGeometry((game.settings.GUI_WIDTH - 50) / 2, 130 - 50 / 2, 50, 50);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            image = Assets.light[matchSettings.time];
+        }
+    }
+
     class TimeButton extends Button {
 
         public TimeButton() {
@@ -97,7 +115,7 @@ public class MatchPresentation extends GlScreen {
         public void onFire1Down() {
             matchSettings.rotateTime(1);
             setChanged(true);
-            // TODO: timePicture.setChanged(true);
+            timePicture.setChanged(true);
         }
     }
 

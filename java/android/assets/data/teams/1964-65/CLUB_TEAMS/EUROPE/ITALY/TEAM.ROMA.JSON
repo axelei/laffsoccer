@@ -8,7 +8,7 @@
     "name": "JUAN CARLOS LORENZO",
     "nationality": "ARG"
   },
-  "tactics": "3-4-3",
+  "tactics": "5-2-3",
   "kits": [
     {
       "style": "PLAIN",
@@ -101,21 +101,47 @@
       "name": "GLAUCO TOMASIN",
       "shirtName": "TOMASIN",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "KARL HEINZ SCHNELLINGER",
-      "shirtName": "SCHNELLINGER",
+      "name": "FULVIO FRANCESCONI",
+      "shirtName": "FRANCESCONI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
+      "role": "LEFT_WINGER",
+      "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 6,
+        "finishing": 6
+      }
+    },
+    {
+      "name": "KARL HEINZ SCHNELLINGER",
+      "shirtName": "SCHNELLINGER",
+      "nationality": "GER",
+      "role": "LEFT_BACK",
+      "number": "6",
+      "hairColor": "BLOND",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 7,
+        "control": 6,
+        "speed": 6,
+        "finishing": 4
+      }
     },
     {
       "name": "GIANCARLO DE SISTI",
@@ -125,7 +151,15 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 7,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 5,
+        "control": 6,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "LAMBERTO LEONARDI",
@@ -143,16 +177,6 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "FULVIO FRANCESCONI",
-      "shirtName": "FRANCESCONI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}

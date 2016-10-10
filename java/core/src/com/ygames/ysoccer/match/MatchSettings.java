@@ -12,6 +12,6 @@ public class MatchSettings {
     }
 
     public void rotateTime(int direction) {
-        time = Emath.rotate(time, Time.DAY, Time.NIGHT, direction);
+        time = Emath.rotate(time, Time.DAY, Time.RANDOM, direction);
     }
 }
