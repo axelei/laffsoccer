@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 33
     },
     {
       "name": "MARIO ARDIZZON",
@@ -105,7 +106,15 @@
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 6,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "FULVIO FRANCESCONI",
@@ -179,7 +188,15 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 5,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "ANTONIO VALENTÍN ANGELILLO",

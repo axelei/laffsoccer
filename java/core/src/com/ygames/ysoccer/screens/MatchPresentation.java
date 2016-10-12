@@ -50,6 +50,10 @@ public class MatchPresentation extends GlScreen {
         w = new TimeButton();
         widgets.add(w);
 
+        w = new PitchTypeLabel();
+        w.setColors(0x800000);
+        widgets.add(w);
+
         w = new PlayMatchButton();
         widgets.add(w);
 
@@ -116,6 +120,14 @@ public class MatchPresentation extends GlScreen {
             matchSettings.rotateTime(1);
             setChanged(true);
             timePicture.setChanged(true);
+        }
+    }
+
+    class PitchTypeLabel extends Button {
+        public PitchTypeLabel() {
+            setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
+            setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
