@@ -11,10 +11,11 @@ import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
 
-public class MatchPresentation extends GlScreen {
+class MatchPresentation extends GlScreen {
 
     private FileHandle fileHandle;
     private League league;
@@ -22,9 +23,9 @@ public class MatchPresentation extends GlScreen {
     private Team homeTeam;
     private Team awayTeam;
     private MatchSettings matchSettings;
-    TimePicture timePicture;
+    private TimePicture timePicture;
 
-    public MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
+    MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
 
         this.fileHandle = fileHandle;
@@ -54,6 +55,9 @@ public class MatchPresentation extends GlScreen {
         w.setColors(0x800000);
         widgets.add(w);
 
+        w = new PitchTypeButton();
+        widgets.add(w);
+
         w = new PlayMatchButton();
         widgets.add(w);
 
@@ -63,9 +67,9 @@ public class MatchPresentation extends GlScreen {
         widgets.add(w);
     }
 
-    class TitleButton extends Button {
+    private class TitleButton extends Button {
 
-        public TitleButton() {
+        TitleButton() {
             setGeometry((game.settings.GUI_WIDTH - 840) / 2, 30, 840, 44);
             setColors(0x008080, 0x00B2B4, 0x004040);
             setText(competition.name, Font.Align.CENTER, Assets.font14);
@@ -73,9 +77,9 @@ public class MatchPresentation extends GlScreen {
         }
     }
 
-    class TimeLabel extends Button {
+    private class TimeLabel extends Button {
 
-        public TimeLabel() {
+        TimeLabel() {
             setColors(0x800000);
             setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
@@ -83,9 +87,9 @@ public class MatchPresentation extends GlScreen {
         }
     }
 
-    class TimePicture extends Button {
+    private class TimePicture extends Button {
 
-        public TimePicture() {
+        TimePicture() {
             setColors(0x666666);
             setGeometry((game.settings.GUI_WIDTH - 50) / 2, 130 - 50 / 2, 50, 50);
             setActive(false);
@@ -97,9 +101,9 @@ public class MatchPresentation extends GlScreen {
         }
     }
 
-    class TimeButton extends Button {
+    private class TimeButton extends Button {
 
-        public TimeButton() {
+        TimeButton() {
             if (competition.getType() == Competition.Type.FRIENDLY) {
                 setColors(0x1F1F95);
             } else {
@@ -123,17 +127,41 @@ public class MatchPresentation extends GlScreen {
         }
     }
 
-    class PitchTypeLabel extends Button {
-        public PitchTypeLabel() {
+    private class PitchTypeLabel extends Button {
+
+        PitchTypeLabel() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
             setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
 
-    class PlayMatchButton extends Button {
+    private class PitchTypeButton extends Button {
 
-        public PlayMatchButton() {
+        PitchTypeButton() {
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(Pitch.names[matchSettings.pitchType]));
+        }
+
+        @Override
+        public void onFire1Down() {
+            matchSettings.rotatePitchType(1);
+            setChanged(true);
+            // TODO: pitchPicture.setChanged(true);
+            // TODO: weatherPicture.setChanged(true);
+            // TODO: weatherButton.setChanged(true);
+        }
+    }
+
+    private class PlayMatchButton extends Button {
+
+        PlayMatchButton() {
             setGeometry((game.settings.GUI_WIDTH - 340) / 2, 375, 340, 40);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);

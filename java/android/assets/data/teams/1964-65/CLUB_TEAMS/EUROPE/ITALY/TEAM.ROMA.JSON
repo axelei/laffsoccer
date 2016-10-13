@@ -174,11 +174,19 @@
       "name": "LAMBERTO LEONARDI",
       "shirtName": "LEONARDI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_WINGER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 6,
+        "finishing": 4
+      }
     },
     {
       "name": "GIUSEPPE TAMBORINI",
@@ -201,12 +209,20 @@
     {
       "name": "ANTONIO VALENTÍN ANGELILLO",
       "shirtName": "ANGELILLO",
-      "nationality": "ITA",
+      "nationality": "ARG",
       "role": "ATTACKER",
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 6,
+        "heading": 5,
+        "tackling": 3,
+        "control": 5,
+        "speed": 6,
+        "finishing": 7
+      }
     },
     {
       "name": "ENZO MATTEUCCI",
@@ -216,7 +232,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 30
     },
     {
       "name": "FRANCESCO CARPENETTI",
