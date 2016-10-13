@@ -293,11 +293,19 @@
       "name": "BRUNO NICOLÈ",
       "shirtName": "NICOLÈ",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_WINGER",
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 3,
+        "tackling": 2,
+        "control": 4,
+        "speed": 6,
+        "finishing": 3
+      }
     },
     {
       "name": "ALBERTO GINULFI",
@@ -307,17 +315,26 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 27
     },
     {
       "name": "MAURO NARDONI",
       "shirtName": "NARDONI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     }
   ]
 }

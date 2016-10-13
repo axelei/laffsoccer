@@ -24,6 +24,7 @@ class MatchPresentation extends GlScreen {
     private Team awayTeam;
     private MatchSettings matchSettings;
     private TimePicture timePicture;
+    private PitchTypePicture pitchTypePicture;
 
     MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -54,6 +55,9 @@ class MatchPresentation extends GlScreen {
         w = new PitchTypeLabel();
         w.setColors(0x800000);
         widgets.add(w);
+
+        pitchTypePicture = new PitchTypePicture();
+        widgets.add(pitchTypePicture);
 
         w = new PitchTypeButton();
         widgets.add(w);
@@ -97,7 +101,7 @@ class MatchPresentation extends GlScreen {
 
         @Override
         public void onUpdate() {
-            image = Assets.light[matchSettings.time];
+            image = Assets.lightIcons[matchSettings.time];
         }
     }
 
@@ -136,6 +140,20 @@ class MatchPresentation extends GlScreen {
         }
     }
 
+    private class PitchTypePicture extends Button {
+
+        PitchTypePicture() {
+            setColors(0x666666);
+            setGeometry((game.settings.GUI_WIDTH - 50) / 2, 200 - 50 / 2, 50, 50);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            image = Assets.pitchIcons[matchSettings.pitchType];
+        }
+    }
+
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
@@ -158,7 +176,7 @@ class MatchPresentation extends GlScreen {
         public void onFire1Down() {
             matchSettings.rotatePitchType(1);
             setChanged(true);
-            // TODO: pitchPicture.setChanged(true);
+            pitchTypePicture.setChanged(true);
             // TODO: weatherPicture.setChanged(true);
             // TODO: weatherButton.setChanged(true);
         }

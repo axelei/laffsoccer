@@ -43,7 +43,8 @@ public class Assets {
     public static List<String> currencies;
     public static Image[] stars = new Image[10];
     public static Image[][] pieces = new Image[2][2];
-    public static Image[] light = new Image[3];
+    public static Image[] lightIcons = new Image[3];
+    public static Image[] pitchIcons = new Image[10];
 
     public static void load(Settings settings) {
         loadLocales();
@@ -70,7 +71,8 @@ public class Assets {
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
         loadStars();
         loadPieces();
-        loadLight();
+        loadLightIcons();
+        loadPitchIcons();
     }
 
     private static void loadLocales() {
@@ -267,10 +269,17 @@ public class Assets {
         }
     }
 
-    private static void loadLight() {
+    private static void loadLightIcons() {
         Texture texture = new Texture("images/light.png");
         for (int i = 0; i < 3; i++) {
-            light[i] = new Image(texture, 47 * i, 0, 46, 46);
+            lightIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
+        }
+    }
+
+    private static void loadPitchIcons() {
+        Texture texture = new Texture("images/pitches.png");
+        for (int i = 0; i < 10; i++) {
+            pitchIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
         }
     }
 }
