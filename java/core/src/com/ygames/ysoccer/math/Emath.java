@@ -23,4 +23,9 @@ public class Emath {
     public static int floor(double value) {
         return (int) Math.floor(value);
     }
+
+    // random integer between min and max (included)
+    public static int rand(int min, int max) {
+        return ((int) Math.floor((max - min + 1) * Math.random())) - min;
+    }
 }

@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -112,6 +113,30 @@ public abstract class Competition {
 
     public String getBySeasonLabel() {
         return bySeason ? "SEASON" : "PITCH TYPE";
+    }
+
+    public int resolvePitchType() {
+        int p;
+
+        if (bySeason) {
+            p = -1;
+            int n = Emath.rand(0, 99);
+            int tot = 0;
+            do {
+                p = p + 1;
+                tot = tot + Pitch.probabilityByMonth[currentMonth][p];
+            } while (tot <= n);
+        }
+        // by pitch type
+        else {
+            if (pitchType == Pitch.RANDOM) {
+                p = Emath.rand(Pitch.FROZEN, Pitch.WHITE);
+            } else {
+                p = pitchType;
+            }
+        }
+
+        return p;
     }
 
     public void save() {

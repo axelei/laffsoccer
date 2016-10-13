@@ -12,4 +12,8 @@ public class Friendly extends Competition {
     public Type getType() {
         return Type.FRIENDLY;
     }
+
+    public int resolvePitchType() {
+        return pitchType;
+    }
 }

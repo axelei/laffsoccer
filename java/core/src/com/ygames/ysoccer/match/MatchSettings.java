@@ -10,7 +10,7 @@ public class MatchSettings {
 
     public MatchSettings(Competition competition) {
         this.time = competition.time;
-        this.pitchType = competition.pitchType;
+        this.pitchType = competition.resolvePitchType();
     }
 
     public void rotateTime(int direction) {

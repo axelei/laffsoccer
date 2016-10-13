@@ -139,7 +139,12 @@ class MatchPresentation extends GlScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            if (competition.getType() == Competition.Type.FRIENDLY) {
+                setColors(0x1F1F95);
+            } else {
+                setColors(0x666666);
+                setActive(false);
+            }
             setGeometry(game.settings.GUI_WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }

@@ -243,7 +243,15 @@
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 5,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ELVIO SALVORI",
@@ -251,19 +259,35 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "PEDRO MANFREDINI",
       "shirtName": "MANFREDINI",
-      "nationality": "ITA",
+      "nationality": "ARG",
       "role": "ATTACKER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 6
+      }
     },
     {
       "name": "BRUNO NICOLÈ",
