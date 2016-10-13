@@ -53,13 +53,15 @@ class MatchPresentation extends GlScreen {
         widgets.add(w);
 
         w = new PitchTypeLabel();
-        w.setColors(0x800000);
         widgets.add(w);
 
         pitchTypePicture = new PitchTypePicture();
         widgets.add(pitchTypePicture);
 
         w = new PitchTypeButton();
+        widgets.add(w);
+
+        w = new WeatherLabel();
         widgets.add(w);
 
         w = new PlayMatchButton();
@@ -134,6 +136,7 @@ class MatchPresentation extends GlScreen {
     private class PitchTypeLabel extends Button {
 
         PitchTypeLabel() {
+            setColors(0x800000);
             setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
             setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -179,6 +182,16 @@ class MatchPresentation extends GlScreen {
             pitchTypePicture.setChanged(true);
             // TODO: weatherPicture.setChanged(true);
             // TODO: weatherButton.setChanged(true);
+        }
+    }
+
+    private class WeatherLabel extends Button {
+
+        WeatherLabel() {
+            setColors(0x800000);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
+            setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
