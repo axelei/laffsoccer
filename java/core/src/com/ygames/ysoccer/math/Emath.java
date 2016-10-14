@@ -2,10 +2,19 @@ package com.ygames.ysoccer.math;
 
 public class Emath {
 
+    public static float TO_RADIANS = (float) Math.PI / 180.0f;
     public static float TO_DEGREES = 180.0f / (float) Math.PI;
 
     static public float aTan2(float y, float x) {
         return (float) (Math.atan2(y, x) * TO_DEGREES);
+    }
+
+    static public float cos(float a) {
+        return (float) Math.cos(a * TO_RADIANS);
+    }
+
+    static public float sin(float a) {
+        return (float) Math.sin(a * TO_RADIANS);
     }
 
     static public float hypo(float diffX, float diffY) {

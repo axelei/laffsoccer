@@ -14,6 +14,7 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
+import com.ygames.ysoccer.match.Weather;
 
 class MatchPresentation extends GlScreen {
 
@@ -25,6 +26,7 @@ class MatchPresentation extends GlScreen {
     private MatchSettings matchSettings;
     private TimePicture timePicture;
     private PitchTypePicture pitchTypePicture;
+    private WeatherButton weatherButton;
 
     MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -35,7 +37,7 @@ class MatchPresentation extends GlScreen {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
 
-        matchSettings = new MatchSettings(competition);
+        matchSettings = new MatchSettings(competition, Weather.Strength.STRONG); // TODO: replace with game option weatherMaxStrength
 
         background = new Image("images/backgrounds/menu_match_presentation.jpg");
 
@@ -63,6 +65,9 @@ class MatchPresentation extends GlScreen {
 
         w = new WeatherLabel();
         widgets.add(w);
+
+        weatherButton = new WeatherButton();
+        widgets.add(weatherButton);
 
         w = new PlayMatchButton();
         widgets.add(w);
@@ -181,7 +186,7 @@ class MatchPresentation extends GlScreen {
             setChanged(true);
             pitchTypePicture.setChanged(true);
             // TODO: weatherPicture.setChanged(true);
-            // TODO: weatherButton.setChanged(true);
+            weatherButton.setChanged(true);
         }
     }
 
@@ -192,6 +197,34 @@ class MatchPresentation extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
             setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class WeatherButton extends Button {
+
+        WeatherButton() {
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 65, 270 - 40 / 2, 300, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            if (competition.getType() == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.RANDOM) {
+                setColors(0x1F1F95);
+                setActive(true);
+            } else {
+                setColors(0x666666);
+                setActive(false);
+            }
+            setText(Assets.strings.get(matchSettings.getWeatherLabel()));
+        }
+
+        @Override
+        public void onFire1Down() {
+            matchSettings.rotateWeather(true);
+            setChanged(true);
+            // TODO: weatherPicture.setChanged(true);
         }
     }
 

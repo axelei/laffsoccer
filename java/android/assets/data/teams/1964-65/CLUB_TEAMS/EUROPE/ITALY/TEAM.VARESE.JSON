@@ -8,7 +8,7 @@
     "name": "ETTORE PURICELLI",
     "nationality": "URU"
   },
-  "tactics": "4-4-2",
+  "tactics": "4-3-3",
   "kits": [
     {
       "style": "PLAIN",
@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ANTONIO LONARDI",
+      "shirtName": "LONARDI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,18 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "2",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
+      "name": "PIETRO MAROSO",
+      "shirtName": "MAROSO",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,18 +54,38 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANCARLO BELTRAMI",
+      "shirtName": "BELTRAMI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "MIDFIELDER",
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO SOLDO",
+      "shirtName": "SOLDO",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "6",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "ERNESTO MARCOLINI",
+      "shirtName": "MARCOLINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "2",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "LUIGI OSSOLA",
+      "shirtName": "OSSOLA",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,28 +94,28 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "KURT ANDERSSON",
+      "shirtName": "ANDERSSON",
+      "nationality": "SWE",
       "role": "MIDFIELDER",
-      "number": "6",
+      "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ALBERTO SPELTA",
+      "shirtName": "SPELTA",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "ATTACKER",
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PIERO CUCCHI",
+      "shirtName": "CUCCHI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,28 +124,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "9",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "10",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
+      "name": "IVO VETRANO",
+      "shirtName": "VETRANO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,8 +134,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "VINCENZO TRASPEDINI",
+      "shirtName": "TRASPEDINI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "10",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "FERDINANDO MINIUSSI",
+      "shirtName": "MINIUSSI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -154,8 +154,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GUGLIELMO BURELLI",
+      "shirtName": "BURELLI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
@@ -164,8 +164,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "MARIO PASQUINA",
+      "shirtName": "PASQUINA",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
@@ -174,28 +174,28 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ANGELO VOLPATO",
+      "shirtName": "VOLPATO",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "ATTACKER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
+      "name": "HORST SZYMANIAK",
+      "shirtName": "SZYMANIAK",
+      "nationality": "GER",
+      "role": "MIDFIELDER",
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCO RONDANINI",
+      "shirtName": "RONDANINI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "17",
@@ -204,8 +204,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ALDO STRADA",
+      "shirtName": "STRADA",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "18",
