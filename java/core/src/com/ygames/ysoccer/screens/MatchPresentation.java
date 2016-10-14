@@ -10,11 +10,13 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.match.Weather;
+import com.ygames.ysoccer.math.Emath;
 
 class MatchPresentation extends GlScreen {
 
@@ -72,6 +74,12 @@ class MatchPresentation extends GlScreen {
 
         weatherButton = new WeatherButton();
         widgets.add(weatherButton);
+
+        w = new KitButton(homeTeam, Match.HOME);
+        widgets.add(w);
+
+        w = new KitButton(awayTeam, Match.AWAY);
+        widgets.add(w);
 
         w = new PlayMatchButton();
         widgets.add(w);
@@ -243,6 +251,36 @@ class MatchPresentation extends GlScreen {
             matchSettings.rotateWeather(true);
             setChanged(true);
             weatherPicture.setChanged(true);
+        }
+    }
+
+    private class KitButton extends Button {
+
+        Team team;
+
+        KitButton(Team team, int index) {
+            this.team = team;
+            setGeometry((1 + 3 * index) * (game.settings.GUI_WIDTH) / 5 - 83, 330, 167, 304);
+        }
+
+        @Override
+        public void onUpdate() {
+            image = team.kits.get(team.kitIndex).loadImage();
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotateKit(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            rotateKit(-1);
+        }
+
+        private void rotateKit(int n) {
+            team.kitIndex = Emath.rotate(team.kitIndex, 0, team.kits.size() - 1, n);
+            setChanged(true);
         }
     }
 
