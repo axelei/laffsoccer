@@ -27,6 +27,7 @@ class MatchPresentation extends GlScreen {
     private TimePicture timePicture;
     private PitchTypePicture pitchTypePicture;
     private WeatherButton weatherButton;
+    private WeatherPicture weatherPicture;
 
     MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -65,6 +66,9 @@ class MatchPresentation extends GlScreen {
 
         w = new WeatherLabel();
         widgets.add(w);
+
+        weatherPicture = new WeatherPicture();
+        widgets.add(weatherPicture);
 
         weatherButton = new WeatherButton();
         widgets.add(weatherButton);
@@ -185,7 +189,7 @@ class MatchPresentation extends GlScreen {
             matchSettings.rotatePitchType(1);
             setChanged(true);
             pitchTypePicture.setChanged(true);
-            // TODO: weatherPicture.setChanged(true);
+            weatherPicture.setChanged(true);
             weatherButton.setChanged(true);
         }
     }
@@ -197,6 +201,20 @@ class MatchPresentation extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
             setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class WeatherPicture extends Button {
+
+        WeatherPicture() {
+            setColors(0x666666);
+            setGeometry((game.settings.GUI_WIDTH - 50) / 2, 270 - 50 / 2, 50, 50);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            image = Assets.weatherIcons[matchSettings.weatherOffset()];
         }
     }
 
@@ -224,7 +242,7 @@ class MatchPresentation extends GlScreen {
         public void onFire1Down() {
             matchSettings.rotateWeather(true);
             setChanged(true);
-            // TODO: weatherPicture.setChanged(true);
+            weatherPicture.setChanged(true);
         }
     }
 

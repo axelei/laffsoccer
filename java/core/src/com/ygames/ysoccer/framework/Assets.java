@@ -45,6 +45,7 @@ public class Assets {
     public static Image[][] pieces = new Image[2][2];
     public static Image[] lightIcons = new Image[3];
     public static Image[] pitchIcons = new Image[10];
+    public static Image[] weatherIcons = new Image[11];
 
     public static void load(Settings settings) {
         loadLocales();
@@ -73,6 +74,7 @@ public class Assets {
         loadPieces();
         loadLightIcons();
         loadPitchIcons();
+        loadWeatherIcons();
     }
 
     private static void loadLocales() {
@@ -280,6 +282,13 @@ public class Assets {
         Texture texture = new Texture("images/pitches.png");
         for (int i = 0; i < 10; i++) {
             pitchIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
+        }
+    }
+
+    private static void loadWeatherIcons() {
+        Texture texture = new Texture("images/weather.png");
+        for (int i = 0; i < 11; i++) {
+            weatherIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
         }
     }
 }

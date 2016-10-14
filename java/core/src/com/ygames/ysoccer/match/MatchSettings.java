@@ -145,4 +145,16 @@ public class MatchSettings {
         }
         return s;
     }
+
+    public int weatherOffset() {
+        if (weatherEffect == Weather.RANDOM) {
+            return 10;
+        } else {
+            if (weatherStrength == Weather.Strength.NONE) {
+                return sky;
+            } else {
+                return 2 * weatherEffect + weatherStrength + 1;
+            }
+        }
+    }
 }
