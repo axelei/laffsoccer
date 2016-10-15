@@ -20,6 +20,8 @@ public abstract class Widget {
     public Image image;
     int imageX;
     int imageY;
+    float imageScaleX;
+    float imageScaleY;
 
     WidgetColor color;
 
@@ -43,6 +45,8 @@ public abstract class Widget {
     }
 
     public Widget() {
+        imageScaleX = 1.0f;
+        imageScaleY = 1.0f;
         color = new WidgetColor();
         align = Font.Align.CENTER;
         isVisible = true;
@@ -67,6 +71,11 @@ public abstract class Widget {
     public void setImagePosition(int imageX, int imageY) {
         this.imageX = imageX;
         this.imageY = imageY;
+    }
+
+    public void setImageScale(float scaleX, float scaleY) {
+        imageScaleX = scaleX;
+        imageScaleY = scaleY;
     }
 
     public void setSize(int w, int h) {

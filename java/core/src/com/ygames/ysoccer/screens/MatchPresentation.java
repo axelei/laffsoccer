@@ -16,7 +16,9 @@ import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.match.Weather;
-import com.ygames.ysoccer.math.Emath;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class MatchPresentation extends GlScreen {
 
@@ -30,6 +32,7 @@ class MatchPresentation extends GlScreen {
     private PitchTypePicture pitchTypePicture;
     private WeatherButton weatherButton;
     private WeatherPicture weatherPicture;
+    private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
 
     MatchPresentation(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -75,11 +78,15 @@ class MatchPresentation extends GlScreen {
         weatherButton = new WeatherButton();
         widgets.add(weatherButton);
 
-        w = new KitButton(homeTeam, Match.HOME);
-        widgets.add(w);
-
-        w = new KitButton(awayTeam, Match.AWAY);
-        widgets.add(w);
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            Team team = (t == Match.HOME) ? homeTeam : awayTeam;
+            kitButtons[t] = new ArrayList<KitButton>();
+            for (int i = 0; i < team.kits.size(); i++) {
+                KitButton kitButton = new KitButton(team, t, i);
+                kitButtons[t].add(kitButton);
+                widgets.add(kitButton);
+            }
+        }
 
         w = new PlayMatchButton();
         widgets.add(w);
@@ -257,37 +264,40 @@ class MatchPresentation extends GlScreen {
     private class KitButton extends Button {
 
         Team team;
+        int teamIndex;
+        int kitIndex;
 
-        KitButton(Team team, int index) {
+        KitButton(Team team, int teamIndex, int kitIndex) {
             this.team = team;
-            setGeometry((1 + 3 * index) * (game.settings.GUI_WIDTH) / 5 - 83, 330, 167, 304);
+            this.teamIndex = teamIndex;
+            this.kitIndex = kitIndex;
+            setGeometry((1 + 2 * teamIndex) * (game.settings.GUI_WIDTH) / 4 - 48 * (team.kits.size()) + 96 * kitIndex + 5, 420, 86, 154);
+            setImageScale(0.5f, 0.5f);
+            image = team.kits.get(kitIndex).loadImage();
         }
 
         @Override
         public void onUpdate() {
-            image = team.kits.get(team.kitIndex).loadImage();
+            if (team.kitIndex == kitIndex) {
+                setColors(0x000000, 0xD0D0D0, 0xD0D0D0);
+            } else {
+                setColors(0x000000, 0x000000, 0x000000);
+            }
         }
 
         @Override
         public void onFire1Down() {
-            rotateKit(1);
-        }
-
-        @Override
-        public void onFire2Down() {
-            rotateKit(-1);
-        }
-
-        private void rotateKit(int n) {
-            team.kitIndex = Emath.rotate(team.kitIndex, 0, team.kits.size() - 1, n);
-            setChanged(true);
+            team.kitIndex = kitIndex;
+            for (KitButton kitButton : kitButtons[teamIndex]) {
+                kitButton.setChanged(true);
+            }
         }
     }
 
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 375, 340, 40);
+            setGeometry((game.settings.GUI_WIDTH - 240) / 2, 600, 240, 40);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }

@@ -147,11 +147,19 @@
       "name": "ALBERTO SPELTA",
       "shirtName": "SPELTA",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_WINGER",
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 2,
+        "control": 4,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "PIERO CUCCHI",
@@ -161,7 +169,15 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 4,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "IVO VETRANO",
@@ -239,7 +255,15 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 6,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 7,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "FRANCO RONDANINI",
