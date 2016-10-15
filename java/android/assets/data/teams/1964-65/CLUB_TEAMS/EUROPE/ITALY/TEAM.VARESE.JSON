@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 28
     },
     {
       "name": "PIETRO MAROSO",
@@ -101,11 +102,19 @@
       "name": "ERNESTO MARCOLINI",
       "shirtName": "MARCOLINI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "LUIGI OSSOLA",
@@ -183,11 +192,19 @@
       "name": "IVO VETRANO",
       "shirtName": "VETRANO",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "LEFT_WINGER",
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "VINCENZO TRASPEDINI",

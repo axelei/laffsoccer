@@ -80,6 +80,10 @@ class MatchPresentation extends GlScreen {
 
         for (int t = Match.HOME; t <= Match.AWAY; t++) {
             Team team = (t == Match.HOME) ? homeTeam : awayTeam;
+
+            w = new TeamNameButton(team, t);
+            widgets.add(w);
+
             kitButtons[t] = new ArrayList<KitButton>();
             for (int i = 0; i < team.kits.size(); i++) {
                 KitButton kitButton = new KitButton(team, t, i);
@@ -261,6 +265,16 @@ class MatchPresentation extends GlScreen {
         }
     }
 
+    private class TeamNameButton extends Button {
+
+        TeamNameButton(Team team, int teamIndex) {
+            setGeometry(45 + teamIndex * game.settings.GUI_WIDTH / 2, 340, game.settings.GUI_WIDTH / 2 - 90, 34);
+            setColors(0x1F1F95);
+            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
     private class KitButton extends Button {
 
         Team team;
@@ -271,7 +285,7 @@ class MatchPresentation extends GlScreen {
             this.team = team;
             this.teamIndex = teamIndex;
             this.kitIndex = kitIndex;
-            setGeometry((1 + 2 * teamIndex) * (game.settings.GUI_WIDTH) / 4 - 48 * (team.kits.size()) + 96 * kitIndex + 5, 420, 86, 154);
+            setGeometry((1 + 2 * teamIndex) * (game.settings.GUI_WIDTH) / 4 - 48 * (team.kits.size()) + 96 * kitIndex + 5, 400, 86, 154);
             setImageScale(0.5f, 0.5f);
             image = team.kits.get(kitIndex).loadImage();
         }
@@ -279,9 +293,11 @@ class MatchPresentation extends GlScreen {
         @Override
         public void onUpdate() {
             if (team.kitIndex == kitIndex) {
-                setColors(0x000000, 0xD0D0D0, 0xD0D0D0);
+                setImageScale(0.5f, 0.5f);
+                setImagePosition(0, 0);
             } else {
-                setColors(0x000000, 0x000000, 0x000000);
+                setImageScale(0.33333334f, 0.33333334f);
+                setImagePosition(14, 26);
             }
         }
 
@@ -297,7 +313,7 @@ class MatchPresentation extends GlScreen {
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2, 600, 240, 40);
+            setGeometry((game.settings.GUI_WIDTH - 240) / 2, 590, 240, 40);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
