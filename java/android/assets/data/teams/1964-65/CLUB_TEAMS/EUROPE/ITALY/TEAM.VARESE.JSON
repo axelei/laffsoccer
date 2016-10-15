@@ -45,19 +45,19 @@
       "value": 28
     },
     {
-      "name": "PIETRO MAROSO",
-      "shirtName": "MAROSO",
+      "name": "ERNESTO MARCOLINI",
+      "shirtName": "MARCOLINI",
       "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
-      "hairColor": "BLOND",
-      "hairStyle": "THINNING_C",
+      "role": "LEFT_BACK",
+      "number": "2",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 4,
         "shooting": 2,
-        "heading": 4,
-        "tackling": 5,
-        "control": 5,
+        "heading": 3,
+        "tackling": 4,
+        "control": 4,
         "speed": 5,
         "finishing": 2
       }
@@ -99,19 +99,19 @@
       }
     },
     {
-      "name": "ERNESTO MARCOLINI",
-      "shirtName": "MARCOLINI",
+      "name": "PIETRO MAROSO",
+      "shirtName": "MAROSO",
       "nationality": "ITA",
-      "role": "LEFT_BACK",
-      "number": "2",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
+      "role": "RIGHT_BACK",
+      "number": "3",
+      "hairColor": "BLOND",
+      "hairStyle": "THINNING_C",
       "skills": {
         "passing": 4,
         "shooting": 2,
-        "heading": 3,
-        "tackling": 4,
-        "control": 4,
+        "heading": 4,
+        "tackling": 5,
+        "control": 5,
         "speed": 5,
         "finishing": 2
       }
@@ -232,17 +232,26 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 25
     },
     {
       "name": "GUGLIELMO BURELLI",
       "shirtName": "BURELLI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "MARIO PASQUINA",
@@ -258,11 +267,19 @@
       "name": "ANGELO VOLPATO",
       "shirtName": "VOLPATO",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "HORST SZYMANIAK",

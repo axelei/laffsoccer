@@ -20,33 +20,33 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.Collections;
 
-public class EditPlayers extends GlScreen {
+class EditPlayers extends GlScreen {
 
-    FileHandle fileHandle;
+    private FileHandle fileHandle;
     League league;
     Team team;
-    int selectedPos;
-    boolean modified;
-    Image[] imageSkill = new Image[8];
+    private int selectedPos;
+    private boolean modified;
+    private Image[] imageSkill = new Image[8];
 
-    Widget[] hairColorButtons = new Widget[Const.FULL_TEAM];
-    Widget[] hairStyleButtons = new Widget[Const.FULL_TEAM];
-    Widget[] skinColorButtons = new Widget[Const.FULL_TEAM];
-    Widget[] selectButtons = new Widget[Const.FULL_TEAM];
-    Widget[] numberButtons = new Widget[Const.FULL_TEAM];
-    Widget[] nameButtons = new Widget[Const.FULL_TEAM];
-    Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
-    Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
-    Widget[] roleButtons = new Widget[Const.FULL_TEAM];
-    Widget[][] skillButtons = new Widget[Const.FULL_TEAM][7];
-    Widget[] priceButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] hairColorButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] hairStyleButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] skinColorButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] selectButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] numberButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] nameButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
+    private Widget[] roleButtons = new Widget[Const.FULL_TEAM];
+    private Widget[][] skillButtons = new Widget[Const.FULL_TEAM][7];
+    private Widget[] priceButtons = new Widget[Const.FULL_TEAM];
 
-    Widget newPlayerButton;
-    Widget deletePlayerButton;
-    Widget saveButton;
-    Widget tmpPlayerButton;
+    private Widget newPlayerButton;
+    private Widget deletePlayerButton;
+    private Widget saveButton;
+    private Widget tmpPlayerButton;
 
-    public EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
+    EditPlayers(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
         super(game);
         this.fileHandle = fileHandle;
         this.league = league;
@@ -149,7 +149,7 @@ public class EditPlayers extends GlScreen {
         widgets.add(w);
     }
 
-    void setModifiedFlag() {
+    private void setModifiedFlag() {
         modified = true;
         saveButton.setChanged(true);
     }
@@ -174,13 +174,13 @@ public class EditPlayers extends GlScreen {
         tmpPlayerButton.setChanged(true);
     }
 
-    class HairColorButton extends Button {
+    private class HairColorButton extends Button {
 
         int pos;
 
-        public HairColorButton(int pos) {
+        HairColorButton(int pos) {
             this.pos = pos;
-            setGeometry(309, 98 + 20 * pos, 17, 18);
+            setGeometry(309, 95 + 21 * pos, 17, 19);
         }
 
         @Override
@@ -230,13 +230,13 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class HairStyleButton extends Button {
+    private class HairStyleButton extends Button {
 
         int pos;
 
-        public HairStyleButton(int pos) {
+        HairStyleButton(int pos) {
             this.pos = pos;
-            setGeometry(328, 98 + 20 * pos, 112, 18);
+            setGeometry(328, 95 + 21 * pos, 112, 19);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -289,13 +289,13 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class SkinColorButton extends Button {
+    private class SkinColorButton extends Button {
 
         int pos;
 
-        public SkinColorButton(int pos) {
+        SkinColorButton(int pos) {
             this.pos = pos;
-            setGeometry(290, 98 + 20 * pos, 17, 18);
+            setGeometry(290, 95 + 21 * pos, 17, 19);
         }
 
         @Override
@@ -345,14 +345,14 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class PlayerSelectButton extends Button {
+    private class PlayerSelectButton extends Button {
 
         int pos;
 
-        public PlayerSelectButton(int pos) {
+        PlayerSelectButton(int pos) {
             this.pos = pos;
             setImagePosition(2, -3);
-            setGeometry(264, 98 + 20 * pos, 24, 18);
+            setGeometry(264, 95 + 21 * pos, 24, 19);
         }
 
         @Override
@@ -403,13 +403,13 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class PlayerNumberButton extends InputButton {
+    private class PlayerNumberButton extends InputButton {
 
         Player player;
 
-        public PlayerNumberButton(int p) {
+        PlayerNumberButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(32, 98 + 20 * p, 34, 18);
+            setGeometry(32, 95 + 21 * p, 34, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(3);
         }
@@ -423,7 +423,7 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    void updateNumberButton(int p) {
+    private void updateNumberButton(int p) {
         if (p < team.players.size()) {
             Player player = team.playerAtPosition(p);
             numberButtons[p].setText(player.number);
@@ -433,13 +433,13 @@ public class EditPlayers extends GlScreen {
         numberButtons[p].setActive(p < team.players.size());
     }
 
-    class PlayerNameButton extends InputButton {
+    private class PlayerNameButton extends InputButton {
 
         Player player;
 
-        public PlayerNameButton(int p) {
+        PlayerNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(442, 98 + 20 * p, 364, 18);
+            setGeometry(442, 95 + 21 * p, 364, 19);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(28);
         }
@@ -453,7 +453,7 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    void updateNameButton(int p) {
+    private void updateNameButton(int p) {
         setPlayerWidgetColor(nameButtons[p], p);
         if (p < team.players.size()) {
             Player player = team.playerAtPosition(p);
@@ -464,13 +464,13 @@ public class EditPlayers extends GlScreen {
         nameButtons[p].setActive(p < team.players.size());
     }
 
-    class PlayerShirtNameButton extends InputButton {
+    private class PlayerShirtNameButton extends InputButton {
 
         Player player;
 
-        public PlayerShirtNameButton(int p) {
+        PlayerShirtNameButton(int p) {
             player = team.playerAtPosition(p);
-            setGeometry(68, 98 + 20 * p, 194, 18);
+            setGeometry(68, 95 + 21 * p, 194, 19);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(14);
         }
@@ -484,7 +484,7 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    void updateShirtNameButton(int p) {
+    private void updateShirtNameButton(int p) {
         setPlayerWidgetColor(shirtNameButtons[p], p);
         if (p < team.players.size()) {
             Player player = team.playerAtPosition(p);
@@ -495,13 +495,13 @@ public class EditPlayers extends GlScreen {
         shirtNameButtons[p].setActive(p < team.players.size());
     }
 
-    class PlayerNationalityButton extends Button {
+    private class PlayerNationalityButton extends Button {
 
         int pos;
 
-        public PlayerNationalityButton(int pos) {
+        PlayerNationalityButton(int pos) {
             this.pos = pos;
-            setGeometry(808, 98 + 20 * pos, 56, 18);
+            setGeometry(808, 95 + 21 * pos, 56, 19);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -552,13 +552,13 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class PlayerRoleButton extends Button {
+    private class PlayerRoleButton extends Button {
 
         int p;
 
-        public PlayerRoleButton(int p) {
+        PlayerRoleButton(int p) {
             this.p = p;
-            setGeometry(866, 98 + 20 * p, 30, 18);
+            setGeometry(866, 95 + 21 * p, 30, 19);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -590,7 +590,7 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    void updateRoleButton(int p) {
+    private void updateRoleButton(int p) {
         if (p < team.players.size()) {
             Player player = team.playerAtPosition(p);
             roleButtons[p].setText(Assets.strings.get(player.getRoleLabel()));
@@ -600,23 +600,23 @@ public class EditPlayers extends GlScreen {
         roleButtons[p].setActive(p < team.players.size());
     }
 
-    class SkillLabel extends Label {
+    private class SkillLabel extends Label {
 
-        public SkillLabel(Player.Skill skill) {
-            setGeometry(898 + 38 * skill.ordinal(), 98 - 20, 36, 18);
+        SkillLabel(Player.Skill skill) {
+            setGeometry(898 + 38 * skill.ordinal(), 95 - 21, 36, 19);
             setText(Assets.strings.get(Player.getSkillLabel(skill)), Font.Align.CENTER, Assets.font10);
         }
     }
 
-    class SkillButton extends Button {
+    private class SkillButton extends Button {
 
         int pos;
         Player.Skill skill;
 
-        public SkillButton(int pos, Player.Skill skill) {
+        SkillButton(int pos, Player.Skill skill) {
             this.pos = pos;
             this.skill = skill;
-            setGeometry(898 + 38 * skill.ordinal(), 98 + 20 * pos, 36, 18);
+            setGeometry(898 + 38 * skill.ordinal(), 95 + 21 * pos, 36, 19);
         }
 
         @Override
@@ -663,13 +663,13 @@ public class EditPlayers extends GlScreen {
 
     }
 
-    class PlayerPriceButton extends Button {
+    private class PlayerPriceButton extends Button {
 
         int pos;
 
-        public PlayerPriceButton(int pos) {
+        PlayerPriceButton(int pos) {
             this.pos = pos;
-            setGeometry(1164, 98 + 20 * pos, 90, 18);
+            setGeometry(1164, 95 + 21 * pos, 90, 19);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -713,9 +713,9 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class TeamNameButton extends InputButton {
+    private class TeamNameButton extends InputButton {
 
-        public TeamNameButton() {
+        TeamNameButton() {
             setGeometry(194, 30, 450, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(team.name, Font.Align.CENTER, Assets.font14);
@@ -731,9 +731,9 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class TmpPlayerButton extends Button {
+    private class TmpPlayerButton extends Button {
 
-        public TmpPlayerButton() {
+        TmpPlayerButton() {
             setGeometry(1000, 30, 194, 24);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
             setText("", Font.Align.CENTER, Assets.font10);
@@ -752,9 +752,9 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class EditTeamButton extends Button {
+    private class EditTeamButton extends Button {
 
-        public EditTeamButton() {
+        EditTeamButton() {
             setGeometry(100, 660, 206, 36);
             setColors(0x00825F, 0x00C28E, 0x00402F);
             setText(Assets.strings.get("TEAM"), Font.Align.CENTER, Assets.font14);
@@ -766,9 +766,9 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class NewPlayerButton extends Button {
+    private class NewPlayerButton extends Button {
 
-        public NewPlayerButton() {
+        NewPlayerButton() {
             setGeometry(310, 660, 226, 36);
             setText(Assets.strings.get("NEW PLAYER"), Font.Align.CENTER, Assets.font14);
         }
@@ -806,9 +806,9 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class DeletePlayerButton extends Button {
+    private class DeletePlayerButton extends Button {
 
-        public DeletePlayerButton() {
+        DeletePlayerButton() {
             setGeometry(540, 660, 226, 36);
             setText(Assets.strings.get("DELETE PLAYER"), Font.Align.CENTER, Assets.font14);
         }
@@ -850,9 +850,9 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    class SaveButton extends Button {
+    private class SaveButton extends Button {
 
-        public SaveButton() {
+        SaveButton() {
             setGeometry(770, 660, 196, 36);
             setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
         }
@@ -892,7 +892,7 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    void setPlayerWidgetColor(Widget w, int pos) {
+    private void setPlayerWidgetColor(Widget w, int pos) {
         // goalkeeper
         if (pos == 0) {
             w.setColors(0x4AC058, 0x81D38B, 0x308C3B);
@@ -924,7 +924,7 @@ public class EditPlayers extends GlScreen {
         }
     }
 
-    void updatePlayerButtons(int pos) {
+    private void updatePlayerButtons(int pos) {
         hairColorButtons[pos].setChanged(true);
         hairStyleButtons[pos].setChanged(true);
         skinColorButtons[pos].setChanged(true);
