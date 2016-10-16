@@ -43,6 +43,8 @@ class MatchPresentation extends GlScreen {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
 
+        Team.kitAutoSelection(homeTeam, awayTeam);
+
         matchSettings = new MatchSettings(competition, Weather.Strength.STRONG); // TODO: replace with game option weatherMaxStrength
 
         background = new Image("images/backgrounds/menu_match_presentation.jpg");

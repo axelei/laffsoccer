@@ -261,7 +261,15 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 4,
+        "speed": 3,
+        "finishing": 4
+      }
     },
     {
       "name": "ANGELO VOLPATO",
@@ -307,7 +315,15 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ALDO STRADA",
@@ -317,7 +333,15 @@
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 4
+      }
     }
   ]
 }

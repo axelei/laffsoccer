@@ -99,4 +99,14 @@ public class Kit implements Json.Serializable {
         rgbPairs.add(new RgbPair(0x0079BF, socks.darker().darker()));
         rgbPairs.add(new RgbPair(0x006AA7, socks.darker().darker().darker()));
     }
+
+    public static float colorDifference(Kit homeKit, Kit awayKit) {
+        int homeColor1 = homeKit.shirt1.getRGB();
+        int homeColor2 = homeKit.shirt2.getRGB();
+        int awayColor1 = awayKit.shirt1.getRGB();
+        int awayColor2 = awayKit.shirt2.getRGB();
+        float differencePair = GlColor.difference(homeColor1, awayColor1) + GlColor.difference(homeColor2, awayColor2);
+        float differenceSwap = GlColor.difference(homeColor1, awayColor2) + GlColor.difference(homeColor2, awayColor1);
+        return Math.min(differencePair, differenceSwap);
+    }
 }

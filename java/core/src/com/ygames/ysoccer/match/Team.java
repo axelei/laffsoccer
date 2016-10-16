@@ -242,4 +242,19 @@ public class Team {
         }
         return -1;
     }
+
+    public static void kitAutoSelection(Team homeTeam, Team awayTeam) {
+        for (int i = 0; i < homeTeam.kits.size(); i++) {
+            for (int j = 0; j < awayTeam.kits.size(); j++) {
+                Kit homeKit = homeTeam.kits.get(i);
+                Kit awayKit = awayTeam.kits.get(j);
+                float difference = Kit.colorDifference(homeKit, awayKit);
+                if (difference > 45) {
+                    homeTeam.kitIndex = i;
+                    awayTeam.kitIndex = j;
+                    return;
+                }
+            }
+        }
+    }
 }
