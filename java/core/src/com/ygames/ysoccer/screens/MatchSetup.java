@@ -32,7 +32,9 @@ class MatchSetup extends GlScreen {
     private PitchTypePicture pitchTypePicture;
     private WeatherButton weatherButton;
     private WeatherPicture weatherPicture;
+    private KitPicture[] kitPictures = new KitPicture[2];
     private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
+    private Widget playMatchButton;
 
     MatchSetup(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
@@ -86,6 +88,9 @@ class MatchSetup extends GlScreen {
             w = new TeamNameButton(team, t);
             widgets.add(w);
 
+            kitPictures[t] = new KitPicture(team, t);
+            widgets.add(kitPictures[t]);
+
             kitButtons[t] = new ArrayList<KitButton>();
             for (int i = 0; i < team.kits.size(); i++) {
                 KitButton kitButton = new KitButton(team, t, i);
@@ -94,10 +99,10 @@ class MatchSetup extends GlScreen {
             }
         }
 
-        w = new PlayMatchButton();
-        widgets.add(w);
+        playMatchButton = new PlayMatchButton();
+        widgets.add(playMatchButton);
 
-        selectedWidget = w;
+        selectedWidget = playMatchButton;
 
         w = new ExitButton();
         widgets.add(w);
@@ -270,10 +275,28 @@ class MatchSetup extends GlScreen {
     private class TeamNameButton extends Button {
 
         TeamNameButton(Team team, int teamIndex) {
-            setGeometry(45 + teamIndex * game.settings.GUI_WIDTH / 2, 340, game.settings.GUI_WIDTH / 2 - 90, 34);
+            int sign = teamIndex == 0 ? -1 : 1;
+            setGeometry((game.settings.GUI_WIDTH - 520) / 2 + 280 * sign, 330, 520, 34);
             setColors(0x1F1F95);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class KitPicture extends Button {
+
+        Team team;
+
+        KitPicture(Team team, int teamIndex) {
+            this.team = team;
+            int sign = teamIndex == 0 ? -1 : 1;
+            setGeometry(game.settings.GUI_WIDTH / 2 - 83 + 280 * sign, 390, 167, 304);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            image = team.kits.get(team.kitIndex).loadImage();
         }
     }
 
@@ -287,19 +310,22 @@ class MatchSetup extends GlScreen {
             this.team = team;
             this.teamIndex = teamIndex;
             this.kitIndex = kitIndex;
-            setGeometry((1 + 2 * teamIndex) * (game.settings.GUI_WIDTH) / 4 - 48 * (team.kits.size()) + 96 * kitIndex + 5, 400, 86, 154);
-            setImageScale(0.5f, 0.5f);
-            image = team.kits.get(kitIndex).loadImage();
+            setSize(58, 104);
+            setImageScale(0.33333334f, 0.33333334f);
         }
 
         @Override
         public void onUpdate() {
+            image = team.kits.get(kitIndex).loadImage();
             if (team.kitIndex == kitIndex) {
-                setImageScale(0.5f, 0.5f);
-                setImagePosition(0, 0);
+                setVisible(false);
             } else {
-                setImageScale(0.33333334f, 0.33333334f);
-                setImagePosition(14, 26);
+                setVisible(true);
+                int position = kitIndex - (team.kitIndex < kitIndex ? 1 : 0);
+                int sign = teamIndex == 0 ? -1 : 1;
+                int x = (1 + 2 * teamIndex) * (game.settings.GUI_WIDTH) / 4 + sign * (50 + 68 * (1 + position / 2)) - 34;
+                int y = 430 + 114 * (position % 2);
+                setPosition(x, y);
             }
         }
 
@@ -309,13 +335,15 @@ class MatchSetup extends GlScreen {
             for (KitButton kitButton : kitButtons[teamIndex]) {
                 kitButton.setChanged(true);
             }
+            kitPictures[teamIndex].setChanged(true);
+            selectedWidget = playMatchButton;
         }
     }
 
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2, 590, 240, 40);
+            setGeometry((game.settings.GUI_WIDTH - 240) / 2, 510, 240, 50);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
