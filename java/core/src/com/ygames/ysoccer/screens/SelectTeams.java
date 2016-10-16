@@ -263,7 +263,7 @@ public class SelectTeams extends GlScreen {
                     } else if (game.teamList.get(Match.AWAY).controlMode != Team.ControlMode.COMPUTER) {
                         game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
                     } else {
-                        game.setScreen(new SetupMatch(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY)));
+                        game.setScreen(new MatchSetup(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY)));
                     }
                     break;
                 case LEAGUE:

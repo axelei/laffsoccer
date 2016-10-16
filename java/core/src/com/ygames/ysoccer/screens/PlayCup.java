@@ -274,7 +274,7 @@ public class PlayCup extends GlScreen {
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                 game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, Match.AWAY));
             } else {
-                game.setScreen(new SetupMatch(game, null, null, cup, homeTeam, awayTeam));
+                game.setScreen(new MatchSetup(game, null, null, cup, homeTeam, awayTeam));
             }
         }
     }

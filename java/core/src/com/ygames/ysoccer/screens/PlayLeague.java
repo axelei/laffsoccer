@@ -251,7 +251,7 @@ public class PlayLeague extends GlScreen {
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                 game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, Match.AWAY));
             } else {
-                game.setScreen(new SetupMatch(game, null, null, league, homeTeam, awayTeam));
+                game.setScreen(new MatchSetup(game, null, null, league, homeTeam, awayTeam));
             }
         }
     }

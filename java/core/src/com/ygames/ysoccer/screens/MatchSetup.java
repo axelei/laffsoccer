@@ -20,7 +20,7 @@ import com.ygames.ysoccer.match.Weather;
 import java.util.ArrayList;
 import java.util.List;
 
-class SetupMatch extends GlScreen {
+class MatchSetup extends GlScreen {
 
     private FileHandle fileHandle;
     private League league;
@@ -34,7 +34,7 @@ class SetupMatch extends GlScreen {
     private WeatherPicture weatherPicture;
     private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
 
-    SetupMatch(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
+    MatchSetup(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
 
         this.fileHandle = fileHandle;
