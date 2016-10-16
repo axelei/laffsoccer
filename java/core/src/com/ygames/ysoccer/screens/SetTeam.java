@@ -537,7 +537,7 @@ public class SetTeam extends GlScreen {
             if (teamToSet == Match.HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
                 game.setScreen(new SetTeam(game, fileHandle, league, competition, homeTeam, awayTeam, Match.AWAY));
             } else {
-                game.setScreen(new MatchPresentation(game, fileHandle, league, competition, homeTeam, awayTeam));
+                game.setScreen(new SetupMatch(game, fileHandle, league, competition, homeTeam, awayTeam));
             }
         }
     }
