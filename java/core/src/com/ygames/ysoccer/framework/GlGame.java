@@ -1,7 +1,10 @@
 package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Cursor;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
@@ -14,6 +17,7 @@ public class GlGame extends Game {
     public Settings settings;
     public GlGraphics glGraphics;
     public List<InputDevice> inputDevices;
+    public Mouse mouse;
     public MenuInput menuInput;
     public Player tmpPlayer;
 
@@ -46,6 +50,10 @@ public class GlGame extends Game {
         keyboard = new Keyboard();
         keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.CONTROL_LEFT, Input.Keys.SHIFT_LEFT);
         inputDevices.add(keyboard);
+
+        Cursor customCursor = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/arrow.png")), 0, 0);
+        Gdx.graphics.setCursor(customCursor);
+        mouse = new Mouse();
 
         state = State.NONE;
         stateColor = new WidgetColor();

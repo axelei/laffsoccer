@@ -25,6 +25,17 @@ public abstract class GlScreen implements Screen {
 
     @Override
     public void render(float delta) {
+
+        game.mouse.read(game.glGraphics.camera);
+
+        if (selectedWidget == null || !selectedWidget.entryMode) {
+            for (Widget w : widgets) {
+                if (w.contains(game.mouse.position.x, game.mouse.position.y) && w.isVisible && w.isActive) {
+                    selectedWidget = w;
+                }
+            }
+        }
+
         int len = game.inputDevices.size();
         for (int i = 0; i < len; i++) {
             game.inputDevices.get(i).update();
@@ -192,6 +203,15 @@ public abstract class GlScreen implements Screen {
 
             // fire 2
             if (inputDevice.fire21) {
+                menuInput.fire2 = true;
+            }
+        }
+
+        if (selectedWidget != null && selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
+            if (game.mouse.button1) {
+                menuInput.fire1 = true;
+            }
+            if (game.mouse.button2) {
                 menuInput.fire2 = true;
             }
         }

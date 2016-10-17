@@ -34,7 +34,7 @@ public abstract class Widget {
     // state
     public boolean isActive;
     public boolean isSelected;
-    protected boolean entryMode;
+    public boolean entryMode;
     public boolean isVisible;
 
     // misc
@@ -194,4 +194,7 @@ public abstract class Widget {
         return len <= 8 ? len : Emath.floor(len / 3.0) + 1;
     }
 
+    public boolean contains(float x0, float y0) {
+        return (x0 >= x) && (x0 <= x + w) && (y0 >= y) && (y0 <= y + h);
+    }
 }
