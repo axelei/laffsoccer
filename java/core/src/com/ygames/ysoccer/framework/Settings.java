@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.ygames.ysoccer.match.Weather;
 
 public class Settings {
     public final String APP_NAME = "YSoccer";
@@ -13,10 +14,11 @@ public class Settings {
     public boolean useFlags;
     public double maxPlayerValue;
     public String currency;
+    public int weatherMaxStrength;
 
-    Preferences preferences;
+    private Preferences preferences;
 
-    public Settings() {
+    Settings() {
         preferences = Gdx.app.getPreferences(APP_NAME + VERSION);
         locale = preferences.getString("locale", "en");
         benchSize = preferences.getInteger("benchSize", 5);
@@ -24,6 +26,7 @@ public class Settings {
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 1)
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
+        weatherMaxStrength = preferences.getInteger("weatherMaxStrength", Weather.Strength.LIGHT);
     }
 
     public void save() {
@@ -35,6 +38,7 @@ public class Settings {
         preferences.putInteger("maxPlayerValueM", m);
         preferences.putInteger("maxPlayerValueE", e);
         preferences.putString("currency", currency);
+        preferences.putInteger("weatherMaxStrength", weatherMaxStrength);
         preferences.flush();
     }
 }

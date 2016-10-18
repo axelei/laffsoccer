@@ -14,7 +14,7 @@ public class Weather {
         public static final int LIGHT = 1;
         public static final int STRONG = 2;
 
-        public static final String[] names = {"EFFECTS.OFF", "EFFECTS.LIGHT", "EFFECTS.STRONG"};
+        public static final String[] names = {"WEATHER.EFFECTS.OFF", "WEATHER.EFFECTS.LIGHT", "WEATHER.EFFECTS.STRONG"};
     }
 
     public static int[][] cap = {

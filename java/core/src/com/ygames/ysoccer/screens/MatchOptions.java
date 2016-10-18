@@ -7,6 +7,8 @@ import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Weather;
+import com.ygames.ysoccer.math.Emath;
 
 class MatchOptions extends GlScreen {
 
@@ -21,6 +23,11 @@ class MatchOptions extends GlScreen {
 
         w = new WeatherEffectsLabel();
         widgets.add(w);
+
+        w = new WeatherEffectsButton();
+        widgets.add(w);
+
+        selectedWidget = w;
     }
 
     private class TitleButton extends Button {
@@ -42,9 +49,38 @@ class MatchOptions extends GlScreen {
 
         WeatherEffectsLabel() {
             setColors(0x76683C);
-            setGeometry(110, 190, 470, 36);
-            setText(Assets.strings.get("WEATHER EFFECTS"), Font.Align.CENTER, Assets.font14);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 190, 440, 36);
+            setText(Assets.strings.get("WEATHER.EFFECTS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class WeatherEffectsButton extends Button {
+
+        WeatherEffectsButton() {
+            setColors(0x2B4A61);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 190, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(Weather.Strength.names[game.settings.weatherMaxStrength]));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateWeatherMaxStrength(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateWeatherMaxStrength(-1);
+        }
+
+        private void updateWeatherMaxStrength(int n) {
+            game.settings.weatherMaxStrength = Emath.rotate(game.settings.weatherMaxStrength, Weather.Strength.NONE, Weather.Strength.STRONG, n);
+            setChanged(true);
         }
     }
 }
