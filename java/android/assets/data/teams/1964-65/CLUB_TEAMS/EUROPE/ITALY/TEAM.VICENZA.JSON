@@ -87,7 +87,15 @@
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "GIANFRANCO VOLPATO",
@@ -95,36 +103,6 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "LUCIO DELL'ANGELO",
-      "shirtName": "DELL'ANGELO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "SANDRO TIBERI",
-      "shirtName": "TIBERI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "LUIGI MENTI",
-      "shirtName": "MENTI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -148,6 +126,44 @@
       }
     },
     {
+      "name": "SANDRO TIBERI",
+      "shirtName": "TIBERI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "7",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "LUCIO DELL'ANGELO",
+      "shirtName": "DELL'ANGELO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "6",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "LUIGI MENTI",
+      "shirtName": "MENTI",
+      "nationality": "ITA",
+      "role": "RIGHT_WINGER",
+      "number": "9",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 5,
+        "finishing": 4
+      }
+    },
+    {
       "name": "LUIS VINICIO",
       "shirtName": "VINICIO",
       "nationality": "BRA",
@@ -155,7 +171,15 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 5,
+        "finishing": 6
+      }
     },
     {
       "name": "GIORDANO COLAUSIG",

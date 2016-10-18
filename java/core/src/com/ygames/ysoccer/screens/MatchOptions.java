@@ -18,6 +18,9 @@ class MatchOptions extends GlScreen {
         Widget w;
         w = new TitleButton();
         widgets.add(w);
+
+        w = new WeatherEffectsLabel();
+        widgets.add(w);
     }
 
     private class TitleButton extends Button {
@@ -32,6 +35,16 @@ class MatchOptions extends GlScreen {
         @Override
         public void onUpdate() {
             setText(Assets.strings.get("MATCH OPTIONS"));
+        }
+    }
+
+    private class WeatherEffectsLabel extends Button {
+
+        WeatherEffectsLabel() {
+            setColors(0x76683C);
+            setGeometry(110, 190, 470, 36);
+            setText(Assets.strings.get("WEATHER EFFECTS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
