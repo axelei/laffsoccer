@@ -90,6 +90,11 @@ public class Main extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 315, 350, 36);
             setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new MatchOptions(game));
+        }
     }
 
     class ControlButton extends Button {

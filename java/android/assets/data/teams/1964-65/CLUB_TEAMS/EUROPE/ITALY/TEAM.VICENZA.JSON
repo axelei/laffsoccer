@@ -44,6 +44,24 @@
       "skills": {}
     },
     {
+      "name": "GIULIO SAVOINI",
+      "shirtName": "SAVOINI",
+      "nationality": "ITA",
+      "role": "LEFT_BACK",
+      "number": "3",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 4,
+        "tackling": 5,
+        "control": 4,
+        "speed": 5,
+        "finishing": 5
+      }
+    },
+    {
       "name": "SERGIO CARANTINI",
       "shirtName": "CARANTINI",
       "nationality": "ITA",
@@ -51,17 +69,15 @@
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIULIO SAVOINI",
-      "shirtName": "SAVOINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "AMEDEO STENTI",
@@ -104,16 +120,6 @@
       "skills": {}
     },
     {
-      "name": "GIOVANNI VASTOLA",
-      "shirtName": "VASTOLA",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "8",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
       "name": "LUIGI MENTI",
       "shirtName": "MENTI",
       "nationality": "ITA",
@@ -122,6 +128,24 @@
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
+    },
+    {
+      "name": "GIOVANNI VASTOLA",
+      "shirtName": "VASTOLA",
+      "nationality": "ITA",
+      "role": "LEFT_WINGER",
+      "number": "8",
+      "hairColor": "BROWN",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 3,
+        "control": 5,
+        "speed": 5,
+        "finishing": 5
+      }
     },
     {
       "name": "LUIS VINICIO",
