@@ -4,15 +4,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.match.MatchCore;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Team;
 
 class MatchLoading extends GlScreen {
 
+    MatchCore matchCore;
+
     MatchLoading(GlGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings) {
         super(game);
 
         matchSettings.setup();
+
+        Team[] team = {homeTeam, awayTeam};
+
+        matchCore = new MatchCore(game, team, matchSettings);
 
         Gdx.graphics.setCursor(null);
     }
