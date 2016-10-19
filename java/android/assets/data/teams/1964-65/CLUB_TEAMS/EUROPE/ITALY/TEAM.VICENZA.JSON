@@ -102,11 +102,19 @@
       "name": "GIANFRANCO VOLPATO",
       "shirtName": "VOLPATO",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 5,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "GIOVANNI VASTOLA",
@@ -206,7 +214,15 @@
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "EDO PATREGNANI",
@@ -222,11 +238,19 @@
       "name": "GIORGIO DE MARCHI",
       "shirtName": "DE MARCHI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "DEFENDER",
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "GIOBATTA ZOPPELLETTO",

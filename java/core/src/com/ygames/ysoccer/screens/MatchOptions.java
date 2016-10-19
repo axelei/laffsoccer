@@ -28,6 +28,9 @@ class MatchOptions extends GlScreen {
         widgets.add(w);
 
         selectedWidget = w;
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     private class TitleButton extends Button {
@@ -81,6 +84,26 @@ class MatchOptions extends GlScreen {
         private void updateWeatherMaxStrength(int n) {
             game.settings.weatherMaxStrength = Emath.rotate(game.settings.weatherMaxStrength, Weather.Strength.NONE, Weather.Strength.STRONG, n);
             setChanged(true);
+        }
+    }
+
+    class ExitButton extends Button {
+
+        ExitButton() {
+            setColors(0xC84200);
+            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("EXIT"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.settings.save();
+            game.setScreen(new Main(game));
         }
     }
 }
