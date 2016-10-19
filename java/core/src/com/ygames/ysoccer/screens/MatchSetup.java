@@ -350,7 +350,7 @@ class MatchSetup extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO: game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings));
+            game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings));
         }
     }
 

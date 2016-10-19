@@ -260,17 +260,33 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 3,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "HÉCTOR DEMARCO",
       "shirtName": "DEMARCO",
       "nationality": "URU",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "SERGIO CAMPANA",
@@ -280,7 +296,15 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 5
+      }
     },
     {
       "name": "ADRIANO BARDIN",

@@ -14,8 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GlGame extends Game {
+
+    private static final int SUBFRAMES = 8;
+    private static final int VIRTUAL_REFRESH_RATE = 64;
+    private static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRESH_RATE * SUBFRAMES;
+    private static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
+
     public Settings settings;
     public GlGraphics glGraphics;
+    private float deltaTime;
     public List<InputDevice> inputDevices;
     public Mouse mouse;
     public MenuInput menuInput;
@@ -63,7 +70,16 @@ public class GlGame extends Game {
 
     @Override
     public void render() {
-        super.render();
+
+        deltaTime += Gdx.graphics.getDeltaTime();
+
+        int subFrames = (int) (deltaTime / SUBFRAME_DURATION);
+
+        if (screen != null) {
+            screen.render(subFrames * SUBFRAME_DURATION);
+        }
+
+        deltaTime -= subFrames * SUBFRAME_DURATION;
     }
 
     @Override
