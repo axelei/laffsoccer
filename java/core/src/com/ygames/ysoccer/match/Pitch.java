@@ -25,6 +25,18 @@ public class Pitch {
             "RANDOM"
     };
 
+    static final Grass[] grasses = {
+            new Grass(0x58584C, 0x3C3C34, 4, 70), // frozen
+            new Grass(0x5C3800, 0x442C00, 12, 55), // muddy
+            new Grass(0x486C00, 0x3C5800, 6, 60), // wet
+            new Grass(0x3C5800, 0x2C4400, 10, 60), // soft
+            new Grass(0x486C00, 0x3C5800, 8, 65), // normal
+            new Grass(0x486C00, 0x3C5800, 6, 65), // dry
+            new Grass(0x684C00, 0x463C00, 6, 70), // hard
+            new Grass(0x58584C, 0x3C3C34, 4, 70), // snowed
+            new Grass(0x3C5800, 0x2C4400, 10, 60) // white
+    };
+
     public static int[][] probabilityByMonth = new int[][]{
             // frozen, muddy, wet, soft, normal, dry, hard, snowed, white, cloudy
             {20, 20, 20, 5, 10, 0, 5, 10, 10, 50}, //january

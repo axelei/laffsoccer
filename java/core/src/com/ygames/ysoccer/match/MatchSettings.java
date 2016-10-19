@@ -1,14 +1,17 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
 public class MatchSettings {
 
     public int time;
+    float shadowAlpha;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
     public int pitchType;
 
+    Grass grass;
     public int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG, Weather.RANDOM
     public int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
     private int weatherMaxStrength;
@@ -17,6 +20,7 @@ public class MatchSettings {
     public MatchSettings(Competition competition, int weatherMaxStrength) {
         this.time = competition.time;
         this.pitchType = competition.resolvePitchType();
+        this.grass = new Grass();
         this.weatherMaxStrength = weatherMaxStrength;
         if (competition.getType() == Competition.Type.FRIENDLY) {
             weatherEffect = Weather.RANDOM;
@@ -154,6 +158,92 @@ public class MatchSettings {
                 return sky;
             } else {
                 return 2 * weatherEffect + weatherStrength + 1;
+            }
+        }
+    }
+
+    public void setup() {
+        initTime();
+        initPitchType();
+        initGrass();
+        initWeather();
+        initWind();
+        adjustGrassFriction();
+        adjustGrassBounce();
+    }
+
+    private void initTime() {
+        if (time == Time.RANDOM) {
+            time = Assets.random.nextInt(Time.RANDOM);
+        }
+
+        if (time == Time.NIGHT) {
+            shadowAlpha = 0.4f;
+        } else {
+            shadowAlpha = 0.75f;
+        }
+    }
+
+    private void initPitchType() {
+        if (pitchType == Pitch.RANDOM) {
+            pitchType = Assets.random.nextInt(Pitch.RANDOM);
+        }
+    }
+
+    private void initGrass() {
+        grass.copy(Pitch.grasses[pitchType]);
+    }
+
+    private void initWeather() {
+        if (weatherEffect == Weather.RANDOM) {
+            weatherEffect = Assets.random.nextInt(Weather.RANDOM);
+            weatherStrength = Weather.Strength.STRONG - (int) Math.round(Math.log10(Assets.random.nextInt(16) + 1) / Math.log10(4));
+
+            // constrain by settings
+            weatherStrength = Math.min(weatherStrength, weatherMaxStrength);
+
+            // constrain by pitch_type
+            weatherStrength = Math.min(weatherStrength, Weather.cap[pitchType][weatherEffect]);
+
+            // sky
+            sky = Sky.CLOUDY;
+            if (weatherStrength == Weather.Strength.NONE) {
+                sky = Sky.CLEAR;
+            } else if (weatherEffect == Weather.WIND) {
+                sky = Sky.CLEAR;
+            }
+        }
+    }
+
+    private void initWind() {
+        if (weatherEffect == Weather.WIND) {
+            wind.init(weatherStrength, Assets.random);
+        }
+    }
+
+    private void adjustGrassFriction() {
+        if (weatherStrength != Weather.Strength.NONE) {
+            switch (weatherEffect) {
+                case Weather.RAIN:
+                    grass.friction = grass.friction - weatherStrength;
+                    break;
+
+                case Weather.SNOW:
+                    grass.friction = grass.friction + weatherStrength;
+            }
+        }
+    }
+
+    private void adjustGrassBounce() {
+        if (weatherStrength != Weather.Strength.NONE) {
+            switch (weatherEffect) {
+                case Weather.RAIN:
+                    grass.bounce = grass.bounce - 3 * weatherStrength;
+                    break;
+
+                case Weather.SNOW:
+                    grass.bounce = grass.bounce - 2 * weatherStrength;
+                    break;
             }
         }
     }

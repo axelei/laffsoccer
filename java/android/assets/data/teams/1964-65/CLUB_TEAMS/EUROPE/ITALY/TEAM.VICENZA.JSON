@@ -232,7 +232,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 24
     },
     {
       "name": "GIORGIO DE MARCHI",
@@ -314,7 +315,8 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 22
     },
     {
       "name": "DOMENICO FONTANA",
@@ -324,7 +326,15 @@
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "GIOVANNI CONSOLE",
@@ -334,7 +344,15 @@
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 3
+      }
     }
   ]
 }

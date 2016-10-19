@@ -12,6 +12,8 @@ class MatchLoading extends GlScreen {
     MatchLoading(GlGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings) {
         super(game);
 
+        matchSettings.setup();
+
         Gdx.graphics.setCursor(null);
     }
 

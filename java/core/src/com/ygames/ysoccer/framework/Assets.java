@@ -21,9 +21,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class Assets {
 
+    public static Random random;
     public static I18NBundle strings;
     public static List<String> locales;
     public static Font font14;
@@ -48,6 +50,7 @@ public class Assets {
     public static Image[] weatherIcons = new Image[11];
 
     public static void load(Settings settings) {
+        random = new Random(System.currentTimeMillis());
         loadLocales();
         loadStrings(settings);
         font14 = new Font(14);
