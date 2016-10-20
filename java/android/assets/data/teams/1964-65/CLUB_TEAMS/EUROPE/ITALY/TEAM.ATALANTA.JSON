@@ -8,7 +8,7 @@
     "name": "FERRUCCIO VALCAREGGI",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2",
+  "tactics": "SWEEP",
   "kits": [
     {
       "style": "VERTICAL",
@@ -41,14 +41,15 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 32
     },
     {
-      "name": "ALFREDO PESENTI",
-      "shirtName": "PESENTI I",
+      "name": "FRANCO NODARI",
+      "shirtName": "NODARI",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "2",
+      "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -64,14 +65,40 @@
       "skills": {}
     },
     {
-      "name": "FRANCO NODARI",
-      "shirtName": "NODARI",
+      "name": "UMBERTO COLOMBO",
+      "shirtName": "COLOMBO",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "4",
+      "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 6,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "ALFREDO PESENTI",
+      "shirtName": "PESENTI I",
+      "nationality": "ITA",
+      "role": "RIGHT_BACK",
+      "number": "2",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 5,
+        "control": 4,
+        "speed": 6,
+        "finishing": 2
+      }
     },
     {
       "name": "BRUNO BOLCHI",
@@ -79,16 +106,6 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "5",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "UMBERTO COLOMBO",
-      "shirtName": "COLOMBO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -104,7 +121,7 @@
       "skills": {}
     },
     {
-      "name": "	LUCIANO MAGISTRELLI",
+      "name": "LUCIANO MAGISTRELLI",
       "shirtName": "MAGISTRELLI",
       "nationality": "ITA",
       "role": "ATTACKER",

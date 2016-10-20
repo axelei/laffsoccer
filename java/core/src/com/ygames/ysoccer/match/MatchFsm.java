@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.match;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 
 class MatchFsm {
 
@@ -27,10 +29,14 @@ class MatchFsm {
 
     private MatchCore match;
 
+    private List<MatchState> states;
+
     private ArrayDeque<Action> actions;
     private Action currentAction;
 
     MatchFsm(MatchCore match) {
         this.match = match;
+        states = new ArrayList<MatchState>();
+        actions = new ArrayDeque<Action>();
     }
 }
