@@ -238,11 +238,19 @@
       "name": "ANGELO ANQUILLETTI",
       "shirtName": "ANQUILLETTI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 5,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "LUIGI MILAN",
@@ -270,7 +278,15 @@
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "JOSÉ BATTAGLIA",
@@ -280,7 +296,15 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "LUIGI PESENTI",
