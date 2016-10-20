@@ -52,6 +52,8 @@ public class Player {
 
     public int goals;
 
+    PlayerFsm fsm;
+
     public String getRoleLabel() {
         return roleLabels[role.ordinal()];
     }

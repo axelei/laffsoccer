@@ -232,7 +232,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 28
     },
     {
       "name": "ANGELO ANQUILLETTI",
@@ -314,7 +315,15 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 2,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "VITTORIO CARIOLI",
@@ -322,9 +331,17 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "18",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     }
   ]
 }

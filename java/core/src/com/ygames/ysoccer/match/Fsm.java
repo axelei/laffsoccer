@@ -5,12 +5,12 @@ import com.badlogic.gdx.Gdx;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fsm {
+class Fsm {
 
     private List<State> states;
-    private State state;
+    protected State state;
 
-    public Fsm() {
+    Fsm() {
         states = new ArrayList<State>();
     }
 
@@ -18,7 +18,7 @@ public class Fsm {
         return state;
     }
 
-    public void addState(State s) {
+    void addState(State s) {
         states.add(s);
     }
 
