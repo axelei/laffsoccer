@@ -54,6 +54,27 @@ public class Player {
 
     PlayerFsm fsm;
 
+    float v;
+    public float a;
+
+    float fmx; // 0..7 direction
+    float fmy; // 1 = standing, 0 and 2 = running
+    float fmySweep;
+
+    void animationStandRun() {
+        fmx = Math.round(((a + 360) % 360) / 45) % 8;
+        if (v > 0) {
+            fmySweep = (fmySweep + 0.16f * v / 1000) % 4;
+            if (fmySweep > 3) {
+                fmy = fmySweep - 2;
+            } else {
+                fmy = fmySweep;
+            }
+        } else {
+            fmy = 1;
+        }
+    }
+
     public String getRoleLabel() {
         return roleLabels[role.ordinal()];
     }
