@@ -4,7 +4,9 @@ import com.ygames.ysoccer.framework.GlGame;
 
 public class MatchCore {
 
-    GlGame game;
+    private GlGame game;
+
+    private MatchFsm fsm;
 
     public final Team team[];
 
@@ -14,5 +16,7 @@ public class MatchCore {
         this.game = game;
         this.team = team;
         this.settings = matchSettings;
+
+        fsm = new MatchFsm(this);
     }
 }

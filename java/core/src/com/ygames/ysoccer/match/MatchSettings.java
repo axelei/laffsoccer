@@ -21,6 +21,7 @@ public class MatchSettings {
         this.time = competition.time;
         this.pitchType = competition.resolvePitchType();
         this.grass = new Grass();
+        this.wind = new Wind();
         this.weatherMaxStrength = weatherMaxStrength;
         if (competition.getType() == Competition.Type.FRIENDLY) {
             weatherEffect = Weather.RANDOM;
