@@ -5,10 +5,6 @@ class State {
     private int timer;
     int id;
 
-    int getId() {
-        return id;
-    }
-
     void doActions() {
         timer += 1;
     }

@@ -117,14 +117,22 @@
       }
     },
     {
-      "name": "LUCIANO MAGISTRELLI",
-      "shirtName": "MAGISTRELLI",
+      "name": "BRUNO PETRONI",
+      "shirtName": "PETRONI",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": "8",
+      "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "BRUNO BOLCHI",
@@ -152,14 +160,22 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
-      "name": "BRUNO PETRONI",
-      "shirtName": "PETRONI",
+      "name": "LUCIANO MAGISTRELLI",
+      "shirtName": "MAGISTRELLI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "11",
+      "role": "RIGHT_WINGER",
+      "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -168,8 +184,8 @@
         "heading": 3,
         "tackling": 3,
         "control": 3,
-        "speed": 4,
-        "finishing": 4
+        "speed": 5,
+        "finishing": 3
       }
     },
     {
@@ -236,7 +252,15 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "GIORGIO VENERI",
