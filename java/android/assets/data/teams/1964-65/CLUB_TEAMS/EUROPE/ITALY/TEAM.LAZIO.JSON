@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "IDILIO CEI",
+      "shirtName": "CEI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PIERO DOTTI",
+      "shirtName": "DOTTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "VINCENZO GASPERI",
+      "shirtName": "GASPERI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PIERLUIGI PAGNI",
+      "shirtName": "PAGNI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,8 +74,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "DIEGO ZANETTI",
+      "shirtName": "ZANETTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,8 +84,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PAOLO CAROSI",
+      "shirtName": "CAROSI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
@@ -94,9 +94,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "KURT CHRISTENSEN",
+      "shirtName": "CHRISTENSEN",
+      "nationality": "DEN",
       "role": "MIDFIELDER",
       "number": "7",
       "hairColor": "BLACK",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "NELLO GOVERNATO",
+      "shirtName": "GOVERNATO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,8 +114,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ALBERTO MARI",
+      "shirtName": "MARI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "9",
@@ -124,8 +124,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "VITO D'AMATO",
+      "shirtName": "D'AMATO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
@@ -134,8 +134,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIAMPAOLO PIACERI",
+      "shirtName": "PIACERI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,8 +144,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ROBERTO GORI",
+      "shirtName": "GORI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -154,8 +154,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIAMPIERO VITALI",
+      "shirtName": "VITALI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
@@ -164,9 +164,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "CAN BARTU",
+      "shirtName": "BARTU",
+      "nationality": "TUR",
       "role": "MIDFIELDER",
       "number": "14",
       "hairColor": "BLACK",
@@ -174,8 +174,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ANTONIO RENNA",
+      "shirtName": "RENNA",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "15",
@@ -184,8 +184,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO GALLI",
+      "shirtName": "GALLI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "16",
@@ -194,61 +194,21 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "EUGENIO FASCETTI",
+      "shirtName": "FASCETTI",
       "nationality": "ITA",
-      "role": "GOALKEEPER",
+      "role": "MIDFIELDER",
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANFRANCO PETRIS",
+      "shirtName": "PETRIS",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "ATTACKER",
       "number": "18",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "19",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "20",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "21",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}

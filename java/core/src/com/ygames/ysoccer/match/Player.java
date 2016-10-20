@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.RgbPair;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,15 @@ public class Player {
 
     PlayerFsm fsm;
 
+    boolean isVisible;
+
+    public float x;
+    public float y;
     float v;
     public float a;
+
+    float tx; // x position (target)
+    float ty; // y position (target)
 
     float fmx; // 0..7 direction
     float fmy; // 1 = standing, 0 and 2 = running
@@ -73,6 +81,14 @@ public class Player {
         } else {
             fmy = 1;
         }
+    }
+
+    float targetDistance() {
+        return Emath.dist(tx, ty, x, y);
+    }
+
+    float targetAngle() {
+        return Emath.aTan2(ty - y, tx - x);
     }
 
     public String getRoleLabel() {
