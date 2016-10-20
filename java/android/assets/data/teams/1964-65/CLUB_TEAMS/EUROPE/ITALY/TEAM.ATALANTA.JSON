@@ -48,11 +48,19 @@
       "name": "FRANCO NODARI",
       "shirtName": "NODARI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "PIERO GARDONI",
@@ -62,7 +70,15 @@
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "UMBERTO COLOMBO",
@@ -131,16 +147,6 @@
       "skills": {}
     },
     {
-      "name": "MARIO MEREGHETTI",
-      "shirtName": "MEREGHETTI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "9",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
       "name": "ENRICO NOVA",
       "shirtName": "NOVA",
       "nationality": "ITA",
@@ -149,6 +155,24 @@
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
+    },
+    {
+      "name": "MARIO MEREGHETTI",
+      "shirtName": "MEREGHETTI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "9",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "BRUNO PETRONI",

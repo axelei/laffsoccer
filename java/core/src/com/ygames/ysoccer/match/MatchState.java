@@ -2,11 +2,11 @@ package com.ygames.ysoccer.match;
 
 class MatchState {
 
-    private int timer;
-    private int id;
-    protected Match match;
+    protected int timer;
+    protected int id;
+    protected MatchCore match;
 
-    public MatchState(Match match) {
+    public MatchState(MatchCore match) {
         this.match = match;
     }
 

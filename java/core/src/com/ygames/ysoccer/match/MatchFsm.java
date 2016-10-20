@@ -34,9 +34,15 @@ class MatchFsm {
     private ArrayDeque<Action> actions;
     private Action currentAction;
 
+    static final int STATE_INTRO = 1;
+
+    private MatchStateIntro stateIntro;
+
     MatchFsm(MatchCore match) {
         this.match = match;
         states = new ArrayList<MatchState>();
         actions = new ArrayDeque<Action>();
+
+        states.add(stateIntro = new MatchStateIntro(match));
     }
 }
