@@ -252,12 +252,10 @@ class Ball {
 
         // "sette" **
         if ((ySide * y < Const.GOAL_LINE)
-                && (Emath.dist(y0, z0, ySide * Const.GOAL_LINE,
-                Const.CROSSBAR_H) > 6)
+                && (Emath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 6)
                 && (Emath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 6)
-                && ((Emath.dist(x, y, -Const.POST_X, ySide
-                * (Const.GOAL_LINE + 1)) <= 6) || (Emath.dist(x, y,
-                Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
+                && ((Emath.dist(x, y, -Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6)
+                || (Emath.dist(x, y, Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
 
             // real ball x-y angle (when spinned, it is different from ball.a)
             float ballAxy = Emath.aTan2(y - y0, x - x0);

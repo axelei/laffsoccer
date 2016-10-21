@@ -4,6 +4,12 @@ import com.ygames.ysoccer.math.Emath;
 
 public abstract class InputDevice {
 
+    protected final int ID_COMPUTER = 0;
+    protected final int ID_KEYBOARD = 1;
+    protected final int ID_JOYSTICK = 2;
+
+    private int type; // ID_COMPUTER, ID_KEYBOARD, ID_JOYSTICK
+
     // new values
     protected int x0, y0;
     protected boolean fire10, fire20;
@@ -40,4 +46,8 @@ public abstract class InputDevice {
     }
 
     abstract void read();
+
+    protected void setType(int type) {
+        this.type = type;
+    }
 }

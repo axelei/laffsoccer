@@ -31,6 +31,9 @@ public class Team {
     int index; // 0=HOME, 1=AWAY
 
     public List<Player> players;
+    List<Player> lineup;
+
+    Player near1; // nearest to the ball
 
     public int won;
     public int drawn;
