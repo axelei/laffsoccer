@@ -196,7 +196,15 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "GIAMPAOLO PIACERI",
@@ -206,7 +214,15 @@
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "ROBERTO GORI",
@@ -242,11 +258,19 @@
       "name": "ANTONIO RENNA",
       "shirtName": "RENNA",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_WINGER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 4,
+        "speed": 5,
+        "finishing": 4
+      }
     },
     {
       "name": "CARLO GALLI",
