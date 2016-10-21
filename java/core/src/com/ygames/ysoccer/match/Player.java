@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
@@ -54,6 +55,8 @@ public class Player {
     public int value; // 0 to 49
 
     public int goals;
+
+    Ai ai;
 
     MatchCore match;
     PlayerFsm fsm;
