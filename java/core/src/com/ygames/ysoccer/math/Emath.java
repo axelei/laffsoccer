@@ -2,8 +2,16 @@ package com.ygames.ysoccer.math;
 
 public class Emath {
 
-    public static float TO_RADIANS = (float) Math.PI / 180.0f;
-    public static float TO_DEGREES = 180.0f / (float) Math.PI;
+    private static float TO_RADIANS = (float) Math.PI / 180.0f;
+    private static float TO_DEGREES = 180.0f / (float) Math.PI;
+
+    static public boolean isIn(float x, float a, float b) {
+        return (b > a) ? (a <= x) && (x <= b) : (b <= x) && (x <= a);
+    }
+
+    static public int bound(int value, int valueMin, int valueMax) {
+        return Math.min(Math.max(value, valueMin), valueMax);
+    }
 
     static public float aTan2(float y, float x) {
         return (float) (Math.atan2(y, x) * TO_DEGREES);
@@ -31,6 +39,10 @@ public class Emath {
 
     public static int slide(int value, int low, int high, int step) {
         return Math.min(Math.max(value + step, low), high);
+    }
+
+    public static int sgn(float value) {
+        return value > 0 ? 1 : (value < 0 ? -1 : 0);
     }
 
     public static int floor(double value) {

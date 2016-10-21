@@ -8,6 +8,7 @@ public class MatchCore {
 
     private MatchFsm fsm;
 
+    final Ball ball;
     public final Team team[];
     public int benchSide; // 1 = home upside, -1 = home downside
 
@@ -19,5 +20,7 @@ public class MatchCore {
         this.settings = matchSettings;
 
         fsm = new MatchFsm(this);
+
+        ball = new Ball(this);
     }
 }

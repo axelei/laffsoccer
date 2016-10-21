@@ -72,6 +72,8 @@ public class Player {
     float fmy; // 1 = standing, 0 and 2 = running
     float fmySweep;
 
+    float ballDistance;
+
     void animationStandRun() {
         fmx = Math.round(((a + 360) % 360) / 45) % 8;
         if (v > 0) {

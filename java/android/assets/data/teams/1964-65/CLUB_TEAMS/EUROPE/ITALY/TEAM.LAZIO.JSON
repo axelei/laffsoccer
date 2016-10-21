@@ -252,7 +252,15 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 2,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "ANTONIO RENNA",
@@ -280,7 +288,15 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 2,
+        "control": 2,
+        "speed": 3,
+        "finishing": 4
+      }
     },
     {
       "name": "EUGENIO FASCETTI",
@@ -290,7 +306,15 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 4,
+        "speed": 3,
+        "finishing": 3
+      }
     },
     {
       "name": "GIANFRANCO PETRIS",
