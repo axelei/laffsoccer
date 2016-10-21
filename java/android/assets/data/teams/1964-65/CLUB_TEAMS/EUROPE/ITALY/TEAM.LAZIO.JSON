@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 28
     },
     {
       "name": "PIERO DOTTI",
@@ -57,11 +58,19 @@
       "name": "VINCENZO GASPERI",
       "shirtName": "GASPERI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "MIDFIELDER",
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 5,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "PIERLUIGI PAGNI",
@@ -71,7 +80,15 @@
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "DIEGO ZANETTI",

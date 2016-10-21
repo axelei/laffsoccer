@@ -39,7 +39,9 @@ public class Player {
 
     public String name;
     public String shirtName;
+    Team team;
     public String nationality;
+    int index;
     public Role role;
     public String number;
 
@@ -53,6 +55,7 @@ public class Player {
 
     public int goals;
 
+    MatchCore match;
     PlayerFsm fsm;
 
     boolean isVisible;

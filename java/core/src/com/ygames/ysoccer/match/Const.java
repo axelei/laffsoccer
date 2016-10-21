@@ -2,7 +2,7 @@ package com.ygames.ysoccer.match;
 
 public class Const {
 
-    public static int[][] goalsProbability = new int[][]{
+    static int[][] goalsProbability = new int[][]{
             {1000, 0, 0, 0, 0, 0, 0},
             {870, 100, 25, 4, 1, 0, 0},
             {730, 210, 50, 7, 2, 1, 0},
@@ -50,6 +50,11 @@ public class Const {
     public static final int TEAM_SIZE = 11;
     public static final int BASE_TEAM = 16;
     public static final int FULL_TEAM = 26;
+
+    // benches
+    static final int BENCH_X = -544;
+    static final int BENCH_Y_UP = -198;
+    static final int BENCH_Y_DOWN = 38;
 
     // tactics
     static final int TACT_DX = 68;

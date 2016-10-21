@@ -9,6 +9,7 @@ public class MatchCore {
     private MatchFsm fsm;
 
     public final Team team[];
+    public int benchSide; // 1 = home upside, -1 = home downside
 
     public MatchSettings settings;
 
