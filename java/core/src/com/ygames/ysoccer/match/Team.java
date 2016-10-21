@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Comparator;
@@ -21,7 +22,6 @@ public class Team {
     public Coach coach;
 
     public String tactics;
-    public ControlMode controlMode;
 
     public int kitIndex;
     public List<Kit> kits;
@@ -32,6 +32,9 @@ public class Team {
 
     public List<Player> players;
     List<Player> lineup;
+
+    public ControlMode controlMode;
+    InputDevice inputDevice;
 
     Player near1; // nearest to the ball
 
@@ -131,6 +134,10 @@ public class Team {
             // by names
             return o1.name.compareTo(o2.name);
         }
+    }
+
+    boolean usesAutomaticInputDevice() {
+        return (controlMode == ControlMode.PLAYER) && (inputDevice != null);
     }
 
     public void updateStats(int goalsFor, int goalsAgainst, int pointsForAWin) {

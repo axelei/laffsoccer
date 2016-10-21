@@ -47,6 +47,10 @@ public abstract class InputDevice {
 
     abstract void read();
 
+    public boolean fire1Down() {
+        return fire10 && !fire11;
+    }
+
     protected void setType(int type) {
         this.type = type;
     }

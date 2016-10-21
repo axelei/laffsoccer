@@ -5,8 +5,10 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
 import com.ygames.ysoccer.framework.Image;
+import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.math.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,15 +58,24 @@ public class Player {
 
     public int goals;
 
+    public InputDevice inputDevice;
     Ai ai;
+
+    float kickAngle;
 
     MatchCore match;
     PlayerFsm fsm;
+
+    float speed;
 
     boolean isVisible;
 
     public float x;
     public float y;
+    float z;
+    float x0;
+    float y0;
+    float z0;
     float v;
     public float a;
 
@@ -77,6 +88,11 @@ public class Player {
 
     float ballDistance;
 
+    // from 0 to BALL_PREDICTION-1: frames required to reach the ball
+    // equal to BALL_PREDICTION: ball too far to be reached
+    // should be updated every frame
+    int frameDistance;
+
     void animationStandRun() {
         fmx = Math.round(((a + 360) % 360) / 45) % 8;
         if (v > 0) {
@@ -88,6 +104,33 @@ public class Player {
             }
         } else {
             fmy = 1;
+        }
+    }
+
+    public void getPossession() {
+        if ((ballDistance <= 8)
+                && Emath.dist(x0, y0, match.ball.x0, match.ball.y0) > 8
+                && (match.ball.z < (Const.PLAYER_H + Const.BALL_R))) {
+
+            float smoothedBallV = match.ball.v * 0.5f;
+            Vector2 ballVec = new Vector2(smoothedBallV, match.ball.a, true);
+            Vector2 playerVec = new Vector2(v, a, true);
+
+            Vector2 differenceVec = playerVec.sub(ballVec);
+
+            if (differenceVec.v < 220 + 7 * skills.control) {
+                match.ball.setOwner(this);
+                match.ball.x = x + (Const.BALL_R - 1) * Emath.cos(a);
+                match.ball.y = y + (Const.BALL_R - 1) * Emath.sin(a);
+                match.ball.v = v;
+                match.ball.a = a;
+            } else {
+                match.ball.setOwner(this);
+                match.ball.setOwner(null);
+                match.ball.collisionPlayer(this, 0.5f * differenceVec.v);
+            }
+
+            match.ball.vz = match.ball.vz / (2 + skills.control);
         }
     }
 

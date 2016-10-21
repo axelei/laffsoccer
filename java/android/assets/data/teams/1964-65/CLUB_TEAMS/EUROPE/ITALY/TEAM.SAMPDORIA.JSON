@@ -41,17 +41,26 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 27
     },
     {
       "name": "GUIDO VINCENZI",
       "shirtName": "VINCENZI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 5,
+        "control": 4,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "FRANCESCO MORINI",
@@ -84,14 +93,22 @@
       "skills": {}
     },
     {
-      "name": "ENEA MASIERO",
-      "shirtName": "MASIERO",
+      "name": "PAOLO BARISON",
+      "shirtName": "BARISON",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
-      "hairColor": "BLACK",
+      "role": "LEFT_WINGER",
+      "number": "11",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 7,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 5
+      }
     },
     {
       "name": "MARIO FRUSTALUPI",
@@ -134,11 +151,11 @@
       "skills": {}
     },
     {
-      "name": "PAOLO BARISON",
-      "shirtName": "BARISON",
+      "name": "ENEA MASIERO",
+      "shirtName": "MASIERO",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "11",
+      "role": "MIDFIELDER",
+      "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -243,5 +260,5 @@
       "hairStyle": "SMOOTH_A",
       "skills": {}
     }
- ]
+  ]
 }
