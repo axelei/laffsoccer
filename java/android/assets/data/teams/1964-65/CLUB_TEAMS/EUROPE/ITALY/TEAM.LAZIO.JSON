@@ -124,7 +124,15 @@
       "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "KURT CHRISTENSEN",
@@ -132,9 +140,17 @@
       "nationality": "DEN",
       "role": "MIDFIELDER",
       "number": "7",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "NELLO GOVERNATO",
@@ -158,11 +174,19 @@
       "name": "ALBERTO MARI",
       "shirtName": "MARI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "RIGHT_WINGER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "VITO D'AMATO",
