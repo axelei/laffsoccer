@@ -8,7 +8,7 @@
     "name": "UMBERTO MANNOCCI",
     "nationality": "ITA"
   },
-  "tactics": "4-4-2",
+  "tactics": "3-5-2",
   "kits": [
     {
       "style": "PLAIN",
@@ -45,6 +45,24 @@
       "value": 28
     },
     {
+      "name": "PIERLUIGI PAGNI",
+      "shirtName": "PAGNI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "4",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
+    },
+    {
       "name": "PIERO DOTTI",
       "shirtName": "DOTTI",
       "nationality": "ITA",
@@ -52,7 +70,15 @@
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "VINCENZO GASPERI",
@@ -73,32 +99,22 @@
       }
     },
     {
-      "name": "PIERLUIGI PAGNI",
-      "shirtName": "PAGNI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "4",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 6,
-        "tackling": 6,
-        "control": 4,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
       "name": "DIEGO ZANETTI",
       "shirtName": "ZANETTI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 6,
+        "control": 5,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "PAOLO CAROSI",
@@ -128,7 +144,15 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "ALBERTO MARI",
