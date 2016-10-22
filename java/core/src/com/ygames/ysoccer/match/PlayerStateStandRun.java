@@ -74,8 +74,7 @@ class PlayerStateStandRun extends PlayerState {
                 // else head or tackle
             } else if (player.frameDistance < Const.BALL_PREDICTION) {
                 if (ball.prediction[player.frameDistance].z > 0.6f * Const.PLAYER_H) {
-                    // TODO
-                    // return player.fsm.stateHead;
+                    return player.fsm.stateHead;
                 } else if (ball.prediction[player.frameDistance].z < 6) {
                     if ((player.v > 0) && (player.ballDistance < 100)) {
                         // TODO

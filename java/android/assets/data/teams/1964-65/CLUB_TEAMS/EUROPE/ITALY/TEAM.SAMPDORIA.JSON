@@ -68,9 +68,17 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 6,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ALFIO FONTANA",
@@ -119,16 +127,6 @@
       }
     },
     {
-      "name": "MARIO FRUSTALUPI",
-      "shirtName": "FRUSTALUPI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
       "name": "ENEA MASIERO",
       "shirtName": "MASIERO",
       "nationality": "ITA",
@@ -147,6 +145,24 @@
       }
     },
     {
+      "name": "MARIO FRUSTALUPI",
+      "shirtName": "FRUSTALUPI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "7",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 6,
+        "shooting": 2,
+        "heading": 2,
+        "tackling": 3,
+        "control": 5,
+        "speed": 5,
+        "finishing": 2
+      }
+    },
+    {
       "name": "FRANCISCO LOJACONO",
       "shirtName": "LOJACONO",
       "nationality": "ARG",
@@ -154,7 +170,15 @@
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 6,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 5
+      }
     },
     {
       "name": "JOSÉ RICARDO DA SILVA",

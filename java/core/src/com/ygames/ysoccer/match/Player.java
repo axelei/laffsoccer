@@ -79,6 +79,7 @@ public class Player {
     float y0;
     float z0;
     float v;
+    float vz;
     public float a;
 
     float tx; // x position (target)
