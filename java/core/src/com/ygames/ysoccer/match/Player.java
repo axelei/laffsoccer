@@ -63,6 +63,8 @@ public class Player {
 
     float kickAngle;
 
+    Player facingPlayer;
+    float facingAngle;
     MatchCore match;
     PlayerFsm fsm;
 
@@ -429,5 +431,54 @@ public class Player {
 
         String filename = "images/player/menu/" + hairStyle + ".PNG";
         return Image.loadImage(filename, rgbPairs);
+    }
+
+    boolean searchFacingPlayer(boolean longRange) {
+        return searchFacingPlayer(longRange, false);
+    }
+
+    boolean searchFacingPlayer(boolean longRange, boolean inAction) {
+
+        float minDistance = 0.0f;
+        float maxDistance = Const.TOUCH_LINE / 2;
+        if (longRange) {
+            minDistance = Const.TOUCH_LINE / 2;
+            maxDistance = Const.TOUCH_LINE;
+        }
+
+        float maxAngle;
+        if (inAction) {
+            maxAngle = 15.5f + skills.passing;
+        } else {
+            maxAngle = 22.5f;
+        }
+
+        float facingDelta = maxDistance * Emath.sin(maxAngle);
+
+        facingPlayer = null;
+        facingAngle = 0.0f;
+
+        int len = team.lineup.size();
+        for (int i = 0; i < len; i++) {
+            Player ply = team.lineup.get(i);
+            if (ply == this) {
+                continue;
+            }
+
+            float plyDistance = Emath.dist(x, y, ply.x, ply.y);
+            float plyAngle = ((Emath.aTan2(ply.y + 5 * Emath.sin(ply.a) - y,
+                    ply.x + 5 * Emath.cos(ply.a) - x) - a + 540.0f) % 360.0f) - 180.0f;
+            float plyDelta = plyDistance * Emath.sin(plyAngle);
+
+            if (Math.abs(plyAngle) < maxAngle && plyDistance > minDistance
+                    && plyDistance < maxDistance
+                    && Math.abs(plyDelta) < Math.abs(facingDelta)) {
+                facingPlayer = ply;
+                facingAngle = plyAngle;
+                facingDelta = plyDelta;
+            }
+        }
+
+        return (facingPlayer != null);
     }
 }

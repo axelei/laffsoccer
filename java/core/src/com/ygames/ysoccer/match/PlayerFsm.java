@@ -8,6 +8,7 @@ class PlayerFsm extends Fsm {
 
     static final int STATE_PHOTO = 6;
     static final int STATE_STAND_RUN = 7;
+    static final int STATE_KICK = 8;
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -15,6 +16,7 @@ class PlayerFsm extends Fsm {
 
     PlayerStatePhoto statePhoto;
     PlayerStateStandRun stateStandRun;
+    PlayerStateKick stateKick;
 
     public PlayerFsm(Player player) {
         addState(stateIdle = new PlayerStateIdle(player));
@@ -23,6 +25,7 @@ class PlayerFsm extends Fsm {
 
         addState(statePhoto = new PlayerStatePhoto(player));
         addState(stateStandRun = new PlayerStateStandRun(player));
+        addState(stateKick = new PlayerStateKick(player));
     }
 
     @Override

@@ -86,11 +86,19 @@
       "name": "GIOVANNI DELFINO",
       "shirtName": "DELFINO",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "LEFT_BACK",
       "number": "5",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "THINNING_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 5,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "PAOLO BARISON",
@@ -121,14 +129,22 @@
       "skills": {}
     },
     {
-      "name": "ANGELO BENEDICTO SORMANI",
-      "shirtName": "SORMANI",
-      "nationality": "BRA",
-      "role": "ATTACKER",
-      "number": "8",
+      "name": "ENEA MASIERO",
+      "shirtName": "MASIERO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 4,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "FRANCISCO LOJACONO",
@@ -151,14 +167,22 @@
       "skills": {}
     },
     {
-      "name": "ENEA MASIERO",
-      "shirtName": "MASIERO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
+      "name": "ANGELO BENEDICTO SORMANI",
+      "shirtName": "SORMANI",
+      "nationality": "BRA",
+      "role": "ATTACKER",
+      "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 5,
+        "heading": 5,
+        "tackling": 3,
+        "control": 5,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "PIETRO BATTARA",

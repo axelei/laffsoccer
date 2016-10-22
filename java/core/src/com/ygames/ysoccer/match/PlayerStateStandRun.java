@@ -69,8 +69,7 @@ class PlayerStateStandRun extends PlayerState {
             if (ball.owner == player) {
                 if (player.v > 0 && ball.z < 8) {
                     player.kickAngle = player.a;
-                    // TODO
-                    // return player.fsm.stateKick;
+                     return player.fsm.stateKick;
                 }
                 // else head or tackle
             } else if (player.frameDistance < Const.BALL_PREDICTION) {

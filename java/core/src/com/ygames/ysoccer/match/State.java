@@ -2,7 +2,7 @@ package com.ygames.ysoccer.match;
 
 class State {
 
-    private int timer;
+    int timer;
     int id;
 
     void doActions() {
