@@ -254,41 +254,65 @@
       }
     },
     {
-      "name": "GIOVAN BATTISTA PIENTI",
-      "shirtName": "PIENTI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
       "name": "ENRICO DORDONI",
       "shirtName": "DORDONI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_BACK",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "BRUNO FRANZINI",
       "shirtName": "FRANZINI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "16",
-      "hairColor": "BLACK",
+      "hairColor": "BROWN",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
-      "name": "GIUSEPPE TRINCHERO",
-      "shirtName": "TRINCHERO",
+      "name": "LUIGI TOSCHI",
+      "shirtName": "TOSCHI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "17",
+      "role": "RIGHT_WINGER",
+      "number": "19",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 3,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "GIOVAN BATTISTA PIENTI",
+      "shirtName": "PIENTI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -304,11 +328,11 @@
       "skills": {}
     },
     {
-      "name": "LUIGI TOSCHI",
-      "shirtName": "TOSCHI",
+      "name": "GIUSEPPE TRINCHERO",
+      "shirtName": "TRINCHERO",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": "19",
+      "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}

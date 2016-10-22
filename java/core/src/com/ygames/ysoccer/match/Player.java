@@ -145,6 +145,10 @@ public class Player {
         return Emath.aTan2(ty - y, tx - x);
     }
 
+    void watchBall() {
+        a = Math.round((Emath.aTan2(y - match.ball.y, x - match.ball.x) + 180) / 45.0f) * 45.0f;
+    }
+
     public String getRoleLabel() {
         return roleLabels[role.ordinal()];
     }
