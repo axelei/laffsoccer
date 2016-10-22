@@ -45,21 +45,21 @@
       "value": 27
     },
     {
-      "name": "GUIDO VINCENZI",
-      "shirtName": "VINCENZI",
+      "name": "GIOVANNI DELFINO",
+      "shirtName": "DELFINO",
       "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "2",
+      "role": "LEFT_BACK",
+      "number": "5",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
+      "hairStyle": "THINNING_A",
       "skills": {
         "passing": 4,
-        "shooting": 3,
-        "heading": 6,
+        "shooting": 2,
+        "heading": 4,
         "tackling": 5,
         "control": 4,
         "speed": 5,
-        "finishing": 3
+        "finishing": 2
       }
     },
     {
@@ -81,30 +81,38 @@
       }
     },
     {
+      "name": "GUIDO VINCENZI",
+      "shirtName": "VINCENZI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "2",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 5,
+        "control": 4,
+        "speed": 5,
+        "finishing": 3
+      }
+    },
+    {
       "name": "ALFIO FONTANA",
       "shirtName": "FONTANA",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIOVANNI DELFINO",
-      "shirtName": "DELFINO",
-      "nationality": "ITA",
-      "role": "LEFT_BACK",
-      "number": "5",
-      "hairColor": "BLACK",
-      "hairStyle": "THINNING_A",
       "skills": {
         "passing": 4,
         "shooting": 2,
         "heading": 4,
         "tackling": 5,
-        "control": 4,
-        "speed": 5,
+        "control": 3,
+        "speed": 3,
         "finishing": 2
       }
     },
@@ -188,7 +196,16 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skinColor": "ARAB",
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 5
+      }
     },
     {
       "name": "ANGELO BENEDICTO SORMANI",
@@ -225,8 +242,16 @@
       "role": "DEFENDER",
       "number": "13",
       "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "hairStyle": "THINNING_C",
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 5,
+        "control": 4,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "GIOVAN BATTISTA PIENTI",

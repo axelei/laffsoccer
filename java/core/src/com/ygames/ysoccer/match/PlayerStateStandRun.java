@@ -77,8 +77,7 @@ class PlayerStateStandRun extends PlayerState {
                     return player.fsm.stateHead;
                 } else if (ball.prediction[player.frameDistance].z < 6) {
                     if ((player.v > 0) && (player.ballDistance < 100)) {
-                        // TODO
-                        // return player.fsm.stateTackle;
+                        return player.fsm.stateTackle;
                     }
                 }
             } else {
