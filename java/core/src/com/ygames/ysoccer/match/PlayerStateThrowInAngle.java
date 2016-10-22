@@ -66,8 +66,7 @@ class PlayerStateThrowInAngle extends PlayerState {
     @Override
     State checkConditions() {
         if (player.inputDevice.fire1Down()) {
-            // TODO
-            // return player.fsm.stateThrowInSpeed;
+            return player.fsm.stateThrowInSpeed;
         }
         return null;
     }

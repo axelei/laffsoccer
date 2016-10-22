@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 27
     },
     {
       "name": "BRUNO BAVENI",
@@ -101,7 +102,15 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "MASSIMO GIACOMINI",
@@ -117,11 +126,19 @@
       "name": "GLAUCO GILARDONI",
       "shirtName": "GILARDONI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "LEFT_WINGER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "RENATO CAPPELLINI",
