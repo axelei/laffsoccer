@@ -233,7 +233,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 25
     },
     {
       "name": "GAUDENZIO BERNASCONI",
@@ -308,6 +309,24 @@
       }
     },
     {
+      "name": "PAOLO MAROCCHI",
+      "shirtName": "MAROCCHI",
+      "nationality": "ITA",
+      "role": "LEFT_BACK",
+      "number": "18",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 2,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
+    },
+    {
       "name": "LUIS CÉSAR CARNIGLIA",
       "shirtName": "CARNIGLIA",
       "nationality": "ARG",
@@ -326,14 +345,22 @@
       }
     },
     {
-      "name": "PAOLO MAROCCHI",
-      "shirtName": "MAROCCHI",
+      "name": "GIUSEPPE TRINCHERO",
+      "shirtName": "TRINCHERO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "18",
+      "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "GIOVAN BATTISTA PIENTI",
@@ -370,16 +397,6 @@
         "speed": 4,
         "finishing": 4
       }
-    },
-    {
-      "name": "GIUSEPPE TRINCHERO",
-      "shirtName": "TRINCHERO",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "17",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
     }
   ]
 }
