@@ -35,6 +35,7 @@ public class Team {
 
     public ControlMode controlMode;
     InputDevice inputDevice;
+    int side; // -1=upside, 1=downside
 
     Player near1; // nearest to the ball
 

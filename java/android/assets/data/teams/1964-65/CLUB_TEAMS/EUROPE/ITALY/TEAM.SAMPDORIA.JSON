@@ -308,14 +308,22 @@
       }
     },
     {
-      "name": "GIOVAN BATTISTA PIENTI",
-      "shirtName": "PIENTI",
-      "nationality": "ITA",
+      "name": "LUIS CÉSAR CARNIGLIA",
+      "shirtName": "CARNIGLIA",
+      "nationality": "ARG",
       "role": "MIDFIELDER",
-      "number": "14",
+      "number": "20",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 3,
+        "control": 4,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "PAOLO MAROCCHI",
@@ -328,24 +336,22 @@
       "skills": {}
     },
     {
-      "name": "GIUSEPPE TRINCHERO",
-      "shirtName": "TRINCHERO",
+      "name": "GIOVAN BATTISTA PIENTI",
+      "shirtName": "PIENTI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "17",
-      "hairColor": "BLACK",
+      "role": "LEFT_WINGER",
+      "number": "14",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "LUIS CÉSAR CARNIGLIA",
-      "shirtName": "CARNIGLIA",
-      "nationality": "ARG",
-      "role": "ATTACKER",
-      "number": "20",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 2,
+        "tackling": 2,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "GIAN PIERO GHIO",
@@ -353,6 +359,24 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "21",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
+    },
+    {
+      "name": "GIUSEPPE TRINCHERO",
+      "shirtName": "TRINCHERO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}

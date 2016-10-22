@@ -12,6 +12,7 @@ class PlayerFsm extends Fsm {
     static final int STATE_HEAD = 9;
     static final int STATE_TACKLE = 10;
     static final int STATE_REACH_TARGET = 11;
+    static final int STATE_KICK_OFF = 12;
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -23,6 +24,7 @@ class PlayerFsm extends Fsm {
     PlayerStateHead stateHead;
     PlayerStateTackle stateTackle;
     PlayerStateReachTarget stateReachTarget;
+    PlayerStateKickOff stateKickOff;
 
     public PlayerFsm(Player player) {
         addState(stateIdle = new PlayerStateIdle(player));
@@ -35,6 +37,7 @@ class PlayerFsm extends Fsm {
         addState(stateHead = new PlayerStateHead(player));
         addState(stateTackle = new PlayerStateTackle(player));
         addState(stateReachTarget = new PlayerStateReachTarget(player));
+        addState(stateKickOff = new PlayerStateKickOff(player));
     }
 
     @Override
