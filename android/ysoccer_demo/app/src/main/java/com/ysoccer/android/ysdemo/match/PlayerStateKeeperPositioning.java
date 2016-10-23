@@ -3,37 +3,29 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 
-public class PlayerStateKeeperPositioning extends PlayerState {
+class PlayerStateKeeperPositioning extends PlayerState {
 
     private Ball ball;
     private int dangerTime;
 
-    public PlayerStateKeeperPositioning(Player player) {
+    PlayerStateKeeperPositioning(Player player) {
         super(player);
         id = PlayerFsm.STATE_KEEPER_POSITIONING;
     }
 
     private void updateTarget() {
         // default value
-        float new_tx = ball.x
-                * 12
-                / Math.max(
-                (Math.abs(ball.y - Math.signum(player.y)
-                        * Const.GOAL_LINE)), 1);
-        new_tx = Math.signum(new_tx)
-                * Math.min(Math.abs(new_tx), Const.POST_X + 5);
+        float new_tx = ball.x * 12 / Math.max((Math.abs(ball.y - Math.signum(player.y) * Const.GOAL_LINE)), 1);
+        new_tx = Math.signum(new_tx) * Math.min(Math.abs(new_tx), Const.POST_X + 5);
         float new_ty = player.team.side * (Const.GOAL_LINE - 8);
 
         // penalty area positioning
         if ((Math.abs(ball.x) < Const.PENALTY_AREA_W / 2)
-                && Emath.isIn(ball.y, player.team.side
-                        * (Const.GOAL_LINE - Const.PENALTY_AREA_H),
+                && Emath.isIn(ball.y, player.team.side * (Const.GOAL_LINE - Const.PENALTY_AREA_H),
                 player.team.side * Const.GOAL_LINE)) {
 
             // if ball is approaching
-            if (Emath.dist(ball.x, ball.y, 0, player.team.side
-                    * Const.GOAL_LINE) < Emath.dist(ball.x0, ball.y0, 0,
-                    player.team.side * Const.GOAL_LINE)) {
+            if (Emath.dist(ball.x, ball.y, 0, player.team.side * Const.GOAL_LINE) < Emath.dist(ball.x0, ball.y0, 0, player.team.side * Const.GOAL_LINE)) {
 
                 // if ball is reachable reach the point where it will go
                 if (player.frameDistance < Const.BALL_PREDICTION) {
@@ -43,18 +35,14 @@ public class PlayerStateKeeperPositioning extends PlayerState {
                 } else {
                     // try to reach it anyway
                     new_tx = ball.x;
-                    new_ty = player.team.side
-                            * (Const.GOAL_LINE - 0.5f * Math
-                            .abs(Const.GOAL_LINE - Math.abs(ball.y)));
+                    new_ty = player.team.side * (Const.GOAL_LINE - 0.5f * Math.abs(Const.GOAL_LINE - Math.abs(ball.y)));
                 }
             }
         }
 
         // goal area positioning: reach the ball!
         if ((Math.abs(ball.x) < Const.GOAL_AREA_W / 2)
-                && Emath.isIn(ball.y, player.team.side
-                        * (Const.GOAL_LINE - Const.GOAL_AREA_H),
-                player.team.side * Const.GOAL_LINE)) {
+                && Emath.isIn(ball.y, player.team.side * (Const.GOAL_LINE - Const.GOAL_AREA_H), player.team.side * Const.GOAL_LINE)) {
             if (player.frameDistance < Const.BALL_PREDICTION) {
                 new_tx = ball.prediction[player.frameDistance].x;
                 new_ty = ball.prediction[player.frameDistance].y;
@@ -65,7 +53,6 @@ public class PlayerStateKeeperPositioning extends PlayerState {
             player.tx = new_tx;
             player.ty = new_ty;
         }
-
     }
 
     @Override
@@ -81,8 +68,7 @@ public class PlayerStateKeeperPositioning extends PlayerState {
 
         if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
             // reach target position
-            player.v = (0.25f + 0.60f * ((Emath.hypo(dx, dy) > 4) ? 1 : 0))
-                    * player.speed;
+            player.v = (0.25f + 0.60f * ((Emath.hypo(dx, dy) > 4) ? 1 : 0)) * player.speed;
             player.a = (Emath.aTan2(dy, dx) + 360.0f) % 360.0f;
         } else {
             // position reached
