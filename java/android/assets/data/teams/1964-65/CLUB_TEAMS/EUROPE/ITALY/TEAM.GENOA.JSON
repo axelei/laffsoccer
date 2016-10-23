@@ -238,26 +238,60 @@
       "name": "GIANCARLO BAGNASCO",
       "shirtName": "BAGNASCO",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
-      "name": "STEFANO DAL MONTE",
-      "shirtName": "DAL MONTE",
+      "name": "MARIO PANTALEONI",
+      "shirtName": "PANTALEONI III",
       "nationality": "ITA",
       "role": "MIDFIELDER",
+      "number": "16",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 3,
+        "control": 3,
+        "speed": 5,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "MAURO BICICLI",
+      "shirtName": "BICICLI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "RUDOLF KÖLBL",
       "shirtName": "KÖLBL",
-      "nationality": "DEU",
+      "nationality": "GER",
       "role": "ATTACKER",
       "number": "15",
       "hairColor": "BLACK",
@@ -266,21 +300,11 @@
         "passing": 3,
         "shooting": 4,
         "heading": 5,
-        "tackling": 3,
+        "tackling": 2,
         "control": 3,
         "speed": 3,
         "finishing": 4
       }
-    },
-    {
-      "name": "MARIO PANTALEONI",
-      "shirtName": "PANTALEONI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "16",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
     },
     {
       "name": "GIANCARLO GALLESI",
@@ -333,10 +357,10 @@
       "skills": {}
     },
     {
-      "name": "MAURO BICICLI",
-      "shirtName": "BICICLI",
+      "name": "STEFANO DAL MONTE",
+      "shirtName": "DAL MONTE",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
