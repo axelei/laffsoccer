@@ -1,12 +1,12 @@
 package com.ysoccer.android.ysdemo.match;
 
-public class PlayerStateKeeperDivingLowSingle extends PlayerState {
+class PlayerStateKeeperDivingLowSingle extends PlayerState {
 
     private Ball ball;
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[3];
 
-    public PlayerStateKeeperDivingLowSingle(Player player) {
+    PlayerStateKeeperDivingLowSingle(Player player) {
         super(player);
         id = PlayerFsm.STATE_KEEPER_DIVING_LOW_SINGLE;
 
@@ -29,7 +29,6 @@ public class PlayerStateKeeperDivingLowSingle extends PlayerState {
         frames[2].fmy = 8 + 6;
         frames[2].offx = new int[]{16, -15, 14, -10};
         frames[2].offz = 0;
-
     }
 
     @Override
@@ -84,5 +83,4 @@ public class PlayerStateKeeperDivingLowSingle extends PlayerState {
         super.entryActions();
         ball = player.match.ball;
     }
-
 }

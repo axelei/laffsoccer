@@ -9,10 +9,10 @@ import com.ysoccer.android.ysdemo.Assets;
 public class Player {
 
     // keeper collision types
-    static final int CT_NONE = 0;
-    static final int CT_REBOUND = 1;
-    static final int CT_CATCH = 2;
-    static final int CT_DEFLECT = 3;
+    private static final int CT_NONE = 0;
+    private static final int CT_REBOUND = 1;
+    private static final int CT_CATCH = 2;
+    private static final int CT_DEFLECT = 3;
 
     public static final int GOALKEEPER = 0;
     public static final int RIGHT_BACK = 1;
@@ -198,7 +198,7 @@ public class Player {
         }
     }
 
-    public boolean keeperCollision() {
+    boolean keeperCollision() {
         Ball ball = match.ball;
 
         int collisionType = CT_NONE;
@@ -249,8 +249,7 @@ public class Player {
             switch (collisionType) {
                 case CT_REBOUND:
                     if (ball.v > 180) {
-                        match.listener
-                                .deflectSound(0.5f * match.settings.sfxVolume);
+                        match.listener.deflectSound(0.5f * match.settings.sfxVolume);
                     }
                     ball.v = ball.v / 4;
                     ball.a = (-ball.a) % 360;
@@ -272,8 +271,7 @@ public class Player {
 
                 case CT_DEFLECT:
                     if (ball.v > 180) {
-                        match.listener
-                                .deflectSound(0.5f * match.settings.sfxVolume);
+                        match.listener.deflectSound(0.5f * match.settings.sfxVolume);
                     }
                     // real ball x-y angle (when spinned, it is different from
                     // ball.a)
@@ -293,15 +291,14 @@ public class Player {
 
                     ball.setOwner(this, false);
                     ball.setOwner(null);
-
+                    break;
             }
-
         }
 
         return (collisionType == CT_CATCH);
     }
 
-    public void holdBall(int offX, int offZ) {
+    void holdBall(int offX, int offZ) {
         Ball ball = match.ball;
         if ((ball.holder == this)) {
             ball.x = x + offX;
