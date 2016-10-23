@@ -166,8 +166,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             if (frm * GlGame.SUBFRAMES < 0.5f * Const.SECOND) {
                                 player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X - 8);
                                 player.a = (diffX < 0) ? 180 : 0;
-                                // TODO
-                                // return player.fsm.stateKeeperDivingLowDouble;
+                                return player.fsm.stateKeeperDivingLowDouble;
                             }
                         }
                     } else if (predZ < 21) {
