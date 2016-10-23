@@ -52,7 +52,15 @@
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 6,
+        "tackling": 6,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "MAURIZIO BRUNO",
@@ -65,14 +73,22 @@
       "skills": {}
     },
     {
-      "name": "FRANCO RIVARA",
-      "shirtName": "RIVARA",
+      "name": "ANTONIO COLOMBO",
+      "shirtName": "COLOMBO",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "4",
+      "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 5,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ELIO VANARA",
@@ -92,23 +108,31 @@
       "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "ANTONIO COLOMBO",
-      "shirtName": "COLOMBO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 5,
         "shooting": 2,
-        "heading": 5,
+        "heading": 4,
         "tackling": 4,
-        "control": 5,
+        "control": 4,
         "speed": 4,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "FRANCO RIVARA",
+      "shirtName": "RIVARA",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "4",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 3,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 5,
+        "control": 3,
+        "speed": 5,
         "finishing": 2
       }
     },
