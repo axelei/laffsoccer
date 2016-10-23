@@ -84,22 +84,14 @@ public class PlayerFsm extends Fsm {
         addState(stateGoalMate = new PlayerStateGoalMate(player));
         addState(stateOwnGoalScorer = new PlayerStateOwnGoalScorer(player));
 
-        addState(stateKeeperPositioning = new PlayerStateKeeperPositioning(
-                player));
-        addState(stateKeeperDivingLowSingle = new PlayerStateKeeperDivingLowSingle(
-                player));
-        addState(stateKeeperDivingLowDouble = new PlayerStateKeeperDivingLowDouble(
-                player));
-        addState(stateKeeperDivingMiddleOne = new PlayerStateKeeperDivingMiddleOne(
-                player));
-        addState(stateKeeperDivingMiddleTwo = new PlayerStateKeeperDivingMiddleTwo(
-                player));
-        addState(stateKeeperDivingHighOne = new PlayerStateKeeperDivingHighOne(
-                player));
-        addState(stateKeeperCatchingHigh = new PlayerStateKeeperCatchingHigh(
-                player));
-        addState(stateKeeperCatchingLow = new PlayerStateKeeperCatchingLow(
-                player));
+        addState(stateKeeperPositioning = new PlayerStateKeeperPositioning(player));
+        addState(stateKeeperDivingLowSingle = new PlayerStateKeeperDivingLowSingle(player));
+        addState(stateKeeperDivingLowDouble = new PlayerStateKeeperDivingLowDouble(player));
+        addState(stateKeeperDivingMiddleOne = new PlayerStateKeeperDivingMiddleOne(player));
+        addState(stateKeeperDivingMiddleTwo = new PlayerStateKeeperDivingMiddleTwo(player));
+        addState(stateKeeperDivingHighOne = new PlayerStateKeeperDivingHighOne(player));
+        addState(stateKeeperCatchingHigh = new PlayerStateKeeperCatchingHigh(player));
+        addState(stateKeeperCatchingLow = new PlayerStateKeeperCatchingLow(player));
         addState(stateKeeperKickAngle = new PlayerStateKeeperKickAngle(player));
     }
 
@@ -107,5 +99,4 @@ public class PlayerFsm extends Fsm {
     public PlayerState getState() {
         return (PlayerState) state;
     }
-
 }

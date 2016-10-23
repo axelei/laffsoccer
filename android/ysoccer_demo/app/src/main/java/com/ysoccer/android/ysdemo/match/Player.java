@@ -146,7 +146,7 @@ public class Player {
         }
     }
 
-    public void animationScorer() {
+    void animationScorer() {
         fmx = Math.round(((a + 360) % 360) / 45) % 8;
         if (v > 0) {
             fmySweep = (fmySweep + 0.16f * v / 1000) % 4;

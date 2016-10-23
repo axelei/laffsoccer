@@ -2,11 +2,9 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.math.Emath;
 
-public class PlayerStateGoalScorer extends PlayerState {
+class PlayerStateGoalScorer extends PlayerState {
 
-    int celebrationType;
-
-    public PlayerStateGoalScorer(Player player) {
+    PlayerStateGoalScorer(Player player) {
         super(player);
         id = PlayerFsm.STATE_GOAL_SCORER;
     }
@@ -76,6 +74,7 @@ public class PlayerStateGoalScorer extends PlayerState {
             disallowed[1] = true;
         }
 
+        int celebrationType;
         do {
             celebrationType = player.match.random.nextInt(8);
         } while (disallowed[celebrationType]);
@@ -113,5 +112,4 @@ public class PlayerStateGoalScorer extends PlayerState {
         }
         player.animationScorer();
     }
-
 }
