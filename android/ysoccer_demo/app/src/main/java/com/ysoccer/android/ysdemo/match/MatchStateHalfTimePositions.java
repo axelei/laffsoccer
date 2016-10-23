@@ -5,73 +5,73 @@ import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateHalfTimePositions extends MatchState {
 
-	boolean move;
+    boolean move;
 
-	public MatchStateHalfTimePositions(Match match) {
-		super(match);
-		id = MatchFsm.STATE_HALF_TIME_POSITIONS;
-	}
+    public MatchStateHalfTimePositions(Match match) {
+        super(match);
+        id = MatchFsm.STATE_HALF_TIME_POSITIONS;
+    }
 
-	@Override
-	void entryActions() {
-		super.entryActions();
+    @Override
+    void entryActions() {
+        super.entryActions();
 
-		match.renderer.displayControlledPlayer = false;
-		match.renderer.displayBallOwner = false;
-		match.renderer.displayGoalScorer = false;
-		match.renderer.displayTime = true;
-		match.renderer.displayWindVane = true;
-		match.renderer.displayScore = false;
-		match.renderer.displayStatistics = true;
-		match.renderer.displayRadar = false;
-		
-		match.ball.setPosition(0, 0, 0);
-		match.ball.updatePrediction();
+        match.renderer.displayControlledPlayer = false;
+        match.renderer.displayBallOwner = false;
+        match.renderer.displayGoalScorer = false;
+        match.renderer.displayTime = true;
+        match.renderer.displayWindVane = true;
+        match.renderer.displayScore = false;
+        match.renderer.displayStatistics = true;
+        match.renderer.displayRadar = false;
 
-		match.renderer.actionCamera.offx = 0;
-		match.renderer.actionCamera.offy = 0;
+        match.ball.setPosition(0, 0, 0);
+        match.ball.updatePrediction();
 
-		match.period = Match.Period.UNDEFINED;
-		match.clock = match.length * 45 / 90;
+        match.renderer.actionCamera.offx = 0;
+        match.renderer.actionCamera.offy = 0;
 
-		match.setPlayersTarget(Const.TOUCH_LINE +80, 0);
-		match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
+        match.period = Match.Period.UNDEFINED;
+        match.clock = match.length * 45 / 90;
 
-	}
+        match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
+        match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
 
-	@Override
-	void doActions(float deltaTime) {
-		super.doActions(deltaTime);
+    }
 
-		float timeLeft = deltaTime;
-		while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
 
-			if (match.subframe % GLGame.SUBFRAMES == 0) {
-				match.updateAi();
-			}
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
-			move = match.updatePlayers(false);
+            if (match.subframe % GLGame.SUBFRAMES == 0) {
+                match.updateAi();
+            }
 
-			match.nextSubframe();
+            move = match.updatePlayers(false);
 
-			match.save();
+            match.nextSubframe();
 
-			match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-					ActionCamera.CS_FAST, 0);
-			match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-					ActionCamera.CS_FAST, 0);
+            match.save();
 
-			timeLeft -= GLGame.SUBFRAME_DURATION;
-		}
-	}
+            match.renderer.updateCameraX(ActionCamera.CF_TARGET,
+                    ActionCamera.CS_FAST, 0);
+            match.renderer.updateCameraY(ActionCamera.CF_TARGET,
+                    ActionCamera.CS_FAST, 0);
 
-	@Override
-	void checkConditions() {
-		if (!move) {
-			match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_WAIT);
-			return;
-		}
-		
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+    }
+
+    @Override
+    void checkConditions() {
+        if (!move) {
+            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_WAIT);
+            return;
+        }
+
 //		If (KeyDown(KEY_ESCAPE))
 //			Self.quit_match()
 //			Return
@@ -86,7 +86,7 @@ public class MatchStateHalfTimePositions extends MatchState {
 //			Self.pause()
 //			Return
 //		EndIf
-		
-	}
+
+    }
 
 }

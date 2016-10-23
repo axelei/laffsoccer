@@ -5,79 +5,79 @@ import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateEndPositions extends MatchState {
 
-	boolean move;
+    boolean move;
 
-	public MatchStateEndPositions(Match match) {
-		super(match);
-		id = MatchFsm.STATE_END_POSITIONS;
-	}
+    public MatchStateEndPositions(Match match) {
+        super(match);
+        id = MatchFsm.STATE_END_POSITIONS;
+    }
 
-	@Override
-	void entryActions() {
-		super.entryActions();
+    @Override
+    void entryActions() {
+        super.entryActions();
 
-		match.renderer.displayControlledPlayer = false;
-		match.renderer.displayBallOwner = false;
-		match.renderer.displayGoalScorer = false;
-		match.renderer.displayTime = false;
-		match.renderer.displayWindVane = false;
-		match.renderer.displayScore = true;
-		match.renderer.displayStatistics = false;
-		match.renderer.displayRadar = false;
-		
-		match.period = Match.Period.UNDEFINED;
+        match.renderer.displayControlledPlayer = false;
+        match.renderer.displayBallOwner = false;
+        match.renderer.displayGoalScorer = false;
+        match.renderer.displayTime = false;
+        match.renderer.displayWindVane = false;
+        match.renderer.displayScore = true;
+        match.renderer.displayStatistics = false;
+        match.renderer.displayRadar = false;
 
-		match.ball.setPosition(0, 0, 0);
-		match.ball.updatePrediction();
+        match.period = Match.Period.UNDEFINED;
 
-		match.renderer.actionCamera.offx = 0;
-		match.renderer.actionCamera.offy = 0;
+        match.ball.setPosition(0, 0, 0);
+        match.ball.updatePrediction();
 
-		match.setPlayersTarget(Const.TOUCH_LINE +80, 0);
-		match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
+        match.renderer.actionCamera.offx = 0;
+        match.renderer.actionCamera.offy = 0;
 
-	}
+        match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
+        match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
 
-	@Override
-	void doActions(float deltaTime) {
-		super.doActions(deltaTime);
+    }
 
-		float timeLeft = deltaTime;
-		while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
 
-			if (match.subframe % GLGame.SUBFRAMES == 0) {
-				match.updateAi();
-			}
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
-			move = match.updatePlayers(false);
+            if (match.subframe % GLGame.SUBFRAMES == 0) {
+                match.updateAi();
+            }
 
-			match.nextSubframe();
+            move = match.updatePlayers(false);
 
-			match.save();
+            match.nextSubframe();
 
-			match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-					ActionCamera.CS_FAST, 0);
-			match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-					ActionCamera.CS_FAST, 0);
+            match.save();
 
-			timeLeft -= GLGame.SUBFRAME_DURATION;
-		}
-	}
+            match.renderer.updateCameraX(ActionCamera.CF_TARGET,
+                    ActionCamera.CS_FAST, 0);
+            match.renderer.updateCameraY(ActionCamera.CF_TARGET,
+                    ActionCamera.CS_FAST, 0);
 
-	@Override
-	void checkConditions() {
-		if (!move) {
-			if (match.recorder.hasHighlights()) {
-				match.recorder.restart();
-				match.fsm.pushAction(ActionType.FADE_OUT);
-				match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-				match.fsm.pushAction(ActionType.FADE_IN);
-				return;
-			} else {
-				match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
-				return;
-			}
-		}
-	}
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+    }
+
+    @Override
+    void checkConditions() {
+        if (!move) {
+            if (match.recorder.hasHighlights()) {
+                match.recorder.restart();
+                match.fsm.pushAction(ActionType.FADE_OUT);
+                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+                match.fsm.pushAction(ActionType.FADE_IN);
+                return;
+            } else {
+                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                return;
+            }
+        }
+    }
 
 }

@@ -1,155 +1,156 @@
 package com.ysoccer.android.framework.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.microedition.khronos.opengles.GL10;
-
 import android.opengl.GLU;
 
 import com.ysoccer.android.framework.Game;
-import com.ysoccer.android.framework.Screen;
 import com.ysoccer.android.framework.Input.TouchEvent;
+import com.ysoccer.android.framework.Screen;
 import com.ysoccer.android.framework.gl.Texture;
 import com.ysoccer.android.framework.math.Vector2;
 import com.ysoccer.android.ysdemo.Assets;
 import com.ysoccer.android.ysdemo.Settings;
 import com.ysoccer.android.ysdemo.gui.Widget;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.microedition.khronos.opengles.GL10;
+
 public abstract class GLScreen extends Screen {
-	protected final GLGraphics glGraphics;
-	protected final GLGame glGame;
+    protected final GLGraphics glGraphics;
+    protected final GLGame glGame;
 
-	Widget selectedWidget;
-	public Widget getSelectedWidget() {
-		return selectedWidget;
-	}
+    Widget selectedWidget;
 
-	public void setSelectedWidget(Widget selectedWidget) {
-		this.selectedWidget = selectedWidget;
-	}
+    public Widget getSelectedWidget() {
+        return selectedWidget;
+    }
 
-	private List<Widget> widgets;
+    public void setSelectedWidget(Widget selectedWidget) {
+        this.selectedWidget = selectedWidget;
+    }
 
-	public List<Widget> getWidgets() {
-		return widgets;
-	}
-	
-	final static int NONE = -1;
-	final static int FIRE1_UP = 0;
-	final static int FIRE1_HOLD = 1;
-	protected final static int FIRE1_DOWN = 2;
-	
-	public static final int MENU_GAME_OPTIONS = 2;
-	
-	private int guiEventType;
+    private List<Widget> widgets;
 
-	private Texture background;
+    public List<Widget> getWidgets() {
+        return widgets;
+    }
 
-	public Texture getBackground() {
-		return background;
-	}
+    final static int NONE = -1;
+    final static int FIRE1_UP = 0;
+    final static int FIRE1_HOLD = 1;
+    protected final static int FIRE1_DOWN = 2;
 
-	public void setBackground(Texture background) {
-		this.background = background;
-	}
+    public static final int MENU_GAME_OPTIONS = 2;
 
-	Vector2 touchPoint;
-	
-	protected boolean keyBackHw;
-	
-	public GLScreen(Game game) {
-		super(game);
-		glGame = (GLGame) game;
-		glGraphics = glGame.getGLGraphics();
-		selectedWidget = null;
-		widgets = new ArrayList<Widget>();
-		touchPoint = new Vector2();
-		keyBackHw = false;
-	}
+    private int guiEventType;
 
-	@Override
-	public void update(float deltaTime) {
-		Assets.music.setVolume(glGame.settings.musicVolume);
-		
-		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
-		game.getInput().getKeyEvents();
-		
-		glGame.touchInput.touchEvents = touchEvents;
-		glGame.touchInput.readInput();
-		if (glGame.gamepadInput != null) {
-			glGame.gamepadInput.readInput();
-		}
-		
-		guiEventType = NONE;
-		
-		int len = touchEvents.size();
-		for (int i = 0; i < len; i++) {
-			TouchEvent event = touchEvents.get(i);
-			touchPoint.set(event.x, event.y);
-			touchToGui(touchPoint);
-			if (event.type == TouchEvent.TOUCH_UP) {
-				guiEventType = FIRE1_UP;
-			}
-			if (event.type == TouchEvent.TOUCH_DOWN) {
-				guiEventType = FIRE1_DOWN;
-			}
-			
-			if (selectedWidget == null || selectedWidget.entryMode == false) {
-				int len2 = widgets.size();
-				for (int j = 0; j < len2; j++) {
-					Widget widget = widgets.get(j);
-					if (widget.isPointInside(touchPoint)
-							&& widget.isVisible && widget.isActive) {
-						selectedWidget = widget;
-					}
-				}
-			}
-			
-			if(selectedWidget != null && !selectedWidget.isPointInside(touchPoint)) {
-				guiEventType = NONE;
-			}
-		}
-		
-		readMenuInput();
-		
-		int ws = widgets.size();
-		for (int i = 0; i < ws; i++) {
-			Widget widget = widgets.get(i);
-			widget.update();
-		}
-		
-		if (selectedWidget != null && selectedWidget.isActive) {
-			switch(guiEventType) {
-			case FIRE1_DOWN:
-				selectedWidget.onFire1Down();
-				break;
-			case FIRE1_UP:
-				selectedWidget.onFire1Up();
-				break;
-			case NONE:
-				//do nothing
-				break;
-			}
-		}
+    private Texture background;
 
-		if (keyBackHw == true) {
-			onKeyBackHw();
-		}
-	}
-	
-	public void onKeyBackHw() {
-	}
-	
-	private Widget readMenuInput() {
-	
-		int len = widgets.size();
-		for(int i = 0; i < len; i++) {
-			Widget widget = widgets.get(i);
-			widget.isSelected = false;
-		}
-		/*
-		'fire a delay
+    public Texture getBackground() {
+        return background;
+    }
+
+    public void setBackground(Texture background) {
+        this.background = background;
+    }
+
+    Vector2 touchPoint;
+
+    protected boolean keyBackHw;
+
+    public GLScreen(Game game) {
+        super(game);
+        glGame = (GLGame) game;
+        glGraphics = glGame.getGLGraphics();
+        selectedWidget = null;
+        widgets = new ArrayList<Widget>();
+        touchPoint = new Vector2();
+        keyBackHw = false;
+    }
+
+    @Override
+    public void update(float deltaTime) {
+        Assets.music.setVolume(glGame.settings.musicVolume);
+
+        List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+        game.getInput().getKeyEvents();
+
+        glGame.touchInput.touchEvents = touchEvents;
+        glGame.touchInput.readInput();
+        if (glGame.gamepadInput != null) {
+            glGame.gamepadInput.readInput();
+        }
+
+        guiEventType = NONE;
+
+        int len = touchEvents.size();
+        for (int i = 0; i < len; i++) {
+            TouchEvent event = touchEvents.get(i);
+            touchPoint.set(event.x, event.y);
+            touchToGui(touchPoint);
+            if (event.type == TouchEvent.TOUCH_UP) {
+                guiEventType = FIRE1_UP;
+            }
+            if (event.type == TouchEvent.TOUCH_DOWN) {
+                guiEventType = FIRE1_DOWN;
+            }
+
+            if (selectedWidget == null || selectedWidget.entryMode == false) {
+                int len2 = widgets.size();
+                for (int j = 0; j < len2; j++) {
+                    Widget widget = widgets.get(j);
+                    if (widget.isPointInside(touchPoint)
+                            && widget.isVisible && widget.isActive) {
+                        selectedWidget = widget;
+                    }
+                }
+            }
+
+            if (selectedWidget != null && !selectedWidget.isPointInside(touchPoint)) {
+                guiEventType = NONE;
+            }
+        }
+
+        readMenuInput();
+
+        int ws = widgets.size();
+        for (int i = 0; i < ws; i++) {
+            Widget widget = widgets.get(i);
+            widget.update();
+        }
+
+        if (selectedWidget != null && selectedWidget.isActive) {
+            switch (guiEventType) {
+                case FIRE1_DOWN:
+                    selectedWidget.onFire1Down();
+                    break;
+                case FIRE1_UP:
+                    selectedWidget.onFire1Up();
+                    break;
+                case NONE:
+                    //do nothing
+                    break;
+            }
+        }
+
+        if (keyBackHw == true) {
+            onKeyBackHw();
+        }
+    }
+
+    public void onKeyBackHw() {
+    }
+
+    private Widget readMenuInput() {
+
+        int len = widgets.size();
+        for (int i = 0; i < len; i++) {
+            Widget widget = widgets.get(i);
+            widget.isSelected = false;
+        }
+        /*
+        'fire a delay
 		If menu_input.fa = 1
 			If menu_input.fa0 = 0
 				menu_input.tfa = 10
@@ -338,76 +339,76 @@ public abstract class GLScreen extends Screen {
 	
 		If menu_input.tx > 0 Then menu_input.tx = menu_input.tx - 1
 		If menu_input.ty > 0 Then menu_input.ty = menu_input.ty - 1
-	*/	
-		if (selectedWidget != null) {
-			selectedWidget.isSelected = true;
-		}
-	
-		return selectedWidget;
-	}
-	
-	@Override
-	public void present(float deltaTime) {
-		GL10 gl = glGraphics.getGL();
+	*/
+        if (selectedWidget != null) {
+            selectedWidget.isSelected = true;
+        }
 
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glLoadIdentity();
-		GLU.gluOrtho2D(gl, 0, Settings.screenWidth, Settings.screenHeight, 0);
-		gl.glMatrixMode(GL10.GL_MODELVIEW);
-		gl.glLoadIdentity();
-		gl.glEnable(GL10.GL_TEXTURE_2D);
-		glGraphics.setColor(255, 255, 255);
+        return selectedWidget;
+    }
 
-		if (background != null) {
-			glGraphics.drawTextureRect(background, 0, 0, Settings.screenWidth,
-					Settings.screenHeight);
-		}
+    @Override
+    public void present(float deltaTime) {
+        GL10 gl = glGraphics.getGL();
 
-		gl.glMatrixMode(GL10.GL_MODELVIEW);
-		gl.glLoadIdentity();
-		gl.glTranslatef(Settings.guiOriginX, Settings.guiOriginY, 0);
+        gl.glMatrixMode(GL10.GL_PROJECTION);
+        gl.glLoadIdentity();
+        GLU.gluOrtho2D(gl, 0, Settings.screenWidth, Settings.screenHeight, 0);
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        gl.glEnable(GL10.GL_TEXTURE_2D);
+        glGraphics.setColor(255, 255, 255);
 
-		gl.glEnable(GL10.GL_BLEND);
-		gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+        if (background != null) {
+            glGraphics.drawTextureRect(background, 0, 0, Settings.screenWidth,
+                    Settings.screenHeight);
+        }
 
-		int s = widgets.size();
-		for (int i = 0; i < s; i++) {
-			Widget widget = widgets.get(i);
-			widget.render(glGraphics);
-		}
-		/*
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        gl.glTranslatef(Settings.guiOriginX, Settings.guiOriginY, 0);
+
+        gl.glEnable(GL10.GL_BLEND);
+        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+
+        int s = widgets.size();
+        for (int i = 0; i < s; i++) {
+            Widget widget = widgets.get(i);
+            widget.render(glGraphics);
+        }
+        /*
 		 * If (game_settings.mouse_enabled) draw_image img_arrow, mouse.x,
 		 * mouse.y EndIf
 		 */
 
-		gl.glDisable(GL10.GL_BLEND);
-	}
+        gl.glDisable(GL10.GL_BLEND);
+    }
 
-	protected void touchToGui(Vector2 touch) {
-		touch.setX(touch.x * 100.0f / Settings.guiZoom - Settings.guiOriginX);
-		touch.setY(touch.y * 100.0f / Settings.guiZoom - Settings.guiOriginY);
-	}
+    protected void touchToGui(Vector2 touch) {
+        touch.setX(touch.x * 100.0f / Settings.guiZoom - Settings.guiOriginX);
+        touch.setY(touch.y * 100.0f / Settings.guiZoom - Settings.guiOriginY);
+    }
 
-	@Override
-	public void pause() {
-	}
+    @Override
+    public void pause() {
+    }
 
-	@Override
-	public void resume() {
-	}
-	
-	@Override
-	public void dispose() {
-	}
-	
-	@Override
-	public boolean keyBack() {
-		keyBackHw = true;
-		return true;
-	}
-	
-	public String _(int id) {
-		return glGame.getResources().getString(id);
-	}
+    @Override
+    public void resume() {
+    }
+
+    @Override
+    public void dispose() {
+    }
+
+    @Override
+    public boolean keyBack() {
+        keyBackHw = true;
+        return true;
+    }
+
+    public String _(int id) {
+        return glGame.getResources().getString(id);
+    }
 
 }

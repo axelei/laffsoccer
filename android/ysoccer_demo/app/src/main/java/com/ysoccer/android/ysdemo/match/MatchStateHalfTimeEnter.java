@@ -5,88 +5,88 @@ import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateHalfTimeEnter extends MatchState {
 
-	int enteringCounter;
+    int enteringCounter;
 
-	public MatchStateHalfTimeEnter(Match match) {
-		super(match);
-		id = MatchFsm.STATE_HALF_TIME_ENTER;
-	}
+    public MatchStateHalfTimeEnter(Match match) {
+        super(match);
+        id = MatchFsm.STATE_HALF_TIME_ENTER;
+    }
 
-	@Override
-	void entryActions() {
-		super.entryActions();
+    @Override
+    void entryActions() {
+        super.entryActions();
 
-		match.renderer.displayControlledPlayer = false;
-		match.renderer.displayBallOwner = false;
-		match.renderer.displayGoalScorer = false;
-		match.renderer.displayTime = true;
-		match.renderer.displayWindVane = true;
-		match.renderer.displayScore = false;
-		match.renderer.displayStatistics = false;
-		match.renderer.displayRadar = true;
+        match.renderer.displayControlledPlayer = false;
+        match.renderer.displayBallOwner = false;
+        match.renderer.displayGoalScorer = false;
+        match.renderer.displayTime = true;
+        match.renderer.displayWindVane = true;
+        match.renderer.displayScore = false;
+        match.renderer.displayStatistics = false;
+        match.renderer.displayRadar = true;
 
-		match.setStartingPositions();
+        match.setStartingPositions();
 
-	}
+    }
 
-	@Override
-	void doActions(float deltaTime) {
-		super.doActions(deltaTime);
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
 
-		float timeLeft = deltaTime;
-		while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
-			if (match.subframe % GLGame.SUBFRAMES == 0) {
-				match.updateAi();
-				if ((enteringCounter % 4) == 0
-						&& enteringCounter / 4 < Const.TEAM_SIZE) {
-					for (int t = Match.HOME; t <= Match.AWAY; t++) {
-						int i = enteringCounter / 4;
-						Player player = match.team[t].lineup.get(i);
-						player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
-					}
-				}
-				enteringCounter += 1;
-			}
+            if (match.subframe % GLGame.SUBFRAMES == 0) {
+                match.updateAi();
+                if ((enteringCounter % 4) == 0
+                        && enteringCounter / 4 < Const.TEAM_SIZE) {
+                    for (int t = Match.HOME; t <= Match.AWAY; t++) {
+                        int i = enteringCounter / 4;
+                        Player player = match.team[t].lineup.get(i);
+                        player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                    }
+                }
+                enteringCounter += 1;
+            }
 
-			match.updatePlayers(false);
+            match.updatePlayers(false);
 
-			match.nextSubframe();
+            match.nextSubframe();
 
-			match.save();
+            match.save();
 
-			match.renderer.updateCameraX(ActionCamera.CF_BALL,
-					ActionCamera.CS_FAST);
-			match.renderer.updateCameraY(ActionCamera.CF_BALL,
-					ActionCamera.CS_FAST);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL,
+                    ActionCamera.CS_FAST);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL,
+                    ActionCamera.CS_FAST);
 
-			timeLeft -= GLGame.SUBFRAME_DURATION;
-		}
-	}
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+    }
 
-	@Override
-	void checkConditions() {
+    @Override
+    void checkConditions() {
 
-		if (enteringCounter / 4 == Const.TEAM_SIZE) {
-			match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
-			return;
-		}
+        if (enteringCounter / 4 == Const.TEAM_SIZE) {
+            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            return;
+        }
 
-		// If (KeyDown(KEY_ESCAPE))
-		// Self.quit_match()
-		// Return
-		// EndIf
-		//
-		// If (KeyDown(KEY_R))
-		// Self.replay()
-		// Return
-		// EndIf
-		//
-		// If (KeyDown(KEY_P))
-		// Self.pause()
-		// Return
-		// EndIf
+        // If (KeyDown(KEY_ESCAPE))
+        // Self.quit_match()
+        // Return
+        // EndIf
+        //
+        // If (KeyDown(KEY_R))
+        // Self.replay()
+        // Return
+        // EndIf
+        //
+        // If (KeyDown(KEY_P))
+        // Self.pause()
+        // Return
+        // EndIf
 
-	}
+    }
 
 }

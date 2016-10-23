@@ -5,84 +5,84 @@ import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateIntro extends MatchState {
 
-	final int enterDelay = GLGame.VIRTUAL_REFRATE / 16;
+    final int enterDelay = GLGame.VIRTUAL_REFRATE / 16;
 
-	public MatchStateIntro(Match match) {
-		super(match);
-		id = MatchFsm.STATE_INTRO;
-	}
+    public MatchStateIntro(Match match) {
+        super(match);
+        id = MatchFsm.STATE_INTRO;
+    }
 
-	@Override
-	void entryActions() {
-		super.entryActions();
+    @Override
+    void entryActions() {
+        super.entryActions();
 
-		match.setIntroPositions();
-		match.resetData();
+        match.setIntroPositions();
+        match.resetData();
 
-		match.listener.introSound(match.settings.sfxVolume);
-		match.listener.crowdSound(match.settings.sfxVolume);
-	}
+        match.listener.introSound(match.settings.sfxVolume);
+        match.listener.crowdSound(match.settings.sfxVolume);
+    }
 
-	@Override
-	void doActions(float deltaTime) {
-		super.doActions(deltaTime);
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
 
-		match.enterPlayers(timer - 1, enterDelay);
+        match.enterPlayers(timer - 1, enterDelay);
 
-		float timeLeft = deltaTime;
-		while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
-			match.updatePlayers(false);
-			match.playersPhoto();
+            match.updatePlayers(false);
+            match.playersPhoto();
 
-			match.nextSubframe();
+            match.nextSubframe();
 
-			match.save();
+            match.save();
 
-			match.renderer.updateCameraX(ActionCamera.CF_NONE,
-					ActionCamera.CS_NORMAL);
-			// TODO
-			// If (Self.camera_delay < SECOND)
-			// match.renderer.updateCameraY(ActionCamera.NONE);
-			// } else {
-			match.renderer.updateCameraY(ActionCamera.CF_BALL,
-					ActionCamera.CS_NORMAL);
-			// }
+            match.renderer.updateCameraX(ActionCamera.CF_NONE,
+                    ActionCamera.CS_NORMAL);
+            // TODO
+            // If (Self.camera_delay < SECOND)
+            // match.renderer.updateCameraY(ActionCamera.NONE);
+            // } else {
+            match.renderer.updateCameraY(ActionCamera.CF_BALL,
+                    ActionCamera.CS_NORMAL);
+            // }
 
-			timeLeft -= GLGame.SUBFRAME_DURATION;
-		}
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
 
-	}
+    }
 
-	@Override
-	void checkConditions() {
-		if (match.enterPlayersFinished(timer, enterDelay)) {
+    @Override
+    void checkConditions() {
+        if (match.enterPlayersFinished(timer, enterDelay)) {
 
-			if ((match.team[Match.HOME].fire1Down() != null)
-					|| (match.team[Match.AWAY].fire1Down() != null)
-					|| (timer >= 5 * GLGame.VIRTUAL_REFRATE)) {
-				match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
-				return;
-			}
-		}
+            if ((match.team[Match.HOME].fire1Down() != null)
+                    || (match.team[Match.AWAY].fire1Down() != null)
+                    || (timer >= 5 * GLGame.VIRTUAL_REFRATE)) {
+                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                return;
+            }
+        }
 
-		// TODO
-		// If (KeyDown(KEY_R))
-		// Self.replay()
-		// Return
-		// EndIf
-		//
-		// If (KeyDown(KEY_P))
-		// Self.pause()
-		// Return
-		// EndIf
+        // TODO
+        // If (KeyDown(KEY_R))
+        // Self.replay()
+        // Return
+        // EndIf
+        //
+        // If (KeyDown(KEY_P))
+        // Self.pause()
+        // Return
+        // EndIf
 
-	}
+    }
 
-	@Override
-	void render() {
-		// TODO
-		// match.renderer.drawRosters();
-	}
+    @Override
+    void render() {
+        // TODO
+        // match.renderer.drawRosters();
+    }
 
 }

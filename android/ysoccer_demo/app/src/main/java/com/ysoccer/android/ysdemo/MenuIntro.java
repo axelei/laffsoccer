@@ -5,15 +5,15 @@ import com.ysoccer.android.framework.impl.GLScreen;
 
 public class MenuIntro extends GLScreen {
 
-	public MenuIntro(Game game) {
-		super(game);
-	}
+    public MenuIntro(Game game) {
+        super(game);
+    }
 
-	@Override
-	public void update(float deltaTime) {
-		if (Assets.ucode14 != null) {
-			game.setScreen(new MenuMain(game));
-		}
-	}
+    @Override
+    public void update(float deltaTime) {
+        if (Assets.ucode14 != null) {
+            game.setScreen(new MenuMain(game));
+        }
+    }
 
 }

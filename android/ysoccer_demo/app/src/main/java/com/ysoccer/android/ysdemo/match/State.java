@@ -2,34 +2,34 @@ package com.ysoccer.android.ysdemo.match;
 
 public class State {
 
-	protected int timer;
-	protected int id;
+    protected int timer;
+    protected int id;
 
-	int getId() {
-		return id;
-	}
+    int getId() {
+        return id;
+    }
 
-	void doActions() {
-		timer += 1;
-	}
+    void doActions() {
+        timer += 1;
+    }
 
-	State checkConditions() {
-		return null;
-	}
+    State checkConditions() {
+        return null;
+    }
 
-	void entryActions() {
-		timer = 0;
-	}
+    void entryActions() {
+        timer = 0;
+    }
 
-	void exitActions() {
-	}
+    void exitActions() {
+    }
 
-	boolean checkId(int id) {
-		return (this.id == id);
-	}
+    boolean checkId(int id) {
+        return (this.id == id);
+    }
 
-	@Override
-	public String toString() {
-		return id + ":" + timer;
-	}
+    @Override
+    public String toString() {
+        return id + ":" + timer;
+    }
 }

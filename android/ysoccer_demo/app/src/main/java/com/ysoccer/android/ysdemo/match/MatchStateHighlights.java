@@ -5,79 +5,79 @@ import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateHighlights extends MatchState {
 
-	int subframe0;
-	int position;
+    int subframe0;
+    int position;
 
-	public MatchStateHighlights(Match match) {
-		super(match);
-		id = MatchFsm.STATE_HIGHLIGHTS;
-	}
+    public MatchStateHighlights(Match match) {
+        super(match);
+        id = MatchFsm.STATE_HIGHLIGHTS;
+    }
 
-	@Override
-	void entryActions() {
-		super.entryActions();
+    @Override
+    void entryActions() {
+        super.entryActions();
 
-		match.renderer.displayControlledPlayer = false;
-		match.renderer.displayBallOwner = false;
-		match.renderer.displayGoalScorer = false;
-		match.renderer.displayTime = false;
-		match.renderer.displayWindVane = true;
-		match.renderer.displayScore = false;
-		match.renderer.displayStatistics = false;
-		match.renderer.displayRadar = false;
+        match.renderer.displayControlledPlayer = false;
+        match.renderer.displayBallOwner = false;
+        match.renderer.displayGoalScorer = false;
+        match.renderer.displayTime = false;
+        match.renderer.displayWindVane = true;
+        match.renderer.displayScore = false;
+        match.renderer.displayStatistics = false;
+        match.renderer.displayRadar = false;
 
-		// position of current frame inside the highlights vector
-		position = 0;
+        // position of current frame inside the highlights vector
+        position = 0;
 
-		// store initial frame
-		subframe0 = match.subframe;
+        // store initial frame
+        subframe0 = match.subframe;
 
-		match.recorder.loadHighlight();
+        match.recorder.loadHighlight();
 
-	}
+    }
 
-	@Override
-	void doActions(float deltaTime) {
-		super.doActions(deltaTime);
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
 
-		int speed = GLGame.SUBFRAMES;
+        int speed = GLGame.SUBFRAMES;
 
-		// slow motion
-		if (match.glGame.touchInput.fire21) {
-			speed = GLGame.SUBFRAMES / 2;
-		}
+        // slow motion
+        if (match.glGame.touchInput.fire21) {
+            speed = GLGame.SUBFRAMES / 2;
+        }
 
-		position += speed;
-		if (position > Const.REPLAY_SUBFRAMES) {
-			position = Const.REPLAY_SUBFRAMES;
-		}
+        position += speed;
+        if (position > Const.REPLAY_SUBFRAMES) {
+            position = Const.REPLAY_SUBFRAMES;
+        }
 
-		match.subframe = (subframe0 + position) % Const.REPLAY_SUBFRAMES;
-	}
+        match.subframe = (subframe0 + position) % Const.REPLAY_SUBFRAMES;
+    }
 
-	@Override
-	void checkConditions() {
+    @Override
+    void checkConditions() {
 
-		// quit on touch
-		if ((match.team[Match.HOME].fire1Up() != null)
-				|| (match.team[Match.AWAY].fire1Up() != null)) {
-			match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
-			return;
-		}
+        // quit on touch
+        if ((match.team[Match.HOME].fire1Up() != null)
+                || (match.team[Match.AWAY].fire1Up() != null)) {
+            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+            return;
+        }
 
-		// quit on finish
-		if (position == Const.REPLAY_SUBFRAMES) {
-			match.recorder.nextHighlight();
-			if (match.recorder.hasEnded()) {
-				match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
-				return;
-			} else {
-				match.fsm.pushAction(ActionType.FADE_OUT);
-				match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-				match.fsm.pushAction(ActionType.FADE_IN);
-				return;
-			}
-		}
-	}
+        // quit on finish
+        if (position == Const.REPLAY_SUBFRAMES) {
+            match.recorder.nextHighlight();
+            if (match.recorder.hasEnded()) {
+                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                return;
+            } else {
+                match.fsm.pushAction(ActionType.FADE_OUT);
+                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+                match.fsm.pushAction(ActionType.FADE_IN);
+                return;
+            }
+        }
+    }
 
 }
