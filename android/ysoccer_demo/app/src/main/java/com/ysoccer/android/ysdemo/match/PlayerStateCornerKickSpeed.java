@@ -2,14 +2,14 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.math.Emath;
 
-public class PlayerStateCornerKickSpeed extends PlayerState {
+class PlayerStateCornerKickSpeed extends PlayerState {
 
     private Ball ball;
     private float kickAngle;
     private float kickSpin;
     private boolean thrown;
 
-    public PlayerStateCornerKickSpeed(Player player) {
+    PlayerStateCornerKickSpeed(Player player) {
         super(player);
         id = PlayerFsm.STATE_CORNER_KICK_SPEED;
     }
@@ -29,8 +29,7 @@ public class PlayerStateCornerKickSpeed extends PlayerState {
 
         if (!thrown) {
 
-            if (timer > 0.15f * Const.SECOND
-                    && player.inputDevice.fire11 == false) {
+            if (timer > 0.15f * Const.SECOND && !player.inputDevice.fire11) {
                 thrown = true;
             }
             if (timer > 0.3f * Const.SECOND) {
@@ -46,8 +45,7 @@ public class PlayerStateCornerKickSpeed extends PlayerState {
 
             // spin
             if (player.inputDevice.value) {
-                if ((Math.abs(angleDiff) > 22.5f)
-                        && (Math.abs(angleDiff) < 157.5f)) {
+                if ((Math.abs(angleDiff) > 22.5f) && (Math.abs(angleDiff) < 157.5f)) {
                     kickSpin += 50.0f / Const.SECOND * Emath.sgn(angleDiff);
                 }
             }
@@ -91,7 +89,6 @@ public class PlayerStateCornerKickSpeed extends PlayerState {
                 ball.s = kickSpin;
             }
         }
-
     }
 
     @Override
@@ -101,5 +98,4 @@ public class PlayerStateCornerKickSpeed extends PlayerState {
         }
         return null;
     }
-
 }
