@@ -320,11 +320,19 @@
       "name": "VITTORIO CALVANI",
       "shirtName": "CALVANI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 2,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "CARLO CAMPORA",
@@ -337,6 +345,24 @@
       "skills": {}
     },
     {
+      "name": "STEFANO DAL MONTE",
+      "shirtName": "DAL MONTE",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "22",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 3,
+        "finishing": 3
+      }
+    },
+    {
       "name": "MARCOS ALBERTO LOCATELLI",
       "shirtName": "LOCATELLI",
       "nationality": "ARG",
@@ -344,7 +370,15 @@
       "number": "20",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 2,
+        "control": 4,
+        "speed": 3,
+        "finishing": 3
+      }
     },
     {
       "name": "ALDO AGROPPI",
@@ -352,16 +386,6 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "21",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "STEFANO DAL MONTE",
-      "shirtName": "DAL MONTE",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
