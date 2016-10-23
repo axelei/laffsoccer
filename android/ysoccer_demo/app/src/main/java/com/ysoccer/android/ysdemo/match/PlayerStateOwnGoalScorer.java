@@ -1,8 +1,8 @@
 package com.ysoccer.android.ysdemo.match;
 
-public class PlayerStateOwnGoalScorer extends PlayerState {
+class PlayerStateOwnGoalScorer extends PlayerState {
 
-    public PlayerStateOwnGoalScorer(Player player) {
+    PlayerStateOwnGoalScorer(Player player) {
         super(player);
         id = PlayerFsm.STATE_OWN_GOAL_SCORER;
     }
@@ -19,5 +19,4 @@ public class PlayerStateOwnGoalScorer extends PlayerState {
             player.fmx = 3;
         }
     }
-
 }
