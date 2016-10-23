@@ -45,6 +45,24 @@
       "value": 27
     },
     {
+      "name": "ELIO VANARA",
+      "shirtName": "VANARA",
+      "nationality": "ITA",
+      "role": "LEFT_BACK",
+      "number": "5",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 4,
+        "control": 4,
+        "speed": 5,
+        "finishing": 2
+      }
+    },
+    {
       "name": "BRUNO BAVENI",
       "shirtName": "BAVENI",
       "nationality": "ITA",
@@ -61,16 +79,6 @@
         "speed": 4,
         "finishing": 2
       }
-    },
-    {
-      "name": "MAURIZIO BRUNO",
-      "shirtName": "BRUNO",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
     },
     {
       "name": "ANTONIO COLOMBO",
@@ -91,11 +99,11 @@
       }
     },
     {
-      "name": "ELIO VANARA",
-      "shirtName": "VANARA",
+      "name": "MAURIZIO BRUNO",
+      "shirtName": "BRUNO",
       "nationality": "ITA",
       "role": "DEFENDER",
-      "number": "5",
+      "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -172,7 +180,15 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 6,
+        "tackling": 3,
+        "control": 5,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "GIANFRANCO ZIGONI",
@@ -182,7 +198,15 @@
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 6,
+        "speed": 4,
+        "finishing": 5
+      }
     },
     {
       "name": "LEONARDO GROSSO",

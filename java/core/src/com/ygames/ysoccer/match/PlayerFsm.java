@@ -18,6 +18,7 @@ class PlayerFsm extends Fsm {
     static final int STATE_THROW_IN_SPEED = 15;
     static final int STATE_CORNER_KICK_ANGLE = 16;
     static final int STATE_CORNER_KICK_SPEED = 17;
+    static final int STATE_GOAL_SCORER = 18;
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -35,6 +36,7 @@ class PlayerFsm extends Fsm {
     PlayerStateThrowInSpeed stateThrowInSpeed;
     PlayerStateCornerKickAngle stateCornerKickAngle;
     PlayerStateCornerKickSpeed stateCornerKickSpeed;
+    PlayerStateGoalScorer stateGoalScorer;
 
     public PlayerFsm(Player player) {
         addState(stateIdle = new PlayerStateIdle(player));
@@ -53,6 +55,7 @@ class PlayerFsm extends Fsm {
         addState(stateThrowInSpeed = new PlayerStateThrowInSpeed(player));
         addState(stateCornerKickAngle = new PlayerStateCornerKickAngle(player));
         addState(stateCornerKickSpeed = new PlayerStateCornerKickSpeed(player));
+        addState(stateGoalScorer = new PlayerStateGoalScorer(player));
     }
 
     @Override

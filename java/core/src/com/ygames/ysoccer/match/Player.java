@@ -110,6 +110,20 @@ public class Player {
         }
     }
 
+    void animationScorer() {
+        fmx = Math.round(((a + 360) % 360) / 45) % 8;
+        if (v > 0) {
+            fmySweep = (fmySweep + 0.16f * v / 1000) % 4;
+            if (fmySweep > 3) {
+                fmy = 12;
+            } else {
+                fmy = 11 + fmySweep;
+            }
+        } else {
+            fmy = 1;
+        }
+    }
+
     public void getPossession() {
         if ((ballDistance <= 8)
                 && Emath.dist(x0, y0, match.ball.x0, match.ball.y0) > 8
