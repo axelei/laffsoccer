@@ -40,6 +40,12 @@ public class Player {
             "SKILLS.FINISHING"
     };
 
+    // keeper collision types
+    private static final int CT_NONE = 0;
+    private static final int CT_REBOUND = 1;
+    private static final int CT_CATCH = 2;
+    private static final int CT_DEFLECT = 3;
+
     public String name;
     public String shirtName;
     Team team;
@@ -152,6 +158,120 @@ public class Player {
             }
 
             match.ball.vz = match.ball.vz / (2 + skills.control);
+        }
+    }
+
+    boolean keeperCollision() {
+        Ball ball = match.ball;
+
+        int collisionType = CT_NONE;
+
+        if (Math.abs(ball.y0 - y) >= 1 && Math.abs(ball.y - y) < 1) {
+
+            // collision detection
+
+            // keeper frame
+            int fmx = Math.round(this.fmx);
+            int fmy = Math.abs((int) Math.floor(this.fmy));
+
+            // offset
+            int offx = +24 + Math.round(ball.x - x);
+            int offy = +34 + Math.round(-ball.z - Const.BALL_R + z);
+
+            // verify if the pixel is inside the frame
+            if ((offx < 0) || (offx >= 50)) {
+                return false;
+            }
+            if ((offy < 0) || (offy >= 50)) {
+                return false;
+            }
+
+            int det_x = Math.round(50 * (fmx % 24) + offx);
+            int det_y = Math.round(50 * (fmy % 24) + offy);
+
+            // TODO
+            int rgb = 0; //Assets.keeperCollisionDetection.getPixel(det_x, det_y) & 0xFFFFFF;
+
+            switch (rgb) {
+                case 0xC0C000:
+                    collisionType = CT_REBOUND;
+                    break;
+
+                case 0xC00000:
+                    collisionType = CT_CATCH;
+                    break;
+
+                case 0x0000C0:
+                    if (ball.v > 180) {
+                        collisionType = CT_DEFLECT;
+                    } else {
+                        collisionType = CT_CATCH;
+                    }
+                    break;
+            }
+
+            switch (collisionType) {
+                case CT_REBOUND:
+                    if (ball.v > 180) {
+                        // TODO
+                        // match.listener.deflectSound(0.5f * match.settings.sfxVolume);
+                    }
+                    ball.v = ball.v / 4;
+                    ball.a = (-ball.a) % 360;
+                    ball.s = -ball.s;
+                    ball.setOwner(this, false);
+                    ball.setOwner(null);
+                    break;
+
+                case CT_CATCH:
+                    if (ball.v > 180) {
+                        // TODO
+                        // match.listener.holdSound(0.5f * match.settings.sfxVolume);
+                    }
+                    ball.v = 0;
+                    ball.vz = 0;
+                    ball.s = 0;
+                    ball.setOwner(this);
+                    ball.setHolder(this);
+                    break;
+
+                case CT_DEFLECT:
+                    if (ball.v > 180) {
+                        // TODO
+                        // match.listener.deflectSound(0.5f * match.settings.sfxVolume);
+                    }
+                    // real ball x-y angle (when spinned, it is different from ball.a)
+                    float ballAxy = Emath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
+
+                    float ballVx = ball.v * Emath.cos(ballAxy);
+                    float ballVy = ball.v * Emath.sin(ballAxy);
+
+                    ballVx = Math.signum(ballVx)
+                            * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
+                            + v * Emath.cos(a);
+                    ballVy = 0.7f * ballVy;
+
+                    ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
+                    ball.a = Emath.aTan2(ballVy, ballVx);
+                    ball.vz = 1.5f * vz;
+
+                    ball.setOwner(this, false);
+                    ball.setOwner(null);
+                    break;
+            }
+        }
+
+        return (collisionType == CT_CATCH);
+    }
+
+    void holdBall(int offX, int offZ) {
+        Ball ball = match.ball;
+        if ((ball.holder == this)) {
+            ball.x = x + offX;
+            ball.y = y;
+            ball.z = z + offZ;
+            ball.v = v;
+            ball.vz = vz;
         }
     }
 

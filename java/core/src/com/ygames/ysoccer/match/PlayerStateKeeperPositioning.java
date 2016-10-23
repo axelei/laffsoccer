@@ -159,8 +159,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             if ((frm * GlGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GlGame.SUBFRAMES > 0.25f * Const.SECOND)) {
                                 player.thrustX = (Math.abs(diffX) - Const.POST_X) / (Const.GOAL_AREA_W / 2 - Const.POST_X);
                                 player.a = (diffX < 0) ? 180 : 0;
-                                // TODO
-                                // return player.fsm.stateKeeperDivingLowSingle;
+                                 return player.fsm.stateKeeperDivingLowSingle;
                             }
                         } else {
                             //LOW - TWO HANDS
