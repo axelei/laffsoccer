@@ -315,7 +315,8 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 21
     },
     {
       "name": "VITTORIO CALVANI",
@@ -415,7 +416,15 @@
       "number": "23",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 2,
+        "speed": 2,
+        "finishing": 3
+      }
     }
   ]
 }
