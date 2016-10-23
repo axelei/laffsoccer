@@ -1,0 +1,1249 @@
+#Number  :001
+Country  :CAF
+Name     :ALGERIA
+Tactics  :2
+Division :1
+CoachName:VAHID HALILHODZIC
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      8      1      1      
+Away      0      8      1      8      8      
+Third     0      0      0      0      0      
+Change1   0      1      8      8      8      
+Change2   0      8      1      1      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       RAIS          M'BOLHI       ALG   0     501   0     1     16    0   0   0   0   0   0   0   
+02:       2       MEHDI         MOSTEFA       ALG   1     501   1     0     22    3   2   4*  5*  2   4*  2   
+03:       5       MADJID        BOUGHERRA     ALG   3     501   0     1     17    2   1   4*  3*  3*  3*  1   
+04:       6       ESSAID        BELKALEM      ALG   3     501   0     0     19    2   1   6*  5*  1   3*  1   
+05:       3       DJAMEL        MESBAH        ALG   2     501   0     0     18    3*  2   1   2   3*  5*  2   
+06:       7       SOFIANE       FEGHOULI      ALG   4     501   0     1     35    6*  5*  3   3   7*  7*  4   
+07:       4       CARL          MEDJANI       ALG   6     501   0     0     24    3   4*  5*  6*  2   3   1   
+08:       8       SAPHIR        TAIDER        ALG   6     501   0     0     33    5*  5*  3   4   7*  5*  4   
+09:       11      HILLEL        SOUDANI       ALG   5     501   0     1     26    2   6*  4   2   6*  3   3   
+10:       10      ADLENE        GUEDIOURA     ALG   6     501   0     1     23    3   5*  4*  3   3   3   2   
+11:       9       ISLAM         SLIMANI       ALG   7     501   0     0     19    2   3*  4*  1   4*  2   3*  
+12:       12      FAOUZI        GHOULAM       ALG   2     501   0     0     26    4   3   4*  5*  3   5*  2   
+13:       13      MEHDI         LACEN         ALG   6     501   0     0     24    3   3   3   5*  3   5*  2   
+14:       14      HASSAN        YEBDA         ALG   6     501   1     0     24    4   3   5*  3   4*  3   2   
+15:       15      RAFIK         DJEBBOUR      ALG   7     501   0     1     31    4   4   5*  2   6*  6*  4   
+16:       16      NABIL         GHILAS        ALG   7     501   0     0     28    3   4   4*  2   4*  5*  6*  
+
+
+#Number  :002
+Country  :CNM
+Name     :ARGENTINA
+Tactics  :0
+Division :1
+CoachName:ALEJANDRO SABELLA
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      2      7      1      2      1      
+Away      0      5      5      1      5      
+Third     0      0      0      0      0      
+Change1   2      7      1      1      5      
+Change2   0      5      5      2      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       SERGIO        ROMERO        ARG   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       PABLO         ZABALETA      ARG   1     501   1     0     37    6   4   4   7*  5   7*  4   
+03:       5       HUGO          CAMPAGNARO    ARG   3     501   0     0     33    3   2   5   7*  5*  7*  4   
+04:       6       EZEQUIEL      GARAY         ARG   3     501   0     0     38    7*  6*  7*  7*  3   3   5   
+05:       3       MARCOS        ROJO          ARG   2     501   0     0     29    4*  3   6*  6*  3   5*  2   
+06:       7       LIONEL        MESSI         ARG   4     501   0     0     49    7*  7*  7   7   7*  7*  7*  
+07:       4       JAVIER        MASCHERANO    ARG   6     501   0     0     38    7   3   4   7*  7   7*  3   
+08:       8       EVER          BANEGA        ARG   6     501   0     0     38    7*  5   3   5   7*  6*  5   
+09:       11      ANGEL         DI MARIA      ARG   5     501   0     0     42    7*  7*  5   3   7*  7*  6   
+10:       10      SERGIO        AGUERO        ARG   7     501   0     0     44    7*  7*  5   4   7*  7*  7*  
+11:       9       RODRIGO       PALACIO       ARG   7     501   0     0     36    7*  6*  2   2   7*  7*  5   
+12:       12      FABRICIO      COLOCCINI     ARG   3     501   1     0     31    4   2   7*  7*  3   6*  2   
+13:       13      ERIK          LAMELA        ARG   4     501   0     0     40    7*  7*  4   2   7*  7*  6   
+14:       14      MAXI          RODRIGUEZ     ARG   5     501   0     0     31    5*  6*  4   3   5*  4   4   
+15:       15      LUCAS         BIGLIA        ARG   6     501   1     0     32    7*  3   2   6*  7*  5   2   
+16:       16      EZEQUIEL      LAVEZZI       ARG   7     501   0     0     41    7*  7   3   3   7*  7*  7*  
+
+
+#Number  :003
+Country  :OFC
+Name     :AUSTRALIA
+Tactics  :2
+Division :1
+CoachName:HOLGER OSIECK
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      9      8      8      9      
+Away      0      5      8      5      5      
+Third     0      0      0      0      0      
+Change1   0      9      8      5      5      
+Change2   0      5      8      8      9      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       MARK          SCHWARZER     AUS   0     501   1     0     25    0   0   0   0   0   0   0   
+02:       2       LUKE          WILKSHIRE     AUS   1     501   1     0     28    7*  4   2   4   4*  4*  3   
+03:       5       LUCAS         NEILL         AUS   3     501   0     0     20    3*  2   3   5*  3*  3   1   
+04:       6       MICHAEL       THWAITE       AUS   3     501   1     0     17    2   1   5*  3*  2   3*  1   
+05:       3       MATT          MCKAY         AUS   2     501   0     0     18    2   2   1   4*  2   5*  2   
+06:       7       ROBBIE        KRUSE         AUS   4     501   0     0     26    3   4*  2   2   5*  6*  4*  
+07:       4       MILE          JEDINAK       AUS   6     501   0     0     25    4*  4*  6*  4*  2   3   2   
+08:       8       BRETT         HOLMAN        AUS   6     501   1     0     24    4*  3   3   1   4*  6*  3   
+09:       11      TOMMY         OAR           AUS   5     501   0     0     22    4*  3*  2   1   4*  6*  2   
+10:       10      TIM           CAHILL        AUS   6     501   0     0     25    4   3   5*  2   3   3   5*  
+11:       9       JOSHUA        KENNEDY       AUS   7     501   1     0     23    3   3   6*  1   3   3   4*  
+12:       12      SASA          OGNENOVSKI    AUS   3     501   0     0     16    2   1   4*  4*  1   2   2   
+13:       13      MARK          MILLIGAN      AUS   6     501   0     0     19    4*  4*  2   5*  1   2   1   
+14:       14      MARK          BRESCIANO     AUS   6     501   0     0     20    3*  5*  2   1   3*  4*  2   
+15:       15      ALEX          BROSQUE       AUS   6     501   0     0     19    5*  2   3*  1   2   2   4*  
+16:       16      ARCHIE        THOMPSON      AUS   7     501   0     1     21    3*  2   2   1   4*  5*  4*  
+
+
+#Number  :004
+Country  :UEF
+Name     :BELGIUM
+Tactics  :2
+Division :1
+CoachName:MARC WILMOTS
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      4      4      
+Away      0      2      1      2      2      
+Third     0      0      0      0      0      
+Change1   0      4      4      2      2      
+Change2   0      2      1      4      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       THIBAUT       COURTOIS      BEL   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       TOBY          ALDERWEIRELD  BEL   1     501   1     0     33    5*  5*  6*  7*  4   4   2   
+03:       5       VINCENT       KOMPANY       BEL   3     501   0     1     42    5   5   7*  7*  7   7*  4   
+04:       6       THOMAS        VERMAELEN     BEL   3     501   0     0     36    4   5   7*  7*  4   6*  3   
+05:       3       JAN           VERTONGHEN    BEL   2     501   1     0     39    4   7*  7*  6   5   5   5   
+06:       7       EDEN          HAZARD        BEL   4     501   0     0     44    7*  7   5   4   7*  7*  7*  
+07:       4       MAROUANE      FELLAINI      BEL   6     501   0     0     41    6   5   7*  6   6   5   6   
+08:       10      MOUSSA        DEMBELE       BEL   6     501   0     1     39    7   4   7*  2   7*  7*  5   
+09:       11      KEVIN         DE BRUYNE     BEL   5     501   1     0     36    7*  7*  2   3   7*  5*  5*  
+10:       8       AXEL          WITSEL        BEL   6     501   0     1     42    7*  6   5   3   7*  7*  7*  
+11:       9       ROMELU        LUKAKU        BEL   7     501   0     1     40    5   6*  7*  3   5   7*  7*  
+12:       12      NICOLAS       LOMBAERTS     BEL   3     501   1     0     33    4   3   7*  7*  4   7*  1   
+13:       13      KEVIN         MIRALLAS      BEL   4     501   0     0     34    6*  4   3   1   7*  7*  6   
+14:       14      NACER         CHADLI        BEL   5     501   0     0     33    6*  4   4   3   6*  6*  4   
+15:       15      STEVEN        DEFOUR        BEL   6     501   0     0     32    7*  4   2   2   6*  7*  4   
+16:       16      CHRISTIAN     BENTEKE       BEL   7     501   0     1     38    4   5   7*  3   5*  7*  7*  
+
+
+#Number  :005
+Country  :UEF
+Name     :BOSNIA HERZEGOVINA
+Tactics  :0
+Division :1
+CoachName:SAFET SUSIC
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      1      1      
+Away      0      5      5      5      5      
+Third     0      0      0      0      0      
+Change1   0      1      1      5      5      
+Change2   0      5      5      1      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       ASMIR         BEGOVIC       BIH   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       MENSUR        MUJDZA        BIH   1     501   0     0     25    4*  2   6*  3   4*  5*  1   
+03:       5       ERMIN         BICAKCIC      BIH   3     501   1     0     24    3   2   6*  6*  2   4*  1   
+04:       6       EMIR          SPAHIC        BIH   3     501   0     0     30    4   4   5*  7*  4   4   2   
+05:       3       SEJAD         SALIHOVIC     BIH   2     501   0     0     30    7*  6*  2   2   5*  4*  4   
+06:       7       MIRALEM       PJANIC        BIH   4     501   0     0     36    6*  6*  4   4   7*  5   4   
+07:       4       HARIS         MEDUNJANIN    BIH   6     501   0     0     25    5*  5*  3   1   5*  3   3   
+08:       8       ZVJEZDAN      MISIMOVIC     BIH   6     501   1     0     28    7*  4*  2   1   6*  2   6*  
+09:       11      SENAD         LULIC         BIH   5     501   0     0     34    5*  7*  2   3   7*  5*  5   
+10:       10      VEDAD         IBISEVIC      BIH   7     501   0     0     34    3   3   7*  1   6   7*  7*  
+11:       9       EDIN          DZEKO         BIH   7     501   1     0     41    5   6   7*  2   7*  7*  7*  
+12:       12      AVDIJA        VRSAJEVIC     BIH   1     501   1     0     22    1   1   2   6*  2   7*  3   
+13:       13      IZET          HAJROVIC      BIH   4     501   0     0     26    3   4*  1   2   4*  6*  6*  
+14:       14      MIROSLAV      STEVANOVIC    BIH   4     501   0     0     22    5*  5*  3   2   3*  2   2   
+15:       15      ADNAN         ZAHIROVIC     BIH   6     501   0     0     18    2   2*  4*  4*  2   2   2   
+16:       16      SENIJAD       IBRICIC       BIH   6     501   1     0     25    4*  4*  3   2   5*  3   4*  
+
+
+#Number  :006
+Country  :CNM
+Name     :BRAZIL
+Tactics  :2
+Division :1
+CoachName:LUIZ FELIPE SCOLARI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      9      9      5      1      
+Away      0      5      5      1      5      
+Third     0      0      0      0      0      
+Change1   0      9      9      1      5      
+Change2   0      5      5      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       JULIO         CESAR         BRA   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       DANI          ALVES         BRA   1     501   0     1     38    7*  5   3   5   7*  7*  4   
+03:       5       THIAGO        SILVA         BRA   3     501   0     1     43    6   6   7*  7*  5   7*  5   
+04:       6       DAVID         LUIZ          BRA   3     501   1     0     40    4   5   7*  7*  6   7*  4   
+05:       3       MARCELO                     BRA   2     501   0     1     40    7*  6   2   5   7*  7*  6   
+06:       7       HULK                        BRA   4     501   0     1     45    7   7*  6   4   7*  7*  7*  
+07:       4       PAULINHO                    BRA   6     501   0     1     39    5   5   3   7*  7*  7*  5   
+08:       10      OSCAR                       BRA   6     501   0     0     42    7*  7   4   3   7*  7*  7*  
+09:       11      NEYMAR                      BRA   5     501   0     1     45    7   7   6   4   7*  7*  7*  
+10:       8       RAMIRES                     BRA   6     501   0     1     41    5   5   5   7*  7   7*  5   
+11:       9       FRED                        BRA   7     501   0     0     32    3   6*  5*  1   5*  5*  7*  
+12:       12      DANTE                       BRA   3     501   0     1     36    4   3   7*  7*  6   6   3   
+13:       13      LUCAS         MOURA         BRA   4     501   0     1     43    7   7*  5   3   7*  7*  7   
+14:       14      HERNANES                    BRA   6     501   0     0     41    7*  7*  3   5   7*  7*  5   
+15:       15      PATO                        BRA   7     501   0     0     35    4   4   5*  2   7*  7*  6*  
+16:       16      JO                          BRA   7     501   0     1     30    4   4   6*  1   5*  4   6*  
+
+
+#Number  :007
+Country  :CAF
+Name     :CAMEROON
+Tactics  :4
+Division :1
+CoachName:VOLKER FINKE
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      8      8      4      9      
+Away      0      9      9      8      8      
+Third     0      0      0      0      0      
+Change1   0      8      8      8      8      
+Change2   0      9      9      4      9      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       CHARLES       ITANDJE       CMR   0     501   0     1     21    0   0   0   0   0   0   0   
+02:       2       AURELIEN      CHEDJOU       CMR   3     501   0     1     33    4   4   7*  6*  4   6*  2   
+03:       5       NICOLAS       NKOULOU       CMR   3     501   0     1     34    5*  3   6*  7*  5   6*  2   
+04:       4       ALEX          SONG          CMR   6     501   0     1     38    5   3   7*  7*  7*  6   3   
+05:       3       JOEL          MATIP         CMR   3     501   0     1     33    5*  3   7*  6*  4   5*  3   
+06:       7       ALLAN         NYOM          CMR   1     501   0     1     29    3   2   7*  5*  3   7*  2   
+07:       6       STEPHANE      MBIA          CMR   6     501   0     1     33    4   4   7*  7*  4   5*  2   
+08:       8       JEAN          II MAKOUN     CMR   6     501   0     1     29    5*  3   4   6*  3   6*  2   
+09:       11      BENOIT        ASSOU-EKOTTO  CMR   2     501   0     1     33    5*  3   4   7*  5*  7*  2   
+10:       10      VINCENT       ABOUBAKAR     CMR   7     501   0     1     24    2   3   4*  1   3   6*  5*  
+11:       9       SAMUEL        ETO'O         CMR   7     501   0     1     41    7   6   5   2   7*  7*  7*  
+12:       12      HENRI         BEDIMO        CMR   2     501   0     1     26    5*  3   3   3   4   6*  2   
+13:       13      DANY          NOUNKEU       CMR   3     501   0     1     30    2   2   7*  7*  3   7*  2   
+14:       14      MAXIM         CHOUPO-MOTING CMR   5     501   0     1     26    3   3   4   2   5*  5*  4*  
+15:       15      PIERRE        WEBO          CMR   7     501   0     1     30    4   3   4   2   6*  7*  4*  
+16:       16      BENJAMIN      MOUKANDJO     CMR   7     501   0     1     24    3   2   2   1   6*  7*  3   
+
+
+#Number  :008
+Country  :CNM
+Name     :CHILE
+Tactics  :2
+Division :1
+CoachName:JORGE SAMPAOLI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      5      1      
+Away      0      1      1      1      5      
+Third     0      0      0      0      0      
+Change1   0      4      4      1      5      
+Change2   0      1      1      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       CLAUDIO       BRAVO         CHI   0     501   0     0     27    0   0   0   0   0   0   0   
+02:       2       MAURICIO      ISLA          CHI   1     501   0     0     34    5   2   2   7*  7*  7*  4   
+03:       5       GARY          MEDEL         CHI   3     501   0     0     34    4   4   6*  7*  3   6*  4   
+04:       6       OSVALDO       GONZALEZ      CHI   3     501   0     0     21    2   2   5*  5*  2   4*  1   
+05:       3       EUGENIO       MENA          CHI   2     501   0     0     23    3*  2   2   5*  5*  5*  1   
+06:       7       ALEXIS        SANCHEZ       CHI   4     501   0     0     41    6   6   4   5   7*  7*  6   
+07:       4       ARTURO        VIDAL         CHI   6     501   0     0     43    7*  5   6   7*  7*  7*  4   
+08:       8       MARCELO       DIAZ          CHI   6     501   0     0     25    5*  3   2   3   3   7*  2   
+09:       11      EDUARDO       VARGAS        CHI   5     501   0     0     31    4   5*  3   2   6*  7*  4   
+10:       10      DAVID         PIZARRO       CHI   6     501   0     0     33    7*  5*  1   4   7*  3   6*  
+11:       9       ESTEBAN       PAREDES       CHI   7     501   0     0     26    4*  4*  3   1   4   4   6*  
+12:       12      JOSE          ROJAS         CHI   3     501   0     0     19    2   4*  2   5*  2   2   2   
+13:       13      JEAN          BEAUSEJOUR    CHI   5     501   0     1     30    6*  3   4   2   5*  7*  3   
+14:       14      CHARLES       ARANGUIZ      CHI   6     501   0     0     25    4*  4*  1   3   4*  5*  4*  
+15:       15      SEBASTIAN     PINTO         CHI   7     501   0     0     27    4   3   5*  2   4   4*  5*  
+16:       16      HUMBERTO      SUAZO         CHI   7     501   0     0     30    4*  5*  3   1   7*  4   6*  
+
+
+#Number  :009
+Country  :CNM
+Name     :COLOMBIA
+Tactics  :0
+Division :1
+CoachName:JOSE PEKERMAN
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      9      9      5      1      
+Away      0      5      4      1      1      
+Third     0      0      0      0      0      
+Change1   0      9      9      1      1      
+Change2   0      5      4      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       DAVID         OSPINA        COL   0     501   0     0     29    0   0   0   0   0   0   0   
+02:       2       CAMILO        ZUNIGA        COL   1     501   0     1     32    5   4   2   5   6*  7*  3   
+03:       5       LUIS          PEREA         COL   3     501   0     1     26    2   2   5*  6*  2   7*  2   
+04:       6       CRISTIAN      ZAPATA        COL   3     501   0     1     30    3   1   7*  7*  3   7*  2   
+05:       3       PABLO         ARMERO        COL   2     501   0     1     32    5   3   3   6*  5   7*  3   
+06:       7       JUAN          CUADRADO      COL   4     501   0     1     36    6   4   4   5   7*  7*  3   
+07:       4       CARLOS        SANCHEZ       COL   6     501   0     1     26    4*  3   5*  4*  4   4*  2   
+08:       8       FREDY         GUARIN        COL   6     501   0     1     38    7*  7*  5*  5   6*  5   3   
+09:       11      JAMES         RODRIGUEZ     COL   5     501   0     0     42    7*  7*  5   4   7*  6*  6*  
+10:       10      RADAMEL       FALCAO        COL   7     501   0     0     46    7   7   7*  4   7   7*  7*  
+11:       9       JACKSON       MARTINEZ      COL   7     501   0     1     41    6   6   7*  1   7   7*  7*  
+12:       12      STEFAN        MEDINA        COL   3     501   0     0     19    3*  1   3*  5*  2   3*  2   
+13:       13      CARLOS        QUINTERO      COL   4     501   0     1     26    3   3   2   1   5*  7*  5*  
+14:       14      ABEL          AGUILAR       COL   6     501   0     0     26    3   4*  6*  3   3   3   4*  
+15:       15      CARLOS        BACCA         COL   7     501   0     1     31    4   4   4   1   5*  6*  7*  
+16:       16      TEOFILO       GUTIERREZ     COL   7     501   0     1     24    3*  5*  3   1   3*  3   6*  
+
+
+#Number  :010
+Country  :CNC
+Name     :COSTA RICA
+Tactics  :0
+Division :1
+CoachName:JORGE LUIS PINTO
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      5      5      1      
+Away      0      1      1      1      1      
+Third     0      0      0      0      0      
+Change1   0      4      5      1      1      
+Change2   0      1      1      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       KEYLOR        NAVAS         CRC   0     501   0     1     21    0   0   0   0   0   0   0   
+02:       2       CRISTIAN      GAMBOA        CRC   1     501   0     0     19    2   2   2   2   4*  5*  2   
+03:       5       MICHAEL       UMANA         CRC   3     501   0     0     15    1   1   2*  4*  2*  4*  1   
+04:       6       GEANCARLO     GONZALEZ      CRC   3     501   0     0     17    2   1   3*  4*  2*  4*  1   
+05:       3       BRYAN         OVIEDO        CRC   2     501   0     0     26    4*  3   3   4   5*  6*  1   
+06:       7       BRYAN         RUIZ          CRC   4     501   0     0     35    6*  4   5   1   7*  7*  5*  
+07:       4       YELTSIN       TEJEDA        CRC   6     501   0     0     17    5*  1   2   3*  2   3*  1   
+08:       8       CELSO         BORGES        CRC   6     501   0     0     22    3*  3   3   2   3*  3   5*  
+09:       11      CHRISTIAN     BOLANOS       CRC   5     501   0     0     23    5*  3   1   0   6*  5*  3*  
+10:       10      JOEL          CAMPBELL      CRC   7     501   0     1     25    3   4*  3   2   4*  6*  3   
+11:       9       ALVARO        SABORIO       CRC   7     501   0     1     19    2   3*  3*  1   2   3*  5*  
+12:       12      JUNIOR        DIAZ          CRC   2     501   0     1     19    2   2   3*  4*  2   4*  2   
+13:       13      JOHNNY        ACOSTA        CRC   3     501   0     0     14    4*  2   2*  3*  1   1   1   
+14:       14      JOSE          CUBERO        CRC   6     501   0     0     16    2*  1   4*  4*  2*  2   1   
+15:       15      VICTOR        NUNEZ         CRC   7     501   0     1     18    2   1   3*  2   4*  4*  2   
+16:       16      RANDALL       BRENES        CRC   7     501   0     0     15    2*  2*  1   1   2*  3*  4*  
+
+
+#Number  :011
+Country  :CAF
+Name     :COTE D'IVOIRE
+Tactics  :0
+Division :1
+CoachName:SABRI LAMOUCHI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      3      3      3      3      
+Away      0      8      8      1      8      
+Third     0      0      0      0      0      
+Change1   0      3      3      1      8      
+Change2   0      8      8      3      3      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       COPA                        CIV   0     501   0     1     23    0   0   0   0   0   0   0   
+02:       2       SERGE         AURIER        CIV   1     501   0     1     30    4   3   5*  6*  4   7*  1   
+03:       5       KOLO          TOURE         CIV   3     501   0     1     31    4   4   5*  6*  3   7*  2   
+04:       6       DIDIER        ZOKORA        CIV   3     501   0     1     34    7*  1   4   7*  7*  7*  1   
+05:       3       ARTHUR        BOKA          CIV   2     501   0     1     23    3*  3   3   3   5*  5*  1   
+06:       7       GERVINHO                    CIV   4     501   0     1     34    6   5   2   1   7*  7*  6*  
+07:       4       CHEIK         TIOTE         CIV   6     501   0     1     34    5*  4   5*  7*  5   5*  3   
+08:       8       YAYA          TOURE         CIV   6     501   0     1     42    7*  6   7*  7*  5   7*  3   
+09:       10      SALOMON       KALOU         CIV   5     501   0     1     32    4   3   6*  2   6*  7*  4   
+10:       11      DIDIER        DROGBA        CIV   7     501   0     1     34    4   4   7*  2   4   6*  7*  
+11:       9       LACINA        TRAORE        CIV   7     501   0     1     37    3   5*  7*  3   5   7*  7*  
+12:       12      SOL           BAMBA         CIV   3     501   0     1     23    2   2   6*  5*  3   4*  1   
+13:       13      MAX           GRADEL        CIV   5     501   0     1     28    4   6*  1   2   4*  7*  4   
+14:       14      SEREY         DIE           CIV   6     501   0     1     25    5*  3   2   1   4*  7*  3   
+15:       15      WILFRIED      BONY          CIV   7     501   0     1     35    4   2   7*  3   7*  7*  5   
+16:       16      SEYDOU        DOUMBIA       CIV   7     501   0     1     40    5   6   7   1   7*  7*  7*  
+
+
+#Number  :012
+Country  :UEF
+Name     :CROATIA
+Tactics  :2
+Division :1
+CoachName:IGOR STIMAC
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      3      1      4      1      5      
+Away      0      5      1      5      5      
+Third     0      0      0      0      0      
+Change1   3      1      4      5      5      
+Change2   0      5      1      1      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       STIPE         PLETIKOSA     CRO   0     501   0     0     24    0   0   0   0   0   0   0   
+02:       2       DOMAGOJ       VIDA          CRO   1     501   1     0     29    3   3   5*  7*  3   5*  3   
+03:       6       VEDRAN        CORLUKA       CRO   3     501   0     0     31    4   2   7*  6*  4   5*  3   
+04:       5       DEJAN         LOVREN        CRO   3     501   0     0     33    6*  2   7*  7*  4   5   2   
+05:       3       IVAN          STRINIC       CRO   2     501   1     0     29    3   3   5*  4   5*  7*  2   
+06:       7       DARIJO        SRNA          CRO   4     501   0     0     34    6*  5*  3   5*  4   7*  4   
+07:       4       OGNJEN        VUKOJEVIC     CRO   6     501   0     0     31    3   4   4   7*  4   4   5*  
+08:       8       IVAN          RAKITIC       CRO   6     501   1     0     36    7*  7*  3   3   5   5   6*  
+09:       11      IVAN          PERISIC       CRO   5     501   1     0     31    5*  4   6*  2   5*  4   5*  
+10:       10      LUKA          MODRIC        CRO   6     501   1     0     43    7*  6   4   5   7*  7*  7   
+11:       9       MARIO         MANDZUKIC     CRO   7     501   0     0     40    5   4   7*  4   6*  7*  7*  
+12:       12      JOSIP         SIMUNIC       CRO   3     501   0     0     25    2   1   7*  7*  4*  3   1   
+13:       13      MATEO         KOVACIC       CRO   6     501   0     0     36    7*  4   3   2   7*  7*  6   
+14:       14      IVICA         OLIC          CRO   7     501   1     0     33    3   4   7*  3   4   7*  5*  
+15:       15      NIKICA        JELAVIC       CRO   7     501   1     0     32    4   5*  7*  3   4   4   5*  
+16:       16      NIKOLA        KALINIC       CRO   7     501   0     0     31    3   3   6*  2   6*  5*  6*  
+
+
+#Number  :013
+Country  :CNM
+Name     :ECUADOR
+Tactics  :0
+Division :1
+CoachName:REINALDO RUEDA
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      9      9      5      4      
+Away      0      5      4      9      5      
+Third     0      0      0      0      0      
+Change1   0      9      9      9      5      
+Change2   0      5      4      5      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       ALEXANDER     DOMINGUEZ     ECU   0     501   0     1     22    0   0   0   0   0   0   0   
+02:       2       JUAN          CARLOS PAREDESECU   1     501   0     1     22    3*  2   3   2   5*  4*  3*  
+03:       5       GABRIEL       ACHILIER      ECU   3     501   0     1     22    3   2   4*  4*  2   5*  2   
+04:       6       FRICKSON      ERAZO         ECU   3     501   0     1     23    5*  4*  3*  6*  1   2   2   
+05:       3       WALTER        AYOVI         ECU   2     501   0     1     26    4   4*  3   2   5*  5*  3   
+06:       7       ANTONIO       VALENCIA      ECU   4     501   0     1     38    7*  5   3   4   7*  7*  5   
+07:       4       EDISON        MENDEZ        ECU   6     501   0     1     23    5*  3   2   4*  5*  3*  1   
+08:       8       CHRISTIAN     NOBOA         ECU   6     501   0     0     32    4   6*  4   5   4   6*  3   
+09:       11      JEFFERSON     MONTERO       ECU   5     501   0     1     26    3   3   3   2   6*  6*  3   
+10:       10      FELIPE        CAICEDO       ECU   7     501   0     1     32    2   4   6*  2   5*  6*  7*  
+11:       9       JOAO          ROJAS         ECU   7     501   0     0     24    3   3   3   2   4*  6*  3   
+12:       12      JORGE         GUAGUA        ECU   3     501   0     1     21    2   1   4*  4*  3   5*  2   
+13:       13      RENATO        IBARRA        ECU   4     501   0     1     27    3   4*  3   2   6*  6*  3   
+14:       14      SEGUNDO       CASTILLO      ECU   6     501   0     1     22    3   3   5*  3*  2   3   3   
+15:       15      LUIS          SARITAMA      ECU   6     501   0     0     21    5*  3*  1   1   5*  4*  2   
+16:       16      JAIME         AYOVI         ECU   7     501   0     1     21    4*  2   3   2   4*  3*  3*  
+
+
+#Number  :014
+Country  :UEF
+Name     :ENGLAND
+Tactics  :0
+Division :1
+CoachName:ROY HODGSON
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      5      1      
+Away      0      4      4      1      4      
+Third     0      0      0      0      0      
+Change1   0      1      1      1      4      
+Change2   0      4      4      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       JOE           HART          ENG   0     501   1     0     39    0   0   0   0   0   0   0   
+02:       2       GLEN          JOHNSON       ENG   1     501   0     1     34    5*  4   3   6*  5*  7*  4   
+03:       6       GARY          CAHILL        ENG   3     501   0     0     37    4   3   7*  7*  6   7*  3   
+04:       5       PHIL          JAGIELKA      ENG   3     501   1     0     32    3   3   7*  7*  3   7*  2   
+05:       3       LEIGHTON      BAINES        ENG   2     501   0     0     39    7*  7*  3   7*  7*  7*  1   
+06:       7       THEO          WALCOTT       ENG   4     501   0     1     41    7   5   5   3   7*  7*  7*  
+07:       8       MICHAEL       CARRICK       ENG   6     501   0     0     38    7*  5   4   7*  5   6   4   
+08:       4       STEVEN        GERRARD       ENG   6     501   0     0     39    7*  7*  4   5   5   5   6*  
+09:       11      DANNY         WELBECK       ENG   5     501   0     1     36    4   5   6*  2   5*  7*  7*  
+10:       10      WAYNE         ROONEY        ENG   7     501   1     0     45    7   7*  6   4   7*  7*  7*  
+11:       9       DANIEL        STURRIDGE     ENG   7     501   0     1     38    5   5   5   2   7*  7*  7*  
+12:       12      ASHLEY        COLE          ENG   2     501   0     1     37    6   3   3   7*  6   7*  5   
+13:       13      ANDROS        TOWNSEND      ENG   4     501   0     1     35    5   7*  3   2   7*  7*  4   
+14:       14      JACK          WILSHERE      ENG   6     501   1     0     42    7*  6   5   6   7*  7*  4   
+15:       15      FRANK         LAMPARD       ENG   6     501   0     0     36    6*  7*  4   3   5   4   7*  
+16:       16      ANDY          CARROLL       ENG   7     501   0     0     36    4   6   7*  3   4   5   7*  
+
+
+#Number  :015
+Country  :UEF
+Name     :FRANCE
+Tactics  :2
+Division :1
+CoachName:DIDIER DESCHAMPS
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      5      5      5      5      
+Away      0      7      7      7      7      
+Third     0      0      0      0      0      
+Change1   0      5      5      7      7      
+Change2   0      7      7      5      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       HUGO          LLORIS        FRA   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       2       BACARY        SAGNA         FRA   1     501   0     1     34    5   2   7*  7*  5   7*  1   
+03:       5       RAPHAEL       VARANE        FRA   3     501   0     1     40    6   4   7*  7*  6   7   3   
+04:       6       LAURENT       KOSCIELNY     FRA   3     501   0     0     36    3   3   7*  7*  5   7*  4   
+05:       3       PATRICE       EVRA          FRA   2     501   0     1     37    7   2   5   7*  7*  7*  2   
+06:       11      JEREMY        MENEZ         FRA   4     501   0     0     38    7*  6   5   1   7*  7*  5   
+07:       4       BLAISE        MATUIDI       FRA   6     501   0     1     38    7*  5   3   7*  6   7*  3   
+08:       10      SAMIR         NASRI         FRA   6     501   0     0     38    7*  6*  2   3   7*  7*  6*  
+09:       7       FRANCK        RIBERY        FRA   5     501   0     0     44    7*  7*  4   5   7*  7*  7*  
+10:       8       PAUL          POGBA         FRA   6     501   0     1     38    7*  5   5   5   7*  6*  3   
+11:       9       KARIM         BENZEMA       FRA   7     501   0     0     42    6   7*  6   2   7*  7*  7*  
+12:       12      ERIC          ABIDAL        FRA   3     501   0     1     31    4   2   6*  7*  3   7*  2   
+13:       13      YOHAN         CABAYE        FRA   6     501   0     0     37    7*  7*  3   4   5   6   5   
+14:       14      MATHIEU       VALBUENA      FRA   6     501   0     0     36    7*  7*  2   1   7*  7*  5   
+15:       15      OLIVIER       GIROUD        FRA   7     501   0     0     37    4   7*  7*  1   5   6*  7*  
+16:       16      LOIC          REMY          FRA   7     501   0     1     34    4   4   5   1   6*  7*  7*  
+
+
+#Number  :016
+Country  :UEF
+Name     :GERMANY
+Tactics  :2
+Division :1
+CoachName:JOACHIM LOW
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      2      1      
+Away      0      8      2      1      8      
+Third     0      0      0      0      0      
+Change1   0      1      1      1      8      
+Change2   0      8      2      2      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       MANUEL        NEUER         GER   0     501   1     0     41    0   0   0   0   0   0   0   
+02:       2       PHILIPP       LAHM          GER   1     501   1     0     41    6   3   6   7*  7*  7*  5   
+03:       6       JEROME        BOATENG       GER   3     501   0     1     38    7*  3   5   7*  7*  7*  2   
+04:       5       MATS          HUMMELS       GER   3     501   0     0     40    5   3   7*  7*  6   7   5   
+05:       3       MARCEL        SCHMELZER     GER   2     501   1     0     33    5   4   5   7*  3   7*  2   
+06:       7       THOMAS        MULLER        GER   4     501   1     0     45    7*  7*  7   3   7*  7*  7*  
+07:       8       BASTIAN       SCHWEINSTEIGERGER   6     501   1     0     44    7*  7*  3   7   7*  6   7   
+08:       10      MESUT         OZIL          GER   6     501   0     0     44    7*  7   5   4   7*  7*  7   
+09:       11      MARCO         REUS          GER   5     501   1     0     42    6   7*  5   3   7*  7*  7*  
+10:       4       TONI          KROOS         GER   6     501   1     0     42    7*  7*  4   6   7*  4   7   
+11:       9       MARIO         GOMEZ         GER   7     501   0     0     40    4   7*  7*  3   5   7*  7*  
+12:       12      PER           MERTESACKER   GER   3     501   1     0     36    4   2   7*  7*  4   7*  5   
+13:       13      ANDRE         SCHURRLE      GER   5     501   1     0     41    5   7*  5   3   7*  7*  7*  
+14:       14      JULIAN        DRAXLER       GER   6     501   0     0     42    7*  7*  5   3   7*  7*  6   
+15:       15      SAMI          KHEDIRA       GER   6     501   0     0     40    4   5   7*  7*  4   7*  6   
+16:       16      MIROSLAV      KLOSE         GER   7     501   1     0     31    4   2   7*  2   5*  4   7*  
+
+
+#Number  :017
+Country  :CAF
+Name     :GHANA
+Tactics  :2
+Division :1
+CoachName:JAMES KWESI APPIAH
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      9      1      1      
+Away      0      4      9      4      4      
+Third     0      0      0      0      0      
+Change1   0      1      9      4      4      
+Change2   0      4      9      1      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       FATAU         DAUDA         GHA   0     501   0     1     13    0   0   0   0   0   0   0   
+02:       2       SAMUEL        INKOOM        GHA   1     501   0     1     20    3*  1   2   3*  4*  6*  1   
+03:       5       JERRY         AKAMINKO      GHA   3     501   0     1     25    4*  1   3   7*  3   5*  2   
+04:       6       JOHN          BOYE          GHA   3     501   0     1     23    2   2   7*  4*  2   4*  2   
+05:       4       MUBARAK       WAKASO        GHA   2     501   0     1     30    5   4   4   4   4   6*  3   
+06:       7       ANDRE         AYEW          GHA   4     501   0     1     36    5   5   5*  4   6*  6*  5   
+07:       9       SULLEY        MUNTARI       GHA   6     501   0     1     29    4   4*  2   7*  4   4   4   
+08:       10      KEVIN-PRINCE  BOATENG       GHA   6     501   0     1     36    5*  5*  4   3   7*  7*  5   
+09:       11      KWADWO        ASAMOAH       GHA   5     501   0     1     38    4   5   3   7*  7*  7*  5   
+10:       8       MICHAEL       ESSIEN        GHA   6     501   0     1     35    5   4   4   7*  5   7*  3   
+11:       3       ASAMOAH       GYAN          GHA   7     501   0     1     31    2   3   6*  1   6*  7*  6*  
+12:       12      ISAAC         VORSAH        GHA   3     501   0     1     23    2   1   5*  6*  1   7*  1   
+13:       13      CHRISTIAN     ATSU          GHA   5     501   0     1     31    4   4   3   2   6*  7*  5   
+14:       14      MOHAMMED      RABIU         GHA   6     501   0     1     26    4*  1   6*  4*  4*  6*  1   
+15:       15      EMMANUEL      BADU          GHA   6     501   0     1     27    5*  3   3   4   5*  5*  2   
+16:       16      MAJEED        WARIS         GHA   7     501   0     1     25    2   3   4   1   3   7*  5*  
+
+
+#Number  :018
+Country  :UEF
+Name     :GREECE
+Tactics  :5
+Division :1
+CoachName:FERNANDO SANTOS
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      1      1      
+Away      0      5      1      5      5      
+Third     0      0      0      0      0      
+Change1   0      1      1      5      5      
+Change2   0      5      1      1      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       ORESTIS       KARNEZIS      GRE   0     501   0     0     21    0   0   0   0   0   0   0   
+02:       2       VASILIS       TOROSIDIS     GRE   1     501   0     0     30    3   3   6*  4*  4   7*  3   
+03:       5       S.            PAPASTATHOPOULGRE   3     501   0     0     33    4   2   7*  7*  4   7*  2   
+04:       6       KYRIAKOS      PAPADOPOULOS  GRE   3     501   0     0     35    5   4   7*  7*  5   6*  1   
+05:       3       JOSE          HOLEBAS       GRE   2     501   0     1     24    3   3   3   3   4   5*  3   
+06:       7       PANAGIOTIS    KONE          GRE   6     501   0     0     27    3   4*  5*  1   5*  5*  4*  
+07:       4       KOSTAS        KATSOURANIS   GRE   6     501   0     0     29    4   3   6*  6*  3   3   4   
+08:       8       GEORGIOS      SAMARAS       GRE   7     501   0     0     29    2   4   7*  1   3   7*  5*  
+09:       11      GEORGIOS      KARAGOUNIS    GRE   6     501   0     0     27    5*  5*  2   3   6*  3   3   
+10:       10      DIMITRIOS     SALPINGIDIS   GRE   7     501   0     0     29    2   4   4   3   3   7*  6*  
+11:       9       KONSTANTINOS  MITROGLOU     GRE   7     501   0     0     29    3   3   7*  1   6*  5*  4*  
+12:       12      DIMITRIOS     SIOVAS        GRE   3     501   0     0     24    4*  2   6*  5*  3   3*  1   
+13:       13      L.            CHRISTODOULOPOGRE   5     501   0     0     24    3   4*  3   1   5*  5*  3   
+14:       14      SOTIRIOS      NINIS         GRE   6     501   0     0     28    5*  5*  3   2   5*  4*  4*  
+15:       15      GIANNIS       MANIATIS      GRE   6     501   0     0     28    4*  2   4*  6*  3   7*  2   
+16:       16      STEFANOS      ATHANASIADIS  GRE   7     501   0     0     28    4   3   4*  1   3   7*  6*  
+
+
+#Number  :019
+Country  :CNC
+Name     :HONDURAS
+Tactics  :0
+Division :1
+CoachName:LUIS FERNANDO SUAREZ
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      1      1      
+Away      2      5      1      5      5      
+Third     0      0      0      0      0      
+Change1   0      1      1      5      5      
+Change2   2      5      1      1      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       NOEL          VALLADARES    HON   0     501   0     0     25    0   0   0   0   0   0   0   
+02:       2       BRAYAN        BECKELES      HON   1     501   0     1     13    2*  1   4*  1   1   3*  1   
+03:       5       VICTOR        BERNARDEZ     HON   3     501   0     1     20    2   2   5*  3*  2   4*  2   
+04:       6       MAYNOR        FIGUEROA      HON   3     501   0     1     27    3   3   4*  5*  4   5*  3   
+05:       3       EMILIO        IZAGUIRRE     HON   2     501   0     1     28    4*  2   4   4*  5*  6*  3   
+06:       7       BONIEK        GARCIA        HON   4     501   0     1     20    3*  1   2   2   5*  5*  2   
+07:       4       LUIS          GARRIDO       HON   6     501   0     1     19    2   1   1   6*  2   5*  2   
+08:       8       WILSON        PALACIOS      HON   6     501   0     1     22    2   2   3*  5*  3   5*  2   
+09:       11      ROGER         ESPINOZA      HON   5     501   0     1     22    3*  2   2   3   5*  5*  2   
+10:       10      CARLOS        COSTLY        HON   7     501   0     1     18    2   2   4*  1   3*  4*  2   
+11:       9       JERRY         BENGTSON      HON   7     501   0     1     16    2   1   3*  2   2   4*  2*  
+12:       12      OSMAN         CHAVEZ        HON   3     501   0     1     17    2   1   4*  3*  2   4*  1   
+13:       13      EDGAR         ALVAREZ       HON   4     501   0     1     18    3   1   1   1   4*  7*  1   
+14:       14      JORGE         CLAROS        HON   6     501   0     0     17    2   1   2*  3*  3*  4*  2   
+15:       15      GEORGIE       WELCOME       HON   7     501   0     1     17    2   1   3*  2   2   4*  3*  
+16:       16      ROGER         ROJAS         HON   7     501   0     1     13    2   1   1   1   3*  3*  2*  
+
+
+#Number  :020
+Country  :AFC
+Name     :IRAN
+Tactics  :2
+Division :1
+CoachName:CARLOS QUEIROZ
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      8      1      1      
+Away      0      4      4      4      4      
+Third     0      0      0      0      0      
+Change1   0      1      8      4      4      
+Change2   0      4      4      1      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       RAHMAN        AHMADI        IRN   0     501   0     0     17    0   0   0   0   0   0   0   
+02:       2       KHOSRO        HEYDARI       IRN   1     501   0     0     20    3*  2   1   4*  4*  3   3   
+03:       5       JALAL         HOSSEINI      IRN   3     501   0     0     20    4*  2   5*  4*  2   2   1   
+04:       6       AMIR          HOSSEIN SADEGHIRN   3     501   0     0     20    1   3   6*  4*  1   3   2   
+05:       3       HASHEM        BEIKZADEH     IRN   2     501   0     0     19    3*  4*  1   3*  2   4*  2   
+06:       7       ASHKAN        DEJAGAH       IRN   4     501   0     0     27    4*  4*  3   1   6*  6*  3   
+07:       4       OMID          EBRAHIMI      IRN   6     501   0     0     21    2   5*  2   5*  3*  2   2   
+08:       8       ANDRANIK      TEYMOURIAN    IRN   6     501   0     0     22    4*  4*  3   3*  2   3   3*  
+09:       11      MOHAMMAD      KHALATBARI    IRN   5     501   0     0     23    3   3*  1   1   5*  6*  4*  
+10:       10      JAVAD         NEKOUNAM      IRN   6     501   0     0     24    4*  4*  5*  3   4   2   2   
+11:       9       REZA          GHOOCHANNEJHADIRN   7     501   0     0     21    2   5*  2   1   4*  4*  3*  
+12:       12      PEJMAN        MONTAZERI     IRN   3     501   0     0     19    3*  1   4*  3*  2   5*  1   
+13:       13      MASOUD        SHOJAEI       IRN   6     501   0     0     21    5*  3   2   1   5*  3*  2   
+14:       14      MOJTABA       JABBARI       IRN   6     501   0     0     20    5*  4*  1   2   3*  2   3   
+15:       15      FARZAD        HATAMI        IRN   7     501   0     0     18    4*  2   4*  1   2   2*  3*  
+16:       16      GHOLAMREZA    REZAEI        IRN   7     501   0     0     17    3*  5*  1   1   4*  2   1   
+
+
+#Number  :021
+Country  :UEF
+Name     :ITALY
+Tactics  :4
+Division :1
+CoachName:CESARE PRANDELLI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      5      5      1      5      
+Away      0      1      1      5      1      
+Third     0      0      0      0      0      
+Change1   0      5      5      5      1      
+Change2   0      1      1      1      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       SALVATORE     SIRIGU        ITA   0     501   0     0     37    0   0   0   0   0   0   0   
+02:       8       ANDREA        BARZAGLI      ITA   3     501   0     0     37    6   2   7*  7*  5   7*  3   
+03:       5       LEONARDO      BONUCCI       ITA   3     501   0     0     38    5   3   7*  7*  5   7*  4   
+04:       7       CLAUDIO       MARCHISIO     ITA   6     501   0     0     42    7*  5   3   7*  7*  7*  6   
+05:       6       GIORGIO       CHIELLINI     ITA   3     501   0     0     40    7   6   7*  7*  4   7*  2   
+06:       2       CHRISTIAN     MAGGIO        ITA   1     501   0     0     32    5*  3   6*  4   4   7*  3   
+07:       4       ANDREA        PIRLO         ITA   6     501   0     0     42    7*  7   4   4   7*  6   7*  
+08:       10      RICCARDO      MONTOLIVO     ITA   6     501   0     0     38    7*  6   2   3   7*  7*  6   
+09:       3       MANUEL        PASQUAL       ITA   2     501   0     0     29    4   3   3   5*  4   7*  3   
+10:       9       MARIO         BALOTELLI     ITA   7     501   0     1     42    5   7*  6   3   7*  7*  7*  
+11:       11      STEPHAN       EL SHAARAWY   ITA   7     501   0     0     41    6   7*  4   3   7*  7*  7*  
+12:       12      ANDREA        RANOCCHIA     ITA   3     501   0     0     36    4   3   7*  7*  4   7*  4   
+13:       13      THIAGO        MOTTA         ITA   6     501   0     0     34    6*  5   5   5   5   4   4   
+14:       14      ANTONIO       CANDREVA      ITA   6     501   0     0     34    7*  6*  3   2   7*  4   5*  
+15:       15      LORENZO       INSIGNE       ITA   7     501   0     0     34    5   5   3   2   7*  7*  5   
+16:       16      PABLO         OSVALDO       ITA   7     501   0     0     37    4   5   5   4   5   7*  7*  
+
+
+#Number  :022
+Country  :AFC
+Name     :JAPAN
+Tactics  :2
+Division :1
+CoachName:ALBERTO ZACCHERONI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      5      5      5      5      
+Away      0      1      5      1      1      
+Third     0      0      0      0      0      
+Change1   0      5      5      1      1      
+Change2   0      1      5      5      5      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       EIJI          KAWASHIMA     JPN   0     501   0     0     25    0   0   0   0   0   0   0   
+02:       2       ATSUTO        UCHIDA        JPN   1     501   0     0     27    5*  2   2   4*  5*  7*  2   
+03:       5       MAYA          YOSHIDA       JPN   3     501   0     0     29    3   3   7*  5*  2   7*  2   
+04:       6       YASUYUKI      KONNO         JPN   3     501   0     0     19    3*  2   2   6*  2   2   2   
+05:       3       YUTO          NAGATOMO      JPN   2     501   0     0     34    6*  1   5   7*  3   7*  5   
+06:       7       HIROSHI       KIYOTAKE      JPN   4     501   0     0     34    6*  3   3   2   7*  7*  6*  
+07:       4       MAKOTO        HASEBE        JPN   6     501   0     0     26    6*  2   3   5*  4*  4*  2   
+08:       8       KEISUKE       HONDA         JPN   6     501   1     0     39    7*  7*  3   4   7*  5   6   
+09:       11      SHINJI        KAGAWA        JPN   5     501   0     0     39    7*  6   3   2   7*  7*  7*  
+10:       10      YASUHITO      ENDO          JPN   6     501   0     0     26    5*  4*  3   3   5*  3   3   
+11:       9       SHINJI        OKAZAKI       JPN   7     501   0     0     24    3   3*  5*  2   3*  4*  4*  
+12:       12      GOTOKU        SAKAI         JPN   1     501   0     0     27    4*  2   3   4*  6*  6*  2   
+13:       13      HAJIME        HOSOGAI       JPN   6     501   0     0     24    5*  2   3   4*  4*  3*  3   
+14:       14      YOICHIRO      KAKITANI      JPN   6     501   0     0     22    3   4*  2   1   4*  5*  3*  
+15:       15      RYOICHI       MAEDA         JPN   7     501   0     0     24    2   3*  5*  1   5*  4*  4*  
+16:       16      MIKE          HAVENAAR      JPN   7     501   0     0     25    3   3   6*  0   3   5*  5*  
+
+
+#Number  :023
+Country  :AFC
+Name     :KOREA REPUBLIC
+Tactics  :2
+Division :1
+CoachName:MYUNG-BO HONG
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      5      4      
+Away      0      1      5      1      1      
+Third     0      0      0      0      0      
+Change1   0      4      4      1      1      
+Change2   0      1      5      5      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       SUNG-RYONG    JUNG          KOR   0     501   0     0     22    0   0   0   0   0   0   0   
+02:       2       CHANG-SOO     KIM           KOR   1     501   0     0     19    3*  1   2   4*  4*  3*  2   
+03:       5       JEONG-HO      HONG          KOR   3     501   0     0     18    2*  1   4*  4*  2   4*  1   
+04:       6       TAE-HWI       KWAK          KOR   3     501   0     0     23    3   1   6*  4*  3   3   3   
+05:       3       YOUNG-GWON    KIM           KOR   2     501   0     0     20    2   1   3*  6*  2   4*  2   
+06:       7       CHUNG-YONG    LEE           KOR   4     501   0     0     28    5*  2   2   1   7*  7*  4   
+07:       4       DAE-SUNG      HA            KOR   6     501   0     0     22    3*  5*  2   5*  3   2   2   
+08:       8       SUNG-YONG     KI            KOR   6     501   0     0     32    6*  6*  4   3   5*  4   4   
+09:       11      HEUNG-MIN     SON           KOR   5     501   0     0     36    4   5   5   2   7*  7*  6*  
+10:       10      BO-KYUNG      KIM           KOR   6     501   0     0     24    5*  3*  2   2   4*  5*  3   
+11:       9       KEUN-HO       LEE           KOR   7     501   0     0     24    3   3   3*  1   5*  6*  3   
+12:       12      YONG          LEE           KOR   1     501   0     0     19    3*  2   2   4*  2   3*  3*  
+13:       13      JA-CHEOL      KOO           KOR   6     501   0     0     28    4   5*  3   3   5*  4*  4   
+14:       14      IL-LOK        YUN           KOR   6     501   0     0     21    3*  3   2   2   4*  4*  3*  
+15:       15      DONG-WON      JI            KOR   7     501   0     0     25    3   3*  5*  2   4*  5*  3   
+16:       16      SHIN-WOOK     KIM           KOR   7     501   0     0     22    2   2   7*  1   3   2   5*  
+
+
+#Number  :024
+Country  :CNC
+Name     :MEXICO
+Tactics  :0
+Division :1
+CoachName:LUIS FERNANDO TENA
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      8      8      1      4      
+Away      0      2      1      2      2      
+Third     0      0      0      0      0      
+Change1   0      8      8      2      2      
+Change2   0      2      1      1      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       GUILLERMO     OCHOA         MEX   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       MIGUEL        LAYUN         MEX   1     501   0     0     23    4*  2   1   6*  2   6*  2   
+03:       5       RAFAEL        MARQUEZ       MEX   3     501   0     0     26    4*  3   5*  5*  3   3   3   
+04:       6       HECTOR        MORENO        MEX   3     501   0     0     30    3   2   7*  7*  3   6*  2   
+05:       3       JORGE         TORRES        MEX   2     501   0     0     26    3   2   4*  6*  3   6*  2   
+06:       7       GIOVANI       DOS SANTOS    MEX   4     501   0     1     32    5*  5*  3   2   7*  6*  4   
+07:       4       JESUS         ZAVALA        MEX   6     501   0     0     25    4*  3   5*  4*  3   3   3*  
+08:       8       FERNANDO      ARCE          MEX   6     501   0     0     23    6*  2   3   1   5*  3*  3   
+09:       11      ANDRES        GUARDADO      MEX   5     501   0     0     31    5*  5*  2   3   6*  7*  3   
+10:       10      JAVIER        HERNANDEZ     MEX   7     501   0     0     40    5   5   7*  2   7   7*  7*  
+11:       9       ORIBE         PERALTA       MEX   7     501   0     0     28    4   3   4   2   4*  6*  5*  
+12:       12      HUGO          AYALA         MEX   3     501   0     0     24    3   1   6*  7*  1   5*  1   
+13:       13      JAVIER        AQUINO        MEX   4     501   0     0     22    3*  4*  2   1   5*  5*  2   
+14:       14      CHRISTIAN     GIMENEZ       MEX   5     501   0     0     28    5*  4   2   1   5*  7*  4   
+15:       15      CARLOS        PENA          MEX   6     501   0     1     22    6*  1   2   3*  5*  2   3   
+16:       16      RAUL          JIMENEZ       MEX   7     501   0     0     26    3   4   4*  2   4*  5*  4*  
+
+
+#Number  :025
+Country  :UEF
+Name     :NETHERLANDS
+Tactics  :2
+Division :1
+CoachName:LOUIS VAN GAAL
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      3      3      3      3      
+Away      0      1      1      1      1      
+Third     0      0      0      0      0      
+Change1   0      3      3      1      1      
+Change2   0      1      1      3      3      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       MICHEL        VORM          NED   0     501   0     1     31    0   0   0   0   0   0   0   
+02:       2       DARYL         JANMAAT       NED   1     501   0     0     29    4   4   4   4   5*  5*  3   
+03:       6       STEFAN        DE VRIJ       NED   3     501   0     0     30    4*  4   6*  6*  4   4*  2   
+04:       5       RON           VLAAR         NED   3     501   0     0     30    4   4   7*  6*  3   5*  1   
+05:       3       DALEY         BLIND         NED   2     501   0     0     28    5*  2   4*  5*  5*  5*  2   
+06:       7       ARJEN         ROBBEN        NED   4     501   1     0     40    6   7*  4   2   7*  7*  7*  
+07:       4       KEVIN         STROOTMAN     NED   6     501   0     0     37    7*  5*  5   5   7*  4   4   
+08:       8       RAFAEL        VAN DER VAART NED   6     501   1     0     35    7*  7*  2   2   7*  4   6*  
+09:       11      JEREMAIN      LENS          NED   5     501   0     1     33    4   5*  3   2   7*  7*  5*  
+10:       10      WESLEY        SNEIJDER      NED   6     501   0     0     37    7*  7*  2   2   7*  6   6   
+11:       9       ROBIN         VAN PERSIE    NED   7     501   0     0     45    7   7*  7   3   7*  7*  7*  
+12:       12      BRUNO         MARTINS INDI  NED   3     501   0     1     29    4*  3   6*  6*  4   5*  1   
+13:       13      DIRK          KUYT          NED   4     501   1     0     34    5   2   6*  4   5   5*  7*  
+14:       14      NIGEL         DE JONG       NED   6     501   0     1     31    4   1   6*  7*  5*  6*  2   
+15:       15      JORDY         CLASIE        NED   6     501   1     0     31    6*  5*  3   4   5*  5*  3   
+16:       16      KLAAS-JAN     HUNTELAAR     NED   7     501   0     0     36    4   7*  7*  1   6   4   7*  
+
+
+#Number  :026
+Country  :CAF
+Name     :NIGERIA
+Tactics  :0
+Division :1
+CoachName:STEPHEN KESHI
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      8      8      8      8      
+Away      0      1      1      1      1      
+Third     0      0      0      0      0      
+Change1   0      8      8      1      1      
+Change2   0      1      1      8      8      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       VINCENT       ENYEAMA       NGA   0     501   0     1     25    0   0   0   0   0   0   0   
+02:       2       KENNETH       OMERUO        NGA   1     501   0     1     19    1   0   4*  6*  1   6*  1   
+03:       5       EFE           AMBROSE       NGA   3     501   0     1     21    1   1   6*  4*  3   4*  2   
+04:       6       GODFREY       OBOABONA      NGA   3     501   0     1     16    2   1   4*  4*  1   3*  1   
+05:       3       UWA           ELDERSON ECHIENGA   2     501   0     1     28    3   2   6*  5*  3   7*  2   
+06:       7       AHMED         MUSA          NGA   4     501   0     1     33    4   4   3   2   7*  7*  6*  
+07:       4       JOHN          OBI MIKEL     NGA   6     501   0     1     40    7*  3   5   7*  7*  7   4   
+08:       8       OGENYI        ONAZI         NGA   6     501   0     1     29    4   4   4   5*  3   7*  2   
+09:       11      VICTOR        MOSES         NGA   5     501   0     1     36    4   5   4   3   7*  7*  6   
+10:       10      EMMANUEL      EMENIKE       NGA   7     501   0     1     35    3   4   6   1   7*  7*  7*  
+11:       9       IDEYE         BROWN         NGA   7     501   0     1     34    4   4   5   4   5*  5*  7*  
+12:       12      JOSEPH        YOBO          NGA   3     501   0     1     31    3   2   7*  7*  3   7*  2   
+13:       13      NNAMDI        ODUAMADI      NGA   4     501   0     1     19    3   2   2   1   4*  5*  2   
+14:       14      SUNDAY        MBA           NGA   6     501   0     1     15    2*  2   2*  2   4*  2   1   
+15:       15      IKECHUKWU     UCHE          NGA   7     501   0     1     26    3   3   3   1   6*  6*  4*  
+16:       16      SHOLA         AMEOBI        NGA   7     501   0     1     27    3   2   6*  1   4*  5*  6*  
+
+
+#Number  :027
+Country  :UEF
+Name     :PORTUGAL
+Tactics  :2
+Division :1
+CoachName:PAULO BENTO
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      4      4      
+Away      0      2      2      2      2      
+Third     0      0      0      0      0      
+Change1   0      4      4      2      2      
+Change2   0      2      2      4      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       RUI           PATRICIO      POR   0     501   0     0     38    0   0   0   0   0   0   0   
+02:       2       JOAO          PEREIRA       POR   1     501   0     0     30    4   3   2   6*  5*  7*  3   
+03:       5       PEPE                        POR   3     501   0     1     38    4   5   7*  7*  5   7*  3   
+04:       6       BRUNO         ALVES         POR   3     501   0     1     33    3   5   7*  7*  3   5*  3   
+05:       3       FABIO         COENTRAO      POR   2     501   1     0     37    5*  5   3   6*  7*  7*  4   
+06:       7       NANI                        POR   4     501   0     1     39    7   7*  2   2   7*  7*  7*  
+07:       4       RAUL          MEIRELES      POR   6     501   1     0     35    7*  7*  4   5*  4   4   4   
+08:       10      JOAO          MOUTINHO      POR   6     501   0     0     42    7*  7*  4   5   7*  5   7   
+09:       11      CRISTIANO     RONALDO       POR   5     501   0     0     48    7   7*  7   6   7*  7*  7*  
+10:       8       MIGUEL        VELOSO        POR   6     501   1     0     34    7*  5*  4   5   6*  4   3   
+11:       9       HELDER        POSTIGA       POR   7     501   0     0     31    4*  6*  5*  1   6*  3   6*  
+12:       12      NETO                        POR   3     501   0     0     30    5   3   7*  7*  1   7*  0   
+13:       13      VIEIRINHA                   POR   4     501   0     0     31    5*  4   3   1   6*  7*  5*  
+14:       14      DANNY                       POR   5     501   0     0     36    7*  5   3   2   7*  7*  5   
+15:       15      RUBEN         MICAEL        POR   6     501   0     0     31    7*  5*  2   3   6*  4   4   
+16:       16      HUGO          ALMEIDA       POR   7     501   0     0     31    2   7*  5*  2   2   7*  6*  
+
+
+#Number  :028
+Country  :UEF
+Name     :RUSSIA
+Tactics  :2
+Division :1
+CoachName:FABIO CAPELLO
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      5      4      
+Away      0      4      4      1      5      
+Third     0      0      0      0      0      
+Change1   0      1      1      1      5      
+Change2   0      4      4      5      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       IGOR          AKINFEEV      RUS   0     501   1     0     38    0   0   0   0   0   0   0   
+02:       2       ALEKSEY       KOZLOV        RUS   1     501   0     0     27    4*  2   6*  6*  3   4*  2   
+03:       5       SERGEY        IGNASHEVICH   RUS   3     501   0     0     31    3   4   7*  7*  2   5   3   
+04:       6       VASILI        BEREZUTSKI    RUS   3     501   1     0     31    5   1   7*  7*  2   6*  3   
+05:       3       DMITRI        KOMBAROV      RUS   2     501   1     0     33    7*  5*  2   4   6*  5*  4   
+06:       7       ALEKSANDR     SAMEDOV       RUS   4     501   0     0     33    7*  4   4   3   5*  7*  3   
+07:       4       IGOR          DENISOV       RUS   6     501   1     0     37    5   5   3   7*  6*  7*  4   
+08:       8       ALAN          DZAGOEV       RUS   6     501   0     0     41    7*  6*  5   3   7*  7*  6   
+09:       11      ALEKSANDR     KOKORIN       RUS   5     501   1     0     36    5   5*  4   3   6*  7*  6*  
+10:       10      ROMAN         SHIROKOV      RUS   6     501   0     0     33    5   3   7*  4   6*  4   4   
+11:       9       ALEKSANDR     KERZHAKOV     RUS   7     501   0     0     36    5*  7*  2   3   7*  7*  5   
+12:       12      VLADIMIR      GRANAT        RUS   3     501   1     0     29    4*  3   5*  6*  3   6*  2   
+13:       13      YURI          ZHIRKOV       RUS   5     501   0     0     34    7*  3   1   6*  7*  7*  3   
+14:       14      DENIS         GLUSHAKOV     RUS   6     501   1     0     33    6*  4   3   4   6*  6*  4   
+15:       15      VIKTOR        FAYZULIN      RUS   6     501   0     0     33    7*  4   1   4   7*  7*  3   
+16:       16      ARTEM         DZYUBA        RUS   7     501   0     0     29    3   2   7*  4   4   5*  4   
+
+
+#Number  :029
+Country  :UEF
+Name     :SPAIN
+Tactics  :2
+Division :1
+CoachName:VICENTE DEL BOSQUE
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      5      4      
+Away      0      7      5      1      7      
+Third     0      0      0      0      0      
+Change1   0      4      4      1      7      
+Change2   0      7      5      5      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       IKER          CASILLAS      ESP   0     501   0     0     41    0   0   0   0   0   0   0   
+02:       2       JUANFRAN                    ESP   1     501   0     0     34    7*  5   2   3   6*  7*  4   
+03:       5       SERGIO        RAMOS         ESP   3     501   1     0     43    7   5   7*  7*  6   7*  4   
+04:       6       GERARD        PIQUE         ESP   3     501   0     0     42    7   4   7*  7*  6   7*  4   
+05:       3       JORDI         ALBA          ESP   2     501   0     0     40    6   4   5   7*  7*  7*  4   
+06:       7       PEDRO                       ESP   4     501   0     0     40    7*  6   3   3   7*  7*  7*  
+07:       4       SERGIO        BUSQUETS      ESP   6     501   0     0     45    7*  6   7   7*  7*  7*  4   
+08:       10      ANDRES        INIESTA       ESP   6     501   0     0     47    7*  7   5   7   7*  7*  7   
+09:       11      DAVID         SILVA         ESP   5     501   0     0     44    7*  7   4   5   7*  7*  7   
+10:       8       XAVI                        ESP   6     501   0     0     43    7*  7*  3   5   7*  7   7   
+11:       9       ALVARO        NEGREDO       ESP   7     501   0     0     40    5   6   7*  2   6   7*  7*  
+12:       12      ALVARO        ARBELOA       ESP   1     501   0     0     30    4   3   5*  7*  4   5*  2   
+13:       13      XABI          ALONSO        ESP   6     501   0     0     42    7*  7*  6   6   6   5   5   
+14:       14      CESC          FABREGAS      ESP   6     501   0     0     45    7*  7*  4   6   7*  7   7   
+15:       15      JUAN          MATA          ESP   6     501   0     0     45    7*  7   6   4   7*  7*  7*  
+16:       16      ROBERTO       SOLDADO       ESP   7     501   0     0     42    5   7*  7   3   6   7*  7*  
+
+
+#Number  :030
+Country  :UEF
+Name     :SWITZERLAND
+Tactics  :2
+Division :1
+CoachName:OTTMAR HITZFELD
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      4      4      1      4      
+Away      0      1      1      4      1      
+Third     0      0      0      0      0      
+Change1   0      4      4      4      1      
+Change2   0      1      1      1      4      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       DIEGO         BENAGLIO      SUI   0     501   0     0     30    0   0   0   0   0   0   0   
+02:       2       STEPHAN       LICHTSTEINER  SUI   1     501   0     0     36    6*  4   6*  6*  4   7*  3   
+03:       5       FABIAN        SCHAR         SUI   3     501   0     0     29    3   0   7*  7*  6*  5   1   
+04:       6       JOHAN         DJOUROU       SUI   3     501   0     1     29    3   1   7*  7*  3   7*  1   
+05:       3       RICARDO       RODRIGUEZ     SUI   2     501   0     0     33    5*  4   5*  5*  5   7*  2   
+06:       7       XHERDAN       SHAQIRI       SUI   4     501   1     0     39    5   7*  3   5   7*  7*  5   
+07:       4       VALON         BEHRAMI       SUI   6     501   1     0     36    6   3   3   7*  7*  7*  3   
+08:       10      GRANIT        XHAKA         SUI   6     501   1     0     32    6*  5*  4   4   6*  4   3   
+09:       11      VALENTIN      STOCKER       SUI   5     501   1     0     31    4   4   4   4   5*  6*  4   
+10:       8       GOKHAN        INLER         SUI   6     501   0     0     36    5   7*  5   6*  3   5   5*  
+11:       9       HARIS         SEFEROVIC     SUI   7     501   0     0     30    4   3   4   3   6*  4*  6*  
+12:       12      STEVE         VON BERGEN    SUI   3     501   0     0     19    2   1   2   5*  2   6*  1   
+13:       13      TRANQUILLO    BARNETTA      SUI   5     501   0     0     26    5*  5*  2   2   4*  4*  4*  
+14:       14      BLERIM        DZEMAILI      SUI   6     501   0     0     34    6*  5*  3   5*  6*  5   4   
+15:       15      EREN          DERDIYOK      SUI   7     501   0     0     25    3   3   6*  1   3   6*  3   
+16:       16      MARIO         GAVRANOVIC    SUI   7     501   0     0     22    2   2   3   2   4*  5*  4*  
+
+
+#Number  :031
+Country  :CNC
+Name     :UNITED STATES
+Tactics  :0
+Division :1
+CoachName:JURGEN KLINSMANN
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      1      1      5      1      
+Away      1      5      1      5      5      
+Third     0      0      0      0      0      
+Change1   0      1      1      5      5      
+Change2   1      5      1      5      1      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       TIM           HOWARD        USA   0     501   0     1     26    0   0   0   0   0   0   0   
+02:       2       GEOFF         CAMERON       USA   1     501   0     0     28    4*  2   4*  6*  4   5*  3   
+03:       5       OMAR          GONZALEZ      USA   3     501   0     0     16    2   1   4*  4*  2   2*  1   
+04:       6       CLARENCE      GOODSON       USA   3     501   1     0     17    2   1   5*  3*  2   2   2   
+05:       3       DAMARCUS      BEASLEY       USA   2     501   0     1     21    3*  2   1   2   4*  6*  3   
+06:       7       ALEJANDRO     BEDOYA        USA   4     501   0     0     19    4*  2   2   3   2   4*  2   
+07:       4       MICHAEL       BRADLEY       USA   6     501   1     0     31    3   5*  4   6*  2   5*  6*  
+08:       8       CLINT         DEMPSEY       USA   6     501   0     0     34    5   5   5   3   7*  5   4   
+09:       11      FABIAN        JOHNSON       USA   5     501   0     1     27    3   3   3   4   5*  7*  2   
+10:       10      LANDON        DONOVAN       USA   7     501   0     0     26    4*  3   1   1   4*  7*  6*  
+11:       9       JOZY          ALTIDORE      USA   7     501   0     1     30    3   4*  6*  3   4   4*  6*  
+12:       12      BRAD          EVANS         USA   1     501   0     0     19    2   2   4*  2   3   3*  3   
+13:       13      JERMAINE      JONES         USA   6     501   0     1     31    4   2   4   7*  3   7*  4   
+14:       14      SACHA         KLJESTAN      USA   6     501   0     0     26    6*  4*  2   2   4*  4*  4*  
+15:       15      ARON          JOHANNSSON    USA   7     501   1     0     24    3   4*  2   1   3*  6*  5*  
+16:       16      TERRENCE      BOYD          USA   7     501   0     1     20    1   3   4*  1   3   4*  4*  
+
+
+#Number  :032
+Country  :CNM
+Name     :URUGUAY
+Tactics  :0
+Division :1
+CoachName:OSCAR TABAREZ
+CoachType:0
+City     :
+Stadium  :
+StadiumID:0
+
+KITS______Type___First__Second_Shorts_Socks
+Home      0      7      7      2      2      
+Away      0      1      1      1      1      
+Third     0      0      0      0      0      
+Change1   0      7      7      1      1      
+Change2   0      1      1      2      2      
+Goalie1   0      0      0      0      0
+Goalie2   0      0      0      0      0
+
+PLAYERS___Number__Name__________Surname_______Nat___Role__HType_HCol__Skin__Price_PA__SH__HE__TA__BC__SP__FI
+01:       1       FERNANDO      MUSLERA       URU   0     501   0     0     36    0   0   0   0   0   0   0   
+02:       2       MAXI          PEREIRA       URU   1     501   0     0     34    5*  5   3   6*  4   7*  4   
+03:       5       DIEGO         LUGANO        URU   3     501   1     0     22    2   1   7*  6*  2   3   1   
+04:       6       DIEGO         GODIN         URU   3     501   0     0     37    3   3   7*  7*  5   7*  5   
+05:       3       JORGE         FUCILE        URU   2     501   0     0     21    3   2   2   5*  3   4*  2   
+06:       7       ALVARO        GONZALEZ      URU   4     501   0     0     32    5*  5*  4   5*  4   6*  3   
+07:       4       EGIDIO        AREVALO RIOS  URU   6     501   0     1     24    5*  3   3   5*  3   3*  2   
+08:       8       WALTER        GARGANO       URU   6     501   0     0     32    4   7*  1   6*  5*  7*  2   
+09:       11      CRISTIAN      RODRIGUEZ     URU   5     501   0     0     30    5*  4*  3   2   6*  6*  4   
+10:       10      EDINSON       CAVANI        URU   7     501   0     0     46    7   7   7*  4   7   7*  7*  
+11:       9       LUIS          SUAREZ        URU   7     501   0     0     44    7*  7   7   2   7*  7*  7*  
+12:       12      MARTIN        CACERES       URU   1     501   0     0     32    3   3   7*  7*  3   7*  2   
+13:       13      ALVARO        PEREIRA       URU   2     501   0     1     33    5   5   4   5*  5   5   4   
+14:       14      DIEGO         PEREZ         URU   6     501   0     0     24    3*  2   5*  6*  2   5*  1   
+15:       15      GASTON        RAMIREZ       URU   6     501   1     0     34    5*  5*  4   3   7*  6*  4   
+16:       16      DIEGO         FORLAN        URU   7     501   1     0     29    3   7*  4   1   4   4   6*  
+
+
+
