@@ -2,11 +2,11 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.math.Emath;
 
-public class PlayerStateGoalMate extends PlayerState {
+class PlayerStateGoalMate extends PlayerState {
 
-    Goal goal;
+    private Goal goal;
 
-    public PlayerStateGoalMate(Player player) {
+    PlayerStateGoalMate(Player player) {
         super(player);
         id = PlayerFsm.STATE_GOAL_MATE;
     }
@@ -32,5 +32,4 @@ public class PlayerStateGoalMate extends PlayerState {
         }
         player.animationStandRun();
     }
-
 }

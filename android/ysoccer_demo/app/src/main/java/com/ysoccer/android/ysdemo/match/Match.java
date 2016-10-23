@@ -61,8 +61,6 @@ public class Match {
         UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME
     }
 
-    ;
-
     float clock;
     int length;
     Period period;
@@ -72,7 +70,7 @@ public class Match {
     float throwInY;
 
     MatchStats[] stats = new MatchStats[2];
-    List<Goal> goals;
+    final List<Goal> goals;
 
     public int subframe;
     boolean chantSwitch;
@@ -395,6 +393,4 @@ public class Match {
         float matchRank = (homeRank + 2 * awayRank) / 3;
         return (int) matchRank;
     }
-
-
 }
