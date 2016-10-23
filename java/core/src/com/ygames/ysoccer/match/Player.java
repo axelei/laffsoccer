@@ -54,6 +54,8 @@ public class Player {
 
     public Skills skills;
 
+    int skillKeeper;
+
     public int value; // 0 to 49
 
     public int goals;
@@ -81,6 +83,8 @@ public class Player {
     float v;
     float vz;
     public float a;
+    float thrustX; // horiz.speed in keeper saves (min=0, max=1)
+    float thrustZ; // vert.speed in keeper saves (min=0, max=1)
 
     float tx; // x position (target)
     float ty; // y position (target)

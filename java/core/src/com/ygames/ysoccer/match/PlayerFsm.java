@@ -22,6 +22,8 @@ class PlayerFsm extends Fsm {
     static final int STATE_GOAL_MATE = 19;
     static final int STATE_OWN_GOAL_SCORER = 20;
 
+    static final int STATE_KEEPER_POSITIONING = 21;
+
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
     PlayerStateBenchSitting stateBenchSitting;
@@ -41,6 +43,8 @@ class PlayerFsm extends Fsm {
     PlayerStateGoalScorer stateGoalScorer;
     PlayerStateGoalMate stateGoalMate;
     PlayerStateOwnGoalScorer stateOwnGoalScorer;
+
+    PlayerStateKeeperPositioning stateKeeperPositioning;
 
     public PlayerFsm(Player player) {
         addState(stateIdle = new PlayerStateIdle(player));
@@ -62,6 +66,8 @@ class PlayerFsm extends Fsm {
         addState(stateGoalScorer = new PlayerStateGoalScorer(player));
         addState(stateGoalMate = new PlayerStateGoalMate(player));
         addState(stateOwnGoalScorer = new PlayerStateOwnGoalScorer(player));
+
+        addState(stateKeeperPositioning = new PlayerStateKeeperPositioning(player));
     }
 
     @Override

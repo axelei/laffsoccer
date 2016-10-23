@@ -232,7 +232,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 23
     },
     {
       "name": "GIANCARLO BAGNASCO",
@@ -342,7 +343,15 @@
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 2,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "STEFANO DAL MONTE",
@@ -388,7 +397,15 @@
       "number": "21",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 2,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "CARLO PETRINI",
