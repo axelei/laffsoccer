@@ -102,11 +102,19 @@
       "name": "MAURIZIO BRUNO",
       "shirtName": "BRUNO",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "GIAMPIERO BASSI",
@@ -152,7 +160,15 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "GLAUCO GILARDONI",
@@ -246,7 +262,15 @@
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 4
+      }
     },
     {
       "name": "MARIO PANTALEONI",

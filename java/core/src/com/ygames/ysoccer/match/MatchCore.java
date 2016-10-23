@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GlGame;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MatchCore {
 
     private GlGame game;
@@ -14,6 +17,8 @@ public class MatchCore {
 
     public MatchSettings settings;
 
+    final List<Goal> goals;
+
     public MatchCore(GlGame game, Team[] team, MatchSettings matchSettings) {
         this.game = game;
         this.team = team;
@@ -22,5 +27,7 @@ public class MatchCore {
         fsm = new MatchFsm(this);
 
         ball = new Ball(this);
+
+        goals = new ArrayList<Goal>();
     }
 }
