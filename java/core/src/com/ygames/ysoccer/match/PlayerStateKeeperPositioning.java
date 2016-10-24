@@ -175,8 +175,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X - 8);
                             player.thrustZ = (predZ - 7) / 14.0f;
                             player.a = (diffX < 0) ? 180 : 0;
-                            // TODO
-                            // return player.fsm.stateKeeperDivingMiddleTwo;
+                            return player.fsm.stateKeeperDivingMiddleTwo;
                         }
                     } else if ((predZ < 27) && (Math.abs(diffX) < Const.POST_X + 16)) {
                         //MIDDLE - ONE HAND
