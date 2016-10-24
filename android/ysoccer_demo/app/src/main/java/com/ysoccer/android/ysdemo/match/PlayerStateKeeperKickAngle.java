@@ -2,11 +2,11 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.math.Emath;
 
-public class PlayerStateKeeperKickAngle extends PlayerState {
+class PlayerStateKeeperKickAngle extends PlayerState {
 
     private Ball ball;
 
-    public PlayerStateKeeperKickAngle(Player player) {
+    PlayerStateKeeperKickAngle(Player player) {
         super(player);
         id = PlayerFsm.STATE_KEEPER_KICK_ANGLE;
     }
@@ -26,7 +26,6 @@ public class PlayerStateKeeperKickAngle extends PlayerState {
         ball.updatePrediction();
 
         player.animationStandRun();
-
     }
 
     @Override
