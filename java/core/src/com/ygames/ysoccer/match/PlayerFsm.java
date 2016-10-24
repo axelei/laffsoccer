@@ -30,6 +30,7 @@ class PlayerFsm extends Fsm {
     static final int STATE_KEEPER_DIVING_HIGH_ONE = 26;
     static final int STATE_KEEPER_CATCHING_HIGH = 27;
     static final int STATE_KEEPER_CATCHING_LOW = 28;
+    static final int STATE_KEEPER_KICK_ANGLE = 29;
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -50,6 +51,7 @@ class PlayerFsm extends Fsm {
     PlayerStateGoalScorer stateGoalScorer;
     PlayerStateGoalMate stateGoalMate;
     PlayerStateOwnGoalScorer stateOwnGoalScorer;
+    PlayerStateKeeperKickAngle stateKeeperKickAngle;
 
     PlayerStateKeeperPositioning stateKeeperPositioning;
     PlayerStateKeeperDivingLowSingle stateKeeperDivingLowSingle;
@@ -89,6 +91,7 @@ class PlayerFsm extends Fsm {
         addState(stateKeeperDivingHighOne = new PlayerStateKeeperDivingHighOne(player));
         addState(stateKeeperCatchingHigh = new PlayerStateKeeperCatchingHigh(player));
         addState(stateKeeperCatchingLow = new PlayerStateKeeperCatchingLow(player));
+        addState(stateKeeperKickAngle = new PlayerStateKeeperKickAngle(player));
     }
 
     @Override

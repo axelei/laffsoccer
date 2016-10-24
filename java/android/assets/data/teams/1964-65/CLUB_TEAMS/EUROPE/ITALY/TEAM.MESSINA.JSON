@@ -295,9 +295,17 @@
       "nationality": "GER",
       "role": "ATTACKER",
       "number": "16",
-      "hairColor": "BLACK",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 3,
+        "speed": 3,
+        "finishing": 4
+      }
     },
     {
       "name": "MICHELANGELO SULFARO",
@@ -333,11 +341,19 @@
       "name": "NUNZIO CAVAZZA",
       "shirtName": "CAVAZZA",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "DEFENDER",
       "number": "20",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "LIVIO LUPPI",
@@ -347,7 +363,15 @@
       "number": "21",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 2,
+        "control": 2,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "ANTONIO MARANGI",

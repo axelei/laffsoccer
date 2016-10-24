@@ -82,8 +82,7 @@ class PlayerStateKeeperDivingMiddleOne extends PlayerState {
     State checkConditions() {
         if (timer >= 1.2f * Const.SECOND) {
             if (ball.holder == player) {
-                // TODO
-                // return player.fsm.stateKeeperKickAngle;
+                 return player.fsm.stateKeeperKickAngle;
             } else {
                 return player.fsm.stateKeeperPositioning;
             }

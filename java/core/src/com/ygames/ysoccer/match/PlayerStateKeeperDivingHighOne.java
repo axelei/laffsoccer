@@ -77,15 +77,13 @@ class PlayerStateKeeperDivingHighOne extends PlayerState {
         player.fmx = active.fmx[p];
         player.fmy = active.fmy;
         player.holdBall(active.offx[p], active.offz);
-
     }
 
     @Override
     State checkConditions() {
         if (timer >= 1.55f * Const.SECOND) {
             if (ball.holder == player) {
-                // TODO
-                // return player.fsm.stateKeeperKickAngle;
+                 return player.fsm.stateKeeperKickAngle;
             } else {
                 return player.fsm.stateKeeperPositioning;
             }
