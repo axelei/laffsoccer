@@ -1,12 +1,12 @@
 package com.ysoccer.android.ysdemo.match;
 
-public class PlayerStateKeeperCatchingHigh extends PlayerState {
+class PlayerStateKeeperCatchingHigh extends PlayerState {
 
     private Ball ball;
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[4];
 
-    public PlayerStateKeeperCatchingHigh(Player player) {
+    PlayerStateKeeperCatchingHigh(Player player) {
         super(player);
         id = PlayerFsm.STATE_KEEPER_CATCHING_HIGH;
 
@@ -66,7 +66,6 @@ public class PlayerStateKeeperCatchingHigh extends PlayerState {
         player.fmx = active.fmx[p];
         player.fmy = active.fmy;
         player.holdBall(active.offx[p], active.offz);
-
     }
 
     @Override
@@ -91,5 +90,4 @@ public class PlayerStateKeeperCatchingHigh extends PlayerState {
         super.entryActions();
         ball = player.match.ball;
     }
-
 }
