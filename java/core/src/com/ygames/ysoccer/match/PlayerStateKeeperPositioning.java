@@ -191,8 +191,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X + 8);
                             player.thrustZ = (float) Math.min((predZ - 27) / 8.0, 1);
                             player.a = (diffX < 0) ? 180 : 0;
-                            // TODO
-                            // return player.fsm.stateKeeperDivingHighOne;
+                            return player.fsm.stateKeeperDivingHighOne;
                         }
                     }
                 }

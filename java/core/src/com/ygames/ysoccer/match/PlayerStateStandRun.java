@@ -58,8 +58,7 @@ class PlayerStateStandRun extends PlayerState {
                 && (player == player.team.lineup.get(0))
                 && (player.team.near1 != player)
                 && (player.inputDevice == player.ai)) {
-            // TODO
-            // return player.fsm.stateKeeperPositioning;
+            return player.fsm.stateKeeperPositioning;
         }
 
         // player fired
