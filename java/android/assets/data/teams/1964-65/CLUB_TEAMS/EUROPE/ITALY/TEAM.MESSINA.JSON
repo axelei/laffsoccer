@@ -41,23 +41,24 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 23
     },
     {
-      "name": "GIANFRANCO GARBUGLIA",
-      "shirtName": "GARBUGLIA",
+      "name": "GIANFRANCO CLERICI",
+      "shirtName": "CLERICI I",
       "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "2",
+      "role": "LEFT_BACK",
+      "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
-        "passing": 4,
-        "shooting": 2,
+        "passing": 3,
+        "shooting": 3,
         "heading": 3,
-        "tackling": 5,
+        "tackling": 4,
         "control": 3,
-        "speed": 5,
+        "speed": 4,
         "finishing": 2
       }
     },
@@ -98,20 +99,20 @@
       }
     },
     {
-      "name": "FERNANDO BENATTI",
-      "shirtName": "BENATTI",
+      "name": "GIANFRANCO GARBUGLIA",
+      "shirtName": "GARBUGLIA",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "5",
+      "role": "RIGHT_BACK",
+      "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
         "passing": 4,
-        "shooting": 3,
-        "heading": 4,
-        "tackling": 3,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 5,
         "control": 3,
-        "speed": 4,
+        "speed": 5,
         "finishing": 2
       }
     },
@@ -152,14 +153,22 @@
       }
     },
     {
-      "name": "GIANFRANCO CLERICI",
-      "shirtName": "CLERICI I",
+      "name": "FERNANDO BENATTI",
+      "shirtName": "BENATTI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "8",
+      "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ROMANO BAGATTI",
@@ -239,11 +248,19 @@
       "name": "EGIDIO MORBELLO",
       "shirtName": "MORBELLO",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "LEFT_WINGER",
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "FRANCO DORI",
