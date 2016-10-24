@@ -1,8 +1,8 @@
 package com.ysoccer.android.ysdemo.match;
 
-public class AiStateIdle extends AiState {
+class AiStateIdle extends AiState {
 
-    public AiStateIdle(Ai ai) {
+    AiStateIdle(Ai ai) {
         super(ai);
         id = AiFsm.STATE_IDLE;
     }
