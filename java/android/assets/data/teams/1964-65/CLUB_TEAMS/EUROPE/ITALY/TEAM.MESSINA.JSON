@@ -315,7 +315,8 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 18
     },
     {
       "name": "FRANCO ROSATI",
@@ -339,11 +340,19 @@
       "name": "FILIPPO REGNI",
       "shirtName": "REGNI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "LEFT_BACK",
       "number": "19",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 2,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "NUNZIO CAVAZZA",
@@ -425,7 +434,15 @@
       "number": "24",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 2,
+        "speed": 2,
+        "finishing": 2
+      }
     }
   ]
 }
