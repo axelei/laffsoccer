@@ -148,8 +148,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                         } else {
                             //CATCH LOW
                             if (frm * GlGame.SUBFRAMES < 0.6f * Const.SECOND) {
-                                // TODO
-                                // return player.fsm.stateKeeperCatchingLow;
+                                 return player.fsm.stateKeeperCatchingLow;
                             }
                         }
                     } else if (predZ < 7) {
