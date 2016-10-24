@@ -47,11 +47,19 @@
       "name": "GIANFRANCO GARBUGLIA",
       "shirtName": "GARBUGLIA",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 5,
+        "control": 3,
+        "speed": 5,
+        "finishing": 2
+      }
     },
     {
       "name": "ANTONIO GHELFI",
@@ -61,7 +69,15 @@
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 5,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "FRANCO LANDRI",
@@ -117,11 +133,19 @@
       "name": "ROMANO BAGATTI",
       "shirtName": "BAGATTI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_WINGER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 5,
+        "finishing": 3
+      }
     },
     {
       "name": "PAOLO MORELLI",

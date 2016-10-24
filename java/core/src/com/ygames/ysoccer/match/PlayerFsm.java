@@ -25,6 +25,7 @@ class PlayerFsm extends Fsm {
     static final int STATE_KEEPER_POSITIONING = 21;
     static final int STATE_KEEPER_DIVING_LOW_SINGLE = 22;
     static final int STATE_KEEPER_DIVING_LOW_DOUBLE = 23;
+    static final int STATE_KEEPER_DIVING_MIDDLE_ONE = 24;
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -49,6 +50,7 @@ class PlayerFsm extends Fsm {
     PlayerStateKeeperPositioning stateKeeperPositioning;
     PlayerStateKeeperDivingLowSingle stateKeeperDivingLowSingle;
     PlayerStateKeeperDivingLowDouble stateKeeperDivingLowDouble;
+    PlayerStateKeeperDivingMiddleOne stateKeeperDivingMiddleOne;
 
     public PlayerFsm(Player player) {
         addState(stateIdle = new PlayerStateIdle(player));
@@ -74,6 +76,7 @@ class PlayerFsm extends Fsm {
         addState(stateKeeperPositioning = new PlayerStateKeeperPositioning(player));
         addState(stateKeeperDivingLowSingle = new PlayerStateKeeperDivingLowSingle(player));
         addState(stateKeeperDivingLowDouble = new PlayerStateKeeperDivingLowDouble(player));
+        addState(stateKeeperDivingMiddleOne = new PlayerStateKeeperDivingMiddleOne(player));
     }
 
     @Override
