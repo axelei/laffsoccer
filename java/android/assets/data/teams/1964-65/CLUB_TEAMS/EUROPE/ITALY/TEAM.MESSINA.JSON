@@ -321,11 +321,19 @@
       "name": "FRANCO ROSATI",
       "shirtName": "ROSATI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "18",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 2,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "FILIPPO REGNI",
@@ -381,7 +389,15 @@
       "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 2,
+        "control": 3,
+        "speed": 2,
+        "finishing": 3
+      }
     },
     {
       "name": "ACHILLE PASSONI",
@@ -391,7 +407,15 @@
       "number": "23",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 2,
+        "control": 2,
+        "speed": 3,
+        "finishing": 3
+      }
     },
     {
       "name": "MARCELLO RIGO",

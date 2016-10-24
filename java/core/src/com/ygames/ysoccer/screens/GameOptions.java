@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlGame;
@@ -39,6 +40,9 @@ public class GameOptions extends GlScreen {
         widgets.add(w);
 
         w = new CurrencyButton();
+        widgets.add(w);
+
+        w = new QuitToOsButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -280,6 +284,20 @@ public class GameOptions extends GlScreen {
             }
             game.settings.currency = Assets.currencies.get(i);
             setChanged(true);
+        }
+    }
+
+    private class QuitToOsButton extends Button {
+
+        QuitToOsButton() {
+            setColors(0x008080);//, $00B2B4, $004040)
+            setGeometry((game.settings.GUI_WIDTH - 300) / 2, 590, 300, 36);
+            setText(Assets.strings.get("QUIT TO OS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            Gdx.app.exit();
         }
     }
 
