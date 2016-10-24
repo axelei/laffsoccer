@@ -11,8 +11,8 @@ public abstract class InputDevice {
     private int type; // ID_COMPUTER, ID_KEYBOARD, ID_JOYSTICK
 
     // new values
-    protected int x0, y0;
-    protected boolean fire10, fire20;
+    public int x0, y0;
+    public boolean fire10, fire20;
 
     // valid values
     public int x1, y1;

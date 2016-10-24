@@ -17,6 +17,9 @@ public class AiFsm extends Fsm {
     public static final int STATE_CORNER_KICKING = 11;
     public static final int STATE_KEEPER_KICKING = 12;
 
+    AiStateIdle stateIdle;
+
     public AiFsm(Ai ai) {
+        addState(stateIdle = new AiStateIdle(ai));
     }
 }
