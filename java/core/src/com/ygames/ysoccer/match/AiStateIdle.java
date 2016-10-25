@@ -39,8 +39,7 @@ class AiStateIdle extends AiState {
                      return ai.fsm.stateCornerKicking;
 
                 case PlayerFsm.STATE_KEEPER_KICK_ANGLE:
-                    // TODO
-                    // return ai.fsm.stateKeeperKicking;
+                     return ai.fsm.stateKeeperKicking;
             }
         }
         return null;

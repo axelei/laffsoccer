@@ -28,6 +28,7 @@ public class AiFsm extends Fsm {
     AiStateGoalKicking stateGoalKicking;
     AiStateThrowingIn stateThrowingIn;
     AiStateCornerKicking stateCornerKicking;
+    AiStateKeeperKicking stateKeeperKicking;
 
     public AiFsm(Ai ai) {
         addState(stateIdle = new AiStateIdle(ai));
@@ -41,5 +42,6 @@ public class AiFsm extends Fsm {
         addState(stateGoalKicking = new AiStateGoalKicking(ai));
         addState(stateThrowingIn = new AiStateThrowingIn(ai));
         addState(stateCornerKicking = new AiStateCornerKicking(ai));
+        addState(stateKeeperKicking = new AiStateKeeperKicking(ai));
     }
 }
