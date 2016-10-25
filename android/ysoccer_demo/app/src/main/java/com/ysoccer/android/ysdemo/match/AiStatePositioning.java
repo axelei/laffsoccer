@@ -2,9 +2,9 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.math.Emath;
 
-public class AiStatePositioning extends AiState {
+class AiStatePositioning extends AiState {
 
-    public AiStatePositioning(Ai ai) {
+    AiStatePositioning(Ai ai) {
         super(ai);
         id = AiFsm.STATE_POSITIONING;
     }
@@ -44,5 +44,4 @@ public class AiStatePositioning extends AiState {
 
         return null;
     }
-
 }
