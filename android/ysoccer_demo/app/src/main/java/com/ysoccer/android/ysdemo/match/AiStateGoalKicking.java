@@ -3,9 +3,9 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 
-public class AiStateGoalKicking extends AiState {
+class AiStateGoalKicking extends AiState {
 
-    public AiStateGoalKicking(Ai ai) {
+    AiStateGoalKicking(Ai ai) {
         super(ai);
         id = AiFsm.STATE_GOAL_KICKING;
     }
@@ -16,8 +16,7 @@ public class AiStateGoalKicking extends AiState {
 
         ai.x0 = 0;
         ai.y0 = 0;
-        ai.fire10 = Emath.isIn(timer, 1.0f * GLGame.VIRTUAL_REFRESH_RATE,
-                1.05f * GLGame.VIRTUAL_REFRESH_RATE);
+        ai.fire10 = Emath.isIn(timer, 1.0f * GLGame.VIRTUAL_REFRESH_RATE, 1.05f * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override
@@ -27,5 +26,4 @@ public class AiStateGoalKicking extends AiState {
         }
         return null;
     }
-
 }
