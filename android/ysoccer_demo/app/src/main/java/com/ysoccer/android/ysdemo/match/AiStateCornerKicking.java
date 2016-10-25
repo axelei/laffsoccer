@@ -3,9 +3,9 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 
-public class AiStateCornerKicking extends AiState {
+class AiStateCornerKicking extends AiState {
 
-    public AiStateCornerKicking(Ai ai) {
+    AiStateCornerKicking(Ai ai) {
         super(ai);
         id = AiFsm.STATE_CORNER_KICKING;
     }
@@ -14,11 +14,9 @@ public class AiStateCornerKicking extends AiState {
     void doActions() {
         super.doActions();
 
-        ai.x0 = Emath.isIn(timer, 0.5f * GLGame.VIRTUAL_REFRESH_RATE,
-                0.55f * GLGame.VIRTUAL_REFRESH_RATE) ? player.team.side : 0;
+        ai.x0 = Emath.isIn(timer, 0.5f * GLGame.VIRTUAL_REFRESH_RATE, 0.55f * GLGame.VIRTUAL_REFRESH_RATE) ? player.team.side : 0;
         ai.y0 = 0;
-        ai.fire10 = Emath.isIn(timer, 1.0f * GLGame.VIRTUAL_REFRESH_RATE,
-                1.05f * GLGame.VIRTUAL_REFRESH_RATE);
+        ai.fire10 = Emath.isIn(timer, 1.0f * GLGame.VIRTUAL_REFRESH_RATE, 1.05f * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override
@@ -32,5 +30,4 @@ public class AiStateCornerKicking extends AiState {
         }
         return ai.fsm.stateIdle;
     }
-
 }
