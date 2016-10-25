@@ -270,7 +270,15 @@
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 3,
+        "finishing": 4
+      }
     },
     {
       "name": "MARCELO PAGANI",
@@ -280,7 +288,15 @@
       "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 3,
+        "speed": 3,
+        "finishing": 4
+      }
     },
     {
       "name": "ITALO MAZZERO",
@@ -290,7 +306,15 @@
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 3
+      }
     },
     {
       "name": "LUIGI BARTOLOMEI",

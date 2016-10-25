@@ -38,8 +38,7 @@ class AiStateAttacking extends AiState {
         // passing
         if (player.facingPlayer != null
                 && (timer > 0.25f * GlGame.VIRTUAL_REFRESH_RATE)) {
-            // TODO
-            // return ai.fsm.statePassing;
+             return ai.fsm.statePassing;
         }
 
         // near the goal
