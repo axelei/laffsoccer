@@ -19,6 +19,8 @@ public class MatchCore {
 
     final List<Goal> goals;
 
+    public int subframe;
+
     public MatchCore(GlGame game, Team[] team, MatchSettings matchSettings) {
         this.game = game;
         this.team = team;
@@ -29,5 +31,14 @@ public class MatchCore {
         ball = new Ball(this);
 
         goals = new ArrayList<Goal>();
+    }
+
+    public void update(float deltaTime) {
+        fsm.think(deltaTime);
+    }
+
+    public void start() {
+        fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_INTRO);
+        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
     }
 }

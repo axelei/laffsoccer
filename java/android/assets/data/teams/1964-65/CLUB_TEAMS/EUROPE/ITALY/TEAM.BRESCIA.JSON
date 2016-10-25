@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "LUIGI BROTTO",
+      "shirtName": "BROTTO",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ALBERTO FUMAGALLI",
+      "shirtName": "FUMAGALLI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANCARLO VASINI",
+      "shirtName": "VASINI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "EUGENIO RIZZOLINI",
+      "shirtName": "RIZZOLINI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,8 +74,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FERDINANDO MANGILI",
+      "shirtName": "MANGILI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,8 +84,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "EGIDIO SALVI",
+      "shirtName": "SALVI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
@@ -94,8 +94,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "OTTAVIO BIANCHI",
+      "shirtName": "BIANCHI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "7",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIUSTO LODI",
+      "shirtName": "LODI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,18 +114,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FERNANDO VENERANDA",
+      "shirtName": "VENERANDA",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "ATTACKER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "VIRGINIO DE PAOLI",
+      "shirtName": "DE PAOLI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
@@ -134,8 +134,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ABBONDANZIO PAGANI",
+      "shirtName": "PAGANI",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,8 +144,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PAOLO CIMPIEL",
+      "shirtName": "CIMPIEL",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -154,41 +154,121 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "SANTINO MAESTRI",
+      "shirtName": "MAESTRI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "MIDFIELDER",
       "number": "13",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO LANCINI",
+      "shirtName": "LANCINI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "DEFENDER",
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "AZEGLIO VICINI",
+      "shirtName": "VICINI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "EDMONDO LORENZINI",
+      "shirtName": "LORENZINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "16",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "GIUSEPPE TOMASINI",
+      "shirtName": "TOMASINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "BERNARDINO BUSI",
+      "shirtName": "BUSI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "18",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "MINO FAVINI",
+      "shirtName": "FAVINI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "19",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "SEVERINO JOSIO",
+      "shirtName": "JOSIO",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "20",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "LUIGI TOSCHI",
+      "shirtName": "TOSCHI",
       "nationality": "ITA",
       "role": "ATTACKER",
-      "number": "16",
+      "number": "21",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "WALTER FRISONI",
+      "shirtName": "FRISONI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "22",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "PARZANI",
+      "shirtName": "PARZANI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "23",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {}
+    },
+    {
+      "name": "GIANNI BORGO",
+      "shirtName": "BORGO",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "24",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
