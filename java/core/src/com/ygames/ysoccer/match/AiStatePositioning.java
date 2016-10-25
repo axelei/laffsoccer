@@ -41,8 +41,7 @@ class AiStatePositioning extends AiState {
         }
 
         if (player.team.bestDefender == player) {
-            // TODO
-            // return ai.fsm.stateDefending;
+             return ai.fsm.stateDefending;
         }
 
         return null;
