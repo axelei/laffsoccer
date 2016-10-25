@@ -34,8 +34,8 @@
   ],
   "players": [
     {
-      "name": "",
-      "shirtName": "",
+      "name": "DINO ZOFF",
+      "shirtName": "ZOFF",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
@@ -44,8 +44,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "PIERO SCESA",
+      "shirtName": "SCESA",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
@@ -54,8 +54,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIULIO CORSINI",
+      "shirtName": "CORSINI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "3",
@@ -64,8 +64,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ERMANNO TARABBIA",
+      "shirtName": "TARABBIA",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "4",
@@ -74,8 +74,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "BENIAMINO CANCIAN",
+      "shirtName": "CANCIAN",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
@@ -84,9 +84,9 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "TORBJÖRN JONSSON",
+      "shirtName": "JONSSON",
+      "nationality": "SWE",
       "role": "MIDFIELDER",
       "number": "6",
       "hairColor": "BLACK",
@@ -94,8 +94,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "SERGIO PINI",
+      "shirtName": "PINI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "7",
@@ -104,8 +104,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "UGO TOMEAZZI",
+      "shirtName": "TOMEAZZI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
@@ -114,18 +114,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIANFRANCO TROMBINI",
+      "shirtName": "TROMBINI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "ATTACKER",
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "NICOLA CICCOLO",
+      "shirtName": "CICCOLO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "10",
@@ -134,8 +134,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "BENIAMINO DI GIACOMO",
+      "shirtName": "DI GIACOMO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "11",
@@ -144,8 +144,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ITALO GHIZZARDI",
+      "shirtName": "GHIZZARDI",
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
@@ -154,8 +154,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO MORGANTI",
+      "shirtName": "MORGANTI",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "13",
@@ -164,8 +164,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CLAUDIO CORRENTI",
+      "shirtName": "CORRENTI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
@@ -174,19 +174,19 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "CARLO VOLPI",
+      "shirtName": "VOLPI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "MIDFIELDER",
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
-      "nationality": "ITA",
+      "name": "MARCELO PAGANI",
+      "shirtName": "PAGANI",
+      "nationality": "ARG",
       "role": "ATTACKER",
       "number": "16",
       "hairColor": "BLACK",
@@ -194,18 +194,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ITALO MAZZERO",
+      "shirtName": "MAZZERO",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "ATTACKER",
       "number": "17",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "LUIGI BARTOLOMEI",
+      "shirtName": "BARTOLOMEI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "18",
@@ -214,8 +214,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ROBERTO DE PAOLI",
+      "shirtName": "DE PAOLI",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "19",
@@ -224,8 +224,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCO ZAGLIO",
+      "shirtName": "ZAGLIO",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "20",
@@ -234,18 +234,18 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "FRANCESCO SCARATTI",
+      "shirtName": "SCARATTI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
+      "role": "ATTACKER",
       "number": "21",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "GIORGIO BERNARDIS",
+      "shirtName": "BERNARDIS",
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "22",
@@ -254,8 +254,8 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "ROMANO TACCOLA",
+      "shirtName": "TACCOLA",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "23",
@@ -264,28 +264,28 @@
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "LIBERO VAROLI",
+      "shirtName": "VAROLI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "DEFENDER",
       "number": "24",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "AURELIO GERIN",
+      "shirtName": "GERIN",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "DEFENDER",
       "number": "25",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
     },
     {
-      "name": "",
-      "shirtName": "",
+      "name": "SERGIO PELLIZZARO",
+      "shirtName": "PELLIZZARO",
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "26",

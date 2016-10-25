@@ -6,7 +6,7 @@ import com.ygames.ysoccer.match.Player;
 public class Ai extends InputDevice {
 
     public Player player;
-    AiFsm fsm;
+    public AiFsm fsm;
 
     public Ai(Player player) {
         this.player = player;
