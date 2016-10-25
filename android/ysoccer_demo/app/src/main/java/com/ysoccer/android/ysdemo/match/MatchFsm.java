@@ -24,10 +24,13 @@ public class MatchFsm {
     }
 
     enum ActionType {
-        NONE, NEW_FOREGROUND, FADE_IN, FADE_OUT, HOLD_FOREGROUND, RESTORE_FOREGROUND
+        NONE,
+        NEW_FOREGROUND,
+        FADE_IN,
+        FADE_OUT,
+        HOLD_FOREGROUND,
+        RESTORE_FOREGROUND
     }
-
-    ;
 
     private Match match;
     private int savedSubframe;
@@ -215,5 +218,4 @@ public class MatchFsm {
     public void pushAction(ActionType type, int state) {
         actions.offer(new Action(type, state));
     }
-
 }
