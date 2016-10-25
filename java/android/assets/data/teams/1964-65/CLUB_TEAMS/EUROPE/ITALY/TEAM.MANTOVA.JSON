@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 30
     },
     {
       "name": "PIERO SCESA",
@@ -84,11 +85,11 @@
       "skills": {}
     },
     {
-      "name": "TORBJÖRN JONSSON",
-      "shirtName": "JONSSON",
-      "nationality": "SWE",
+      "name": "UGO TOMEAZZI",
+      "shirtName": "TOMEAZZI",
+      "nationality": "ITA",
       "role": "MIDFIELDER",
-      "number": "6",
+      "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -101,17 +102,33 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 2,
+        "heading": 5,
+        "tackling": 4,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
-      "name": "UGO TOMEAZZI",
-      "shirtName": "TOMEAZZI",
-      "nationality": "ITA",
+      "name": "TORBJÖRN JONSSON",
+      "shirtName": "JONSSON",
+      "nationality": "SWE",
       "role": "MIDFIELDER",
-      "number": "8",
-      "hairColor": "BLACK",
+      "number": "6",
+      "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 5,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 3
+      }
     },
     {
       "name": "GIANFRANCO TROMBINI",

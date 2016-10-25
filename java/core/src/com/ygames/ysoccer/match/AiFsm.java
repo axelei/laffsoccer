@@ -19,9 +19,11 @@ public class AiFsm extends Fsm {
 
     AiStateIdle stateIdle;
     AiStateKickingOff stateKickingOff;
+    AiStatePositioning statePositioning;
 
     public AiFsm(Ai ai) {
         addState(stateIdle = new AiStateIdle(ai));
         addState(stateKickingOff = new AiStateKickingOff(ai));
+        addState(statePositioning = new AiStatePositioning(ai));
     }
 }

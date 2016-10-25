@@ -38,6 +38,7 @@ public class Team {
     int side; // -1=upside, 1=downside
 
     Player near1; // nearest to the ball
+    Player bestDefender;
 
     public int won;
     public int drawn;

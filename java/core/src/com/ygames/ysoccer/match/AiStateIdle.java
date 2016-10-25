@@ -24,12 +24,10 @@ class AiStateIdle extends AiState {
         if (playerState != null) {
             switch (playerState.id) {
                 case PlayerFsm.STATE_KICK_OFF:
-                    // TODO
-                    // return ai.fsm.stateKickingOff;
+                     return ai.fsm.stateKickingOff;
 
                 case PlayerFsm.STATE_STAND_RUN:
-                    // TODO
-                    // return ai.fsm.statePositioning;
+                     return ai.fsm.statePositioning;
 
                 case PlayerFsm.STATE_GOAL_KICK:
                     // TODO
