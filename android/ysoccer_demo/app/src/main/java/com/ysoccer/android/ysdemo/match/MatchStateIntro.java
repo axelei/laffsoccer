@@ -5,7 +5,7 @@ import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateIntro extends MatchState {
 
-    final int enterDelay = GLGame.VIRTUAL_REFRATE / 16;
+    final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
 
     public MatchStateIntro(Match match) {
         super(match);
@@ -60,7 +60,7 @@ public class MatchStateIntro extends MatchState {
 
             if ((match.team[Match.HOME].fire1Down() != null)
                     || (match.team[Match.AWAY].fire1Down() != null)
-                    || (timer >= 5 * GLGame.VIRTUAL_REFRATE)) {
+                    || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
                 match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
                 return;
             }

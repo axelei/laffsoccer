@@ -17,7 +17,7 @@ public class AiStatePassing extends AiState {
         super.entryActions();
         float d = Emath.dist(player.x, player.y, 0, Math.signum(player.y)
                 * Const.GOAL_LINE);
-        duration = (int) (0.01f * (4 + d / 50) * GLGame.VIRTUAL_REFRATE);
+        duration = (int) (0.01f * (4 + d / 50) * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class AiStatePassing extends AiState {
 
     @Override
     State checkConditions() {
-        if (timer > 0.5f * GLGame.VIRTUAL_REFRATE) {
+        if (timer > 0.5f * GLGame.VIRTUAL_REFRESH_RATE) {
             return ai.fsm.stateIdle;
         }
 

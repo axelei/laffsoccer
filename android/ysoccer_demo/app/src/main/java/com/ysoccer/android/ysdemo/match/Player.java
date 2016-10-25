@@ -165,7 +165,7 @@ public class Player {
         for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
             if (Emath.dist(x, y, match.ball.prediction[f].x,
                     match.ball.prediction[f].y) < speed * f
-                    / GLGame.VIRTUAL_REFRATE) {
+                    / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistance = f;
             }
         }

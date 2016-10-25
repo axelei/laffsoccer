@@ -53,7 +53,7 @@ public class MatchStateHalfTimeWait extends MatchState {
     void checkConditions() {
         if (match.team[Match.HOME].fire1Down() != null
                 || match.team[Match.AWAY].fire1Down() != null
-                || (timer > 3 * GLGame.VIRTUAL_REFRATE)) {
+                || (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
             match.period = Match.Period.SECOND_HALF;
             match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_ENTER);
             return;

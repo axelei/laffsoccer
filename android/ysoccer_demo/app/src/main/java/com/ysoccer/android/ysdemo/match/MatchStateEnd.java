@@ -49,7 +49,7 @@ public class MatchStateEnd extends MatchState {
     @Override
     void checkConditions() {
         if (match.glGame.touchInput.fire1Up()
-                || (timer > 20 * GLGame.VIRTUAL_REFRATE)) {
+                || (timer > 20 * GLGame.VIRTUAL_REFRESH_RATE)) {
             match.quit();
         }
     }

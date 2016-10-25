@@ -13,10 +13,10 @@ public class AiStateThrowingIn extends AiState {
     @Override
     void doActions() {
         super.doActions();
-        if (timer > 1.5f * GLGame.VIRTUAL_REFRATE) {
+        if (timer > 1.5f * GLGame.VIRTUAL_REFRESH_RATE) {
             ai.x0 = player.team.side;
         }
-        ai.fire10 = Emath.isIn(timer, 2.0f * GLGame.VIRTUAL_REFRATE, 2.31f * GLGame.VIRTUAL_REFRATE);
+        ai.fire10 = Emath.isIn(timer, 2.0f * GLGame.VIRTUAL_REFRESH_RATE, 2.31f * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override

@@ -62,7 +62,7 @@ public class MatchStateHalfTimeStop extends MatchState {
     @Override
     void checkConditions() {
 
-        if (timer > 3 * GLGame.VIRTUAL_REFRATE) {
+        if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
             match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_POSITIONS);
             return;
         }

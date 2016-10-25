@@ -103,7 +103,7 @@ public class MatchStateGoal extends MatchState {
     @Override
     void checkConditions() {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
-                && (timer > 3 * GLGame.VIRTUAL_REFRATE)) {
+                && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
 
             match.recorder.saveHighlight();
 

@@ -16,13 +16,13 @@ public class AiStateGoalKicking extends AiState {
 
         ai.x0 = 0;
         ai.y0 = 0;
-        ai.fire10 = Emath.isIn(timer, 1.0f * GLGame.VIRTUAL_REFRATE,
-                1.05f * GLGame.VIRTUAL_REFRATE);
+        ai.fire10 = Emath.isIn(timer, 1.0f * GLGame.VIRTUAL_REFRESH_RATE,
+                1.05f * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override
     State checkConditions() {
-        if (timer > 1.5f * GLGame.VIRTUAL_REFRATE) {
+        if (timer > 1.5f * GLGame.VIRTUAL_REFRESH_RATE) {
             return ai.fsm.stateIdle;
         }
         return null;

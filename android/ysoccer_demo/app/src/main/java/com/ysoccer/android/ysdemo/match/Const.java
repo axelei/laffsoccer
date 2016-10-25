@@ -11,7 +11,7 @@ class Const {
     static final float GRAVITY = 350.0f / SECOND;
 
     static final int REPLAY_DURATION = 8; // seconds
-    static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRATE;
+    static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRESH_RATE;
     static final int REPLAY_SUBFRAMES = REPLAY_DURATION * SECOND;
     static final int BALL_PREDICTION = 2 * SECOND / GLGame.SUBFRAMES;
     static final int PREDICTION_UPDATE_SUBFRAMES = 40;

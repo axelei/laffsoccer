@@ -18,7 +18,7 @@ public class AiStateKicking extends AiState {
 
         float d = Emath.dist(player.x, player.y, 0, Math.signum(player.y)
                 * Const.GOAL_LINE);
-        duration = (int) (0.01f * (player.match.random.nextInt(9) + d / 50) * GLGame.VIRTUAL_REFRATE);
+        duration = (int) (0.01f * (player.match.random.nextInt(9) + d / 50) * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override

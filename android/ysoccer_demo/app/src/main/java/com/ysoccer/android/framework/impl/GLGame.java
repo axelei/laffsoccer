@@ -35,8 +35,8 @@ public abstract class GLGame extends Activity implements Game, Renderer {
     }
 
     public static final int SUBFRAMES = 8;
-    public static final int VIRTUAL_REFRATE = 64;
-    public static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRATE * SUBFRAMES;
+    public static final int VIRTUAL_REFRESH_RATE = 64;
+    public static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRESH_RATE * SUBFRAMES;
     public static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
 
     GLSurfaceView glView;

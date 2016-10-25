@@ -58,7 +58,7 @@ public class MatchStateMain extends MatchState {
                     }
                 }
 
-                match.clock += 1000.0f / GLGame.VIRTUAL_REFRATE;
+                match.clock += 1000.0f / GLGame.VIRTUAL_REFRESH_RATE;
 
                 match.updateFrameDistance();
 
@@ -124,7 +124,7 @@ public class MatchStateMain extends MatchState {
             match.updateBallZone();
             match.updateTeamTactics();
 
-            if ((match.subframe % GLGame.VIRTUAL_REFRATE) == 0) {
+            if ((match.subframe % GLGame.VIRTUAL_REFRESH_RATE) == 0) {
                 match.ball.updatePrediction();
             }
 
