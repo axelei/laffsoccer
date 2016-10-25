@@ -368,7 +368,15 @@
       "number": "20",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 2,
+        "tackling": 2,
+        "control": 4,
+        "speed": 2,
+        "finishing": 2
+      }
     },
     {
       "name": "FRANCESCO SCARATTI",
@@ -378,7 +386,15 @@
       "number": "21",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 5,
+        "heading": 3,
+        "tackling": 3,
+        "control": 2,
+        "speed": 2,
+        "finishing": 2
+      }
     },
     {
       "name": "GIORGIO BERNARDIS",
@@ -388,7 +404,15 @@
       "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 3,
+        "control": 2,
+        "speed": 2,
+        "finishing": 2
+      }
     },
     {
       "name": "ROMANO TACCOLA",
