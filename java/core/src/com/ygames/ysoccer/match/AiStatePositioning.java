@@ -33,8 +33,7 @@ class AiStatePositioning extends AiState {
 
         if (player == player.team.near1) {
             if (player.match.ball.owner == null) {
-                // TODO
-                // return ai.fsm.stateSeeking;
+                return ai.fsm.stateSeeking;
             } else if (player.match.ball.owner == player) {
                 // TODO
                 // return ai.fsm.stateAttacking;

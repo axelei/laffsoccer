@@ -45,21 +45,29 @@
       "value": 30
     },
     {
+      "name": "BENIAMINO CANCIAN",
+      "shirtName": "CANCIAN",
+      "nationality": "ITA",
+      "role": "RIGHT_BACK",
+      "number": "5",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
+    },
+    {
       "name": "PIERO SCESA",
       "shirtName": "SCESA",
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "GIULIO CORSINI",
-      "shirtName": "CORSINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {}
@@ -75,14 +83,22 @@
       "skills": {}
     },
     {
-      "name": "BENIAMINO CANCIAN",
-      "shirtName": "CANCIAN",
+      "name": "GIULIO CORSINI",
+      "shirtName": "CORSINI",
       "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "5",
+      "role": "LEFT_BACK",
+      "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "UGO TOMEAZZI",
@@ -148,7 +164,15 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "BENIAMINO DI GIACOMO",
