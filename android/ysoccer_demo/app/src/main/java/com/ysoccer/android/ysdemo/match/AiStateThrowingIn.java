@@ -3,9 +3,9 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 
-public class AiStateThrowingIn extends AiState {
+class AiStateThrowingIn extends AiState {
 
-    public AiStateThrowingIn(Ai ai) {
+    AiStateThrowingIn(Ai ai) {
         super(ai);
         id = AiFsm.STATE_THROWING_IN;
     }
@@ -31,5 +31,4 @@ public class AiStateThrowingIn extends AiState {
 
         return ai.fsm.stateIdle;
     }
-
 }
