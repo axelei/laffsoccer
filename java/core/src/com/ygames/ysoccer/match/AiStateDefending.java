@@ -36,8 +36,7 @@ class AiStateDefending extends AiState {
         if (player.match.ball.owner != null) {
             // self
             if (player.match.ball.owner == player) {
-                // TODO
-                // return ai.fsm.stateAttacking;
+                 return ai.fsm.stateAttacking;
             }
             // mate
             if (player.match.ball.owner.team == player.team) {

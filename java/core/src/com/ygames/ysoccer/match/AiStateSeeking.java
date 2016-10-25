@@ -36,8 +36,7 @@ class AiStateSeeking extends AiState {
         if (player.match.ball.owner != null) {
             // player
             if (player.match.ball.owner == player) {
-                // TODO
-                // return ai.fsm.stateAttacking;
+                 return ai.fsm.stateAttacking;
             }
             // mate
             if (player.match.ball.owner.team == player.team) {

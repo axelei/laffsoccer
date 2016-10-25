@@ -22,6 +22,7 @@ public class AiFsm extends Fsm {
     AiStatePositioning statePositioning;
     AiStateSeeking stateSeeking;
     AiStateDefending stateDefending;
+    AiStateAttacking stateAttacking;
 
     public AiFsm(Ai ai) {
         addState(stateIdle = new AiStateIdle(ai));
@@ -29,5 +30,6 @@ public class AiFsm extends Fsm {
         addState(statePositioning = new AiStatePositioning(ai));
         addState(stateSeeking = new AiStateSeeking(ai));
         addState(stateDefending = new AiStateDefending(ai));
+        addState(stateAttacking = new AiStateAttacking(ai));
     }
 }

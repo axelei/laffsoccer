@@ -84,11 +84,19 @@
       "name": "ERMANNO TARABBIA",
       "shirtName": "TARABBIA",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "GIULIO CORSINI",
@@ -116,7 +124,15 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "SERGIO PINI",
@@ -236,7 +252,15 @@
       "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "CARLO VOLPI",
