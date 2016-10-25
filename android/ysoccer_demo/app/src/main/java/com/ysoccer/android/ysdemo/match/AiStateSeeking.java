@@ -3,9 +3,9 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.math.Emath;
 import com.ysoccer.android.framework.math.Vector3;
 
-public class AiStateSeeking extends AiState {
+class AiStateSeeking extends AiState {
 
-    public AiStateSeeking(Ai ai) {
+    AiStateSeeking(Ai ai) {
         super(ai);
         id = AiFsm.STATE_SEEKING;
     }
@@ -50,5 +50,4 @@ public class AiStateSeeking extends AiState {
 
         return null;
     }
-
 }
