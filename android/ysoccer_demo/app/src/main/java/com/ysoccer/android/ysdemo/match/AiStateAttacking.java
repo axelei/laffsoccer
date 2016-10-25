@@ -3,9 +3,9 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 
-public class AiStateAttacking extends AiState {
+class AiStateAttacking extends AiState {
 
-    public AiStateAttacking(Ai ai) {
+    AiStateAttacking(Ai ai) {
         super(ai);
         id = AiFsm.STATE_ATTACKING;
     }
@@ -14,8 +14,7 @@ public class AiStateAttacking extends AiState {
     void doActions() {
         super.doActions();
 
-        ai.x0 = -Emath.sgn(Math.round(player.match.ball.x
-                / (Const.POST_X + Const.POST_R + Const.BALL_R)));
+        ai.x0 = -Emath.sgn(Math.round(player.match.ball.x / (Const.POST_X + Const.POST_R + Const.BALL_R)));
         ai.y0 = -player.team.side;
 
         player.searchFacingPlayer(false);
@@ -42,8 +41,9 @@ public class AiStateAttacking extends AiState {
         }
 
         // near the goal
-        if (Emath.isIn(player.match.ball.y, -player.team.side
-                        * (Const.GOAL_LINE - 1.5f * Const.PENALTY_AREA_H),
+        if (Emath.isIn(
+                player.match.ball.y,
+                -player.team.side * (Const.GOAL_LINE - 1.5f * Const.PENALTY_AREA_H),
                 -player.team.side * Const.GOAL_LINE)
                 && (player.match.ball.z < 4)) {
             return ai.fsm.stateKicking;
@@ -51,5 +51,4 @@ public class AiStateAttacking extends AiState {
 
         return null;
     }
-
 }
