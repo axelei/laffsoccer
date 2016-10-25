@@ -33,8 +33,7 @@ class AiStateIdle extends AiState {
                      return ai.fsm.stateGoalKicking;
 
                 case PlayerFsm.STATE_THROW_IN_ANGLE:
-                    // TODO
-                    // return ai.fsm.stateThrowingIn;
+                     return ai.fsm.stateThrowingIn;
 
                 case PlayerFsm.STATE_CORNER_KICK_ANGLE:
                     // TODO

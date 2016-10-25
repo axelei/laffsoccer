@@ -232,7 +232,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 21
     },
     {
       "name": "CARLO MORGANTI",
@@ -422,7 +423,15 @@
       "number": "23",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 2,
+        "control": 2,
+        "speed": 2,
+        "finishing": 4
+      }
     },
     {
       "name": "LIBERO VAROLI",
@@ -432,7 +441,15 @@
       "number": "24",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 3,
+        "control": 2,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "AURELIO GERIN",
