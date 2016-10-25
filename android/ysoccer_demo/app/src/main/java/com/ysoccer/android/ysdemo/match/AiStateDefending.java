@@ -3,9 +3,9 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.math.Emath;
 import com.ysoccer.android.framework.math.Vector3;
 
-public class AiStateDefending extends AiState {
+class AiStateDefending extends AiState {
 
-    public AiStateDefending(Ai ai) {
+    AiStateDefending(Ai ai) {
         super(ai);
         id = AiFsm.STATE_DEFENDING;
     }
@@ -50,5 +50,4 @@ public class AiStateDefending extends AiState {
 
         return null;
     }
-
 }
