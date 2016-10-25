@@ -47,8 +47,7 @@ class AiStateAttacking extends AiState {
                 -player.team.side * (Const.GOAL_LINE - 1.5f * Const.PENALTY_AREA_H),
                 -player.team.side * Const.GOAL_LINE)
                 && (player.match.ball.z < 4)) {
-            // TODO
-            // return ai.fsm.stateKicking;
+             return ai.fsm.stateKicking;
         }
 
         return null;
