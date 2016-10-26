@@ -106,7 +106,15 @@
       "number": "5",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "ABBONDANZIO PAGANI",
@@ -206,7 +214,15 @@
       "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 2,
+        "control": 2,
+        "speed": 3,
+        "finishing": 3
+      }
     },
     {
       "name": "PAOLO CIMPIEL",
@@ -246,7 +262,15 @@
       "number": "15",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "EDMONDO LORENZINI",
