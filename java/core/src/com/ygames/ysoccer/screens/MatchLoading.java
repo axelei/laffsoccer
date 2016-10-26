@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.match.MatchCore;
+import com.ygames.ysoccer.match.MatchRenderer;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Team;
 
@@ -20,6 +21,7 @@ class MatchLoading extends GlScreen {
         Team[] team = {homeTeam, awayTeam};
 
         matchCore = new MatchCore(game, team, matchSettings);
+        matchCore.renderer = new MatchRenderer(game.glGraphics);
 
         Gdx.graphics.setCursor(null);
     }

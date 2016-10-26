@@ -15,6 +15,7 @@ public class MatchCore {
     public final Team team[];
     public int benchSide; // 1 = home upside, -1 = home downside
 
+    public MatchRenderer renderer;
     public MatchSettings settings;
 
     final List<Goal> goals;
