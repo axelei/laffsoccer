@@ -3,6 +3,8 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GlGraphics;
 import com.ygames.ysoccer.framework.Image;
 
+import java.util.Comparator;
+
 public class Sprite {
 
     GlGraphics glGraphics;
@@ -23,5 +25,15 @@ public class Sprite {
 
     public int getY(int subframe) {
         return y;
+    }
+
+    static class SpriteComparator implements Comparator<Sprite> {
+
+        int subframe;
+
+        @Override
+        public int compare(Sprite sprite1, Sprite sprite2) {
+            return sprite1.getY(subframe) - sprite2.getY(subframe);
+        }
     }
 }

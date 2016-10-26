@@ -235,24 +235,22 @@
       "skills": {}
     },
     {
-      "name": "SANTINO MAESTRI",
-      "shirtName": "MAESTRI",
+      "name": "EDMONDO LORENZINI",
+      "shirtName": "LORENZINI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "13",
+      "role": "RIGHT_BACK",
+      "number": "16",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "CARLO LANCINI",
-      "shirtName": "LANCINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "14",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "AZEGLIO VICINI",
@@ -273,14 +271,40 @@
       }
     },
     {
-      "name": "EDMONDO LORENZINI",
-      "shirtName": "LORENZINI",
+      "name": "SANTINO MAESTRI",
+      "shirtName": "MAESTRI",
       "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "16",
+      "role": "MIDFIELDER",
+      "number": "13",
+      "hairColor": "BLOND",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "CARLO LANCINI",
+      "shirtName": "LANCINI",
+      "nationality": "ITA",
+      "role": "MIDFIELDER",
+      "number": "14",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 2,
+        "heading": 2,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
       "name": "GIUSEPPE TOMASINI",

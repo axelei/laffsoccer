@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlGraphics;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MatchRenderer {
@@ -20,6 +21,7 @@ public class MatchRenderer {
 
     public MatchCore match;
     List<Sprite> allSprites;
+    Sprite.SpriteComparator spriteComparator;
 
     public MatchRenderer(GlGraphics glGraphics, MatchCore match) {
         this.glGraphics = glGraphics;
@@ -35,6 +37,7 @@ public class MatchRenderer {
 
         this.match = match;
         allSprites = new ArrayList<Sprite>();
+        spriteComparator = new Sprite.SpriteComparator();
     }
 
     public void render(GlGame game) {
@@ -57,6 +60,10 @@ public class MatchRenderer {
     }
 
     private void renderSprites(int subframe) {
+
+        spriteComparator.subframe = subframe;
+        Collections.sort(allSprites, spriteComparator);
+
         for (Sprite sprite : allSprites) {
             sprite.draw(subframe);
         }
