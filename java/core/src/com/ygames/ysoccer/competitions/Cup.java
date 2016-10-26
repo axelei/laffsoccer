@@ -34,6 +34,11 @@ public class Cup extends Competition {
         qualifiedTeams = new ArrayList<Integer>();
     }
 
+    public void init() {
+        numberOfTeams = getRoundTeams(0);
+        absolutePath = Assets.teamsFolder.child(path).path();
+    }
+
     public void start(ArrayList<Team> teams) {
         super.start(teams);
         for (int i = 0; i < teams.size(); i++) {

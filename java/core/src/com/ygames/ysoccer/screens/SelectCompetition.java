@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -34,13 +35,25 @@ public class SelectCompetition extends GlScreen {
         // Competitions buttons
         List<Widget> competitionsList = new ArrayList<Widget>();
 
-        FileHandle leaguesFile = fileHandle.child("LEAGUES.JSON");
+        FileHandle leaguesFile = fileHandle.child("leagues.json");
         if (leaguesFile.exists()) {
             League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString());
             for (League league : leagues) {
                 league.init();
                 league.category = Competition.Category.PRESET_COMPETITION;
                 w = new CompetitionButton(league);
+                competitionsList.add(w);
+                widgets.add(w);
+            }
+        }
+
+        FileHandle cupsFile = fileHandle.child("cups.json");
+        if (cupsFile.exists()) {
+            Cup[] cups = Assets.json.fromJson(Cup[].class, cupsFile.readString());
+            for (Cup cup : cups) {
+                cup.init();
+                cup.category = Competition.Category.PRESET_COMPETITION;
+                w = new CompetitionButton(cup);
                 competitionsList.add(w);
                 widgets.add(w);
             }
