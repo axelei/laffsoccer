@@ -141,7 +141,7 @@ public class InfoLeague extends GlScreen {
         public PitchTypeButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 50, 175, 400, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(Pitch.names[league.pitchType]), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(Pitch.names[league.pitchType.ordinal()]), Font.Align.CENTER, Assets.font14);
             setVisible(!league.bySeason);
             setActive(false);
         }

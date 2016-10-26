@@ -279,13 +279,13 @@ public class DiyLeague extends GlScreen {
         }
 
         private void updatePitchType(int n) {
-            league.pitchType = Emath.rotate(league.pitchType, 0, Pitch.RANDOM, n);
+            league.pitchType = Pitch.Type.values()[Emath.rotate(league.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
             setChanged(true);
         }
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Pitch.names[league.pitchType]));
+            setText(Assets.strings.get(Pitch.names[league.pitchType.ordinal()]));
             setVisible(!league.bySeason);
         }
     }

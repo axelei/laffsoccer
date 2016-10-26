@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.competitions;
 
+import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 
 public class Friendly extends Competition {
@@ -13,7 +14,7 @@ public class Friendly extends Competition {
         return Type.FRIENDLY;
     }
 
-    public int resolvePitchType() {
+    public Pitch.Type resolvePitchType() {
         return pitchType;
     }
 }

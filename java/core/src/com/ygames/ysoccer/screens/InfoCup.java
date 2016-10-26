@@ -160,7 +160,7 @@ public class InfoCup extends GlScreen {
         public PitchTypeButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 232, 165, 392, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(Pitch.names[cup.pitchType]), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(Pitch.names[cup.pitchType.ordinal()]), Font.Align.CENTER, Assets.font14);
             setVisible(!cup.bySeason);
             setActive(false);
         }

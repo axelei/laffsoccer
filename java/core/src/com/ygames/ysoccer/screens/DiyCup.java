@@ -314,13 +314,13 @@ public class DiyCup extends GlScreen {
         }
 
         private void updatePitchType(int n) {
-            cup.pitchType = Emath.rotate(cup.pitchType, 0, Pitch.RANDOM, n);
+            cup.pitchType = Pitch.Type.values()[Emath.rotate(cup.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
             setChanged(true);
         }
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Pitch.names[cup.pitchType]));
+            setText(Assets.strings.get(Pitch.names[cup.pitchType.ordinal()]));
             setVisible(!cup.bySeason);
         }
     }

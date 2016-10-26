@@ -48,11 +48,19 @@
       "name": "ALBERTO FUMAGALLI",
       "shirtName": "FUMAGALLI",
       "nationality": "ITA",
-      "role": "DEFENDER",
+      "role": "RIGHT_BACK",
       "number": "2",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "GIANCARLO VASINI",
@@ -101,14 +109,22 @@
       "skills": {}
     },
     {
-      "name": "EGIDIO SALVI",
-      "shirtName": "SALVI",
+      "name": "ABBONDANZIO PAGANI",
+      "shirtName": "PAGANI",
       "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
+      "role": "LEFT_WINGER",
+      "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "OTTAVIO BIANCHI",
@@ -136,17 +152,33 @@
       "number": "8",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 3,
+        "control": 3,
+        "speed": 3,
+        "finishing": 2
+      }
     },
     {
-      "name": "FERNANDO VENERANDA",
-      "shirtName": "VENERANDA",
+      "name": "EGIDIO SALVI",
+      "shirtName": "SALVI",
       "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "9",
+      "role": "RIGHT_WINGER",
+      "number": "6",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 3,
+        "tackling": 2,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "VIRGINIO DE PAOLI",
@@ -167,22 +199,14 @@
       }
     },
     {
-      "name": "ABBONDANZIO PAGANI",
-      "shirtName": "PAGANI",
+      "name": "FERNANDO VENERANDA",
+      "shirtName": "VENERANDA",
       "nationality": "ITA",
-      "role": "LEFT_WINGER",
-      "number": "11",
+      "role": "ATTACKER",
+      "number": "9",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 4,
-        "heading": 3,
-        "tackling": 2,
-        "control": 3,
-        "speed": 4,
-        "finishing": 4
-      }
+      "skills": {}
     },
     {
       "name": "PAOLO CIMPIEL",

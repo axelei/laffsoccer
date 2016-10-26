@@ -9,7 +9,7 @@ public class MatchSettings {
     public int time;
     float shadowAlpha;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
-    public int pitchType;
+    public Pitch.Type pitchType;
 
     Grass grass;
     public int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG, Weather.RANDOM
@@ -37,13 +37,13 @@ public class MatchSettings {
     }
 
     public void rotatePitchType(int direction) {
-        pitchType = Emath.rotate(pitchType, Pitch.FROZEN, Pitch.RANDOM, direction);
+        pitchType = Pitch.Type.values()[Emath.rotate(pitchType.ordinal(), Pitch.Type.FROZEN.ordinal(), Pitch.Type.RANDOM.ordinal(), direction)];
         weatherEffect = Weather.RANDOM;
         sky = Sky.CLOUDY;
     }
 
     public void rotateWeather(boolean includeRandom) {
-        if (pitchType == Pitch.RANDOM) {
+        if (pitchType == Pitch.Type.RANDOM) {
             return;
         }
 
@@ -74,7 +74,7 @@ public class MatchSettings {
 
                 // weather possibility check
                 if (weatherEffect != Weather.RANDOM) {
-                    if (weatherStrength > Weather.cap[pitchType][weatherEffect]) {
+                    if (weatherStrength > Weather.cap[pitchType.ordinal()][weatherEffect]) {
                         found = false;
                     }
                     if (weatherStrength > weatherMaxStrength) {
@@ -186,13 +186,13 @@ public class MatchSettings {
     }
 
     private void initPitchType() {
-        if (pitchType == Pitch.RANDOM) {
-            pitchType = Assets.random.nextInt(Pitch.RANDOM);
+        if (pitchType == Pitch.Type.RANDOM) {
+            pitchType = Pitch.Type.values()[Assets.random.nextInt(Pitch.Type.RANDOM.ordinal())];
         }
     }
 
     private void initGrass() {
-        grass.copy(Pitch.grasses[pitchType]);
+        grass.copy(Pitch.grasses[pitchType.ordinal()]);
     }
 
     private void initWeather() {
@@ -204,7 +204,7 @@ public class MatchSettings {
             weatherStrength = Math.min(weatherStrength, weatherMaxStrength);
 
             // constrain by pitch_type
-            weatherStrength = Math.min(weatherStrength, Weather.cap[pitchType][weatherEffect]);
+            weatherStrength = Math.min(weatherStrength, Weather.cap[pitchType.ordinal()][weatherEffect]);
 
             // sky
             sky = Sky.CLOUDY;

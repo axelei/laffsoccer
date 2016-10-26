@@ -188,7 +188,7 @@ class MatchSetup extends GlScreen {
 
         @Override
         public void onUpdate() {
-            image = Assets.pitchIcons[matchSettings.pitchType];
+            image = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
         }
     }
 
@@ -207,7 +207,7 @@ class MatchSetup extends GlScreen {
 
         @Override
         public void onUpdate() {
-            setText(Assets.strings.get(Pitch.names[matchSettings.pitchType]));
+            setText(Assets.strings.get(Pitch.names[matchSettings.pitchType.ordinal()]));
         }
 
         @Override
@@ -254,7 +254,7 @@ class MatchSetup extends GlScreen {
 
         @Override
         public void onUpdate() {
-            if (competition.getType() == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.RANDOM) {
+            if (competition.getType() == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
                 setColors(0x1F1F95);
                 setActive(true);
             } else {

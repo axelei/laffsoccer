@@ -10,7 +10,6 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.MatchSettings;
-import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Time;
@@ -302,27 +301,24 @@ public class Assets {
 
     public static void loadStadium(GlGame game, MatchSettings matchSettings) {
 
-        String paletteName;
+        String paletteName = matchSettings.pitchType.toString().toLowerCase();
         switch (matchSettings.time) {
             case Time.DAY:
                 switch (matchSettings.sky) {
                     case Sky.CLEAR:
-                        paletteName = Pitch.names[matchSettings.pitchType] + "_sunny.pal";
+                        paletteName += "_sunny.pal";
                         break;
 
                     case Sky.CLOUDY:
-                        paletteName = Pitch.names[matchSettings.pitchType] + "_cloudy.pal";
+                        paletteName += "_cloudy.pal";
                         break;
                 }
                 break;
 
             case Time.NIGHT:
-                paletteName = Pitch.names[matchSettings.pitchType] + "_night.pal";
+                paletteName += "_night.pal";
                 break;
         }
-
-        // TODO: remove this line
-        paletteName = "normal_sunny.pal";
 
         for (int c = 0; c < 4; c++) {
             for (int r = 0; r < 4; r++) {

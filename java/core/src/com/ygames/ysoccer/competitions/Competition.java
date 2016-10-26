@@ -34,7 +34,7 @@ public abstract class Competition {
     public int seasonStart;
     public int seasonEnd;
     public int currentMonth;
-    public int pitchType;
+    public Pitch.Type pitchType;
     public int substitutions;
     public int benchSize;
     public int time;
@@ -48,7 +48,7 @@ public abstract class Competition {
         bySeason = true;
         seasonStart = Calendar.AUGUST;
         seasonEnd = Calendar.MAY;
-        pitchType = Pitch.RANDOM;
+        pitchType = Pitch.Type.RANDOM;
         substitutions = 3;
         benchSize = 12;
         time = Time.DAY;
@@ -115,7 +115,7 @@ public abstract class Competition {
         return bySeason ? "SEASON" : "PITCH TYPE";
     }
 
-    public int resolvePitchType() {
+    public Pitch.Type resolvePitchType() {
         int p;
 
         if (bySeason) {
@@ -129,14 +129,14 @@ public abstract class Competition {
         }
         // by pitch type
         else {
-            if (pitchType == Pitch.RANDOM) {
-                p = Emath.rand(Pitch.FROZEN, Pitch.WHITE);
+            if (pitchType == Pitch.Type.RANDOM) {
+                p = Emath.rand(Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal());
             } else {
-                p = pitchType;
+                p = pitchType.ordinal();
             }
         }
 
-        return p;
+        return Pitch.Type.values()[p];
     }
 
     public void save() {
