@@ -62,7 +62,15 @@
       "number": "3",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 4,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "EUGENIO RIZZOLINI",
@@ -110,7 +118,15 @@
       "number": "7",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 5,
+        "shooting": 4,
+        "heading": 2,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "GIUSTO LODI",
@@ -140,7 +156,15 @@
       "number": "10",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 4,
+        "tackling": 3,
+        "control": 4,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "ABBONDANZIO PAGANI",

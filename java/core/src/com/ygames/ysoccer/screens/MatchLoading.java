@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.match.MatchCore;
@@ -24,6 +25,8 @@ class MatchLoading extends GlScreen {
         matchCore.renderer = new MatchRenderer(game.glGraphics, matchCore);
 
         Gdx.graphics.setCursor(null);
+
+        Assets.loadStadium(game, matchSettings);
     }
 
     @Override

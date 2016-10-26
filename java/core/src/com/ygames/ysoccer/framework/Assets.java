@@ -9,7 +9,11 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Pitch;
+import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
+import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
 import java.io.IOException;
@@ -48,6 +52,7 @@ public class Assets {
     public static Image[] lightIcons = new Image[3];
     public static Image[] pitchIcons = new Image[10];
     public static Image[] weatherIcons = new Image[11];
+    public static Image[][] stadium = new Image[4][4];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -292,6 +297,37 @@ public class Assets {
         Texture texture = new Texture("images/weather.png");
         for (int i = 0; i < 11; i++) {
             weatherIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
+        }
+    }
+
+    public static void loadStadium(GlGame game, MatchSettings matchSettings) {
+
+        String paletteName;
+        switch (matchSettings.time) {
+            case Time.DAY:
+                switch (matchSettings.sky) {
+                    case Sky.CLEAR:
+                        paletteName = Pitch.names[matchSettings.pitchType] + "_sunny.pal";
+                        break;
+
+                    case Sky.CLOUDY:
+                        paletteName = Pitch.names[matchSettings.pitchType] + "_cloudy.pal";
+                        break;
+                }
+                break;
+
+            case Time.NIGHT:
+                paletteName = Pitch.names[matchSettings.pitchType] + "_night.pal";
+                break;
+        }
+
+        // TODO: remove this line
+        paletteName = "normal_sunny.pal";
+
+        for (int c = 0; c < 4; c++) {
+            for (int r = 0; r < 4; r++) {
+                stadium[r][c] = Image.loadImage("images/stadium/generic_" + c + "" + r + ".png", "images/stadium/palettes/" + paletteName);
+            }
         }
     }
 }

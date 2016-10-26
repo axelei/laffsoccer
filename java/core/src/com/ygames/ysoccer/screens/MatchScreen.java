@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.match.MatchCore;
@@ -34,5 +35,7 @@ class MatchScreen extends GlScreen {
         if (!matchPaused) {
             match.update(deltaTime);
         }
+
+        match.renderer.render(game);
     }
 }

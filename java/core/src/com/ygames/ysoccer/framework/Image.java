@@ -50,6 +50,26 @@ public class Image extends TextureRegion {
         }
     }
 
+    public static Image loadImage(String internalPath, String paletteFile) {
+        InputStream in = null;
+        try {
+            in = Gdx.files.internal(internalPath).read();
+            InputStream palette = Gdx.files.internal(paletteFile).read();
+
+            byte[] bytes = IOUtils.readFully(PngEditor.swapPalette(in, palette), -1, true);
+            Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
+            return new Image(pixmap);
+        } catch (IOException e) {
+            throw new RuntimeException("Couldn't load image", e);
+        } finally {
+            if (in != null)
+                try {
+                    in.close();
+                } catch (IOException e) {
+                }
+        }
+    }
+
     public void dispose() {
         getTexture().dispose();
     }
