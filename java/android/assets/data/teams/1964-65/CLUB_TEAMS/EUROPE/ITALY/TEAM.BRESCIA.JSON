@@ -41,7 +41,8 @@
       "number": "1",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 25
     },
     {
       "name": "ALBERTO FUMAGALLI",
@@ -71,7 +72,15 @@
       "number": "4",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 3,
+        "heading": 4,
+        "tackling": 4,
+        "control": 4,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "FERDINANDO MANGILI",
@@ -137,11 +146,19 @@
       "name": "ABBONDANZIO PAGANI",
       "shirtName": "PAGANI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "LEFT_WINGER",
       "number": "11",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 4,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 4
+      }
     },
     {
       "name": "PAOLO CIMPIEL",

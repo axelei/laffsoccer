@@ -82,6 +82,13 @@ public class Const {
 
     static final int FLAGPOST_H = 21;
 
+    // size of the pitch
+    static final int PITCH_W = 1700;
+    static final int PITCH_H = 1800;
+
+    static final int CENTER_X = 846;
+    static final int CENTER_Y = 918;
+
     // jumpers
     static final int JUMPER_X = 92;
     static final int JUMPER_Y = 684;
