@@ -37,6 +37,7 @@ public class MatchRenderer {
 
         this.match = match;
         allSprites = new ArrayList<Sprite>();
+        allSprites.add(new BallSprite(glGraphics, match.ball));
         spriteComparator = new Sprite.SpriteComparator();
     }
 

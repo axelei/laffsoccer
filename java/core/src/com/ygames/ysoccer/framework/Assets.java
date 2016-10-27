@@ -2,7 +2,9 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
@@ -25,6 +27,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+
+import sun.misc.IOUtils;
 
 public class Assets {
 
@@ -52,6 +56,7 @@ public class Assets {
     public static Image[] pitchIcons = new Image[10];
     public static Image[] weatherIcons = new Image[11];
     public static Image[][] stadium = new Image[4][4];
+    public static TextureRegion[] ball = new TextureRegion[5];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -324,6 +329,45 @@ public class Assets {
             for (int r = 0; r < 4; r++) {
                 stadium[r][c] = Image.loadImage("images/stadium/generic_" + c + "" + r + ".png", "images/stadium/palettes/" + paletteName);
             }
+        }
+    }
+
+    public static void loadBall(GlGame game, MatchSettings matchSettings) {
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        switch (matchSettings.time) {
+            case Time.DAY:
+                rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
+                rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.darkShadow));
+                break;
+
+            case Time.NIGHT:
+                rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
+                rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.lightShadow));
+        }
+
+        Texture ballTexture = loadTexture("images/" + (matchSettings.isSnowing() ? "ballsnow.png" : "ball.png"), rgbPairs);
+        for (int r = 0; r < 5; r++) {
+            ball[r] = new TextureRegion(ballTexture, 0, 0, 8, 8);
+            ball[r].flip(false, true);
+        }
+    }
+
+    private static Texture loadTexture(String internalPath, List<RgbPair> rgbPairs) {
+        InputStream in = null;
+        try {
+            in = Gdx.files.internal(internalPath).read();
+
+            byte[] bytes = IOUtils.readFully(PngEditor.editPalette(in, rgbPairs), -1, true);
+            Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
+            return new Texture(pixmap);
+        } catch (IOException e) {
+            throw new RuntimeException("Couldn't load image", e);
+        } finally {
+            if (in != null)
+                try {
+                    in.close();
+                } catch (IOException e) {
+                }
         }
     }
 }

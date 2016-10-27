@@ -11,7 +11,7 @@ public class MatchSettings {
     public int sky; // Sky.CLEAR, Sky.CLOUDY
     public Pitch.Type pitchType;
 
-    Grass grass;
+    public Grass grass;
     public int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG, Weather.RANDOM
     public int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
     private int weatherMaxStrength;
@@ -91,6 +91,17 @@ public class MatchSettings {
                 }
             } while (!found);
         }
+    }
+
+    public boolean isSnowing() {
+        if ((pitchType == Pitch.Type.SNOWED) || (pitchType == Pitch.Type.WHITE)) {
+            return true;
+        }
+        if ((pitchType == Pitch.Type.FROZEN) && (weatherEffect == Weather.SNOW)
+                && (weatherStrength > Weather.Strength.NONE)) {
+            return true;
+        }
+        return false;
     }
 
     public String getWeatherLabel() {

@@ -1,9 +1,9 @@
 package com.ygames.ysoccer.match;
 
-class Grass {
+public class Grass {
 
-    int lightShadow;
-    int darkShadow;
+    public int lightShadow;
+    public int darkShadow;
     float friction;
     int bounce;
 

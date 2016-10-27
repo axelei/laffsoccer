@@ -27,6 +27,7 @@ class MatchLoading extends GlScreen {
         Gdx.graphics.setCursor(null);
 
         Assets.loadStadium(game, matchSettings);
+        Assets.loadBall(game, matchSettings);
     }
 
     @Override

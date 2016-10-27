@@ -289,6 +289,60 @@
       }
     },
     {
+      "name": "MINO FAVINI",
+      "shirtName": "FAVINI",
+      "nationality": "ITA",
+      "role": "ATTACKER",
+      "number": "19",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 2,
+        "shooting": 4,
+        "heading": 3,
+        "tackling": 2,
+        "control": 3,
+        "speed": 3,
+        "finishing": 3
+      }
+    },
+    {
+      "name": "BERNARDINO BUSI",
+      "shirtName": "BUSI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "18",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 3,
+        "control": 3,
+        "speed": 2,
+        "finishing": 2
+      }
+    },
+    {
+      "name": "GIUSEPPE TOMASINI",
+      "shirtName": "TOMASINI",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "17",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 4,
+        "tackling": 3,
+        "control": 2,
+        "speed": 2,
+        "finishing": 2
+      }
+    },
+    {
       "name": "CARLO LANCINI",
       "shirtName": "LANCINI",
       "nationality": "ITA",
@@ -305,36 +359,6 @@
         "speed": 3,
         "finishing": 2
       }
-    },
-    {
-      "name": "GIUSEPPE TOMASINI",
-      "shirtName": "TOMASINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "17",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "BERNARDINO BUSI",
-      "shirtName": "BUSI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "18",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
-      "name": "MINO FAVINI",
-      "shirtName": "FAVINI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "19",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
     },
     {
       "name": "SEVERINO JOSIO",
