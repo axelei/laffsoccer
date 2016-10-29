@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.GlGraphics;
@@ -42,6 +43,7 @@ public class MatchRenderer {
     }
 
     public void render(GlGame game) {
+        Gdx.gl.glEnable(GL20.GL_BLEND);
         glGraphics.camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
         glGraphics.camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
         glGraphics.batch.begin();
@@ -62,11 +64,27 @@ public class MatchRenderer {
 
     private void renderSprites(int subframe) {
 
+        drawShadows(subframe);
+
         spriteComparator.subframe = subframe;
         Collections.sort(allSprites, spriteComparator);
 
         for (Sprite sprite : allSprites) {
             sprite.draw(subframe);
         }
+    }
+
+    private void drawShadows(int subframe) {
+        glGraphics.batch.setColor(1, 1, 1, match.settings.shadowAlpha);
+
+        Data d = match.ball.data[subframe];
+        glGraphics.batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 + 0.46f * d.z);
+        if (match.settings.time == Time.NIGHT) {
+            glGraphics.batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z);
+            glGraphics.batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z);
+            glGraphics.batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z);
+        }
+
+        glGraphics.batch.setColor(1, 1, 1, 1);
     }
 }

@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.gui;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlGraphics;
@@ -20,6 +22,7 @@ public class Button extends Widget {
             return;
         }
 
+        Gdx.gl.glEnable(GL20.GL_BLEND);
         GlShapeRenderer shapeRenderer = glGraphics.shapeRenderer;
         shapeRenderer.begin(GlShapeRenderer.ShapeType.Filled);
 
@@ -40,6 +43,7 @@ public class Button extends Widget {
 
         shapeRenderer.end();
 
+        glGraphics.batch.setColor(1, 1, 1, alpha);
         glGraphics.batch.begin();
 
         if (image != null) {
@@ -51,6 +55,7 @@ public class Button extends Widget {
         }
 
         glGraphics.batch.end();
+        glGraphics.batch.setColor(1, 1, 1, 1);
     }
 
     private void drawImage(SpriteBatch batch) {

@@ -232,7 +232,8 @@
       "number": "12",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {},
+      "value": 22
     },
     {
       "name": "EDMONDO LORENZINI",
@@ -336,10 +337,28 @@
         "passing": 2,
         "shooting": 2,
         "heading": 4,
-        "tackling": 3,
+        "tackling": 4,
         "control": 2,
         "speed": 2,
-        "finishing": 2
+        "finishing": 1
+      }
+    },
+    {
+      "name": "SEVERINO JOSIO",
+      "shirtName": "JOSIO",
+      "nationality": "ITA",
+      "role": "DEFENDER",
+      "number": "20",
+      "hairColor": "BLACK",
+      "hairStyle": "SMOOTH_A",
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 3,
+        "tackling": 4,
+        "control": 2,
+        "speed": 2,
+        "finishing": 1
       }
     },
     {
@@ -361,24 +380,22 @@
       }
     },
     {
-      "name": "SEVERINO JOSIO",
-      "shirtName": "JOSIO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "20",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {}
-    },
-    {
       "name": "LUIGI TOSCHI",
       "shirtName": "TOSCHI",
       "nationality": "ITA",
-      "role": "ATTACKER",
+      "role": "RIGHT_WINGER",
       "number": "21",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 3,
+        "shooting": 2,
+        "heading": 2,
+        "tackling": 2,
+        "control": 3,
+        "speed": 4,
+        "finishing": 2
+      }
     },
     {
       "name": "WALTER FRISONI",
