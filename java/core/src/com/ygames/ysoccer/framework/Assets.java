@@ -57,6 +57,8 @@ public class Assets {
     public static Image[] weatherIcons = new Image[11];
     public static Image[][] stadium = new Image[4][4];
     public static TextureRegion[] ball = new TextureRegion[5];
+    public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
+    public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -304,7 +306,7 @@ public class Assets {
         }
     }
 
-    public static void loadStadium(GlGame game, MatchSettings matchSettings) {
+    public static void loadStadium(MatchSettings matchSettings) {
 
         String paletteName = matchSettings.pitchType.toString().toLowerCase();
         switch (matchSettings.time) {
@@ -332,7 +334,7 @@ public class Assets {
         }
     }
 
-    public static void loadBall(GlGame game, MatchSettings matchSettings) {
+    public static void loadBall(MatchSettings matchSettings) {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         switch (matchSettings.time) {
             case Time.DAY:
@@ -349,6 +351,30 @@ public class Assets {
         for (int r = 0; r < 5; r++) {
             ball[r] = new TextureRegion(ballTexture, r * 8, 0, 8, 8);
             ball[r].flip(false, true);
+        }
+    }
+
+    public static void loadCornerFlags(MatchSettings matchSettings) {
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        switch (matchSettings.time) {
+            case Time.DAY:
+                rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.darkShadow));
+                break;
+
+            case Time.NIGHT:
+                rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.lightShadow));
+        }
+
+        Texture cornerFlags = loadTexture("images/corner_flags.png", rgbPairs);
+        for (int frameX = 0; frameX < 6; frameX++) {
+            for (int frameY = 0; frameY < 3; frameY++) {
+                Assets.cornerFlags[frameX][frameY] = new TextureRegion(cornerFlags, 42 * frameX, 84 * frameY, 42, 36);
+                Assets.cornerFlags[frameX][frameY].flip(false, true);
+                for (int i = 0; i < 4; i++) {
+                    Assets.cornerFlagsShadows[frameX][frameY][i] = new TextureRegion(cornerFlags, 42 * frameX, 84 * frameY + 36 + 12 * i, 42, 12);
+                    Assets.cornerFlagsShadows[frameX][frameY][i].flip(false, true);
+                }
+            }
         }
     }
 

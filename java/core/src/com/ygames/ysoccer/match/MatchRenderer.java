@@ -23,6 +23,7 @@ public class MatchRenderer {
     public MatchCore match;
     List<Sprite> allSprites;
     Sprite.SpriteComparator spriteComparator;
+    private CornerFlagSprite[] cornerFlagSprites;
 
     public MatchRenderer(GlGraphics glGraphics, MatchCore match) {
         this.glGraphics = glGraphics;
@@ -39,6 +40,13 @@ public class MatchRenderer {
         this.match = match;
         allSprites = new ArrayList<Sprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
+
+        cornerFlagSprites = new CornerFlagSprite[4];
+        for (int i = 0; i < 4; i++) {
+            cornerFlagSprites[i] = new CornerFlagSprite(glGraphics, match.settings, i / 2 * 2 - 1, i % 2 * 2 - 1);
+            allSprites.add(cornerFlagSprites[i]);
+        }
+
         spriteComparator = new Sprite.SpriteComparator();
     }
 
@@ -83,6 +91,10 @@ public class MatchRenderer {
             glGraphics.batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z);
             glGraphics.batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z);
             glGraphics.batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            cornerFlagSprites[i].drawShadow(subframe, glGraphics.batch);
         }
 
         glGraphics.batch.setColor(1, 1, 1, 1);

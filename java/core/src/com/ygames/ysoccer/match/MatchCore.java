@@ -38,6 +38,10 @@ public class MatchCore {
         fsm.think(deltaTime);
     }
 
+    public void nextSubframe() {
+        subframe = (subframe + 1) % Const.REPLAY_SUBFRAMES;
+    }
+
     public void start() {
         fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_INTRO);
         fsm.pushAction(MatchFsm.ActionType.FADE_IN);
