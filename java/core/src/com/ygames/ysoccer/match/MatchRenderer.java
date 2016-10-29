@@ -40,6 +40,13 @@ public class MatchRenderer {
         this.match = match;
         allSprites = new ArrayList<Sprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            int len = match.team[t].lineup.size();
+            for (int i = 0; i < len; i++) {
+                PlayerSprite playerSprite = new PlayerSprite(glGraphics, match.team[t].lineup.get(i));
+                allSprites.add(playerSprite);
+            }
+        }
 
         cornerFlagSprites = new CornerFlagSprite[4];
         for (int i = 0; i < 4; i++) {

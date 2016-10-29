@@ -70,6 +70,7 @@ public class Player {
     Ai ai;
 
     float kickAngle;
+    float defendDistance;
 
     Player facingPlayer;
     float facingAngle;
@@ -79,6 +80,8 @@ public class Player {
     float speed;
 
     boolean isVisible;
+
+    Data[] data = new Data[Const.REPLAY_SUBFRAMES];
 
     public float x;
     public float y;
@@ -105,6 +108,20 @@ public class Player {
     // equal to BALL_PREDICTION: ball too far to be reached
     // should be updated every frame
     int frameDistance;
+
+    void beforeMatch(MatchCore match, Team team) {
+        for (int i = 0; i < data.length; i++) {
+            data[i] = new Data();
+        }
+        fsm = new PlayerFsm(this);
+        isVisible = true;
+        this.team = team;
+        this.match = match;
+    }
+
+    void think() {
+        fsm.think();
+    }
 
     void animationStandRun() {
         fmx = Math.round(((a + 360) % 360) / 45) % 8;
@@ -275,6 +292,15 @@ public class Player {
         }
     }
 
+    public void save(int subframe) {
+        data[subframe].x = Math.round(x);
+        data[subframe].y = Math.round(y);
+        data[subframe].z = Math.round(z);
+        data[subframe].fmx = Math.round(fmx);
+        data[subframe].fmy = (int) Math.abs(Math.floor(fmy));
+        data[subframe].isVisible = isVisible;
+    }
+
     float targetDistance() {
         return Emath.dist(tx, ty, x, y);
     }
@@ -402,6 +428,63 @@ public class Player {
         }
 
         return orderedSkills;
+    }
+
+    public boolean update(MatchCore match, boolean limit) {
+
+        // physical parameters
+        // speeds are in pixel/s
+        // TODO: change in function of time and stamina
+        speed = 130 + 4 * skills.speed;
+
+        // store old values
+        x0 = x;
+        y0 = y;
+        z0 = z;
+
+        // update position
+        x += v / Const.SECOND * Emath.cos(a);
+        y += v / Const.SECOND * Emath.sin(a);
+        z += vz / Const.SECOND;
+
+        // gravity
+        if (z > 0) {
+            vz -= Const.GRAVITY;
+        }
+
+        // back to the ground
+        if (z < 0) {
+            z = 0;
+            vz = 0;
+        }
+
+        if (limit) {
+            limitInsideField();
+        }
+
+        ballDistance = Emath.dist(x, y, match.ball.x, match.ball.y);
+
+        return ((v > 0) || (vz != 0));
+
+    }
+
+    private void limitInsideField() {
+        // left
+        x = Math.max(x, -Const.TOUCH_LINE - 50);
+        // right
+        x = Math.min(x, +Const.TOUCH_LINE + 50);
+
+        if (Math.abs(x) > (Const.POST_X + 10)) {
+            // top
+            y = Math.max(y, -Const.GOAL_LINE - 50);
+            // bottom
+            y = Math.min(y, +Const.GOAL_LINE + 50);
+        } else {
+            // top
+            y = Math.max(y, -Const.GOAL_LINE);
+            // bottom
+            y = Math.min(y, +Const.GOAL_LINE);
+        }
     }
 
     public int getDefenseRating() {

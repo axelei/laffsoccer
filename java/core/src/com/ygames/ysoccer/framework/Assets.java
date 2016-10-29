@@ -59,6 +59,7 @@ public class Assets {
     public static TextureRegion[] ball = new TextureRegion[5];
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
+    public static TextureRegion keeper[][] = new TextureRegion[8][19];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -374,6 +375,16 @@ public class Assets {
                     Assets.cornerFlagsShadows[frameX][frameY][i] = new TextureRegion(cornerFlags, 42 * frameX, 84 * frameY + 36 + 12 * i, 42, 12);
                     Assets.cornerFlagsShadows[frameX][frameY][i].flip(false, true);
                 }
+            }
+        }
+    }
+
+    public static void loadKeeper() {
+        Texture keeper = new Texture("images/player/keeper.png");
+        for (int frameX = 0; frameX < 8; frameX++) {
+            for (int frameY = 0; frameY < 19; frameY++) {
+                Assets.keeper[frameX][frameY] = new TextureRegion(keeper, 50 * frameX, 50 * frameY, 50, 50);
+                Assets.keeper[frameX][frameY].flip(false, true);
             }
         }
     }

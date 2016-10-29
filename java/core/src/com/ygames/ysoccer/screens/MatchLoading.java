@@ -29,6 +29,7 @@ class MatchLoading extends GlScreen {
         Assets.loadStadium(matchSettings);
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
+        Assets.loadKeeper();
     }
 
     @Override

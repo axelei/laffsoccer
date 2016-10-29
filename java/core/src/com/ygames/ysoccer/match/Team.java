@@ -4,6 +4,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,6 +13,8 @@ public class Team {
     public enum Type {CLUB, NATIONAL}
 
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
+
+    public MatchCore match;
 
     public String name;
     public Type type;
@@ -81,6 +84,102 @@ public class Team {
         player.skills = new Player.Skills();
         players.add(player);
         return player;
+    }
+
+    void beforeMatch(MatchCore match) {
+        this.match = match;
+        lineup = new ArrayList<Player>();
+        int lineupSize = Math.min(players.size(), Const.TEAM_SIZE + match.settings.benchSize);
+        for (int i = 0; i < lineupSize; i++) {
+            Player player = players.get(i);
+            player.beforeMatch(match, this);
+            player.index = i;
+            lineup.add(player);
+        }
+    }
+
+    void save(int subframe) {
+        int len = lineup.size();
+        for (int i = 0; i < len; i++) {
+            lineup.get(i).save(subframe);
+        }
+    }
+
+    void findNearest() {
+        // step 1: search using frame_distance,
+        // which takes into account both the speed of the player and the speed
+        // and direction of the ball
+        near1 = null;
+        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            Player player = lineup.get(i);
+
+            // discard those players which cannot reach the ball in less than
+            // BALL_PREDICTION frames
+            if (player.frameDistance == Const.BALL_PREDICTION)
+                continue;
+
+            if ((near1 == null) || (player.frameDistance < near1.frameDistance)) {
+                near1 = player;
+            }
+        }
+
+        // step 2: if not found, repeat using pixel distance
+        if (near1 == null) {
+            near1 = lineup.get(0);
+            for (int i = 1; i < Const.TEAM_SIZE; i++) {
+                Player player = lineup.get(i);
+
+                if (player.ballDistance < near1.ballDistance) {
+                    near1 = player;
+                }
+            }
+        }
+    }
+
+    private void findBestDefender() {
+        bestDefender = null;
+
+        if ((match.ball.owner != null) && (match.ball.owner.team != this)) {
+            float attackerGoalDistance = Emath.dist(match.ball.owner.x, match.ball.owner.y, 0, -Const.GOAL_LINE * match.ball.owner.team.side);
+
+            float bestDistance = 2 * Const.GOAL_LINE;
+            for (int i = 1; i < Const.TEAM_SIZE; i++) {
+                Player player = lineup.get(i);
+                player.defendDistance = Emath.dist(player.x, player.y, match.ball.owner.x, match.ball.owner.y);
+
+                float playerGoalDistance = Emath.dist(player.x, player.y, 0, -Const.GOAL_LINE * match.ball.owner.team.side);
+                if ((playerGoalDistance < 0.95f * attackerGoalDistance)
+                        && (player.defendDistance < bestDistance)) {
+                    bestDefender = player;
+                    bestDistance = player.defendDistance;
+                }
+            }
+        }
+    }
+
+    boolean updatePlayers(boolean limit) {
+        findNearest();
+
+        findBestDefender();
+
+        boolean move = updateLineup(limit);
+
+        return move;
+    }
+
+    private boolean updateLineup(boolean limit) {
+        boolean move = false;
+
+        int len = lineup.size();
+        for (int i = 0; i < len; i++) {
+            Player player = lineup.get(i);
+            if (player.update(match, limit)) {
+                move = true;
+            }
+            player.think();
+        }
+
+        return move;
     }
 
     public boolean deletePlayer(Player player) {

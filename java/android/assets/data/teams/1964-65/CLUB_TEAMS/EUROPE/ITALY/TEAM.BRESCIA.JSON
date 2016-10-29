@@ -405,7 +405,15 @@
       "number": "22",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 3,
+        "heading": 1,
+        "tackling": 1,
+        "control": 2,
+        "speed": 2,
+        "finishing": 2
+      }
     },
     {
       "name": "PARZANI",
@@ -415,7 +423,15 @@
       "number": "23",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 2,
+        "heading": 2,
+        "tackling": 1,
+        "control": 2,
+        "speed": 3,
+        "finishing": 1
+      }
     },
     {
       "name": "GIANNI BORGO",
@@ -425,7 +441,15 @@
       "number": "24",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
-      "skills": {}
+      "skills": {
+        "passing": 2,
+        "shooting": 3,
+        "heading": 1,
+        "tackling": 1,
+        "control": 3,
+        "speed": 2,
+        "finishing": 1
+      }
     }
   ]
 }

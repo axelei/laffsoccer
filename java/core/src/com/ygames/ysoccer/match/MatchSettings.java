@@ -16,6 +16,8 @@ public class MatchSettings {
     public int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
     private int weatherMaxStrength;
     public Wind wind;
+    public int substitutions;
+    public int benchSize;
 
     public MatchSettings(Competition competition, int weatherMaxStrength) {
         this.time = competition.time;
@@ -30,6 +32,8 @@ public class MatchSettings {
                 rotateWeather(false);
             }
         }
+        substitutions = competition.substitutions;
+        benchSize = competition.benchSize;
     }
 
     public void rotateTime(int direction) {
