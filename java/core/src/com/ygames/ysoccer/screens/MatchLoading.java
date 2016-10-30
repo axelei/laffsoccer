@@ -26,7 +26,7 @@ class MatchLoading extends GlScreen {
         matchCore = new MatchCore(game, team, matchSettings);
         matchCore.renderer = new MatchRenderer(game.glGraphics, matchCore);
 
-        Gdx.graphics.setCursor(null);
+        Gdx.graphics.setCursor(Assets.hiddenCursor);
 
         Assets.loadStadium(matchSettings);
         Assets.loadBall(matchSettings);

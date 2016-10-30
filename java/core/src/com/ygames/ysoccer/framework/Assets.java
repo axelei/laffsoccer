@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -35,6 +36,8 @@ import sun.misc.IOUtils;
 public class Assets {
 
     public static Random random;
+    public static Cursor customCursor;
+    public static Cursor hiddenCursor;
     public static I18NBundle strings;
     public static List<String> locales;
     public static Font font14;
@@ -65,6 +68,8 @@ public class Assets {
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
+        customCursor = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/arrow.png")), 0, 0);
+        hiddenCursor = Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0);
         loadLocales();
         loadStrings(settings);
         font14 = new Font(14);

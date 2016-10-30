@@ -58,8 +58,7 @@ public class GlGame extends Game {
         keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.CONTROL_LEFT, Input.Keys.SHIFT_LEFT);
         inputDevices.add(keyboard);
 
-        Cursor customCursor = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/arrow.png")), 0, 0);
-        Gdx.graphics.setCursor(customCursor);
+        Gdx.graphics.setCursor(Assets.customCursor);
         mouse = new Mouse();
 
         state = State.NONE;
