@@ -54,7 +54,7 @@ public class SelectFolder extends GlScreen {
         else {
             FileHandle leagueFile = fileHandle.child("LEAGUES.JSON");
             if (leagueFile.exists()) {
-                League[] leagues = Assets.json.fromJson(League[].class, leagueFile.readString());
+                League[] leagues = Assets.json.fromJson(League[].class, leagueFile.readString("UTF-8"));
                 for (League league : leagues) {
                     w = new LeagueButton(league);
                     list.add(w);

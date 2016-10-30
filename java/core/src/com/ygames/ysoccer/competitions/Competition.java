@@ -76,7 +76,7 @@ public abstract class Competition {
         for (Team teamStub : teams) {
             FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
             if (teamFile.exists()) {
-                Team team = Assets.json.fromJson(Team.class, teamFile.readString());
+                Team team = Assets.json.fromJson(Team.class, teamFile.readString("UTF-8"));
                 team.path = teamStub.path;
                 team.controlMode = Team.ControlMode.COMPUTER;
                 teamList.add(team);

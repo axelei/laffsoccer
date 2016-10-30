@@ -186,14 +186,14 @@ public class Assets {
         List<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list(".json")));
         Collections.sort(files, new CompareFileHandlesByName());
         for (FileHandle file : files) {
-            GlColor3 color = Assets.json.fromJson(GlColor3.class, file.readString());
+            GlColor3 color = Assets.json.fromJson(GlColor3.class, file.readString("UTF-8"));
             colors.add(color);
         }
         return colors;
     }
 
     private static <T> T loadJsonFile(Class<T> type, String filename) {
-        return Assets.json.fromJson(type, Gdx.files.internal(filename).readString());
+        return Assets.json.fromJson(type, Gdx.files.internal(filename).readString("UTF-8"));
     }
 
     private static List<String> loadHairStyles() {

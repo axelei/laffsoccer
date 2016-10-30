@@ -56,7 +56,7 @@ public class SelectTeams extends GlScreen {
             } else {
                 FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
                 if (teamFile.exists()) {
-                    Team team = Assets.json.fromJson(Team.class, teamFile.readString());
+                    Team team = Assets.json.fromJson(Team.class, teamFile.readString("UTF-8"));
                     team.path = teamStub.path;
                     w = new TeamButton(team);
                     list.add(w);

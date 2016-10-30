@@ -37,7 +37,7 @@ public class SelectCompetition extends GlScreen {
 
         FileHandle leaguesFile = fileHandle.child("leagues.json");
         if (leaguesFile.exists()) {
-            League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString());
+            League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString("UTF-8"));
             for (League league : leagues) {
                 league.init();
                 league.category = Competition.Category.PRESET_COMPETITION;
@@ -49,7 +49,7 @@ public class SelectCompetition extends GlScreen {
 
         FileHandle cupsFile = fileHandle.child("cups.json");
         if (cupsFile.exists()) {
-            Cup[] cups = Assets.json.fromJson(Cup[].class, cupsFile.readString());
+            Cup[] cups = Assets.json.fromJson(Cup[].class, cupsFile.readString("UTF-8"));
             for (Cup cup : cups) {
                 cup.init();
                 cup.category = Competition.Category.PRESET_COMPETITION;
