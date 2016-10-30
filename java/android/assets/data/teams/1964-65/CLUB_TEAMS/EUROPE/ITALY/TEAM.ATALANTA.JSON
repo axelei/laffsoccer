@@ -1,365 +1,365 @@
 {
-  "name": "ATALANTA",
-  "type": "CLUB",
-  "country": "ITA",
-  "city": "BERGAMO",
-  "stadium": "COMUNALE",
-  "coach": {
-    "name": "FERRUCCIO VALCAREGGI",
-    "nationality": "ITA"
-  },
-  "tactics": "SWEEP",
-  "kits": [
-    {
-      "style": "VERTICAL",
-      "shirt1": "#006eb2",
-      "shirt2": "#1e1e1e",
-      "shorts": "#1e1e1e",
-      "socks": "#1e1e1e"
-    },
-    {
-      "style": "PLAIN",
-      "shirt1": "#dfe8eb",
-      "shirt2": "#1e1e1e",
-      "shorts": "#dfe8eb",
-      "socks": "#dfe8eb"
-    },
-    {
-      "style": "VERTICAL",
-      "shirt1": "#006eb2",
-      "shirt2": "#1e1e1e",
-      "shorts": "#dfe8eb",
-      "socks": "#dfe8eb"
-    }
-  ],
-  "players": [
-    {
-      "name": "PIER LUIGI PIZZABALLA",
-      "shirtName": "PIZZABALLA",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "1",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 32
-    },
-    {
-      "name": "FRANCO NODARI",
-      "shirtName": "NODARI",
-      "nationality": "ITA",
-      "role": "LEFT_BACK",
-      "number": "4",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 4,
-        "control": 4,
-        "speed": 5,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "PIERO GARDONI",
-      "shirtName": "GARDONI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "3",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 6,
-        "control": 4,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "UMBERTO COLOMBO",
-      "shirtName": "COLOMBO",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "6",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 6,
-        "tackling": 6,
-        "control": 5,
-        "speed": 5,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "ALFREDO PESENTI",
-      "shirtName": "PESENTI I",
-      "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "2",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 5,
-        "control": 4,
-        "speed": 6,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "BRUNO PETRONI",
-      "shirtName": "PETRONI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "11",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 3,
-        "tackling": 3,
-        "control": 3,
-        "speed": 4,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "BRUNO BOLCHI",
-      "shirtName": "BOLCHI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "5",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 3,
-        "heading": 6,
-        "tackling": 6,
-        "control": 4,
-        "speed": 6,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "GRAZIANO LANDONI",
-      "shirtName": "LANDONI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 4,
-        "control": 3,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "LUCIANO MAGISTRELLI",
-      "shirtName": "MAGISTRELLI",
-      "nationality": "ITA",
-      "role": "RIGHT_WINGER",
-      "number": "8",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 3,
-        "tackling": 3,
-        "control": 3,
-        "speed": 5,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "MARIO MEREGHETTI",
-      "shirtName": "MEREGHETTI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "9",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 4,
-        "tackling": 3,
-        "control": 3,
-        "speed": 4,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "ENRICO NOVA",
-      "shirtName": "NOVA",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "10",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 5,
-        "tackling": 4,
-        "control": 3,
-        "speed": 4,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "ZACCARIA COMETTI",
-      "shirtName": "COMETTI",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "12",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 28
-    },
-    {
-      "name": "ANGELO ANQUILLETTI",
-      "shirtName": "ANQUILLETTI",
-      "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "13",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 5,
-        "control": 3,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "LUIGI MILAN",
-      "shirtName": "MILAN",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 3,
-        "tackling": 3,
-        "control": 4,
-        "speed": 4,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "GIORGIO VENERI",
-      "shirtName": "VENERI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "15",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 4,
-        "control": 3,
-        "speed": 3,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "JOSÉ BATTAGLIA",
-      "shirtName": "BATTAGLIA",
-      "nationality": "BRA",
-      "role": "ATTACKER",
-      "number": "16",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 3,
-        "heading": 4,
-        "tackling": 3,
-        "control": 3,
-        "speed": 4,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "LUIGI PESENTI",
-      "shirtName": "PESENTI II",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "17",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 4,
-        "control": 2,
-        "speed": 3,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "VITTORIO CARIOLI",
-      "shirtName": "CARIOLI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "18",
-      "skinColor": "PINK",
-      "hairColor": "BLOND",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 3,
-        "control": 3,
-        "speed": 3,
-        "finishing": 2
-      }
-    }
-  ]
+"name": "ATALANTA",
+"type": "CLUB",
+"country": "ITA",
+"city": "BERGAMO",
+"stadium": "COMUNALE",
+"coach": {
+	"name": "FERRUCCIO VALCAREGGI",
+	"nationality": "ITA"
+},
+"tactics": "SWEEP",
+"kits": [
+	{
+		"style": "VERTICAL",
+		"shirt1": "#006eb2",
+		"shirt2": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#1e1e1e",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "VERTICAL",
+		"shirt1": "#006eb2",
+		"shirt2": "#1e1e1e",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "PIER LUIGI PIZZABALLA",
+		"shirtName": "PIZZABALLA",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "1",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 32
+	},
+	{
+		"name": "FRANCO NODARI",
+		"shirtName": "NODARI",
+		"nationality": "ITA",
+		"role": "LEFT_BACK",
+		"number": "4",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "PIERO GARDONI",
+		"shirtName": "GARDONI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 6,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "UMBERTO COLOMBO",
+		"shirtName": "COLOMBO",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "6",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 6,
+			"control": 5,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "ALFREDO PESENTI",
+		"shirtName": "PESENTI I",
+		"nationality": "ITA",
+		"role": "RIGHT_BACK",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 4,
+			"speed": 6,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "BRUNO PETRONI",
+		"shirtName": "PETRONI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "11",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "BRUNO BOLCHI",
+		"shirtName": "BOLCHI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "5",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 6,
+			"control": 4,
+			"speed": 6,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "GRAZIANO LANDONI",
+		"shirtName": "LANDONI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "7",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "LUCIANO MAGISTRELLI",
+		"shirtName": "MAGISTRELLI",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 5,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "MARIO MEREGHETTI",
+		"shirtName": "MEREGHETTI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "ENRICO NOVA",
+		"shirtName": "NOVA",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "10",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "ZACCARIA COMETTI",
+		"shirtName": "COMETTI",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "12",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 28
+	},
+	{
+		"name": "ANGELO ANQUILLETTI",
+		"shirtName": "ANQUILLETTI",
+		"nationality": "ITA",
+		"role": "RIGHT_BACK",
+		"number": "13",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "LUIGI MILAN",
+		"shirtName": "MILAN",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "14",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "GIORGIO VENERI",
+		"shirtName": "VENERI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "JOSÉ BATTAGLIA",
+		"shirtName": "BATTAGLIA",
+		"nationality": "BRA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "LUIGI PESENTI",
+		"shirtName": "PESENTI II",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "17",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "VITTORIO CARIOLI",
+		"shirtName": "CARIOLI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "18",
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
+	}
+]
 }

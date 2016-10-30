@@ -1,465 +1,465 @@
 {
-  "name": "INTER",
-  "type": "CLUB",
-  "country": "ITA",
-  "city": "MILANO",
-  "stadium": "SAN SIRO",
-  "coach": {
-    "name": "HELENIO HERRERA",
-    "nationality": "ARG"
-  },
-  "tactics": "4-3-3",
-  "kits": [
-    {
-      "style": "VERTICAL",
-      "shirt1": "#3033c1",
-      "shirt2": "#1e1e1e",
-      "shorts": "#1e1e1e",
-      "socks": "#1e1e1e"
-    },
-    {
-      "style": "DIAGONAL",
-      "shirt1": "#dfe8eb",
-      "shirt2": "#1e1e1e",
-      "shorts": "#dfe8eb",
-      "socks": "#dfe8eb"
-    },
-    {
-      "style": "DOUBLE_STRIPE",
-      "shirt1": "#dfe8eb",
-      "shirt2": "#3033c1",
-      "shorts": "#dfe8eb",
-      "socks": "#1e1e1e"
-    }
-  ],
-  "players": [
-    {
-      "name": "GIULIANO SARTI",
-      "shirtName": "SARTI",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "1",
-      "skinColor": "PINK",
-      "hairColor": "BROWN",
-      "hairStyle": "SHORT_C",
-      "skills": {},
-      "value": 40
-    },
-    {
-      "name": "GIACINTO FACCHETTI",
-      "shirtName": "FACCHETTI",
-      "nationality": "ITA",
-      "role": "LEFT_BACK",
-      "number": "3",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 7,
-        "shooting": 7,
-        "heading": 7,
-        "tackling": 7,
-        "control": 6,
-        "speed": 7,
-        "finishing": 6
-      }
-    },
-    {
-      "name": "ARMANDO PICCHI",
-      "shirtName": "PICCHI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "6",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 7,
-        "shooting": 4,
-        "heading": 5,
-        "tackling": 7,
-        "control": 7,
-        "speed": 6,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "ARISTIDE GUARNERI",
-      "shirtName": "GUARNERI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "5",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 4,
-        "heading": 7,
-        "tackling": 5,
-        "control": 5,
-        "speed": 5,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "TARCISIO BURGNICH",
-      "shirtName": "BURGNICH",
-      "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "2",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 3,
-        "heading": 6,
-        "tackling": 7,
-        "control": 5,
-        "speed": 7,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "LUIS SUÁREZ",
-      "shirtName": "SUÁREZ",
-      "nationality": "ESP",
-      "role": "MIDFIELDER",
-      "number": "10",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 7,
-        "shooting": 7,
-        "heading": 5,
-        "tackling": 5,
-        "control": 7,
-        "speed": 7,
-        "finishing": 7
-      }
-    },
-    {
-      "name": "GIANFRANCO BEDIN",
-      "shirtName": "BEDIN",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "4",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 6,
-        "shooting": 3,
-        "heading": 5,
-        "tackling": 5,
-        "control": 5,
-        "speed": 6,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "JAIR DA COSTA",
-      "shirtName": "JAIR",
-      "nationality": "BRA",
-      "role": "RIGHT_WINGER",
-      "number": "7",
-      "skinColor": "MULATTO",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 6,
-        "heading": 5,
-        "tackling": 3,
-        "control": 6,
-        "speed": 7,
-        "finishing": 6
-      }
-    },
-    {
-      "name": "SANDRO MAZZOLA",
-      "shirtName": "MAZZOLA",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "8",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_D",
-      "skills": {
-        "passing": 6,
-        "shooting": 6,
-        "heading": 5,
-        "tackling": 4,
-        "control": 7,
-        "speed": 7,
-        "finishing": 7
-      }
-    },
-    {
-      "name": "MARIO CORSO",
-      "shirtName": "CORSO",
-      "nationality": "ITA",
-      "role": "LEFT_WINGER",
-      "number": "11",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_D",
-      "skills": {
-        "passing": 7,
-        "shooting": 5,
-        "heading": 4,
-        "tackling": 5,
-        "control": 7,
-        "speed": 5,
-        "finishing": 6
-      }
-    },
-    {
-      "name": "JOAQUÍN PEIRÓ",
-      "shirtName": "PEIRÓ",
-      "nationality": "ESP",
-      "role": "ATTACKER",
-      "number": "9",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 6,
-        "heading": 6,
-        "tackling": 4,
-        "control": 5,
-        "speed": 5,
-        "finishing": 6
-      }
-    },
-    {
-      "name": "OTTAVIO BUGATTI",
-      "shirtName": "BUGATTI",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "12",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 36
-    },
-    {
-      "name": "SPARTACO LANDINI",
-      "shirtName": "LANDINI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "13",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 6,
-        "tackling": 5,
-        "control": 4,
-        "speed": 5,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "CARLO TAGNIN",
-      "shirtName": "TAGNIN",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "skinColor": "PINK",
-      "hairColor": "BLOND",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 6,
-        "tackling": 6,
-        "control": 5,
-        "speed": 5,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "ANGELO DOMENGHINI",
-      "shirtName": "DOMENGHINI",
-      "nationality": "ITA",
-      "role": "RIGHT_WINGER",
-      "number": "15",
-      "skinColor": "PINK",
-      "hairColor": "BROWN",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 5,
-        "heading": 4,
-        "tackling": 4,
-        "control": 6,
-        "speed": 7,
-        "finishing": 6
-      }
-    },
-    {
-      "name": "AURELIO MILANI",
-      "shirtName": "MILANI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "16",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 6,
-        "heading": 6,
-        "tackling": 3,
-        "control": 4,
-        "speed": 6,
-        "finishing": 5
-      }
-    },
-    {
-      "name": "ROSARIO DI VINCENZO",
-      "shirtName": "DI VINCENZO",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "17",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 31
-    },
-    {
-      "name": "GIOVANNI FERRETTI",
-      "shirtName": "FERRETTI",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "18",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 26
-    },
-    {
-      "name": "GIORGIO DELLA GIOVANNA",
-      "shirtName": "DELLA GIOVANNA",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "19",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 4,
-        "control": 4,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "FRANCO ZAGLIO",
-      "shirtName": "ZAGLIO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "20",
-      "skinColor": "PINK",
-      "hairColor": "RED",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 4,
-        "control": 5,
-        "speed": 3,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "SAUL MALATRASI",
-      "shirtName": "MALATRASI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "21",
-      "skinColor": "PINK",
-      "hairColor": "BROWN",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 3,
-        "tackling": 4,
-        "control": 5,
-        "speed": 5,
-        "finishing": 1
-      }
-    },
-    {
-      "name": "SERGIO GORI",
-      "shirtName": "GORI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "22",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 5,
-        "heading": 4,
-        "tackling": 3,
-        "control": 4,
-        "speed": 5,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "BRUNO PETRONI",
-      "shirtName": "PETRONI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "23",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 4,
-        "heading": 6,
-        "tackling": 3,
-        "control": 4,
-        "speed": 5,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "FRANCESCO CANELLA",
-      "shirtName": "CANELLA",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "24",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 4,
-        "heading": 5,
-        "tackling": 3,
-        "control": 5,
-        "speed": 4,
-        "finishing": 3
-      }
-    }
-  ]
+"name": "INTER",
+"type": "CLUB",
+"country": "ITA",
+"city": "MILANO",
+"stadium": "SAN SIRO",
+"coach": {
+	"name": "HELENIO HERRERA",
+	"nationality": "ARG"
+},
+"tactics": "4-3-3",
+"kits": [
+	{
+		"style": "VERTICAL",
+		"shirt1": "#3033c1",
+		"shirt2": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "DIAGONAL",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#1e1e1e",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#3033c1",
+		"shorts": "#dfe8eb",
+		"socks": "#1e1e1e"
+	}
+],
+"players": [
+	{
+		"name": "GIULIANO SARTI",
+		"shirtName": "SARTI",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "1",
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_C",
+		"skills": {},
+		"value": 40
+	},
+	{
+		"name": "GIACINTO FACCHETTI",
+		"shirtName": "FACCHETTI",
+		"nationality": "ITA",
+		"role": "LEFT_BACK",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 7,
+			"control": 6,
+			"speed": 7,
+			"finishing": 6
+		}
+	},
+	{
+		"name": "ARMANDO PICCHI",
+		"shirtName": "PICCHI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "6",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 7,
+			"control": 7,
+			"speed": 6,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "ARISTIDE GUARNERI",
+		"shirtName": "GUARNERI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "5",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 5,
+			"control": 5,
+			"speed": 5,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "TARCISIO BURGNICH",
+		"shirtName": "BURGNICH",
+		"nationality": "ITA",
+		"role": "RIGHT_BACK",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 7,
+			"control": 5,
+			"speed": 7,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "LUIS SUÁREZ",
+		"shirtName": "SUÁREZ",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": "10",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 7,
+			"heading": 5,
+			"tackling": 5,
+			"control": 7,
+			"speed": 7,
+			"finishing": 7
+		}
+	},
+	{
+		"name": "GIANFRANCO BEDIN",
+		"shirtName": "BEDIN",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "4",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 5,
+			"control": 5,
+			"speed": 6,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "JAIR DA COSTA",
+		"shirtName": "JAIR",
+		"nationality": "BRA",
+		"role": "RIGHT_WINGER",
+		"number": "7",
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 6,
+			"heading": 5,
+			"tackling": 3,
+			"control": 6,
+			"speed": 7,
+			"finishing": 6
+		}
+	},
+	{
+		"name": "SANDRO MAZZOLA",
+		"shirtName": "MAZZOLA",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 6,
+			"shooting": 6,
+			"heading": 5,
+			"tackling": 4,
+			"control": 7,
+			"speed": 7,
+			"finishing": 7
+		}
+	},
+	{
+		"name": "MARIO CORSO",
+		"shirtName": "CORSO",
+		"nationality": "ITA",
+		"role": "LEFT_WINGER",
+		"number": "11",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 5,
+			"control": 7,
+			"speed": 5,
+			"finishing": 6
+		}
+	},
+	{
+		"name": "JOAQUÍN PEIRÓ",
+		"shirtName": "PEIRÓ",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 6,
+			"heading": 6,
+			"tackling": 4,
+			"control": 5,
+			"speed": 5,
+			"finishing": 6
+		}
+	},
+	{
+		"name": "OTTAVIO BUGATTI",
+		"shirtName": "BUGATTI",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "12",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 36
+	},
+	{
+		"name": "SPARTACO LANDINI",
+		"shirtName": "LANDINI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "13",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 5,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "CARLO TAGNIN",
+		"shirtName": "TAGNIN",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "14",
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 6,
+			"control": 5,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "ANGELO DOMENGHINI",
+		"shirtName": "DOMENGHINI",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 4,
+			"control": 6,
+			"speed": 7,
+			"finishing": 6
+		}
+	},
+	{
+		"name": "AURELIO MILANI",
+		"shirtName": "MILANI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 6,
+			"heading": 6,
+			"tackling": 3,
+			"control": 4,
+			"speed": 6,
+			"finishing": 5
+		}
+	},
+	{
+		"name": "ROSARIO DI VINCENZO",
+		"shirtName": "DI VINCENZO",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "17",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 31
+	},
+	{
+		"name": "GIOVANNI FERRETTI",
+		"shirtName": "FERRETTI",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "18",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 26
+	},
+	{
+		"name": "GIORGIO DELLA GIOVANNA",
+		"shirtName": "DELLA GIOVANNA",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "19",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "FRANCO ZAGLIO",
+		"shirtName": "ZAGLIO",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "20",
+		"skinColor": "PINK",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 5,
+			"speed": 3,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "SAUL MALATRASI",
+		"shirtName": "MALATRASI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "21",
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 5,
+			"speed": 5,
+			"finishing": 1
+		}
+	},
+	{
+		"name": "SERGIO GORI",
+		"shirtName": "GORI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "22",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "BRUNO PETRONI",
+		"shirtName": "PETRONI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "23",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 6,
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "FRANCESCO CANELLA",
+		"shirtName": "CANELLA",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "24",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 3,
+			"control": 5,
+			"speed": 4,
+			"finishing": 3
+		}
+	}
+]
 }

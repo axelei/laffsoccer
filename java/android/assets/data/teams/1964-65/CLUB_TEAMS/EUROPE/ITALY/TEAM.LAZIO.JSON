@@ -1,365 +1,365 @@
 {
-  "name": "LAZIO",
-  "type": "CLUB",
-  "country": "ITA",
-  "city": "ROMA",
-  "stadium": "OLIMPICO",
-  "coach": {
-    "name": "UMBERTO MANNOCCI",
-    "nationality": "ITA"
-  },
-  "tactics": "3-5-2",
-  "kits": [
-    {
-      "style": "PLAIN",
-      "shirt1": "#87d8f7",
-      "shirt2": "#dfe8eb",
-      "shorts": "#87d8f7",
-      "socks": "#87d8f7"
-    },
-    {
-      "style": "PLAIN",
-      "shirt1": "#1e1e1e",
-      "shirt2": "#dfe8eb",
-      "shorts": "#1e1e1e",
-      "socks": "#1e1e1e"
-    },
-    {
-      "style": "HORIZONTAL",
-      "shirt1": "#dfe8eb",
-      "shirt2": "#87d8f7",
-      "shorts": "#dfe8eb",
-      "socks": "#87d8f7"
-    }
-  ],
-  "players": [
-    {
-      "name": "IDILIO CEI",
-      "shirtName": "CEI",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "1",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 28
-    },
-    {
-      "name": "PIERLUIGI PAGNI",
-      "shirtName": "PAGNI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "4",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 6,
-        "tackling": 6,
-        "control": 4,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "PIERO DOTTI",
-      "shirtName": "DOTTI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "2",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 6,
-        "control": 4,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "VINCENZO GASPERI",
-      "shirtName": "GASPERI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "3",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 3,
-        "tackling": 4,
-        "control": 5,
-        "speed": 5,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "DIEGO ZANETTI",
-      "shirtName": "ZANETTI",
-      "nationality": "ITA",
-      "role": "RIGHT_BACK",
-      "number": "5",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 6,
-        "control": 5,
-        "speed": 5,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "PAOLO CAROSI",
-      "shirtName": "CAROSI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "6",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 4,
-        "control": 5,
-        "speed": 4,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "KURT CHRISTENSEN",
-      "shirtName": "CHRISTENSEN",
-      "nationality": "DEN",
-      "role": "MIDFIELDER",
-      "number": "7",
-      "skinColor": "PINK",
-      "hairColor": "BLOND",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 4,
-        "tackling": 3,
-        "control": 4,
-        "speed": 3,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "NELLO GOVERNATO",
-      "shirtName": "GOVERNATO",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "8",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 5,
-        "shooting": 2,
-        "heading": 5,
-        "tackling": 4,
-        "control": 5,
-        "speed": 4,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "ALBERTO MARI",
-      "shirtName": "MARI",
-      "nationality": "ITA",
-      "role": "RIGHT_WINGER",
-      "number": "9",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 4,
-        "tackling": 3,
-        "control": 4,
-        "speed": 5,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "VITO D'AMATO",
-      "shirtName": "D'AMATO",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "10",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 4,
-        "heading": 5,
-        "tackling": 3,
-        "control": 4,
-        "speed": 4,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "GIAMPAOLO PIACERI",
-      "shirtName": "PIACERI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "11",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 4,
-        "heading": 4,
-        "tackling": 3,
-        "control": 4,
-        "speed": 4,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "ROBERTO GORI",
-      "shirtName": "GORI",
-      "nationality": "ITA",
-      "role": "GOALKEEPER",
-      "number": "12",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {},
-      "value": 24
-    },
-    {
-      "name": "GIAMPIERO VITALI",
-      "shirtName": "VITALI",
-      "nationality": "ITA",
-      "role": "DEFENDER",
-      "number": "13",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 4,
-        "heading": 5,
-        "tackling": 5,
-        "control": 4,
-        "speed": 3,
-        "finishing": 2
-      }
-    },
-    {
-      "name": "CAN BARTU",
-      "shirtName": "BARTU",
-      "nationality": "TUR",
-      "role": "MIDFIELDER",
-      "number": "14",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 3,
-        "tackling": 2,
-        "control": 4,
-        "speed": 4,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "ANTONIO RENNA",
-      "shirtName": "RENNA",
-      "nationality": "ITA",
-      "role": "RIGHT_WINGER",
-      "number": "15",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 4,
-        "heading": 4,
-        "tackling": 2,
-        "control": 4,
-        "speed": 5,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "CARLO GALLI",
-      "shirtName": "GALLI",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "16",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 4,
-        "heading": 5,
-        "tackling": 2,
-        "control": 2,
-        "speed": 3,
-        "finishing": 4
-      }
-    },
-    {
-      "name": "EUGENIO FASCETTI",
-      "shirtName": "FASCETTI",
-      "nationality": "ITA",
-      "role": "MIDFIELDER",
-      "number": "17",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 4,
-        "shooting": 3,
-        "heading": 3,
-        "tackling": 3,
-        "control": 4,
-        "speed": 3,
-        "finishing": 3
-      }
-    },
-    {
-      "name": "GIANFRANCO PETRIS",
-      "shirtName": "PETRIS",
-      "nationality": "ITA",
-      "role": "ATTACKER",
-      "number": "18",
-      "skinColor": "PINK",
-      "hairColor": "BLACK",
-      "hairStyle": "SMOOTH_A",
-      "skills": {
-        "passing": 3,
-        "shooting": 4,
-        "heading": 4,
-        "tackling": 2,
-        "control": 2,
-        "speed": 4,
-        "finishing": 4
-      }
-    }
-  ]
+"name": "LAZIO",
+"type": "CLUB",
+"country": "ITA",
+"city": "ROMA",
+"stadium": "OLIMPICO",
+"coach": {
+	"name": "UMBERTO MANNOCCI",
+	"nationality": "ITA"
+},
+"tactics": "3-5-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#87d8f7",
+		"shirt2": "#dfe8eb",
+		"shorts": "#87d8f7",
+		"socks": "#87d8f7"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#dfe8eb",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#87d8f7",
+		"shorts": "#dfe8eb",
+		"socks": "#87d8f7"
+	}
+],
+"players": [
+	{
+		"name": "IDILIO CEI",
+		"shirtName": "CEI",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "1",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 28
+	},
+	{
+		"name": "PIERLUIGI PAGNI",
+		"shirtName": "PAGNI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "4",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 6,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "PIERO DOTTI",
+		"shirtName": "DOTTI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 6,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "VINCENZO GASPERI",
+		"shirtName": "GASPERI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 5,
+			"speed": 5,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "DIEGO ZANETTI",
+		"shirtName": "ZANETTI",
+		"nationality": "ITA",
+		"role": "RIGHT_BACK",
+		"number": "5",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 6,
+			"control": 5,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "PAOLO CAROSI",
+		"shirtName": "CAROSI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "6",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 5,
+			"speed": 4,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "KURT CHRISTENSEN",
+		"shirtName": "CHRISTENSEN",
+		"nationality": "DEN",
+		"role": "MIDFIELDER",
+		"number": "7",
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "NELLO GOVERNATO",
+		"shirtName": "GOVERNATO",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 4,
+			"control": 5,
+			"speed": 4,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "ALBERTO MARI",
+		"shirtName": "MARI",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "VITO D'AMATO",
+		"shirtName": "D'AMATO",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "10",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "GIAMPAOLO PIACERI",
+		"shirtName": "PIACERI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "11",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "ROBERTO GORI",
+		"shirtName": "GORI",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "12",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 24
+	},
+	{
+		"name": "GIAMPIERO VITALI",
+		"shirtName": "VITALI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "13",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 5,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "CAN BARTU",
+		"shirtName": "BARTU",
+		"nationality": "TUR",
+		"role": "MIDFIELDER",
+		"number": "14",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "ANTONIO RENNA",
+		"shirtName": "RENNA",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 2,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "CARLO GALLI",
+		"shirtName": "GALLI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 2,
+			"control": 2,
+			"speed": 3,
+			"finishing": 4
+		}
+	},
+	{
+		"name": "EUGENIO FASCETTI",
+		"shirtName": "FASCETTI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "17",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "GIANFRANCO PETRIS",
+		"shirtName": "PETRIS",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "18",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 2,
+			"control": 2,
+			"speed": 4,
+			"finishing": 4
+		}
+	}
+]
 }
