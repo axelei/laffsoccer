@@ -869,7 +869,7 @@ class EditPlayers extends GlScreen {
         public void onFire1Down() {
             FileHandle fh = Assets.teamsFolder.child(team.path);
             team.path = null;
-            fh.writeString(Assets.json.prettyPrint(team), false);
+            fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
 
             game.setScreen(new SelectTeam(game, fileHandle, league));
         }
