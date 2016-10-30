@@ -13,7 +13,7 @@ public class MatchCore {
 
     private GlGame game;
 
-    private MatchFsm fsm;
+    MatchFsm fsm;
 
     final Ball ball;
     public final Team team[];
@@ -21,6 +21,9 @@ public class MatchCore {
 
     public MatchRenderer renderer;
     public MatchSettings settings;
+
+    int coinToss;
+    int kickOffTeam;
 
     final List<Goal> goals;
 
@@ -44,6 +47,9 @@ public class MatchCore {
         team[AWAY].side = -team[HOME].side;
 
         benchSide = 1 - 2 * Assets.random.nextInt(2);
+
+        coinToss = Assets.random.nextInt(2); // 0 = home begins, 1 = away begins
+        kickOffTeam = coinToss;
 
         goals = new ArrayList<Goal>();
     }
@@ -129,6 +135,10 @@ public class MatchCore {
         }
     }
 
+    boolean enterPlayersFinished(int timer, int enterDelay) {
+        return timer / enterDelay > Const.TEAM_SIZE;
+    }
+
     void playersPhoto() {
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
@@ -137,6 +147,24 @@ public class MatchCore {
                     player.fsm.setState(PlayerFsm.STATE_PHOTO);
                 }
             }
+        }
+    }
+
+    void setStartingPositions() {
+        int t = kickOffTeam;
+        for (int k = 0; k < 2; k++) {
+            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                Player player = team[t].lineup.get(i);
+                player.tx = Pitch.startingPositions[k][i][0] * -team[t].side;
+                player.ty = Pitch.startingPositions[k][i][1] * -team[t].side;
+            }
+            t = 1 - t;
+        }
+    }
+
+    public void setPlayersState(int stateId, Player excluded) {
+        for (int t = HOME; t <= AWAY; t++) {
+            team[t].setPlayersState(stateId, excluded);
         }
     }
 

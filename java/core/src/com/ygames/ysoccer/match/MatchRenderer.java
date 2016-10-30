@@ -25,6 +25,15 @@ public class MatchRenderer {
     Sprite.SpriteComparator spriteComparator;
     private CornerFlagSprite[] cornerFlagSprites;
 
+    boolean displayControlledPlayer;
+    boolean displayBallOwner;
+    boolean displayGoalScorer;
+    boolean displayTime;
+    boolean displayWindVane;
+    boolean displayScore;
+    boolean displayStatistics;
+    boolean displayRadar;
+
     public MatchRenderer(GlGraphics glGraphics, MatchCore match) {
         this.glGraphics = glGraphics;
         screenWidth = Gdx.graphics.getWidth();

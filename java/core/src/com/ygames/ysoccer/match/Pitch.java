@@ -40,6 +40,24 @@ public class Pitch {
             new Grass(0x3C5800, 0x2C4400, 10, 60) // white
     };
 
+    static final int[][][] startingPositions = {
+            // kickoff team
+            {
+                    {0, -630},
+                    {-240, -180}, {-120, -320}, {+120, -320}, {240, -180},
+                    {-378, 0}, {-100, -140}, {100, -140}, {+212, 0},
+                    {-58, 0}, {10, -10}
+            },
+
+            // opponent team
+            {
+                    {0, -630},
+                    {-240, -370}, {-120, -480}, {+120, -480}, {240, -370},
+                    {-320, -150}, {-60, -240}, {+60, -240}, {+320, -150},
+                    {-100, -86}, {100, -86}
+            }
+    };
+
     public static int[][] probabilityByMonth = new int[][]{
             // frozen, muddy, wet, soft, normal, dry, hard, snowed, white, cloudy
             {20, 20, 20, 5, 10, 0, 5, 10, 10, 50}, //january

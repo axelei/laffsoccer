@@ -38,4 +38,15 @@ class MatchStateIntro extends MatchState {
             timeLeft -= GlGame.SUBFRAME_DURATION;
         }
     }
+
+    @Override
+    void checkConditions() {
+        if (match.enterPlayersFinished(timer, enterDelay)) {
+            if ((match.team[Match.HOME].fire1Down() != null)
+                    || (match.team[Match.AWAY].fire1Down() != null)
+                    || (timer >= 5 * GlGame.VIRTUAL_REFRESH_RATE)) {
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            }
+        }
+    }
 }

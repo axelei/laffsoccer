@@ -242,6 +242,32 @@ public class Team {
         return (controlMode == ControlMode.PLAYER) && (inputDevice != null);
     }
 
+    void setPlayersState(int stateId, Player excluded) {
+        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            Player player = lineup.get(i);
+            if (player != excluded) {
+                player.fsm.setState(stateId);
+            }
+        }
+    }
+
+    InputDevice fire1Down() {
+        if (usesAutomaticInputDevice()) {
+            if (inputDevice.fire1Down()) {
+                return inputDevice;
+            }
+        } else {
+            int len = lineup.size();
+            for (int i = 0; i < len; i++) {
+                Player player = lineup.get(i);
+                if ((player.inputDevice != player.ai) && player.inputDevice.fire1Down()) {
+                    return player.inputDevice;
+                }
+            }
+        }
+        return null;
+    }
+
     public void updateStats(int goalsFor, int goalsAgainst, int pointsForAWin) {
         this.goalsFor += goalsFor;
         this.goalsAgainst += goalsAgainst;

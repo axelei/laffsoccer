@@ -43,15 +43,15 @@ class MatchFsm {
     private Action currentAction;
 
     static final int STATE_INTRO = 1;
-
-    private MatchStateIntro stateIntro;
+    static final int STATE_STARTING_POSITIONS = 2;
 
     MatchFsm(MatchCore match) {
         this.match = match;
         states = new ArrayList<MatchState>();
         actions = new ArrayDeque<Action>();
 
-        states.add(stateIntro = new MatchStateIntro(match));
+        states.add(new MatchStateIntro(match));
+        states.add(new MatchStateStartingPositions(match));
     }
 
     void think(float deltaTime) {
