@@ -15,6 +15,7 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
@@ -305,7 +306,7 @@ class EditPlayers extends GlScreen {
             if (player == null) {
                 setActive(false);
             } else {
-                GlColor3 skinColor = Assets.getSkinColorByName(player.skinColor);
+                GlColor3 skinColor = Skin.colors[player.skinColor.ordinal()];
                 setColors(skinColor.color2, skinColor.color1, skinColor.color3);
                 setActive(true);
             }
@@ -333,11 +334,7 @@ class EditPlayers extends GlScreen {
 
         private void updateSkinColor(int n) {
             Player player = team.playerAtPosition(pos);
-            GlColor3 skinColor = Assets.getSkinColorByName(player.skinColor);
-
-            int i = Assets.skinColors.indexOf(skinColor);
-            i = Emath.rotate(i, 0, Assets.skinColors.size() - 1, n);
-            player.skinColor = Assets.skinColors.get(i).name;
+            player.skinColor = Skin.Color.values()[Emath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
 
             setChanged(true);
             selectButtons[pos].setChanged(true);

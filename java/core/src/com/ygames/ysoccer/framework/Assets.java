@@ -12,6 +12,8 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Time;
@@ -47,7 +49,6 @@ public class Assets {
     public static List<String> kits;
     public static List<GlColor3> hairColors;
     public static List<String> hairStyles;
-    public static List<GlColor3> skinColors;
     public static List<GlColor2> shavedColors;
     public static List<String> currencies;
     public static Image[] stars = new Image[10];
@@ -60,6 +61,7 @@ public class Assets {
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
+    public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -82,7 +84,6 @@ public class Assets {
         loadKits();
         hairColors = loadColors("player/haircolors");
         hairStyles = loadHairStyles();
-        skinColors = loadColors("player/skincolors");
         shavedColors = new ArrayList<GlColor2>(Arrays.asList(loadJsonFile(GlColor2[].class, "player/shaved_colors.json")));
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
         loadStars();
@@ -209,16 +210,7 @@ public class Assets {
         return Assets.hairColors.get(0);
     }
 
-    public static GlColor3 getSkinColorByName(String name) {
-        for (GlColor3 skinColor : Assets.skinColors) {
-            if (skinColor.name.equals(name)) {
-                return skinColor;
-            }
-        }
-        return Assets.skinColors.get(0);
-    }
-
-    public static GlColor2 getShavedColor(String skinColor, String hairColor) {
+    public static GlColor2 getShavedColor(Skin.Color skinColor, String hairColor) {
         for (GlColor2 shavedColor : Assets.shavedColors) {
             if (shavedColor.name.equals(skinColor + "-" + hairColor)) {
                 return shavedColor;
@@ -387,6 +379,28 @@ public class Assets {
                 Assets.keeper[frameX][frameY].flip(false, true);
             }
         }
+    }
+
+    public static void loadPlayer(Player p) {
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        p.team.kits.get(p.team.kitIndex).addKitColors(rgbPairs);
+        addSkinColors(p, rgbPairs);
+        if (player[p.team.index][p.skinColor.ordinal()][0][0] == null) {
+            Texture playerTexture = loadTexture("images/player/" + p.team.kits.get(p.team.kitIndex).style + ".png", rgbPairs);
+            for (int frameX = 0; frameX < 8; frameX++) {
+                for (int frameY = 0; frameY < 16; frameY++) {
+                    player[p.team.index][p.skinColor.ordinal()][frameX][frameY] = new TextureRegion(playerTexture, 32 * frameX, 32 * frameY, 32, 32);
+                    player[p.team.index][p.skinColor.ordinal()][frameX][frameY].flip(false, true);
+                }
+            }
+        }
+    }
+
+    private static void addSkinColors(Player player, List<RgbPair> rgbPairs) {
+        GlColor3 sc = Skin.colors[player.skinColor.ordinal()];
+        rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
+        rgbPairs.add(new RgbPair(0xB54200, sc.color2));
+        rgbPairs.add(new RgbPair(0x631800, sc.color3));
     }
 
     private static Texture loadTexture(String internalPath, List<RgbPair> rgbPairs) {

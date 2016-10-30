@@ -77,27 +77,27 @@ public class Kit implements Json.Serializable {
 
         // shirt1
         rgbPairs.add(new RgbPair(0xE20020, shirt1));
-        rgbPairs.add(new RgbPair(0xBF001B, shirt1.darker()));
-        rgbPairs.add(new RgbPair(0x9C0016, shirt1.darker().darker()));
-        rgbPairs.add(new RgbPair(0x790011, shirt1.darker().darker().darker()));
+        rgbPairs.add(new RgbPair(0xBF001B, shirt1.darker(0.8)));
+        rgbPairs.add(new RgbPair(0x9C0016, shirt1.darker(0.6)));
+        rgbPairs.add(new RgbPair(0x790011, shirt1.darker(0.4)));
 
         // shirt2
         rgbPairs.add(new RgbPair(0x01FFC6, shirt2));
-        rgbPairs.add(new RgbPair(0x00C79B, shirt2.darker()));
-        rgbPairs.add(new RgbPair(0x008B6C, shirt2.darker().darker()));
-        rgbPairs.add(new RgbPair(0x006A52, shirt2.darker().darker().darker()));
+        rgbPairs.add(new RgbPair(0x00C79B, shirt2.darker(0.8)));
+        rgbPairs.add(new RgbPair(0x008B6C, shirt2.darker(0.6)));
+        rgbPairs.add(new RgbPair(0x006A52, shirt2.darker(0.4)));
 
         // shorts
         rgbPairs.add(new RgbPair(0xF6FF00, shorts));
-        rgbPairs.add(new RgbPair(0xCDD400, shorts.darker()));
-        rgbPairs.add(new RgbPair(0xA3A900, shorts.darker().darker()));
-        rgbPairs.add(new RgbPair(0x7A7E00, shorts.darker().darker().darker()));
+        rgbPairs.add(new RgbPair(0xCDD400, shorts.darker(0.8)));
+        rgbPairs.add(new RgbPair(0xA3A900, shorts.darker(0.6)));
+        rgbPairs.add(new RgbPair(0x7A7E00, shorts.darker(0.4)));
 
         // socks
         rgbPairs.add(new RgbPair(0x0097EE, socks));
-        rgbPairs.add(new RgbPair(0x0088D6, socks.darker()));
-        rgbPairs.add(new RgbPair(0x0079BF, socks.darker().darker()));
-        rgbPairs.add(new RgbPair(0x006AA7, socks.darker().darker().darker()));
+        rgbPairs.add(new RgbPair(0x0088D6, socks.darker(0.8)));
+        rgbPairs.add(new RgbPair(0x0079BF, socks.darker(0.6)));
+        rgbPairs.add(new RgbPair(0x006AA7, socks.darker(0.4)));
     }
 
     public static float colorDifference(Kit homeKit, Kit awayKit) {

@@ -53,6 +53,15 @@ public class GlColor extends Color {
         return (rgb & 0xFF);
     }
 
+    public Color darker(double factor) {
+        return new Color(
+                Math.max((int) ((double) this.getRed() * factor), 0),
+                Math.max((int) ((double) this.getGreen() * factor), 0),
+                Math.max((int) ((double) this.getBlue() * factor), 0),
+                this.getAlpha()
+        );
+    }
+
     private static float[] rgbToXyz(int rgb) {
         float r = red(rgb) / 255.0f;
         float g = green(rgb) / 255.0f;

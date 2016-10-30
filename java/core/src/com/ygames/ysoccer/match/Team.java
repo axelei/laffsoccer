@@ -31,10 +31,10 @@ public class Team {
     public static final int MIN_KITS = 3;
     public static final int MAX_KITS = 5;
 
-    int index; // 0=HOME, 1=AWAY
+    public int index; // 0=HOME, 1=AWAY
 
     public List<Player> players;
-    List<Player> lineup;
+    public List<Player> lineup;
 
     public ControlMode controlMode;
     InputDevice inputDevice;
@@ -81,6 +81,7 @@ public class Team {
         }
         player.hairColor = "BLACK";
         player.hairStyle = "SMOOTH_A";
+        player.skinColor = Skin.Color.PINK;
         player.skills = new Player.Skills();
         players.add(player);
         return player;

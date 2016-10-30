@@ -46,8 +46,11 @@ class PlayerSprite extends Sprite {
         } else {
             int offsetX = offsets[d.fmy][d.fmx][0];
             int offsetY = offsets[d.fmy][d.fmx][1];
-            // TODO
-            // glGraphics.batch.draw(Assets.player[player.team.index][player.skinColor][d.fmx][d.fmy], d.x - offsetX, d.y - offsetY - d.z);
+            glGraphics.batch.draw(
+                    Assets.player[player.team.index][player.skinColor.ordinal()][d.fmx][d.fmy],
+                    d.x - offsetX,
+                    d.y - offsetY - d.z
+            );
         }
     }
 

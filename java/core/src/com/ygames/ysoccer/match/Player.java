@@ -48,15 +48,15 @@ public class Player {
 
     public String name;
     public String shirtName;
-    Team team;
+    public Team team;
     public String nationality;
     int index;
     public Role role;
     public String number;
 
+    public Skin.Color skinColor;
     public String hairColor;
     public String hairStyle;
-    public String skinColor;
 
     public Skills skills;
 
@@ -633,7 +633,7 @@ public class Player {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
 
         // skin color                                                                              ;
-        GlColor3 sc = Assets.getSkinColorByName(skinColor);
+        GlColor3 sc = Skin.colors[skinColor.ordinal()];
         rgbPairs.add(new RgbPair(0xFFFF6300, sc.color1));
         rgbPairs.add(new RgbPair(0xFFB54200, sc.color2));
         rgbPairs.add(new RgbPair(0xFF631800, sc.color3));

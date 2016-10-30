@@ -39,6 +39,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "1",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {},
@@ -50,6 +51,7 @@
       "nationality": "ITA",
       "role": "LEFT_BACK",
       "number": "3",
+      "skinColor": "PINK",
       "hairColor": "BLOND",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -68,6 +70,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "2",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_D",
       "skills": {
@@ -86,6 +89,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "5",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -104,6 +108,7 @@
       "nationality": "ITA",
       "role": "RIGHT_BACK",
       "number": "4",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -122,6 +127,7 @@
       "nationality": "ARG",
       "role": "ATTACKER",
       "number": "11",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -140,6 +146,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "6",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SHORT_A",
       "skills": {
@@ -158,6 +165,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "8",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -176,6 +184,7 @@
       "nationality": "SWE",
       "role": "RIGHT_WINGER",
       "number": "7",
+      "skinColor": "PINK",
       "hairColor": "BLOND",
       "hairStyle": "SMOOTH_D",
       "skills": {
@@ -194,6 +203,7 @@
       "nationality": "ARG",
       "role": "ATTACKER",
       "number": "10",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SHORT_A",
       "skills": {
@@ -212,6 +222,7 @@
       "nationality": "ITA",
       "role": "ATTACKER",
       "number": "9",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -230,6 +241,7 @@
       "nationality": "ITA",
       "role": "GOALKEEPER",
       "number": "12",
+      "skinColor": "PINK",
       "hairColor": "BLOND",
       "hairStyle": "SHORT_A",
       "skills": {},
@@ -241,6 +253,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "18",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -259,6 +272,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "14",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SHORT_A",
       "skills": {
@@ -277,6 +291,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "16",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SHORT_A",
       "skills": {
@@ -295,6 +310,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "15",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SHORT_A",
       "skills": {
@@ -313,6 +329,7 @@
       "nationality": "ITA",
       "role": "DEFENDER",
       "number": "17",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -331,6 +348,7 @@
       "nationality": "ITA",
       "role": "RIGHT_WINGER",
       "number": "13",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {
@@ -349,6 +367,7 @@
       "nationality": "ITA",
       "role": "MIDFIELDER",
       "number": "19",
+      "skinColor": "PINK",
       "hairColor": "BLACK",
       "hairStyle": "SMOOTH_A",
       "skills": {

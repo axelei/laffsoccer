@@ -10,6 +10,16 @@ public class GlColor3 implements Json.Serializable {
     public GlColor color2;
     public GlColor color3;
 
+    public GlColor3() {
+    }
+
+    public GlColor3(String name, int color1, int color2, int color3) {
+        this.name = name;
+        this.color1 = new GlColor(color1);
+        this.color2 = new GlColor(color2);
+        this.color3 = new GlColor(color3);
+    }
+
     @Override
     public void write(Json json) {
         json.writeValue("name", name);
