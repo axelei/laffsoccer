@@ -64,9 +64,6 @@ public class MatchFsm {
     static final int STATE_REPLAY = 20;
     static final int STATE_HIGHLIGHTS = 21;
 
-    MatchStateIntro stateIntro;
-    MatchStateStartingPositions stateStartingPositions;
-    MatchStateKickOff stateKickOff;
     MatchStateMain stateMain;
     MatchStateThrowInStop stateThrowInStop;
     MatchStateThrowIn stateThrowIn;
@@ -91,9 +88,9 @@ public class MatchFsm {
         states = new ArrayList<MatchState>();
         actions = new ArrayDeque<Action>();
 
-        states.add(stateIntro = new MatchStateIntro(match));
-        states.add(stateStartingPositions = new MatchStateStartingPositions(match));
-        states.add(stateKickOff = new MatchStateKickOff(match));
+        states.add(new MatchStateIntro(match));
+        states.add(new MatchStateStartingPositions(match));
+        states.add(new MatchStateKickOff(match));
         states.add(stateMain = new MatchStateMain(match));
         states.add(stateThrowInStop = new MatchStateThrowInStop(match));
         states.add(stateThrowIn = new MatchStateThrowIn(match));

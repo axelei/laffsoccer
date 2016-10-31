@@ -3,11 +3,11 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateStartingPositions extends MatchState {
+class MatchStateStartingPositions extends MatchState {
 
     boolean move;
 
-    public MatchStateStartingPositions(Match match) {
+    MatchStateStartingPositions(Match match) {
         super(match);
         id = MatchFsm.STATE_STARTING_POSITIONS;
     }
@@ -47,14 +47,12 @@ public class MatchStateStartingPositions extends MatchState {
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
-
     }
 
     @Override
     void checkConditions() {
-        if (move == false) {
+        if (!move) {
             match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_KICK_OFF);
-            return;
         }
 
         //TODO
@@ -78,7 +76,5 @@ public class MatchStateStartingPositions extends MatchState {
 		Self.bench(team[HOME], team[HOME].fire2_down())
 		Self.bench(team[AWAY], team[AWAY].fire2_down())
 		*/
-
     }
-
 }

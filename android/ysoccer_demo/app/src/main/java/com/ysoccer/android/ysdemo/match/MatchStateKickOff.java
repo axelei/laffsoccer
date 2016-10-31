@@ -4,12 +4,12 @@ import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateKickOff extends MatchState {
+class MatchStateKickOff extends MatchState {
 
-    Player kickOffPlayer;
-    boolean isKickingOff;
+    private Player kickOffPlayer;
+    private boolean isKickingOff;
 
-    public MatchStateKickOff(Match match) {
+    MatchStateKickOff(Match match) {
         super(match);
         id = MatchFsm.STATE_KICK_OFF;
     }
@@ -73,11 +73,10 @@ public class MatchStateKickOff extends MatchState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
 
-        if (move == false && isKickingOff == false) {
+        if (!move && !isKickingOff) {
             kickOffPlayer.setState(PlayerFsm.STATE_KICK_OFF);
             isKickingOff = true;
         }
-
     }
 
     @Override
@@ -92,7 +91,6 @@ public class MatchStateKickOff extends MatchState {
                 }
             }
             match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
-            return;
         }
 
 //		If (KeyDown(KEY_ESCAPE))
@@ -113,7 +111,5 @@ public class MatchStateKickOff extends MatchState {
 //		''BENCH
 //		Self.bench(team[HOME], team[HOME].fire2_down())
 //		Self.bench(team[AWAY], team[AWAY].fire2_down())
-
     }
-
 }

@@ -3,11 +3,11 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateIntro extends MatchState {
+class MatchStateIntro extends MatchState {
 
-    final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
+    private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
 
-    public MatchStateIntro(Match match) {
+    MatchStateIntro(Match match) {
         super(match);
         id = MatchFsm.STATE_INTRO;
     }
@@ -51,7 +51,6 @@ public class MatchStateIntro extends MatchState {
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
-
     }
 
     @Override
@@ -62,7 +61,6 @@ public class MatchStateIntro extends MatchState {
                     || (match.team[Match.AWAY].fire1Down() != null)
                     || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
                 match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
-                return;
             }
         }
 
@@ -76,7 +74,6 @@ public class MatchStateIntro extends MatchState {
         // Self.pause()
         // Return
         // EndIf
-
     }
 
     @Override
@@ -84,5 +81,4 @@ public class MatchStateIntro extends MatchState {
         // TODO
         // match.renderer.drawRosters();
     }
-
 }
