@@ -208,7 +208,7 @@ public class Match {
         }
     }
 
-    public boolean enterPlayersFinished(int timer, int enterDelay) {
+    boolean enterPlayersFinished(int timer, int enterDelay) {
         return timer / enterDelay > Const.TEAM_SIZE;
     }
 

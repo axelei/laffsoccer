@@ -2,7 +2,7 @@ package com.ysoccer.android.ysdemo.match;
 
 import java.util.Comparator;
 
-public class SpriteComparator implements Comparator<Sprite> {
+class SpriteComparator implements Comparator<Sprite> {
 
     public int subframe;
 

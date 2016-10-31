@@ -180,8 +180,7 @@ public class Assets {
         clickSound = glGame.getAudio().newSound("click.ogg");
     }
 
-    public static void loadPlayer(GLGame game, Team team, int skinColor,
-                                  List<RgbPair> rgbPairs) {
+    public static void loadPlayer(GLGame game, Team team, int skinColor, List<RgbPair> rgbPairs) {
         if (player[team.index][skinColor] == null) {
             player[team.index][skinColor] = new Texture((GLGame) game,
                     "images/player/"

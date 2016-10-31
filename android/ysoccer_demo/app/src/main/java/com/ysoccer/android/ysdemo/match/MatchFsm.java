@@ -92,8 +92,7 @@ public class MatchFsm {
         actions = new ArrayDeque<Action>();
 
         states.add(stateIntro = new MatchStateIntro(match));
-        states.add(stateStartingPositions = new MatchStateStartingPositions(
-                match));
+        states.add(stateStartingPositions = new MatchStateStartingPositions(match));
         states.add(stateKickOff = new MatchStateKickOff(match));
         states.add(stateMain = new MatchStateMain(match));
         states.add(stateThrowInStop = new MatchStateThrowInStop(match));
@@ -105,8 +104,7 @@ public class MatchFsm {
         states.add(stateKeeperStop = new MatchStateKeeperStop(match));
         states.add(stateGoal = new MatchStateGoal(match));
         states.add(stateHalfTimeStop = new MatchStateHalfTimeStop(match));
-        states.add(stateHalfTimePositions = new MatchStateHalfTimePositions(
-                match));
+        states.add(stateHalfTimePositions = new MatchStateHalfTimePositions(match));
         states.add(stateHalfTimeWait = new MatchStateHalfTimeWait(match));
         states.add(stateHalfTimeEnter = new MatchStateHalfTimeEnter(match));
         states.add(stateFullTimeStop = new MatchStateFullTimeStop(match));

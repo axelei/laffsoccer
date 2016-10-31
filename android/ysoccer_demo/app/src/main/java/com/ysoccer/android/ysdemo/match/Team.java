@@ -17,8 +17,6 @@ public class Team {
 
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER}
 
-    ;
-
     public Match match;
 
     String confederation;
