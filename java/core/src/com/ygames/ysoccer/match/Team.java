@@ -37,7 +37,7 @@ public class Team {
     public List<Player> lineup;
 
     public ControlMode controlMode;
-    InputDevice inputDevice;
+    public InputDevice inputDevice;
     int side; // -1=upside, 1=downside
 
     Player near1; // nearest to the ball
@@ -222,6 +222,14 @@ public class Team {
         }
     }
 
+    public int nonAiInputDevicesCount() {
+        int n = 0;
+        for (Player player : players) {
+            if (player.inputDevice != player.ai) n++;
+        }
+        return n;
+    }
+
     public boolean deletePlayer(Player player) {
         if (players.size() > Const.BASE_TEAM) {
             return players.remove(player);
@@ -274,6 +282,15 @@ public class Team {
 
             // by names
             return o1.name.compareTo(o2.name);
+        }
+    }
+
+    public void releaseNonAiInputDevices() {
+        for (Player player : players) {
+            if (player.inputDevice != player.ai) {
+                player.inputDevice = player.ai;
+                player.inputDevice.available = true;
+            }
         }
     }
 

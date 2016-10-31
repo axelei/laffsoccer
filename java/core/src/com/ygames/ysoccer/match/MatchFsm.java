@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,6 +127,7 @@ class MatchFsm {
 
             case NEW_FOREGROUND:
                 currentState = searchState(currentAction.stateId);
+                Gdx.app.log("NEW_FOREGROUND", currentState.getClass().toString());
                 break;
 
             case HOLD_FOREGROUND:

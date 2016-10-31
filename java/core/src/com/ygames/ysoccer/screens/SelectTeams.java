@@ -258,6 +258,7 @@ public class SelectTeams extends GlScreen {
             switch (competition.getType()) {
                 case FRIENDLY:
                     // choose the menu to set
+                    game.inputDevices.setAvailability(true);
                     if (game.teamList.get(Match.HOME).controlMode != Team.ControlMode.COMPUTER) {
                         game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
                     } else if (game.teamList.get(Match.AWAY).controlMode != Team.ControlMode.COMPUTER) {

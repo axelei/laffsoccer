@@ -22,7 +22,7 @@ public class GLGame extends Game {
     public Settings settings;
     public GlGraphics glGraphics;
     private float deltaTime;
-    public List<InputDevice> inputDevices;
+    public InputDeviceList inputDevices;
     public Mouse mouse;
     public MenuInput menuInput;
     public Player tmpPlayer;
@@ -44,16 +44,16 @@ public class GLGame extends Game {
         glGraphics = new GlGraphics();
         Assets.load(settings);
 
-        inputDevices = new ArrayList<InputDevice>();
+        inputDevices = new InputDeviceList();
         menuInput = new MenuInput();
 
         // Keyboard 1
-        Keyboard keyboard = new Keyboard();
+        Keyboard keyboard = new Keyboard(0);
         keyboard.setKeys(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.CONTROL_RIGHT, Input.Keys.SHIFT_RIGHT);
         inputDevices.add(keyboard);
 
         // Keyboard 2
-        keyboard = new Keyboard();
+        keyboard = new Keyboard(1);
         keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.CONTROL_LEFT, Input.Keys.SHIFT_LEFT);
         inputDevices.add(keyboard);
 

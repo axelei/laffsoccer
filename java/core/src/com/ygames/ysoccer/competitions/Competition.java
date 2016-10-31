@@ -50,7 +50,7 @@ public abstract class Competition {
         seasonEnd = Calendar.MAY;
         pitchType = Pitch.Type.RANDOM;
         substitutions = 3;
-        benchSize = 12;
+        benchSize = 5;
         time = Time.DAY;
     }
 

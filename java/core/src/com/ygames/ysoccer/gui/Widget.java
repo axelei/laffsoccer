@@ -29,7 +29,7 @@ public abstract class Widget {
     protected String text;
     Font font;
     Font.Align align;
-    int textOffsetX;
+    protected int textOffsetX;
 
     // state
     public boolean isActive;
@@ -38,7 +38,7 @@ public abstract class Widget {
     public boolean isVisible;
 
     // misc
-    protected boolean changed;
+    boolean changed;
 
     public enum Event {
         NONE, FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
@@ -68,12 +68,12 @@ public abstract class Widget {
         this.y = y;
     }
 
-    public void setImagePosition(int imageX, int imageY) {
+    protected void setImagePosition(int imageX, int imageY) {
         this.imageX = imageX;
         this.imageY = imageY;
     }
 
-    public void setImageScale(float scaleX, float scaleY) {
+    protected void setImageScale(float scaleX, float scaleY) {
         imageScaleX = scaleX;
         imageScaleY = scaleY;
     }

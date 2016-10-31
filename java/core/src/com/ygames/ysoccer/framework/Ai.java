@@ -9,8 +9,8 @@ public class Ai extends InputDevice {
     public AiFsm fsm;
 
     public Ai(Player player) {
+        super(Type.COMPUTER, 0);
         this.player = player;
-        setType(ID_COMPUTER);
 
         fsm = new AiFsm(this);
         fsm.setState(AiFsm.STATE_IDLE);

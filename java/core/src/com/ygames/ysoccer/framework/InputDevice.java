@@ -4,11 +4,11 @@ import com.ygames.ysoccer.math.Emath;
 
 public abstract class InputDevice {
 
-    protected final int ID_COMPUTER = 0;
-    protected final int ID_KEYBOARD = 1;
-    protected final int ID_JOYSTICK = 2;
+    public enum Type {COMPUTER, KEYBOARD, JOYSTICK}
 
-    private int type; // ID_COMPUTER, ID_KEYBOARD, ID_JOYSTICK
+    public final Type type;
+    public final int port;
+    public boolean available;
 
     // new values
     public int x0, y0;
@@ -19,6 +19,11 @@ public abstract class InputDevice {
     public boolean fire11, fire21;
     public boolean value;
     public int angle;
+
+    InputDevice(Type type, int port) {
+        this.type = type;
+        this.port = port;
+    }
 
     public void update() {
 
@@ -49,9 +54,5 @@ public abstract class InputDevice {
 
     public boolean fire1Down() {
         return fire10 && !fire11;
-    }
-
-    protected void setType(int type) {
-        this.type = type;
     }
 }

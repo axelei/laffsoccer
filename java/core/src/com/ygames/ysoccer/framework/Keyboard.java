@@ -2,10 +2,14 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 
-public class Keyboard extends InputDevice {
+class Keyboard extends InputDevice {
 
     private int keyLeft, keyRight, keyUp, keyDown;
     private int button1, button2;
+
+    Keyboard(int port) {
+        super(Type.KEYBOARD, port);
+    }
 
     protected void read() {
         x0 = (Gdx.input.isKeyPressed(keyLeft) ? -1 : 0) + (Gdx.input.isKeyPressed(keyRight) ? 1 : 0);
@@ -14,7 +18,7 @@ public class Keyboard extends InputDevice {
         fire20 = Gdx.input.isKeyPressed(button2);
     }
 
-    public void setKeys(int keyLeft, int keyRight, int keyUp, int keyDown, int button1, int button2) {
+    void setKeys(int keyLeft, int keyRight, int keyUp, int keyDown, int button1, int button2) {
         this.keyLeft = keyLeft;
         this.keyRight = keyRight;
         this.keyUp = keyUp;

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SetTeam extends GlScreen {
+class SetTeam extends GlScreen {
 
     private FileHandle fileHandle;
     private League league;
@@ -33,18 +33,20 @@ public class SetTeam extends GlScreen {
     private Team awayTeam;
     private int teamToSet;
 
-    Team ownTeam;
-    Team opponentTeam;
-    Team shownTeam;
-    int selectedPos;
-    boolean compareTactics;
-    Font font10yellow;
+    private Team ownTeam;
+    private Team opponentTeam;
+    private Team shownTeam;
+    private int reservedInputDevices;
+    private int selectedPos;
+    private boolean compareTactics;
+    private Font font10yellow;
 
-    List<Widget> playerButtons = new ArrayList<Widget>();
-    TacticsBoard tacticsBoard;
-    Widget[] tacticsButtons = new Widget[18];
+    private List<Widget> playerButtons = new ArrayList<Widget>();
+    private TacticsBoard tacticsBoard;
+    private Widget[] tacticsButtons = new Widget[18];
+    private Widget teamInputDeviceButton;
 
-    public SetTeam(GLGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
+    SetTeam(GLGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
 
         this.fileHandle = fileHandle;
@@ -56,10 +58,18 @@ public class SetTeam extends GlScreen {
         if (teamToSet == Match.HOME) {
             ownTeam = homeTeam;
             opponentTeam = awayTeam;
+            reservedInputDevices = (ownTeam.controlMode != Team.ControlMode.COMPUTER) && (opponentTeam.controlMode != Team.ControlMode.COMPUTER) ? 1 : 0;
         } else {
             ownTeam = awayTeam;
             opponentTeam = homeTeam;
+            reservedInputDevices = 0;
         }
+
+        // default input device
+        if (ownTeam.inputDevice == null && ownTeam.nonAiInputDevicesCount() == 0) {
+            ownTeam.inputDevice = game.inputDevices.assignFirstAvailable();
+        }
+
         shownTeam = ownTeam;
         selectedPos = -1;
         compareTactics = false;
@@ -139,6 +149,10 @@ public class SetTeam extends GlScreen {
         w = new CoachNameLabel();
         widgets.add(w);
 
+        w = new TeamInputDeviceButton();
+        teamInputDeviceButton = w;
+        widgets.add(w);
+
         w = new TeamNameButton();
         widgets.add(w);
 
@@ -151,11 +165,11 @@ public class SetTeam extends GlScreen {
         widgets.add(w);
     }
 
-    class PlayerFaceButton extends Button {
+    private class PlayerFaceButton extends Button {
 
         int pos;
 
-        public PlayerFaceButton(int pos) {
+        PlayerFaceButton(int pos) {
             this.pos = pos;
             setGeometry(100, 126 + 21 * pos, 24, 19);
             setImagePosition(2, -2);
@@ -174,11 +188,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerNumberButton extends Button {
+    private class PlayerNumberButton extends Button {
 
         int pos;
 
-        public PlayerNumberButton(int pos) {
+        PlayerNumberButton(int pos) {
             this.pos = pos;
             setGeometry(126, 126 + 21 * pos, 34, 19);
             setText("", Font.Align.CENTER, Assets.font10);
@@ -196,11 +210,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerNameButton extends Button {
+    private class PlayerNameButton extends Button {
 
         int pos;
 
-        public PlayerNameButton(int pos) {
+        PlayerNameButton(int pos) {
             this.pos = pos;
             setGeometry(162, 126 + 21 * pos, 364, 19);
             setText("", Font.Align.LEFT, Assets.font10);
@@ -242,11 +256,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerNationalityFlagButton extends Button {
+    private class PlayerNationalityFlagButton extends Button {
 
         int pos;
 
-        public PlayerNationalityFlagButton(int pos) {
+        PlayerNationalityFlagButton(int pos) {
             this.pos = pos;
             setGeometry(528, 126 + 21 * pos, 24, 19);
             setImagePosition(0, 2);
@@ -264,11 +278,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerNationalityCodeButton extends Button {
+    private class PlayerNationalityCodeButton extends Button {
 
         int pos;
 
-        public PlayerNationalityCodeButton(int pos) {
+        PlayerNationalityCodeButton(int pos) {
             this.pos = pos;
             setGeometry(528, 126 + 21 * pos, 56, 19);
             setText("", Font.Align.CENTER, Assets.font10);
@@ -286,11 +300,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerRoleButton extends Button {
+    private class PlayerRoleButton extends Button {
 
         int pos;
 
-        public PlayerRoleButton(int x, int pos) {
+        PlayerRoleButton(int x, int pos) {
             this.pos = pos;
             setGeometry(x, 126 + 21 * pos, 30, 19);
             setText("", Font.Align.CENTER, Assets.font10);
@@ -308,12 +322,12 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerSkillButton extends Button {
+    private class PlayerSkillButton extends Button {
 
         int pos;
         int skillIndex;
 
-        public PlayerSkillButton(int pos, int skillIndex, int x) {
+        PlayerSkillButton(int pos, int skillIndex, int x) {
             this.pos = pos;
             this.skillIndex = skillIndex;
             setGeometry(x, 126 + 21 * pos, 12, 19);
@@ -337,11 +351,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayerStarsButton extends Button {
+    private class PlayerStarsButton extends Button {
 
         int pos;
 
-        public PlayerStarsButton(int pos, int x) {
+        PlayerStarsButton(int pos, int x) {
             this.pos = pos;
             setGeometry(x, 126 + 21 * pos, 64, 19);
             setActive(false);
@@ -358,11 +372,11 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class TacticsButton extends Button {
+    private class TacticsButton extends Button {
 
         int t;
 
-        public TacticsButton(int t) {
+        TacticsButton(int t) {
             this.t = t;
             setGeometry(game.settings.GUI_WIDTH - 100 - 90, 126 + 20 * t, 90, 18);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
@@ -388,9 +402,10 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class TacticsComparisonButton extends Button {
-        public TacticsComparisonButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 450, 264, 34);
+    private class TacticsComparisonButton extends Button {
+
+        TacticsComparisonButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 446, 264, 34);
             setColors(0x824200, 0xB46A00, 0x4C2600);
             setText("", Font.Align.CENTER, Assets.font10);
         }
@@ -413,10 +428,10 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class OpponentTeamButton extends Button {
+    private class OpponentTeamButton extends Button {
 
-        public OpponentTeamButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 500, 175, 34);
+        OpponentTeamButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 494, 175, 34);
             setColors(0x8B2323, 0xBF4531, 0x571717);
             setText(Assets.strings.get("OPPONENT TEAM"), Font.Align.CENTER, Assets.font10);
         }
@@ -441,10 +456,10 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class ControlModeButton extends Button {
+    private class ControlModeButton extends Button {
 
-        public ControlModeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 562, 175, 40);
+        ControlModeButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 540, 175, 40);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -472,11 +487,10 @@ public class SetTeam extends GlScreen {
             switch (ownTeam.controlMode) {
                 case PLAYER:
                     ownTeam.controlMode = Team.ControlMode.COACH;
-                    // TODO
-//                    if (ownTeam.inputDevice == null) {
-//                        ownTeam.releaseNonAiInputDevices();
-//                        ownTeam.setInputDevice(inputDevices.assignFirstAvailable());
-//                    }
+                    if (ownTeam.inputDevice == null) {
+                        ownTeam.releaseNonAiInputDevices();
+                        ownTeam.inputDevice = game.inputDevices.assignFirstAvailable();
+                    }
                     break;
                 case COACH:
                     ownTeam.controlMode = Team.ControlMode.PLAYER;
@@ -487,10 +501,10 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class CoachNameLabel extends Label {
+    private class CoachNameLabel extends Label {
 
-        public CoachNameLabel() {
-            setPosition(game.settings.GUI_WIDTH / 2 + 115 + 175 + 10, 562 + 20);
+        CoachNameLabel() {
+            setPosition(game.settings.GUI_WIDTH / 2 + 115 + 175 + 10, 540 + 20);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -500,9 +514,51 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class TeamNameButton extends Button {
+    private class TeamInputDeviceButton extends Button {
 
-        public TeamNameButton() {
+        TeamInputDeviceButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 588, 212, 40);
+            setText("", Font.Align.LEFT, Assets.font10);
+            textOffsetX = 42;
+        }
+
+        @Override
+        public void onUpdate() {
+            setVisible(shownTeam == ownTeam);
+            if (shownTeam.inputDevice != null) {
+                switch (shownTeam.inputDevice.type) {
+                    case COMPUTER:
+                        setText("");
+                        break;
+                    case KEYBOARD:
+                        setText(Assets.strings.get("KEYBOARD") + " " + (shownTeam.inputDevice.port + 1));
+                        break;
+                    case JOYSTICK:
+                        setText(Assets.strings.get("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
+                }
+                image = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateTeamInputDevice(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateTeamInputDevice(-1);
+        }
+
+        private void updateTeamInputDevice(int n) {
+            shownTeam.inputDevice = game.inputDevices.rotateAvailable(shownTeam.inputDevice, n);
+            setChanged(true);
+        }
+    }
+
+    private class TeamNameButton extends Button {
+
+        TeamNameButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 300, 45, 601, 41);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -519,10 +575,10 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class PlayMatchButton extends Button {
+    private class PlayMatchButton extends Button {
 
-        public PlayMatchButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, game.settings.GUI_HEIGHT - 44 / 2 - 60, 200, 44);
+        PlayMatchButton() {
+            setGeometry(game.settings.GUI_WIDTH / 2 + 115, game.settings.GUI_HEIGHT - 40 / 2 - 60, 222, 40);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
@@ -542,9 +598,9 @@ public class SetTeam extends GlScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry(game.settings.GUI_WIDTH - 145 - 100, game.settings.GUI_HEIGHT - 40 / 2 - 60, 145, 40);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
