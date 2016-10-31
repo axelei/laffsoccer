@@ -17,6 +17,10 @@ class MatchStateIntro extends MatchState {
 
         match.setIntroPositions();
         match.resetData();
+
+        // TODO
+        // match.listener.introSound(match.settings.sfxVolume);
+        // match.listener.crowdSound(match.settings.sfxVolume);
     }
 
     @Override
@@ -34,6 +38,9 @@ class MatchStateIntro extends MatchState {
             match.nextSubframe();
 
             match.save();
+
+            match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GlGame.SUBFRAME_DURATION;
         }

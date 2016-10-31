@@ -58,8 +58,25 @@ public class MatchCore {
         fsm.think(deltaTime);
     }
 
+    void updateAi() {
+        for (int t = HOME; t <= AWAY; t++) {
+            if (team[t] != null) {
+                team[t].updateLineupAi();
+            }
+        }
+    }
+
     public void nextSubframe() {
         subframe = (subframe + 1) % Const.REPLAY_SUBFRAMES;
+    }
+
+    void updateBall() {
+        float bouncing_speed = ball.update();
+        if (bouncing_speed > 0) {
+            // TODO
+            // listener.bounceSound(Math.min(2 * bouncing_speed / Const.SECOND, 1) * settings.sfxVolume);
+        }
+        ball.inFieldKeep();
     }
 
     boolean updatePlayers(boolean limit) {

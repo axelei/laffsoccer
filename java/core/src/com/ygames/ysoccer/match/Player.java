@@ -4,6 +4,7 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
+import com.ygames.ysoccer.framework.GlGame;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
@@ -114,13 +115,23 @@ public class Player {
             data[i] = new Data();
         }
         fsm = new PlayerFsm(this);
+        ai = new Ai(this);
+        inputDevice = ai;
         isVisible = true;
         this.team = team;
         this.match = match;
     }
 
+    public void setState(int id) {
+        fsm.setState(id);
+    }
+
     void think() {
         fsm.think();
+    }
+
+    void updateAi() {
+        ai.update();
     }
 
     void animationStandRun() {
@@ -148,6 +159,16 @@ public class Player {
             }
         } else {
             fmy = 1;
+        }
+    }
+
+    void updateFrameDistance() {
+        frameDistance = Const.BALL_PREDICTION;
+        for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
+            float dist = Emath.dist(x, y, match.ball.prediction[f].x, match.ball.prediction[f].y);
+            if (dist < speed * f / GlGame.VIRTUAL_REFRESH_RATE) {
+                frameDistance = f;
+            }
         }
     }
 

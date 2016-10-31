@@ -44,6 +44,7 @@ class MatchFsm {
 
     static final int STATE_INTRO = 1;
     static final int STATE_STARTING_POSITIONS = 2;
+    static final int STATE_KICK_OFF = 3;
 
     MatchFsm(MatchCore match) {
         this.match = match;
@@ -52,6 +53,7 @@ class MatchFsm {
 
         states.add(new MatchStateIntro(match));
         states.add(new MatchStateStartingPositions(match));
+        states.add(new MatchStateKickOff(match));
     }
 
     void think(float deltaTime) {

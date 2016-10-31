@@ -2,11 +2,11 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GlGame;
 
-public class MatchStateStartingPositions extends MatchState {
+class MatchStateStartingPositions extends MatchState {
 
-    boolean move;
+    private boolean move;
 
-    public MatchStateStartingPositions(MatchCore match) {
+    MatchStateStartingPositions(MatchCore match) {
         super(match);
         id = MatchFsm.STATE_STARTING_POSITIONS;
     }
@@ -41,7 +41,17 @@ public class MatchStateStartingPositions extends MatchState {
 
             match.save();
 
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+
             timeLeft -= GlGame.SUBFRAME_DURATION;
+        }
+    }
+
+    @Override
+    void checkConditions() {
+        if (!move) {
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KICK_OFF);
         }
     }
 }

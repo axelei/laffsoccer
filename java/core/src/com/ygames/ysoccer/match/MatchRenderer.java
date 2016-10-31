@@ -115,4 +115,24 @@ public class MatchRenderer {
 
         glGraphics.batch.setColor(1, 1, 1, 1);
     }
+
+    void updateCameraX(int follow, int speed) {
+        updateCameraX(follow, speed, 0, true);
+    }
+
+    void updateCameraX(int follow, int speed, int targetX, boolean limit) {
+        vcameraX[match.subframe] = actionCamera.updateX(follow, speed, targetX, limit);
+    }
+
+    void updateCameraY(int follow, int speed) {
+        updateCameraY(follow, speed, 0);
+    }
+
+    void updateCameraY(int follow, int speed, int targetY) {
+        updateCameraY(follow, speed, targetY, true);
+    }
+
+    void updateCameraY(int follow, int speed, int targetY, boolean limit) {
+        vcameraY[match.subframe] = actionCamera.updateY(follow, speed, targetY, limit);
+    }
 }

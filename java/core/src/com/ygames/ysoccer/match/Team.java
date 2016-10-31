@@ -158,6 +158,12 @@ public class Team {
         }
     }
 
+    void updateFrameDistance() {
+        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            lineup.get(i).updateFrameDistance();
+        }
+    }
+
     boolean updatePlayers(boolean limit) {
         findNearest();
 
@@ -181,6 +187,16 @@ public class Team {
         }
 
         return move;
+    }
+
+    void updateLineupAi() {
+        int len = lineup.size();
+        for (int i = 0; i < len; i++) {
+            Player player = lineup.get(i);
+            if (player.inputDevice == player.ai) {
+                player.updateAi();
+            }
+        }
     }
 
     public boolean deletePlayer(Player player) {
