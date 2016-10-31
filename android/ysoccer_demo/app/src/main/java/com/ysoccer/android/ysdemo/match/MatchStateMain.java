@@ -4,17 +4,15 @@ import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateMain extends MatchState {
+class MatchStateMain extends MatchState {
 
     private enum Event {
         KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, NONE
     }
 
-    ;
-
     private Event event;
 
-    public MatchStateMain(Match match) {
+    MatchStateMain(Match match) {
         super(match);
         id = MatchFsm.STATE_MAIN;
     }
@@ -51,8 +49,7 @@ public class MatchStateMain extends MatchState {
                         match.chantSwitch = false;
                         match.nextChant = match.clock + (6 + match.random.nextInt(6)) * 1000;
                     } else {
-                        match.listener
-                                .chantSound(match.settings.sfxVolume);
+                        match.listener.chantSound(match.settings.sfxVolume);
                         match.chantSwitch = true;
                         match.nextChant = match.clock + 8000;
                     }
@@ -132,10 +129,8 @@ public class MatchStateMain extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

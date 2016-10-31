@@ -57,9 +57,7 @@ public class Match {
     public MatchRenderer renderer;
     public MatchSettings settings;
 
-    enum Period {
-        UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME
-    }
+    enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
 
     float clock;
     int length;
@@ -151,8 +149,7 @@ public class Match {
     void updateBall() {
         float bouncing_speed = ball.update();
         if (bouncing_speed > 0) {
-            listener.bounceSound(Math.min(2 * bouncing_speed / Const.SECOND, 1)
-                    * settings.sfxVolume);
+            listener.bounceSound(Math.min(2 * bouncing_speed / Const.SECOND, 1) * settings.sfxVolume);
         }
         ball.inFieldKeep();
     }
@@ -298,26 +295,26 @@ public class Match {
         fsm.pushAction(ActionType.FADE_IN);
     }
 
-    public void findNearest() {
+    void findNearest() {
         team[HOME].findNearest();
         team[AWAY].findNearest();
     }
 
-    public void updateFrameDistance() {
+    void updateFrameDistance() {
         team[HOME].updateFrameDistance();
         team[AWAY].updateFrameDistance();
     }
 
-    public void updateBallZone() {
+    void updateBallZone() {
         ball.updateZone(ball.x, ball.y, ball.v, ball.a);
     }
 
-    public void updateTeamTactics() {
+    void updateTeamTactics() {
         team[HOME].updateTactics(false);
         team[AWAY].updateTactics(false);
     }
 
-    public int attackingTeam() {
+    int attackingTeam() {
         return (team[HOME].side == -ball.ySide) ? HOME : AWAY;
     }
 
@@ -327,30 +324,24 @@ public class Match {
         int minute = (int) (clock * 90 / length);
 
         switch (period) {
-
             case FIRST_HALF:
                 minute = Math.min(minute, 45);
                 break;
-
             case SECOND_HALF:
                 minute = Math.min(minute, 90);
                 break;
-
             case FIRST_EXTRA_TIME:
                 minute = Math.min(minute, 105);
                 break;
-
             case SECOND_EXTRA_TIME:
                 minute = Math.min(minute, 120);
                 break;
-
         }
 
         return minute;
-
     }
 
-    public void addGoal(int attackingTeam) {
+    void addGoal(int attackingTeam) {
         Goal goal;
         if (team[attackingTeam] == ball.goalOwner.team) {
             ball.goalOwner.goals += 1;
@@ -362,7 +353,6 @@ public class Match {
         goals.add(goal);
 
         //TODO buildScorerLists();
-
     }
 
     public boolean periodIsTerminable() {

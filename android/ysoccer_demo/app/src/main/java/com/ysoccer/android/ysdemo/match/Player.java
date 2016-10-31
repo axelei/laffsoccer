@@ -160,12 +160,11 @@ public class Player {
         }
     }
 
-    public void updateFrameDistance() {
+    void updateFrameDistance() {
         frameDistance = Const.BALL_PREDICTION;
         for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
-            if (Emath.dist(x, y, match.ball.prediction[f].x,
-                    match.ball.prediction[f].y) < speed * f
-                    / GLGame.VIRTUAL_REFRESH_RATE) {
+            if (Emath.dist(x, y, match.ball.prediction[f].x, match.ball.prediction[f].y)
+                    < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistance = f;
             }
         }
