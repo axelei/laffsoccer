@@ -1,0 +1,64 @@
+package com.ygames.ysoccer.match;
+
+import com.ygames.ysoccer.framework.GLGame;
+
+class MatchStateThrowInStop extends MatchState {
+
+    boolean move;
+
+    MatchStateThrowInStop(MatchCore match) {
+        super(match);
+        id = MatchFsm.STATE_THROW_IN_STOP;
+    }
+
+    @Override
+    void entryActions() {
+        super.entryActions();
+
+        match.renderer.displayControlledPlayer = true;
+        match.renderer.displayBallOwner = true;
+        match.renderer.displayGoalScorer = false;
+        match.renderer.displayTime = true;
+        match.renderer.displayWindVane = true;
+        match.renderer.displayScore = false;
+        match.renderer.displayStatistics = false;
+        match.renderer.displayRadar = true;
+
+        // TODO
+        // match.listener.whistleSound(match.settings.sfxVolume);
+
+        match.throwInX = match.ball.xSide * Const.TOUCH_LINE;
+        match.throwInY = match.ball.y;
+
+        match.resetAutomaticInputDevices();
+        match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
+    }
+
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
+
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+
+            if (match.subframe % GLGame.SUBFRAMES == 0) {
+                match.updateAi();
+            }
+
+            match.updateBall();
+            match.ball.inFieldKeep();
+
+            move = match.updatePlayers(true);
+            match.updateTeamTactics();
+
+            match.nextSubframe();
+
+            match.save();
+
+            match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+    }
+}

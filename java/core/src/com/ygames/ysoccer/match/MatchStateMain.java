@@ -136,4 +136,13 @@ class MatchStateMain extends MatchState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
+
+    @Override
+    void checkConditions() {
+        switch (event) {
+            case THROW_IN:
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
+                return;
+        }
+    }
 }

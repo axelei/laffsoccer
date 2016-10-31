@@ -29,6 +29,8 @@ public class MatchCore {
     Period period;
     int coinToss;
     int kickOffTeam;
+    float throwInX;
+    float throwInY;
 
     Match data;
     final List<Goal> goals;
@@ -193,6 +195,12 @@ public class MatchCore {
     public void setPlayersState(int stateId, Player excluded) {
         for (int t = HOME; t <= AWAY; t++) {
             team[t].setPlayersState(stateId, excluded);
+        }
+    }
+
+    void resetAutomaticInputDevices() {
+        for (int t = HOME; t <= AWAY; t++) {
+            team[t].assignAutomaticInputDevices(null);
         }
     }
 

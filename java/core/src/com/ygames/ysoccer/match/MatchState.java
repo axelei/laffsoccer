@@ -6,7 +6,7 @@ class MatchState {
     protected int id;
     protected MatchCore match;
 
-    public MatchState(MatchCore match) {
+    MatchState(MatchCore match) {
         this.match = match;
     }
 

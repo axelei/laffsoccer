@@ -290,6 +290,19 @@ public class Team {
         }
     }
 
+    void assignAutomaticInputDevices(Player receiver) {
+        if (usesAutomaticInputDevice()) {
+            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                Player player = lineup.get(i);
+                if (player == receiver) {
+                    player.inputDevice = player.team.inputDevice;
+                } else {
+                    player.inputDevice = player.ai;
+                }
+            }
+        }
+    }
+
     void automaticInputDeviceSelection() {
 
         // search controlled player
