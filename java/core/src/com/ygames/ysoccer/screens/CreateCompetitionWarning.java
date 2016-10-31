@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
@@ -14,7 +14,7 @@ public class CreateCompetitionWarning extends GlScreen {
 
     private Competition.Category createCategory;
 
-    public CreateCompetitionWarning(GlGame game, Competition.Category createCategory) {
+    public CreateCompetitionWarning(GLGame game, Competition.Category createCategory) {
         super(game);
         this.createCategory = createCategory;
 
@@ -88,7 +88,7 @@ public class CreateCompetitionWarning extends GlScreen {
                     game.setScreen(new DiyCompetition(game));
                     break;
                 case PRESET_COMPETITION:
-                    game.setState(GlGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
+                    game.setState(GLGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
                     game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
                     break;
             }

@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class MatchStateMain extends MatchState {
@@ -38,9 +38,9 @@ class MatchStateMain extends MatchState {
         super.doActions(deltaTime);
 
         float timeLeft = deltaTime;
-        while (timeLeft >= GlGame.SUBFRAME_DURATION) {
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
-            if (match.subframe % GlGame.SUBFRAMES == 0) {
+            if (match.subframe % GLGame.SUBFRAMES == 0) {
                 match.updateAi();
 
                 // crowd chants
@@ -56,7 +56,7 @@ class MatchStateMain extends MatchState {
                     }
                 }
 
-                match.clock += 1000.0f / GlGame.VIRTUAL_REFRESH_RATE;
+                match.clock += 1000.0f / GLGame.VIRTUAL_REFRESH_RATE;
 
                 match.updateFrameDistance();
 
@@ -122,7 +122,7 @@ class MatchStateMain extends MatchState {
             match.updateBallZone();
             match.updateTeamTactics();
 
-            if ((match.subframe % GlGame.VIRTUAL_REFRESH_RATE) == 0) {
+            if ((match.subframe % GLGame.VIRTUAL_REFRESH_RATE) == 0) {
                 match.ball.updatePrediction();
             }
 
@@ -133,7 +133,7 @@ class MatchStateMain extends MatchState {
             match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
             match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
-            timeLeft -= GlGame.SUBFRAME_DURATION;
+            timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
 }

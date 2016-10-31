@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Ai;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class AiStateAttacking extends AiState {
@@ -37,7 +37,7 @@ class AiStateAttacking extends AiState {
 
         // passing
         if (player.facingPlayer != null
-                && (timer > 0.25f * GlGame.VIRTUAL_REFRESH_RATE)) {
+                && (timer > 0.25f * GLGame.VIRTUAL_REFRESH_RATE)) {
              return ai.fsm.statePassing;
         }
 

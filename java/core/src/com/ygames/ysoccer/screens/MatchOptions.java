@@ -2,7 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
@@ -12,7 +12,7 @@ import com.ygames.ysoccer.math.Emath;
 
 class MatchOptions extends GlScreen {
 
-    MatchOptions(GlGame game) {
+    MatchOptions(GLGame game) {
         super(game);
 
         background = new Image("images/backgrounds/menu_match_options.jpg");

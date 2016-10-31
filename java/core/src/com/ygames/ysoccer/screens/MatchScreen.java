@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.match.MatchCore;
 
@@ -13,7 +12,7 @@ class MatchScreen extends GlScreen {
 
     float timer;
 
-    MatchScreen(GlGame game, MatchCore match) {
+    MatchScreen(GLGame game, MatchCore match) {
         super(game);
         this.match = match;
 

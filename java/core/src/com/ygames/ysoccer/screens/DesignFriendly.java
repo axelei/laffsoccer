@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.Friendly;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
@@ -14,13 +14,13 @@ public class DesignFriendly extends GlScreen {
     Friendly friendly;
     Widget substitutesButton;
 
-    public DesignFriendly(GlGame game) {
+    public DesignFriendly(GLGame game) {
         super(game);
 
         friendly = new Friendly();
         friendly.name = Assets.strings.get("FRIENDLY");
 
-        game.setState(GlGame.State.FRIENDLY, null);
+        game.setState(GLGame.State.FRIENDLY, null);
 
         background = game.stateBackground;
 

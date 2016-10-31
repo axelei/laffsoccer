@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateThrowInSpeed extends PlayerState {
@@ -30,18 +30,18 @@ class PlayerStateThrowInSpeed extends PlayerState {
             ball.z = Const.PLAYER_H + 2;
             player.fmy = 8;
 
-            if ((timer > 0.15f * GlGame.SUBFRAMES_PER_SECOND) && (!player.inputDevice.fire11)) {
+            if ((timer > 0.15f * GLGame.SUBFRAMES_PER_SECOND) && (!player.inputDevice.fire11)) {
                 thrown = true;
             }
-            if (timer > 0.3f * GlGame.SUBFRAMES_PER_SECOND) {
+            if (timer > 0.3f * GLGame.SUBFRAMES_PER_SECOND) {
                 thrown = true;
             }
 
             if (thrown) {
                 ball.x = player.x + 6 * Emath.cos(player.a);
                 ball.y = player.y + 6 * Emath.sin(player.a);
-                ball.v = 30 + 1000 * timer / GlGame.SUBFRAMES_PER_SECOND;
-                ball.vz = 500 * timer / GlGame.SUBFRAMES_PER_SECOND;
+                ball.v = 30 + 1000 * timer / GLGame.SUBFRAMES_PER_SECOND;
+                ball.vz = 500 * timer / GLGame.SUBFRAMES_PER_SECOND;
                 switch (Math.round(player.fmx)) {
                     case 2:
                         ball.a = 90 + (10 + 5 * player.match.settings.wind.speed) * ball.xSide;
@@ -55,7 +55,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
                         ball.a = 45 * player.fmx;
                         break;
                 }
-                if (player.searchFacingPlayer(timer > 0.3f * GlGame.SUBFRAMES_PER_SECOND)) {
+                if (player.searchFacingPlayer(timer > 0.3f * GLGame.SUBFRAMES_PER_SECOND)) {
                     ball.a += player.facingAngle;
                 }
 
@@ -66,7 +66,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
 
     @Override
     State checkConditions() {
-        if (timer > 0.35f * GlGame.SUBFRAMES_PER_SECOND) {
+        if (timer > 0.35f * GLGame.SUBFRAMES_PER_SECOND) {
             return player.fsm.stateStandRun;
         }
         return null;

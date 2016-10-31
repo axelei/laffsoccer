@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
@@ -28,7 +28,7 @@ public class PlayLeague extends GlScreen {
 
     private League league;
 
-    public PlayLeague(GlGame game) {
+    public PlayLeague(GLGame game) {
         super(game);
 
         league = (League) game.competition;

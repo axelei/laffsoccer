@@ -2,7 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlGraphics;
 
 class CornerFlagSprite extends Sprite {
@@ -22,7 +22,7 @@ class CornerFlagSprite extends Sprite {
         int frameY = 1;
         if (matchSettings.wind.speed > 0) {
             frameX = 2 * (1 + matchSettings.wind.dirX);
-            frameX += ((subframe / GlGame.SUBFRAMES) >> (4 - matchSettings.wind.speed)) % 2;
+            frameX += ((subframe / GLGame.SUBFRAMES) >> (4 - matchSettings.wind.speed)) % 2;
             frameY = 1 + matchSettings.wind.dirY;
         }
         glGraphics.batch.draw(Assets.cornerFlags[frameX][frameY], x - 21, y - 34);
@@ -33,7 +33,7 @@ class CornerFlagSprite extends Sprite {
         int frameY = 1;
         if (matchSettings.wind.speed > 0) {
             frameX = 2 * (1 + matchSettings.wind.dirX);
-            frameX += ((subframe / GlGame.SUBFRAMES) >> (4 - matchSettings.wind.speed)) % 2;
+            frameX += ((subframe / GLGame.SUBFRAMES) >> (4 - matchSettings.wind.speed)) % 2;
             frameY = 1 + matchSettings.wind.dirY;
         }
         batch.draw(Assets.cornerFlagsShadows[frameX][frameY][0], x - 12, y + 1);

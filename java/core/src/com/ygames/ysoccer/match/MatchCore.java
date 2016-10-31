@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 public class MatchCore {
 
-    private GlGame game;
+    private GLGame game;
 
     MatchFsm fsm;
 
@@ -37,7 +37,7 @@ public class MatchCore {
     boolean chantSwitch;
     float nextChant;
 
-    public MatchCore(GlGame game, Team[] team, MatchSettings matchSettings) {
+    public MatchCore(GLGame game, Team[] team, MatchSettings matchSettings) {
         this.game = game;
         this.team = team;
         this.settings = matchSettings;

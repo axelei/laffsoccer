@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
@@ -12,7 +12,7 @@ import com.ygames.ysoccer.gui.Widget;
 
 public class Main extends GlScreen {
 
-    public Main(GlGame game) {
+    public Main(GLGame game) {
         super(game);
         background = new Image("images/backgrounds/menu_main.jpg");
         Image logo = new Image("images/logo.png");
@@ -125,7 +125,7 @@ public class Main extends GlScreen {
 
         @Override
         public void onFire1Down() {
-            game.setState(GlGame.State.EDIT, null);
+            game.setState(GLGame.State.EDIT, null);
             game.setScreen(new SelectFolder(game, Assets.teamsFolder, null));
         }
     }
@@ -175,7 +175,7 @@ public class Main extends GlScreen {
             if (game.hasCompetition()) {
                 game.setScreen(new CreateCompetitionWarning(game, Competition.Category.PRESET_COMPETITION));
             } else {
-                game.setState(GlGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
+                game.setState(GLGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
                 game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
             }
         }
@@ -208,7 +208,7 @@ public class Main extends GlScreen {
             switch (game.competition.category) {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
-                    game.setState(GlGame.State.COMPETITION, game.competition.category);
+                    game.setState(GLGame.State.COMPETITION, game.competition.category);
                     switch (game.competition.getType()) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));

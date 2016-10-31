@@ -5,7 +5,7 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
@@ -24,7 +24,7 @@ public class SelectTeams extends GlScreen {
     private Widget playButton;
     private Competition competition;
 
-    public SelectTeams(GlGame game, FileHandle fileHandle, League league, Competition competition) {
+    public SelectTeams(GLGame game, FileHandle fileHandle, League league, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
         this.league = league;

@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
@@ -17,7 +17,7 @@ public class ViewTeam extends GlScreen {
 
     Font font10yellow;
 
-    public ViewTeam(GlGame game, Team team, Competition competition) {
+    public ViewTeam(GLGame game, Team team, Competition competition) {
         super(game);
 
         background = game.stateBackground;

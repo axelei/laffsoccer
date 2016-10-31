@@ -5,7 +5,7 @@ import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlColor;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
@@ -47,7 +47,7 @@ public class EditTeam extends GlScreen {
     Widget deleteKitButton;
     Widget saveButton;
 
-    public EditTeam(GlGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
+    public EditTeam(GLGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
         super(game);
         this.fileHandle = fileHandle;
         this.league = league;

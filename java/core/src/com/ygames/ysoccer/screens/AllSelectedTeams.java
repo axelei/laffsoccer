@@ -5,7 +5,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
@@ -21,7 +21,7 @@ public class AllSelectedTeams extends GlScreen {
     private Widget changeTeamsButton;
     private Competition competition;
 
-    public AllSelectedTeams(GlGame game, FileHandle fileHandle, Competition competition) {
+    public AllSelectedTeams(GLGame game, FileHandle fileHandle, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
         this.competition = competition;

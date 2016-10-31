@@ -2,14 +2,14 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
 public class ViewStatistics extends GlScreen {
 
-    public ViewStatistics(GlGame game) {
+    public ViewStatistics(GLGame game) {
         super(game);
 
         background = game.stateBackground;

@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlGraphics;
 
 import java.util.ArrayList;
@@ -66,7 +66,7 @@ public class MatchRenderer {
         spriteComparator = new Sprite.SpriteComparator();
     }
 
-    public void render(GlGame game) {
+    public void render(GLGame game) {
         Gdx.gl.glEnable(GL20.GL_BLEND);
         glGraphics.camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
         glGraphics.camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);

@@ -5,7 +5,7 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.Round;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
@@ -32,7 +32,7 @@ public class DiyCup extends GlScreen {
     Widget[] roundExtraTimeButtons = new Widget[6];
     Widget[] roundPenaltiesButtons = new Widget[6];
 
-    public DiyCup(GlGame game) {
+    public DiyCup(GLGame game) {
         super(game);
 
         background = game.stateBackground;

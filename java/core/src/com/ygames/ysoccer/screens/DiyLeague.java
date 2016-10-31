@@ -4,7 +4,7 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
@@ -24,7 +24,7 @@ public class DiyLeague extends GlScreen {
     Widget pitchTypeButton;
     Widget substitutesButton;
 
-    public DiyLeague(GlGame game) {
+    public DiyLeague(GLGame game) {
         super(game);
 
         background = game.stateBackground;

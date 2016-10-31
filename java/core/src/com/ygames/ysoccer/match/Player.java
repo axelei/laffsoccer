@@ -4,7 +4,7 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
@@ -166,7 +166,7 @@ public class Player {
         frameDistance = Const.BALL_PREDICTION;
         for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
             float dist = Emath.dist(x, y, match.ball.prediction[f].x, match.ball.prediction[f].y);
-            if (dist < speed * f / GlGame.VIRTUAL_REFRESH_RATE) {
+            if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistance = f;
             }
         }

@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
@@ -22,7 +22,7 @@ public class PlayCup extends GlScreen {
     int offset;
     ArrayList<Widget> resultWidgets;
 
-    public PlayCup(GlGame game) {
+    public PlayCup(GLGame game) {
         super(game);
 
         cup = (Cup) game.competition;

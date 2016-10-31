@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class SaveCompetition extends GlScreen {
 
-    public SaveCompetition(GlGame game) {
+    public SaveCompetition(GLGame game) {
         super(game);
 
         background = game.stateBackground;

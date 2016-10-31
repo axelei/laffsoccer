@@ -2,7 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class TopScorers extends GlScreen {
 
-    public TopScorers(GlGame game) {
+    public TopScorers(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -64,7 +64,7 @@ public class TopScorers extends GlScreen {
         selectedWidget = w;
     }
 
-    private List<Scorer> getScorersList(GlGame game) {
+    private List<Scorer> getScorersList(GLGame game) {
         List<Scorer> scorers = new ArrayList<Scorer>();
         for (Team team : game.competition.teams) {
             for (Player player : team.players) {

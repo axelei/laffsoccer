@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class MatchStateKickOff extends MatchState {
@@ -49,9 +49,9 @@ class MatchStateKickOff extends MatchState {
 
         boolean move = true;
         float timeLeft = deltaTime;
-        while (timeLeft >= GlGame.SUBFRAME_DURATION) {
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
-            if (match.subframe % GlGame.SUBFRAMES == 0) {
+            if (match.subframe % GLGame.SUBFRAMES == 0) {
                 match.updateAi();
             }
 
@@ -65,7 +65,7 @@ class MatchStateKickOff extends MatchState {
             match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
             match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
-            timeLeft -= GlGame.SUBFRAME_DURATION;
+            timeLeft -= GLGame.SUBFRAME_DURATION;
         }
 
         if (!move && !isKickingOff) {

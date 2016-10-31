@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchCore;
@@ -16,7 +16,7 @@ class MatchLoading extends GlScreen {
 
     MatchCore matchCore;
 
-    MatchLoading(GlGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings) {
+    MatchLoading(GLGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings) {
         super(game);
 
         matchSettings.setup();

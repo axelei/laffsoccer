@@ -6,7 +6,7 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
@@ -21,7 +21,7 @@ public class SelectCompetition extends GlScreen {
     private FileHandle fileHandle;
     private boolean isDataRoot;
 
-    public SelectCompetition(GlGame game, FileHandle fileHandle) {
+    public SelectCompetition(GLGame game, FileHandle fileHandle) {
         super(game);
         this.fileHandle = fileHandle;
         isDataRoot = (fileHandle.path().equals(Assets.competitionsFolder.path()));

@@ -1,16 +1,16 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 
 public class Const {
 
-    static final int SECOND = GlGame.SUBFRAMES_PER_SECOND;
+    static final int SECOND = GLGame.SUBFRAMES_PER_SECOND;
     static final int BALL_R = 4;
     static final float GRAVITY = 350.0f / SECOND;
 
     static final int REPLAY_DURATION = 8; // seconds
     static final int REPLAY_SUBFRAMES = REPLAY_DURATION * SECOND;
-    static final int BALL_PREDICTION = 2 * SECOND / GlGame.SUBFRAMES;
+    static final int BALL_PREDICTION = 2 * SECOND / GLGame.SUBFRAMES;
 
     static int[][] goalsProbability = new int[][]{
             {1000, 0, 0, 0, 0, 0, 0},

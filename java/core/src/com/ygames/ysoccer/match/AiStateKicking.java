@@ -2,7 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class AiStateKicking extends AiState {
@@ -19,7 +19,7 @@ class AiStateKicking extends AiState {
         super.entryActions();
 
         float d = Emath.dist(player.x, player.y, 0, Math.signum(player.y) * Const.GOAL_LINE);
-        duration = (int) (0.01f * (Assets.random.nextInt(9) + d / 50) * GlGame.VIRTUAL_REFRESH_RATE);
+        duration = (int) (0.01f * (Assets.random.nextInt(9) + d / 50) * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override

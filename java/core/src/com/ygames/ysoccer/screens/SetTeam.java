@@ -5,7 +5,7 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.RgbPair;
@@ -44,7 +44,7 @@ public class SetTeam extends GlScreen {
     TacticsBoard tacticsBoard;
     Widget[] tacticsButtons = new Widget[18];
 
-    public SetTeam(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
+    public SetTeam(GLGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
 
         this.fileHandle = fileHandle;

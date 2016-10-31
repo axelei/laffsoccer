@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateKeeperPositioning extends PlayerState {
@@ -142,26 +142,26 @@ class PlayerStateKeeperPositioning extends PlayerState {
                     if (Math.abs(diffX) < 4) {
                         if (predZ > 30) {
                             //CATCH HIGH
-                            if (frm * GlGame.SUBFRAMES < 0.6f * Const.SECOND) {
+                            if (frm * GLGame.SUBFRAMES < 0.6f * Const.SECOND) {
                                  return player.fsm.stateKeeperCatchingHigh;
                             }
                         } else {
                             //CATCH LOW
-                            if (frm * GlGame.SUBFRAMES < 0.6f * Const.SECOND) {
+                            if (frm * GLGame.SUBFRAMES < 0.6f * Const.SECOND) {
                                  return player.fsm.stateKeeperCatchingLow;
                             }
                         }
                     } else if (predZ < 7) {
                         if (Math.abs(diffX) > Const.POST_X) {
                             //LOW - ONE HAND
-                            if ((frm * GlGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GlGame.SUBFRAMES > 0.25f * Const.SECOND)) {
+                            if ((frm * GLGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * Const.SECOND)) {
                                 player.thrustX = (Math.abs(diffX) - Const.POST_X) / (Const.GOAL_AREA_W / 2 - Const.POST_X);
                                 player.a = (diffX < 0) ? 180 : 0;
                                  return player.fsm.stateKeeperDivingLowSingle;
                             }
                         } else {
                             //LOW - TWO HANDS
-                            if (frm * GlGame.SUBFRAMES < 0.5f * Const.SECOND) {
+                            if (frm * GLGame.SUBFRAMES < 0.5f * Const.SECOND) {
                                 player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X - 8);
                                 player.a = (diffX < 0) ? 180 : 0;
                                 return player.fsm.stateKeeperDivingLowDouble;
@@ -169,7 +169,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                         }
                     } else if (predZ < 21) {
                         //MIDDLE - TWO HANDS
-                        if ((frm * GlGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GlGame.SUBFRAMES > 0.25f * Const.SECOND)) {
+                        if ((frm * GLGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * Const.SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X - 8);
                             player.thrustZ = (predZ - 7) / 14.0f;
                             player.a = (diffX < 0) ? 180 : 0;
@@ -177,7 +177,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                         }
                     } else if ((predZ < 27) && (Math.abs(diffX) < Const.POST_X + 16)) {
                         //MIDDLE - ONE HAND
-                        if ((frm * GlGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GlGame.SUBFRAMES > 0.25f * Const.SECOND)) {
+                        if ((frm * GLGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * Const.SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X + 8);
                             player.thrustZ = (predZ - 17) / 6.0f;
                             player.a = (diffX < 0) ? 180 : 0;
@@ -185,7 +185,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                         }
                     } else if ((predZ < 44) && (Math.abs(diffX) < Const.POST_X + 16)) {
                         //HIGH - ONE HAND
-                        if ((frm * GlGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GlGame.SUBFRAMES > 0.25f * Const.SECOND)) {
+                        if ((frm * GLGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * Const.SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X + 8);
                             player.thrustZ = (float) Math.min((predZ - 27) / 8.0, 1);
                             player.a = (diffX < 0) ? 180 : 0;

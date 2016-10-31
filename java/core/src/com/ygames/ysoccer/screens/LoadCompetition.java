@@ -4,7 +4,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class LoadCompetition extends GlScreen {
 
-    public LoadCompetition(GlGame game) {
+    public LoadCompetition(GLGame game) {
         super(game);
 
         background = new Image("images/backgrounds/menu_competition.jpg");
@@ -101,7 +101,7 @@ public class LoadCompetition extends GlScreen {
             switch (game.competition.category) {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
-                    game.setState(GlGame.State.COMPETITION, game.competition.category);
+                    game.setState(GLGame.State.COMPETITION, game.competition.category);
                     switch (game.competition.getType()) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));

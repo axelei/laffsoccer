@@ -11,7 +11,7 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GlGame extends Game {
+public class GLGame extends Game {
 
     public static final int SUBFRAMES = 8;
     public static final int VIRTUAL_REFRESH_RATE = 64;

@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Ai;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class AiStatePassing extends AiState {
@@ -17,7 +17,7 @@ class AiStatePassing extends AiState {
     void entryActions() {
         super.entryActions();
         float d = Emath.dist(player.x, player.y, 0, Math.signum(player.y) * Const.GOAL_LINE);
-        duration = (int) (0.01f * (4 + d / 50) * GlGame.VIRTUAL_REFRESH_RATE);
+        duration = (int) (0.01f * (4 + d / 50) * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override
@@ -31,7 +31,7 @@ class AiStatePassing extends AiState {
 
     @Override
     State checkConditions() {
-        if (timer > 0.5f * GlGame.VIRTUAL_REFRESH_RATE) {
+        if (timer > 0.5f * GLGame.VIRTUAL_REFRESH_RATE) {
             return ai.fsm.stateIdle;
         }
 

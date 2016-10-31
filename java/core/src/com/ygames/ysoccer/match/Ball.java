@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
@@ -169,7 +169,7 @@ class Ball {
             prediction[frm].x = Math.round(x);
             prediction[frm].y = Math.round(y);
             prediction[frm].z = Math.round(z);
-            for (int subframe = 0; subframe < GlGame.SUBFRAMES; subframe++) {
+            for (int subframe = 0; subframe < GLGame.SUBFRAMES; subframe++) {
                 updatePhysics();
             }
         }

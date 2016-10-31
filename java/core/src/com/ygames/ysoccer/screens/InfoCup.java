@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
@@ -15,7 +15,7 @@ public class InfoCup extends GlScreen {
 
     Cup cup;
 
-    public InfoCup(GlGame game) {
+    public InfoCup(GLGame game) {
         super(game);
 
         background = game.stateBackground;

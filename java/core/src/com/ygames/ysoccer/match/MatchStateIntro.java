@@ -1,10 +1,10 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateIntro extends MatchState {
 
-    private final int enterDelay = GlGame.VIRTUAL_REFRESH_RATE / 16;
+    private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
 
     MatchStateIntro(MatchCore match) {
         super(match);
@@ -30,7 +30,7 @@ class MatchStateIntro extends MatchState {
         match.enterPlayers(timer - 1, enterDelay);
 
         float timeLeft = deltaTime;
-        while (timeLeft >= GlGame.SUBFRAME_DURATION) {
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
             match.updatePlayers(false);
             match.playersPhoto();
@@ -42,7 +42,7 @@ class MatchStateIntro extends MatchState {
             match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
             match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
-            timeLeft -= GlGame.SUBFRAME_DURATION;
+            timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
 
@@ -51,7 +51,7 @@ class MatchStateIntro extends MatchState {
         if (match.enterPlayersFinished(timer, enterDelay)) {
             if ((match.team[Match.HOME].fire1Down() != null)
                     || (match.team[Match.AWAY].fire1Down() != null)
-                    || (timer >= 5 * GlGame.VIRTUAL_REFRESH_RATE)) {
+                    || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
             }
         }

@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateStartingPositions extends MatchState {
 
@@ -33,7 +33,7 @@ class MatchStateStartingPositions extends MatchState {
         super.doActions(deltaTime);
 
         float timeLeft = deltaTime;
-        while (timeLeft >= GlGame.SUBFRAME_DURATION) {
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
             move = match.updatePlayers(false);
 
@@ -44,7 +44,7 @@ class MatchStateStartingPositions extends MatchState {
             match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
             match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
-            timeLeft -= GlGame.SUBFRAME_DURATION;
+            timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
 

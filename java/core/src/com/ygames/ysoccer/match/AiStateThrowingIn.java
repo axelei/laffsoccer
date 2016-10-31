@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Ai;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class AiStateThrowingIn extends AiState {
@@ -14,10 +14,10 @@ class AiStateThrowingIn extends AiState {
     @Override
     void doActions() {
         super.doActions();
-        if (timer > 1.5f * GlGame.VIRTUAL_REFRESH_RATE) {
+        if (timer > 1.5f * GLGame.VIRTUAL_REFRESH_RATE) {
             ai.x0 = player.team.side;
         }
-        ai.fire10 = Emath.isIn(timer, 2.0f * GlGame.VIRTUAL_REFRESH_RATE, 2.31f * GlGame.VIRTUAL_REFRESH_RATE);
+        ai.fire10 = Emath.isIn(timer, 2.0f * GLGame.VIRTUAL_REFRESH_RATE, 2.31f * GLGame.VIRTUAL_REFRESH_RATE);
     }
 
     @Override

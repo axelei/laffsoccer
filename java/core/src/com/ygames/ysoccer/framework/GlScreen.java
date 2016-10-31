@@ -13,12 +13,12 @@ import java.util.List;
 
 public abstract class GlScreen implements Screen {
 
-    protected GlGame game;
+    protected GLGame game;
     protected Image background;
     protected List<Widget> widgets;
     protected Widget selectedWidget;
 
-    public GlScreen(GlGame game) {
+    public GlScreen(GLGame game) {
         this.game = game;
         widgets = new ArrayList<Widget>();
     }

@@ -2,7 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CompetitionViewTeams extends GlScreen {
 
-    public CompetitionViewTeams(GlGame game) {
+    public CompetitionViewTeams(GLGame game) {
         super(game);
 
         background = game.stateBackground;

@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateThrowInAngle extends PlayerState {
@@ -23,7 +23,7 @@ class PlayerStateThrowInAngle extends PlayerState {
         player.fmx = 2 * ball.xSide + 2;
         player.fmy = 8;
         ball.setOwner(player);
-        animationCountdown = GlGame.SUBFRAMES_PER_SECOND;
+        animationCountdown = GLGame.SUBFRAMES_PER_SECOND;
     }
 
     @Override
@@ -44,7 +44,7 @@ class PlayerStateThrowInAngle extends PlayerState {
             if (value) {
                 // stop animation
                 if (angle != player.a) {
-                    animationCountdown = GlGame.SUBFRAMES_PER_SECOND;
+                    animationCountdown = GLGame.SUBFRAMES_PER_SECOND;
                 }
                 player.a = angle;
                 player.fmx = (Math.round(angle / 45.0f) + 8) % 8;

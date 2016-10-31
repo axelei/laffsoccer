@@ -5,7 +5,7 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
@@ -15,7 +15,6 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
-import com.ygames.ysoccer.match.Weather;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ class MatchSetup extends GlScreen {
     private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
     private Widget playMatchButton;
 
-    MatchSetup(GlGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
+    MatchSetup(GLGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
 
         this.fileHandle = fileHandle;
