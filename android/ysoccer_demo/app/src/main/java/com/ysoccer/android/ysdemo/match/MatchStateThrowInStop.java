@@ -1,13 +1,12 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateThrowInStop extends MatchState {
+class MatchStateThrowInStop extends MatchState {
 
     boolean move;
 
-    public MatchStateThrowInStop(Match match) {
+    MatchStateThrowInStop(Match match) {
         super(match);
         id = MatchFsm.STATE_THROW_IN_STOP;
     }
@@ -32,7 +31,6 @@ public class MatchStateThrowInStop extends MatchState {
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
-
     }
 
     @Override
@@ -56,14 +54,11 @@ public class MatchStateThrowInStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_NONE,
-                    ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
-
     }
 
     @Override
@@ -72,7 +67,7 @@ public class MatchStateThrowInStop extends MatchState {
             match.ball.setPosition(match.throwInX, match.throwInY, 0);
             match.ball.updatePrediction();
 
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN);
             return;
         }
 

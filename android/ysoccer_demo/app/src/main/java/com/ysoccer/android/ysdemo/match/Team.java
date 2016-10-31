@@ -478,7 +478,7 @@ public class Team {
         }
     }
 
-    public void assignAutomaticInputDevices(Player receiver) {
+    void assignAutomaticInputDevices(Player receiver) {
         if (usesAutomaticInputDevice()) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
