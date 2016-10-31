@@ -22,12 +22,20 @@ public class MatchCore {
     public MatchRenderer renderer;
     public MatchSettings settings;
 
+    enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
+
+    float clock;
+    int length;
+    Period period;
     int coinToss;
     int kickOffTeam;
 
+    Match data;
     final List<Goal> goals;
 
     public int subframe;
+    boolean chantSwitch;
+    float nextChant;
 
     public MatchCore(GlGame game, Team[] team, MatchSettings matchSettings) {
         this.game = game;
@@ -48,9 +56,12 @@ public class MatchCore {
 
         benchSide = 1 - 2 * Assets.random.nextInt(2);
 
+        period = Period.FIRST_HALF;
+        length = game.gameLengths[matchSettings.gameLengthIndex] * 60 * 1000;
         coinToss = Assets.random.nextInt(2); // 0 = home begins, 1 = away begins
         kickOffTeam = coinToss;
 
+        data = new Match();
         goals = new ArrayList<Goal>();
     }
 
@@ -188,5 +199,65 @@ public class MatchCore {
     public void start() {
         fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_INTRO);
         fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+    }
+
+    void findNearest() {
+        team[HOME].findNearest();
+        team[AWAY].findNearest();
+    }
+
+    void updateFrameDistance() {
+        team[HOME].updateFrameDistance();
+        team[AWAY].updateFrameDistance();
+    }
+
+    void updateBallZone() {
+        ball.updateZone(ball.x, ball.y, ball.v, ball.a);
+    }
+
+    void updateTeamTactics() {
+        team[HOME].updateTactics(false);
+        team[AWAY].updateTactics(false);
+    }
+
+    int attackingTeam() {
+        return (team[HOME].side == -ball.ySide) ? HOME : AWAY;
+    }
+
+    int getMinute() {
+
+        // virtual minutes : 90 = clock : length
+        int minute = (int) (clock * 90 / length);
+
+        switch (period) {
+            case FIRST_HALF:
+                minute = Math.min(minute, 45);
+                break;
+            case SECOND_HALF:
+                minute = Math.min(minute, 90);
+                break;
+            case FIRST_EXTRA_TIME:
+                minute = Math.min(minute, 105);
+                break;
+            case SECOND_EXTRA_TIME:
+                minute = Math.min(minute, 120);
+                break;
+        }
+
+        return minute;
+    }
+
+    void addGoal(int attackingTeam) {
+        Goal goal;
+        if (team[attackingTeam] == ball.goalOwner.team) {
+            ball.goalOwner.goals += 1;
+            goal = new Goal(ball.goalOwner, getMinute(), Goal.Type.NORMAL);
+        } else {
+            goal = new Goal(ball.goalOwner, getMinute(), Goal.Type.OWN_GOAL);
+        }
+
+        goals.add(goal);
+
+        //TODO buildScorerLists();
     }
 }

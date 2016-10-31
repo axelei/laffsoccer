@@ -6,6 +6,7 @@ import com.ygames.ysoccer.math.Emath;
 
 public class MatchSettings {
 
+    int gameLengthIndex;
     public int time;
     float shadowAlpha;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
@@ -20,6 +21,11 @@ public class MatchSettings {
     public int benchSize;
 
     public MatchSettings(Competition competition, int weatherMaxStrength) {
+        if (competition.getType() == Competition.Type.FRIENDLY) {
+            gameLengthIndex = 0;
+        } else {
+            gameLengthIndex = 0; // TODO use game settings
+        }
         this.time = competition.time;
         this.pitchType = competition.resolvePitchType();
         this.grass = new Grass();

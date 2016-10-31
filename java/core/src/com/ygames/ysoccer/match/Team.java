@@ -158,6 +158,29 @@ public class Team {
         }
     }
 
+    void updateTactics(boolean relativeToCenter) {
+
+        int ball_zone = 17 - side * match.ball.zoneX - 5 * side * match.ball.zoneY;
+
+        if (relativeToCenter) {
+            ball_zone = 17;
+        }
+
+        for (int i = 1; i < Const.TEAM_SIZE; i++) {
+
+            Player player = lineup.get(i);
+
+            int tx = Assets.tactics[getTacticsIndex()].target[i][ball_zone][0];
+            int ty = Assets.tactics[getTacticsIndex()].target[i][ball_zone][1];
+
+            player.tx = (1 - Math.abs(match.ball.mx)) * tx + Math.abs(match.ball.mx) * tx;
+            player.ty = (1 - Math.abs(match.ball.my)) * ty + Math.abs(match.ball.my) * ty;
+
+            player.tx = -side * player.tx;
+            player.ty = -side * (player.ty - 4);
+        }
+    }
+
     void updateFrameDistance() {
         for (int i = 0; i < Const.TEAM_SIZE; i++) {
             lineup.get(i).updateFrameDistance();
@@ -263,6 +286,61 @@ public class Team {
             Player player = lineup.get(i);
             if (player != excluded) {
                 player.fsm.setState(stateId);
+            }
+        }
+    }
+
+    void automaticInputDeviceSelection() {
+
+        // search controlled player
+        Player controlled = null;
+        int len = lineup.size();
+        for (int i = 0; i < len; i++) {
+            Player player = lineup.get(i);
+            if (player.inputDevice != player.ai) {
+                controlled = player;
+            }
+        }
+
+        if (controlled == null) {
+
+            // assign input device
+            if (near1.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                near1.inputDevice = inputDevice;
+            }
+
+        } else if (match.ball.owner == null) {
+
+            // move input_device to nearest
+            if ((controlled != near1)
+                    && (controlled.frameDistance == Const.BALL_PREDICTION)) {
+
+                if (controlled.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)
+                        && near1.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                    near1.inputDevice = inputDevice;
+                    controlled.inputDevice = controlled.ai;
+                }
+            }
+
+        } else if (match.ball.owner.team.index == index) {
+
+            // move input_device to ball owner
+            if ((controlled != match.ball.owner)
+                    && controlled.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)
+                    && near1.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                match.ball.owner.inputDevice = inputDevice;
+                controlled.inputDevice = controlled.ai;
+            }
+
+        } else {
+
+            if ((bestDefender != null)
+                    && (bestDefender != controlled)
+                    && (bestDefender.defendDistance < 0.95f * controlled.defendDistance)
+                    && controlled.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)
+                    && bestDefender.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                bestDefender.inputDevice = inputDevice;
+                controlled.inputDevice = controlled.ai;
             }
         }
     }

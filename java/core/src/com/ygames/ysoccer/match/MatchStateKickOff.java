@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GlGame;
+import com.ygames.ysoccer.math.Emath;
 
 class MatchStateKickOff extends MatchState {
 
@@ -70,6 +71,21 @@ class MatchStateKickOff extends MatchState {
         if (!move && !isKickingOff) {
             kickOffPlayer.setState(PlayerFsm.STATE_KICK_OFF);
             isKickingOff = true;
+        }
+    }
+
+    @Override
+    void checkConditions() {
+        if (Emath.dist(match.ball.x, match.ball.y, 0, 0) > 10) {
+            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+                for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                    Player player = match.team[t].lineup.get(i);
+                    if (player != kickOffPlayer) {
+                        player.fsm.setState(PlayerFsm.STATE_STAND_RUN);
+                    }
+                }
+            }
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
         }
     }
 }

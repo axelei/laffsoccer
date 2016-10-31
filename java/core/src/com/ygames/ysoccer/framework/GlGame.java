@@ -3,8 +3,6 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Cursor;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
@@ -19,6 +17,7 @@ public class GlGame extends Game {
     public static final int VIRTUAL_REFRESH_RATE = 64;
     public static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRESH_RATE * SUBFRAMES;
     public static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
+    public static final int[] gameLengths = {3, 5, 7, 10};
 
     public Settings settings;
     public GlGraphics glGraphics;
