@@ -1,14 +1,13 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateCornerStop extends MatchState {
+class MatchStateCornerStop extends MatchState {
 
-    int cornerX;
-    int cornerY;
+    private int cornerX;
+    private int cornerY;
 
-    public MatchStateCornerStop(Match match) {
+    MatchStateCornerStop(Match match) {
         super(match);
         id = MatchFsm.STATE_CORNER_STOP;
     }
@@ -41,15 +40,12 @@ public class MatchStateCornerStop extends MatchState {
         // even before moving the ball itself
         match.ball.updateZone(cornerX, cornerY, 0, 0);
         match.updateTeamTactics();
-        match.team[Match.HOME].lineup.get(0).setTarget(0,
-                match.team[Match.HOME].side * (Const.GOAL_LINE - 8));
-        match.team[Match.AWAY].lineup.get(0).setTarget(0,
-                match.team[Match.AWAY].side * (Const.GOAL_LINE - 8));
+        match.team[Match.HOME].lineup.get(0).setTarget(0, match.team[Match.HOME].side * (Const.GOAL_LINE - 8));
+        match.team[Match.AWAY].lineup.get(0).setTarget(0, match.team[Match.AWAY].side * (Const.GOAL_LINE - 8));
 
         match.resetAutomaticInputDevices();
 
         match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
-
     }
 
     @Override
@@ -75,14 +71,11 @@ public class MatchStateCornerStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_NONE,
-                    ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
-
     }
 
     @Override
@@ -91,7 +84,7 @@ public class MatchStateCornerStop extends MatchState {
             match.ball.setPosition(cornerX, cornerY, 0);
             match.ball.updatePrediction();
 
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_KICK);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_KICK);
             return;
         }
 
@@ -114,7 +107,5 @@ public class MatchStateCornerStop extends MatchState {
         // ''BENCH
         // Self.bench(team[HOME], team[HOME].fire2_down())
         // Self.bench(team[AWAY], team[AWAY].fire2_down())
-
     }
-
 }

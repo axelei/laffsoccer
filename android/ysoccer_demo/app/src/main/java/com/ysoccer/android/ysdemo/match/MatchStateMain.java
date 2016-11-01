@@ -2,7 +2,6 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateMain extends MatchState {
 
@@ -140,23 +139,23 @@ class MatchStateMain extends MatchState {
     void checkConditions() {
         switch (event) {
             case KEEPER_STOP:
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_KEEPER_STOP);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KEEPER_STOP);
                 return;
 
             case GOAL:
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL);
                 return;
 
             case CORNER:
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_STOP);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_STOP);
                 return;
 
             case GOAL_KICK:
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK_STOP);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK_STOP);
                 return;
 
             case THROW_IN:
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
                 return;
 
             case NONE:
@@ -171,7 +170,7 @@ class MatchStateMain extends MatchState {
             case FIRST_HALF:
                 if ((match.clock > (match.length * 45 / 90))
                         && match.periodIsTerminable()) {
-                    match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_STOP);
+                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_STOP);
                     return;
                 }
                 break;
@@ -181,7 +180,7 @@ class MatchStateMain extends MatchState {
                     // Select menu.status
                     //
                     // Case MS_FRIENDLY
-                    match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
+                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
                     return;
 
                     // Case MS_COMPETITION
