@@ -8,7 +8,7 @@
 	"name": "BRUNO PESAOLA",
 	"nationality": "ARG"
 },
-"tactics": "4-4-2",
+"tactics": "SWEEP",
 "kits": [
 	{
 		"style": "PLAIN",
@@ -42,29 +42,8 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "DINO PANZANATO",
-		"shirtName": "PANZANATO",
-		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "2",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "PIERLUIGI RONZON",
-		"shirtName": "RONZON",
-		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "3",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {},
+		"value": 24
 	},
 	{
 		"name": "MAURO GATTI",
@@ -76,6 +55,44 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {}
+	},
+	{
+		"name": "DINO PANZANATO",
+		"shirtName": "PANZANATO",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 6,
+			"control": 4,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "PIERLUIGI RONZON",
+		"shirtName": "RONZON",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 5,
+			"control": 5,
+			"speed": 4,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "PIETRO ADORNI",
