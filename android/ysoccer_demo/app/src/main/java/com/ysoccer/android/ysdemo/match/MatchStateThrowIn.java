@@ -1,15 +1,14 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateThrowIn extends MatchState {
+class MatchStateThrowIn extends MatchState {
 
-    Team throwInTeam;
-    Player throwInPlayer;
-    boolean isThrowingIn;
+    private Team throwInTeam;
+    private Player throwInPlayer;
+    private boolean isThrowingIn;
 
-    public MatchStateThrowIn(Match match) {
+    MatchStateThrowIn(Match match) {
         super(match);
         id = MatchFsm.STATE_THROW_IN;
     }
@@ -36,7 +35,6 @@ public class MatchStateThrowIn extends MatchState {
 
         throwInPlayer.setTarget(match.ball.x, match.ball.y);
         throwInPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
-
     }
 
     // TODO
@@ -71,15 +69,13 @@ public class MatchStateThrowIn extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
 
-        if (move == false && isThrowingIn == false) {
+        if (!move && !isThrowingIn) {
 
             match.listener.whistleSound(match.settings.sfxVolume);
 
@@ -95,9 +91,8 @@ public class MatchStateThrowIn extends MatchState {
     void checkConditions() {
 
         if (Math.abs(match.ball.x) < Const.TOUCH_LINE) {
-            match.setPlayersState(PlayerFsm.STATE_STAND_RUN,
-                    throwInPlayer);
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            match.setPlayersState(PlayerFsm.STATE_STAND_RUN, throwInPlayer);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
             return;
         }
 
@@ -122,5 +117,4 @@ public class MatchStateThrowIn extends MatchState {
         // Self.bench(team[AWAY], team[AWAY].fire2_down())
 
     }
-
 }

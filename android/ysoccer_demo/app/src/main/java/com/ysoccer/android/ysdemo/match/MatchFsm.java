@@ -64,7 +64,6 @@ public class MatchFsm {
     static final int STATE_REPLAY = 20;
     static final int STATE_HIGHLIGHTS = 21;
 
-    MatchStateThrowIn stateThrowIn;
     MatchStateGoalKickStop stateGoalKickStop;
     MatchStateGoalKick stateGoalKick;
     MatchStateCornerStop stateCornerStop;
@@ -91,7 +90,7 @@ public class MatchFsm {
         states.add(new MatchStateKickOff(match));
         states.add(new MatchStateMain(match));
         states.add(new MatchStateThrowInStop(match));
-        states.add(stateThrowIn = new MatchStateThrowIn(match));
+        states.add(new MatchStateThrowIn(match));
         states.add(stateGoalKickStop = new MatchStateGoalKickStop(match));
         states.add(stateGoalKick = new MatchStateGoalKick(match));
         states.add(stateCornerStop = new MatchStateCornerStop(match));

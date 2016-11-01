@@ -111,7 +111,7 @@ public class Player {
         isVisible = true;
     }
 
-    public void setTarget(float tx, float ty) {
+    void setTarget(float tx, float ty) {
         this.tx = tx;
         this.ty = ty;
     }
