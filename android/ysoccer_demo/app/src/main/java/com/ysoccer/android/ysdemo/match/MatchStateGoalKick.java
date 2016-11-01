@@ -3,13 +3,13 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateGoalKick extends MatchState {
+class MatchStateGoalKick extends MatchState {
 
-    Team goalKickTeam;
-    Player goalKickPlayer;
-    boolean isKicking;
+    private Team goalKickTeam;
+    private Player goalKickPlayer;
+    private boolean isKicking;
 
-    public MatchStateGoalKick(Match match) {
+    MatchStateGoalKick(Match match) {
         super(match);
         id = MatchFsm.STATE_GOAL_KICK;
     }
@@ -35,8 +35,7 @@ public class MatchStateGoalKick extends MatchState {
         isKicking = false;
 
         goalKickPlayer = goalKickTeam.lineup.get(0);
-        goalKickPlayer.setTarget(match.ball.x, match.ball.y + 6
-                * match.ball.ySide);
+        goalKickPlayer.setTarget(match.ball.x, match.ball.y + 6 * match.ball.ySide);
         goalKickPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
     }
 
@@ -72,10 +71,8 @@ public class MatchStateGoalKick extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -119,5 +116,4 @@ public class MatchStateGoalKick extends MatchState {
         // Self.bench(team[AWAY], team[AWAY].fire2_down())
 
     }
-
 }

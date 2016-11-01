@@ -80,8 +80,7 @@ class MatchStateGoalKickStop extends MatchState {
     @Override
     void checkConditions() {
         if ((match.ball.v < 5) && (match.ball.vz < 5)) {
-            match.ball.setPosition((Const.GOAL_AREA_W / 2) * xSide,
-                    (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide, 0);
+            match.ball.setPosition((Const.GOAL_AREA_W / 2) * xSide, (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide, 0);
             match.ball.updatePrediction();
 
             match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK);
