@@ -78,4 +78,15 @@ class MatchStateCornerStop extends MatchState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
+
+    @Override
+    void checkConditions() {
+        if ((match.ball.v < 5) && (match.ball.vz < 5)) {
+            match.ball.setPosition(cornerX, cornerY, 0);
+            match.ball.updatePrediction();
+
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_KICK);
+            return;
+        }
+    }
 }

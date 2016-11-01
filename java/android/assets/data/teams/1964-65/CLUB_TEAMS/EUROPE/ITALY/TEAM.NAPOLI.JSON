@@ -149,7 +149,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "FLAVIO EMOLI",
@@ -160,7 +168,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "VINCENZO MONTEFUSCO",
@@ -171,7 +187,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "CANÉ",
