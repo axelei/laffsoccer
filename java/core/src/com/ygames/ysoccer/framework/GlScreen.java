@@ -79,29 +79,7 @@ public abstract class GlScreen implements Screen {
         }
 
         if (selectedWidget != null && selectedWidget.isActive) {
-            switch (widgetEvent) {
-                case FIRE1_DOWN:
-                    selectedWidget.onFire1Down();
-                    break;
-                case FIRE1_HOLD:
-                    selectedWidget.onFire1Hold();
-                    break;
-                case FIRE1_UP:
-                    selectedWidget.onFire1Up();
-                    break;
-                case FIRE2_DOWN:
-                    selectedWidget.onFire2Down();
-                    break;
-                case FIRE2_HOLD:
-                    selectedWidget.onFire2Hold();
-                    break;
-                case FIRE2_UP:
-                    selectedWidget.onFire2Up();
-                    break;
-                case NONE:
-                    //do nothing
-                    break;
-            }
+            selectedWidget.fireEvent(widgetEvent);
         }
 
         OrthographicCamera camera = game.glGraphics.camera;

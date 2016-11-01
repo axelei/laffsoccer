@@ -135,22 +135,48 @@ public abstract class Widget {
         this.isVisible = isVisible;
     }
 
-    public void onFire1Down() {
+    public void fireEvent(Event widgetEvent) {
+        switch (widgetEvent) {
+            case FIRE1_DOWN:
+                onFire1Down();
+                break;
+            case FIRE1_HOLD:
+                onFire1Hold();
+                break;
+            case FIRE1_UP:
+                onFire1Up();
+                break;
+            case FIRE2_DOWN:
+                onFire2Down();
+                break;
+            case FIRE2_HOLD:
+                onFire2Hold();
+                break;
+            case FIRE2_UP:
+                onFire2Up();
+                break;
+            case NONE:
+                //do nothing
+                break;
+        }
     }
 
-    public void onFire1Hold() {
+    protected void onFire1Down() {
     }
 
-    public void onFire1Up() {
+    protected void onFire1Hold() {
     }
 
-    public void onFire2Down() {
+    protected void onFire1Up() {
     }
 
-    public void onFire2Hold() {
+    protected void onFire2Down() {
     }
 
-    public void onFire2Up() {
+    protected void onFire2Hold() {
+    }
+
+    protected void onFire2Up() {
     }
 
     public void onUpdate() {

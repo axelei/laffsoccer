@@ -39,7 +39,7 @@ public class DiyCompetition extends GlScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 300) / 2, 30, 300, 40);
+            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
             setColors(0x376E2F, 0x4E983F, 0x214014);
             setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);

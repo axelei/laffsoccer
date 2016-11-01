@@ -68,9 +68,9 @@ public class Main extends GlScreen {
         widgets.add(w);
     }
 
-    class GameOptionsButton extends Button {
+    private class GameOptionsButton extends Button {
 
-        public GameOptionsButton() {
+        GameOptionsButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 270, 350, 36);
             setColors(0x536B90, 0x7090C2, 0x263142);
             setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
@@ -83,9 +83,9 @@ public class Main extends GlScreen {
         }
     }
 
-    class MatchOptionsButton extends Button {
+    private class MatchOptionsButton extends Button {
 
-        public MatchOptionsButton() {
+        MatchOptionsButton() {
             setColors(0x6101D7, 0x7D1DFF, 0x3A0181);
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 315, 350, 36);
             setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
@@ -97,27 +97,27 @@ public class Main extends GlScreen {
         }
     }
 
-    class ControlButton extends Button {
+    private class ControlButton extends Button {
 
-        public ControlButton() {
+        ControlButton() {
             setColors(0xA905A3, 0xE808E0, 0x5A0259);
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 360, 350, 36);
             setText(Assets.strings.get("CONTROL"), Font.Align.CENTER, Assets.font14);
         }
     }
 
-    class EditTacticsButton extends Button {
+    private class EditTacticsButton extends Button {
 
-        public EditTacticsButton() {
+        EditTacticsButton() {
             setColors(0xBA9206, 0xE9B607, 0x6A5304);
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 405, 350, 36);
             setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font14);
         }
     }
 
-    class EditTeamsButton extends Button {
+    private class EditTeamsButton extends Button {
 
-        public EditTeamsButton() {
+        EditTeamsButton() {
             setColors(0x89421B, 0xBB5A25, 0x3D1E0D);
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 450, 350, 36);
             setText(Assets.strings.get("EDIT TEAMS"), Font.Align.CENTER, Assets.font14);
@@ -130,9 +130,9 @@ public class Main extends GlScreen {
         }
     }
 
-    class FriendlyButton extends Button {
+    private class FriendlyButton extends Button {
 
-        public FriendlyButton() {
+        FriendlyButton() {
             setGeometry(game.settings.GUI_WIDTH / 2 + 45, 270, 350, 36);
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setText(Assets.strings.get("FRIENDLY"), Font.Align.CENTER, Assets.font14);
@@ -144,9 +144,9 @@ public class Main extends GlScreen {
         }
     }
 
-    class DiyCompetitionButton extends Button {
+    private class DiyCompetitionButton extends Button {
 
-        public DiyCompetitionButton() {
+        DiyCompetitionButton() {
             setColors(0x376E2F, 0x4E983F, 0x214014);
             setGeometry(game.settings.GUI_WIDTH / 2 + 45, 315, 350, 36);
             setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
@@ -162,9 +162,9 @@ public class Main extends GlScreen {
         }
     }
 
-    class PresetCompetitionButton extends Button {
+    private class PresetCompetitionButton extends Button {
 
-        public PresetCompetitionButton() {
+        PresetCompetitionButton() {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setGeometry(game.settings.GUI_WIDTH / 2 + 45, 360, 350, 36);
             setText(Assets.strings.get("PRESET COMPETITION"), Font.Align.CENTER, Assets.font14);
@@ -181,18 +181,18 @@ public class Main extends GlScreen {
         }
     }
 
-    class TrainingButton extends Button {
+    private class TrainingButton extends Button {
 
-        public TrainingButton() {
+        TrainingButton() {
             setColors(0x1B8A7F, 0x25BDAE, 0x115750);
             setGeometry(game.settings.GUI_WIDTH / 2 + 45, 405, 350, 36);
             setText(Assets.strings.get("TRAINING"), Font.Align.CENTER, Assets.font14);
         }
     }
 
-    class ReplayContinueCompetitionButton extends Button {
+    private class ReplayContinueCompetitionButton extends Button {
 
-        public ReplayContinueCompetitionButton(int y) {
+        ReplayContinueCompetitionButton(int y) {
             setColors(0x568200, 0x77B400, 0x243E00);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, y, 600, 32);
             String s = Assets.strings.get(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
@@ -222,9 +222,9 @@ public class Main extends GlScreen {
         }
     }
 
-    class SaveCompetitionButton extends Button {
+    private class SaveCompetitionButton extends Button {
 
-        public SaveCompetitionButton(int y) {
+        SaveCompetitionButton(int y) {
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, y + 40, 600, 32);
             String s = Assets.strings.get("SAVE %s");
@@ -237,9 +237,9 @@ public class Main extends GlScreen {
         }
     }
 
-    class LoadOldCompetitionButton extends Button {
+    private class LoadOldCompetitionButton extends Button {
 
-        public LoadOldCompetitionButton(int y) {
+        LoadOldCompetitionButton(int y) {
             setColors(0x2898c7, 0x32bffa, 0x1e7194);
             setGeometry((game.settings.GUI_WIDTH - 600) / 2, y, 600, 32);
             setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font10);
