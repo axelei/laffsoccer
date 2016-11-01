@@ -46,15 +46,23 @@
 		"value": 24
 	},
 	{
-		"name": "MAURO GATTI",
-		"shirtName": "GATTI",
+		"name": "PIETRO ADORNI",
+		"shirtName": "ADORNI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "4",
+		"role": "RIGHT_BACK",
+		"number": "5",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "DINO PANZANATO",
@@ -89,21 +97,29 @@
 			"shooting": 3,
 			"heading": 5,
 			"tackling": 5,
-			"control": 5,
+			"control": 4,
 			"speed": 4,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "PIETRO ADORNI",
-		"shirtName": "ADORNI",
+		"name": "MAURO GATTI",
+		"shirtName": "GATTI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "5",
+		"role": "LEFT_BACK",
+		"number": "4",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 3,
+			"speed": 6,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "ANTONIO GIRARDO",
@@ -114,7 +130,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "ANTONIO JULIANO",
