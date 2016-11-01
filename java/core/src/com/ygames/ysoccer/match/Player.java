@@ -122,6 +122,11 @@ public class Player {
         this.match = match;
     }
 
+    void setTarget(float tx, float ty) {
+        this.tx = tx;
+        this.ty = ty;
+    }
+
     public void setState(int id) {
         fsm.setState(id);
     }

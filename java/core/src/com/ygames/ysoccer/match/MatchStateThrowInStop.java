@@ -4,7 +4,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateThrowInStop extends MatchState {
 
-    boolean move;
+    private boolean move;
 
     MatchStateThrowInStop(MatchCore match) {
         super(match);
@@ -59,6 +59,17 @@ class MatchStateThrowInStop extends MatchState {
             match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+    }
+
+    @Override
+    void checkConditions() {
+        if (!move) {
+            match.ball.setPosition(match.throwInX, match.throwInY, 0);
+            match.ball.updatePrediction();
+
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN);
+            return;
         }
     }
 }
