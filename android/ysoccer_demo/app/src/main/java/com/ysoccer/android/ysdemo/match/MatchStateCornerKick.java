@@ -3,13 +3,13 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateCornerKick extends MatchState {
+class MatchStateCornerKick extends MatchState {
 
-    Team cornerKickTeam;
-    Player cornerKickPlayer;
-    boolean isKicking;
+    private Team cornerKickTeam;
+    private Player cornerKickPlayer;
+    private boolean isKicking;
 
-    public MatchStateCornerKick(Match match) {
+    MatchStateCornerKick(Match match) {
         super(match);
         id = MatchFsm.STATE_CORNER_KICK;
     }
@@ -43,10 +43,8 @@ public class MatchStateCornerKick extends MatchState {
         cornerKickTeam.findNearest();
         cornerKickPlayer = cornerKickTeam.near1;
 
-        cornerKickPlayer.setTarget(match.ball.x + 7 * match.ball.xSide,
-                match.ball.y);
+        cornerKickPlayer.setTarget(match.ball.x + 7 * match.ball.xSide, match.ball.y);
         cornerKickPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
-
     }
 
     // Method on_pause()
@@ -77,10 +75,8 @@ public class MatchStateCornerKick extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -122,7 +118,5 @@ public class MatchStateCornerKick extends MatchState {
         // ''BENCH
         // Self.bench(team[HOME], team[HOME].fire2_down())
         // Self.bench(team[AWAY], team[AWAY].fire2_down())
-
     }
-
 }
