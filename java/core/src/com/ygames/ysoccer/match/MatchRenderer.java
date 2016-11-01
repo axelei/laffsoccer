@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class MatchRenderer {
 
-    GlGraphics glGraphics;
+    GLGraphics glGraphics;
     int screenWidth;
     int screenHeight;
     int zoom;
@@ -34,7 +34,7 @@ public class MatchRenderer {
     boolean displayStatistics;
     boolean displayRadar;
 
-    public MatchRenderer(GlGraphics glGraphics, MatchCore match) {
+    public MatchRenderer(GLGraphics glGraphics, MatchCore match) {
         this.glGraphics = glGraphics;
         screenWidth = Gdx.graphics.getWidth();
         screenHeight = Gdx.graphics.getHeight();

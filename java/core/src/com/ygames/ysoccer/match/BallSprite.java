@@ -1,13 +1,13 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 
 class BallSprite extends Sprite {
 
     Ball ball;
 
-    BallSprite(GlGraphics glGraphics, Ball ball) {
+    BallSprite(GLGraphics glGraphics, Ball ball) {
         super(glGraphics);
         this.ball = ball;
     }

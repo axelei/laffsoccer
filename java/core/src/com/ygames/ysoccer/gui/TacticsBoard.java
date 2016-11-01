@@ -2,7 +2,7 @@ package com.ygames.ysoccer.gui;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
@@ -54,7 +54,7 @@ public class TacticsBoard extends Widget {
     }
 
     @Override
-    public void render(GlGraphics glGraphics) {
+    public void render(GLGraphics glGraphics) {
         if (!isVisible) {
             return;
         }

@@ -1,12 +1,12 @@
 package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 
 public class Label extends Widget {
 
     @Override
-    public void render(GlGraphics glGraphics) {
+    public void render(GLGraphics glGraphics) {
         if (!isVisible) {
             return;
         }

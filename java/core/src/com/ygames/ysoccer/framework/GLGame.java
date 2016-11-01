@@ -9,7 +9,6 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GLGame extends Game {
 
@@ -20,7 +19,7 @@ public class GLGame extends Game {
     public static final int[] gameLengths = {3, 5, 7, 10};
 
     public Settings settings;
-    public GlGraphics glGraphics;
+    public GLGraphics glGraphics;
     private float deltaTime;
     public InputDeviceList inputDevices;
     public Mouse mouse;
@@ -41,7 +40,7 @@ public class GLGame extends Game {
     @Override
     public void create() {
         settings = new Settings();
-        glGraphics = new GlGraphics();
+        glGraphics = new GLGraphics();
         Assets.load(settings);
 
         inputDevices = new InputDeviceList();

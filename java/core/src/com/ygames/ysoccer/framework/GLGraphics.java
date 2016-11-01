@@ -3,13 +3,13 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class GlGraphics {
+public class GLGraphics {
 
     public SpriteBatch batch;
     public GlShapeRenderer shapeRenderer;
     public OrthographicCamera camera;
 
-    public GlGraphics() {
+    public GLGraphics() {
         batch = new SpriteBatch();
         shapeRenderer = new GlShapeRenderer();
         camera = new OrthographicCamera();

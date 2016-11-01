@@ -3,13 +3,13 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 
 class CornerFlagSprite extends Sprite {
 
     private MatchSettings matchSettings;
 
-    CornerFlagSprite(GlGraphics glGraphics, MatchSettings matchSettings, int sideX, int sideY) {
+    CornerFlagSprite(GLGraphics glGraphics, MatchSettings matchSettings, int sideX, int sideY) {
         super(glGraphics);
         this.matchSettings = matchSettings;
         x = sideX * Const.TOUCH_LINE;

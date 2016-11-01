@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Image;
 
 public class Picture extends Widget {
@@ -19,7 +19,7 @@ public class Picture extends Widget {
     }
 
     @Override
-    public void render(GlGraphics glGraphics) {
+    public void render(GLGraphics glGraphics) {
         if (!isVisible) {
             return;
         }

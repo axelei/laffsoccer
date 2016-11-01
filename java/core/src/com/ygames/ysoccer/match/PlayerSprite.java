@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 
 class PlayerSprite extends Sprite {
 
@@ -29,7 +29,7 @@ class PlayerSprite extends Sprite {
             {{15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}}    // 19
     };
 
-    PlayerSprite(GlGraphics glGraphics, Player player) {
+    PlayerSprite(GLGraphics glGraphics, Player player) {
         super(glGraphics);
         this.player = player;
     }

@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.gui;
 
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
@@ -56,7 +56,7 @@ public abstract class Widget {
     public void update() {
     }
 
-    public abstract void render(GlGraphics glGraphics);
+    public abstract void render(GLGraphics glGraphics);
 
     public void setGeometry(int x, int y, int w, int h) {
         setPosition(x, y);

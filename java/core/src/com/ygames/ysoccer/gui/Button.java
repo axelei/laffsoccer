@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ygames.ysoccer.framework.GlColor;
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.GlShapeRenderer;
 
 public class Button extends Widget {
@@ -17,7 +17,7 @@ public class Button extends Widget {
     }
 
     @Override
-    public void render(GlGraphics glGraphics) {
+    public void render(GLGraphics glGraphics) {
         if (!isVisible) {
             return;
         }
@@ -80,7 +80,7 @@ public class Button extends Widget {
         shapeRenderer.triangle(bx + bw - 1, by + bh, bx + 1, by + bh, bx + 2, by + bh - 2);
     }
 
-    private void drawAnimatedBorder(GlGraphics glGraphics) {
+    private void drawAnimatedBorder(GLGraphics glGraphics) {
         // gray level
         int gl = (int) Math.abs(((sweepSpeed * Math.abs(System.currentTimeMillis())) % 200) - 100) + 100;
 

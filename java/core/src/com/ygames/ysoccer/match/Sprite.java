@@ -1,13 +1,13 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GlGraphics;
+import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Image;
 
 import java.util.Comparator;
 
 public class Sprite {
 
-    GlGraphics glGraphics;
+    GLGraphics glGraphics;
 
     Image textureRegion;
     int x;
@@ -15,7 +15,7 @@ public class Sprite {
     int z;
     int offset;
 
-    public Sprite(GlGraphics glGraphics) {
+    public Sprite(GLGraphics glGraphics) {
         this.glGraphics = glGraphics;
     }
 
