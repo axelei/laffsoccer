@@ -1,14 +1,13 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateGoalKickStop extends MatchState {
+class MatchStateGoalKickStop extends MatchState {
 
     int xSide;
     int ySide;
 
-    public MatchStateGoalKickStop(Match match) {
+    MatchStateGoalKickStop(Match match) {
         super(match);
         id = MatchFsm.STATE_GOAL_KICK_STOP;
     }
@@ -46,7 +45,6 @@ public class MatchStateGoalKickStop extends MatchState {
 
         goalKickTeam.updateTactics(true);
         opponentTeam.updateTactics(true);
-
     }
 
     @Override
@@ -72,14 +70,11 @@ public class MatchStateGoalKickStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_NONE,
-                    ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
-
     }
 
     @Override
@@ -89,7 +84,7 @@ public class MatchStateGoalKickStop extends MatchState {
                     (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide, 0);
             match.ball.updatePrediction();
 
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK);
             return;
         }
 
@@ -114,5 +109,4 @@ public class MatchStateGoalKickStop extends MatchState {
         // Self.bench(team[AWAY], team[AWAY].fire2_down())
 
     }
-
 }
