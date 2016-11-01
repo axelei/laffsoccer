@@ -34,8 +34,8 @@
 ],
 "players": [
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "CLAUDIO BANDONI",
+		"shirtName": "BANDONI",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": "1",
@@ -45,8 +45,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "DINO PANZANATO",
+		"shirtName": "PANZANATO",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "2",
@@ -56,8 +56,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "PIERLUIGI RONZON",
+		"shirtName": "RONZON",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "3",
@@ -67,8 +67,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "MAURO GATTI",
+		"shirtName": "GATTI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "4",
@@ -78,8 +78,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "PIETRO ADORNI",
+		"shirtName": "ADORNI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "5",
@@ -89,8 +89,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ANTONIO GIRARDO",
+		"shirtName": "GIRARDO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "6",
@@ -100,8 +100,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ANTONIO JULIANO",
+		"shirtName": "JULIANO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "7",
@@ -111,8 +111,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "FLAVIO EMOLI",
+		"shirtName": "EMOLI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "8",
@@ -122,8 +122,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "VINCENZO MONTEFUSCO",
+		"shirtName": "MONTEFUSCO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "9",
@@ -133,9 +133,9 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
+		"name": "CANÉ",
+		"shirtName": "CANÉ",
+		"nationality": "BRA",
 		"role": "ATTACKER",
 		"number": "10",
 		"skinColor": "PINK",
@@ -144,8 +144,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GASTONE BEAN",
+		"shirtName": "BEAN",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": "11",
@@ -155,8 +155,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "PACIFICO CUMAN",
+		"shirtName": "CUMAN",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": "12",
@@ -166,8 +166,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "MARIO ZURLINI",
+		"shirtName": "ZURLINI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "13",
@@ -177,8 +177,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ACHILLE FRASCHINI",
+		"shirtName": "FRASCHINI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "14",
@@ -188,8 +188,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIOVANNI BOLZONI",
+		"shirtName": "BOLZONI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "15",
@@ -199,8 +199,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIOVANNI FANELLO",
+		"shirtName": "FANELLO",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": "16",
@@ -210,19 +210,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "GOALKEEPER",
-		"number": "17",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "",
-		"shirtName": "",
+		"name": "DOLO MISTONE",
+		"shirtName": "MISTONE",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "18",
@@ -232,10 +221,10 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "SALVATORE DI GAETANO",
+		"shirtName": "DI GAETANO",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
+		"role": "DEFENDER",
 		"number": "19",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
@@ -243,8 +232,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ANGELO SPANIO",
+		"shirtName": "SPANIO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "20",
@@ -254,9 +243,20 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIANNI CORELLI",
+		"shirtName": "CORELLI",
 		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "17",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "JUAN CARLOS TACCHI",
+		"shirtName": "TACCHI",
+		"nationality": "ARG",
 		"role": "ATTACKER",
 		"number": "21",
 		"skinColor": "PINK",
@@ -265,8 +265,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "CORRADO CORRADI",
+		"shirtName": "CORRADI",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": "22",

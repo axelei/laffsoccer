@@ -140,6 +140,10 @@ class MatchStateMain extends MatchState {
     @Override
     void checkConditions() {
         switch (event) {
+            case GOAL_KICK:
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK_STOP);
+                return;
+
             case THROW_IN:
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
                 return;
