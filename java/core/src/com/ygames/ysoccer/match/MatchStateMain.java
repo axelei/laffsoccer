@@ -140,6 +140,10 @@ class MatchStateMain extends MatchState {
     @Override
     void checkConditions() {
         switch (event) {
+            case KEEPER_STOP:
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KEEPER_STOP);
+                return;
+
             case CORNER:
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_STOP);
                 return;

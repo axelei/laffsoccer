@@ -201,12 +201,20 @@
 		"name": "CANÉ",
 		"shirtName": "CANÉ",
 		"nationality": "BRA",
-		"role": "ATTACKER",
+		"role": "RIGHT_WINGER",
 		"number": "10",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		}
 	},
 	{
 		"name": "GASTONE BEAN",
@@ -217,7 +225,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		}
 	},
 	{
 		"name": "PACIFICO CUMAN",
@@ -228,7 +244,8 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {},
+		"value": 22
 	},
 	{
 		"name": "MARIO ZURLINI",
