@@ -1,15 +1,14 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateKeeperStop extends MatchState {
+class MatchStateKeeperStop extends MatchState {
 
     private Player keeper;
     private Team keeperTeam;
     private Team opponentTeam;
 
-    public MatchStateKeeperStop(Match match) {
+    MatchStateKeeperStop(Match match) {
         super(match);
         id = MatchFsm.STATE_KEEPER_STOP;
     }
@@ -42,7 +41,6 @@ public class MatchStateKeeperStop extends MatchState {
 
         keeperTeam.updateTactics(true);
         opponentTeam.updateTactics(true);
-
     }
 
     @Override
@@ -76,7 +74,7 @@ public class MatchStateKeeperStop extends MatchState {
         if (match.ball.holder == null) {
             keeperTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, null);
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
             return;
         }
 
@@ -96,5 +94,4 @@ public class MatchStateKeeperStop extends MatchState {
 //		EndIf
 
     }
-
 }
