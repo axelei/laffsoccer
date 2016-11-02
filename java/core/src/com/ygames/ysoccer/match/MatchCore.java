@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -195,6 +196,44 @@ public class MatchCore {
     public void setPlayersState(int stateId, Player excluded) {
         for (int t = HOME; t <= AWAY; t++) {
             team[t].setPlayersState(stateId, excluded);
+        }
+    }
+
+    void setStatesForGoal(Goal goal) {
+        for (int t = HOME; t <= AWAY; t++) {
+            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                Player player = team[t].lineup.get(i);
+                PlayerState playerState = player.fsm.getState();
+                if (playerState.checkId(PlayerFsm.STATE_STAND_RUN) || playerState.checkId(PlayerFsm.STATE_KEEPER_POSITIONING)) {
+                    player.tx = player.x;
+                    player.ty = player.y;
+                    if ((t == goal.player.team.index) && (player == goal.player)) {
+                        player.fsm.setState(PlayerFsm.STATE_GOAL_SCORER);
+                    } else if ((t == goal.player.team.index) && (Emath.dist(player.x, player.y, goal.player.x, goal.player.y) < 150 * Assets.random.nextInt(4))) {
+                        player.fsm.setState(PlayerFsm.STATE_GOAL_MATE);
+                    } else {
+                        player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                    }
+                }
+            }
+        }
+    }
+
+    void setStatesForOwnGoal(Goal goal) {
+        for (int t = HOME; t <= AWAY; t++) {
+            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                Player player = team[t].lineup.get(i);
+                PlayerState playerState = player.fsm.getState();
+                if (playerState.checkId(PlayerFsm.STATE_STAND_RUN) || playerState.checkId(PlayerFsm.STATE_KEEPER_POSITIONING)) {
+                    player.tx = player.x;
+                    player.ty = player.y;
+                    if (player == goal.player) {
+                        player.setState(PlayerFsm.STATE_OWN_GOAL_SCORER);
+                    } else {
+                        player.setState(PlayerFsm.STATE_REACH_TARGET);
+                    }
+                }
+            }
         }
     }
 

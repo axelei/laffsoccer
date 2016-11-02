@@ -66,6 +66,7 @@ public class Assets {
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
+    public static Pixmap keeperCollisionDetection;
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -98,6 +99,7 @@ public class Assets {
         loadLightIcons();
         loadPitchIcons();
         loadWeatherIcons();
+        keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
     }
 
     private static void loadLocales() {

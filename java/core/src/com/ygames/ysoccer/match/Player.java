@@ -2,9 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
@@ -232,8 +232,7 @@ public class Player {
             int det_x = Math.round(50 * (fmx % 24) + offx);
             int det_y = Math.round(50 * (fmy % 24) + offy);
 
-            // TODO
-            int rgb = 0; //Assets.keeperCollisionDetection.getPixel(det_x, det_y) & 0xFFFFFF;
+            int rgb = Assets.keeperCollisionDetection.getPixel(det_x, det_y) >>> 8;
 
             switch (rgb) {
                 case 0xC0C000:

@@ -120,6 +120,10 @@ public class MatchRenderer {
         updateCameraX(follow, speed, 0, true);
     }
 
+    void updateCameraX(int follow, int speed, int targetX) {
+        updateCameraX(follow, speed, targetX, true);
+    }
+
     void updateCameraX(int follow, int speed, int targetX, boolean limit) {
         vcameraX[match.subframe] = actionCamera.updateX(follow, speed, targetX, limit);
     }

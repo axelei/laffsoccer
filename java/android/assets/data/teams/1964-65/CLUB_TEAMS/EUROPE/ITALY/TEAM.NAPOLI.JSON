@@ -256,18 +256,34 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
-		"name": "ACHILLE FRASCHINI",
-		"shirtName": "FRASCHINI",
+		"name": "ANGELO SPANIO",
+		"shirtName": "SPANIO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
-		"number": "14",
+		"number": "20",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "GIOVANNI BOLZONI",
@@ -314,15 +330,23 @@
 		"skills": {}
 	},
 	{
-		"name": "ANGELO SPANIO",
-		"shirtName": "SPANIO",
+		"name": "ACHILLE FRASCHINI",
+		"shirtName": "FRASCHINI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
-		"number": "20",
+		"number": "14",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "GIANNI CORELLI",
