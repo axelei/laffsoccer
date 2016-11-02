@@ -1,13 +1,12 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateGoal extends MatchState {
+class MatchStateGoal extends MatchState {
 
-    Goal goal;
+    private Goal goal;
 
-    public MatchStateGoal(Match match) {
+    MatchStateGoal(Match match) {
         super(match);
         id = MatchFsm.STATE_GOAL;
     }
@@ -50,7 +49,6 @@ public class MatchStateGoal extends MatchState {
         }
 
         match.resetAutomaticInputDevices();
-
     }
 
     @Override
@@ -83,18 +81,12 @@ public class MatchStateGoal extends MatchState {
 
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
-                match.renderer.updateCameraX(ActionCamera.CF_NONE,
-                        ActionCamera.CS_NORMAL);
-                match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                        ActionCamera.CS_NORMAL, 0, false);
+                match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+                match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL, 0, false);
             } else {
                 // follow scorer
-                match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-                        ActionCamera.CS_FAST,
-                        goal.player.data[match.subframe].x);
-                match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-                        ActionCamera.CS_FAST,
-                        goal.player.data[match.subframe].y, false);
+                match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].x);
+                match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].y, false);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -113,15 +105,14 @@ public class MatchStateGoal extends MatchState {
             match.renderer.actionCamera.offy = 0;
 
             if (match.glGame.settings.autoReplay) {
-                match.fsm.pushAction(ActionType.FADE_OUT);
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_REPLAY);
-                match.fsm.pushAction(ActionType.FADE_IN);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_REPLAY);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
                 return;
             } else {
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
                 return;
             }
         }
     }
-
 }

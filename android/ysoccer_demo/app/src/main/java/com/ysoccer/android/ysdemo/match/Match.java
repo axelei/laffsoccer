@@ -258,7 +258,7 @@ public class Match {
         }
     }
 
-    public void setStatesForOwnGoal(Goal goal) {
+    void setStatesForOwnGoal(Goal goal) {
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
