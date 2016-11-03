@@ -57,6 +57,7 @@ class MatchFsm {
     static final int STATE_KEEPER_STOP = 11;
     static final int STATE_GOAL = 12;
     static final int STATE_HALF_TIME_STOP = 13;
+    static final int STATE_HALF_TIME_POSITIONS = 14;
 
     MatchFsm(MatchCore match) {
         this.match = match;
@@ -76,6 +77,7 @@ class MatchFsm {
         states.add(new MatchStateKeeperStop(match));
         states.add(new MatchStateGoal(match));
         states.add(new MatchStateHalfTimeStop(match));
+        states.add(new MatchStateHalfTimePositions(match));
     }
 
     void think(float deltaTime) {

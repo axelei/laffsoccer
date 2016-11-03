@@ -237,6 +237,14 @@ public class MatchCore {
         }
     }
 
+    void setPlayersTarget(float tx, float ty) {
+        for (int t = HOME; t <= AWAY; t++) {
+            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                team[t].lineup.get(i).setTarget(tx, ty);
+            }
+        }
+    }
+
     void resetAutomaticInputDevices() {
         for (int t = HOME; t <= AWAY; t++) {
             team[t].assignAutomaticInputDevices(null);

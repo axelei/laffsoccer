@@ -34,8 +34,8 @@
 ],
 "players": [
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "EUGENIO BRUSCHINI",
+		"shirtName": "BRUSCHINI",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": "1",
@@ -45,8 +45,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GENNARO OLIVIERI",
+		"shirtName": "OLIVIERI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "2",
@@ -56,8 +56,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIANFRANCO BOZZAO",
+		"shirtName": "BOZZAO",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "3",
@@ -67,8 +67,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ARTURO BERTUCCIOLI",
+		"shirtName": "BERTUCCIOLI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "4",
@@ -78,8 +78,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ROBERTO RANZANI",
+		"shirtName": "RANZANI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "5",
@@ -89,8 +89,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "SERGIO FRASCOLI",
+		"shirtName": "FRASCOLI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "6",
@@ -100,8 +100,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "DANTE CRIPPA",
+		"shirtName": "CRIPPA",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "7",
@@ -111,8 +111,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "OSVALDO BAGNOLI",
+		"shirtName": "BAGNOLI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "8",
@@ -122,8 +122,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "DARIO CAVALLITO",
+		"shirtName": "CAVALLITO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "9",
@@ -133,9 +133,9 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
+		"name": "OSCAR MASSEI",
+		"shirtName": "MASSEI",
+		"nationality": "ARG",
 		"role": "ATTACKER",
 		"number": "10",
 		"skinColor": "PINK",
@@ -144,8 +144,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ENRICO MUZZIO",
+		"shirtName": "MUZZIO",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": "11",
@@ -155,8 +155,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GABRIELE CANTAGALLO",
+		"shirtName": "CANTAGALLO",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": "12",
@@ -166,8 +166,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "SERGIO CERVATO",
+		"shirtName": "CERVATO",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "13",
@@ -177,8 +177,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "MAURIZIO MORETTI",
+		"shirtName": "MORETTI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "14",
@@ -188,8 +188,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIANFRANCO DE BERNARDI",
+		"shirtName": "DE BERNARDI",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": "15",
@@ -199,8 +199,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "CARLO NOVELLI",
+		"shirtName": "NOVELLI I",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": "16",
@@ -210,8 +210,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "OSVALDO RIVA",
+		"shirtName": "RIVA",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "17",
@@ -221,8 +221,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "COSTANZO BALLERI",
+		"shirtName": "BALLERI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "18",
@@ -232,8 +232,8 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "LUIGI PASETTI",
+		"shirtName": "PASETTI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": "19",
@@ -243,10 +243,10 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "BRUNO ONORATO FOCHESATO",
+		"shirtName": "FOCHESATO",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
+		"role": "DEFENDER",
 		"number": "20",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
@@ -254,10 +254,10 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "FRANCO PEZZATO",
+		"shirtName": "PEZZATO",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
+		"role": "ATTACKER",
 		"number": "21",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
@@ -265,55 +265,11 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "FABIO CAPELLO",
+		"shirtName": "CAPELLO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": "22",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "23",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "24",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "25",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "26",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
