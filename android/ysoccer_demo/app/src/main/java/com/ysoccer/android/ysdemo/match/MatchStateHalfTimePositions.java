@@ -1,13 +1,12 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateHalfTimePositions extends MatchState {
+class MatchStateHalfTimePositions extends MatchState {
 
     boolean move;
 
-    public MatchStateHalfTimePositions(Match match) {
+    MatchStateHalfTimePositions(Match match) {
         super(match);
         id = MatchFsm.STATE_HALF_TIME_POSITIONS;
     }
@@ -36,7 +35,6 @@ public class MatchStateHalfTimePositions extends MatchState {
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
         match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
-
     }
 
     @Override
@@ -56,10 +54,8 @@ public class MatchStateHalfTimePositions extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_FAST, 0);
-            match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_FAST, 0);
+            match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
+            match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -68,7 +64,7 @@ public class MatchStateHalfTimePositions extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_WAIT);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_WAIT);
             return;
         }
 
@@ -86,7 +82,5 @@ public class MatchStateHalfTimePositions extends MatchState {
 //			Self.pause()
 //			Return
 //		EndIf
-
     }
-
 }
