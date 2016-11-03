@@ -286,11 +286,11 @@
 		}
 	},
 	{
-		"name": "GIOVANNI BOLZONI",
-		"shirtName": "BOLZONI",
+		"name": "GIANNI CORELLI",
+		"shirtName": "CORELLI",
 		"nationality": "ITA",
 		"role": "RIGHT_WINGER",
-		"number": "15",
+		"number": "17",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -351,7 +351,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 3,
+			"control": 2,
+			"speed": 2,
+			"finishing": 1
+		}
 	},
 	{
 		"name": "ACHILLE FRASCHINI",
@@ -373,15 +381,23 @@
 		}
 	},
 	{
-		"name": "GIANNI CORELLI",
-		"shirtName": "CORELLI",
+		"name": "GIOVANNI BOLZONI",
+		"shirtName": "BOLZONI",
 		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "17",
+		"role": "RIGHT_WINGER",
+		"number": "15",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 1,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		}
 	},
 	{
 		"name": "JUAN CARLOS TACCHI",
@@ -392,7 +408,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 2,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "CORRADO CORRADI",
@@ -403,7 +427,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 1,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 1,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		}
 	}
 ]
 }

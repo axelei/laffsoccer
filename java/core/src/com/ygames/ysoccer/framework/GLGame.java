@@ -3,6 +3,8 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
@@ -55,6 +57,13 @@ public class GLGame extends Game {
         keyboard = new Keyboard(1);
         keyboard.setKeys(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.CONTROL_LEFT, Input.Keys.SHIFT_LEFT);
         inputDevices.add(keyboard);
+
+        // Joysticks
+        int port = 0;
+        for (Controller controller : Controllers.getControllers()) {
+            inputDevices.add(new Joystick(controller, port));
+            port++;
+        }
 
         Gdx.graphics.setCursor(Assets.customCursor);
         mouse = new Mouse();
