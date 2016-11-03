@@ -307,4 +307,16 @@ public class MatchCore {
 
         //TODO buildScorerLists();
     }
+
+    boolean periodIsTerminable() {
+        // ball near the penalty area
+        if ((Math.abs(ball.zoneX) <= 1) && (Math.abs(ball.zoneY) == 3)) {
+            return false;
+        }
+        // ball going toward the goals
+        if (Math.abs(ball.y) > Math.abs(ball.y0)) {
+            return false;
+        }
+        return true;
+    }
 }

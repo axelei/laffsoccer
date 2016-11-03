@@ -160,5 +160,18 @@ class MatchStateMain extends MatchState {
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
                 return;
         }
+
+        switch (match.period) {
+
+            case UNDEFINED:
+                break;
+
+            case FIRST_HALF:
+                if ((match.clock > (match.length * 45 / 90)) && match.periodIsTerminable()) {
+                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_STOP);
+                    return;
+                }
+                break;
+        }
     }
 }
