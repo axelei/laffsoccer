@@ -32,6 +32,9 @@ class MatchOptions extends GlScreen {
         w = new AutoReplaysLabel();
         widgets.add(w);
 
+        w = new AutoReplaysButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -97,6 +100,35 @@ class MatchOptions extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 280, 440, 36);
             setText(Assets.strings.get("AUTO REPLAYS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class AutoReplaysButton extends Button {
+
+        AutoReplaysButton() {
+            setColors(0x2B4A61);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 280, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(game.settings.autoReplays ? "AUTO REPLAYS.ON" : "AUTO REPLAYS.OFF"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleAutoReplays();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleAutoReplays();
+        }
+
+        private void toggleAutoReplays() {
+            game.settings.autoReplays = !game.settings.autoReplays;
+            setChanged(true);
         }
     }
 

@@ -15,6 +15,7 @@ public class Settings {
     public double maxPlayerValue;
     public String currency;
     public int weatherMaxStrength;
+    public boolean autoReplays;
 
     private Preferences preferences;
 
@@ -27,6 +28,7 @@ public class Settings {
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
         weatherMaxStrength = preferences.getInteger("weatherMaxStrength", Weather.Strength.LIGHT);
+        autoReplays = preferences.getBoolean("autoReplays", true);
     }
 
     public void save() {
@@ -39,6 +41,7 @@ public class Settings {
         preferences.putInteger("maxPlayerValueE", e);
         preferences.putString("currency", currency);
         preferences.putInteger("weatherMaxStrength", weatherMaxStrength);
+        preferences.putBoolean("autoReplays", autoReplays);
         preferences.flush();
     }
 }
