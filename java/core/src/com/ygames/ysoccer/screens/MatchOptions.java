@@ -29,6 +29,9 @@ class MatchOptions extends GlScreen {
 
         selectedWidget = w;
 
+        w = new AutoReplaysLabel();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -87,7 +90,17 @@ class MatchOptions extends GlScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class AutoReplaysLabel extends Button {
+
+        AutoReplaysLabel() {
+            setColors(0x76683C);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 280, 440, 36);
+            setText(Assets.strings.get("AUTO REPLAYS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class ExitButton extends Button {
 
         ExitButton() {
             setColors(0xC84200);
