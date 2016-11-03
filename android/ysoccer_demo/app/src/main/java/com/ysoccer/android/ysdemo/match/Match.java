@@ -355,7 +355,7 @@ public class Match {
         //TODO buildScorerLists();
     }
 
-    public boolean periodIsTerminable() {
+    boolean periodIsTerminable() {
         // ball near the penalty area
         if ((Math.abs(ball.zoneX) <= 1) && (Math.abs(ball.zoneY) == 3)) {
             return false;

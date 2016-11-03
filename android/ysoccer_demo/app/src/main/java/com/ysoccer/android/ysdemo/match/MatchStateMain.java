@@ -168,8 +168,7 @@ class MatchStateMain extends MatchState {
                 break;
 
             case FIRST_HALF:
-                if ((match.clock > (match.length * 45 / 90))
-                        && match.periodIsTerminable()) {
+                if ((match.clock > (match.length * 45 / 90)) && match.periodIsTerminable()) {
                     match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_STOP);
                     return;
                 }
