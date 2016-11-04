@@ -327,4 +327,9 @@ public class MatchCore {
         }
         return true;
     }
+
+    void swapTeamSides() {
+        team[HOME].side = -team[HOME].side;
+        team[AWAY].side = -team[AWAY].side;
+    }
 }

@@ -60,4 +60,12 @@ class MatchStateHalfTimePositions extends MatchState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
+
+    @Override
+    void checkConditions() {
+        if (!move) {
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_WAIT);
+            return;
+        }
+    }
 }

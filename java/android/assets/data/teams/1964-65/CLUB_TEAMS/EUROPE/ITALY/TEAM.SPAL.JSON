@@ -42,25 +42,34 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "GENNARO OLIVIERI",
-		"shirtName": "OLIVIERI",
-		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "2",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {},
+		"value": 26
 	},
 	{
 		"name": "GIANFRANCO BOZZAO",
 		"shirtName": "BOZZAO",
 		"nationality": "ITA",
-		"role": "DEFENDER",
+		"role": "LEFT_BACK",
 		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 3,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "ROBERTO RANZANI",
+		"shirtName": "RANZANI",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "5",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -78,15 +87,23 @@
 		"skills": {}
 	},
 	{
-		"name": "ROBERTO RANZANI",
-		"shirtName": "RANZANI",
+		"name": "GENNARO OLIVIERI",
+		"shirtName": "OLIVIERI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "5",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "SERGIO FRASCOLI",
