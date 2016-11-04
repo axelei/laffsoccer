@@ -1,11 +1,10 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateHalfTimeWait extends MatchState {
+class MatchStateHalfTimeWait extends MatchState {
 
-    public MatchStateHalfTimeWait(Match match) {
+    MatchStateHalfTimeWait(Match match) {
         super(match);
         id = MatchFsm.STATE_HALF_TIME_WAIT;
     }
@@ -26,7 +25,6 @@ public class MatchStateHalfTimeWait extends MatchState {
         match.swapTeamSides();
 
         match.kickOffTeam = 1 - match.coinToss;
-
     }
 
     @Override
@@ -40,10 +38,8 @@ public class MatchStateHalfTimeWait extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_NORMAL, 0);
-            match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_NORMAL, 0);
+            match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
+            match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -55,7 +51,7 @@ public class MatchStateHalfTimeWait extends MatchState {
                 || match.team[Match.AWAY].fire1Down() != null
                 || (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
             match.period = Match.Period.SECOND_HALF;
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_ENTER);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_ENTER);
             return;
         }
 
@@ -68,7 +64,5 @@ public class MatchStateHalfTimeWait extends MatchState {
         // Self.pause()
         // Return
         // EndIf
-
     }
-
 }
