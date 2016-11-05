@@ -256,7 +256,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		}
 	},
 	{
 		"name": "MAURIZIO MORETTI",
@@ -300,7 +308,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 5,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "COSTANZO BALLERI",
@@ -311,7 +327,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "LUIGI PASETTI",

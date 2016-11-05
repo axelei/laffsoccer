@@ -104,6 +104,11 @@ public class Main extends GlScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 360, 350, 36);
             setText(Assets.strings.get("CONTROL"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ControlsSetup(game));
+        }
     }
 
     private class EditTacticsButton extends Button {
