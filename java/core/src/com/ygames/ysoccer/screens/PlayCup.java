@@ -4,7 +4,7 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -15,7 +15,7 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PlayCup extends GlScreen {
+public class PlayCup extends GLScreen {
 
     Cup cup;
     int matches;

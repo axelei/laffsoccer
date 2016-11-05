@@ -7,7 +7,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GlColor3;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
@@ -21,7 +21,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.Collections;
 
-class EditPlayers extends GlScreen {
+class EditPlayers extends GLScreen {
 
     private FileHandle fileHandle;
     League league;

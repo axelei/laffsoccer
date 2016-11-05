@@ -4,7 +4,7 @@ import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -14,7 +14,7 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PlayLeague extends GlScreen {
+public class PlayLeague extends GLScreen {
 
     private String[] headers = {
             "TABLE HEADER.PLAYED MATCHES",

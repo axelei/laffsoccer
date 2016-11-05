@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class TopScorers extends GlScreen {
+public class TopScorers extends GLScreen {
 
     public TopScorers(GLGame game) {
         super(game);

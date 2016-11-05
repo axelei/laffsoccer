@@ -3,12 +3,12 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
-class ControlsSetup extends GlScreen {
+class ControlsSetup extends GLScreen {
 
     ControlsSetup(GLGame game) {
         super(game);

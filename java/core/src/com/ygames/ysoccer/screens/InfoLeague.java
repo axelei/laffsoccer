@@ -4,13 +4,13 @@ import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 
-public class InfoLeague extends GlScreen {
+public class InfoLeague extends GLScreen {
 
     League league;
 

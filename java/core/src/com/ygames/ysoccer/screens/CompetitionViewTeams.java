@@ -3,7 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
@@ -11,7 +11,7 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompetitionViewTeams extends GlScreen {
+public class CompetitionViewTeams extends GLScreen {
 
     public CompetitionViewTeams(GLGame game) {
         super(game);

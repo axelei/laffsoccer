@@ -11,14 +11,14 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class GlScreen implements Screen {
+public abstract class GLScreen implements Screen {
 
     protected GLGame game;
     protected Image background;
     protected List<Widget> widgets;
     protected Widget selectedWidget;
 
-    public GlScreen(GLGame game) {
+    public GLScreen(GLGame game) {
         this.game = game;
         widgets = new ArrayList<Widget>();
     }

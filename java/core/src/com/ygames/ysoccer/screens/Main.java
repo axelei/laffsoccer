@@ -4,13 +4,13 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 
-public class Main extends GlScreen {
+public class Main extends GLScreen {
 
     public Main(GLGame game) {
         super(game);

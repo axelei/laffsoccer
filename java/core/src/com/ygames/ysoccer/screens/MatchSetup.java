@@ -6,7 +6,7 @@ import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
@@ -19,7 +19,7 @@ import com.ygames.ysoccer.match.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-class MatchSetup extends GlScreen {
+class MatchSetup extends GLScreen {
 
     private FileHandle fileHandle;
     private League league;

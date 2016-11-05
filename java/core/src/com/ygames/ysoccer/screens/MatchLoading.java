@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchCore;
 import com.ygames.ysoccer.match.MatchRenderer;
@@ -12,7 +12,7 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
-class MatchLoading extends GlScreen {
+class MatchLoading extends GLScreen {
 
     MatchCore matchCore;
 

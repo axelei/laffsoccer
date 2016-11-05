@@ -1,10 +1,10 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlScreen;
+import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.MatchCore;
 
-class MatchScreen extends GlScreen {
+class MatchScreen extends GLScreen {
 
     MatchCore match;
     boolean matchStarted;
