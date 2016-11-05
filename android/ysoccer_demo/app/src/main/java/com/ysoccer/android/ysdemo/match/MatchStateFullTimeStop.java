@@ -1,11 +1,10 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateFullTimeStop extends MatchState {
+class MatchStateFullTimeStop extends MatchState {
 
-    public MatchStateFullTimeStop(Match match) {
+    MatchStateFullTimeStop(Match match) {
         super(match);
         id = MatchFsm.STATE_FULL_TIME_STOP;
     }
@@ -29,7 +28,6 @@ public class MatchStateFullTimeStop extends MatchState {
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(PlayerFsm.STATE_IDLE, null);
-
     }
 
     @Override
@@ -52,10 +50,8 @@ public class MatchStateFullTimeStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -65,7 +61,7 @@ public class MatchStateFullTimeStop extends MatchState {
     void checkConditions() {
 
         if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END_POSITIONS);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END_POSITIONS);
             return;
         }
 
@@ -83,7 +79,5 @@ public class MatchStateFullTimeStop extends MatchState {
         // Self.pause()
         // Return
         // EndIf
-
     }
-
 }
