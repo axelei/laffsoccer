@@ -8,7 +8,7 @@
 	"name": "GIOVAN BATTISTA FABBRI",
 	"nationality": "ITA"
 },
-"tactics": "4-4-2",
+"tactics": "SWEEP",
 "kits": [
 	{
 		"style": "VERTICAL",
@@ -73,7 +73,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "ARTURO BERTUCCIOLI",
@@ -84,7 +92,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "GENNARO OLIVIERI",
@@ -114,7 +130,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "DANTE CRIPPA",

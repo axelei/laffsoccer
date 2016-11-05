@@ -59,6 +59,7 @@ class MatchFsm {
     static final int STATE_HALF_TIME_STOP = 13;
     static final int STATE_HALF_TIME_POSITIONS = 14;
     static final int STATE_HALF_TIME_WAIT = 15;
+    static final int STATE_HALF_TIME_ENTER = 16;
 
     MatchFsm(MatchCore match) {
         this.match = match;
@@ -80,6 +81,7 @@ class MatchFsm {
         states.add(new MatchStateHalfTimeStop(match));
         states.add(new MatchStateHalfTimePositions(match));
         states.add(new MatchStateHalfTimeWait(match));
+        states.add(new MatchStateHalfTimeEnter(match));
     }
 
     void think(float deltaTime) {
