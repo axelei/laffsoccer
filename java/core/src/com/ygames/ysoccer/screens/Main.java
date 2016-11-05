@@ -102,7 +102,7 @@ public class Main extends GLScreen {
         ControlButton() {
             setColors(0xA905A3, 0xE808E0, 0x5A0259);
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 360, 350, 36);
-            setText(Assets.strings.get("CONTROL"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("CONTROLS"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
