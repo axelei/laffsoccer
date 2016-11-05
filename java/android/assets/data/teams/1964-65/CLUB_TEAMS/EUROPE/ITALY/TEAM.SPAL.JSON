@@ -267,37 +267,23 @@
 		}
 	},
 	{
-		"name": "MAURIZIO MORETTI",
-		"shirtName": "MORETTI",
+		"name": "COSTANZO BALLERI",
+		"shirtName": "BALLERI",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "14",
+		"role": "DEFENDER",
+		"number": "18",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "GIANFRANCO DE BERNARDI",
-		"shirtName": "DE BERNARDI",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "15",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "CARLO NOVELLI",
-		"shirtName": "NOVELLI I",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "16",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "OSVALDO RIVA",
@@ -319,34 +305,72 @@
 		}
 	},
 	{
-		"name": "COSTANZO BALLERI",
-		"shirtName": "BALLERI",
+		"name": "CARLO NOVELLI",
+		"shirtName": "NOVELLI I",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "MAURIZIO MORETTI",
+		"shirtName": "MORETTI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
-		"number": "18",
+		"number": "14",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 3,
-			"heading": 4,
-			"tackling": 4,
+			"passing": 2,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 3,
 			"control": 2,
 			"speed": 3,
-			"finishing": 2
+			"finishing": 1
 		}
 	},
 	{
 		"name": "LUIGI PASETTI",
 		"shirtName": "PASETTI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
+		"role": "RIGHT_BACK",
 		"number": "19",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		}
+	},
+	{
+		"name": "GIANFRANCO DE BERNARDI",
+		"shirtName": "DE BERNARDI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "BRUNO ONORATO FOCHESATO",
