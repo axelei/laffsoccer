@@ -172,6 +172,14 @@ class MatchStateMain extends MatchState {
                     return;
                 }
                 break;
+
+            case SECOND_HALF:
+                if ((match.clock > match.length) && match.periodIsTerminable()) {
+                    // TODO: implement logic by competition type
+                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
+                    return;
+                }
+                break;
         }
     }
 }

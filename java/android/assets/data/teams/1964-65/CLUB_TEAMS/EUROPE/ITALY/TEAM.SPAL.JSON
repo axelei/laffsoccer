@@ -149,7 +149,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "OSVALDO BAGNOLI",
@@ -160,18 +168,34 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		}
 	},
 	{
 		"name": "DARIO CAVALLITO",
 		"shirtName": "CAVALLITO",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
+		"role": "RIGHT_WINGER",
 		"number": "9",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		}
 	},
 	{
 		"name": "OSCAR MASSEI",
