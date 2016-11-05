@@ -57,4 +57,12 @@ class MatchStateFullTimeStop extends MatchState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
+
+    @Override
+    void checkConditions() {
+        if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END_POSITIONS);
+            return;
+        }
+    }
 }

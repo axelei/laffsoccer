@@ -8,7 +8,7 @@
 	"name": "GIOVAN BATTISTA FABBRI",
 	"nationality": "ITA"
 },
-"tactics": "SWEEP",
+"tactics": "4-5-1",
 "kits": [
 	{
 		"style": "VERTICAL",
@@ -201,12 +201,20 @@
 		"name": "OSCAR MASSEI",
 		"shirtName": "MASSEI",
 		"nationality": "ARG",
-		"role": "ATTACKER",
+		"role": "MIDFIELDER",
 		"number": "10",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 6,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 6,
+			"speed": 4,
+			"finishing": 3
+		}
 	},
 	{
 		"name": "ENRICO MUZZIO",
@@ -217,7 +225,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		}
 	},
 	{
 		"name": "GABRIELE CANTAGALLO",
@@ -228,7 +244,8 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {},
+		"value": 20
 	},
 	{
 		"name": "SERGIO CERVATO",
