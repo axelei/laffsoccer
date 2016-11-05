@@ -75,6 +75,9 @@ public class MatchRenderer {
 
         renderSprites(match.subframe);
 
+        // redraw bottom goal
+        glGraphics.batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
+
         glGraphics.batch.end();
     }
 

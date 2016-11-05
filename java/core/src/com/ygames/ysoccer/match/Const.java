@@ -69,6 +69,10 @@ public class Const {
     static final int PENALTY_AREA_H = 174;
     static final int PENALTY_SPOT_Y = 524;
 
+    // goals
+    static final int GOAL_BTM_X = -72;
+    static final int GOAL_BTM_Y = 604;
+
     // benches
     static final int BENCH_X = -544;
     static final int BENCH_Y_UP = -198;

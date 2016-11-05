@@ -64,6 +64,7 @@ public class Assets {
     public static TextureRegion[] ball = new TextureRegion[5];
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
+    public static Texture goalBottom;
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
     public static Pixmap keeperCollisionDetection;
@@ -100,6 +101,7 @@ public class Assets {
         loadPitchIcons();
         loadWeatherIcons();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
+        goalBottom = new Texture("images/stadium/goal_bottom.png");
     }
 
     private static void loadLocales() {
