@@ -3,11 +3,11 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateHalfTimeEnter extends MatchState {
+class MatchStateHalfTimeEnter extends MatchState {
 
-    int enteringCounter;
+    private int enteringCounter;
 
-    public MatchStateHalfTimeEnter(Match match) {
+    MatchStateHalfTimeEnter(Match match) {
         super(match);
         id = MatchFsm.STATE_HALF_TIME_ENTER;
     }
@@ -26,7 +26,6 @@ public class MatchStateHalfTimeEnter extends MatchState {
         match.renderer.displayRadar = true;
 
         match.setStartingPositions();
-
     }
 
     @Override
@@ -38,8 +37,7 @@ public class MatchStateHalfTimeEnter extends MatchState {
 
             if (match.subframe % GLGame.SUBFRAMES == 0) {
                 match.updateAi();
-                if ((enteringCounter % 4) == 0
-                        && enteringCounter / 4 < Const.TEAM_SIZE) {
+                if ((enteringCounter % 4) == 0 && enteringCounter / 4 < Const.TEAM_SIZE) {
                     for (int t = Match.HOME; t <= Match.AWAY; t++) {
                         int i = enteringCounter / 4;
                         Player player = match.team[t].lineup.get(i);
@@ -55,10 +53,8 @@ public class MatchStateHalfTimeEnter extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL,
-                    ActionCamera.CS_FAST);
+            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -86,7 +82,5 @@ public class MatchStateHalfTimeEnter extends MatchState {
         // Self.pause()
         // Return
         // EndIf
-
     }
-
 }
