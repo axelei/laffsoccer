@@ -1,7 +1,6 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateStartingPositions extends MatchState {
 
@@ -52,7 +51,7 @@ class MatchStateStartingPositions extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_KICK_OFF);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KICK_OFF);
         }
 
         //TODO

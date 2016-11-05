@@ -1,13 +1,12 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateEndPositions extends MatchState {
+class MatchStateEndPositions extends MatchState {
 
     boolean move;
 
-    public MatchStateEndPositions(Match match) {
+    MatchStateEndPositions(Match match) {
         super(match);
         id = MatchFsm.STATE_END_POSITIONS;
     }
@@ -35,7 +34,6 @@ public class MatchStateEndPositions extends MatchState {
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
         match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
-
     }
 
     @Override
@@ -55,10 +53,8 @@ public class MatchStateEndPositions extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_FAST, 0);
-            match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_FAST, 0);
+            match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
+            match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -69,15 +65,14 @@ public class MatchStateEndPositions extends MatchState {
         if (!move) {
             if (match.recorder.hasHighlights()) {
                 match.recorder.restart();
-                match.fsm.pushAction(ActionType.FADE_OUT);
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-                match.fsm.pushAction(ActionType.FADE_IN);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
                 return;
             } else {
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
                 return;
             }
         }
     }
-
 }
