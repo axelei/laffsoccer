@@ -7,16 +7,18 @@ import static java.lang.Math.round;
 class Joystick extends InputDevice {
 
     private Controller controller;
+    private JoystickConfig config;
 
-    Joystick(Controller controller, int port) {
+    Joystick(Controller controller, JoystickConfig config, int port) {
         super(Type.JOYSTICK, port);
         this.controller = controller;
+        this.config = config;
     }
 
     protected void read() {
-        x0 = round(this.controller.getAxis(0));
-        y0 = round(this.controller.getAxis(1));
-        fire10 = this.controller.getButton(0);
-        fire20 = this.controller.getButton(1);
+        x0 = round(this.controller.getAxis(config.xAxis));
+        y0 = round(this.controller.getAxis(config.yAxis));
+        fire10 = this.controller.getButton(config.button1);
+        fire20 = this.controller.getButton(config.button2);
     }
 }

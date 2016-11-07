@@ -290,9 +290,14 @@ public class GameOptions extends GLScreen {
     private class QuitToOsButton extends Button {
 
         QuitToOsButton() {
-            setColors(0x008080);//, $00B2B4, $004040)
+            setColors(0x008080);
             setGeometry((game.settings.GUI_WIDTH - 300) / 2, 590, 300, 36);
-            setText(Assets.strings.get("QUIT TO OS"), Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("QUIT TO OS"));
         }
 
         @Override

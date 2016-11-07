@@ -335,4 +335,10 @@ public abstract class GLScreen implements Screen {
             background.dispose();
         }
     }
+
+    protected void updateAllWidgets() {
+        for (Widget widget : widgets) {
+            widget.setChanged(true);
+        }
+    }
 }
