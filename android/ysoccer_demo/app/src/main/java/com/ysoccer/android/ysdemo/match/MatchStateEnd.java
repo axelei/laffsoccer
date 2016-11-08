@@ -2,9 +2,9 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
 
-public class MatchStateEnd extends MatchState {
+class MatchStateEnd extends MatchState {
 
-    public MatchStateEnd(Match match) {
+    MatchStateEnd(Match match) {
         super(match);
         id = MatchFsm.STATE_END;
     }
@@ -23,7 +23,6 @@ public class MatchStateEnd extends MatchState {
         match.renderer.displayRadar = false;
 
         match.period = Match.Period.UNDEFINED;
-
     }
 
     @Override
@@ -37,10 +36,8 @@ public class MatchStateEnd extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_NORMAL, 0);
-            match.renderer.updateCameraY(ActionCamera.CF_TARGET,
-                    ActionCamera.CS_NORMAL, 0);
+            match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
+            match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -53,5 +50,4 @@ public class MatchStateEnd extends MatchState {
             match.quit();
         }
     }
-
 }

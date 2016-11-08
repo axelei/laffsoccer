@@ -56,19 +56,19 @@ abstract public class InputDevice {
     abstract void _read();
 
     public boolean fire1Down() {
-        return (fire10 == true) && (fire11 == false);
+        return (fire10) && (!fire11);
     }
 
     public boolean fire1Up() {
-        return (fire10 == false) && (fire11 == true);
+        return (!fire10) && (fire11);
     }
 
     public boolean fire2Down() {
-        return (fire20 == true) && (fire21 == false);
+        return (fire20) && (!fire21);
     }
 
     public boolean fire2Up() {
-        return (fire20 == false) && (fire21 == true);
+        return (!fire20) && (fire21);
     }
 
     protected void setType(int type) {
