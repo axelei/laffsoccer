@@ -2,8 +2,8 @@
 "name": "ITALY",
 "type": "NATIONAL",
 "country": "ITA",
-"city": "",
-"stadium": "",
+"city": "ROMA",
+"stadium": "OLIMPICO",
 "coach": {
 	"name": "EDMONDO FABBRI",
 	"nationality": "ITA"
@@ -47,21 +47,21 @@
 		"value": 39
 	},
 	{
-		"name": "ARISTIDE GUARNERI",
-		"shirtName": "GUARNERI",
+		"name": "TARCISIO BURGNICH",
+		"shirtName": "BURGNICH",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "6",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
-			"shooting": 4,
-			"heading": 7,
-			"tackling": 5,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 7,
 			"control": 5,
-			"speed": 5,
+			"speed": 7,
 			"finishing": 3
 		}
 	},
@@ -104,21 +104,21 @@
 		}
 	},
 	{
-		"name": "TARCISIO BURGNICH",
-		"shirtName": "BURGNICH",
+		"name": "ARISTIDE GUARNERI",
+		"shirtName": "GUARNERI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "2",
+		"role": "LEFT_BACK",
+		"number": "6",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
-			"shooting": 3,
-			"heading": 6,
-			"tackling": 7,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 5,
 			"control": 5,
-			"speed": 7,
+			"speed": 5,
 			"finishing": 3
 		}
 	},
