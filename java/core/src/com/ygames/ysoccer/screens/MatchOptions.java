@@ -32,6 +32,9 @@ class MatchOptions extends GLScreen {
         w = new RadarLabel();
         widgets.add(w);
 
+        w = new RadarButton();
+        widgets.add(w);
+
         w = new AutoReplaysLabel();
         widgets.add(w);
 
@@ -103,6 +106,35 @@ class MatchOptions extends GLScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 235, 440, 36);
             setText(Assets.strings.get("RADAR"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class RadarButton extends Button {
+
+        RadarButton() {
+            setColors(0x2B4A61);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 235, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(game.settings.radar ? "RADAR.ON" : "RADAR.OFF"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleRadar();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleRadar();
+        }
+
+        private void toggleRadar() {
+            game.settings.radar = !game.settings.radar;
+            setChanged(true);
         }
     }
 

@@ -24,6 +24,7 @@ public class Settings {
     public double maxPlayerValue;
     public String currency;
     public int weatherMaxStrength;
+    public boolean radar;
     public boolean autoReplays;
     private String keyboardConfigs;
     private String joystickConfigs;
@@ -42,6 +43,7 @@ public class Settings {
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
         weatherMaxStrength = preferences.getInteger("weatherMaxStrength", Weather.Strength.LIGHT);
+        radar = preferences.getBoolean("radar", true);
         autoReplays = preferences.getBoolean("autoReplays", true);
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
         joystickConfigs = preferences.getString("joystickConfigs", "[]");
@@ -57,6 +59,7 @@ public class Settings {
         preferences.putInteger("maxPlayerValueE", e);
         preferences.putString("currency", currency);
         preferences.putInteger("weatherMaxStrength", weatherMaxStrength);
+        preferences.putBoolean("radar", radar);
         preferences.putBoolean("autoReplays", autoReplays);
         preferences.putString("keyboardConfigs", keyboardConfigs);
         preferences.putString("joystickConfigs", joystickConfigs);

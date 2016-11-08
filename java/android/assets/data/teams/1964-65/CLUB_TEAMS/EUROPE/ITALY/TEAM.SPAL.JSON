@@ -308,12 +308,20 @@
 		"name": "CARLO NOVELLI",
 		"shirtName": "NOVELLI I",
 		"nationality": "ITA",
-		"role": "ATTACKER",
+		"role": "LEFT_WINGER",
 		"number": "16",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		}
 	},
 	{
 		"name": "MAURIZIO MORETTI",
@@ -379,20 +387,17 @@
 		"role": "DEFENDER",
 		"number": "20",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
-	},
-	{
-		"name": "FRANCO PEZZATO",
-		"shirtName": "PEZZATO",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "21",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 3,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		}
 	},
 	{
 		"name": "FABIO CAPELLO",
@@ -403,7 +408,34 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 2,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "FRANCO PEZZATO",
+		"shirtName": "PEZZATO",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "21",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 1,
+			"tackling": 1,
+			"control": 2,
+			"speed": 3,
+			"finishing": 3
+		}
 	}
 ]
 }
