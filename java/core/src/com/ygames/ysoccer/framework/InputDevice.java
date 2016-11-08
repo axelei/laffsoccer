@@ -55,4 +55,8 @@ public abstract class InputDevice {
     public boolean fire1Down() {
         return fire10 && !fire11;
     }
+
+    public boolean fire1Up() {
+        return !fire10 && fire11;
+    }
 }

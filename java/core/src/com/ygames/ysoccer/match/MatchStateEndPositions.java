@@ -59,4 +59,21 @@ class MatchStateEndPositions extends MatchState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
     }
+
+    @Override
+    void checkConditions() {
+        if (!move) {
+            // TODO
+//            if (match.recorder.hasHighlights()) {
+//                match.recorder.restart();
+//                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+//                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+//                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+//                return;
+//            } else {
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                return;
+//            }
+        }
+    }
 }

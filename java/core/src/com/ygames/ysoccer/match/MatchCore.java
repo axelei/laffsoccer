@@ -1,8 +1,11 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.screens.PlayCup;
+import com.ygames.ysoccer.screens.PlayLeague;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ public class MatchCore {
 
     public MatchRenderer renderer;
     public MatchSettings settings;
+    private Competition competition;
 
     enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
 
@@ -40,10 +44,11 @@ public class MatchCore {
     boolean chantSwitch;
     float nextChant;
 
-    public MatchCore(GLGame game, Team[] team, MatchSettings matchSettings) {
+    public MatchCore(GLGame game, Team[] team, MatchSettings matchSettings, Competition competition) {
         this.game = game;
         this.team = team;
         this.settings = matchSettings;
+        this.competition = competition;
 
         fsm = new MatchFsm(this);
 

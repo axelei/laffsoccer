@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -16,14 +17,14 @@ class MatchLoading extends GLScreen {
 
     MatchCore matchCore;
 
-    MatchLoading(GLGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings) {
+    MatchLoading(GLGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings, Competition competition) {
         super(game);
 
         matchSettings.setup();
 
         Team[] team = {homeTeam, awayTeam};
 
-        matchCore = new MatchCore(game, team, matchSettings);
+        matchCore = new MatchCore(game, team, matchSettings, competition);
         matchCore.renderer = new MatchRenderer(game.glGraphics, matchCore);
 
         Gdx.graphics.setCursor(Assets.hiddenCursor);

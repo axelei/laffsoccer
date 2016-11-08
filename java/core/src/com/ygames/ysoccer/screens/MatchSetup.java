@@ -349,7 +349,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings));
+            game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings, competition));
         }
     }
 

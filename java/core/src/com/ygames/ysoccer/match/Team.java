@@ -381,10 +381,23 @@ public class Team {
                 return inputDevice;
             }
         } else {
-            int len = lineup.size();
-            for (int i = 0; i < len; i++) {
-                Player player = lineup.get(i);
+            for (Player player : lineup) {
                 if ((player.inputDevice != player.ai) && player.inputDevice.fire1Down()) {
+                    return player.inputDevice;
+                }
+            }
+        }
+        return null;
+    }
+
+    InputDevice fire1Up() {
+        if (usesAutomaticInputDevice()) {
+            if (inputDevice.fire1Up()) {
+                return inputDevice;
+            }
+        } else {
+            for (Player player : lineup) {
+                if ((player.inputDevice != player.ai) && player.inputDevice.fire1Up()) {
                     return player.inputDevice;
                 }
             }
