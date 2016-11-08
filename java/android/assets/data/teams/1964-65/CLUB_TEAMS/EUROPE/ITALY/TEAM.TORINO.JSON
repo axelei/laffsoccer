@@ -46,22 +46,22 @@
 		"value": 37
 	},
 	{
-		"name": "LUCIANO BUZZACCHERA",
-		"shirtName": "BUZZACCHERA",
+		"name": "FABRIZIO POLETTI",
+		"shirtName": "POLETTI",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "3",
+		"role": "DEFENDER",
+		"number": "2",
 		"skinColor": "PINK",
-		"hairColor": "BROWN",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
 			"shooting": 4,
 			"heading": 6,
-			"tackling": 5,
-			"control": 5,
-			"speed": 6,
-			"finishing": 3
+			"tackling": 7,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
 		}
 	},
 	{
@@ -103,22 +103,22 @@
 		}
 	},
 	{
-		"name": "FABRIZIO POLETTI",
-		"shirtName": "POLETTI",
+		"name": "LUCIANO BUZZACCHERA",
+		"shirtName": "BUZZACCHERA",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "2",
+		"role": "LEFT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
 			"shooting": 4,
 			"heading": 6,
-			"tackling": 7,
-			"control": 4,
-			"speed": 5,
-			"finishing": 4
+			"tackling": 5,
+			"control": 5,
+			"speed": 6,
+			"finishing": 3
 		}
 	},
 	{
@@ -160,22 +160,22 @@
 		}
 	},
 	{
-		"name": "LUIGI MERONI",
-		"shirtName": "MERONI",
+		"name": "LUIGI SIMONI",
+		"shirtName": "SIMONI",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "10",
+		"role": "LEFT_WINGER",
+		"number": "7",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_P",
+		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 7,
-			"shooting": 7,
+			"passing": 6,
+			"shooting": 6,
 			"heading": 5,
 			"tackling": 5,
-			"control": 7,
-			"speed": 7,
-			"finishing": 7
+			"control": 6,
+			"speed": 6,
+			"finishing": 6
 		}
 	},
 	{
@@ -198,22 +198,22 @@
 		}
 	},
 	{
-		"name": "LUIGI SIMONI",
-		"shirtName": "SIMONI",
+		"name": "LUIGI MERONI",
+		"shirtName": "MERONI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "7",
+		"role": "RIGHT_WINGER",
+		"number": "10",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_P",
 		"skills": {
-			"passing": 6,
-			"shooting": 6,
+			"passing": 7,
+			"shooting": 7,
 			"heading": 5,
 			"tackling": 5,
-			"control": 6,
-			"speed": 6,
-			"finishing": 6
+			"control": 7,
+			"speed": 7,
+			"finishing": 7
 		}
 	},
 	{

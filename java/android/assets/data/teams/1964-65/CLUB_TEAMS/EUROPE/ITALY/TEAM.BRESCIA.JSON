@@ -122,22 +122,22 @@
 		}
 	},
 	{
-		"name": "ABBONDANZIO PAGANI",
-		"shirtName": "PAGANI",
+		"name": "EGIDIO SALVI",
+		"shirtName": "SALVI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "11",
+		"role": "RIGHT_WINGER",
+		"number": "6",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 4,
+			"shooting": 3,
 			"heading": 3,
 			"tackling": 2,
-			"control": 3,
+			"control": 4,
 			"speed": 4,
-			"finishing": 4
+			"finishing": 2
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "EGIDIO SALVI",
-		"shirtName": "SALVI",
+		"name": "ABBONDANZIO PAGANI",
+		"shirtName": "PAGANI",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "6",
+		"role": "LEFT_WINGER",
+		"number": "11",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 3,
+			"shooting": 4,
 			"heading": 3,
 			"tackling": 2,
-			"control": 4,
+			"control": 3,
 			"speed": 4,
-			"finishing": 2
+			"finishing": 4
 		}
 	},
 	{

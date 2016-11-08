@@ -46,21 +46,21 @@
 		"value": 36
 	},
 	{
-		"name": "GILBERTO NOLETTI",
-		"shirtName": "NOLETTI",
+		"name": "AMBROGIO PELAGALLI",
+		"shirtName": "PELAGALLI",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "2",
+		"role": "RIGHT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
 		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 5,
-			"heading": 7,
+			"shooting": 4,
+			"heading": 6,
 			"tackling": 7,
-			"control": 5,
-			"speed": 6,
+			"control": 6,
+			"speed": 5,
 			"finishing": 4
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "AMBROGIO PELAGALLI",
-		"shirtName": "PELAGALLI",
+		"name": "GILBERTO NOLETTI",
+		"shirtName": "NOLETTI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "3",
+		"role": "LEFT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 4,
-			"heading": 6,
+			"shooting": 5,
+			"heading": 7,
 			"tackling": 7,
-			"control": 6,
-			"speed": 5,
+			"control": 5,
+			"speed": 6,
 			"finishing": 4
 		}
 	},
 	{
-		"name": "GIOVANNI LODETTI",
-		"shirtName": "LODETTI",
+		"name": "BRUNO MORA",
+		"shirtName": "MORA",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "8",
+		"role": "LEFT_WINGER",
+		"number": "7",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SHORT_C",
+		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 6,
-			"shooting": 5,
+			"passing": 5,
+			"shooting": 6,
 			"heading": 5,
-			"tackling": 6,
-			"control": 7,
-			"speed": 6,
-			"finishing": 5
+			"tackling": 4,
+			"control": 6,
+			"speed": 7,
+			"finishing": 7
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "BRUNO MORA",
-		"shirtName": "MORA",
+		"name": "GIOVANNI LODETTI",
+		"shirtName": "LODETTI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "7",
+		"role": "MIDFIELDER",
+		"number": "8",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SHORT_C",
 		"skills": {
-			"passing": 5,
-			"shooting": 6,
+			"passing": 6,
+			"shooting": 5,
 			"heading": 5,
-			"tackling": 4,
-			"control": 6,
-			"speed": 7,
-			"finishing": 7
+			"tackling": 6,
+			"control": 7,
+			"speed": 6,
+			"finishing": 5
 		}
 	},
 	{

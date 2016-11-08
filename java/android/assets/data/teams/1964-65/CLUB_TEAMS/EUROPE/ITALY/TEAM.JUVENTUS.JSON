@@ -46,21 +46,21 @@
 		"value": 40
 	},
 	{
-		"name": "GIANFRANCO LEONCINI",
-		"shirtName": "LEONCINI",
+		"name": "ADOLFO GORI",
+		"shirtName": "GORI",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "7",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 6,
-			"shooting": 4,
+			"passing": 5,
+			"shooting": 5,
 			"heading": 6,
-			"tackling": 5,
-			"control": 6,
-			"speed": 6,
+			"tackling": 7,
+			"control": 5,
+			"speed": 5,
 			"finishing": 3
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "ADOLFO GORI",
-		"shirtName": "GORI",
+		"name": "GIANFRANCO LEONCINI",
+		"shirtName": "LEONCINI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "2",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 5,
-			"shooting": 5,
-			"heading": 6,
-			"tackling": 7,
-			"control": 5,
-			"speed": 5,
-			"finishing": 3
-		}
-	},
-	{
-		"name": "GIAMPAOLO MENICHELLI",
-		"shirtName": "MENICHELLI",
-		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "9",
+		"role": "LEFT_BACK",
+		"number": "7",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 6,
+			"shooting": 4,
+			"heading": 6,
+			"tackling": 5,
+			"control": 6,
+			"speed": 6,
+			"finishing": 3
+		}
+	},
+	{
+		"name": "GINO STACCHINI",
+		"shirtName": "STACCHINI",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 5,
 			"heading": 5,
 			"tackling": 4,
 			"control": 6,
 			"speed": 7,
-			"finishing": 6
+			"finishing": 4
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "GINO STACCHINI",
-		"shirtName": "STACCHINI",
+		"name": "GIAMPAOLO MENICHELLI",
+		"shirtName": "MENICHELLI",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "8",
+		"role": "LEFT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 5,
+			"shooting": 6,
 			"heading": 5,
 			"tackling": 4,
 			"control": 6,
 			"speed": 7,
-			"finishing": 4
+			"finishing": 6
 		}
 	},
 	{

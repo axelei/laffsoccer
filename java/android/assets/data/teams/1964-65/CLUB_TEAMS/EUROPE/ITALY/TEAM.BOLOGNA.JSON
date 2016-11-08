@@ -46,22 +46,22 @@
 		"value": 38
 	},
 	{
-		"name": "MIRKO PAVINATO",
-		"shirtName": "PAVINATO",
+		"name": "CARLO FURLANIS",
+		"shirtName": "FURLANIS",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "3",
+		"role": "RIGHT_BACK",
+		"number": "4",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 6,
+			"passing": 5,
 			"shooting": 3,
 			"heading": 5,
 			"tackling": 6,
 			"control": 6,
 			"speed": 6,
-			"finishing": 2
+			"finishing": 3
 		}
 	},
 	{
@@ -103,40 +103,40 @@
 		}
 	},
 	{
-		"name": "CARLO FURLANIS",
-		"shirtName": "FURLANIS",
+		"name": "MIRKO PAVINATO",
+		"shirtName": "PAVINATO",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "4",
+		"role": "LEFT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
-		"hairColor": "BROWN",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
+			"passing": 6,
 			"shooting": 3,
 			"heading": 5,
 			"tackling": 6,
 			"control": 6,
 			"speed": 6,
-			"finishing": 3
+			"finishing": 2
 		}
 	},
 	{
-		"name": "HELMUT HALLER",
-		"shirtName": "HALLER",
-		"nationality": "GER",
-		"role": "LEFT_WINGER",
-		"number": "9",
+		"name": "MARINO PERANI",
+		"shirtName": "PERANI",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "7",
 		"skinColor": "PINK",
-		"hairColor": "BLOND",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
 			"shooting": 6,
-			"heading": 6,
+			"heading": 5,
 			"tackling": 5,
-			"control": 7,
-			"speed": 7,
+			"control": 6,
+			"speed": 6,
 			"finishing": 6
 		}
 	},
@@ -179,21 +179,21 @@
 		}
 	},
 	{
-		"name": "MARINO PERANI",
-		"shirtName": "PERANI",
-		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "7",
+		"name": "HELMUT HALLER",
+		"shirtName": "HALLER",
+		"nationality": "GER",
+		"role": "LEFT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
 			"shooting": 6,
-			"heading": 5,
+			"heading": 6,
 			"tackling": 5,
-			"control": 6,
-			"speed": 6,
+			"control": 7,
+			"speed": 7,
 			"finishing": 6
 		}
 	},

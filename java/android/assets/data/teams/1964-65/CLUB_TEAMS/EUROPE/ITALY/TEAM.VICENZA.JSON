@@ -46,22 +46,22 @@
 		"value": 28
 	},
 	{
-		"name": "GIULIO SAVOINI",
-		"shirtName": "SAVOINI",
+		"name": "GIANFRANCO VOLPATO",
+		"shirtName": "VOLPATO",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "3",
+		"role": "RIGHT_BACK",
+		"number": "5",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 5,
+			"shooting": 2,
 			"heading": 4,
 			"tackling": 5,
 			"control": 4,
 			"speed": 5,
-			"finishing": 5
+			"finishing": 2
 		}
 	},
 	{
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "GIANFRANCO VOLPATO",
-		"shirtName": "VOLPATO",
+		"name": "GIULIO SAVOINI",
+		"shirtName": "SAVOINI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "5",
+		"role": "LEFT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 2,
+			"shooting": 5,
 			"heading": 4,
 			"tackling": 5,
 			"control": 4,
 			"speed": 5,
-			"finishing": 2
+			"finishing": 5
 		}
 	},
 	{
-		"name": "GIOVANNI VASTOLA",
-		"shirtName": "VASTOLA",
+		"name": "LUIGI MENTI",
+		"shirtName": "MENTI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "8",
+		"role": "RIGHT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
-		"hairColor": "BROWN",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 4,
-			"heading": 3,
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
 			"tackling": 3,
-			"control": 5,
+			"control": 4,
 			"speed": 5,
-			"finishing": 5
+			"finishing": 4
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "LUIGI MENTI",
-		"shirtName": "MENTI",
+		"name": "GIOVANNI VASTOLA",
+		"shirtName": "VASTOLA",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "9",
+		"role": "LEFT_WINGER",
+		"number": "8",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 3,
-			"heading": 4,
+			"passing": 5,
+			"shooting": 4,
+			"heading": 3,
 			"tackling": 3,
-			"control": 4,
+			"control": 5,
 			"speed": 5,
-			"finishing": 4
+			"finishing": 5
 		}
 	},
 	{

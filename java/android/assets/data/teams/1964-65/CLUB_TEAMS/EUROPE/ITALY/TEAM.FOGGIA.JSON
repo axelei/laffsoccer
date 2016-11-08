@@ -46,22 +46,22 @@
 		"value": 28
 	},
 	{
-		"name": "ANTONIO BETTONI",
-		"shirtName": "BETTONI",
+		"name": "AMBROGIO VALADÈ",
+		"shirtName": "VALADÈ",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "2",
+		"role": "RIGHT_BACK",
+		"number": "5",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 3,
+			"passing": 4,
+			"shooting": 2,
 			"heading": 4,
-			"tackling": 6,
-			"control": 5,
-			"speed": 3,
-			"finishing": 2
+			"tackling": 5,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
 		}
 	},
 	{
@@ -103,39 +103,39 @@
 		}
 	},
 	{
-		"name": "AMBROGIO VALADÈ",
-		"shirtName": "VALADÈ",
+		"name": "ANTONIO BETTONI",
+		"shirtName": "BETTONI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "5",
+		"role": "DEFENDER",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 2,
+			"passing": 5,
+			"shooting": 3,
 			"heading": 4,
-			"tackling": 5,
-			"control": 4,
-			"speed": 5,
-			"finishing": 3
+			"tackling": 6,
+			"control": 5,
+			"speed": 3,
+			"finishing": 2
 		}
 	},
 	{
-		"name": "FRANCESCO PATINO",
-		"shirtName": "PATINO",
+		"name": "ARMANNO FAVALLI",
+		"shirtName": "FAVALLI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "10",
+		"role": "RIGHT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 2,
-			"heading": 3,
-			"tackling": 4,
-			"control": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 5,
 			"speed": 6,
 			"finishing": 4
 		}
@@ -179,20 +179,20 @@
 		}
 	},
 	{
-		"name": "ARMANNO FAVALLI",
-		"shirtName": "FAVALLI",
+		"name": "FRANCESCO PATINO",
+		"shirtName": "PATINO",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "9",
+		"role": "LEFT_WINGER",
+		"number": "10",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 3,
-			"heading": 4,
-			"tackling": 3,
-			"control": 5,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
 			"speed": 6,
 			"finishing": 4
 		}

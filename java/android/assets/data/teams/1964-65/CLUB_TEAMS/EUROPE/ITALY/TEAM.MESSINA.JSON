@@ -46,21 +46,21 @@
 		"value": 23
 	},
 	{
-		"name": "GIANFRANCO CLERICI",
-		"shirtName": "CLERICI I",
+		"name": "GIANFRANCO GARBUGLIA",
+		"shirtName": "GARBUGLIA",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "8",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 3,
-			"shooting": 3,
+			"passing": 4,
+			"shooting": 2,
 			"heading": 3,
-			"tackling": 4,
+			"tackling": 5,
 			"control": 3,
-			"speed": 4,
+			"speed": 5,
 			"finishing": 2
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "GIANFRANCO GARBUGLIA",
-		"shirtName": "GARBUGLIA",
+		"name": "GIANFRANCO CLERICI",
+		"shirtName": "CLERICI I",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "2",
+		"role": "LEFT_BACK",
+		"number": "8",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 2,
+			"passing": 3,
+			"shooting": 3,
 			"heading": 3,
-			"tackling": 5,
+			"tackling": 4,
 			"control": 3,
-			"speed": 5,
+			"speed": 4,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "BRUNO GIOIA",
-		"shirtName": "GIOIA",
+		"name": "ROMANO BAGATTI",
+		"shirtName": "BAGATTI",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "6",
+		"role": "RIGHT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 3,
-			"heading": 4,
-			"tackling": 4,
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
 			"control": 3,
-			"speed": 3,
-			"finishing": 2
+			"speed": 5,
+			"finishing": 3
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "ROMANO BAGATTI",
-		"shirtName": "BAGATTI",
+		"name": "BRUNO GIOIA",
+		"shirtName": "GIOIA",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "9",
+		"role": "MIDFIELDER",
+		"number": "6",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 3,
-			"shooting": 4,
-			"heading": 3,
-			"tackling": 3,
+			"passing": 5,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
 			"control": 3,
-			"speed": 5,
-			"finishing": 3
+			"speed": 3,
+			"finishing": 2
 		}
 	},
 	{

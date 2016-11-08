@@ -46,21 +46,21 @@
 		"value": 27
 	},
 	{
-		"name": "ELIO VANARA",
-		"shirtName": "VANARA",
+		"name": "MAURIZIO BRUNO",
+		"shirtName": "BRUNO",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "5",
+		"role": "RIGHT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 3,
-			"heading": 3,
+			"shooting": 2,
+			"heading": 5,
 			"tackling": 4,
 			"control": 4,
-			"speed": 5,
+			"speed": 3,
 			"finishing": 2
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "MAURIZIO BRUNO",
-		"shirtName": "BRUNO",
+		"name": "ELIO VANARA",
+		"shirtName": "VANARA",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "3",
+		"role": "LEFT_BACK",
+		"number": "5",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 2,
-			"heading": 5,
+			"shooting": 3,
+			"heading": 3,
 			"tackling": 4,
 			"control": 4,
-			"speed": 3,
+			"speed": 5,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "GIAMPIERO BASSI",
-		"shirtName": "BASSI",
+		"name": "GLAUCO GILARDONI",
+		"shirtName": "GILARDONI",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "6",
+		"role": "LEFT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 2,
-			"heading": 4,
-			"tackling": 4,
+			"passing": 4,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
 			"control": 4,
 			"speed": 4,
-			"finishing": 2
+			"finishing": 4
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "GLAUCO GILARDONI",
-		"shirtName": "GILARDONI",
+		"name": "GIAMPIERO BASSI",
+		"shirtName": "BASSI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "9",
+		"role": "MIDFIELDER",
+		"number": "6",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 4,
-			"heading": 3,
-			"tackling": 3,
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
 			"control": 4,
 			"speed": 4,
-			"finishing": 4
+			"finishing": 2
 		}
 	},
 	{

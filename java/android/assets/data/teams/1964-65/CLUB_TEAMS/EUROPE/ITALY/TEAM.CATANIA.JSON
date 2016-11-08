@@ -46,21 +46,21 @@
 		"value": 29
 	},
 	{
-		"name": "RENATO RAMBALDELLI",
-		"shirtName": "RAMBALDELLI",
+		"name": "GIAMPAOLO LAMPREDI",
+		"shirtName": "LAMPREDI",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "2",
+		"role": "RIGHT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
+			"passing": 4,
 			"shooting": 3,
-			"heading": 4,
+			"heading": 5,
 			"tackling": 5,
 			"control": 4,
-			"speed": 5,
+			"speed": 4,
 			"finishing": 2
 		}
 	},
@@ -103,21 +103,21 @@
 		}
 	},
 	{
-		"name": "GIAMPAOLO LAMPREDI",
-		"shirtName": "LAMPREDI",
+		"name": "RENATO RAMBALDELLI",
+		"shirtName": "RAMBALDELLI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "3",
+		"role": "LEFT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
+			"passing": 5,
 			"shooting": 3,
-			"heading": 5,
+			"heading": 4,
 			"tackling": 5,
 			"control": 4,
-			"speed": 4,
+			"speed": 5,
 			"finishing": 2
 		}
 	},
@@ -160,21 +160,21 @@
 		}
 	},
 	{
-		"name": "GIANCARLO DANOVA",
-		"shirtName": "DANOVA",
+		"name": "CARLO FACCHIN",
+		"shirtName": "FACCHIN",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "11",
+		"role": "LEFT_WINGER",
+		"number": "10",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 4,
-			"heading": 4,
+			"passing": 4,
+			"shooting": 5,
+			"heading": 5,
 			"tackling": 4,
 			"control": 5,
-			"speed": 7,
+			"speed": 5,
 			"finishing": 6
 		}
 	},
@@ -198,21 +198,21 @@
 		}
 	},
 	{
-		"name": "CARLO FACCHIN",
-		"shirtName": "FACCHIN",
+		"name": "GIANCARLO DANOVA",
+		"shirtName": "DANOVA",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "10",
+		"role": "RIGHT_WINGER",
+		"number": "11",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 5,
-			"heading": 5,
+			"passing": 5,
+			"shooting": 4,
+			"heading": 4,
 			"tackling": 4,
 			"control": 5,
-			"speed": 5,
+			"speed": 7,
 			"finishing": 6
 		}
 	},

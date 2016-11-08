@@ -46,21 +46,21 @@
 		"value": 39
 	},
 	{
-		"name": "SERGIO CASTELLETTI",
-		"shirtName": "CASTELLETTI",
+		"name": "ENZO ROBOTTI",
+		"shirtName": "ROBOTTI",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "3",
+		"role": "RIGHT_BACK",
+		"number": "4",
 		"skinColor": "PINK",
-		"hairColor": "BLOND",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 3,
+			"shooting": 4,
 			"heading": 6,
-			"tackling": 6,
+			"tackling": 7,
 			"control": 6,
-			"speed": 6,
+			"speed": 7,
 			"finishing": 2
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "ENZO ROBOTTI",
-		"shirtName": "ROBOTTI",
+		"name": "SERGIO CASTELLETTI",
+		"shirtName": "CASTELLETTI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "4",
+		"role": "LEFT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 4,
+			"shooting": 3,
 			"heading": 6,
-			"tackling": 7,
+			"tackling": 6,
 			"control": 6,
-			"speed": 7,
+			"speed": 6,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "JUAN CARLOS MORRONE",
-		"shirtName": "MORRONE",
-		"nationality": "ARG",
-		"role": "ATTACKER",
-		"number": "11",
+		"name": "KURT HAMRIN",
+		"shirtName": "HAMRIN",
+		"nationality": "SWE",
+		"role": "RIGHT_WINGER",
+		"number": "7",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 6,
-			"shooting": 6,
-			"heading": 6,
-			"tackling": 5,
+			"shooting": 7,
+			"heading": 4,
+			"tackling": 4,
 			"control": 6,
-			"speed": 6,
-			"finishing": 6
+			"speed": 7,
+			"finishing": 7
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "KURT HAMRIN",
-		"shirtName": "HAMRIN",
-		"nationality": "SWE",
-		"role": "RIGHT_WINGER",
-		"number": "7",
+		"name": "JUAN CARLOS MORRONE",
+		"shirtName": "MORRONE",
+		"nationality": "ARG",
+		"role": "ATTACKER",
+		"number": "11",
 		"skinColor": "PINK",
-		"hairColor": "BLOND",
-		"hairStyle": "SMOOTH_D",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 7,
-			"heading": 4,
-			"tackling": 4,
+			"shooting": 6,
+			"heading": 6,
+			"tackling": 5,
 			"control": 6,
-			"speed": 7,
-			"finishing": 7
+			"speed": 6,
+			"finishing": 6
 		}
 	},
 	{

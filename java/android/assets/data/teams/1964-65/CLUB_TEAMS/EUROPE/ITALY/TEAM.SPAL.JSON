@@ -46,21 +46,21 @@
 		"value": 26
 	},
 	{
-		"name": "GIANFRANCO BOZZAO",
-		"shirtName": "BOZZAO",
+		"name": "GENNARO OLIVIERI",
+		"shirtName": "OLIVIERI",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "3",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 3,
+			"passing": 4,
 			"shooting": 2,
-			"heading": 5,
-			"tackling": 5,
+			"heading": 4,
+			"tackling": 4,
 			"control": 3,
-			"speed": 5,
+			"speed": 4,
 			"finishing": 2
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "GENNARO OLIVIERI",
-		"shirtName": "OLIVIERI",
+		"name": "GIANFRANCO BOZZAO",
+		"shirtName": "BOZZAO",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "2",
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
-			"shooting": 2,
-			"heading": 4,
-			"tackling": 4,
-			"control": 3,
-			"speed": 4,
-			"finishing": 2
-		}
-	},
-	{
-		"name": "SERGIO FRASCOLI",
-		"shirtName": "FRASCOLI",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "6",
+		"role": "LEFT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 3,
-			"shooting": 3,
-			"heading": 4,
-			"tackling": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 3,
+			"speed": 5,
+			"finishing": 2
+		}
+	},
+	{
+		"name": "DARIO CAVALLITO",
+		"shirtName": "CAVALLITO",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
 			"control": 3,
 			"speed": 4,
-			"finishing": 2
+			"finishing": 3
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "DARIO CAVALLITO",
-		"shirtName": "CAVALLITO",
+		"name": "SERGIO FRASCOLI",
+		"shirtName": "FRASCOLI",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "9",
+		"role": "MIDFIELDER",
+		"number": "6",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 3,
-			"shooting": 4,
-			"heading": 3,
-			"tackling": 2,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
 			"control": 3,
 			"speed": 4,
-			"finishing": 3
+			"finishing": 2
 		}
 	},
 	{

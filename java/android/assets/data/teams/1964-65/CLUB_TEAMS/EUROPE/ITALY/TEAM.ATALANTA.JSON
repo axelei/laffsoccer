@@ -46,21 +46,21 @@
 		"value": 32
 	},
 	{
-		"name": "FRANCO NODARI",
-		"shirtName": "NODARI",
+		"name": "ALFREDO PESENTI",
+		"shirtName": "PESENTI I",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "4",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
 			"shooting": 2,
-			"heading": 4,
-			"tackling": 4,
+			"heading": 5,
+			"tackling": 5,
 			"control": 4,
-			"speed": 5,
+			"speed": 6,
 			"finishing": 2
 		}
 	},
@@ -103,30 +103,30 @@
 		}
 	},
 	{
-		"name": "ALFREDO PESENTI",
-		"shirtName": "PESENTI I",
+		"name": "FRANCO NODARI",
+		"shirtName": "NODARI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "2",
+		"role": "LEFT_BACK",
+		"number": "4",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
 			"shooting": 2,
-			"heading": 5,
-			"tackling": 5,
+			"heading": 4,
+			"tackling": 4,
 			"control": 4,
-			"speed": 6,
+			"speed": 5,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "BRUNO PETRONI",
-		"shirtName": "PETRONI",
+		"name": "LUCIANO MAGISTRELLI",
+		"shirtName": "MAGISTRELLI",
 		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": "11",
+		"role": "RIGHT_WINGER",
+		"number": "8",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -136,8 +136,8 @@
 			"heading": 3,
 			"tackling": 3,
 			"control": 3,
-			"speed": 4,
-			"finishing": 4
+			"speed": 5,
+			"finishing": 3
 		}
 	},
 	{
@@ -179,11 +179,11 @@
 		}
 	},
 	{
-		"name": "LUCIANO MAGISTRELLI",
-		"shirtName": "MAGISTRELLI",
+		"name": "BRUNO PETRONI",
+		"shirtName": "PETRONI",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "8",
+		"role": "ATTACKER",
+		"number": "11",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -193,8 +193,8 @@
 			"heading": 3,
 			"tackling": 3,
 			"control": 3,
-			"speed": 5,
-			"finishing": 3
+			"speed": 4,
+			"finishing": 4
 		}
 	},
 	{

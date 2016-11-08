@@ -46,20 +46,20 @@
 		"value": 28
 	},
 	{
-		"name": "ERNESTO MARCOLINI",
-		"shirtName": "MARCOLINI",
+		"name": "PIETRO MAROSO",
+		"shirtName": "MAROSO",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "2",
+		"role": "RIGHT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "BLOND",
+		"hairStyle": "THINNING_C",
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
-			"heading": 3,
-			"tackling": 4,
-			"control": 4,
+			"heading": 4,
+			"tackling": 5,
+			"control": 5,
 			"speed": 5,
 			"finishing": 2
 		}
@@ -103,20 +103,20 @@
 		}
 	},
 	{
-		"name": "PIETRO MAROSO",
-		"shirtName": "MAROSO",
+		"name": "ERNESTO MARCOLINI",
+		"shirtName": "MARCOLINI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "3",
+		"role": "LEFT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
-		"hairColor": "BLOND",
-		"hairStyle": "THINNING_C",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
-			"heading": 4,
-			"tackling": 5,
-			"control": 5,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
 			"speed": 5,
 			"finishing": 2
 		}
@@ -160,22 +160,22 @@
 		}
 	},
 	{
-		"name": "ALBERTO SPELTA",
-		"shirtName": "SPELTA",
+		"name": "IVO VETRANO",
+		"shirtName": "VETRANO",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "7",
+		"role": "LEFT_WINGER",
+		"number": "11",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
+			"passing": 3,
 			"shooting": 3,
 			"heading": 4,
-			"tackling": 2,
+			"tackling": 3,
 			"control": 4,
-			"speed": 5,
-			"finishing": 5
+			"speed": 4,
+			"finishing": 4
 		}
 	},
 	{
@@ -198,22 +198,22 @@
 		}
 	},
 	{
-		"name": "IVO VETRANO",
-		"shirtName": "VETRANO",
+		"name": "ALBERTO SPELTA",
+		"shirtName": "SPELTA",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "11",
+		"role": "RIGHT_WINGER",
+		"number": "7",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 3,
+			"passing": 4,
 			"shooting": 3,
 			"heading": 4,
-			"tackling": 3,
+			"tackling": 2,
 			"control": 4,
-			"speed": 4,
-			"finishing": 4
+			"speed": 5,
+			"finishing": 5
 		}
 	},
 	{

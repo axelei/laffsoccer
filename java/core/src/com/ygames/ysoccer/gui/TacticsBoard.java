@@ -77,11 +77,11 @@ public class TacticsBoard extends Widget {
                 int ty = 0;
                 Font.Align align = Font.Align.CENTER;
                 switch (positions[baseTactics][ply][0]) {
-                    case +2:
+                    case -2:
                         tx = x + 10;
                         align = Font.Align.LEFT;
                         break;
-                    case +1:
+                    case -1:
                         tx = x + w / 2 - 7;
                         align = Font.Align.RIGHT;
                         break;
@@ -89,11 +89,11 @@ public class TacticsBoard extends Widget {
                         tx = x + w / 2;
                         align = Font.Align.CENTER;
                         break;
-                    case -1:
+                    case +1:
                         tx = x + w / 2 + 7;
                         align = Font.Align.LEFT;
                         break;
-                    case -2:
+                    case +2:
                         tx = x + w - 10;
                         align = Font.Align.RIGHT;
                         break;
@@ -130,19 +130,19 @@ public class TacticsBoard extends Widget {
                 for (int ply = 0; ply < Const.TEAM_SIZE; ply++) {
                     int tx = 0;
                     switch (positions[baseTactics][ply][0]) {
-                        case +2:
+                        case -2:
                             tx = x + 26;
                             break;
-                        case +1:
+                        case -1:
                             tx = x + w / 2 - 36 - 20;
                             break;
                         case 0:
                             tx = x + w / 2 - 8;
                             break;
-                        case -1:
+                        case +1:
                             tx = x + w / 2 + 36;
                             break;
-                        case -2:
+                        case +2:
                             tx = x + w - 26 - 20;
                             break;
                     }

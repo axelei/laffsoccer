@@ -46,22 +46,22 @@
 		"value": 40
 	},
 	{
-		"name": "GIACINTO FACCHETTI",
-		"shirtName": "FACCHETTI",
+		"name": "TARCISIO BURGNICH",
+		"shirtName": "BURGNICH",
 		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": "3",
+		"role": "RIGHT_BACK",
+		"number": "2",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 7,
-			"shooting": 7,
-			"heading": 7,
+			"passing": 5,
+			"shooting": 3,
+			"heading": 6,
 			"tackling": 7,
-			"control": 6,
+			"control": 5,
 			"speed": 7,
-			"finishing": 6
+			"finishing": 3
 		}
 	},
 	{
@@ -103,22 +103,22 @@
 		}
 	},
 	{
-		"name": "TARCISIO BURGNICH",
-		"shirtName": "BURGNICH",
+		"name": "GIACINTO FACCHETTI",
+		"shirtName": "FACCHETTI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "2",
+		"role": "LEFT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 3,
-			"heading": 6,
+			"passing": 7,
+			"shooting": 7,
+			"heading": 7,
 			"tackling": 7,
-			"control": 5,
+			"control": 6,
 			"speed": 7,
-			"finishing": 3
+			"finishing": 6
 		}
 	},
 	{
@@ -160,21 +160,21 @@
 		}
 	},
 	{
-		"name": "JAIR DA COSTA",
-		"shirtName": "JAIR",
-		"nationality": "BRA",
-		"role": "RIGHT_WINGER",
-		"number": "7",
-		"skinColor": "MULATTO",
+		"name": "MARIO CORSO",
+		"shirtName": "CORSO",
+		"nationality": "ITA",
+		"role": "LEFT_WINGER",
+		"number": "11",
+		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
-			"passing": 5,
-			"shooting": 6,
-			"heading": 5,
-			"tackling": 3,
-			"control": 6,
-			"speed": 7,
+			"passing": 7,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 5,
+			"control": 7,
+			"speed": 5,
 			"finishing": 6
 		}
 	},
@@ -198,21 +198,21 @@
 		}
 	},
 	{
-		"name": "MARIO CORSO",
-		"shirtName": "CORSO",
-		"nationality": "ITA",
-		"role": "LEFT_WINGER",
-		"number": "11",
-		"skinColor": "PINK",
+		"name": "JAIR DA COSTA",
+		"shirtName": "JAIR",
+		"nationality": "BRA",
+		"role": "RIGHT_WINGER",
+		"number": "7",
+		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_D",
+		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 7,
-			"shooting": 5,
-			"heading": 4,
-			"tackling": 5,
-			"control": 7,
-			"speed": 5,
+			"passing": 5,
+			"shooting": 6,
+			"heading": 5,
+			"tackling": 3,
+			"control": 6,
+			"speed": 7,
 			"finishing": 6
 		}
 	},

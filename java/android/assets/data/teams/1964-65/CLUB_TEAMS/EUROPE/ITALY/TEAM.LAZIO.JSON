@@ -46,21 +46,21 @@
 		"value": 28
 	},
 	{
-		"name": "PIERLUIGI PAGNI",
-		"shirtName": "PAGNI",
+		"name": "DIEGO ZANETTI",
+		"shirtName": "ZANETTI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "4",
+		"role": "RIGHT_BACK",
+		"number": "5",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
+			"passing": 5,
 			"shooting": 2,
-			"heading": 6,
+			"heading": 4,
 			"tackling": 6,
-			"control": 4,
-			"speed": 4,
+			"control": 5,
+			"speed": 5,
 			"finishing": 2
 		}
 	},
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "DIEGO ZANETTI",
-		"shirtName": "ZANETTI",
+		"name": "PIERLUIGI PAGNI",
+		"shirtName": "PAGNI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "5",
+		"role": "DEFENDER",
+		"number": "4",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
+			"passing": 4,
 			"shooting": 2,
-			"heading": 4,
+			"heading": 6,
 			"tackling": 6,
-			"control": 5,
-			"speed": 5,
+			"control": 4,
+			"speed": 4,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "PAOLO CAROSI",
-		"shirtName": "CAROSI",
+		"name": "ALBERTO MARI",
+		"shirtName": "MARI",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "6",
+		"role": "RIGHT_WINGER",
+		"number": "9",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 2,
+			"passing": 4,
+			"shooting": 3,
 			"heading": 4,
-			"tackling": 4,
-			"control": 5,
-			"speed": 4,
-			"finishing": 2
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "ALBERTO MARI",
-		"shirtName": "MARI",
+		"name": "PAOLO CAROSI",
+		"shirtName": "CAROSI",
 		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
-		"number": "9",
+		"role": "MIDFIELDER",
+		"number": "6",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 3,
+			"passing": 5,
+			"shooting": 2,
 			"heading": 4,
-			"tackling": 3,
-			"control": 4,
-			"speed": 5,
-			"finishing": 3
+			"tackling": 4,
+			"control": 5,
+			"speed": 4,
+			"finishing": 2
 		}
 	},
 	{

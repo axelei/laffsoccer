@@ -46,19 +46,19 @@
 		"value": 28
 	},
 	{
-		"name": "RAFFAELLO VESCOVI",
-		"shirtName": "VESCOVI",
+		"name": "MARIO MARTIRADONNA",
+		"shirtName": "MARTIRADONNA",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": "2",
+		"role": "RIGHT_BACK",
+		"number": "3",
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
-			"heading": 6,
-			"tackling": 6,
+			"heading": 5,
+			"tackling": 7,
 			"control": 5,
 			"speed": 5,
 			"finishing": 2
@@ -103,41 +103,41 @@
 		}
 	},
 	{
-		"name": "MARIO MARTIRADONNA",
-		"shirtName": "MARTIRADONNA",
+		"name": "RAFFAELLO VESCOVI",
+		"shirtName": "VESCOVI",
 		"nationality": "ITA",
-		"role": "RIGHT_BACK",
-		"number": "3",
+		"role": "DEFENDER",
+		"number": "2",
 		"skinColor": "PINK",
-		"hairColor": "BROWN",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
-			"heading": 5,
-			"tackling": 7,
+			"heading": 6,
+			"tackling": 6,
 			"control": 5,
 			"speed": 5,
 			"finishing": 2
 		}
 	},
 	{
-		"name": "BRUNO VISENTIN",
-		"shirtName": "VISENTIN",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": "9",
-		"skinColor": "PINK",
+		"name": "CLAUDIO OLINTO DE CARVALHO",
+		"shirtName": "NENÉ",
+		"nationality": "BRA",
+		"role": "RIGHT_WINGER",
+		"number": "7",
+		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 3,
-			"heading": 5,
+			"passing": 6,
+			"shooting": 5,
+			"heading": 6,
 			"tackling": 4,
-			"control": 5,
-			"speed": 5,
-			"finishing": 2
+			"control": 6,
+			"speed": 7,
+			"finishing": 6
 		}
 	},
 	{
@@ -179,22 +179,22 @@
 		}
 	},
 	{
-		"name": "CLAUDIO OLINTO DE CARVALHO",
-		"shirtName": "NENÉ",
-		"nationality": "BRA",
-		"role": "RIGHT_WINGER",
-		"number": "7",
-		"skinColor": "MULATTO",
+		"name": "BRUNO VISENTIN",
+		"shirtName": "VISENTIN",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "9",
+		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 6,
-			"shooting": 5,
-			"heading": 6,
+			"passing": 5,
+			"shooting": 3,
+			"heading": 5,
 			"tackling": 4,
-			"control": 6,
-			"speed": 7,
-			"finishing": 6
+			"control": 5,
+			"speed": 5,
+			"finishing": 2
 		}
 	},
 	{
