@@ -44,7 +44,7 @@ public class Settings {
         weatherMaxStrength = preferences.getInteger("weatherMaxStrength", Weather.Strength.LIGHT);
         autoReplays = preferences.getBoolean("autoReplays", true);
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
-        joystickConfigs = "[]";//preferences.getString("joystickConfigs", "[]");
+        joystickConfigs = preferences.getString("joystickConfigs", "[]");
     }
 
     public void save() {

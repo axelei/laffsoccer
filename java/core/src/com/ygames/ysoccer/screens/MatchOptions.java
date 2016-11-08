@@ -29,6 +29,9 @@ class MatchOptions extends GLScreen {
 
         selectedWidget = w;
 
+        w = new RadarLabel();
+        widgets.add(w);
+
         w = new AutoReplaysLabel();
         widgets.add(w);
 
@@ -90,6 +93,16 @@ class MatchOptions extends GLScreen {
         private void updateWeatherMaxStrength(int n) {
             game.settings.weatherMaxStrength = Emath.rotate(game.settings.weatherMaxStrength, Weather.Strength.NONE, Weather.Strength.STRONG, n);
             setChanged(true);
+        }
+    }
+
+    private class RadarLabel extends Button {
+
+        RadarLabel() {
+            setColors(0x76683C);
+            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 235, 440, 36);
+            setText(Assets.strings.get("RADAR"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
