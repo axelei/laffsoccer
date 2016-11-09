@@ -137,7 +137,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onUpdate() {
-            image = Assets.lightIcons[matchSettings.time];
+            textureRegion = Assets.lightIcons[matchSettings.time];
         }
     }
 
@@ -187,7 +187,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onUpdate() {
-            image = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
+            textureRegion = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
         }
     }
 
@@ -239,7 +239,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onUpdate() {
-            image = Assets.weatherIcons[matchSettings.weatherOffset()];
+            textureRegion = Assets.weatherIcons[matchSettings.weatherOffset()];
         }
     }
 
@@ -295,7 +295,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onUpdate() {
-            image = team.kits.get(team.kitIndex).loadImage();
+            textureRegion = team.kits.get(team.kitIndex).loadImage();
         }
     }
 
@@ -315,7 +315,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onUpdate() {
-            image = team.kits.get(kitIndex).loadImage();
+            textureRegion = team.kits.get(kitIndex).loadImage();
             if (team.kitIndex == kitIndex) {
                 setVisible(false);
             } else {

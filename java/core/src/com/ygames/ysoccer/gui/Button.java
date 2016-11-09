@@ -50,7 +50,7 @@ public class Button extends Widget {
         glGraphics.batch.setColor(1, 1, 1, alpha);
         glGraphics.batch.begin();
 
-        if (image != null) {
+        if (textureRegion != null) {
             drawImage(glGraphics.batch);
         }
 
@@ -63,7 +63,7 @@ public class Button extends Widget {
     }
 
     private void drawImage(SpriteBatch batch) {
-        batch.draw(image, x + 2 + imageX, y + 2 + imageY, 0, 0, image.getRegionWidth(), image.getRegionHeight(), imageScaleX, imageScaleY, 0);
+        batch.draw(textureRegion, x + 2 + imageX, y + 2 + imageY, 0, 0, textureRegion.getRegionWidth(), textureRegion.getRegionHeight(), imageScaleX, imageScaleY, 0);
     }
 
     private void drawBorder(GlShapeRenderer shapeRenderer, int bx, int by, int bw,

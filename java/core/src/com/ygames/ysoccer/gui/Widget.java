@@ -1,8 +1,8 @@
 package com.ygames.ysoccer.gui;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
@@ -17,7 +17,7 @@ public abstract class Widget {
     public int w;
     public int h;
 
-    public Image image;
+    public TextureRegion textureRegion;
     int imageX;
     int imageY;
     float imageScaleX;

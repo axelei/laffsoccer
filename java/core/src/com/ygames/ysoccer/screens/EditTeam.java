@@ -487,7 +487,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void onUpdate() {
-            image = team.kits.get(selectedKit).loadImage();
+            textureRegion = team.kits.get(selectedKit).loadImage();
         }
     }
 
@@ -775,7 +775,7 @@ class EditTeam extends GLScreen {
         @Override
         public void onUpdate() {
             setPlayerWidgetColor(this, pos);
-            image = team.playerAtPosition(pos).createFace();
+            textureRegion = team.playerAtPosition(pos).createFace();
         }
     }
 

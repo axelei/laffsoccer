@@ -2,13 +2,13 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.GlColor3;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
@@ -28,7 +28,7 @@ class EditPlayers extends GLScreen {
     Team team;
     private int selectedPos;
     private boolean modified;
-    private Image[] imageSkill = new Image[8];
+    private TextureRegion[] imageSkill = new TextureRegion[8];
 
     private Widget[] hairColorButtons = new Widget[Const.FULL_TEAM];
     private Widget[] hairStyleButtons = new Widget[Const.FULL_TEAM];
@@ -59,7 +59,8 @@ class EditPlayers extends GLScreen {
 
         Texture texture = new Texture("images/skill.png");
         for (int i = 0; i < 8; i++) {
-            imageSkill[i] = new Image(texture, 32 * i, 0, 32, 13);
+            imageSkill[i] = new TextureRegion(texture, 32 * i, 0, 32, 13);
+            imageSkill[i].flip(false, true);
         }
 
         Widget w;
@@ -357,10 +358,10 @@ class EditPlayers extends GLScreen {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player == null) {
-                image = null;
+                textureRegion = null;
                 setActive(false);
             } else {
-                image = player.createFace();
+                textureRegion = player.createFace();
                 setActive(true);
             }
         }
@@ -621,10 +622,10 @@ class EditPlayers extends GLScreen {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player != null && player.role != Player.Role.GOALKEEPER) {
-                image = imageSkill[player.getSkillValue(skill)];
+                textureRegion = imageSkill[player.getSkillValue(skill)];
                 setActive(true);
             } else {
-                image = null;
+                textureRegion = null;
                 setActive(false);
             }
         }

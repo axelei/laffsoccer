@@ -1,11 +1,11 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.GlColor3;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
@@ -653,7 +653,7 @@ public class Player {
         int finishing;
     }
 
-    public Image createFace() {
+    public TextureRegion createFace() {
 
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
 
@@ -681,7 +681,7 @@ public class Player {
         }
 
         String filename = "images/player/menu/" + hairStyle + ".PNG";
-        return Image.loadImage(filename, rgbPairs);
+        return Assets.loadTextureRegion(filename, rgbPairs);
     }
 
     boolean searchFacingPlayer(boolean longRange) {

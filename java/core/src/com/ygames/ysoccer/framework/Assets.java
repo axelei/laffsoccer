@@ -54,13 +54,13 @@ public class Assets {
     public static List<String> hairStyles;
     public static List<GlColor2> shavedColors;
     public static List<String> currencies;
-    public static Image[] stars = new Image[10];
-    public static Image[][] controls = new Image[2][3];
-    public static Image[][] pieces = new Image[2][2];
-    public static Image[] lightIcons = new Image[3];
-    public static Image[] pitchIcons = new Image[10];
-    public static Image[] weatherIcons = new Image[11];
-    public static Image[][] stadium = new Image[4][4];
+    public static TextureRegion[] stars = new TextureRegion[10];
+    public static TextureRegion[][] controls = new TextureRegion[2][3];
+    public static TextureRegion[][] pieces = new TextureRegion[2][2];
+    public static TextureRegion[] lightIcons = new TextureRegion[3];
+    public static TextureRegion[] pitchIcons = new TextureRegion[10];
+    public static TextureRegion[] weatherIcons = new TextureRegion[11];
+    public static TextureRegion[][] stadium = new TextureRegion[4][4];
     public static TextureRegion[] ball = new TextureRegion[5];
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
@@ -263,10 +263,12 @@ public class Assets {
         return df.format(p) + suffix;
     }
 
-    public static Image getNationalityFlag(String nationality) {
-        String filename = "images/flags/tiny/" + nationality + ".png";
+    public static TextureRegion getNationalityFlag(String nationality) {
         try {
-            return new Image(filename);
+            Texture texture = new Texture("images/flags/tiny/" + nationality + ".png");
+            TextureRegion textureRegion = new TextureRegion(texture);
+            textureRegion.flip(false, true);
+            return textureRegion;
         } catch (Exception e) {
             Gdx.app.log("Warning", e.getMessage());
             return null;
@@ -276,15 +278,18 @@ public class Assets {
     private static void loadStars() {
         Texture texture = new Texture("images/stars.png");
         for (int i = 0; i < 10; i++) {
-            stars[i] = new Image(texture, 0, 16 * i, 64, 16);
+            stars[i] = new TextureRegion(texture, 0, 16 * i, 64, 16);
+            stars[i].flip(false, true);
         }
     }
 
     private static void loadControls() {
         Texture texture = new Texture("images/controls.png");
         for (int i = 0; i < 3; i++) {
-            controls[0][i] = new Image(texture, 36 * i, 0, 36, 36);
-            controls[1][i] = new Image(texture, 18 * i, 36, 18, 18);
+            controls[0][i] = new TextureRegion(texture, 36 * i, 0, 36, 36);
+            controls[0][i].flip(false, true);
+            controls[1][i] = new TextureRegion(texture, 18 * i, 36, 18, 18);
+            controls[1][i].flip(false, true);
         }
     }
 
@@ -292,7 +297,8 @@ public class Assets {
         Texture texture = new Texture("images/pieces.png");
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                pieces[i][j] = new Image(texture, 20 * i, 14 * j, 20, 14);
+                pieces[i][j] = new TextureRegion(texture, 20 * i, 14 * j, 20, 14);
+                pieces[i][j].flip(false, true);
             }
         }
     }
@@ -300,21 +306,24 @@ public class Assets {
     private static void loadLightIcons() {
         Texture texture = new Texture("images/light.png");
         for (int i = 0; i < 3; i++) {
-            lightIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
+            lightIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
+            lightIcons[i].flip(false, true);
         }
     }
 
     private static void loadPitchIcons() {
         Texture texture = new Texture("images/pitches.png");
         for (int i = 0; i < 10; i++) {
-            pitchIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
+            pitchIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
+            pitchIcons[i].flip(false, true);
         }
     }
 
     private static void loadWeatherIcons() {
         Texture texture = new Texture("images/weather.png");
         for (int i = 0; i < 11; i++) {
-            weatherIcons[i] = new Image(texture, 47 * i, 0, 46, 46);
+            weatherIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
+            weatherIcons[i].flip(false, true);
         }
     }
 
@@ -341,7 +350,7 @@ public class Assets {
 
         for (int c = 0; c < 4; c++) {
             for (int r = 0; r < 4; r++) {
-                stadium[r][c] = Image.loadImage("images/stadium/generic_" + c + "" + r + ".png", "images/stadium/palettes/" + paletteName);
+                stadium[r][c] = loadTextureRegion("images/stadium/generic_" + c + "" + r + ".png", "images/stadium/palettes/" + paletteName);
             }
         }
     }
@@ -422,7 +431,28 @@ public class Assets {
         rgbPairs.add(new RgbPair(0x631800, sc.color3));
     }
 
-    private static Texture loadTexture(String internalPath, List<RgbPair> rgbPairs) {
+    public static TextureRegion loadTextureRegion(String internalPath) {
+        Texture texture = new Texture(internalPath);
+        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion.flip(false, true);
+        return textureRegion;
+    }
+
+    public static TextureRegion loadTextureRegion(String internalPath, List<RgbPair> rgbPairs) {
+        Texture texture = Assets.loadTexture(internalPath, rgbPairs);
+        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion.flip(false, true);
+        return textureRegion;
+    }
+
+    private static TextureRegion loadTextureRegion(String internalPath, String paletteFile) {
+        Texture texture = loadTexture(internalPath, paletteFile);
+        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion.flip(false, true);
+        return textureRegion;
+    }
+
+    public static Texture loadTexture(String internalPath, List<RgbPair> rgbPairs) {
         InputStream in = null;
         try {
             in = Gdx.files.internal(internalPath).read();
@@ -431,7 +461,27 @@ public class Assets {
             Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
             return new Texture(pixmap);
         } catch (IOException e) {
-            throw new RuntimeException("Couldn't load image", e);
+            throw new RuntimeException("Couldn't load texture", e);
+        } finally {
+            if (in != null)
+                try {
+                    in.close();
+                } catch (IOException e) {
+                }
+        }
+    }
+
+    private static Texture loadTexture(String internalPath, String paletteFile) {
+        InputStream in = null;
+        try {
+            in = Gdx.files.internal(internalPath).read();
+            InputStream palette = Gdx.files.internal(paletteFile).read();
+
+            byte[] bytes = IOUtils.readFully(PngEditor.swapPalette(in, palette), -1, true);
+            Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
+            return new Texture(pixmap);
+        } catch (IOException e) {
+            throw new RuntimeException("Couldn't load texture", e);
         } finally {
             if (in != null)
                 try {

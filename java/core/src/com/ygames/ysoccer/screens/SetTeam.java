@@ -181,9 +181,9 @@ class SetTeam extends GLScreen {
             setPlayerWidgetColor(this, pos);
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
-                image = null;
+                textureRegion = null;
             } else {
-                image = player.createFace();
+                textureRegion = player.createFace();
             }
         }
     }
@@ -271,9 +271,9 @@ class SetTeam extends GLScreen {
         public void onUpdate() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
-                image = null;
+                textureRegion = null;
             } else {
-                image = Assets.getNationalityFlag(player.nationality);
+                textureRegion = Assets.getNationalityFlag(player.nationality);
             }
         }
     }
@@ -365,9 +365,9 @@ class SetTeam extends GLScreen {
         public void onUpdate() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
-                image = null;
+                textureRegion = null;
             } else {
-                image = Assets.stars[Emath.floor((player.getValue() + 3) / 5.5)];
+                textureRegion = Assets.stars[Emath.floor((player.getValue() + 3) / 5.5)];
             }
         }
     }
@@ -536,7 +536,7 @@ class SetTeam extends GLScreen {
                     case JOYSTICK:
                         setText(Assets.strings.get("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
                 }
-                image = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
+                textureRegion = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
             }
         }
 

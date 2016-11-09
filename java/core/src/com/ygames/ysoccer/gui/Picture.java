@@ -1,20 +1,20 @@
 package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Image;
 
 public class Picture extends Widget {
 
-    public Picture(Image image) {
-        setImage(image);
+    public Picture(TextureRegion textureRegion) {
+        setTextureRegion(textureRegion);
     }
 
-    public void setImage(Image image) {
-        if (image != null) {
-            this.image = image;
-            w = image.getRegionWidth();
-            h = image.getRegionHeight();
+    public void setTextureRegion(TextureRegion textureRegion) {
+        if (textureRegion != null) {
+            this.textureRegion = textureRegion;
+            w = textureRegion.getRegionWidth();
+            h = textureRegion.getRegionHeight();
         }
     }
 
@@ -24,10 +24,10 @@ public class Picture extends Widget {
             return;
         }
 
-        if (image != null) {
+        if (textureRegion != null) {
             SpriteBatch batch = glGraphics.batch;
             batch.begin();
-            batch.draw(image, x, y, image.getRegionWidth(), image.getRegionHeight());
+            batch.draw(textureRegion, x, y, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
             batch.end();
         }
     }

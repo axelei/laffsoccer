@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Image;
 
 import java.util.Comparator;
 
@@ -9,7 +9,7 @@ public class Sprite {
 
     GLGraphics glGraphics;
 
-    Image textureRegion;
+    TextureRegion textureRegion;
     int x;
     int y;
     int z;

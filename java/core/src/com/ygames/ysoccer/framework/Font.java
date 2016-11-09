@@ -50,7 +50,7 @@ public class Font {
                 Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
                 texture = new Texture(pixmap);
             } catch (IOException e) {
-                throw new RuntimeException("Couldn't load image", e);
+                throw new RuntimeException("Couldn't load texture", e);
             } finally {
                 if (in != null)
                     try {

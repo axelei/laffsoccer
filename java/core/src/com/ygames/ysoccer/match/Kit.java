@@ -1,9 +1,10 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GlColor;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.RgbPair;
 
 import java.util.ArrayList;
@@ -61,16 +62,16 @@ public class Kit implements Json.Serializable {
         socks = new GlColor(jsonMap.getString("socks"));
     }
 
-    public Image loadImage() {
+    public TextureRegion loadImage() {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         addKitColors(rgbPairs);
-        return Image.loadImage("images/kit/" + style + ".PNG", rgbPairs);
+        return Assets.loadTextureRegion("images/kit/" + style + ".PNG", rgbPairs);
     }
 
-    public Image loadLogo() {
+    public TextureRegion loadLogo() {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         addKitColors(rgbPairs);
-        return Image.loadImage("images/logo/" + style + ".PNG", rgbPairs);
+        return Assets.loadTextureRegion("images/logo/" + style + ".PNG", rgbPairs);
     }
 
     public void addKitColors(List<RgbPair> rgbPairs) {

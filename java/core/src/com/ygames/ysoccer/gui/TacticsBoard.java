@@ -1,9 +1,10 @@
 package com.ygames.ysoccer.gui;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
@@ -34,9 +35,11 @@ public class TacticsBoard extends Widget {
         this.teamA = teamA;
         this.teamB = teamB;
 
-        image = new Image("images/board.png");
-        w = image.getRegionWidth();
-        h = image.getRegionHeight();
+        Texture texture = new Texture("images/board.png");
+        textureRegion = new TextureRegion(texture);
+        textureRegion.flip(false, true);
+        w = textureRegion.getRegionWidth();
+        h = textureRegion.getRegionHeight();
 
         this.font = Assets.font10;
     }
@@ -61,7 +64,7 @@ public class TacticsBoard extends Widget {
 
         glGraphics.batch.begin();
 
-        glGraphics.batch.draw(image, x, y, image.getRegionWidth(), image.getRegionHeight());
+        glGraphics.batch.draw(textureRegion, x, y, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
 
         if ((!compareTactics) || (viewOpponent)) {
 

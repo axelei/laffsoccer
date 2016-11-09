@@ -1,13 +1,14 @@
 package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.match.Team;
 
 public class LogoPicture extends Picture {
 
-    Team team;
+    private Team team;
     public boolean isCustom;
 
     public LogoPicture(Team team) {
@@ -21,10 +22,13 @@ public class LogoPicture extends Picture {
         FileHandle customLogo = Assets.teamsFolder.child(logoPath);
         if (customLogo.exists()) {
             isCustom = true;
-            setImage(new Image(customLogo.path()));
+            Texture texture = new Texture(customLogo.path());
+            TextureRegion textureRegion = new TextureRegion(texture);
+            textureRegion.flip(false, true);
+            setTextureRegion(textureRegion);
         } else {
-            setImage(team.kits.get(0).loadLogo());
+            setTextureRegion(team.kits.get(0).loadLogo());
         }
-        setGeometry(135 - image.getRegionWidth() / 2, 50 - image.getRegionHeight() / 2, image.getRegionWidth(), image.getRegionHeight());
+        setGeometry(135 - textureRegion.getRegionWidth() / 2, 50 - textureRegion.getRegionHeight() / 2, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
     }
 }
