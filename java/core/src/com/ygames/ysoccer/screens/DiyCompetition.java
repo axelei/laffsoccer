@@ -24,7 +24,7 @@ public class DiyCompetition extends GLScreen {
 
         w = new LeagueButton();
         widgets.add(w);
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new CupButton();
         widgets.add(w);

@@ -80,7 +80,7 @@ public class InfoLeague extends GLScreen {
         w = new ExitButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
     }
 
     class TitleBar extends Button {

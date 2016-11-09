@@ -27,7 +27,7 @@ class MatchOptions extends GLScreen {
         w = new WeatherEffectsButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new RadarLabel();
         widgets.add(w);

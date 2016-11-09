@@ -148,7 +148,7 @@ public class PlayLeague extends GLScreen {
 
         if (league.isEnded()) {
 
-            selectedWidget = exitButton;
+            setSelectedWidget(exitButton);
 
         } else {
 
@@ -198,7 +198,7 @@ public class PlayLeague extends GLScreen {
             if (match.ended) {
                 w = new NextMatchButton();
                 widgets.add(w);
-                selectedWidget = w;
+                setSelectedWidget(w);
             } else {
                 Widget playMatchButton = new PlayViewMatchButton();
                 widgets.add(playMatchButton);
@@ -207,9 +207,9 @@ public class PlayLeague extends GLScreen {
                 widgets.add(viewResultButton);
 
                 if (league.bothComputers() || league.userPrefersResult) {
-                    selectedWidget = viewResultButton;
+                    setSelectedWidget(viewResultButton);
                 } else {
-                    selectedWidget = playMatchButton;
+                    setSelectedWidget(playMatchButton);
                 }
             }
         }

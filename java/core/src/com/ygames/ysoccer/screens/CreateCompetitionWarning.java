@@ -51,7 +51,7 @@ public class CreateCompetitionWarning extends GLScreen {
         w = new AbortButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
     }
 
     public class TitleBar extends Button {

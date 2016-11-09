@@ -62,12 +62,12 @@ public class SaveCompetition extends GLScreen {
 
         w = new FilenameButton();
         widgets.add(w);
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         if (game.competition.filename.length() > 0) {
             w = new SaveButton();
             widgets.add(w);
-            selectedWidget = w;
+            setSelectedWidget(w);
         }
 
         w = new AbortButton();

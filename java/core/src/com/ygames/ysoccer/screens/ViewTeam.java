@@ -75,7 +75,7 @@ public class ViewTeam extends GLScreen {
         w = new ExitButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
     }
 
     class PlayerNumberLabel extends Label {

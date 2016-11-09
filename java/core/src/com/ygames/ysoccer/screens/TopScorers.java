@@ -61,7 +61,7 @@ public class TopScorers extends GLScreen {
         w = new ExitButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
     }
 
     private List<Scorer> getScorersList(GLGame game) {

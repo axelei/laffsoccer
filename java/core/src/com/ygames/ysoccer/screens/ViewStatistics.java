@@ -21,7 +21,7 @@ public class ViewStatistics extends GLScreen {
         w = new HighestScorerButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new CompetitionInfoButton();
         widgets.add(w);

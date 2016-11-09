@@ -47,7 +47,7 @@ public class SelectFolder extends GLScreen {
 
         if (list.size() > 0) {
             Widget.arrange(game.settings, 350, 50, list);
-            selectedWidget = list.get(0);
+            setSelectedWidget(list.get(0));
         }
 
         // Leagues buttons
@@ -62,7 +62,7 @@ public class SelectFolder extends GLScreen {
                 }
                 if (leagues.length > 0) {
                     Widget.arrange(game.settings, 350, 50, list);
-                    selectedWidget = list.get(0);
+                    setSelectedWidget(list.get(0));
                 }
             }
         }
@@ -70,7 +70,7 @@ public class SelectFolder extends GLScreen {
         w = new ExitButton();
         widgets.add(w);
         if (selectedWidget == null) {
-            selectedWidget = w;
+            setSelectedWidget(w);
         }
     }
 

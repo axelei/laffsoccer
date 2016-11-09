@@ -96,7 +96,7 @@ public class DiyCup extends GLScreen {
 
         w = new RoundsButton();
         widgets.add(w);
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new AwayGoalsLabel();
         widgets.add(w);
@@ -596,7 +596,7 @@ public class DiyCup extends GLScreen {
         @Override
         public void onUpdate() {
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.getRoundName(round)));
             }
         }
@@ -651,7 +651,7 @@ public class DiyCup extends GLScreen {
         @Override
         public void onUpdate() {
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getLegsLabel()));
             }
         }
@@ -686,7 +686,7 @@ public class DiyCup extends GLScreen {
         @Override
         public void onUpdate() {
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
             }
         }
@@ -726,7 +726,7 @@ public class DiyCup extends GLScreen {
         @Override
         public void onUpdate() {
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getPenaltiesLabel()));
             }
         }

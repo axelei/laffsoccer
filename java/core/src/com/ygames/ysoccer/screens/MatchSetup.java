@@ -101,7 +101,7 @@ class MatchSetup extends GLScreen {
         playMatchButton = new PlayMatchButton();
         widgets.add(playMatchButton);
 
-        selectedWidget = playMatchButton;
+        setSelectedWidget(playMatchButton);
 
         w = new ExitButton();
         widgets.add(w);
@@ -335,7 +335,7 @@ class MatchSetup extends GLScreen {
                 kitButton.setChanged(true);
             }
             kitPictures[teamIndex].setChanged(true);
-            selectedWidget = playMatchButton;
+            setSelectedWidget(playMatchButton);
         }
     }
 

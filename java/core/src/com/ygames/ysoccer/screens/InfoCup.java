@@ -99,7 +99,7 @@ public class InfoCup extends GLScreen {
         w = new ExitButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
     }
 
     class TitleBar extends Button {
@@ -291,7 +291,7 @@ public class InfoCup extends GLScreen {
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.getRoundName(round)));
             }
         }
@@ -315,7 +315,7 @@ public class InfoCup extends GLScreen {
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("", Font.Align.CENTER, Assets.font14);
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getLegsLabel()));
             }
             setActive(false);
@@ -329,7 +329,7 @@ public class InfoCup extends GLScreen {
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("", Font.Align.CENTER, Assets.font14);
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
             }
             setActive(false);
@@ -343,7 +343,7 @@ public class InfoCup extends GLScreen {
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("", Font.Align.CENTER, Assets.font14);
             setVisible(round < cup.rounds.size());
-            if (isVisible) {
+            if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getPenaltiesLabel()));
             }
             setActive(false);

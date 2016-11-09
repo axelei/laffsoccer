@@ -159,7 +159,7 @@ class SetTeam extends GLScreen {
         w = new PlayMatchButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new ExitButton();
         widgets.add(w);

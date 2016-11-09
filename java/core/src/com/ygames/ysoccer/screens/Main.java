@@ -27,7 +27,7 @@ public class Main extends GLScreen {
 
         w = new GameOptionsButton();
         widgets.add(w);
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new MatchOptionsButton();
         widgets.add(w);
@@ -74,7 +74,6 @@ public class Main extends GLScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 270, 350, 36);
             setColors(0x536B90, 0x7090C2, 0x263142);
             setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
-            setSelected(true);
         }
 
         @Override

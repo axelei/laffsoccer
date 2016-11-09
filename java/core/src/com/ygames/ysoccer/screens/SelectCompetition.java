@@ -75,18 +75,18 @@ public class SelectCompetition extends GLScreen {
         int centerY = topY + 30 * competitionsList.size() / 2;
         if (competitionsList.size() > 0) {
             Widget.arrange(game.settings, centerY, 30, competitionsList);
-            selectedWidget = competitionsList.get(0);
+            setSelectedWidget(competitionsList.get(0));
         }
         centerY += 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2 + 6;
         if (foldersList.size() > 0) {
             Widget.arrange(game.settings, centerY, 30, foldersList);
-            selectedWidget = foldersList.get(0);
+            setSelectedWidget(foldersList.get(0));
         }
 
         w = new ExitButton();
         widgets.add(w);
         if (selectedWidget == null) {
-            selectedWidget = w;
+            setSelectedWidget(w);
         }
     }
 

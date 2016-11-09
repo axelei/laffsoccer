@@ -53,7 +53,7 @@ public class AllSelectedTeams extends GLScreen {
         w = new ChangeTeamsButton();
         widgets.add(w);
         changeTeamsButton = w;
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new AbortButton();
         widgets.add(w);
@@ -63,7 +63,7 @@ public class AllSelectedTeams extends GLScreen {
         playButton = w;
         int diff = competition.numberOfTeams - game.teamList.size();
         if (diff == 0) {
-            selectedWidget = w;
+            setSelectedWidget(w);
         }
     }
 

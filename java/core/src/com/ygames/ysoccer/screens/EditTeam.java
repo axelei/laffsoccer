@@ -169,7 +169,7 @@ class EditTeam extends GLScreen {
         w = new EditPlayersButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new NewKitButton();
         newKitButton = w;

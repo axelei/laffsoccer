@@ -2,42 +2,39 @@ package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.InputProcessor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.KeyEvent;
 
 public class InputButton extends Button {
 
     private String entryString;
     private int entryLimit;
-    private int backspaceWait;
-    private List<Boolean> keyStatus;
+    private InputProcessor inputProcessor;
 
-    public InputButton() {
-        backspaceWait = 40;
-        keyStatus = new ArrayList<Boolean>();
-        for (int i = 0; i < 256; i++) {
-            keyStatus.add(i, false);
-        }
+    protected InputButton() {
+        inputProcessor = new TextInputProcessor();
     }
 
-    private void setEntryMode(boolean newValue) {
+    private void setEntryMode(boolean newValue, boolean applyChanges) {
         if (!entryMode && newValue) {
-            for (int i = 0; i < 256; i++) {
-                keyStatus.set(i, Gdx.input.isKeyPressed(i));
-            }
+            Gdx.input.setInputProcessor(inputProcessor);
             entryString = text;
         }
         if (entryMode && !newValue) {
-            if (!text.equals(entryString)) {
-                changed = true;
+            if (applyChanges) {
+                if (!text.equals(entryString)) {
+                    changed = true;
+                }
+                text = entryString;
             }
-            text = entryString;
+            Gdx.input.setInputProcessor(null);
         }
         entryMode = newValue;
     }
 
-    public void setEntryLimit(int entryLimit) {
+    protected void setEntryLimit(int entryLimit) {
         this.entryLimit = entryLimit;
     }
 
@@ -51,49 +48,45 @@ public class InputButton extends Button {
     }
 
     @Override
-    public void update() {
-        if (!entryMode) {
-            return;
-        }
-
-        if (backspaceWait > 0) {
-            backspaceWait -= 1;
-        }
-
-        for (int i = 0; i < 256; i++) {
-            boolean isPressed = Gdx.input.isKeyPressed(i);
-            if (isPressed && !keyStatus.get(i)) {
-                switch (i) {
-                    case Input.Keys.ESCAPE:
-                        // disable entry mode without applying changes
-                        entryMode = false;
-                        break;
-
-                    case Input.Keys.BACKSPACE:
-                        if (backspaceWait == 0) {
-                            entryString = entryString.substring(0, Math.max(entryString.length() - 1, 0));
-                            backspaceWait = 4;
-                        }
-                        break;
-
-                    case Input.Keys.ENTER:
-                        setEntryMode(false);
-                        break;
-
-                    default:
-                        // get ascii chars
-                        String s = Input.Keys.toString(i);
-                        if ((s.length() == 1) && (entryString.length() < entryLimit)) {
-                            entryString += s.toUpperCase();
-                        }
-                }
-            }
-            keyStatus.set(i, isPressed);
-        }
+    public void onFire1Down() {
+        setEntryMode(true, false);
     }
 
     @Override
-    public void onFire1Down() {
-        setEntryMode(true);
+    public void onDeselect() {
+        setEntryMode(false, true);
+    }
+
+    private class TextInputProcessor extends InputAdapter {
+
+        public boolean keyDown(int keycode) {
+            switch (keycode) {
+                case Input.Keys.ENTER:
+                    setEntryMode(false, true);
+                    break;
+                case Input.Keys.ESCAPE:
+                    setEntryMode(false, false);
+                    break;
+            }
+            return true;
+        }
+
+        public boolean keyTyped(char character) {
+            if (isPrintableChar(character) && entryString.length() < entryLimit) {
+                entryString = (entryString + character).toUpperCase();
+            } else switch (character) {
+                case 8: // BACKSPACE
+                    entryString = entryString.substring(0, Math.max(entryString.length() - 1, 0));
+            }
+            return true;
+        }
+    }
+
+    private boolean isPrintableChar(char c) {
+        Character.UnicodeBlock block = Character.UnicodeBlock.of(c);
+        return (!Character.isISOControl(c)) &&
+                c != KeyEvent.CHAR_UNDEFINED &&
+                block != null &&
+                block != Character.UnicodeBlock.SPECIALS;
     }
 }

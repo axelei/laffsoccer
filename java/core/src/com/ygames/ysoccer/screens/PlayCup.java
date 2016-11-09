@@ -145,7 +145,7 @@ public class PlayCup extends GLScreen {
 
         if (cup.isEnded()) {
 
-            selectedWidget = exitButton;
+            setSelectedWidget(exitButton);
 
         } else {
 
@@ -160,7 +160,7 @@ public class PlayCup extends GLScreen {
             if (match.ended) {
                 w = new NextMatchButton();
                 widgets.add(w);
-                selectedWidget = w;
+                setSelectedWidget(w);
             } else {
                 Widget playMatchButton = new PlayViewMatchButton();
                 widgets.add(playMatchButton);
@@ -169,9 +169,9 @@ public class PlayCup extends GLScreen {
                 widgets.add(viewResultButton);
 
                 if (cup.bothComputers() || cup.userPrefersResult) {
-                    selectedWidget = viewResultButton;
+                    setSelectedWidget(viewResultButton);
                 } else {
-                    selectedWidget = playMatchButton;
+                    setSelectedWidget(playMatchButton);
                 }
             }
         }

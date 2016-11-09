@@ -43,13 +43,13 @@ public class SelectTeam extends GLScreen {
         }
         if (list.size() > 0) {
             Widget.arrange(game.settings, 350, 32, list);
-            selectedWidget = list.get(0);
+            setSelectedWidget(list.get(0));
         }
 
         w = new ExitButton();
         widgets.add(w);
         if (selectedWidget == null) {
-            selectedWidget = w;
+            setSelectedWidget(w);
         }
     }
 

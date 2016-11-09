@@ -30,7 +30,7 @@ public class CompetitionViewTeams extends GLScreen {
             widgets.add(w);
 
             if (selectedWidget == null) {
-                selectedWidget = w;
+                setSelectedWidget(w);
             }
         }
         Widget.arrange(game.settings, 350, 32, list);

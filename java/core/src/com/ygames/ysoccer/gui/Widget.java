@@ -31,13 +31,11 @@ public abstract class Widget {
     Font.Align align;
     protected int textOffsetX;
 
-    // state
-    public boolean isActive;
-    public boolean isSelected;
+    // flags
+    public boolean active;
+    public boolean selected;
     public boolean entryMode;
-    public boolean isVisible;
-
-    // misc
+    public boolean visible;
     boolean changed;
 
     public enum Event {
@@ -49,11 +47,8 @@ public abstract class Widget {
         imageScaleY = 1.0f;
         color = new WidgetColor();
         align = Font.Align.CENTER;
-        isVisible = true;
+        visible = true;
         changed = true;
-    }
-
-    public void update() {
     }
 
     public abstract void render(GLGraphics glGraphics);
@@ -123,19 +118,28 @@ public abstract class Widget {
         this.font = font;
     }
 
-    public void setActive(boolean isActive) {
-        this.isActive = isActive;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public void setSelected(boolean isSelected) {
-        this.isSelected = isSelected;
+    public void setSelected(boolean selected) {
+        if(this.selected && !selected) {
+            onDeselect();
+        }
+        this.selected = selected;
     }
 
-    public void setVisible(boolean isVisible) {
-        this.isVisible = isVisible;
+    public void onDeselect() {
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
     public void fireEvent(Event widgetEvent) {
+
+        if (!active) return;
+
         switch (widgetEvent) {
             case FIRE1_DOWN:
                 onFire1Down();

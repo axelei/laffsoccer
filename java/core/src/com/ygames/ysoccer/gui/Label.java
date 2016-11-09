@@ -7,7 +7,7 @@ public class Label extends Widget {
 
     @Override
     public void render(GLGraphics glGraphics) {
-        if (!isVisible) {
+        if (!visible) {
             return;
         }
 

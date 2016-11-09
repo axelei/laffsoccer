@@ -28,25 +28,19 @@ public abstract class GLScreen implements Screen {
 
         game.mouse.read(game.glGraphics.camera);
 
-        if (selectedWidget == null || !selectedWidget.entryMode) {
-            for (Widget w : widgets) {
-                if (w.contains(game.mouse.position.x, game.mouse.position.y) && w.isVisible && w.isActive) {
-                    selectedWidget = w;
-                }
+        for (Widget w : widgets) {
+            if (w.contains(game.mouse.position.x, game.mouse.position.y)) {
+                setSelectedWidget(w);
             }
         }
 
-        int len = game.inputDevices.size();
-        for (int i = 0; i < len; i++) {
-            game.inputDevices.get(i).update();
+        for (InputDevice inputDevice : game.inputDevices) {
+            inputDevice.update();
         }
 
-        selectedWidget = readMenuInput();
+        readMenuInput();
 
-        len = widgets.size();
-        for (int i = 0; i < len; i++) {
-            Widget widget = widgets.get(i);
-            widget.update();
+        for (Widget widget : widgets) {
             if (widget.getChanged()) {
                 widget.onUpdate();
             }
@@ -78,7 +72,7 @@ public abstract class GLScreen implements Screen {
             widgetEvent = Widget.Event.FIRE2_UP;
         }
 
-        if (selectedWidget != null && selectedWidget.isActive) {
+        if (selectedWidget != null) {
             selectedWidget.fireEvent(widgetEvent);
         }
 
@@ -98,19 +92,12 @@ public abstract class GLScreen implements Screen {
 
         // widgets
         shapeRenderer.setProjectionMatrix(camera.combined);
-        len = widgets.size();
-        for (int i = 0; i < len; i++) {
-            widgets.get(i).render(game.glGraphics);
+        for (Widget widget : widgets) {
+            widget.render(game.glGraphics);
         }
     }
 
-    private Widget readMenuInput() {
-        int len = widgets.size();
-        for (int i = 0; i < len; i++) {
-            Widget widget = widgets.get(i);
-            widget.isSelected = false;
-        }
-
+    private void readMenuInput() {
         YSoccer.MenuInput menuInput = game.menuInput;
 
         // fire 1 delay
@@ -158,9 +145,7 @@ public abstract class GLScreen implements Screen {
         menuInput.fire1 = false;
         menuInput.fire2 = false;
 
-        len = game.inputDevices.size();
-        for (int i = 0; i < len; i++) {
-            InputDevice inputDevice = game.inputDevices.get(i);
+        for (InputDevice inputDevice : game.inputDevices) {
 
             // x movement
             int x = inputDevice.x1;
@@ -200,17 +185,13 @@ public abstract class GLScreen implements Screen {
             Widget current = selectedWidget;
             float distMin = 50000;
             float distance;
-            int len2 = widgets.size();
-            for (int j = 0; j < len2; j++) {
-                Widget w = widgets.get(j);
-                if (w == current || !w.isVisible || !w.isActive) {
-                    continue;
-                }
+            for (Widget w : widgets) {
                 if ((w.y + w.h) <= current.y) {
                     distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
                     if (distance < distMin) {
-                        distMin = distance;
-                        selectedWidget = w;
+                        if (setSelectedWidget(w)) {
+                            distMin = distance;
+                        }
                     }
                 }
             }
@@ -218,17 +199,13 @@ public abstract class GLScreen implements Screen {
             Widget current = selectedWidget;
             float distMin = 50000;
             float distance;
-            int len2 = widgets.size();
-            for (int j = 0; j < len2; j++) {
-                Widget w = widgets.get(j);
-                if (w == current || !w.isVisible || !w.isActive) {
-                    continue;
-                }
+            for (Widget w : widgets) {
                 if (w.y >= (current.y + current.h)) {
                     distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
                     if (distance < distMin) {
-                        distMin = distance;
-                        selectedWidget = w;
+                        if (setSelectedWidget(w)) {
+                            distMin = distance;
+                        }
                     }
                 }
             }
@@ -240,17 +217,14 @@ public abstract class GLScreen implements Screen {
             Widget current = selectedWidget;
             float distMin = 50000;
             float distance;
-            int len2 = widgets.size();
-            for (int j = 0; j < len2; j++) {
-                Widget w = widgets.get(j);
-                if (w == current || !w.isVisible || !w.isActive) {
-                    continue;
-                }
+            for (Widget w : widgets) {
                 if ((w.x + w.w) <= current.x) {
                     distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
                     if (distance < distMin) {
-                        distMin = distance;
-                        selectedWidget = w;
+                        if (setSelectedWidget(w)) {
+                            distMin = distance;
+                        }
+
                     }
                 }
             }
@@ -258,17 +232,13 @@ public abstract class GLScreen implements Screen {
             Widget current = selectedWidget;
             float distMin = 50000;
             float distance;
-            int len2 = widgets.size();
-            for (int j = 0; j < len2; j++) {
-                Widget w = widgets.get(j);
-                if (w == current || !w.isVisible || !w.isActive) {
-                    continue;
-                }
+            for (Widget w : widgets) {
                 if (w.x >= (current.x + current.w)) {
                     distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
                     if (distance < distMin) {
-                        distMin = distance;
-                        selectedWidget = w;
+                        if (setSelectedWidget(w)) {
+                            distMin = distance;
+                        }
                     }
                 }
             }
@@ -300,14 +270,22 @@ public abstract class GLScreen implements Screen {
         if (menuInput.yTimer > 0) {
             menuInput.yTimer -= 1;
         }
-
-        if (selectedWidget != null) {
-            selectedWidget.isSelected = true;
-        }
-
-        return selectedWidget;
     }
 
+    public boolean setSelectedWidget(Widget widget) {
+        if (widget == null || widget == selectedWidget || !widget.visible || !widget.active) {
+            return false;
+        }
+        if (selectedWidget != null) {
+            if (selectedWidget.entryMode) {
+                return false;
+            }
+            selectedWidget.setSelected(false);
+        }
+        selectedWidget = widget;
+        selectedWidget.setSelected(true);
+        return true;
+    }
 
     @Override
     public void show() {

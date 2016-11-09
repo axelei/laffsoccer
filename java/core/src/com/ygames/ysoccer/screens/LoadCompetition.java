@@ -63,14 +63,14 @@ public class LoadCompetition extends GLScreen {
                 w.x = (game.settings.GUI_WIDTH) / 2 + 180;
                 w.y = 320 + 34 * (i - len / 2);
             }
-            selectedWidget = competitionButtonsList.get(0);
+            setSelectedWidget(competitionButtonsList.get(0));
         }
 
         w = new AbortButton();
         widgets.add(w);
 
         if (selectedWidget == null) {
-            selectedWidget = w;
+            setSelectedWidget(w);
         }
     }
 

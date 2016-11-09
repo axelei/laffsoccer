@@ -3,8 +3,8 @@ package com.ygames.ysoccer.gui;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.framework.GlShapeRenderer;
 
 public class Button extends Widget {
@@ -13,12 +13,12 @@ public class Button extends Widget {
     private static final float alpha = 0.9f;
 
     public Button() {
-        isActive = true;
+        active = true;
     }
 
     @Override
     public void render(GLGraphics glGraphics) {
-        if (!isVisible) {
+        if (!visible) {
             return;
         }
 
@@ -37,8 +37,12 @@ public class Button extends Widget {
             drawBorder(shapeRenderer, x, y, w, h, color.lightBorder, color.darkBorder);
         }
 
-        if (isSelected && !entryMode) {
-            drawAnimatedBorder(glGraphics);
+        if (selected) {
+            if (entryMode) {
+                drawBorder(glGraphics.shapeRenderer, x, y, w, h, 0xEEEE8A, 0xBFBF6F);
+            } else {
+                drawAnimatedBorder(glGraphics);
+            }
         }
 
         shapeRenderer.end();

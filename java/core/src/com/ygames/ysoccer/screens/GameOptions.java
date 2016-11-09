@@ -25,7 +25,7 @@ public class GameOptions extends GLScreen {
 
         w = new LanguageButton();
         widgets.add(w);
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new PlayerCountryLabel();
         widgets.add(w);

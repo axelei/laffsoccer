@@ -43,7 +43,7 @@ public class DesignFriendly extends GLScreen {
 
         w = new OkButton();
         widgets.add(w);
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new ExitButton();
         widgets.add(w);

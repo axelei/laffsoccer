@@ -66,7 +66,7 @@ public class DiyLeague extends GLScreen {
         w = new TimeButton();
         widgets.add(w);
 
-        selectedWidget = w;
+        setSelectedWidget(w);
 
         w = new NumberOfTeamsLabel();
         widgets.add(w);
