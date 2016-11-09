@@ -1,10 +1,10 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Weather;
@@ -15,7 +15,7 @@ class MatchOptions extends GLScreen {
     MatchOptions(GLGame game) {
         super(game);
 
-        background = new Image("images/backgrounds/menu_match_options.jpg");
+        background = new Texture("images/backgrounds/menu_match_options.jpg");
 
         Widget w;
         w = new TitleButton();

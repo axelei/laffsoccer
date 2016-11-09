@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GlColor3;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.GlColor3;
 import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
@@ -55,7 +55,7 @@ class EditPlayers extends GLScreen {
         selectedPos = -1;
         this.modified = modified;
 
-        background = new Image("images/backgrounds/menu_edit_players.jpg");
+        background = new Texture("images/backgrounds/menu_edit_players.jpg");
 
         Texture texture = new Texture("images/skill.png");
         for (int i = 0; i < 8; i++) {

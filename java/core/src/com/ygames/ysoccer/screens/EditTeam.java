@@ -1,13 +1,13 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.GlColor;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.LogoPicture;
@@ -57,7 +57,7 @@ class EditTeam extends GLScreen {
         selectedKit = 0;
         selectedPos = -1;
 
-        background = new Image("images/backgrounds/menu_edit_team.jpg");
+        background = new Texture("images/backgrounds/menu_edit_team.jpg");
 
         Widget w;
 

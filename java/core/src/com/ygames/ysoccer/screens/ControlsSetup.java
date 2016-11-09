@@ -7,11 +7,11 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerAdapter;
 import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.InputDeviceConfig;
 import com.ygames.ysoccer.framework.JoystickConfig;
 import com.ygames.ysoccer.framework.KeyboardConfig;
@@ -33,7 +33,7 @@ class ControlsSetup extends GLScreen {
 
     ControlsSetup(GLGame game) {
         super(game);
-        background = new Image("images/backgrounds/menu_controls.jpg");
+        background = new Texture("images/backgrounds/menu_controls.jpg");
 
         inputProcessor = new SetupInputProcessor();
         joystickConfigs = new ArrayList<JoystickConfig>();
@@ -201,37 +201,37 @@ class ControlsSetup extends GLScreen {
             KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
             switch (configParam) {
                 case KEY_LEFT:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port, keyboardConfig.keyLeft)) {
+                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyLeft = keyCode;
                     break;
                 case KEY_RIGHT:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port, keyboardConfig.keyRight)) {
+                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyRight = keyCode;
                     break;
                 case KEY_UP:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port, keyboardConfig.keyUp)) {
+                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyUp = keyCode;
                     break;
                 case KEY_DOWN:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port, keyboardConfig.keyDown)) {
+                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyDown = keyCode;
                     break;
                 case BUTTON_1:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port, keyboardConfig.button1)) {
+                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.button1 = keyCode;
                     break;
                 case BUTTON_2:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port, keyboardConfig.button2)) {
+                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.button2 = keyCode;
@@ -308,7 +308,7 @@ class ControlsSetup extends GLScreen {
         game.settings.setJoystickConfigs(configuredConfigs);
     }
 
-    private boolean isKeyCodeAssigned(int keyCode, ConfigParam configParam, int port, int currentValue) {
+    private boolean isKeyCodeAssigned(int keyCode, ConfigParam configParam, int port) {
         for (int i = 0; i < 2; i++) {
             KeyboardConfig config = keyboardConfigs.get(i);
             if (config.keyLeft == keyCode && (configParam != ConfigParam.KEY_LEFT || port != i))

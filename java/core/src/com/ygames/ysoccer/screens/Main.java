@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -14,7 +15,7 @@ public class Main extends GLScreen {
 
     public Main(GLGame game) {
         super(game);
-        background = new Image("images/backgrounds/menu_main.jpg");
+        background = new Texture("images/backgrounds/menu_main.jpg");
         Image logo = new Image("images/logo.png");
 
         game.teamList.clear();

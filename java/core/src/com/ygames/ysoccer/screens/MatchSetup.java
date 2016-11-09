@@ -1,13 +1,13 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
@@ -48,7 +48,7 @@ class MatchSetup extends GLScreen {
 
         matchSettings = new MatchSettings(competition, game.settings.weatherMaxStrength);
 
-        background = new Image("images/backgrounds/menu_match_presentation.jpg");
+        background = new Texture("images/backgrounds/menu_match_presentation.jpg");
 
         Widget w;
         w = new TitleButton();

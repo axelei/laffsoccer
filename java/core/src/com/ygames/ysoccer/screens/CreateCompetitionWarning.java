@@ -1,24 +1,24 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 
-public class CreateCompetitionWarning extends GLScreen {
+class CreateCompetitionWarning extends GLScreen {
 
     private Competition.Category createCategory;
 
-    public CreateCompetitionWarning(GLGame game, Competition.Category createCategory) {
+    CreateCompetitionWarning(GLGame game, Competition.Category createCategory) {
         super(game);
         this.createCategory = createCategory;
 
-        background = new Image("images/backgrounds/menu_competition.jpg");
+        background = new Texture("images/backgrounds/menu_competition.jpg");
 
         Widget w;
 
@@ -72,9 +72,9 @@ public class CreateCompetitionWarning extends GLScreen {
         }
     }
 
-    public class ContinueButton extends Button {
+    private class ContinueButton extends Button {
 
-        public ContinueButton() {
+        ContinueButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CONTINUE"), Font.Align.CENTER, Assets.font14);
@@ -95,9 +95,9 @@ public class CreateCompetitionWarning extends GLScreen {
         }
     }
 
-    public class AbortButton extends Button {
+    private class AbortButton extends Button {
 
-        public AbortButton() {
+        AbortButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);

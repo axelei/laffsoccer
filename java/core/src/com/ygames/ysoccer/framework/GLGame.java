@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
@@ -23,8 +24,8 @@ public class GLGame extends Game {
     public GLGraphics glGraphics;
     private float deltaTime;
     public InputDeviceList inputDevices;
-    public Mouse mouse;
-    public MenuInput menuInput;
+    Mouse mouse;
+    MenuInput menuInput;
     public Player tmpPlayer;
 
     public enum State {
@@ -32,7 +33,7 @@ public class GLGame extends Game {
     }
 
     private State state;
-    public Image stateBackground;
+    public Texture stateBackground;
     public WidgetColor stateColor;
 
     public ArrayList<Team> teamList;
@@ -78,31 +79,31 @@ public class GLGame extends Game {
         glGraphics.dispose();
     }
 
-    public class MenuInput {
+    class MenuInput {
         // values
         protected int x;
         protected int y;
-        protected boolean fire1;
-        protected boolean fire2;
+        boolean fire1;
+        boolean fire2;
 
         // old values
-        protected int xOld;
-        protected int yOld;
-        protected boolean fire1Old;
-        protected boolean fire2Old;
+        int xOld;
+        int yOld;
+        boolean fire1Old;
+        boolean fire2Old;
 
         // timers
-        protected int xTimer;
-        protected int yTimer;
-        protected int fire1Timer;
-        protected int fire2Timer;
+        int xTimer;
+        int yTimer;
+        int fire1Timer;
+        int fire2Timer;
     }
 
     public void setState(State state, Competition.Category category) {
         this.state = state;
         switch (state) {
             case COMPETITION:
-                stateBackground = new Image("images/backgrounds/menu_competition.jpg");
+                stateBackground = new Texture("images/backgrounds/menu_competition.jpg");
                 switch (category) {
                     case DIY_COMPETITION:
                         stateColor.set(0x376E2F, 0x4E983F, 0x214014);
@@ -113,11 +114,11 @@ public class GLGame extends Game {
                 }
                 break;
             case FRIENDLY:
-                stateBackground = new Image("images/backgrounds/menu_friendly.jpg");
+                stateBackground = new Texture("images/backgrounds/menu_friendly.jpg");
                 stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
                 break;
             case EDIT:
-                stateBackground = new Image("images/backgrounds/menu_edit.jpg");
+                stateBackground = new Texture("images/backgrounds/menu_edit.jpg");
                 stateColor.set(0x89421B, 0xBB5A25, 0x3D1E0D);
                 break;
         }

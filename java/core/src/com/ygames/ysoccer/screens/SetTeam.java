@@ -1,13 +1,13 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
@@ -74,7 +74,7 @@ class SetTeam extends GLScreen {
         selectedPos = -1;
         compareTactics = false;
 
-        background = new Image("images/backgrounds/menu_set_team.jpg");
+        background = new Texture("images/backgrounds/menu_set_team.jpg");
 
         font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();

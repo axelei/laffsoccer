@@ -2,9 +2,9 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.ygames.ysoccer.YSoccer;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public abstract class GLScreen implements Screen {
 
     protected GLGame game;
-    protected Image background;
+    protected Texture background;
     protected List<Widget> widgets;
     protected Widget selectedWidget;
 
@@ -47,7 +47,7 @@ public abstract class GLScreen implements Screen {
             widget.setChanged(false);
         }
 
-        YSoccer.MenuInput menuInput = game.menuInput;
+        GLGame.MenuInput menuInput = game.menuInput;
         Widget.Event widgetEvent = Widget.Event.NONE;
 
         // fire 1 events
@@ -86,7 +86,7 @@ public abstract class GLScreen implements Screen {
         batch.setProjectionMatrix(camera.combined);
         if (background != null) {
             batch.begin();
-            batch.draw(background, 0, 0, 1280, 720);
+            batch.draw(background, 0, 0, 1280, 720, 0, 0, 1024, 768, false, true);
             batch.end();
         }
 
@@ -98,7 +98,7 @@ public abstract class GLScreen implements Screen {
     }
 
     private void readMenuInput() {
-        YSoccer.MenuInput menuInput = game.menuInput;
+        GLGame.MenuInput menuInput = game.menuInput;
 
         // fire 1 delay
         if (menuInput.fire1) {

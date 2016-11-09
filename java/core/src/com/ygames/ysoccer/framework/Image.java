@@ -50,7 +50,7 @@ public class Image extends TextureRegion {
         }
     }
 
-    public static Image loadImage(String internalPath, String paletteFile) {
+    static Image loadImage(String internalPath, String paletteFile) {
         InputStream in = null;
         try {
             in = Gdx.files.internal(internalPath).read();
@@ -68,9 +68,5 @@ public class Image extends TextureRegion {
                 } catch (IOException e) {
                 }
         }
-    }
-
-    public void dispose() {
-        getTexture().dispose();
     }
 }

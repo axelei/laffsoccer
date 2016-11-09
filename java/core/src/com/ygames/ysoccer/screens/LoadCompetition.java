@@ -1,12 +1,12 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Image;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -15,12 +15,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class LoadCompetition extends GLScreen {
+class LoadCompetition extends GLScreen {
 
-    public LoadCompetition(GLGame game) {
+    LoadCompetition(GLGame game) {
         super(game);
 
-        background = new Image("images/backgrounds/menu_competition.jpg");
+        background = new Texture("images/backgrounds/menu_competition.jpg");
 
         Widget w;
 
@@ -84,11 +84,11 @@ public class LoadCompetition extends GLScreen {
         }
     }
 
-    public class CompetitionButton extends Button {
+    private class CompetitionButton extends Button {
 
         private Competition competition;
 
-        public CompetitionButton(String filename, Competition competition) {
+        CompetitionButton(String filename, Competition competition) {
             this.competition = competition;
             setSize(540, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
@@ -115,9 +115,9 @@ public class LoadCompetition extends GLScreen {
         }
     }
 
-    public class CategoryLabel extends Button {
+    private class CategoryLabel extends Button {
 
-        public CategoryLabel(Competition competition) {
+        CategoryLabel(Competition competition) {
             setSize(180, 30);
             setText(competition.getCategoryFolder(), Font.Align.CENTER, Assets.font14);
             setColors(0x666666, 0x8F8D8D, 0x404040);
@@ -125,9 +125,9 @@ public class LoadCompetition extends GLScreen {
         }
     }
 
-    class AbortButton extends Button {
+    private class AbortButton extends Button {
 
-        public AbortButton() {
+        AbortButton() {
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
