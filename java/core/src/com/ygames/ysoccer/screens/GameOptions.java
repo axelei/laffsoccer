@@ -223,9 +223,11 @@ class GameOptions extends GLScreen {
                         case 1:
                             m = 2;
                             break;
+
                         case 2:
                             m = 5;
                             break;
+
                         case 5:
                             m = 1;
                             e += 1;
@@ -238,9 +240,11 @@ class GameOptions extends GLScreen {
                         case 5:
                             m = 2;
                             break;
+
                         case 2:
                             m = 1;
                             break;
+
                         case 1:
                             m = 5;
                             e -= 1;

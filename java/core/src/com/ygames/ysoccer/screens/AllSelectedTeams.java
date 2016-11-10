@@ -125,9 +125,11 @@ public class AllSelectedTeams extends GLScreen {
                     case COMPUTER:
                         team.controlMode = Team.ControlMode.PLAYER;
                         break;
+
                     case PLAYER:
                         team.controlMode = Team.ControlMode.COACH;
                         break;
+
                     case COACH:
                         team.controlMode = Team.ControlMode.UNDEFINED;
                         game.teamList.remove(team);
@@ -147,12 +149,15 @@ public class AllSelectedTeams extends GLScreen {
                 case UNDEFINED:
                     setColors(0x98691E, 0xC88B28, 0x3E2600);
                     break;
+
                 case COMPUTER:
                     setColors(0x981E1E, 0xC72929, 0x640000);
                     break;
+
                 case PLAYER:
                     setColors(0x0000C8, 0x1919FF, 0x000078);
                     break;
+
                 case COACH:
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
@@ -206,9 +211,11 @@ public class AllSelectedTeams extends GLScreen {
                     case FRIENDLY:
                         setText(Assets.strings.get("PLAY FRIENDLY"));
                         break;
+
                     case LEAGUE:
                         setText(Assets.strings.get("PLAY LEAGUE"));
                         break;
+
                     case CUP:
                         setText(Assets.strings.get("PLAY CUP"));
                         break;
@@ -236,11 +243,13 @@ public class AllSelectedTeams extends GLScreen {
                 case FRIENDLY:
                     // TODO
                     break;
+
                 case LEAGUE:
                     competition.start(game.teamList);
                     game.setCompetition(competition);
                     game.setScreen(new PlayLeague(game));
                     break;
+
                 case CUP:
                     competition.start(game.teamList);
                     game.setCompetition(competition);

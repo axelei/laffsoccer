@@ -144,21 +144,27 @@ public abstract class Widget {
             case FIRE1_DOWN:
                 onFire1Down();
                 break;
+
             case FIRE1_HOLD:
                 onFire1Hold();
                 break;
+
             case FIRE1_UP:
                 onFire1Up();
                 break;
+
             case FIRE2_DOWN:
                 onFire2Down();
                 break;
+
             case FIRE2_HOLD:
                 onFire2Hold();
                 break;
+
             case FIRE2_UP:
                 onFire2Up();
                 break;
+
             case NONE:
                 //do nothing
                 break;

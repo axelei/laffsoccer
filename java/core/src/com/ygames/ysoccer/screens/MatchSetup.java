@@ -367,9 +367,11 @@ class MatchSetup extends GLScreen {
                 case FRIENDLY:
                     game.setScreen(new SelectTeams(game, fileHandle, league, competition));
                     break;
+
                 case LEAGUE:
                     game.setScreen(new PlayLeague(game));
                     break;
+
                 case CUP:
                     game.setScreen(new PlayCup(game));
                     break;

@@ -218,6 +218,7 @@ public class Main extends GLScreen {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));
                             break;
+
                         case CUP:
                             game.setScreen(new PlayCup(game));
                             break;

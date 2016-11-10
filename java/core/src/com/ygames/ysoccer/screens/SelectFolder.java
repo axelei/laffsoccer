@@ -88,12 +88,14 @@ public class SelectFolder extends GLScreen {
                         title += " - " + fileHandle.name().replace('_', ' ');
                     }
                     break;
+
                 case EDIT:
                     title = Assets.strings.get("EDIT TEAMS");
                     if (!isDataRoot) {
                         title += " - " + fileHandle.name().replace('_', ' ');
                     }
                     break;
+
                 case TRAINING:
                     // TODO
                     break;
@@ -124,6 +126,7 @@ public class SelectFolder extends GLScreen {
                 case FRIENDLY:
                     competition.absolutePath = fileHandle.path();
                     break;
+
                 default:
                     break;
             }
@@ -149,9 +152,11 @@ public class SelectFolder extends GLScreen {
                 case FRIENDLY:
                     game.setScreen(new SelectTeams(game, fileHandle, league, competition));
                     break;
+
                 case EDIT:
                     game.setScreen(new SelectTeam(game, fileHandle, league));
                     break;
+
                 case TRAINING:
                     // TODO
                     break;

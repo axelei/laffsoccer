@@ -25,6 +25,10 @@ public abstract class InputDevice {
         this.port = port;
     }
 
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
     public void update() {
 
         // update input buffer

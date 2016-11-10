@@ -70,9 +70,11 @@ public class PlayLeague extends GLScreen {
                 case COMPUTER:
                     w.setColors(0x981E1E, 0x000001, 0x000001);
                     break;
+
                 case PLAYER:
                     w.setColors(0x0000C8, 0x000001, 0x000001);
                     break;
+
                 case COACH:
                     w.setColors(0x009BDC, 0x000001, 0x000001);
                     break;

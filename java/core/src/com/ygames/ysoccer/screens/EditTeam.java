@@ -424,15 +424,19 @@ class EditTeam extends GLScreen {
                 case 0:
                     label = "KITS.HOME";
                     break;
+
                 case 1:
                     label = "KITS.AWAY";
                     break;
+
                 case 2:
                     label = "KITS.THIRD";
                     break;
+
                 case 3:
                     label = "KITS.1ST CHANGE";
                     break;
+
                 case 4:
                     label = "KITS.2ND CHANGE";
                     break;
@@ -597,12 +601,15 @@ class EditTeam extends GLScreen {
                 case SHIRT1:
                     team.kits.get(selectedKit).shirt1 = color;
                     break;
+
                 case SHIRT2:
                     team.kits.get(selectedKit).shirt2 = color;
                     break;
+
                 case SHORTS:
                     team.kits.get(selectedKit).shorts = color;
                     break;
+
                 case SOCKS:
                     team.kits.get(selectedKit).socks = color;
                     break;
@@ -622,12 +629,15 @@ class EditTeam extends GLScreen {
                 case SHIRT1:
                     color = team.kits.get(selectedKit).shirt1;
                     break;
+
                 case SHIRT2:
                     color = team.kits.get(selectedKit).shirt2;
                     break;
+
                 case SHORTS:
                     color = team.kits.get(selectedKit).shorts;
                     break;
+
                 case SOCKS:
                     color = team.kits.get(selectedKit).socks;
                     break;
@@ -650,9 +660,11 @@ class EditTeam extends GLScreen {
                 case RED:
                     setColors(0xDC2020);
                     break;
+
                 case GREEN:
                     setColors(0x3DBD3D);
                     break;
+
                 case BLUE:
                     setColors(0x2352F2);
                     break;
@@ -694,9 +706,11 @@ class EditTeam extends GLScreen {
                 case RED:
                     color = new GlColor(value, color.getGreen(), color.getBlue());
                     break;
+
                 case GREEN:
                     color = new GlColor(color.getRed(), value, color.getBlue());
                     break;
+
                 case BLUE:
                     color = new GlColor(color.getRed(), color.getGreen(), value);
                     break;
@@ -705,12 +719,15 @@ class EditTeam extends GLScreen {
                 case SHIRT1:
                     team.kits.get(selectedKit).shirt1 = color;
                     break;
+
                 case SHIRT2:
                     team.kits.get(selectedKit).shirt2 = color;
                     break;
+
                 case SHORTS:
                     team.kits.get(selectedKit).shorts = color;
                     break;
+
                 case SOCKS:
                     team.kits.get(selectedKit).socks = color;
                     break;
@@ -724,23 +741,21 @@ class EditTeam extends GLScreen {
         }
 
         private GlColor getColor() {
-            GlColor color;
+            Kit kit = team.kits.get(selectedKit);
             switch (field) {
                 case SHIRT1:
-                    color = team.kits.get(selectedKit).shirt1;
-                    break;
+                    return kit.shirt1;
+
                 case SHIRT2:
-                    color = team.kits.get(selectedKit).shirt2;
-                    break;
+                    return kit.shirt2;
+
                 case SHORTS:
-                    color = team.kits.get(selectedKit).shorts;
-                    break;
+                    return kit.shorts;
+
                 case SOCKS:
-                default:
-                    color = team.kits.get(selectedKit).socks;
-                    break;
+                    return kit.socks;
             }
-            return color;
+            return null;
         }
     }
 

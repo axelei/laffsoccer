@@ -140,6 +140,7 @@ class ControlsSetup extends GLScreen {
                 case KEYBOARD:
                     setText(Assets.strings.get("KEYBOARD") + " " + (port + 1), Font.Align.CENTER, Assets.font14);
                     break;
+
                 case JOYSTICK:
                     setText(Assets.strings.get("JOYSTICK") + " " + (port + 1), Font.Align.CENTER, Assets.font14);
                     break;
@@ -152,6 +153,7 @@ class ControlsSetup extends GLScreen {
             switch (config.type) {
                 case KEYBOARD:
                     break;
+
                 case JOYSTICK:
                     if (!((JoystickConfig) config).isConfigured()) {
                         setColors(this == selectedInputDeviceButton ? 0x800000 : 0xB40000);
@@ -185,9 +187,11 @@ class ControlsSetup extends GLScreen {
                     setText("");
                     setVisible(false);
                     break;
+
                 case JOYSTICK:
                     setText(((JoystickConfig) selectedInputDeviceButton.config).name.toUpperCase());
                     setVisible(true);
+                    break;
             }
         }
     }
@@ -206,30 +210,35 @@ class ControlsSetup extends GLScreen {
                     }
                     keyboardConfig.keyLeft = keyCode;
                     break;
+
                 case KEY_RIGHT:
                     if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyRight = keyCode;
                     break;
+
                 case KEY_UP:
                     if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyUp = keyCode;
                     break;
+
                 case KEY_DOWN:
                     if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.keyDown = keyCode;
                     break;
+
                 case BUTTON_1:
                     if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
                     }
                     keyboardConfig.button1 = keyCode;
                     break;
+
                 case BUTTON_2:
                     if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
                         return;
@@ -253,17 +262,20 @@ class ControlsSetup extends GLScreen {
                     if (axisIndex == joystickConfig.yAxis) return;
                     joystickConfig.xAxis = axisIndex;
                     break;
+
                 case KEY_UP:
                 case KEY_DOWN:
                     if (axisIndex == -1) return;
                     if (axisIndex == joystickConfig.xAxis) return;
                     joystickConfig.yAxis = axisIndex;
                     break;
+
                 case BUTTON_1:
                     if (buttonIndex == -1) return;
                     if (buttonIndex == joystickConfig.button2) return;
                     joystickConfig.button1 = buttonIndex;
                     break;
+
                 case BUTTON_2:
                     if (buttonIndex == -1) return;
                     if (buttonIndex == joystickConfig.button1) return;
@@ -383,6 +395,7 @@ class ControlsSetup extends GLScreen {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + xAxisIndex);
                         setColors(0x548854);
                     }
+                    break;
             }
         }
     }
@@ -432,6 +445,7 @@ class ControlsSetup extends GLScreen {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + xAxisIndex);
                         setColors(0x548854);
                     }
+                    break;
             }
         }
     }
@@ -481,6 +495,7 @@ class ControlsSetup extends GLScreen {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + yAxisIndex);
                         setColors(0x548854);
                     }
+                    break;
             }
         }
     }
@@ -530,6 +545,7 @@ class ControlsSetup extends GLScreen {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + yAxisIndex);
                         setColors(0x548854);
                     }
+                    break;
             }
         }
     }
@@ -583,6 +599,7 @@ class ControlsSetup extends GLScreen {
                         setText(index);
                         setColors(0x548854);
                     }
+                    break;
             }
         }
 

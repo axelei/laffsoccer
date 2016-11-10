@@ -91,6 +91,7 @@ public abstract class Competition {
             case DIY_COMPETITION:
                 label = "DIY COMPETITION";
                 break;
+
             case PRESET_COMPETITION:
                 label = "PRESET COMPETITION";
                 break;
@@ -104,6 +105,7 @@ public abstract class Competition {
             case DIY_COMPETITION:
                 label = "YOU ARE ABOUT TO LOSE CURRENT DIY COMPETITION";
                 break;
+
             case PRESET_COMPETITION:
                 label = "YOU ARE ABOUT TO LOSE CURRENT PRESET COMPETITION";
                 break;
@@ -148,8 +150,10 @@ public abstract class Competition {
         switch (category) {
             case DIY_COMPETITION:
                 return "DIY";
+
             case PRESET_COMPETITION:
                 return "PRESET";
+
             default:
                 throw new GdxRuntimeException("Unknown category");
         }

@@ -68,6 +68,7 @@ public class MatchRenderer {
 
     public void render(GLGame game) {
         Gdx.gl.glEnable(GL20.GL_BLEND);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         glGraphics.camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
         glGraphics.camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
         glGraphics.batch.begin();
@@ -82,11 +83,13 @@ public class MatchRenderer {
     }
 
     private void renderBackground() {
+        glGraphics.batch.disableBlending();
         for (int c = 0; c < 4; c++) {
             for (int r = 0; r < 4; r++) {
                 glGraphics.batch.draw(Assets.stadium[r][c], -Const.CENTER_X + 512 * c, -Const.CENTER_Y + 512 * r);
             }
         }
+        glGraphics.batch.enableBlending();
     }
 
     private void renderSprites(int subframe) {

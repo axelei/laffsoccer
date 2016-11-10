@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.framework;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -82,12 +84,16 @@ public abstract class GLScreen implements Screen {
 
         camera.update();
 
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         // background
         batch.setProjectionMatrix(camera.combined);
         if (background != null) {
+            batch.disableBlending();
             batch.begin();
             batch.draw(background, 0, 0, 1280, 720, 0, 0, 1024, 768, false, true);
             batch.end();
+            batch.enableBlending();
         }
 
         // widgets

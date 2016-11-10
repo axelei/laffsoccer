@@ -62,6 +62,7 @@ class CreateCompetitionWarning extends GLScreen {
                 case DIY_COMPETITION:
                     setColors(0x376E2F, 0x4E983F, 0x214014);
                     break;
+
                 case PRESET_COMPETITION:
                     setColors(0x415600, 0x5E7D00, 0x243000);
                     break;
@@ -87,6 +88,7 @@ class CreateCompetitionWarning extends GLScreen {
                 case DIY_COMPETITION:
                     game.setScreen(new DiyCompetition(game));
                     break;
+
                 case PRESET_COMPETITION:
                     game.setState(GLGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
                     game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));

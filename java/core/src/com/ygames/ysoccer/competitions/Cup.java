@@ -225,8 +225,10 @@ public class Cup extends Competition {
             switch (round.extraTime) {
                 case OFF:
                     return false;
+
                 case ON:
                     return true;
+
                 case IF_REPLAY:
                     return false;
             }
@@ -251,8 +253,10 @@ public class Cup extends Competition {
             switch (round.extraTime) {
                 case OFF:
                     return false;
+
                 case ON:
                     return true;
+
                 case IF_REPLAY:
                     return false;
             }
@@ -270,8 +274,10 @@ public class Cup extends Competition {
             switch (round.extraTime) {
                 case OFF:
                     return false;
+
                 case ON:
                     return true;
+
                 case IF_REPLAY:
                     return true;
             }
@@ -303,8 +309,10 @@ public class Cup extends Competition {
             switch (round.penalties) {
                 case OFF:
                     return false;
+
                 case ON:
                     return true;
+
                 case IF_REPLAY:
                     return false;
             }
@@ -329,8 +337,10 @@ public class Cup extends Competition {
             switch (round.penalties) {
                 case OFF:
                     return false;
+
                 case ON:
                     return true;
+
                 case IF_REPLAY:
                     return false;
             }

@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
@@ -83,6 +84,11 @@ class SetTeam extends GLScreen {
 
         // players
         for (int pos = 0; pos < Const.FULL_TEAM; pos++) {
+
+            w = new PlayerInputDeviceButton(pos);
+            playerButtons.add(w);
+            widgets.add(w);
+
             w = new PlayerFaceButton(pos);
             playerButtons.add(w);
             widgets.add(w);
@@ -95,7 +101,7 @@ class SetTeam extends GLScreen {
             playerButtons.add(w);
             widgets.add(w);
 
-            int x = 528;
+            int x = 550;
             if (shownTeam.type == Team.Type.CLUB) {
                 if (game.settings.useFlags) {
                     w = new PlayerNationalityFlagButton(pos);
@@ -128,7 +134,7 @@ class SetTeam extends GLScreen {
         }
 
         tacticsBoard = new TacticsBoard(ownTeam, opponentTeam);
-        tacticsBoard.setPosition(game.settings.GUI_WIDTH / 2 + 115, 126);
+        tacticsBoard.setPosition(game.settings.GUI_WIDTH / 2 + 140, 126);
         widgets.add(tacticsBoard);
 
         for (int t = 0; t < 18; t++) {
@@ -165,13 +171,78 @@ class SetTeam extends GLScreen {
         widgets.add(w);
     }
 
+    private class PlayerInputDeviceButton extends Button {
+        int pos;
+
+        PlayerInputDeviceButton(int pos) {
+            this.pos = pos;
+            setGeometry(80, 126 + 21 * pos, 42, 19);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setImagePosition(1, -2);
+            textOffsetX = 11;
+        }
+
+        @Override
+        public void onUpdate() {
+            if (pos < Math.min(Const.TEAM_SIZE + competition.benchSize, shownTeam.players.size())) {
+                Player player = shownTeam.playerAtPosition(pos);
+                if (player.inputDevice.type == InputDevice.Type.COMPUTER) {
+                    setText("");
+                } else {
+                    setText(player.inputDevice.port + 1);
+                }
+                textureRegion = Assets.controls[1][player.inputDevice.type.ordinal()];
+                setVisible(true);
+            } else {
+                setText("");
+                textureRegion = null;
+                setVisible(false);
+            }
+            setActive((shownTeam == ownTeam) && (ownTeam.controlMode == Team.ControlMode.PLAYER));
+        }
+
+        @Override
+        public void onFire1Down() {
+            Player player = shownTeam.playerAtPosition(pos);
+            switch (player.inputDevice.type) {
+                case COMPUTER:
+                    // move from team to player
+                    if (ownTeam.inputDevice != null) {
+                        player.setInputDevice(ownTeam.inputDevice);
+                        ownTeam.setInputDevice(null);
+                    }
+                    // get first available
+                    else if (game.inputDevices.getAvailabilityCount() > reservedInputDevices) {
+                        player.setInputDevice(game.inputDevices.assignFirstAvailable());
+                    }
+                    break;
+
+                default:
+                    InputDevice d = game.inputDevices.assignNextAvailable(player.inputDevice);
+                    if (d != null) {
+                        player.setInputDevice(d);
+                    } else {
+                        // back to ai
+                        player.inputDevice.setAvailable(true);
+                        player.setInputDevice(player.ai);
+                        if (ownTeam.nonAiInputDevicesCount() == 0) {
+                            ownTeam.setInputDevice(game.inputDevices.assignFirstAvailable());
+                        }
+                    }
+                    break;
+            }
+            updatePlayerButtons();
+            teamInputDeviceButton.setChanged(true);
+        }
+    }
+
     private class PlayerFaceButton extends Button {
 
         int pos;
 
         PlayerFaceButton(int pos) {
             this.pos = pos;
-            setGeometry(100, 126 + 21 * pos, 24, 19);
+            setGeometry(122, 126 + 21 * pos, 24, 19);
             setImagePosition(2, -2);
             setActive(false);
         }
@@ -194,7 +265,7 @@ class SetTeam extends GLScreen {
 
         PlayerNumberButton(int pos) {
             this.pos = pos;
-            setGeometry(126, 126 + 21 * pos, 34, 19);
+            setGeometry(148, 126 + 21 * pos, 34, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -216,7 +287,7 @@ class SetTeam extends GLScreen {
 
         PlayerNameButton(int pos) {
             this.pos = pos;
-            setGeometry(162, 126 + 21 * pos, 364, 19);
+            setGeometry(184, 126 + 21 * pos, 364, 19);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -262,7 +333,7 @@ class SetTeam extends GLScreen {
 
         PlayerNationalityFlagButton(int pos) {
             this.pos = pos;
-            setGeometry(528, 126 + 21 * pos, 24, 19);
+            setGeometry(550, 126 + 21 * pos, 24, 19);
             setImagePosition(0, 2);
             setActive(false);
         }
@@ -284,7 +355,7 @@ class SetTeam extends GLScreen {
 
         PlayerNationalityCodeButton(int pos) {
             this.pos = pos;
-            setGeometry(528, 126 + 21 * pos, 56, 19);
+            setGeometry(550, 126 + 21 * pos, 56, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -378,7 +449,7 @@ class SetTeam extends GLScreen {
 
         TacticsButton(int t) {
             this.t = t;
-            setGeometry(game.settings.GUI_WIDTH - 100 - 90, 126 + 20 * t, 90, 18);
+            setGeometry(game.settings.GUI_WIDTH - 90 - 110, 126 + 22 * t, 110, 22);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -405,7 +476,7 @@ class SetTeam extends GLScreen {
     private class TacticsComparisonButton extends Button {
 
         TacticsComparisonButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 446, 264, 34);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 444, 264, 34);
             setColors(0x824200, 0xB46A00, 0x4C2600);
             setText("", Font.Align.CENTER, Assets.font10);
         }
@@ -431,14 +502,14 @@ class SetTeam extends GLScreen {
     private class OpponentTeamButton extends Button {
 
         OpponentTeamButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 494, 175, 34);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 488, 264, 34);
             setColors(0x8B2323, 0xBF4531, 0x571717);
-            setText(Assets.strings.get("OPPONENT TEAM"), Font.Align.CENTER, Assets.font10);
+            setText("", Font.Align.CENTER, Assets.font10);
         }
 
         @Override
         public void onUpdate() {
-            setVisible(shownTeam == ownTeam);
+            setText(Assets.strings.get(shownTeam == ownTeam ? "VIEW OPPONENT" : "VIEW TEAM"));
         }
 
         @Override
@@ -459,7 +530,7 @@ class SetTeam extends GLScreen {
     private class ControlModeButton extends Button {
 
         ControlModeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 540, 175, 40);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 540, 175, 40);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -470,10 +541,12 @@ class SetTeam extends GLScreen {
                     setText(Assets.strings.get("CONTROL MODE.COMPUTER") + ":");
                     setColors(0x981E1E, 0xC72929, 0x640000);
                     break;
+
                 case PLAYER:
                     setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH") + ":");
                     setColors(0x0000C8, 0x1919FF, 0x000078);
                     break;
+
                 case COACH:
                     setText(Assets.strings.get("CONTROL MODE.COACH") + ":");
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
@@ -492,19 +565,21 @@ class SetTeam extends GLScreen {
                         ownTeam.inputDevice = game.inputDevices.assignFirstAvailable();
                     }
                     break;
+
                 case COACH:
                     ownTeam.controlMode = Team.ControlMode.PLAYER;
                     break;
             }
             setChanged(true);
             updatePlayerButtons();
+            teamInputDeviceButton.setChanged(true);
         }
     }
 
     private class CoachNameLabel extends Label {
 
         CoachNameLabel() {
-            setPosition(game.settings.GUI_WIDTH / 2 + 115 + 175 + 10, 540 + 20);
+            setPosition(game.settings.GUI_WIDTH / 2 + 140 + 175 + 10, 540 + 20);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -517,26 +592,31 @@ class SetTeam extends GLScreen {
     private class TeamInputDeviceButton extends Button {
 
         TeamInputDeviceButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, 588, 212, 40);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 588, 212, 40);
             setText("", Font.Align.LEFT, Assets.font10);
             textOffsetX = 42;
         }
 
         @Override
         public void onUpdate() {
-            setVisible(shownTeam == ownTeam);
             if (shownTeam.inputDevice != null) {
+                setVisible(shownTeam == ownTeam);
                 switch (shownTeam.inputDevice.type) {
                     case COMPUTER:
                         setText("");
                         break;
+
                     case KEYBOARD:
                         setText(Assets.strings.get("KEYBOARD") + " " + (shownTeam.inputDevice.port + 1));
                         break;
+
                     case JOYSTICK:
                         setText(Assets.strings.get("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
+                        break;
                 }
                 textureRegion = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
+            } else {
+                setVisible(false);
             }
         }
 
@@ -578,7 +658,7 @@ class SetTeam extends GLScreen {
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 115, game.settings.GUI_HEIGHT - 40 / 2 - 60, 222, 40);
+            setGeometry(game.settings.GUI_WIDTH / 2 + 140, game.settings.GUI_HEIGHT - 40 / 2 - 60, 226, 40);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
@@ -601,7 +681,7 @@ class SetTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setGeometry(game.settings.GUI_WIDTH - 145 - 100, game.settings.GUI_HEIGHT - 40 / 2 - 60, 145, 40);
+            setGeometry(game.settings.GUI_WIDTH - 150 - 90, game.settings.GUI_HEIGHT - 40 / 2 - 60, 150, 40);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
@@ -617,9 +697,11 @@ class SetTeam extends GLScreen {
                 case FRIENDLY:
                     game.setScreen(new SelectTeams(game, fileHandle, league, competition));
                     break;
+
                 case LEAGUE:
                     game.setScreen(new PlayLeague(game));
                     break;
+
                 case CUP:
                     game.setScreen(new PlayCup(game));
                     break;
@@ -643,57 +725,57 @@ class SetTeam extends GLScreen {
         if (shownTeam == ownTeam) {
             // goalkeeper
             if (pos == 0) {
-                b.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);
+                b.setColors(0x0094DE);
             }
             // other player
             else if (pos < Const.TEAM_SIZE) {
-                b.setColors(0x003FDE, 0x255EFF, 0x00247E);
+                b.setColors(0x005DDE);
             }
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
                 if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                    b.setColors(0x111188, 0x2D2DB3, 0x001140);
+                    b.setColors(0x0046A6);
                 }
                 // out
                 else {
-                    b.setColors(0x404040, 0x606060, 0x202020);
+                    b.setColors(0x303030);
                 }
             }
             // void
             else {
-                b.setColors(0x202020, 0x404040, 0x101010);
+                b.setColors(0x101010);
             }
 
             // selected
             if (selectedPos == pos) {
-                b.setColors(0x993333, 0xC24242, 0x5A1E1E);
+                b.setColors(0x993333);
             }
         }
         // opponent
         else {
             // goalkeeper
             if (pos == 0) {
-                b.setColors(0xE60000, 0xFF4141, 0xB40000);
+                b.setColors(0xEB4141);
             }
             // other player
             else if (pos < Const.TEAM_SIZE) {
-                b.setColors(0xB40000, 0xE60000, 0x780000);
+                b.setColors(0xAC1A1A);
             }
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
                 if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                    b.setColors(0x780000, 0xB40000, 0x3C0000);
+                    b.setColors(0x851F1F);
                 }
                 // out
                 else {
-                    b.setColors(0x404040, 0x606060, 0x202020);
+                    b.setColors(0x303030);
                 }
             }
             // void
             else {
-                b.setColors(0x202020, 0x404040, 0x101010);
+                b.setColors(0x101010);
             }
         }
     }

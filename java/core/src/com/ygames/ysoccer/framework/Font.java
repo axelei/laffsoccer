@@ -65,6 +65,7 @@ public class Font {
                 case 14:
                     regions[i] = new TextureRegion(texture, 16 * (i & 0x3F), 23 * (i >> 6), 16, 22);
                     break;
+
                 case 10:
                     regions[i] = new TextureRegion(texture, 13 * (i & 0x3F), 17 * (i >> 6), 12, 16);
                     break;
@@ -142,9 +143,11 @@ public class Font {
             case RIGHT:
                 x = x - w;
                 break;
+
             case CENTER:
                 x = x - w / 2;
                 break;
+
             case LEFT:
                 // do nothing
                 break;
@@ -160,6 +163,7 @@ public class Font {
                 case 14:
                     batch.draw(regions[c], x, y, 16, 22);
                     break;
+
                 case 10:
                     batch.draw(regions[c], x, y, 12, 16);
                     break;

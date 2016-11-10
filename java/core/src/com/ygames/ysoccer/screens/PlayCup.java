@@ -195,9 +195,11 @@ public class PlayCup extends GLScreen {
                 case COMPUTER:
                     setColors(0x981E1E, 0x000001, 0x000001);
                     break;
+
                 case PLAYER:
                     setColors(0x0000C8, 0x000001, 0x000001);
                     break;
+
                 case COACH:
                     setColors(0x009BDC, 0x000001, 0x000001);
                     break;

@@ -32,8 +32,10 @@ public class Round {
         switch (legs) {
             case 1:
                 return "ONE LEG";
+
             case 2:
                 return "TWO LEGS";
+
             default:
                 throw new GdxRuntimeException("Wrong legs value");
         }
@@ -43,10 +45,13 @@ public class Round {
         switch (extraTime) {
             case OFF:
                 return "EXTRA TIME.OFF";
+
             case ON:
                 return "EXTRA TIME.ON";
+
             case IF_REPLAY:
                 return "EXTRA TIME.IF REPLAY";
+
             default:
                 throw new GdxRuntimeException("Unknown extraTime value");
         }
@@ -56,10 +61,13 @@ public class Round {
         switch (penalties) {
             case OFF:
                 return "PENALTIES.OFF";
+
             case ON:
                 return "PENALTIES.ON";
+
             case IF_REPLAY:
                 return "PENALTIES.IF REPLAY";
+
             default:
                 throw new GdxRuntimeException("Unknown penalties value");
         }

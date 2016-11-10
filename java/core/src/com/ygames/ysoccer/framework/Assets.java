@@ -237,12 +237,15 @@ public class Assets {
             case 0:
                 // no suffix
                 break;
+
             case 1:
                 suffix = strings.get("MONEY.THOUSANDS");
                 break;
+
             case 2:
                 suffix = strings.get("MONEY.MILLIONS");
                 break;
+
             case 3:
                 suffix = strings.get("MONEY.BILLIONS");
                 break;
@@ -366,6 +369,7 @@ public class Assets {
             case Time.NIGHT:
                 rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
                 rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.lightShadow));
+                break;
         }
 
         Texture ballTexture = loadTexture("images/" + (matchSettings.isSnowing() ? "ballsnow.png" : "ball.png"), rgbPairs);
@@ -384,6 +388,7 @@ public class Assets {
 
             case Time.NIGHT:
                 rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.lightShadow));
+                break;
         }
 
         Texture cornerFlags = loadTexture("images/corner_flags.png", rgbPairs);

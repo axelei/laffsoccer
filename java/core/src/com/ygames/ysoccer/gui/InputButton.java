@@ -64,6 +64,7 @@ public class InputButton extends Button {
                 case Input.Keys.ENTER:
                     setEntryMode(false, true);
                     break;
+
                 case Input.Keys.ESCAPE:
                     setEntryMode(false, false);
                     break;
@@ -74,9 +75,12 @@ public class InputButton extends Button {
         public boolean keyTyped(char character) {
             if (isPrintableChar(character) && entryString.length() < entryLimit) {
                 entryString = (entryString + character).toUpperCase();
-            } else switch (character) {
-                case 8: // BACKSPACE
-                    entryString = entryString.substring(0, Math.max(entryString.length() - 1, 0));
+            } else {
+                switch (character) {
+                    case 8: // BACKSPACE
+                        entryString = entryString.substring(0, Math.max(entryString.length() - 1, 0));
+                        break;
+                }
             }
             return true;
         }

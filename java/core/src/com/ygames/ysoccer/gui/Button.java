@@ -104,11 +104,14 @@ public class Button extends Widget {
             case RIGHT:
                 tx += w - font.size;
                 break;
+
             case CENTER:
                 tx += w / 2;
                 break;
+
             case LEFT:
                 tx += font.size;
+                break;
         }
         font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
     }

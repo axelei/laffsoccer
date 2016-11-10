@@ -84,18 +84,22 @@ public class TacticsBoard extends Widget {
                         tx = x + 10;
                         align = Font.Align.LEFT;
                         break;
+
                     case -1:
                         tx = x + w / 2 - 7;
                         align = Font.Align.RIGHT;
                         break;
+
                     case 0:
                         tx = x + w / 2;
                         align = Font.Align.CENTER;
                         break;
+
                     case +1:
                         tx = x + w / 2 + 7;
                         align = Font.Align.LEFT;
                         break;
+
                     case +2:
                         tx = x + w - 10;
                         align = Font.Align.RIGHT;
@@ -136,15 +140,19 @@ public class TacticsBoard extends Widget {
                         case -2:
                             tx = x + 26;
                             break;
+
                         case -1:
                             tx = x + w / 2 - 36 - 20;
                             break;
+
                         case 0:
                             tx = x + w / 2 - 8;
                             break;
+
                         case +1:
                             tx = x + w / 2 + 36;
                             break;
+
                         case +2:
                             tx = x + w - 26 - 20;
                             break;

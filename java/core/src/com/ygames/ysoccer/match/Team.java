@@ -55,6 +55,10 @@ public class Team {
         controlMode = ControlMode.UNDEFINED;
     }
 
+    public void setInputDevice(InputDevice inputDevice) {
+        this.inputDevice = inputDevice;
+    }
+
     public Player newPlayer() {
         if (players.size() == Const.FULL_TEAM) {
             return null;
@@ -288,8 +292,8 @@ public class Team {
     public void releaseNonAiInputDevices() {
         for (Player player : players) {
             if (player.inputDevice != player.ai) {
-                player.inputDevice = player.ai;
                 player.inputDevice.available = true;
+                player.inputDevice = player.ai;
             }
         }
     }
@@ -431,9 +435,11 @@ public class Team {
                 case LEFT_WINGER:
                     teamFinishing += 10;
                     break;
+
                 case MIDFIELDER:
                     teamFinishing += 5;
                     break;
+
                 case ATTACKER:
                     teamFinishing += 30;
                     break;
@@ -453,9 +459,11 @@ public class Team {
                     case LEFT_WINGER:
                         sum -= 10;
                         break;
+
                     case MIDFIELDER:
                         sum -= 5;
                         break;
+
                     case ATTACKER:
                         sum -= 30;
                         break;

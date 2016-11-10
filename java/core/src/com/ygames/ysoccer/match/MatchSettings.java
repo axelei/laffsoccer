@@ -252,6 +252,7 @@ public class MatchSettings {
 
                 case Weather.SNOW:
                     grass.friction = grass.friction + weatherStrength;
+                    break;
             }
         }
     }

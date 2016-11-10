@@ -61,6 +61,7 @@ public class SelectTeam extends GLScreen {
                 case EDIT:
                     title = Assets.strings.get("EDIT TEAMS") + " - " + league.name;
                     break;
+
                 case TRAINING:
                     // TODO
                     break;
@@ -90,6 +91,7 @@ public class SelectTeam extends GLScreen {
                 case EDIT:
                     game.setScreen(new EditPlayers(game, fileHandle, league, team, false));
                     break;
+
                 case TRAINING:
                     // TODO
                     break;

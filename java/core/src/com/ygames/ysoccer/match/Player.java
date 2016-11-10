@@ -68,7 +68,7 @@ public class Player {
     public int goals;
 
     public InputDevice inputDevice;
-    Ai ai;
+    public Ai ai;
 
     float kickAngle;
     float defendDistance;
@@ -110,13 +110,16 @@ public class Player {
     // should be updated every frame
     int frameDistance;
 
+    public Player() {
+        setAi(new Ai(this));
+        setInputDevice(ai);
+    }
+
     void beforeMatch(MatchCore match, Team team) {
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
         fsm = new PlayerFsm(this);
-        ai = new Ai(this);
-        inputDevice = ai;
         isVisible = true;
         this.team = team;
         this.match = match;
@@ -133,6 +136,14 @@ public class Player {
 
     void think() {
         fsm.think();
+    }
+
+    public void setInputDevice(InputDevice inputDevice) {
+        this.inputDevice = inputDevice;
+    }
+
+    void setAi(Ai ai) {
+        this.ai = ai;
     }
 
     void updateAi() {
@@ -523,6 +534,7 @@ public class Player {
                         + skills.passing
                         + skills.speed
                         + skills.control;
+
             default:
                 return 0;
         }
@@ -569,21 +581,27 @@ public class Player {
             case PASSING:
                 value = skills.passing;
                 break;
+
             case SHOOTING:
                 value = skills.shooting;
                 break;
+
             case HEADING:
                 value = skills.heading;
                 break;
+
             case TACKLING:
                 value = skills.tackling;
                 break;
+
             case CONTROL:
                 value = skills.control;
                 break;
+
             case SPEED:
                 value = skills.speed;
                 break;
+
             case FINISHING:
                 value = skills.finishing;
                 break;
@@ -596,21 +614,27 @@ public class Player {
             case PASSING:
                 skills.passing = value;
                 break;
+
             case SHOOTING:
                 skills.shooting = value;
                 break;
+
             case HEADING:
                 skills.heading = value;
                 break;
+
             case TACKLING:
                 skills.tackling = value;
                 break;
+
             case CONTROL:
                 skills.control = value;
                 break;
+
             case SPEED:
                 skills.speed = value;
                 break;
+
             case FINISHING:
                 skills.finishing = value;
                 break;
@@ -657,7 +681,7 @@ public class Player {
 
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
 
-        // skin color                                                                              ;
+        // skin color
         GlColor3 sc = Skin.colors[skinColor.ordinal()];
         rgbPairs.add(new RgbPair(0xFFFF6300, sc.color1));
         rgbPairs.add(new RgbPair(0xFFB54200, sc.color2));

@@ -293,12 +293,15 @@ public class MatchCore {
             case FIRST_HALF:
                 minute = Math.min(minute, 45);
                 break;
+
             case SECOND_HALF:
                 minute = Math.min(minute, 90);
                 break;
+
             case FIRST_EXTRA_TIME:
                 minute = Math.min(minute, 105);
                 break;
+
             case SECOND_EXTRA_TIME:
                 minute = Math.min(minute, 120);
                 break;

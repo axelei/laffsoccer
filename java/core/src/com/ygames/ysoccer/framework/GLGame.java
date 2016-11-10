@@ -113,10 +113,12 @@ public class GLGame extends Game {
                         break;
                 }
                 break;
+
             case FRIENDLY:
                 stateBackground = new Texture("images/backgrounds/menu_friendly.jpg");
                 stateColor.set(0x2D855D, 0x3DB37D, 0x1E5027);
                 break;
+
             case EDIT:
                 stateBackground = new Texture("images/backgrounds/menu_edit.jpg");
                 stateColor.set(0x89421B, 0xBB5A25, 0x3D1E0D);
