@@ -10,10 +10,13 @@ public class LogoPicture extends Picture {
 
     private Team team;
     public boolean isCustom;
+    private int centerX, centerY;
 
-    public LogoPicture(Team team) {
+    public LogoPicture(Team team, int centerX, int centerY) {
         super(null);
         this.team = team;
+        this.centerX = centerX;
+        this.centerY = centerY;
     }
 
     @Override
@@ -29,6 +32,10 @@ public class LogoPicture extends Picture {
         } else {
             setTextureRegion(team.kits.get(0).loadLogo());
         }
-        setGeometry(135 - textureRegion.getRegionWidth() / 2, 50 - textureRegion.getRegionHeight() / 2, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
+        setGeometry(centerX - textureRegion.getRegionWidth() / 2, centerY - textureRegion.getRegionHeight() / 2, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

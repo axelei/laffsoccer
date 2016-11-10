@@ -48,22 +48,31 @@ public class Button extends Widget {
         shapeRenderer.end();
 
         glGraphics.batch.setColor(1, 1, 1, alpha);
-        glGraphics.batch.begin();
 
         if (textureRegion != null) {
             drawImage(glGraphics.batch);
         }
 
         if (font != null) {
+            glGraphics.batch.begin();
             drawText(glGraphics.batch);
+            glGraphics.batch.end();
         }
 
-        glGraphics.batch.end();
         glGraphics.batch.setColor(1, 1, 1, 1);
     }
 
     private void drawImage(SpriteBatch batch) {
+        if (addShadow) {
+            batch.setColor(0.15f, 0.15f, 0.15f, alpha);
+            batch.begin();
+            batch.draw(textureRegion, x + 4 + imageX, y + 4 + imageY, 0, 0, textureRegion.getRegionWidth(), textureRegion.getRegionHeight(), imageScaleX, imageScaleY, 0);
+            batch.end();
+            batch.setColor(1, 1, 1, alpha);
+        }
+        batch.begin();
         batch.draw(textureRegion, x + 2 + imageX, y + 2 + imageY, 0, 0, textureRegion.getRegionWidth(), textureRegion.getRegionHeight(), imageScaleX, imageScaleY, 0);
+        batch.end();
     }
 
     private void drawBorder(GlShapeRenderer shapeRenderer, int bx, int by, int bw,
@@ -113,7 +122,14 @@ public class Button extends Widget {
                 tx += font.size;
                 break;
         }
-        font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 8 - font.size)), align);
+        switch (font.size) {
+            case 14:
+                font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 22)), align);
+                break;
+            case 10:
+                font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 17)), align);
+                break;
+        }
     }
 
     public String getText() {

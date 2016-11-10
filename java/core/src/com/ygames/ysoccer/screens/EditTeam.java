@@ -70,7 +70,7 @@ class EditTeam extends GLScreen {
         w = new TeamNameButton();
         widgets.add(w);
 
-        logoWidget = new LogoPicture(team);
+        logoWidget = new LogoPicture(team, 135, 50);
         widgets.add(logoWidget);
 
         w = new CoachLabel();

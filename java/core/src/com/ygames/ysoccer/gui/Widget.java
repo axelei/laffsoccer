@@ -36,6 +36,7 @@ public abstract class Widget {
     public boolean selected;
     public boolean entryMode;
     public boolean visible;
+    boolean addShadow;
     boolean changed;
 
     public enum Event {
@@ -134,6 +135,10 @@ public abstract class Widget {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    protected void setAddShadow(boolean addShadow) {
+        this.addShadow = addShadow;
     }
 
     public void fireEvent(Event widgetEvent) {
