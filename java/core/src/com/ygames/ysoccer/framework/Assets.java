@@ -68,6 +68,8 @@ public class Assets {
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
     public static Pixmap keeperCollisionDetection;
+    public static TextureRegion replay[][] = new TextureRegion[16][2];
+    public static TextureRegion replaySpeed[][] = new TextureRegion[3][3];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -102,6 +104,8 @@ public class Assets {
         loadWeatherIcons();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
         goalBottom = new Texture("images/stadium/goal_bottom.png");
+        loadReplay();
+        loadReplaySpeed();
     }
 
     private static void loadLocales() {
@@ -327,6 +331,26 @@ public class Assets {
         for (int i = 0; i < 11; i++) {
             weatherIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
             weatherIcons[i].flip(false, true);
+        }
+    }
+
+    private static void loadReplay() {
+        Texture texture = new Texture("images/replay.png");
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 2; j++) {
+                replay[i][j] = new TextureRegion(texture, 40 * i, 46 * j, 40, 46);
+                replay[i][j].flip(false, true);
+            }
+        }
+    }
+
+    private static void loadReplaySpeed() {
+        Texture texture = new Texture("images/replay_speed.png");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                replaySpeed[i][j] = new TextureRegion(texture, 29 * i, 29 * j, 29, 29);
+                replaySpeed[i][j].flip(false, true);
+            }
         }
     }
 

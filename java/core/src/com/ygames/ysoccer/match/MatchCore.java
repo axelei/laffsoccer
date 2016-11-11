@@ -4,8 +4,6 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
-import com.ygames.ysoccer.screens.PlayCup;
-import com.ygames.ysoccer.screens.PlayLeague;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 public class MatchCore {
 
-    private GLGame game;
+    public GLGame game;
 
     MatchFsm fsm;
 

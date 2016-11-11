@@ -67,8 +67,8 @@ public class Player {
 
     public int goals;
 
-    public InputDevice inputDevice;
-    public Ai ai;
+    public transient InputDevice inputDevice;
+    public transient Ai ai;
 
     float kickAngle;
     float defendDistance;

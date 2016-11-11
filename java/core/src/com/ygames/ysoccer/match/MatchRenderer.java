@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.badlogic.gdx.Gdx.gl;
+
 public class MatchRenderer {
 
     GLGraphics glGraphics;
@@ -67,18 +69,36 @@ public class MatchRenderer {
     }
 
     public void render(GLGame game) {
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        gl.glEnable(GL20.GL_BLEND);
+        gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         glGraphics.camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
         glGraphics.camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
+        glGraphics.camera.update();
+        glGraphics.batch.setProjectionMatrix(glGraphics.camera.combined);
         glGraphics.batch.begin();
-        renderBackground();
 
+        renderBackground();
         renderSprites(match.subframe);
 
         // redraw bottom goal
         glGraphics.batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
+        glGraphics.batch.end();
+
+        renderGui();
+    }
+
+    private void renderGui() {
+        glGraphics.camera.setToOrtho(true, 1280, 720);
+        glGraphics.camera.update();
+        glGraphics.batch.setProjectionMatrix(glGraphics.camera.combined);
+        glGraphics.batch.begin();
+
+        // additional state-specific render
+        MatchState matchState = match.fsm.getState();
+        if (matchState != null) {
+            matchState.render();
+        }
         glGraphics.batch.end();
     }
 

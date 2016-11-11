@@ -94,16 +94,15 @@ class MatchStateGoal extends MatchState {
             match.renderer.actionCamera.offx = 0;
             match.renderer.actionCamera.offy = 0;
 
-            // TODO
-//            if (match.glGame.settings.autoReplay) {
-//                match.fsm.pushAction(ActionType.FADE_OUT);
-//                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_REPLAY);
-//                match.fsm.pushAction(ActionType.FADE_IN);
-//                return;
-//            } else {
+            if (match.game.settings.autoReplays) {
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_REPLAY);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+                return;
+            } else {
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
                 return;
-//            }
+            }
         }
     }
 }
