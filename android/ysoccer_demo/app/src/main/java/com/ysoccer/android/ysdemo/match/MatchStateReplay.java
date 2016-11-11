@@ -5,16 +5,16 @@ import com.ysoccer.android.ysdemo.Assets;
 import com.ysoccer.android.ysdemo.Settings;
 import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
-public class MatchStateReplay extends MatchState {
+class MatchStateReplay extends MatchState {
 
-    int subframe0;
-    boolean paused;
-    boolean slowMotion;
+    private int subframe0;
+    private boolean paused;
+    private boolean slowMotion;
     boolean keyPause;
-    int position;
-    InputDevice controllingDevice;
+    private int position;
+    private InputDevice controllingDevice;
 
-    public MatchStateReplay(Match match) {
+    MatchStateReplay(Match match) {
         super(match);
         id = MatchFsm.STATE_REPLAY;
     }
