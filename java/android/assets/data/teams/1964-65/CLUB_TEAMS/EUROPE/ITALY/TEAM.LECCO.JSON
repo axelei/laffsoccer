@@ -34,15 +34,16 @@
 ],
 "players": [
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIANVITO GEOTTI",
+		"shirtName": "GEOTTI",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": "1",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {},
+		"value": 23
 	},
 	{
 		"name": "",
@@ -144,26 +145,35 @@
 		"skills": {}
 	},
 	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
+		"name": "SERGIO CLERICI",
+		"shirtName": "CLERICI",
+		"nationality": "BRA",
 		"role": "ATTACKER",
 		"number": "11",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		}
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIUSEPPE MERAVIGLIA",
+		"shirtName": "MERAVIGLIA",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": "12",
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"skills": {},
+		"value": 22
 	},
 	{
 		"name": "",

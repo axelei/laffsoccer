@@ -86,8 +86,7 @@ class MatchStateGoal extends MatchState {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
                 && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
 
-            // TODO
-            // match.recorder.saveHighlight();
+            match.recorder.saveHighlight();
 
             match.ball.setPosition(0, 0, 0);
             match.ball.updatePrediction();

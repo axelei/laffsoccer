@@ -42,6 +42,8 @@ public class MatchCore {
     boolean chantSwitch;
     float nextChant;
 
+    Recorder recorder;
+
     public MatchCore(GLGame game, Team[] team, MatchSettings matchSettings, Competition competition) {
         this.game = game;
         this.team = team;
@@ -69,6 +71,8 @@ public class MatchCore {
 
         data = new Match();
         goals = new ArrayList<Goal>();
+
+        recorder = new Recorder(this);
     }
 
     public void update(float deltaTime) {
