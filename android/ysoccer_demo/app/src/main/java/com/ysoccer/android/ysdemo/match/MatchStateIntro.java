@@ -1,7 +1,6 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateIntro extends MatchState {
 
@@ -58,7 +57,7 @@ class MatchStateIntro extends MatchState {
             if ((match.team[Match.HOME].fire1Down() != null)
                     || (match.team[Match.AWAY].fire1Down() != null)
                     || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
             }
         }
 

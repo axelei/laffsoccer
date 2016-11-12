@@ -1,7 +1,6 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateCornerKick extends MatchState {
 
@@ -96,7 +95,7 @@ class MatchStateCornerKick extends MatchState {
     void checkConditions() {
         if (match.ball.v > 0) {
             match.setPlayersState(PlayerFsm.STATE_STAND_RUN, cornerKickPlayer);
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
             return;
         }
 

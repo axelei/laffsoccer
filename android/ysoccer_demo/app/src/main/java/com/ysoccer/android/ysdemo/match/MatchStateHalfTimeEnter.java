@@ -1,7 +1,6 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateHalfTimeEnter extends MatchState {
 
@@ -64,7 +63,7 @@ class MatchStateHalfTimeEnter extends MatchState {
     void checkConditions() {
 
         if (enteringCounter / 4 == Const.TEAM_SIZE) {
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
             return;
         }
 

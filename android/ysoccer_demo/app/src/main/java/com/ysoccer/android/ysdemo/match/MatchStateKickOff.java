@@ -2,7 +2,6 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateKickOff extends MatchState {
 
@@ -90,7 +89,7 @@ class MatchStateKickOff extends MatchState {
                     }
                 }
             }
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
         }
 
 //		If (KeyDown(KEY_ESCAPE))

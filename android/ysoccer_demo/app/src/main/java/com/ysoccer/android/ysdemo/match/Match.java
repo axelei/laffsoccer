@@ -3,7 +3,6 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.framework.math.Emath;
 import com.ysoccer.android.ysdemo.Settings;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 import com.ysoccer.android.ysdemo.match.Team.ControlMode;
 
 import java.util.ArrayList;
@@ -292,7 +291,7 @@ public class Match {
 
     public void start() {
         fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_INTRO);
-        fsm.pushAction(ActionType.FADE_IN);
+        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
     }
 
     void findNearest() {

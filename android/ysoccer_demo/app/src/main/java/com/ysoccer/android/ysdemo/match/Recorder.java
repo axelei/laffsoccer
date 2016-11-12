@@ -2,25 +2,23 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
 
-public class Recorder {
+class Recorder {
 
     private static final int MAX_RECORDS = 6;
-    private static final int RECORD_SIZE = (4 + 2 * Const.TEAM_SIZE * 5 + 2)
-            * 2 * Const.REPLAY_SUBFRAMES;
+    private static final int RECORD_SIZE = (4 + 2 * Const.TEAM_SIZE * 5 + 2) * 2 * Const.REPLAY_SUBFRAMES;
 
     private Match match;
     private short[] highlights = new short[MAX_RECORDS * RECORD_SIZE];
-    private int playing;
+    private int current;
     private int recorded;
 
-    public Recorder(Match match) {
+    Recorder(Match match) {
         this.match = match;
     }
 
     void saveHighlight() {
 
-        // max HL_MAXNUMBER actions
-        // if more then the oldest ones are overwritten
+        // if more then MAX_RECORDS the oldest ones are overwritten
         int index = (recorded % MAX_RECORDS) * RECORD_SIZE;
 
         for (int i = 1; i <= 2 * Const.REPLAY_SUBFRAMES; i++) {
@@ -49,24 +47,22 @@ public class Recorder {
             highlights[index++] = (short) match.renderer.vcameraX[match.subframe];
             highlights[index++] = (short) match.renderer.vcameraY[match.subframe];
 
-            match.subframe = (match.subframe + GLGame.SUBFRAMES / 2)
-                    % Const.REPLAY_SUBFRAMES;
-
+            match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }
 
         recorded += 1;
-
     }
 
     void loadHighlight() {
-        // copy highlights data into objects
-        int offset = playing * RECORD_SIZE;
 
-        // if more than HL_MAXNUMBER actions have been recorded
+        // copy highlights data into objects
+        int offset = current * RECORD_SIZE;
+
+        // if more than MAX_RECORDS actions have been recorded
         // then the oldest have been overwritten
         // and we start from the middle of the array
         if (recorded > MAX_RECORDS) {
-            offset = ((recorded + playing) % MAX_RECORDS) * RECORD_SIZE;
+            offset = ((recorded + current) % MAX_RECORDS) * RECORD_SIZE;
         }
 
         // if the end of the bank has been reached, then restart
@@ -100,26 +96,23 @@ public class Recorder {
             match.renderer.vcameraX[match.subframe] = highlights[offset++];
             match.renderer.vcameraY[match.subframe] = highlights[offset++];
 
-            match.subframe = (match.subframe + GLGame.SUBFRAMES / 2)
-                    % Const.REPLAY_SUBFRAMES;
-
+            match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }
     }
 
     void nextHighlight() {
-        playing += 1;
+        current += 1;
     }
 
     boolean hasEnded() {
-        return (playing == Math.min(recorded, MAX_RECORDS));
+        return (current == Math.min(recorded, MAX_RECORDS));
     }
 
     void restart() {
-        playing = 0;
+        current = 0;
     }
 
-    public boolean hasHighlights() {
+    boolean hasHighlights() {
         return recorded > 0;
     }
-
 }

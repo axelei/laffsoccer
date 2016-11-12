@@ -1,7 +1,6 @@
 package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 public class MatchStateHighlights extends MatchState {
 
@@ -61,7 +60,7 @@ public class MatchStateHighlights extends MatchState {
         // quit on touch
         if ((match.team[Match.HOME].fire1Up() != null)
                 || (match.team[Match.AWAY].fire1Up() != null)) {
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
             return;
         }
 
@@ -69,12 +68,12 @@ public class MatchStateHighlights extends MatchState {
         if (position == Const.REPLAY_SUBFRAMES) {
             match.recorder.nextHighlight();
             if (match.recorder.hasEnded()) {
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
                 return;
             } else {
-                match.fsm.pushAction(ActionType.FADE_OUT);
-                match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-                match.fsm.pushAction(ActionType.FADE_IN);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
                 return;
             }
         }

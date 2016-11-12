@@ -3,7 +3,6 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.Assets;
 import com.ysoccer.android.ysdemo.Settings;
-import com.ysoccer.android.ysdemo.match.MatchFsm.ActionType;
 
 class MatchStateReplay extends MatchState {
 
@@ -116,7 +115,7 @@ class MatchStateReplay extends MatchState {
 
         //quit on last position
         if ((position == Const.REPLAY_SUBFRAMES) && (controllingDevice == null)) {
-            match.fsm.pushAction(ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
             return;
 //			quit();
 //			return;
