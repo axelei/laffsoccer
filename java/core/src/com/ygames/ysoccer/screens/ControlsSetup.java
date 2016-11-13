@@ -121,7 +121,7 @@ class ControlsSetup extends GLScreen {
 
         TitleButton() {
             setColors(0xA905A3);
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
             setText(Assets.strings.get("CONTROLS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -135,7 +135,7 @@ class ControlsSetup extends GLScreen {
         InputDeviceButton(InputDeviceConfig config, int port, int pos) {
             this.config = config;
             this.port = port;
-            setGeometry(game.settings.GUI_WIDTH / 2 - 560, 180 + 45 * pos, 220, 40);
+            setGeometry(game.gui.WIDTH / 2 - 560, 180 + 45 * pos, 220, 40);
             switch (config.type) {
                 case KEYBOARD:
                     setText(Assets.strings.get("KEYBOARD") + " " + (port + 1), Font.Align.CENTER, Assets.font14);
@@ -174,7 +174,7 @@ class ControlsSetup extends GLScreen {
     private class InputDeviceLabel extends Button {
 
         InputDeviceLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 250, 140, 760, 40);
+            setGeometry(game.gui.WIDTH / 2 - 250, 140, 760, 40);
             setColors(0x404040);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -353,7 +353,7 @@ class ControlsSetup extends GLScreen {
     private class LeftLabel extends Button {
 
         LeftLabel() {
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2 - 150, 370, 220, 40);
+            setGeometry((game.gui.WIDTH - 220) / 2 - 150, 370, 220, 40);
             setText(Assets.strings.get("CONTROLS.LEFT"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -364,7 +364,7 @@ class ControlsSetup extends GLScreen {
 
         LeftButton() {
             configParam = ConfigParam.KEY_LEFT;
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2 - 150, 410, 220, 48);
+            setGeometry((game.gui.WIDTH - 220) / 2 - 150, 410, 220, 48);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -403,7 +403,7 @@ class ControlsSetup extends GLScreen {
     private class RightLabel extends Button {
 
         RightLabel() {
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2 + 150, 370, 220, 40);
+            setGeometry((game.gui.WIDTH - 220) / 2 + 150, 370, 220, 40);
             setText(Assets.strings.get("CONTROLS.RIGHT"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -414,7 +414,7 @@ class ControlsSetup extends GLScreen {
 
         RightButton() {
             configParam = ConfigParam.KEY_RIGHT;
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2 + 150, 410, 220, 48);
+            setGeometry((game.gui.WIDTH - 220) / 2 + 150, 410, 220, 48);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -453,7 +453,7 @@ class ControlsSetup extends GLScreen {
     private class UpLabel extends Button {
 
         UpLabel() {
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2, 240, 220, 40);
+            setGeometry((game.gui.WIDTH - 220) / 2, 240, 220, 40);
             setText(Assets.strings.get("CONTROLS.UP"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -464,7 +464,7 @@ class ControlsSetup extends GLScreen {
 
         UpButton() {
             configParam = ConfigParam.KEY_UP;
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2, 280, 220, 48);
+            setGeometry((game.gui.WIDTH - 220) / 2, 280, 220, 48);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -503,7 +503,7 @@ class ControlsSetup extends GLScreen {
     private class DownLabel extends Button {
 
         DownLabel() {
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2, 500, 220, 40);
+            setGeometry((game.gui.WIDTH - 220) / 2, 500, 220, 40);
             setText(Assets.strings.get("CONTROLS.DOWN"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -514,7 +514,7 @@ class ControlsSetup extends GLScreen {
 
         DownButton() {
             configParam = ConfigParam.KEY_DOWN;
-            setGeometry((game.settings.GUI_WIDTH - 220) / 2, 540, 220, 48);
+            setGeometry((game.gui.WIDTH - 220) / 2, 540, 220, 48);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -553,7 +553,7 @@ class ControlsSetup extends GLScreen {
     private class FireLabel extends Button {
 
         FireLabel(int buttonNumber) {
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2 + 420, 280 + (180 * (buttonNumber - 1)), 220, 40);
+            setGeometry((game.gui.WIDTH - 240) / 2 + 420, 280 + (180 * (buttonNumber - 1)), 220, 40);
             setText(Assets.strings.get("CONTROLS.BUTTON") + " " + ((buttonNumber == 1) ? "A" : "B"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -567,7 +567,7 @@ class ControlsSetup extends GLScreen {
         FireButton(int buttonNumber) {
             this.buttonNumber = buttonNumber;
             configParam = (buttonNumber == 1) ? ConfigParam.BUTTON_1 : ConfigParam.BUTTON_2;
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2 + 420, 320 + (180 * (buttonNumber - 1)), 220, 48);
+            setGeometry((game.gui.WIDTH - 240) / 2 + 420, 320 + (180 * (buttonNumber - 1)), 220, 48);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -624,7 +624,7 @@ class ControlsSetup extends GLScreen {
 
         ExitButton() {
             setColors(0xC84200);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 

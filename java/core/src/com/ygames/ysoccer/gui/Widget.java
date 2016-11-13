@@ -3,7 +3,6 @@ package com.ygames.ysoccer.gui;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import java.awt.Color;
@@ -124,7 +123,7 @@ public abstract class Widget {
     }
 
     public void setSelected(boolean selected) {
-        if(this.selected && !selected) {
+        if (this.selected && !selected) {
             onDeselect();
         }
         this.selected = selected;
@@ -205,7 +204,7 @@ public abstract class Widget {
         this.changed = changed;
     }
 
-    public static void arrange(Settings settings, int centerY, int rowHeight, List<Widget> widgetList) {
+    public static void arrange(int width, int centerY, int rowHeight, List<Widget> widgetList) {
         Widget w;
         int len = widgetList.size();
         int col1 = Emath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
@@ -213,17 +212,17 @@ public abstract class Widget {
         for (int i = 0; i < len; i++) {
             w = widgetList.get(i);
             if (len <= 8) {
-                w.x = (settings.GUI_WIDTH - w.w) / 2;
+                w.x = (width - w.w) / 2;
                 w.y = centerY + rowHeight * (i - len / 2);
             } else {
                 if (i < col1) {
-                    w.x = (settings.GUI_WIDTH - 3 * w.w) / 2 - 20;
+                    w.x = (width - 3 * w.w) / 2 - 20;
                     w.y = centerY + (int) (rowHeight * (i - col2 / 2.0));
                 } else if (i < col1 + col2) {
-                    w.x = (settings.GUI_WIDTH - w.w) / 2;
+                    w.x = (width - w.w) / 2;
                     w.y = centerY + (int) (rowHeight * ((i - col1) - col2 / 2.0));
                 } else {
-                    w.x = (settings.GUI_WIDTH + w.w) / 2 + 20;
+                    w.x = (width + w.w) / 2 + 20;
                     w.y = centerY + (int) (rowHeight * ((i - col1 - col2) - col2 / 2.0));
                 }
             }

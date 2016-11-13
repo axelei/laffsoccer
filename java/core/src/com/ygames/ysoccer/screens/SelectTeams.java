@@ -65,7 +65,7 @@ public class SelectTeams extends GLScreen {
             }
         }
         if (list.size() > 0) {
-            Widget.arrange(game.settings, 350, 32, list);
+            Widget.arrange(game.gui.WIDTH, 350, 32, list);
             setSelectedWidget(list.get(0));
         }
 
@@ -97,7 +97,7 @@ public class SelectTeams extends GLScreen {
             title += " " + competition.name
                     + " - " + fileHandle.name();
             int w = Math.max(960, 80 + 16 * title.length());
-            setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
+            setGeometry((game.gui.WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
         }
@@ -105,7 +105,7 @@ public class SelectTeams extends GLScreen {
 
     class ComputerButton extends Button {
         public ComputerButton() {
-            setGeometry((game.settings.GUI_WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
+            setGeometry((game.gui.WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
             setColors(0x981E1E, 0xC72929, 0x640000);
             setText(Assets.strings.get("CONTROL MODE.COMPUTER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -114,7 +114,7 @@ public class SelectTeams extends GLScreen {
 
     class PlayerCoachButton extends Button {
         public PlayerCoachButton() {
-            setGeometry((game.settings.GUI_WIDTH - 300) / 2, 86, 300, 30);
+            setGeometry((game.gui.WIDTH - 300) / 2, 86, 300, 30);
             setColors(0x0000C8, 0x1919FF, 0x000078);
             setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -123,7 +123,7 @@ public class SelectTeams extends GLScreen {
 
     class CoachButton extends Button {
         public CoachButton() {
-            setGeometry((game.settings.GUI_WIDTH + 300) / 2 + 20, 86, 300, 30);
+            setGeometry((game.gui.WIDTH + 300) / 2 + 20, 86, 300, 30);
             setColors(0x009BDC, 0x19BBFF, 0x0071A0);
             setText(Assets.strings.get("CONTROL MODE.COACH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -191,7 +191,7 @@ public class SelectTeams extends GLScreen {
 
     class ViewSelectedTeamsButton extends Button {
         public ViewSelectedTeamsButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
             setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
             setText(Assets.strings.get("VIEW SELECTED TEAMS"), Font.Align.CENTER, Assets.font14);
         }
@@ -210,7 +210,7 @@ public class SelectTeams extends GLScreen {
     class ExitButton extends Button {
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -222,7 +222,7 @@ public class SelectTeams extends GLScreen {
 
     class PlayButton extends Button {
         public PlayButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 660, 360, 36);
+            setGeometry(game.gui.WIDTH / 2 + 110, 660, 360, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 

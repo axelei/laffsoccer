@@ -15,9 +15,7 @@ public class Settings {
     private Json json;
 
     public final String APP_NAME = "YSoccer";
-    public final int VERSION = 16;
-    public final int GUI_WIDTH = 1280;
-    public final int GUI_HEIGHT = 720;
+    public final String VERSION = "16";
     public String locale;
     public int benchSize;
     public boolean useFlags;

@@ -33,7 +33,7 @@ public class CompetitionViewTeams extends GLScreen {
                 setSelectedWidget(w);
             }
         }
-        Widget.arrange(game.settings, 350, 32, list);
+        Widget.arrange(game.gui.WIDTH, 350, 32, list);
 
         w = new ExitButton();
         widgets.add(w);
@@ -42,7 +42,7 @@ public class CompetitionViewTeams extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 660) / 2, 30, 660, 40);
+            setGeometry((game.gui.WIDTH - 660) / 2, 30, 660, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(Assets.strings.get("SELECT SQUAD TO VIEW"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -70,7 +70,7 @@ public class CompetitionViewTeams extends GLScreen {
 
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 

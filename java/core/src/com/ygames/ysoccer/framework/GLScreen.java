@@ -82,8 +82,11 @@ public abstract class GLScreen implements Screen {
         SpriteBatch batch = game.glGraphics.batch;
         ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
 
+        camera.setToOrtho(true, game.gui.screenWidth, game.gui.screenHeight);
+        camera.translate(-game.gui.originX, -game.gui.originY);
         camera.update();
 
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // background
@@ -91,7 +94,7 @@ public abstract class GLScreen implements Screen {
         if (background != null) {
             batch.disableBlending();
             batch.begin();
-            batch.draw(background, 0, 0, 1280, 720, 0, 0, 1024, 768, false, true);
+            batch.draw(background, 0, 0, game.gui.WIDTH, game.gui.HEIGHT, 0, 0, background.getWidth(), background.getHeight(), false, true);
             batch.end();
             batch.enableBlending();
         }
@@ -299,6 +302,7 @@ public abstract class GLScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        game.gui.resize(width, height);
     }
 
     @Override

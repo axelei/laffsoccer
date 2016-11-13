@@ -74,12 +74,12 @@ public class SelectCompetition extends GLScreen {
         int topY = 365 - 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2;
         int centerY = topY + 30 * competitionsList.size() / 2;
         if (competitionsList.size() > 0) {
-            Widget.arrange(game.settings, centerY, 30, competitionsList);
+            Widget.arrange(game.gui.WIDTH, centerY, 30, competitionsList);
             setSelectedWidget(competitionsList.get(0));
         }
         centerY += 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2 + 6;
         if (foldersList.size() > 0) {
-            Widget.arrange(game.settings, centerY, 30, foldersList);
+            Widget.arrange(game.gui.WIDTH, centerY, 30, foldersList);
             setSelectedWidget(foldersList.get(0));
         }
 
@@ -98,7 +98,7 @@ public class SelectCompetition extends GLScreen {
                 title += " - " + fileHandle.name();
             }
             int w = Math.max(400, 80 + 16 * title.length());
-            setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
+            setGeometry((game.gui.WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -150,7 +150,7 @@ public class SelectCompetition extends GLScreen {
                 setColors(0xC84200, 0xFF6519, 0x803300);
                 setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
             }
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
 
         @Override

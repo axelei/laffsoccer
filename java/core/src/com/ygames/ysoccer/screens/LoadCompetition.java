@@ -57,10 +57,10 @@ class LoadCompetition extends GLScreen {
             int len = competitionButtonsList.size();
             for (int i = 0; i < len; i++) {
                 w = competitionButtonsList.get(i);
-                w.x = (game.settings.GUI_WIDTH) / 2 - w.w + 180;
+                w.x = (game.gui.WIDTH) / 2 - w.w + 180;
                 w.y = 320 + 34 * (i - len / 2);
                 w = categoryLabelsList.get(i);
-                w.x = (game.settings.GUI_WIDTH) / 2 + 180;
+                w.x = (game.gui.WIDTH) / 2 + 180;
                 w.y = 320 + 34 * (i - len / 2);
             }
             setSelectedWidget(competitionButtonsList.get(0));
@@ -77,7 +77,7 @@ class LoadCompetition extends GLScreen {
     public class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
+            setGeometry((game.gui.WIDTH - 520) / 2, 30, 520, 40);
             setColors(0x2898c7, 0x32bffa, 0x1e7194);
             setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -129,7 +129,7 @@ class LoadCompetition extends GLScreen {
     private class AbortButton extends Button {
 
         AbortButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }

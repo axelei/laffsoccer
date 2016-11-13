@@ -49,10 +49,10 @@ public class SaveCompetition extends GLScreen {
             int len = competitionButtonsList.size();
             for (int i = 0; i < len; i++) {
                 w = competitionButtonsList.get(i);
-                w.x = (game.settings.GUI_WIDTH) / 2 - w.w + 180;
+                w.x = (game.gui.WIDTH) / 2 - w.w + 180;
                 w.y = 320 + 34 * (i - len / 2);
                 w = categoryLabelsList.get(i);
-                w.x = (game.settings.GUI_WIDTH) / 2 + 180;
+                w.x = (game.gui.WIDTH) / 2 + 180;
                 w.y = 320 + 34 * (i - len / 2);
             }
         }
@@ -77,7 +77,7 @@ public class SaveCompetition extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 520) / 2, 30, 520, 40);
+            setGeometry((game.gui.WIDTH - 520) / 2, 30, 520, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             String s = Assets.strings.get("SAVE %s");
             setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font14);
@@ -117,7 +117,7 @@ public class SaveCompetition extends GLScreen {
     class FilenameLabel extends Label {
 
         public FilenameLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 360, 500, 180, 36);
+            setGeometry(game.gui.WIDTH / 2 - 360, 500, 180, 36);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(Assets.strings.get("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
         }
@@ -126,7 +126,7 @@ public class SaveCompetition extends GLScreen {
     class FilenameButton extends InputButton {
 
         public FilenameButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 180, 500, 540, 36);
+            setGeometry(game.gui.WIDTH / 2 - 180, 500, 540, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
             setText(game.competition.filename, Font.Align.CENTER, Assets.font14);
             setEntryLimit(30);
@@ -145,7 +145,7 @@ public class SaveCompetition extends GLScreen {
     class SaveButton extends Button {
 
         public SaveButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
         }
@@ -160,7 +160,7 @@ public class SaveCompetition extends GLScreen {
     class AbortButton extends Button {
 
         public AbortButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }

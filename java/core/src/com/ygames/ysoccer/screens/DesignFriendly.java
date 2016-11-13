@@ -53,7 +53,7 @@ public class DesignFriendly extends GLScreen {
 
         public TitleBar() {
             String title = Assets.strings.get("FRIENDLY");
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 30, 340, 40);
+            setGeometry((game.gui.WIDTH - 340) / 2, 30, 340, 40);
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setText(title, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -63,7 +63,7 @@ public class DesignFriendly extends GLScreen {
     class SubstitutesLabel extends Button {
 
         public SubstitutesLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 250, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 350, 250, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -73,7 +73,7 @@ public class DesignFriendly extends GLScreen {
     class SubstitutesButton extends Button {
 
         public SubstitutesButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 250, 240, 36);
+            setGeometry(game.gui.WIDTH / 2 + 110, 250, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -112,7 +112,7 @@ public class DesignFriendly extends GLScreen {
     class BenchSizeLabel extends Button {
 
         public BenchSizeLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 305, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 350, 305, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -122,7 +122,7 @@ public class DesignFriendly extends GLScreen {
     class BenchSizeButton extends Button {
 
         public BenchSizeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 305, 240, 36);
+            setGeometry(game.gui.WIDTH / 2 + 110, 305, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -164,7 +164,7 @@ public class DesignFriendly extends GLScreen {
 
         public OkButton() {
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
             setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -178,7 +178,7 @@ public class DesignFriendly extends GLScreen {
 
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 

@@ -49,7 +49,7 @@ class MatchOptions extends GLScreen {
 
         TitleButton() {
             setColors(0x536B90);
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
             setText("MATCH OPTIONS", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -59,7 +59,7 @@ class MatchOptions extends GLScreen {
 
         WeatherEffectsLabel() {
             setColors(0x76683C);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 190, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 190, 440, 36);
             setText(Assets.strings.get("WEATHER.EFFECTS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -69,7 +69,7 @@ class MatchOptions extends GLScreen {
 
         WeatherEffectsButton() {
             setColors(0x2B4A61);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 190, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 + 30, 190, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -98,7 +98,7 @@ class MatchOptions extends GLScreen {
 
         RadarLabel() {
             setColors(0x76683C);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 235, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 235, 440, 36);
             setText(Assets.strings.get("RADAR"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -108,7 +108,7 @@ class MatchOptions extends GLScreen {
 
         RadarButton() {
             setColors(0x2B4A61);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 235, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 + 30, 235, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -137,7 +137,7 @@ class MatchOptions extends GLScreen {
 
         AutoReplaysLabel() {
             setColors(0x76683C);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 280, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 280, 440, 36);
             setText(Assets.strings.get("AUTO REPLAYS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -147,7 +147,7 @@ class MatchOptions extends GLScreen {
 
         AutoReplaysButton() {
             setColors(0x2B4A61);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 280, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 + 30, 280, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -176,7 +176,7 @@ class MatchOptions extends GLScreen {
 
         ExitButton() {
             setColors(0xC84200);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText("EXIT", Font.Align.CENTER, Assets.font14);
         }
 

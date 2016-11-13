@@ -110,7 +110,7 @@ class MatchSetup extends GLScreen {
     private class TitleButton extends Button {
 
         TitleButton() {
-            setGeometry((game.settings.GUI_WIDTH - 840) / 2, 30, 840, 44);
+            setGeometry((game.gui.WIDTH - 840) / 2, 30, 840, 44);
             setColors(0x008080, 0x00B2B4, 0x004040);
             setText(competition.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -121,7 +121,7 @@ class MatchSetup extends GLScreen {
 
         TimeLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -131,7 +131,7 @@ class MatchSetup extends GLScreen {
 
         TimePicture() {
             setColors(0x666666);
-            setGeometry((game.settings.GUI_WIDTH - 50) / 2, 130 - 50 / 2, 50, 50);
+            setGeometry((game.gui.WIDTH - 50) / 2, 130 - 50 / 2, 50, 50);
             setActive(false);
         }
 
@@ -150,7 +150,7 @@ class MatchSetup extends GLScreen {
                 setColors(0x666666);
                 setActive(false);
             }
-            setGeometry(game.settings.GUI_WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -171,7 +171,7 @@ class MatchSetup extends GLScreen {
 
         PitchTypeLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
             setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -181,7 +181,7 @@ class MatchSetup extends GLScreen {
 
         PitchTypePicture() {
             setColors(0x666666);
-            setGeometry((game.settings.GUI_WIDTH - 50) / 2, 200 - 50 / 2, 50, 50);
+            setGeometry((game.gui.WIDTH - 50) / 2, 200 - 50 / 2, 50, 50);
             setActive(false);
         }
 
@@ -200,7 +200,7 @@ class MatchSetup extends GLScreen {
                 setColors(0x666666);
                 setActive(false);
             }
-            setGeometry(game.settings.GUI_WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -223,7 +223,7 @@ class MatchSetup extends GLScreen {
 
         WeatherLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
             setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -233,7 +233,7 @@ class MatchSetup extends GLScreen {
 
         WeatherPicture() {
             setColors(0x666666);
-            setGeometry((game.settings.GUI_WIDTH - 50) / 2, 270 - 50 / 2, 50, 50);
+            setGeometry((game.gui.WIDTH - 50) / 2, 270 - 50 / 2, 50, 50);
             setActive(false);
         }
 
@@ -247,7 +247,7 @@ class MatchSetup extends GLScreen {
 
         WeatherButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 65, 270 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 + 65, 270 - 40 / 2, 300, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -275,7 +275,7 @@ class MatchSetup extends GLScreen {
 
         TeamNameButton(Team team, int teamIndex) {
             int sign = teamIndex == 0 ? -1 : 1;
-            setGeometry((game.settings.GUI_WIDTH - 520) / 2 + 280 * sign, 330, 520, 34);
+            setGeometry((game.gui.WIDTH - 520) / 2 + 280 * sign, 330, 520, 34);
             setColors(0x1F1F95);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -289,7 +289,7 @@ class MatchSetup extends GLScreen {
         KitPicture(Team team, int teamIndex) {
             this.team = team;
             int sign = teamIndex == 0 ? -1 : 1;
-            setGeometry(game.settings.GUI_WIDTH / 2 - 83 + 280 * sign, 390, 167, 304);
+            setGeometry(game.gui.WIDTH / 2 - 83 + 280 * sign, 390, 167, 304);
             setActive(false);
         }
 
@@ -322,7 +322,7 @@ class MatchSetup extends GLScreen {
                 setVisible(true);
                 int position = kitIndex - (team.kitIndex < kitIndex ? 1 : 0);
                 int sign = teamIndex == 0 ? -1 : 1;
-                int x = (1 + 2 * teamIndex) * (game.settings.GUI_WIDTH) / 4 + sign * (50 + 68 * (1 + position / 2)) - 34;
+                int x = (1 + 2 * teamIndex) * (game.gui.WIDTH) / 4 + sign * (50 + 68 * (1 + position / 2)) - 34;
                 int y = 430 + 114 * (position % 2);
                 setPosition(x, y);
             }
@@ -342,7 +342,7 @@ class MatchSetup extends GLScreen {
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2, 510, 240, 50);
+            setGeometry((game.gui.WIDTH - 240) / 2, 510, 240, 50);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
@@ -356,7 +356,7 @@ class MatchSetup extends GLScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

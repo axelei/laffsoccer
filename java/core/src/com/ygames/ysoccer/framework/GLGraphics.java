@@ -13,7 +13,6 @@ public class GLGraphics {
         batch = new SpriteBatch();
         shapeRenderer = new GlShapeRenderer();
         camera = new OrthographicCamera();
-        camera.setToOrtho(true, 1280, 720);
     }
 
     public void dispose() {

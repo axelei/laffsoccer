@@ -86,7 +86,7 @@ public class InfoLeague extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 680) / 2, 30, 680, 40);
+            setGeometry((game.gui.WIDTH - 680) / 2, 30, 680, 40);
             setColors(game.stateColor);
             setText(league.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -96,7 +96,7 @@ public class InfoLeague extends GLScreen {
     class SeasonPitchTypeButton extends Button {
 
         public SeasonPitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 175, 290, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 175, 290, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(league.getBySeasonLabel()), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -106,7 +106,7 @@ public class InfoLeague extends GLScreen {
     class SeasonStartButton extends Button {
 
         public SeasonStartButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 175, 180, 38);
+            setGeometry(game.gui.WIDTH / 2 - 50, 175, 180, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Time.monthNames[league.seasonStart]), Font.Align.CENTER, Assets.font14);
             setVisible(league.bySeason);
@@ -117,7 +117,7 @@ public class InfoLeague extends GLScreen {
     class SeasonSeparatorButton extends Button {
 
         public SeasonSeparatorButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 132, 175, 36, 38);
+            setGeometry(game.gui.WIDTH / 2 + 132, 175, 36, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -128,7 +128,7 @@ public class InfoLeague extends GLScreen {
     class SeasonEndButton extends Button {
 
         public SeasonEndButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 170, 175, 180, 38);
+            setGeometry(game.gui.WIDTH / 2 + 170, 175, 180, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Time.monthNames[league.seasonEnd]), Font.Align.CENTER, Assets.font14);
             setVisible(league.bySeason);
@@ -139,7 +139,7 @@ public class InfoLeague extends GLScreen {
     class PitchTypeButton extends Button {
 
         public PitchTypeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 50, 175, 400, 38);
+            setGeometry(game.gui.WIDTH / 2 - 50, 175, 400, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Pitch.names[league.pitchType.ordinal()]), Font.Align.CENTER, Assets.font14);
             setVisible(!league.bySeason);
@@ -150,7 +150,7 @@ public class InfoLeague extends GLScreen {
     class TimeLabel extends Button {
 
         public TimeLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 230, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 230, 440, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -160,7 +160,7 @@ public class InfoLeague extends GLScreen {
     class TimeButton extends Button {
 
         public TimeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 230, 240, 38);
+            setGeometry(game.gui.WIDTH / 2 + 110, 230, 240, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Time.names[league.time]), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -170,7 +170,7 @@ public class InfoLeague extends GLScreen {
     class NumberOfTeamsLabel extends Button {
 
         public NumberOfTeamsLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 285, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 285, 440, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("NUMBER OF TEAMS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -180,7 +180,7 @@ public class InfoLeague extends GLScreen {
     class NumberOfTeamsButton extends Button {
 
         public NumberOfTeamsButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 285, 240, 38);
+            setGeometry(game.gui.WIDTH / 2 + 110, 285, 240, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(league.numberOfTeams, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -190,7 +190,7 @@ public class InfoLeague extends GLScreen {
     class PlayEachTeamLabel extends Button {
 
         public PlayEachTeamLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 340, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 340, 440, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("PLAY EACH TEAM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -200,7 +200,7 @@ public class InfoLeague extends GLScreen {
     class PlayEachTeamButton extends Button {
 
         public PlayEachTeamButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 340, 240, 38);
+            setGeometry(game.gui.WIDTH / 2 + 110, 340, 240, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(((char) 215) + "" + league.rounds, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -210,7 +210,7 @@ public class InfoLeague extends GLScreen {
     class PointsForAWinLabel extends Button {
 
         public PointsForAWinLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 395, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 395, 440, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("POINTS FOR A WIN"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -220,7 +220,7 @@ public class InfoLeague extends GLScreen {
     class PointsForAWinButton extends Button {
 
         public PointsForAWinButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 395, 240, 38);
+            setGeometry(game.gui.WIDTH / 2 + 110, 395, 240, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(league.pointsForAWin, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -230,7 +230,7 @@ public class InfoLeague extends GLScreen {
     class SubstitutesLabel extends Button {
 
         public SubstitutesLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 450, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 450, 440, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -240,7 +240,7 @@ public class InfoLeague extends GLScreen {
     class SubstitutesButton extends Button {
 
         public SubstitutesButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 450, 240, 38);
+            setGeometry(game.gui.WIDTH / 2 + 110, 450, 240, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(league.substitutions, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -250,7 +250,7 @@ public class InfoLeague extends GLScreen {
     class BenchSizeLabel extends Button {
 
         public BenchSizeLabel() {
-            setGeometry(game.settings.GUI_WIDTH / 2 - 350, 505, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 350, 505, 440, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -260,7 +260,7 @@ public class InfoLeague extends GLScreen {
     class BenchSizeButton extends Button {
 
         public BenchSizeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 110, 505, 240, 38);
+            setGeometry(game.gui.WIDTH / 2 + 110, 505, 240, 38);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(league.benchSize, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -271,7 +271,7 @@ public class InfoLeague extends GLScreen {
 
         public ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 

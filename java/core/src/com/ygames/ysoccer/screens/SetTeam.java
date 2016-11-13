@@ -137,7 +137,7 @@ class SetTeam extends GLScreen {
         }
 
         tacticsBoard = new TacticsBoard(ownTeam, opponentTeam);
-        tacticsBoard.setPosition(game.settings.GUI_WIDTH / 2 + 140, 120);
+        tacticsBoard.setPosition(game.gui.WIDTH / 2 + 140, 120);
         widgets.add(tacticsBoard);
 
         for (int t = 0; t < 18; t++) {
@@ -458,7 +458,7 @@ class SetTeam extends GLScreen {
 
         TacticsButton(int t) {
             this.t = t;
-            setGeometry(game.settings.GUI_WIDTH - 90 - 110, 120 + 22 * t, 110, 21);
+            setGeometry(game.gui.WIDTH - 90 - 110, 120 + 22 * t, 110, 21);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -485,7 +485,7 @@ class SetTeam extends GLScreen {
     private class TacticsComparisonButton extends Button {
 
         TacticsComparisonButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 439, 264, 34);
+            setGeometry(game.gui.WIDTH / 2 + 140, 439, 264, 34);
             setColors(0x824200, 0xB46A00, 0x4C2600);
             setText("", Font.Align.CENTER, Assets.font10);
         }
@@ -511,7 +511,7 @@ class SetTeam extends GLScreen {
     private class OpponentTeamButton extends Button {
 
         OpponentTeamButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 481, 264, 34);
+            setGeometry(game.gui.WIDTH / 2 + 140, 481, 264, 34);
             setColors(0x8B2323, 0xBF4531, 0x571717);
             setText("", Font.Align.CENTER, Assets.font10);
         }
@@ -540,7 +540,7 @@ class SetTeam extends GLScreen {
     private class ControlModeButton extends Button {
 
         ControlModeButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 536, 175, 40);
+            setGeometry(game.gui.WIDTH / 2 + 140, 536, 175, 40);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -589,7 +589,7 @@ class SetTeam extends GLScreen {
     private class CoachNameLabel extends Label {
 
         CoachNameLabel() {
-            setPosition(game.settings.GUI_WIDTH / 2 + 140 + 175 + 10, 536 + 20);
+            setPosition(game.gui.WIDTH / 2 + 140 + 175 + 10, 536 + 20);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -602,7 +602,7 @@ class SetTeam extends GLScreen {
     private class TeamInputDeviceButton extends Button {
 
         TeamInputDeviceButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 140, 586, 202, 44);
+            setGeometry(game.gui.WIDTH / 2 + 140, 586, 202, 44);
             setText("", Font.Align.LEFT, Assets.font10);
             textOffsetX = 50;
             setImagePosition(8, 1);
@@ -670,7 +670,7 @@ class SetTeam extends GLScreen {
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry(game.settings.GUI_WIDTH / 2 + 140, game.settings.GUI_HEIGHT -30 -42, 226, 42);
+            setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT -30 -42, 226, 42);
             setColors(0xDC0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
@@ -693,7 +693,7 @@ class SetTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setGeometry(game.settings.GUI_WIDTH - 150 - 90, game.settings.GUI_HEIGHT -30 -42, 150, 42);
+            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT -30 -42, 150, 42);
             setColors(0xC84200);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

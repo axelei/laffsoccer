@@ -46,7 +46,7 @@ public class SelectFolder extends GLScreen {
         }
 
         if (list.size() > 0) {
-            Widget.arrange(game.settings, 350, 50, list);
+            Widget.arrange(game.gui.WIDTH, 350, 50, list);
             setSelectedWidget(list.get(0));
         }
 
@@ -61,7 +61,7 @@ public class SelectFolder extends GLScreen {
                     widgets.add(w);
                 }
                 if (leagues.length > 0) {
-                    Widget.arrange(game.settings, 350, 50, list);
+                    Widget.arrange(game.gui.WIDTH, 350, 50, list);
                     setSelectedWidget(list.get(0));
                 }
             }
@@ -101,7 +101,7 @@ public class SelectFolder extends GLScreen {
                     break;
             }
             int w = Math.max(960, 80 + 16 * title.length());
-            setGeometry((game.settings.GUI_WIDTH - w) / 2, 30, w, 40);
+            setGeometry((game.gui.WIDTH - w) / 2, 30, w, 40);
             setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -174,7 +174,7 @@ public class SelectFolder extends GLScreen {
                 setColors(0xC84200, 0xFF6519, 0x803300);
                 setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
             }
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
 
         @Override

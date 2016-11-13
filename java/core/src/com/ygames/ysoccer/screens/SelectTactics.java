@@ -37,7 +37,7 @@ class SelectTactics extends GLScreen {
 
         public TitleButton() {
             setColors(0xBA9206);
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
             setText("EDIT TACTICS", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -49,7 +49,7 @@ class SelectTactics extends GLScreen {
 
         TacticsButton(int tacticsIndex) {
             this.tacticsIndex = tacticsIndex;
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 150 + 75 * (tacticsIndex - 12), 340, 40);
+            setGeometry((game.gui.WIDTH - 340) / 2, 150 + 75 * (tacticsIndex - 12), 340, 40);
             setColors(0x568200);
             setText(Tactics.codes[tacticsIndex], Font.Align.CENTER, Assets.font14);
         }
@@ -65,7 +65,7 @@ class SelectTactics extends GLScreen {
 
         ExitButton() {
             setColors(0xC84200);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText("EXIT", Font.Align.CENTER, Assets.font14);
         }
 

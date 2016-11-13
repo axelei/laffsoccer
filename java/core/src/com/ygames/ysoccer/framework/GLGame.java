@@ -6,6 +6,7 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
@@ -22,6 +23,7 @@ public class GLGame extends Game {
 
     public Settings settings;
     public GLGraphics glGraphics;
+    public Gui gui;
     private float deltaTime;
     public InputDeviceList inputDevices;
     Mouse mouse;
@@ -43,6 +45,7 @@ public class GLGame extends Game {
     public void create() {
         settings = new Settings();
         glGraphics = new GLGraphics();
+        gui = new Gui();
         Assets.load(settings);
 
         inputDevices = new InputDeviceList();

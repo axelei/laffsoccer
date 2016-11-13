@@ -85,7 +85,7 @@ public class TopScorers extends GLScreen {
     class GoalsGroupBar extends Button {
 
         public GoalsGroupBar(int y, int goals) {
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
+            setGeometry((game.gui.WIDTH - 240) / 2, y, 240, 22);
             setColors(0x00825F, 0x00C28E, 0x00402F);
             setText(goals, Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -95,7 +95,7 @@ public class TopScorers extends GLScreen {
     class ScorerNameButton extends Button {
 
         public ScorerNameButton(int y, String name) {
-            setGeometry((game.settings.GUI_WIDTH - 240) / 2, y, 240, 22);
+            setGeometry((game.gui.WIDTH - 240) / 2, y, 240, 22);
             setColors(0x1F1F95, 0x000000, 0x000000);
             setText(name, Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -105,7 +105,7 @@ public class TopScorers extends GLScreen {
     class TeamNameLabel extends Label {
 
         public TeamNameLabel(int y, String name) {
-            setGeometry((game.settings.GUI_WIDTH / 2) + 130, y, 240, 22);
+            setGeometry((game.gui.WIDTH / 2) + 130, y, 240, 22);
             setText(" (" + name + ")", Font.Align.LEFT, Assets.font10);
         }
     }
@@ -113,7 +113,7 @@ public class TopScorers extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 30, 400, 40);
             setColors(0x415600, 0x5E7D00, 0x243000);
             setText(Assets.strings.get("HIGHEST SCORER LIST"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -123,7 +123,7 @@ public class TopScorers extends GLScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

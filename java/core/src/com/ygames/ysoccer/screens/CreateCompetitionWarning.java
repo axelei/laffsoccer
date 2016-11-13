@@ -27,7 +27,7 @@ class CreateCompetitionWarning extends GLScreen {
 
         // warning
         w = new Button();
-        w.setGeometry((game.settings.GUI_WIDTH - 580) / 2, 270, 580, 180);
+        w.setGeometry((game.gui.WIDTH - 580) / 2, 270, 580, 180);
         w.setColors(0xDC0000, 0xFF4141, 0x8C0000);
         w.setActive(false);
         widgets.add(w);
@@ -37,12 +37,12 @@ class CreateCompetitionWarning extends GLScreen {
 
         w = new Label();
         w.setText(msg.substring(0, cut), Font.Align.CENTER, Assets.font14);
-        w.setPosition(game.settings.GUI_WIDTH / 2, 340);
+        w.setPosition(game.gui.WIDTH / 2, 340);
         widgets.add(w);
 
         w = new Label();
         w.setText(msg.substring(cut + 1), Font.Align.CENTER, Assets.font14);
-        w.setPosition(game.settings.GUI_WIDTH / 2, 380);
+        w.setPosition(game.gui.WIDTH / 2, 380);
         widgets.add(w);
 
         w = new ContinueButton();
@@ -57,7 +57,7 @@ class CreateCompetitionWarning extends GLScreen {
     public class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 30, 400, 40);
             switch (createCategory) {
                 case DIY_COMPETITION:
                     setColors(0x376E2F, 0x4E983F, 0x214014);
@@ -76,7 +76,7 @@ class CreateCompetitionWarning extends GLScreen {
     private class ContinueButton extends Button {
 
         ContinueButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 590, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CONTINUE"), Font.Align.CENTER, Assets.font14);
         }
@@ -100,7 +100,7 @@ class CreateCompetitionWarning extends GLScreen {
     private class AbortButton extends Button {
 
         AbortButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }

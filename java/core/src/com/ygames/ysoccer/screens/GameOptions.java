@@ -53,7 +53,7 @@ class GameOptions extends GLScreen {
 
         TitleButton() {
             setColors(0x536B90);
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -68,7 +68,7 @@ class GameOptions extends GLScreen {
 
         LanguageLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 285, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 285, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -83,7 +83,7 @@ class GameOptions extends GLScreen {
 
         LanguageButton() {
             setColors(0x1F1F95);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 285, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 + 30, 285, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -126,7 +126,7 @@ class GameOptions extends GLScreen {
 
         PlayerCountryLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 330, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 330, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -141,7 +141,7 @@ class GameOptions extends GLScreen {
 
         PlayerCountryButton() {
             setColors(0x1F1F95);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 330, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 + 30, 330, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -170,7 +170,7 @@ class GameOptions extends GLScreen {
 
         MaxPlayerValueLabel() {
             setColors(0x800000);
-            setGeometry(game.settings.GUI_WIDTH / 2 - 30 - 440, 375, 440, 36);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 375, 440, 36);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -185,7 +185,7 @@ class GameOptions extends GLScreen {
 
         MaxPlayerValueButton() {
             setColors(0x1F1F95);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 30, 375, 300, 36);
+            setGeometry(game.gui.WIDTH / 2 + 30, 375, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -261,7 +261,7 @@ class GameOptions extends GLScreen {
 
         CurrencyButton() {
             setColors(0x1F1F95);
-            setGeometry(game.settings.GUI_WIDTH / 2 + 340, 375, 130, 36);
+            setGeometry(game.gui.WIDTH / 2 + 340, 375, 130, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -296,7 +296,7 @@ class GameOptions extends GLScreen {
 
         QuitToOsButton() {
             setColors(0x008080);
-            setGeometry((game.settings.GUI_WIDTH - 300) / 2, 590, 300, 36);
+            setGeometry((game.gui.WIDTH - 300) / 2, 590, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -315,7 +315,7 @@ class GameOptions extends GLScreen {
 
         ExitButton() {
             setColors(0xC84200);
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 

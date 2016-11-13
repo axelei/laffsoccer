@@ -148,7 +148,7 @@ public class ViewTeam extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar(Team team) {
-            setGeometry((game.settings.GUI_WIDTH - 600) / 2, 45, 601, 41);
+            setGeometry((game.gui.WIDTH - 600) / 2, 45, 601, 41);
             setColors(0x6A5ACD, 0x8F83D7, 0x372989);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -158,7 +158,7 @@ public class ViewTeam extends GLScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setGeometry(game.settings.GUI_WIDTH - 185 - 30, 660, 145, 40);
+            setGeometry(game.gui.WIDTH - 185 - 30, 660, 145, 40);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

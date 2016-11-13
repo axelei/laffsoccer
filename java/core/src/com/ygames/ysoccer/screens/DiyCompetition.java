@@ -39,7 +39,7 @@ public class DiyCompetition extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            setGeometry((game.settings.GUI_WIDTH - 400) / 2, 30, 400, 40);
+            setGeometry((game.gui.WIDTH - 400) / 2, 30, 400, 40);
             setColors(0x376E2F, 0x4E983F, 0x214014);
             setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -49,7 +49,7 @@ public class DiyCompetition extends GLScreen {
     class LeagueButton extends Button {
 
         public LeagueButton() {
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 270, 340, 40);
+            setGeometry((game.gui.WIDTH - 340) / 2, 270, 340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("LEAGUE"), Font.Align.CENTER, Assets.font14);
         }
@@ -63,7 +63,7 @@ public class DiyCompetition extends GLScreen {
     class CupButton extends Button {
 
         public CupButton() {
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 350, 340, 40);
+            setGeometry((game.gui.WIDTH - 340) / 2, 350, 340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CUP"), Font.Align.CENTER, Assets.font14);
         }
@@ -77,7 +77,7 @@ public class DiyCompetition extends GLScreen {
     class TournamentButton extends Button {
 
         public TournamentButton() {
-            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 430, 340, 40);
+            setGeometry((game.gui.WIDTH - 340) / 2, 430, 340, 40);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("TOURNAMENT"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -87,7 +87,7 @@ public class DiyCompetition extends GLScreen {
     class ExitButton extends Button {
 
         public ExitButton() {
-            setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
