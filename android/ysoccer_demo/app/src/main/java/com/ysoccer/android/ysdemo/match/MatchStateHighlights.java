@@ -2,12 +2,12 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
 
-public class MatchStateHighlights extends MatchState {
+class MatchStateHighlights extends MatchState {
 
-    int subframe0;
-    int position;
+    private int subframe0;
+    private int position;
 
-    public MatchStateHighlights(Match match) {
+    MatchStateHighlights(Match match) {
         super(match);
         id = MatchFsm.STATE_HIGHLIGHTS;
     }
@@ -32,7 +32,6 @@ public class MatchStateHighlights extends MatchState {
         subframe0 = match.subframe;
 
         match.recorder.loadHighlight();
-
     }
 
     @Override
@@ -78,5 +77,4 @@ public class MatchStateHighlights extends MatchState {
             }
         }
     }
-
 }

@@ -64,8 +64,6 @@ public class MatchFsm {
     static final int STATE_REPLAY = 20;
     static final int STATE_HIGHLIGHTS = 21;
 
-    MatchStateHighlights stateHighlights;
-
     public MatchFsm(Match match) {
         this.match = match;
         states = new ArrayList<MatchState>();
@@ -91,7 +89,7 @@ public class MatchFsm {
         states.add(new MatchStateEndPositions(match));
         states.add(new MatchStateEnd(match));
         states.add(new MatchStateReplay(match));
-        states.add(stateHighlights = new MatchStateHighlights(match));
+        states.add(new MatchStateHighlights(match));
     }
 
     public MatchState getState() {
