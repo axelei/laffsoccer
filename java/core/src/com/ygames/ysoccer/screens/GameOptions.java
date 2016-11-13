@@ -20,6 +20,9 @@ class GameOptions extends GLScreen {
         w = new TitleButton();
         widgets.add(w);
 
+        w = new ScreenModeLabel();
+        widgets.add(w);
+
         w = new LanguageLabel();
         widgets.add(w);
 
@@ -61,6 +64,21 @@ class GameOptions extends GLScreen {
         @Override
         public void onUpdate() {
             setText(Assets.strings.get("GAME OPTIONS"));
+        }
+    }
+
+    private class ScreenModeLabel extends Button {
+
+        ScreenModeLabel() {
+            setColors(0x800000);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 240, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("SCREEN MODE"));
         }
     }
 

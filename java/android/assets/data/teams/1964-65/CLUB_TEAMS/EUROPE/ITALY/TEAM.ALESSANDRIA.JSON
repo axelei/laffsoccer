@@ -26,10 +26,10 @@
 	},
 	{
 		"style": "PLAIN",
-		"shirt1": "#b9bbbd",
-		"shirt2": "#1e1e1e",
-		"shorts": "#c62428",
-		"socks": "#b9bbbd"
+		"shirt1": "#dfe8eb",
+		"shirt2": "#b9bbbd",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
 	}
 ],
 "players": [

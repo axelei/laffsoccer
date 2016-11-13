@@ -16,6 +16,7 @@ public class Settings {
 
     public final String APP_NAME = "YSoccer";
     public final String VERSION = "16";
+    public boolean fullScreen;
     public String locale;
     public int benchSize;
     public boolean useFlags;
@@ -34,6 +35,7 @@ public class Settings {
         json.addClassTag("KeyboardConfig", KeyboardConfig.class);
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
+        fullScreen = preferences.getBoolean("fullScreen", false);
         locale = preferences.getString("locale", "en");
         benchSize = preferences.getInteger("benchSize", 5);
         useFlags = preferences.getBoolean("useFlags", true);
@@ -48,6 +50,7 @@ public class Settings {
     }
 
     public void save() {
+        preferences.putBoolean("fullScreen", fullScreen);
         preferences.putString("locale", locale);
         preferences.putInteger("benchSize", benchSize);
         preferences.putBoolean("useFlags", useFlags);
