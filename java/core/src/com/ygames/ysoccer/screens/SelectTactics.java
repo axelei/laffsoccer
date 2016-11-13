@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Tactics;
 
 class SelectTactics extends GLScreen {
 
@@ -17,6 +18,14 @@ class SelectTactics extends GLScreen {
 
         w = new TitleButton();
         widgets.add(w);
+
+        for (int t = 12; t < 18; t++) {
+            w = new TacticsButton(t);
+            widgets.add(w);
+            if (selectedWidget == null) {
+                selectedWidget = w;
+            }
+        }
     }
 
     private class TitleButton extends Button {
@@ -26,6 +35,24 @@ class SelectTactics extends GLScreen {
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
             setText("EDIT TACTICS", Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class TacticsButton extends Button {
+
+        int tacticsIndex;
+
+        TacticsButton(int tacticsIndex) {
+            this.tacticsIndex = tacticsIndex;
+            setGeometry((game.settings.GUI_WIDTH - 340) / 2, 150 + 75 * (tacticsIndex - 12), 340, 40);
+            setColors(0x568200);
+            setText(Tactics.codes[tacticsIndex], Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
+            // game.setScreen(new EditTactics(game, tactics, tacticsIndex, tacticsStack));
         }
     }
 }

@@ -1,12 +1,213 @@
 {
-  "name": "CATANZARO",
-  "type": "CLUB",
-  "country": "ITA",
-  "city": "CATANZARO",
-  "stadium": "COMUNALE",
-  "coach": {
-    "name": "LEANDRO REMONDINI",
-    "nationality": "ITA"
-  },
-  "tactics": "4-4-2"
+"name": "CATANZARO",
+"type": "CLUB",
+"country": "ITA",
+"city": "CATANZARO",
+"stadium": "COMUNALE",
+"coach": {
+	"name": "LEANDRO REMONDINI",
+	"nationality": "ITA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#f71c15",
+		"shirt2": "#fdf11d",
+		"shorts": "#f71c15",
+		"socks": "#f71c15"
+	},
+	{
+		"style": "LINE",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f71c15",
+		"shorts": "#f71c15",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#fdf11d",
+		"shirt2": "#f71c15",
+		"shorts": "#fdf11d",
+		"socks": "#fdf11d"
+	}
+],
+"players": [
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "1",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "4",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "5",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "6",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "7",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "10",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "11",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "12",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "13",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "14",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	}
+]
 }
