@@ -23,12 +23,15 @@ class GameOptions extends GLScreen {
         w = new ScreenModeLabel();
         widgets.add(w);
 
+        w = new ScreenModeButton();
+        widgets.add(w);
+        setSelectedWidget(w);
+
         w = new LanguageLabel();
         widgets.add(w);
 
         w = new LanguageButton();
         widgets.add(w);
-        setSelectedWidget(w);
 
         w = new PlayerCountryLabel();
         widgets.add(w);
@@ -79,6 +82,36 @@ class GameOptions extends GLScreen {
         @Override
         public void onUpdate() {
             setText(Assets.strings.get("SCREEN MODE"));
+        }
+    }
+
+    private class ScreenModeButton extends Button {
+
+        ScreenModeButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.gui.WIDTH / 2 + 30, 240, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(game.settings.fullScreen ? "SCREEN MODE.FULL SCREEN" : "SCREEN MODE.WINDOW"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleFullScreen();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleFullScreen();
+        }
+
+        private void toggleFullScreen() {
+            game.settings.fullScreen = !game.settings.fullScreen;
+            game.setScreenMode();
+            setChanged(true);
         }
     }
 

@@ -48,9 +48,9 @@ class MatchOptions extends GLScreen {
     private class TitleButton extends Button {
 
         TitleButton() {
-            setColors(0x536B90);
+            setColors(0x6101D7);
             setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
-            setText("MATCH OPTIONS", Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

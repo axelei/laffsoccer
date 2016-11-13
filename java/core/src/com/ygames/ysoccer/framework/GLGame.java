@@ -46,6 +46,7 @@ public class GLGame extends Game {
         settings = new Settings();
         glGraphics = new GLGraphics();
         gui = new Gui();
+        setScreenMode();
         Assets.load(settings);
 
         inputDevices = new InputDeviceList();
@@ -60,6 +61,14 @@ public class GLGame extends Game {
         stateColor = new WidgetColor();
 
         teamList = new ArrayList<Team>();
+    }
+
+    public void setScreenMode() {
+        if (settings.fullScreen) {
+            Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+        } else {
+            Gdx.graphics.setWindowedMode(gui.WIDTH, gui.HEIGHT);
+        }
     }
 
     @Override
