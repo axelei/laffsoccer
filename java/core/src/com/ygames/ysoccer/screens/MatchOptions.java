@@ -50,13 +50,8 @@ class MatchOptions extends GLScreen {
         TitleButton() {
             setColors(0x536B90);
             setGeometry((game.settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("MATCH OPTIONS", Font.Align.CENTER, Assets.font14);
             setActive(false);
-        }
-
-        @Override
-        public void onUpdate() {
-            setText(Assets.strings.get("MATCH OPTIONS"));
         }
     }
 
@@ -182,12 +177,7 @@ class MatchOptions extends GLScreen {
         ExitButton() {
             setColors(0xC84200);
             setGeometry((game.settings.GUI_WIDTH - 180) / 2, 660, 180, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
-        }
-
-        @Override
-        public void onUpdate() {
-            setText(Assets.strings.get("EXIT"));
+            setText("EXIT", Font.Align.CENTER, Assets.font14);
         }
 
         @Override

@@ -118,6 +118,11 @@ public class Main extends GLScreen {
             setGeometry(game.settings.GUI_WIDTH / 2 - 45 - 350, 405, 350, 36);
             setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font14);
         }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectTactics(game));
+        }
     }
 
     private class EditTeamsButton extends Button {
