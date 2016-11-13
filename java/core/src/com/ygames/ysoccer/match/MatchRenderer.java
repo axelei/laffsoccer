@@ -139,6 +139,24 @@ public class MatchRenderer {
             cornerFlagSprites[i].drawShadow(subframe, glGraphics.batch);
         }
 
+        // keepers
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            for (Player player : match.team[t].lineup) {
+                if (player.role == Player.Role.GOALKEEPER) {
+                    d = player.data[subframe];
+                    if (d.isVisible) {
+                        glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                        if (match.settings.time == Time.NIGHT) {
+                            // TODO
+                            // glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                            // glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                            // glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                        }
+                    }
+                }
+            }
+        }
+
         glGraphics.batch.setColor(1, 1, 1, 1);
     }
 

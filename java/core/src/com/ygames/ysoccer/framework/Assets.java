@@ -66,6 +66,7 @@ public class Assets {
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static Texture goalBottom;
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
+    public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
     public static Pixmap keeperCollisionDetection;
     public static TextureRegion replay[][] = new TextureRegion[16][2];
@@ -102,8 +103,9 @@ public class Assets {
         loadLightIcons();
         loadPitchIcons();
         loadWeatherIcons();
-        keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
         goalBottom = new Texture("images/stadium/goal_bottom.png");
+        loadKeeperShadow();
+        keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
         loadReplay();
         loadReplaySpeed();
     }
@@ -434,6 +436,18 @@ public class Assets {
             for (int frameY = 0; frameY < 19; frameY++) {
                 Assets.keeper[frameX][frameY] = new TextureRegion(keeper, 50 * frameX, 50 * frameY, 50, 50);
                 Assets.keeper[frameX][frameY].flip(false, true);
+            }
+        }
+    }
+
+    private static void loadKeeperShadow() {
+        for (int i = 0; i < 4; i++) {
+            Texture textureShadow = new Texture("images/player/shadows/keeper_" + i + ".png");
+            for (int frameX = 0; frameX < 8; frameX++) {
+                for (int frameY = 0; frameY < 19; frameY++) {
+                    Assets.keeperShadow[frameX][frameY][i] = new TextureRegion(textureShadow, 50 * frameX, 50 * frameY, 50, 50);
+                    Assets.keeperShadow[frameX][frameY][i].flip(false, true);
+                }
             }
         }
     }
