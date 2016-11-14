@@ -37,4 +37,11 @@ class MatchScreen extends GLScreen {
 
         match.renderer.render(game);
     }
+
+    @Override
+    public void resize(int width, int height) {
+        super.resize(width, height);
+
+        match.renderer.resize(width, height, game.settings);
+    }
 }

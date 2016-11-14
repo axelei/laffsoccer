@@ -23,6 +23,7 @@ public class Settings {
     public double maxPlayerValue;
     public String currency;
     public int weatherMaxStrength;
+    public int zoom;
     public boolean radar;
     public boolean autoReplays;
     private String keyboardConfigs;
@@ -43,6 +44,7 @@ public class Settings {
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
         weatherMaxStrength = preferences.getInteger("weatherMaxStrength", Weather.Strength.LIGHT);
+        zoom = preferences.getInteger("zoom", 100);
         radar = preferences.getBoolean("radar", true);
         autoReplays = preferences.getBoolean("autoReplays", true);
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
@@ -60,6 +62,7 @@ public class Settings {
         preferences.putInteger("maxPlayerValueE", e);
         preferences.putString("currency", currency);
         preferences.putInteger("weatherMaxStrength", weatherMaxStrength);
+        preferences.putInteger("zoom", zoom);
         preferences.putBoolean("radar", radar);
         preferences.putBoolean("autoReplays", autoReplays);
         preferences.putString("keyboardConfigs", keyboardConfigs);

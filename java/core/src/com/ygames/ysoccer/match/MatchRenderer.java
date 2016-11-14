@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.Settings;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,9 +39,9 @@ public class MatchRenderer {
 
     public MatchRenderer(GLGraphics glGraphics, MatchCore match) {
         this.glGraphics = glGraphics;
-        screenWidth = Gdx.graphics.getWidth();
-        screenHeight = Gdx.graphics.getHeight();
-        zoom = Math.max(100, 20 * (int) (5.0f * Gdx.graphics.getWidth() / 1280));
+        this.match = match;
+
+        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.game.settings);
 
         actionCamera = new ActionCamera(this);
         for (int i = 0; i < Const.REPLAY_SUBFRAMES; i++) {
@@ -48,7 +49,6 @@ public class MatchRenderer {
             vcameraY[i] = Math.round(actionCamera.y);
         }
 
-        this.match = match;
         allSprites = new ArrayList<Sprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
         for (int t = Match.HOME; t <= Match.AWAY; t++) {
@@ -66,6 +66,15 @@ public class MatchRenderer {
         }
 
         spriteComparator = new Sprite.SpriteComparator();
+    }
+
+    public void resize(int width, int height, Settings settings) {
+        screenWidth = width;
+        screenHeight = height;
+        float zoomMin = width / (1.0f * 2 * Const.TOUCH_LINE);
+        float zoomOpt = width / (0.75f * 2 * Const.TOUCH_LINE);
+        float zoomMax = width / (0.65f * 2 * Const.TOUCH_LINE);
+        zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
     }
 
     public void render(GLGame game) {
