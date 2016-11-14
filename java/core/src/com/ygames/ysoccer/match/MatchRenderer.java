@@ -157,6 +157,24 @@ public class MatchRenderer {
             }
         }
 
+        // players
+        for (int i = 0; i < (match.settings.time == Time.NIGHT ? 4 : 1); i++) {
+            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+                for (Player player : match.team[t].lineup) {
+                    if (player.role != Player.Role.GOALKEEPER) {
+                        d = player.data[subframe];
+                        if (d.isVisible) {
+                            float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
+                            float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
+                            float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
+                            float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
+                            glGraphics.batch.draw(Assets.playerShadow[d.fmx][d.fmy][i], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+                        }
+                    }
+                }
+            }
+        }
+
         glGraphics.batch.setColor(1, 1, 1, 1);
     }
 
