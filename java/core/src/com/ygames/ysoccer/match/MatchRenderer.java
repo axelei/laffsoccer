@@ -15,6 +15,10 @@ import static com.badlogic.gdx.Gdx.gl;
 
 public class MatchRenderer {
 
+    public static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
+    public static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
+    public static final float VISIBLE_FIELD_WIDTH_MIN = 0.65f;
+
     GLGraphics glGraphics;
     int screenWidth;
     int screenHeight;
@@ -71,9 +75,9 @@ public class MatchRenderer {
     public void resize(int width, int height, Settings settings) {
         screenWidth = width;
         screenHeight = height;
-        float zoomMin = width / (1.0f * 2 * Const.TOUCH_LINE);
-        float zoomOpt = width / (0.75f * 2 * Const.TOUCH_LINE);
-        float zoomMax = width / (0.65f * 2 * Const.TOUCH_LINE);
+        float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
+        float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
+        float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
         zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
     }
 

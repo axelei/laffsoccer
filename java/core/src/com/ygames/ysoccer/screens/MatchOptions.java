@@ -10,6 +10,10 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Weather;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_MAX;
+import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_MIN;
+import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_OPT;
+
 class MatchOptions extends GLScreen {
 
     MatchOptions(GLGame game) {
@@ -42,6 +46,9 @@ class MatchOptions extends GLScreen {
         widgets.add(w);
 
         w = new ZoomLabel();
+        widgets.add(w);
+
+        w = new ZoomButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -182,6 +189,47 @@ class MatchOptions extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 30 - 440, 325, 440, 36);
             setText(Assets.strings.get("ZOOM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class ZoomButton extends Button {
+
+        ZoomButton() {
+            setColors(0x2B4A61);
+            setGeometry(game.gui.WIDTH / 2 + 30, 325, 440, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(game.settings.zoom + "%");
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateZoom(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateZoom(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateZoom(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateZoom(-1);
+        }
+
+        private void updateZoom(int n) {
+            int zoomMin = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MAX);
+            int zoomMax = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MIN);
+            game.settings.zoom = Emath.slide(game.settings.zoom, zoomMin, zoomMax, 5 * n);
+            setChanged(true);
         }
     }
 

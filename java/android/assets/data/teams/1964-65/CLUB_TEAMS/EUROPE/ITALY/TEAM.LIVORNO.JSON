@@ -1,12 +1,213 @@
 {
-  "name": "LIVORNO",
-  "type": "CLUB",
-  "country": "ITA",
-  "city": "LIVORNO",
-  "stadium": "COMUNALE",
-  "coach": {
-    "name": "GUIDO MAZZETTI",
-    "nationality": "ITA"
-  },
-  "tactics": "4-4-2"
+"name": "LIVORNO",
+"type": "CLUB",
+"country": "ITA",
+"city": "LIVORNO",
+"stadium": "COMUNALE",
+"coach": {
+	"name": "GUIDO MAZZETTI",
+	"nationality": "ITA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#711d38",
+		"shirt2": "#e8ef2f",
+		"shorts": "#711d38",
+		"socks": "#711d38"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#711d38",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#e8ef2f",
+		"shirt2": "#711d38",
+		"shorts": "#e8ef2f",
+		"socks": "#e8ef2f"
+	}
+],
+"players": [
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "1",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "4",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "5",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "6",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "7",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "10",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "11",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "12",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "13",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "14",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	}
+]
 }
