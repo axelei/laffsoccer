@@ -396,16 +396,14 @@ public class MatchRenderer {
         for (int i = 0; i < (match.settings.time == Time.NIGHT ? 4 : 1); i++) {
             batcher.beginBatch(Assets.playerShadows[i]);
             for (int t = Match.HOME; t <= Match.AWAY; t++) {
-                int len = match.team[t].lineup.size();
-                for (int j = 0; j < len; j++) {
-                    Player player = match.team[t].lineup.get(j);
+                for (Player player : match.team[t].lineup) {
                     if (player.role != Player.GOALKEEPER) {
                         d = player.data[subframe];
                         if (d.isVisible) {
                             float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
                             float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
-                            float mX = (j == 0 || j == 3) ? 0.65f : -0.65f;
-                            float mY = (j == 0 || j == 1) ? 0.46f : -0.46f;
+                            float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
+                            float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
                             keyFrame = Assets.playerShadowTextureRegions[d.fmx][d.fmy];
                             batcher.drawSprite(d.x - offsetX + mX * d.z, d.y
                                     - offsetY + 5 + mY * d.z, 32, 32, keyFrame);
@@ -604,8 +602,8 @@ public class MatchRenderer {
         glGraphics.setColor(0xFFFFFF);
 
         glGraphics.drawFrame(l, t, r - l, b - t);
-		/*
-		''middle 
+        /*
+        ''middle
 		DrawLine(hw -0.2*w,	m1, 	hw +0.2*w,	m1)
 		DrawLine(hw -0.2*w, m1 +1, 	hw +0.2*w,	m1 +1)
 		
