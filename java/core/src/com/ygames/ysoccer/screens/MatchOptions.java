@@ -41,6 +41,9 @@ class MatchOptions extends GLScreen {
         w = new AutoReplaysButton();
         widgets.add(w);
 
+        w = new ZoomLabel();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -169,6 +172,16 @@ class MatchOptions extends GLScreen {
         private void toggleAutoReplays() {
             game.settings.autoReplays = !game.settings.autoReplays;
             setChanged(true);
+        }
+    }
+
+    private class ZoomLabel extends Button {
+
+        ZoomLabel() {
+            setColors(0x76683C);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 325, 440, 36);
+            setText(Assets.strings.get("ZOOM"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
