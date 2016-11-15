@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
@@ -23,6 +24,9 @@ public class MatchRenderer {
     int screenWidth;
     int screenHeight;
     int zoom;
+    final int guiWidth = 1280;
+    int guiHeight;
+
     public ActionCamera actionCamera;
     public int[] vcameraX = new int[Const.REPLAY_SUBFRAMES];
     public int[] vcameraY = new int[Const.REPLAY_SUBFRAMES];
@@ -79,6 +83,8 @@ public class MatchRenderer {
         float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
         float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
         zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
+
+        guiHeight = guiWidth * height / width;
     }
 
     public void render(GLGame game) {
@@ -102,10 +108,20 @@ public class MatchRenderer {
     }
 
     private void renderGui() {
-        glGraphics.camera.setToOrtho(true, 1280, 720);
+        glGraphics.camera.setToOrtho(true, guiWidth, guiHeight);
         glGraphics.camera.update();
         glGraphics.batch.setProjectionMatrix(glGraphics.camera.combined);
         glGraphics.batch.begin();
+
+        // ball owner
+        if (displayBallOwner && match.ball.owner != null) {
+            drawPlayerNumberAndName(match.ball.owner);
+        }
+
+        // goal scorer
+        if (displayGoalScorer && (match.subframe % 160 > 80)) {
+            drawPlayerNumberAndName(match.ball.goalOwner);
+        }
 
         // additional state-specific render
         MatchState matchState = match.fsm.getState();
@@ -213,5 +229,9 @@ public class MatchRenderer {
 
     void updateCameraY(int follow, int speed, int targetY, boolean limit) {
         vcameraY[match.subframe] = actionCamera.updateY(follow, speed, targetY, limit);
+    }
+
+    private void drawPlayerNumberAndName(Player player) {
+        Assets.font10.draw(glGraphics.batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
     }
 }

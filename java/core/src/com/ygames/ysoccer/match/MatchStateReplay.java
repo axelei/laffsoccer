@@ -134,9 +134,8 @@ class MatchStateReplay extends MatchState {
         if (inputDevice != null) {
             int frameX = 1 + inputDevice.x1;
             int frameY = 1 + inputDevice.y1;
-            match.renderer.glGraphics.batch.draw(Assets.replaySpeed[frameX][frameY], match.game.gui.WIDTH - 50, match.game.gui.HEIGHT - 50);
+            match.renderer.glGraphics.batch.draw(Assets.replaySpeed[frameX][frameY], match.renderer.guiWidth - 50, match.renderer.guiHeight - 50);
         }
-
     }
 
     private void quit() {
