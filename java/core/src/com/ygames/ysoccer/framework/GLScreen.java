@@ -28,11 +28,13 @@ public abstract class GLScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        game.mouse.read(game.glGraphics.camera);
+        if (game.settings.mouseEnabled) {
+            game.mouse.read(game.glGraphics.camera);
 
-        for (Widget w : widgets) {
-            if (w.contains(game.mouse.position.x, game.mouse.position.y)) {
-                setSelectedWidget(w);
+            for (Widget w : widgets) {
+                if (w.contains(game.mouse.position.x, game.mouse.position.y)) {
+                    setSelectedWidget(w);
+                }
             }
         }
 
@@ -179,7 +181,9 @@ public abstract class GLScreen implements Screen {
             }
         }
 
-        if (selectedWidget != null && selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
+        if (game.settings.mouseEnabled
+                && selectedWidget != null
+                && selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
             if (game.mouse.button1) {
                 menuInput.fire1 = true;
             }

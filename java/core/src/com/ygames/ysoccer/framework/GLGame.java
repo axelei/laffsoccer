@@ -53,8 +53,8 @@ public class GLGame extends Game {
 
         menuInput = new MenuInput();
 
-        Gdx.graphics.setCursor(Assets.customCursor);
         mouse = new Mouse();
+        setMouse();
 
         state = State.NONE;
         stateColor = new WidgetColor();
@@ -67,6 +67,20 @@ public class GLGame extends Game {
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
         } else {
             Gdx.graphics.setWindowedMode(gui.WIDTH, gui.HEIGHT);
+        }
+    }
+
+    public void setMouse() {
+        if (settings.mouseEnabled) {
+            Gdx.graphics.setCursor(Assets.customCursor);
+        } else {
+            Gdx.graphics.setCursor(Assets.hiddenCursor);
+        }
+    }
+
+    public void unsetMouse() {
+        if (settings.mouseEnabled) {
+            Gdx.graphics.setCursor(Assets.hiddenCursor);
         }
     }
 

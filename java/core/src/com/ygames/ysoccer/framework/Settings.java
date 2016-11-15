@@ -17,6 +17,7 @@ public class Settings {
     public final String APP_NAME = "YSoccer";
     public final String VERSION = "16";
     public boolean fullScreen;
+    public boolean mouseEnabled;
     public String locale;
     public static Integer[] matchLengths = {3, 5, 7, 10};
     public int matchLength;
@@ -39,6 +40,7 @@ public class Settings {
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
         fullScreen = preferences.getBoolean("fullScreen", false);
+        mouseEnabled = preferences.getBoolean("mouseEnabled", true);
         locale = preferences.getString("locale", "en");
         matchLength = preferences.getInteger("matchLength", matchLengths[0]);
         benchSize = preferences.getInteger("benchSize", 5);
@@ -56,6 +58,7 @@ public class Settings {
 
     public void save() {
         preferences.putBoolean("fullScreen", fullScreen);
+        preferences.putBoolean("mouseEnabled", mouseEnabled);
         preferences.putString("locale", locale);
         preferences.putInteger("matchLength", matchLength);
         preferences.putInteger("benchSize", benchSize);

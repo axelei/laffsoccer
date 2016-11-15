@@ -30,6 +30,9 @@ class GameOptions extends GLScreen {
         w = new MouseLabel();
         widgets.add(w);
 
+        w = new MouseButton();
+        widgets.add(w);
+
         w = new LanguageLabel();
         widgets.add(w);
 
@@ -130,6 +133,36 @@ class GameOptions extends GLScreen {
         @Override
         public void onUpdate() {
             setText(Assets.strings.get("MOUSE"));
+        }
+    }
+
+    private class MouseButton extends Button {
+
+        MouseButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.gui.WIDTH / 2 + 30, 290, 440, 38);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get(game.settings.mouseEnabled ? "MOUSE.ON" : "MOUSE.OFF"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleMouse();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleMouse();
+        }
+
+        private void toggleMouse() {
+            game.settings.mouseEnabled = !game.settings.mouseEnabled;
+            game.setMouse();
+            setChanged(true);
         }
     }
 
