@@ -2,11 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 public class MatchSettings {
 
-    int gameLengthIndex;
+    int matchLength;
     public int time;
     float shadowAlpha;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
@@ -20,17 +21,17 @@ public class MatchSettings {
     public int substitutions;
     public int benchSize;
 
-    public MatchSettings(Competition competition, int weatherMaxStrength) {
-        if (competition.getType() == Competition.Type.FRIENDLY) {
-            gameLengthIndex = 0;
+    public MatchSettings(Competition competition, Settings gameSettings) {
+        if (competition.getType() == Competition.Type.FRIENDLY || competition.category == Competition.Category.DIY_COMPETITION) {
+            matchLength = gameSettings.matchLength;
         } else {
-            gameLengthIndex = 0; // TODO use game settings
+            matchLength = Settings.matchLengths[0];
         }
         this.time = competition.time;
         this.pitchType = competition.resolvePitchType();
         this.grass = new Grass();
         this.wind = new Wind();
-        this.weatherMaxStrength = weatherMaxStrength;
+        this.weatherMaxStrength = gameSettings.weatherMaxStrength;
         if (competition.getType() == Competition.Type.FRIENDLY) {
             weatherEffect = Weather.RANDOM;
         } else {

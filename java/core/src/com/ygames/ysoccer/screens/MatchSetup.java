@@ -46,7 +46,7 @@ class MatchSetup extends GLScreen {
 
         Team.kitAutoSelection(homeTeam, awayTeam);
 
-        matchSettings = new MatchSettings(competition, game.settings.weatherMaxStrength);
+        matchSettings = new MatchSettings(competition, game.settings);
 
         background = new Texture("images/backgrounds/menu_match_presentation.jpg");
 

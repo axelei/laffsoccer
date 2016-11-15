@@ -19,7 +19,6 @@ public class GLGame extends Game {
     public static final int VIRTUAL_REFRESH_RATE = 64;
     public static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRESH_RATE * SUBFRAMES;
     public static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
-    public static final int[] gameLengths = {3, 5, 7, 10};
 
     public Settings settings;
     public GLGraphics glGraphics;

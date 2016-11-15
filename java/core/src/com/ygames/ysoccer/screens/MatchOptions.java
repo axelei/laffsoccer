@@ -5,10 +5,14 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Weather;
 import com.ygames.ysoccer.math.Emath;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_MAX;
 import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_MIN;
@@ -28,13 +32,16 @@ class MatchOptions extends GLScreen {
         w = new MatchLengthLabel();
         widgets.add(w);
 
+        w = new MatchLengthButton();
+        widgets.add(w);
+
+        setSelectedWidget(w);
+
         w = new WeatherEffectsLabel();
         widgets.add(w);
 
         w = new WeatherEffectsButton();
         widgets.add(w);
-
-        setSelectedWidget(w);
 
         w = new RadarLabel();
         widgets.add(w);
@@ -75,6 +82,48 @@ class MatchOptions extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 30 - 440, 190, 440, 38);
             setText(Assets.strings.get("FRIENDLY/DIY GAME LENGTH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class MatchLengthButton extends Button {
+
+        List<Integer> matchLengths;
+
+        MatchLengthButton() {
+            matchLengths = Arrays.asList(Settings.matchLengths);
+            setColors(0x2B4A61);
+            setGeometry(game.gui.WIDTH / 2 + 30, 190, 440, 38);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("%n MINUTES").replaceFirst("%n", "" + game.settings.matchLength));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateMatchLength(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateMatchLength(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateMatchLength(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateMatchLength(-1);
+        }
+
+        private void updateMatchLength(int n) {
+            game.settings.matchLength = matchLengths.get(Emath.slide(matchLengths.indexOf(game.settings.matchLength), 0, matchLengths.size() - 1, n));
+            setChanged(true);
         }
     }
 

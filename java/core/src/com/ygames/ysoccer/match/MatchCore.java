@@ -65,7 +65,7 @@ public class MatchCore {
         benchSide = 1 - 2 * Assets.random.nextInt(2);
 
         period = Period.FIRST_HALF;
-        length = game.gameLengths[matchSettings.gameLengthIndex] * 60 * 1000;
+        length = matchSettings.matchLength * 60 * 1000;
         coinToss = Assets.random.nextInt(2); // 0 = home begins, 1 = away begins
         kickOffTeam = coinToss;
 

@@ -18,6 +18,8 @@ public class Settings {
     public final String VERSION = "16";
     public boolean fullScreen;
     public String locale;
+    public static Integer[] matchLengths = {3, 5, 7, 10};
+    public int matchLength;
     public int benchSize;
     public boolean useFlags;
     public double maxPlayerValue;
@@ -38,6 +40,7 @@ public class Settings {
 
         fullScreen = preferences.getBoolean("fullScreen", false);
         locale = preferences.getString("locale", "en");
+        matchLength = preferences.getInteger("matchLength", matchLengths[0]);
         benchSize = preferences.getInteger("benchSize", 5);
         useFlags = preferences.getBoolean("useFlags", true);
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 1)
@@ -54,6 +57,7 @@ public class Settings {
     public void save() {
         preferences.putBoolean("fullScreen", fullScreen);
         preferences.putString("locale", locale);
+        preferences.putInteger("matchLength", matchLength);
         preferences.putInteger("benchSize", benchSize);
         preferences.putBoolean("useFlags", useFlags);
         int e = (int) Math.log10(maxPlayerValue);
