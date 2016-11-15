@@ -1,12 +1,213 @@
 {
-  "name": "BARI",
-  "type": "CLUB",
-  "country": "ITA",
-  "city": "BARI",
-  "stadium": "DELLA VITTORIA",
-  "coach": {
-    "name": "PAOLO TABANELLI",
-    "nationality": "ITA"
-  },
-  "tactics": "4-4-2"
+"name": "BARI",
+"type": "CLUB",
+"country": "ITA",
+"city": "BARI",
+"stadium": "DELLA VITTORIA",
+"coach": {
+	"name": "PAOLO TABANELLI",
+	"nationality": "ITA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#ffffff",
+		"shirt2": "#e20505",
+		"shorts": "#ffffff",
+		"socks": "#ffffff"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#e20505",
+		"shirt2": "#ffffff",
+		"shorts": "#e20505",
+		"socks": "#e20505"
+	},
+	{
+		"style": "SLEEVES",
+		"shirt1": "#003a75",
+		"shirt2": "#dfe8eb",
+		"shorts": "#003a75",
+		"socks": "#003a75"
+	}
+],
+"players": [
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "1",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "2",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "3",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "4",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "5",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "6",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "7",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "8",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "9",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "10",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "11",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": "12",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": "13",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": "14",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "15",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	},
+	{
+		"name": "",
+		"shirtName": "",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": "16",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {}
+	}
+]
 }
