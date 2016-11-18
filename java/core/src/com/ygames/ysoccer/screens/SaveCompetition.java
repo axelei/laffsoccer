@@ -133,7 +133,7 @@ public class SaveCompetition extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (getText().compareTo(game.competition.filename) != 0) {
                 game.competition.filename = getText();
                 game.competition.save();

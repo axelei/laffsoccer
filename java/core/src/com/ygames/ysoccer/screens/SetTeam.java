@@ -189,7 +189,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (pos < Math.min(Const.TEAM_SIZE + competition.benchSize, shownTeam.players.size())) {
                 Player player = shownTeam.playerAtPosition(pos);
                 if (player.inputDevice.type == InputDevice.Type.COMPUTER) {
@@ -255,7 +255,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
@@ -278,7 +278,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
@@ -299,7 +299,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
@@ -347,7 +347,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 textureRegion = null;
@@ -369,7 +369,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
@@ -391,7 +391,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
@@ -415,7 +415,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 setText("");
@@ -441,7 +441,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = shownTeam.playerAtPosition(pos);
             if (player == null) {
                 textureRegion = null;
@@ -462,7 +462,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (shownTeam.getTacticsIndex() == t) {
                 setColors(0x9D7B03, 0xE2B004, 0x675103);
             } else {
@@ -490,7 +490,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(shownTeam == ownTeam);
             if (compareTactics) {
                 setText(Assets.strings.get("TEAM TACTICS"));
@@ -516,7 +516,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(shownTeam == ownTeam ? "VIEW OPPONENT" : "VIEW TEAM"));
         }
 
@@ -544,7 +544,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (shownTeam.controlMode) {
                 case COMPUTER:
                     setText(Assets.strings.get("CONTROL MODE.COMPUTER") + ":");
@@ -593,7 +593,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(shownTeam.coach.name);
         }
     }
@@ -609,7 +609,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (shownTeam.inputDevice != null) {
                 setVisible(shownTeam == ownTeam);
                 switch (shownTeam.inputDevice.type) {
@@ -656,7 +656,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(shownTeam.name);
             if (shownTeam == ownTeam) {
                 setColors(0x005DDE);
@@ -675,7 +675,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(shownTeam == ownTeam);
         }
 
@@ -698,7 +698,7 @@ class SetTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(shownTeam == ownTeam);
         }
 

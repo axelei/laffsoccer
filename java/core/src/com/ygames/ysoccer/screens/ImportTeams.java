@@ -387,7 +387,7 @@ class ImportTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (state) {
                 case NO_FILES:
                     setText("NO FILES");
@@ -418,7 +418,7 @@ class ImportTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(state == State.READY);
         }
     }
@@ -432,7 +432,7 @@ class ImportTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(getYearFolder());
             setVisible(state == State.READY);
         }
@@ -486,7 +486,7 @@ class ImportTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(state == State.READY);
         }
 
@@ -507,7 +507,7 @@ class ImportTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (state) {
                 case NO_FILES:
                 case FINISHED:

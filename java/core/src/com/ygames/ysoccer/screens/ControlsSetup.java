@@ -148,7 +148,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setColors(this == selectedInputDeviceButton ? 0x2F2F5E : 0x484891);
             switch (config.type) {
                 case KEYBOARD:
@@ -181,7 +181,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     setText("");
@@ -369,7 +369,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
@@ -419,7 +419,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
@@ -469,7 +469,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
@@ -519,7 +519,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
@@ -572,7 +572,7 @@ class ControlsSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;

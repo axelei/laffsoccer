@@ -122,7 +122,7 @@ class SelectTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             int diff = competition.numberOfTeams - game.teamList.size();
             String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR");
             title += " " + competition.name
@@ -251,7 +251,7 @@ class SelectTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(game.teamList.size() > 0);
         }
     }
@@ -282,7 +282,7 @@ class SelectTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             int diff = competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
                 switch (competition.getType()) {

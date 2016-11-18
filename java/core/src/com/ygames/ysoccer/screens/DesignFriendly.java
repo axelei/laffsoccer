@@ -104,7 +104,7 @@ public class DesignFriendly extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(friendly.substitutions);
         }
     }
@@ -155,7 +155,7 @@ public class DesignFriendly extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(friendly.benchSize);
         }
     }

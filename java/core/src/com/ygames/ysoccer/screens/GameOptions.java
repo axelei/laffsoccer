@@ -74,7 +74,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("GAME OPTIONS"));
         }
     }
@@ -89,7 +89,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("SCREEN MODE"));
         }
     }
@@ -103,7 +103,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(game.settings.fullScreen ? "SCREEN MODE.FULL SCREEN" : "SCREEN MODE.WINDOW"));
         }
 
@@ -134,7 +134,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("MOUSE"));
         }
     }
@@ -148,7 +148,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(game.settings.mouseEnabled ? "MOUSE.ON" : "MOUSE.OFF"));
         }
 
@@ -179,7 +179,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("LANGUAGE"));
         }
     }
@@ -193,7 +193,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("// THIS LANGUAGE NAME //"));
         }
 
@@ -237,7 +237,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("PLAYER'S COUNTRY"));
         }
     }
@@ -251,7 +251,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(game.settings.useFlags ? "FLAG" : "CODE"));
         }
 
@@ -281,7 +281,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("MAX PLAYER VALUE"));
         }
     }
@@ -295,7 +295,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.moneyFormat(game.settings.maxPlayerValue));
         }
 
@@ -371,7 +371,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(game.settings.currency);
         }
 
@@ -406,7 +406,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("IMPORT"));
         }
 
@@ -425,7 +425,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("QUIT TO OS"));
         }
 
@@ -444,7 +444,7 @@ class GameOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("EXIT"));
         }
 

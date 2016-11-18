@@ -194,7 +194,7 @@ public abstract class Widget {
     protected void onFire2Up() {
     }
 
-    public void onUpdate() {
+    public void refresh() {
     }
 
     public boolean getDirty() {

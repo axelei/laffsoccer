@@ -97,7 +97,7 @@ class MatchOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get("%n MINUTES").replaceFirst("%n", "" + game.settings.matchLength));
         }
 
@@ -146,7 +146,7 @@ class MatchOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Weather.Strength.names[game.settings.weatherMaxStrength]));
         }
 
@@ -185,7 +185,7 @@ class MatchOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(game.settings.radar ? "RADAR.ON" : "RADAR.OFF"));
         }
 
@@ -224,7 +224,7 @@ class MatchOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(game.settings.autoReplays ? "AUTO REPLAYS.ON" : "AUTO REPLAYS.OFF"));
         }
 
@@ -263,7 +263,7 @@ class MatchOptions extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(game.settings.zoom + "%");
         }
 

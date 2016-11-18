@@ -135,7 +135,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             textureRegion = Assets.lightIcons[matchSettings.time];
         }
     }
@@ -154,7 +154,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.names[matchSettings.time]));
         }
 
@@ -185,7 +185,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             textureRegion = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
         }
     }
@@ -204,7 +204,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Pitch.names[matchSettings.pitchType.ordinal()]));
         }
 
@@ -237,7 +237,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             textureRegion = Assets.weatherIcons[matchSettings.weatherOffset()];
         }
     }
@@ -251,7 +251,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (competition.getType() == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
                 setColors(0x1F1F95);
                 setActive(true);
@@ -293,7 +293,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             textureRegion = team.kits.get(team.kitIndex).loadImage();
         }
     }
@@ -313,7 +313,7 @@ class MatchSetup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             textureRegion = team.kits.get(kitIndex).loadImage();
             if (team.kitIndex == kitIndex) {
                 setVisible(false);

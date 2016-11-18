@@ -177,7 +177,7 @@ class AllSelectedTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             int diff = competition.numberOfTeams - game.teamList.size();
             setText(Assets.strings.get((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), Font.Align.CENTER, Assets.font14);
         }
@@ -216,7 +216,7 @@ class AllSelectedTeams extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             int diff = competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
                 switch (competition.getType()) {

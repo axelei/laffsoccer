@@ -202,7 +202,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (team.getTacticsIndex() == t) {
                 setColors(0x9D7B03, 0xE2B004, 0x675103);
             } else {
@@ -235,7 +235,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (!team.name.equals(text)) {
                 team.name = text;
                 setModifiedFlag();
@@ -263,7 +263,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (!team.coach.name.equals(text)) {
                 team.coach.name = text;
                 setModifiedFlag();
@@ -280,7 +280,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(team.coach.nationality);
         }
 
@@ -335,7 +335,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (!team.city.equals(text)) {
                 team.city = text;
                 setModifiedFlag();
@@ -363,7 +363,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (!team.stadium.equals(text)) {
                 team.stadium = text;
                 setModifiedFlag();
@@ -444,7 +444,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (kitIndex >= team.kits.size()) {
                 setColors(0x666666, 0x8F8D8D, 0x404040);
                 setActive(false);
@@ -489,7 +489,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             textureRegion = team.kits.get(selectedKit).loadImage();
         }
     }
@@ -515,7 +515,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(team.kits.get(selectedKit).style.replace('_', ' '), Font.Align.CENTER, Assets.font10);
         }
 
@@ -622,7 +622,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             GlColor color = null;
             switch (field) {
                 case SHIRT1:
@@ -673,7 +673,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             this.value = getColor().getComponentValue(component);
             setText(String.format("%02X", value));
         }
@@ -770,7 +770,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(team.playerAtPosition(pos).number);
         }
     }
@@ -787,7 +787,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             textureRegion = team.playerAtPosition(pos).createFace();
         }
@@ -805,7 +805,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(team.playerAtPosition(pos).name);
             setPlayerWidgetColor(this, pos);
         }
@@ -823,7 +823,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = team.playerAtPosition(pos);
             setText(Assets.strings.get(player.getRoleLabel()));
         }
@@ -910,7 +910,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (team.kits.size() < Team.MAX_KITS) {
                 setColors(0x1769BD, 0x3A90E8, 0x10447A);
                 setActive(true);
@@ -957,7 +957,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (team.kits.size() > Team.MIN_KITS) {
                 setColors(0x3217BD, 0x5639E7, 0x221080);
                 setActive(true);
@@ -994,7 +994,7 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (modified) {
                 setColors(0xDC0000, 0xFF4141, 0x8C0000);
                 setActive(true);

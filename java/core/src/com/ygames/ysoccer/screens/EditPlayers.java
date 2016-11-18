@@ -185,7 +185,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player == null) {
@@ -242,7 +242,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player == null) {
@@ -300,7 +300,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player == null) {
@@ -353,7 +353,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player == null) {
@@ -412,7 +412,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (player != null && !player.number.equals(text)) {
                 player.number = text;
                 setModifiedFlag();
@@ -442,7 +442,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (player != null && !player.name.equals(text)) {
                 player.name = text;
                 setModifiedFlag();
@@ -473,7 +473,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (player != null && !player.shirtName.equals(text)) {
                 player.shirtName = text;
                 setModifiedFlag();
@@ -503,7 +503,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = team.playerAtPosition(pos);
             if (player == null) {
                 setText("");
@@ -617,7 +617,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player != null && player.role != Player.Role.GOALKEEPER) {
@@ -671,7 +671,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             Player player = team.playerAtPosition(pos);
             if (player != null) {
                 setText(game.settings.currency + " " + player.getPrice(game.settings.maxPlayerValue));
@@ -720,7 +720,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (!team.name.equals(text)) {
                 team.name = text;
                 setModifiedFlag();
@@ -738,7 +738,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (game.tmpPlayer == null) {
                 setText("");
                 setVisible(false);
@@ -771,7 +771,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (team.players.size() < Const.FULL_TEAM) {
                 setColors(0x1769BD, 0x3A90E8, 0x10447A);
                 setActive(true);
@@ -811,7 +811,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if ((selectedPos != -1) && (team.players.size() > Const.BASE_TEAM)) {
                 setColors(0x3217BD, 0x5639E7, 0x221080);
                 setActive(true);
@@ -855,7 +855,7 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             if (modified) {
                 setColors(0xDC0000, 0xFF4141, 0x8C0000);
                 setActive(true);

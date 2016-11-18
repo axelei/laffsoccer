@@ -46,7 +46,7 @@ public abstract class GLScreen implements Screen {
 
         for (Widget widget : widgets) {
             if (widget.getDirty()) {
-                widget.onUpdate();
+                widget.refresh();
             }
             widget.setDirty(false);
         }

@@ -161,7 +161,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             cup.name = text;
         }
     }
@@ -185,7 +185,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(cup.getBySeasonLabel()));
         }
     }
@@ -224,7 +224,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.monthNames[cup.seasonStart]));
             setVisible(cup.bySeason);
         }
@@ -240,7 +240,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(cup.bySeason);
         }
     }
@@ -279,7 +279,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]));
             setVisible(cup.bySeason);
         }
@@ -319,7 +319,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Pitch.names[cup.pitchType.ordinal()]));
             setVisible(!cup.bySeason);
         }
@@ -359,7 +359,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.names[cup.time]));
         }
     }
@@ -408,7 +408,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(cup.substitutions);
         }
     }
@@ -459,7 +459,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(cup.benchSize);
         }
     }
@@ -520,7 +520,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(cup.rounds.size());
         }
     }
@@ -559,7 +559,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(cup.getAwayGoalsLabel()));
             setVisible(cup.hasTwoLegsRound());
         }
@@ -594,7 +594,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(round < cup.rounds.size());
             if (visible) {
                 setText(Assets.strings.get(cup.getRoundName(round)));
@@ -615,7 +615,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(cup.getRoundTeams(round));
             setVisible(round < cup.rounds.size());
         }
@@ -649,7 +649,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(round < cup.rounds.size());
             if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getLegsLabel()));
@@ -684,7 +684,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(round < cup.rounds.size());
             if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getExtraTimeLabel()));
@@ -724,7 +724,7 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(round < cup.rounds.size());
             if (visible) {
                 setText(Assets.strings.get(cup.rounds.get(round).getPenaltiesLabel()));

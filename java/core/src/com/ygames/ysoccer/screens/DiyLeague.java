@@ -126,7 +126,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             league.name = text;
         }
     }
@@ -150,7 +150,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(league.getBySeasonLabel()));
         }
     }
@@ -189,7 +189,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.monthNames[league.seasonStart]));
             setVisible(league.bySeason);
         }
@@ -205,7 +205,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setVisible(league.bySeason);
         }
     }
@@ -244,7 +244,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.monthNames[league.seasonEnd]));
             setVisible(league.bySeason);
         }
@@ -284,7 +284,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Pitch.names[league.pitchType.ordinal()]));
             setVisible(!league.bySeason);
         }
@@ -324,7 +324,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(Assets.strings.get(Time.names[league.time]));
         }
     }
@@ -373,7 +373,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(league.numberOfTeams);
         }
     }
@@ -422,7 +422,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(((char) 215) + "" + league.rounds);
         }
     }
@@ -461,7 +461,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(league.pointsForAWin);
         }
     }
@@ -510,7 +510,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(league.substitutions);
         }
     }
@@ -561,7 +561,7 @@ public class DiyLeague extends GLScreen {
         }
 
         @Override
-        public void onUpdate() {
+        public void refresh() {
             setText(league.benchSize);
         }
     }
