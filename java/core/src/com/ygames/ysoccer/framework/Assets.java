@@ -556,7 +556,7 @@ public class Assets {
 
     public static FilenameFilter teamFilenameFilter = new FilenameFilter() {
         public boolean accept(File dir, String name) {
-            return name.startsWith("TEAM.");
+            return name.startsWith("team.");
         }
     };
 }

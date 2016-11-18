@@ -21,7 +21,7 @@ public class LogoPicture extends Picture {
 
     @Override
     public void onUpdate() {
-        String logoPath = team.path.replaceFirst("/TEAM.", "/LOGO.").replaceFirst(".JSON", ".PNG");
+        String logoPath = team.path.replaceFirst("/team.", "/logo.").replaceFirst(".json", ".png");
         FileHandle customLogo = Assets.teamsFolder.child(logoPath);
         if (customLogo.exists()) {
             isCustom = true;
