@@ -15,9 +15,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class SaveCompetition extends GLScreen {
+class SaveCompetition extends GLScreen {
 
-    public SaveCompetition(GLGame game) {
+    SaveCompetition(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -85,11 +85,11 @@ public class SaveCompetition extends GLScreen {
         }
     }
 
-    public class CompetitionButton extends Button {
+    private class CompetitionButton extends Button {
 
         private String filename;
 
-        public CompetitionButton(String filename) {
+        CompetitionButton(String filename) {
             this.filename = filename;
             setSize(540, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
@@ -104,9 +104,9 @@ public class SaveCompetition extends GLScreen {
         }
     }
 
-    public class CategoryLabel extends Button {
+    private class CategoryLabel extends Button {
 
-        public CategoryLabel(String category) {
+        CategoryLabel(String category) {
             setSize(180, 30);
             setText(category, Font.Align.CENTER, Assets.font14);
             setColors(0x666666, 0x8F8D8D, 0x404040);
@@ -114,18 +114,18 @@ public class SaveCompetition extends GLScreen {
         }
     }
 
-    class FilenameLabel extends Label {
+    private class FilenameLabel extends Label {
 
-        public FilenameLabel() {
+        FilenameLabel() {
             setGeometry(game.gui.WIDTH / 2 - 360, 500, 180, 36);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(Assets.strings.get("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
         }
     }
 
-    class FilenameButton extends InputButton {
+    private class FilenameButton extends InputButton {
 
-        public FilenameButton() {
+        FilenameButton() {
             setGeometry(game.gui.WIDTH / 2 - 180, 500, 540, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
             setText(game.competition.filename, Font.Align.CENTER, Assets.font14);
@@ -133,18 +133,16 @@ public class SaveCompetition extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (getText().compareTo(game.competition.filename) != 0) {
-                game.competition.filename = getText();
-                game.competition.save();
-                game.setScreen(new Main(game));
-            }
+        public void onChanged() {
+            game.competition.filename = text;
+            game.competition.save();
+            game.setScreen(new Main(game));
         }
     }
 
-    class SaveButton extends Button {
+    private class SaveButton extends Button {
 
-        public SaveButton() {
+        SaveButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
@@ -157,9 +155,9 @@ public class SaveCompetition extends GLScreen {
         }
     }
 
-    class AbortButton extends Button {
+    private class AbortButton extends Button {
 
-        public AbortButton() {
+        AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);

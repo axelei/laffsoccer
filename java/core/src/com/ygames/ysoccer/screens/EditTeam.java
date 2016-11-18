@@ -235,11 +235,9 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (!team.name.equals(text)) {
-                team.name = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            team.name = text;
+            setModifiedFlag();
         }
     }
 
@@ -263,11 +261,9 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (!team.coach.name.equals(text)) {
-                team.coach.name = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            team.coach.name = text;
+            setModifiedFlag();
         }
     }
 
@@ -335,11 +331,9 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (!team.city.equals(text)) {
-                team.city = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            team.city = text;
+            setModifiedFlag();
         }
     }
 
@@ -363,11 +357,9 @@ class EditTeam extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (!team.stadium.equals(text)) {
-                team.stadium = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            team.stadium = text;
+            setModifiedFlag();
         }
     }
 

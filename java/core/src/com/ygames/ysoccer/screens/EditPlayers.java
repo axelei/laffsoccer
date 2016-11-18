@@ -412,11 +412,9 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (player != null && !player.number.equals(text)) {
-                player.number = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            player.number = text;
+            setModifiedFlag();
         }
     }
 
@@ -442,11 +440,9 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (player != null && !player.name.equals(text)) {
-                player.name = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            player.name = text;
+            setModifiedFlag();
         }
     }
 
@@ -473,11 +469,9 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (player != null && !player.shirtName.equals(text)) {
-                player.shirtName = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            player.shirtName = text;
+            setModifiedFlag();
         }
     }
 
@@ -720,11 +714,9 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void refresh() {
-            if (!team.name.equals(text)) {
-                team.name = text;
-                setModifiedFlag();
-            }
+        public void onChanged() {
+            team.name = text;
+            setModifiedFlag();
         }
     }
 

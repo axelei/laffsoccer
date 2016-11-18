@@ -17,22 +17,22 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.Calendar;
 
-public class DiyCup extends GLScreen {
+class DiyCup extends GLScreen {
 
     Cup cup;
-    Widget seasonStartButton;
-    Widget seasonSeparatorButton;
-    Widget seasonEndButton;
-    Widget pitchTypeButton;
-    Widget substitutesButton;
-    Widget awayGoalsButton;
-    Widget[] roundNameLabels = new Widget[6];
-    Widget[] roundTeamsLabels = new Widget[6];
-    Widget[] roundLegsButtons = new Widget[6];
-    Widget[] roundExtraTimeButtons = new Widget[6];
-    Widget[] roundPenaltiesButtons = new Widget[6];
+    private Widget seasonStartButton;
+    private Widget seasonSeparatorButton;
+    private Widget seasonEndButton;
+    private Widget pitchTypeButton;
+    private Widget substitutesButton;
+    private Widget awayGoalsButton;
+    private Widget[] roundNameLabels = new Widget[6];
+    private Widget[] roundTeamsLabels = new Widget[6];
+    private Widget[] roundLegsButtons = new Widget[6];
+    private Widget[] roundExtraTimeButtons = new Widget[6];
+    private Widget[] roundPenaltiesButtons = new Widget[6];
 
-    public DiyCup(GLGame game) {
+    DiyCup(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -151,9 +151,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class CupNameButton extends InputButton {
+    private class CupNameButton extends InputButton {
 
-        public CupNameButton() {
+        CupNameButton() {
             setGeometry((game.gui.WIDTH - 940) / 2, 120, 940, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText(cup.name, Font.Align.CENTER, Assets.font14);
@@ -161,14 +161,14 @@ public class DiyCup extends GLScreen {
         }
 
         @Override
-        public void refresh() {
+        public void onChanged() {
             cup.name = text;
         }
     }
 
-    class SeasonPitchTypeButton extends Button {
+    private class SeasonPitchTypeButton extends Button {
 
-        public SeasonPitchTypeButton() {
+        SeasonPitchTypeButton() {
             setGeometry(game.gui.WIDTH / 2 - 470, 165, 236, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -190,9 +190,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class SeasonStartButton extends Button {
+    private class SeasonStartButton extends Button {
 
-        public SeasonStartButton() {
+        SeasonStartButton() {
             setGeometry(game.gui.WIDTH / 2 - 232, 165, 176, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -230,9 +230,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class SeasonSeparatorButton extends Button {
+    private class SeasonSeparatorButton extends Button {
 
-        public SeasonSeparatorButton() {
+        SeasonSeparatorButton() {
             setGeometry(game.gui.WIDTH / 2 - 54, 165, 36, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
@@ -245,9 +245,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class SeasonEndButton extends Button {
+    private class SeasonEndButton extends Button {
 
-        public SeasonEndButton() {
+        SeasonEndButton() {
             setGeometry(game.gui.WIDTH / 2 - 16, 165, 176, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -285,9 +285,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class PitchTypeButton extends Button {
+    private class PitchTypeButton extends Button {
 
-        public PitchTypeButton() {
+        PitchTypeButton() {
             setGeometry(game.gui.WIDTH / 2 - 232, 165, 392, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -325,9 +325,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class TimeLabel extends Button {
+    private class TimeLabel extends Button {
 
-        public TimeLabel() {
+        TimeLabel() {
             setGeometry(game.gui.WIDTH / 2 + 170, 165, 140, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
@@ -335,9 +335,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class TimeButton extends Button {
+    private class TimeButton extends Button {
 
-        public TimeButton() {
+        TimeButton() {
             setGeometry(game.gui.WIDTH / 2 + 312, 165, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -364,9 +364,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class SubstitutesLabel extends Button {
+    private class SubstitutesLabel extends Button {
 
-        public SubstitutesLabel() {
+        SubstitutesLabel() {
             setGeometry(game.gui.WIDTH / 2 - 470, 210, 305, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
@@ -374,9 +374,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class SubstitutesButton extends Button {
+    private class SubstitutesButton extends Button {
 
-        public SubstitutesButton() {
+        SubstitutesButton() {
             setGeometry(game.gui.WIDTH / 2 - 163, 210, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -413,9 +413,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class BenchSizeLabel extends Button {
+    private class BenchSizeLabel extends Button {
 
-        public BenchSizeLabel() {
+        BenchSizeLabel() {
             setGeometry(game.gui.WIDTH / 2 + 5, 210, 305, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
@@ -423,9 +423,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class BenchSizeButton extends Button {
+    private class BenchSizeButton extends Button {
 
-        public BenchSizeButton() {
+        BenchSizeButton() {
             setGeometry(game.gui.WIDTH / 2 + 312, 210, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -464,9 +464,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class RoundsLabel extends Button {
+    private class RoundsLabel extends Button {
 
-        public RoundsLabel() {
+        RoundsLabel() {
             setGeometry(game.gui.WIDTH / 2 - 470, 255, 236, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("ROUNDS"), Font.Align.CENTER, Assets.font14);
@@ -474,9 +474,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class RoundsButton extends Button {
+    private class RoundsButton extends Button {
 
-        public RoundsButton() {
+        RoundsButton() {
             setGeometry(game.gui.WIDTH / 2 - 232, 255, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -525,9 +525,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class AwayGoalsLabel extends Button {
+    private class AwayGoalsLabel extends Button {
 
-        public AwayGoalsLabel() {
+        AwayGoalsLabel() {
             setGeometry(game.gui.WIDTH / 2 - 64, 255, 228, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
@@ -535,9 +535,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class AwayGoalsButton extends Button {
+    private class AwayGoalsButton extends Button {
 
-        public AwayGoalsButton() {
+        AwayGoalsButton() {
             setGeometry(game.gui.WIDTH / 2 + 166, 255, 304, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -565,27 +565,27 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class TeamsLabel extends Label {
+    private class TeamsLabel extends Label {
 
-        public TeamsLabel() {
+        TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
             setPosition(game.gui.WIDTH / 2 - 186, 325);
         }
     }
 
-    class DescriptionLabel extends Label {
+    private class DescriptionLabel extends Label {
 
-        public DescriptionLabel() {
+        DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
             setPosition(game.gui.WIDTH / 2 + 115, 325);
         }
     }
 
-    class RoundNameLabel extends Button {
+    private class RoundNameLabel extends Button {
 
         private int round;
 
-        public RoundNameLabel(int round) {
+        RoundNameLabel(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 470, 344 + 34 * round, 248, 32);
             setColors(0x800000, 0xB40000, 0x400000);
@@ -602,11 +602,11 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class RoundTeamsLabel extends Button {
+    private class RoundTeamsLabel extends Button {
 
         private int round;
 
-        public RoundTeamsLabel(int round) {
+        RoundTeamsLabel(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 212, 344 + 34 * round, 50, 32);
             setColors(0x800000, 0xB40000, 0x400000);
@@ -621,11 +621,11 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class RoundLegsButton extends Button {
+    private class RoundLegsButton extends Button {
 
         private int round;
 
-        public RoundLegsButton(int round) {
+        RoundLegsButton(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 152, 344 + 34 * round, 138, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
@@ -657,11 +657,11 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class RoundExtraTimeButton extends Button {
+    private class RoundExtraTimeButton extends Button {
 
         private int round;
 
-        public RoundExtraTimeButton(int round) {
+        RoundExtraTimeButton(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 12, 344 + 34 * round, 240, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
@@ -692,11 +692,11 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class RoundPenaltiesButton extends Button {
+    private class RoundPenaltiesButton extends Button {
 
         private int round;
 
-        public RoundPenaltiesButton(int round) {
+        RoundPenaltiesButton(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 + 230, 344 + 34 * round, 240, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
@@ -732,9 +732,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class OkButton extends Button {
+    private class OkButton extends Button {
 
-        public OkButton() {
+        OkButton() {
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 38);
             setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
@@ -746,9 +746,9 @@ public class DiyCup extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);

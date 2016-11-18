@@ -25,9 +25,9 @@ public class InputButton extends Button {
         if (entryMode && !newValue) {
             if (applyChanges) {
                 if (!text.equals(entryString)) {
-                    dirty = true;
+                    text = entryString;
+                    onChanged();
                 }
-                text = entryString;
             }
             Gdx.input.setInputProcessor(null);
         }
@@ -55,6 +55,9 @@ public class InputButton extends Button {
     @Override
     public void onDeselect() {
         setEntryMode(false, true);
+    }
+
+    public void onChanged() {
     }
 
     private class TextInputProcessor extends InputAdapter {
