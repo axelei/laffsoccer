@@ -29,20 +29,9 @@ class EditPlayers extends GLScreen {
     private boolean modified;
     private TextureRegion[] imageSkill = new TextureRegion[8];
 
-    private Widget[] hairColorButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] hairStyleButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] skinColorButtons = new Widget[Const.FULL_TEAM];
     private Widget[] selectButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] numberButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] nameButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] shirtNameButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] nationalityButtons = new Widget[Const.FULL_TEAM];
-    private Widget[] roleButtons = new Widget[Const.FULL_TEAM];
-    private Widget[][] skillButtons = new Widget[Const.FULL_TEAM][7];
     private Widget[] priceButtons = new Widget[Const.FULL_TEAM];
 
-    private Widget newPlayerButton;
-    private Widget deletePlayerButton;
     private Widget saveButton;
     private Widget tmpPlayerButton;
 
@@ -67,15 +56,12 @@ class EditPlayers extends GLScreen {
         // players
         for (int p = 0; p < Const.FULL_TEAM; p++) {
             w = new HairColorButton(p);
-            hairColorButtons[p] = w;
             widgets.add(w);
 
             w = new HairStyleButton(p);
-            hairStyleButtons[p] = w;
             widgets.add(w);
 
             w = new SkinColorButton(p);
-            skinColorButtons[p] = w;
             widgets.add(w);
 
             w = new PlayerSelectButton(p);
@@ -83,28 +69,22 @@ class EditPlayers extends GLScreen {
             widgets.add(w);
 
             w = new PlayerNumberButton(p);
-            numberButtons[p] = w;
             widgets.add(w);
 
             w = new PlayerNameButton(p);
-            nameButtons[p] = w;
             widgets.add(w);
 
             w = new PlayerShirtNameButton(p);
-            shirtNameButtons[p] = w;
             widgets.add(w);
 
             w = new PlayerNationalityButton(p);
-            nationalityButtons[p] = w;
             widgets.add(w);
 
             w = new PlayerRoleButton(p);
-            roleButtons[p] = w;
             widgets.add(w);
 
             for (int i = 0; i < 7; i++) {
                 w = new SkillButton(p, Player.Skill.values()[i]);
-                skillButtons[p][i] = w;
                 widgets.add(w);
             }
 
@@ -131,11 +111,9 @@ class EditPlayers extends GLScreen {
         setSelectedWidget(w);
 
         w = new NewPlayerButton();
-        newPlayerButton = w;
         widgets.add(w);
 
         w = new DeletePlayerButton();
-        deletePlayerButton = w;
         widgets.add(w);
 
         w = new SaveButton();
@@ -383,16 +361,12 @@ class EditPlayers extends GLScreen {
 
                 Collections.swap(team.players, ply1, ply2);
 
-                int oldSelected = selectedPos;
                 selectedPos = -1;
                 clearPlayer();
-
-                updatePlayerButtons(oldSelected);
                 setModifiedFlag();
             }
 
-            updatePlayerButtons(pos);
-            deletePlayerButton.setDirty(true);
+            updateAllWidgets();
         }
     }
 
@@ -784,16 +758,9 @@ class EditPlayers extends GLScreen {
             if (player != null) {
                 if (game.tmpPlayer != null) {
                     pastePlayer(player);
-                    int oldSelected = selectedPos;
                     selectedPos = -1;
-                    if (oldSelected != -1) {
-                        updatePlayerButtons(oldSelected);
-                    }
                 }
-
-                updatePlayerButtons(team.players.size() - 1);
-                setDirty(true);
-                deletePlayerButton.setDirty(true);
+                updateAllWidgets();
                 setModifiedFlag();
             }
         }
@@ -827,17 +794,12 @@ class EditPlayers extends GLScreen {
 
                 Collections.swap(team.players, ply1, ply2);
 
-                int oldSelected = selectedPos;
                 selectedPos = -1;
-                updatePlayerButtons(oldSelected);
 
                 Player player = team.playerAtPosition(team.players.size() - 1);
                 team.deletePlayer(player);
-                updatePlayerButtons(team.players.size());
 
-                newPlayerButton.setDirty(true);
-                setDirty(true);
-
+                updateAllWidgets();
                 setModifiedFlag();
             }
         }
@@ -917,21 +879,5 @@ class EditPlayers extends GLScreen {
         if (selectedPos == pos) {
             w.setColors(0x993333, 0xC24242, 0x5A1E1E);
         }
-    }
-
-    private void updatePlayerButtons(int pos) {
-        hairColorButtons[pos].setDirty(true);
-        hairStyleButtons[pos].setDirty(true);
-        skinColorButtons[pos].setDirty(true);
-        selectButtons[pos].setDirty(true);
-        numberButtons[pos].setDirty(true);
-        nameButtons[pos].setDirty(true);
-        shirtNameButtons[pos].setDirty(true);
-        nationalityButtons[pos].setDirty(true);
-        roleButtons[pos].setDirty(true);
-        for (Widget w : skillButtons[pos]) {
-            w.setDirty(true);
-        }
-        priceButtons[pos].setDirty(true);
     }
 }
