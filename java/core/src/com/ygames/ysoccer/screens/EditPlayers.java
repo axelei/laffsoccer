@@ -94,7 +94,6 @@ class EditPlayers extends GLScreen {
 
             w = new PlayerShirtNameButton(p);
             shirtNameButtons[p] = w;
-            updateShirtNameButton(p);
             widgets.add(w);
 
             w = new PlayerNationalityButton(p);
@@ -458,36 +457,38 @@ class EditPlayers extends GLScreen {
 
     private class PlayerShirtNameButton extends InputButton {
 
-        Player player;
+        int pos;
 
-        PlayerShirtNameButton(int p) {
-            player = team.playerAtPosition(p);
-            setGeometry(68, 95 + 21 * p, 194, 19);
+        PlayerShirtNameButton(int pos) {
+            this.pos = pos;
+            setGeometry(68, 95 + 21 * pos, 194, 19);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(14);
         }
 
         @Override
+        public void refresh() {
+            setPlayerWidgetColor(this, pos);
+            Player player = team.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+                setActive(false);
+            } else {
+                setText(player.shirtName);
+                setActive(true);
+            }
+        }
+
+        @Override
         public void onChanged() {
-            player.shirtName = text;
+            team.playerAtPosition(pos).shirtName = text;
             setModifiedFlag();
         }
     }
 
-    private void updateShirtNameButton(int p) {
-        setPlayerWidgetColor(shirtNameButtons[p], p);
-        if (p < team.players.size()) {
-            Player player = team.playerAtPosition(p);
-            shirtNameButtons[p].setText(player.shirtName);
-        } else {
-            shirtNameButtons[p].setText("");
-        }
-        shirtNameButtons[p].setActive(p < team.players.size());
-    }
-
     private class PlayerNationalityButton extends Button {
 
-        int pos;
+        private int pos;
 
         PlayerNationalityButton(int pos) {
             this.pos = pos;
@@ -923,7 +924,7 @@ class EditPlayers extends GLScreen {
         selectButtons[pos].setDirty(true);
         updateNumberButton(pos);
         updateNameButton(pos);
-        updateShirtNameButton(pos);
+        shirtNameButtons[pos].setDirty(true);
         nationalityButtons[pos].setDirty(true);
         roleButtons[pos].setDirty(true);
         for (Widget w : skillButtons[pos]) {
