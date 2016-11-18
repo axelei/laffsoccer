@@ -66,6 +66,7 @@ class SelectTeams extends GLScreen {
                 list.add(leagueButton);
                 widgets.add(leagueButton);
             }
+            Collections.sort(list, new Widget.CompareByText());
             Widget.arrange(game.gui.WIDTH, 380, 30, list);
             setSelectedWidget(list.get(0));
         }

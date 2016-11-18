@@ -54,6 +54,9 @@ class GameOptions extends GLScreen {
         w = new CurrencyButton();
         widgets.add(w);
 
+        w = new ImportButton();
+        widgets.add(w);
+
         w = new QuitToOsButton();
         widgets.add(w);
 
@@ -391,6 +394,25 @@ class GameOptions extends GLScreen {
             }
             game.settings.currency = Assets.currencies.get(i);
             setChanged(true);
+        }
+    }
+
+    private class ImportButton extends Button {
+
+        ImportButton() {
+            setColors(0x762B8E);
+            setGeometry((game.gui.WIDTH - 300) / 2, 530, 300, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onUpdate() {
+            setText(Assets.strings.get("IMPORT"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ImportTeams(game));
         }
     }
 
