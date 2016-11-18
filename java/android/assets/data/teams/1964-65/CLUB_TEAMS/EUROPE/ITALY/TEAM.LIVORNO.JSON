@@ -2,6 +2,7 @@
 "name": "LIVORNO",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE B",
 "city": "LIVORNO",
 "stadium": "COMUNALE",
 "coach": {

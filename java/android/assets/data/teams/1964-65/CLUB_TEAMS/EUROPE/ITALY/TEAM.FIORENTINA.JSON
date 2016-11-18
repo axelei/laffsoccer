@@ -2,6 +2,7 @@
 "name": "FIORENTINA",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE A",
 "city": "FIRENZE",
 "stadium": "COMUNALE",
 "coach": {

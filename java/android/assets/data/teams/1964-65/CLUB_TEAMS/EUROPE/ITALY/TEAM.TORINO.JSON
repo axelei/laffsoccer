@@ -2,6 +2,7 @@
 "name": "TORINO",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE A",
 "city": "TORINO",
 "stadium": "COMUNALE",
 "coach": {

@@ -20,6 +20,8 @@ public class Team {
     public Type type;
     public String path;
     public String country;
+    public String confederation;
+    public String league;
     public String city;
     public String stadium;
     public Coach coach;

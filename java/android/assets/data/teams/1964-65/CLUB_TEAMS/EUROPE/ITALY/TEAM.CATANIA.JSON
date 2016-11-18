@@ -2,6 +2,7 @@
 "name": "CATANIA",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE A",
 "city": "CATANIA",
 "stadium": "CIBALI",
 "coach": {

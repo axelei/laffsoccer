@@ -2,6 +2,7 @@
 "name": "GENOA",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE A",
 "city": "GENOVA",
 "stadium": "LUIGI FERRARIS",
 "coach": {

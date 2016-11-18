@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.math.Emath;
 
 import java.awt.Color;
+import java.util.Comparator;
 import java.util.List;
 
 public abstract class Widget {
@@ -236,5 +237,13 @@ public abstract class Widget {
 
     public boolean contains(float x0, float y0) {
         return (x0 >= x) && (x0 <= x + w) && (y0 >= y) && (y0 <= y + h);
+    }
+
+    public static class CompareByText implements Comparator<Widget> {
+
+        @Override
+        public int compare(Widget o1, Widget o2) {
+            return o1.text.compareTo(o2.text);
+        }
     }
 }

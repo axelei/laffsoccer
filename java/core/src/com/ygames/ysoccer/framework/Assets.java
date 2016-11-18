@@ -20,6 +20,8 @@ import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
@@ -547,4 +549,14 @@ public class Assets {
                 }
         }
     }
+
+    public static String getRelativeTeamPath(FileHandle fileHandle) {
+        return fileHandle.path().replaceFirst(teamsFolder.path(), "");
+    }
+
+    public static FilenameFilter teamFilenameFilter = new FilenameFilter() {
+        public boolean accept(File dir, String name) {
+            return name.startsWith("TEAM.");
+        }
+    };
 }

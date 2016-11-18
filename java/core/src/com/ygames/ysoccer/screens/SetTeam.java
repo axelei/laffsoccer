@@ -3,7 +3,6 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -29,7 +28,7 @@ import java.util.List;
 class SetTeam extends GLScreen {
 
     private FileHandle fileHandle;
-    private League league;
+    private String league;
     private Competition competition;
     private Team homeTeam;
     private Team awayTeam;
@@ -49,7 +48,7 @@ class SetTeam extends GLScreen {
     private Widget[] tacticsButtons = new Widget[18];
     private Widget teamInputDeviceButton;
 
-    SetTeam(GLGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
+    SetTeam(GLGame game, FileHandle fileHandle, String league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
 
         this.fileHandle = fileHandle;
@@ -670,7 +669,7 @@ class SetTeam extends GLScreen {
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT -30 -42, 226, 42);
+            setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT - 30 - 42, 226, 42);
             setColors(0xDC0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
@@ -693,7 +692,7 @@ class SetTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT -30 -42, 150, 42);
+            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 42, 150, 42);
             setColors(0xC84200);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

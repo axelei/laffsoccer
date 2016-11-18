@@ -2,7 +2,6 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -25,7 +24,7 @@ import java.util.Collections;
 class EditTeam extends GLScreen {
 
     private FileHandle fileHandle;
-    League league;
+    String league;
     Team team;
     private int selectedKit;
     private int selectedPos;
@@ -47,7 +46,7 @@ class EditTeam extends GLScreen {
     private Widget deleteKitButton;
     private Widget saveButton;
 
-    EditTeam(GLGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
+    EditTeam(GLGame game, FileHandle fileHandle, String league, Team team, Boolean modified) {
         super(game);
         this.fileHandle = fileHandle;
         this.league = league;
@@ -101,10 +100,10 @@ class EditTeam extends GLScreen {
             w = new CountryButton();
             widgets.add(w);
 
-            w = new DivisionLabel();
+            w = new LeagueLabel();
             widgets.add(w);
 
-            w = new DivisionButton();
+            w = new LeagueButton();
             widgets.add(w);
         }
 
@@ -392,22 +391,22 @@ class EditTeam extends GLScreen {
         }
     }
 
-    private class DivisionLabel extends Button {
+    private class LeagueLabel extends Button {
 
-        DivisionLabel() {
+        LeagueLabel() {
             setGeometry(90, 155, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("DIVISION"), Font.Align.CENTER, Assets.font10);
+            setText(Assets.strings.get("LEAGUE"), Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
 
-    private class DivisionButton extends Button {
+    private class LeagueButton extends Button {
 
-        DivisionButton() {
+        LeagueButton() {
             setGeometry(280, 155, 364, 32);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(league.name, Font.Align.CENTER, Assets.font10);
+            setText(team.league, Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
@@ -1008,8 +1007,10 @@ class EditTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             FileHandle fh = Assets.teamsFolder.child(team.path);
+            String path = team.path;
             team.path = null;
             fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
+            team.path = path;
 
             game.setScreen(new SelectTeam(game, fileHandle, league));
         }

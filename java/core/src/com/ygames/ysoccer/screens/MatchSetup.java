@@ -3,7 +3,6 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -22,7 +21,7 @@ import java.util.List;
 class MatchSetup extends GLScreen {
 
     private FileHandle fileHandle;
-    private League league;
+    private String league;
     private Competition competition;
     private Team homeTeam;
     private Team awayTeam;
@@ -35,7 +34,7 @@ class MatchSetup extends GLScreen {
     private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
     private Widget playMatchButton;
 
-    MatchSetup(GLGame game, FileHandle fileHandle, League league, Competition competition, Team homeTeam, Team awayTeam) {
+    MatchSetup(GLGame game, FileHandle fileHandle, String league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
 
         this.fileHandle = fileHandle;
@@ -353,9 +352,9 @@ class MatchSetup extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);

@@ -2,7 +2,6 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -15,13 +14,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class SelectFolder extends GLScreen {
+class SelectFolder extends GLScreen {
 
     private FileHandle fileHandle;
     private boolean isDataRoot;
     private Competition competition;
 
-    public SelectFolder(GLGame game, FileHandle fileHandle, Competition competition) {
+    SelectFolder(GLGame game, FileHandle fileHandle, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
         this.competition = competition;
@@ -46,25 +45,8 @@ public class SelectFolder extends GLScreen {
         }
 
         if (list.size() > 0) {
-            Widget.arrange(game.gui.WIDTH, 350, 50, list);
+            Widget.arrange(game.gui.WIDTH, 360, 36, list);
             setSelectedWidget(list.get(0));
-        }
-
-        // Leagues buttons
-        else {
-            FileHandle leagueFile = fileHandle.child("LEAGUES.JSON");
-            if (leagueFile.exists()) {
-                League[] leagues = Assets.json.fromJson(League[].class, leagueFile.readString("UTF-8"));
-                for (League league : leagues) {
-                    w = new LeagueButton(league);
-                    list.add(w);
-                    widgets.add(w);
-                }
-                if (leagues.length > 0) {
-                    Widget.arrange(game.gui.WIDTH, 350, 50, list);
-                    setSelectedWidget(list.get(0));
-                }
-            }
         }
 
         w = new ExitButton();
@@ -108,13 +90,13 @@ public class SelectFolder extends GLScreen {
         }
     }
 
-    class FolderButton extends Button {
+    private class FolderButton extends Button {
 
         FileHandle fileHandle;
 
-        public FolderButton(FileHandle fileHandle) {
+        FolderButton(FileHandle fileHandle) {
             this.fileHandle = fileHandle;
-            setSize(340, 40);
+            setSize(340, 34);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(fileHandle.name().replace('_', ' '), Font.Align.CENTER, Assets.font14);
         }
@@ -130,43 +112,32 @@ public class SelectFolder extends GLScreen {
                 default:
                     break;
             }
-            game.setScreen(new SelectFolder(game, fileHandle, competition));
-        }
-    }
 
-    class LeagueButton extends Button {
+            FileHandle[] teamFileHandles = fileHandle.list(Assets.teamFilenameFilter);
+            if (teamFileHandles.length > 0) {
+                switch (game.getState()) {
+                    case COMPETITION:
+                    case FRIENDLY:
+                        game.setScreen(new SelectTeams(game, fileHandle, null, competition));
+                        break;
 
-        League league;
+                    case EDIT:
+                        game.setScreen(new SelectTeam(game, fileHandle, null));
+                        break;
 
-        public LeagueButton(League league) {
-            this.league = league;
-            setSize(340, 40);
-            setColors(0x1B4D85, 0x256AB7, 0x001D3E);
-            setText(league.name, Font.Align.CENTER, Assets.font14);
-        }
-
-        @Override
-        public void onFire1Down() {
-            switch (game.getState()) {
-                case COMPETITION:
-                case FRIENDLY:
-                    game.setScreen(new SelectTeams(game, fileHandle, league, competition));
-                    break;
-
-                case EDIT:
-                    game.setScreen(new SelectTeam(game, fileHandle, league));
-                    break;
-
-                case TRAINING:
-                    // TODO
-                    break;
+                    case TRAINING:
+                        // TODO
+                        break;
+                }
+            } else {
+                game.setScreen(new SelectFolder(game, fileHandle, competition));
             }
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             if (isDataRoot) {
                 setColors(0xC8000E, 0xFF1929, 0x74040C);
                 setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);

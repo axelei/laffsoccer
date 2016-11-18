@@ -668,13 +668,13 @@ public class Player {
     }
 
     public static class Skills {
-        int passing;
-        int shooting;
-        int heading;
-        int tackling;
-        int control;
-        int speed;
-        int finishing;
+        public int passing;
+        public int shooting;
+        public int heading;
+        public int tackling;
+        public int control;
+        public int speed;
+        public int finishing;
     }
 
     public TextureRegion createFace() {

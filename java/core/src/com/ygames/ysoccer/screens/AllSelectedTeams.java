@@ -14,14 +14,14 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllSelectedTeams extends GLScreen {
+class AllSelectedTeams extends GLScreen {
 
     private FileHandle fileHandle;
     private Widget playButton;
     private Widget changeTeamsButton;
     private Competition competition;
 
-    public AllSelectedTeams(GLGame game, FileHandle fileHandle, Competition competition) {
+    AllSelectedTeams(GLGame game, FileHandle fileHandle, Competition competition) {
         super(game);
         this.fileHandle = fileHandle;
         this.competition = competition;
@@ -68,6 +68,7 @@ public class AllSelectedTeams extends GLScreen {
     }
 
     class TitleButton extends Button {
+
         public TitleButton() {
             String title = Assets.strings.get("ALL SELECTED TEAMS FOR")
                     + " " + competition.name
@@ -80,8 +81,9 @@ public class AllSelectedTeams extends GLScreen {
         }
     }
 
-    class ComputerButton extends Button {
-        public ComputerButton() {
+    private class ComputerButton extends Button {
+
+        ComputerButton() {
             setGeometry((game.gui.WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
             setColors(0x981E1E, 0xC72929, 0x640000);
             setText(Assets.strings.get("CONTROL MODE.COMPUTER"), Font.Align.CENTER, Assets.font14);
@@ -89,8 +91,9 @@ public class AllSelectedTeams extends GLScreen {
         }
     }
 
-    class PlayerCoachButton extends Button {
-        public PlayerCoachButton() {
+    private class PlayerCoachButton extends Button {
+
+        PlayerCoachButton() {
             setGeometry((game.gui.WIDTH - 300) / 2, 86, 300, 30);
             setColors(0x0000C8, 0x1919FF, 0x000078);
             setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH"), Font.Align.CENTER, Assets.font14);
@@ -98,8 +101,9 @@ public class AllSelectedTeams extends GLScreen {
         }
     }
 
-    class CoachButton extends Button {
-        public CoachButton() {
+    private class CoachButton extends Button {
+
+        CoachButton() {
             setGeometry((game.gui.WIDTH + 300) / 2 + 20, 86, 300, 30);
             setColors(0x009BDC, 0x19BBFF, 0x0071A0);
             setText(Assets.strings.get("CONTROL MODE.COACH"), Font.Align.CENTER, Assets.font14);
@@ -107,11 +111,11 @@ public class AllSelectedTeams extends GLScreen {
         }
     }
 
-    class TeamButton extends Button {
+    private class TeamButton extends Button {
 
         Team team;
 
-        public TeamButton(Team team) {
+        TeamButton(Team team) {
             this.team = team;
             setSize(270, 30);
             updateColors();
@@ -165,8 +169,9 @@ public class AllSelectedTeams extends GLScreen {
         }
     }
 
-    class ChangeTeamsButton extends Button {
-        public ChangeTeamsButton() {
+    private class ChangeTeamsButton extends Button {
+
+        ChangeTeamsButton() {
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
             setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
         }
@@ -180,12 +185,18 @@ public class AllSelectedTeams extends GLScreen {
         @Override
         public void onFire1Down() {
             FileHandle fileHandle = Gdx.files.local(competition.absolutePath);
-            game.setScreen(new SelectFolder(game, fileHandle, competition));
+            FileHandle[] teamFileHandles = fileHandle.list(Assets.teamFilenameFilter);
+            if (teamFileHandles.length > 0) {
+                game.setScreen(new SelectTeams(game, fileHandle, null, competition));
+            } else {
+                game.setScreen(new SelectFolder(game, fileHandle, competition));
+            }
         }
     }
 
-    class AbortButton extends Button {
-        public AbortButton() {
+    private class AbortButton extends Button {
+
+        AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
@@ -197,8 +208,9 @@ public class AllSelectedTeams extends GLScreen {
         }
     }
 
-    class PlayButton extends Button {
-        public PlayButton() {
+    private class PlayButton extends Button {
+
+        PlayButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 660, 360, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }

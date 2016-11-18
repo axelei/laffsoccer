@@ -2,6 +2,7 @@
 "name": "CATANZARO",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE B",
 "city": "CATANZARO",
 "stadium": "COMUNALE",
 "coach": {

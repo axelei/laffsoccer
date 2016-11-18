@@ -2,6 +2,7 @@
 "name": "BOLOGNA",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE A",
 "city": "BOLOGNA",
 "stadium": "COMUNALE",
 "coach": {

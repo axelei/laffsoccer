@@ -2,6 +2,7 @@
 "name": "LAZIO",
 "type": "CLUB",
 "country": "ITA",
+"league": "SERIE A",
 "city": "ROMA",
 "stadium": "OLIMPICO",
 "coach": {

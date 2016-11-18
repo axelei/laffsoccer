@@ -3,7 +3,6 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -24,7 +23,7 @@ import java.util.Collections;
 class EditPlayers extends GLScreen {
 
     private FileHandle fileHandle;
-    League league;
+    private String league;
     Team team;
     private int selectedPos;
     private boolean modified;
@@ -47,7 +46,7 @@ class EditPlayers extends GLScreen {
     private Widget saveButton;
     private Widget tmpPlayerButton;
 
-    EditPlayers(GLGame game, FileHandle fileHandle, League league, Team team, Boolean modified) {
+    EditPlayers(GLGame game, FileHandle fileHandle, String league, Team team, Boolean modified) {
         super(game);
         this.fileHandle = fileHandle;
         this.league = league;
@@ -869,8 +868,10 @@ class EditPlayers extends GLScreen {
         @Override
         public void onFire1Down() {
             FileHandle fh = Assets.teamsFolder.child(team.path);
+            String path = team.path;
             team.path = null;
             fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
+            team.path = path;
 
             game.setScreen(new SelectTeam(game, fileHandle, league));
         }
