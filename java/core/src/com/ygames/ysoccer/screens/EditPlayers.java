@@ -89,7 +89,6 @@ class EditPlayers extends GLScreen {
 
             w = new PlayerNameButton(p);
             nameButtons[p] = w;
-            updateNameButton(p);
             widgets.add(w);
 
             w = new PlayerShirtNameButton(p);
@@ -428,31 +427,33 @@ class EditPlayers extends GLScreen {
 
     private class PlayerNameButton extends InputButton {
 
-        Player player;
+        int pos;
 
-        PlayerNameButton(int p) {
-            player = team.playerAtPosition(p);
-            setGeometry(442, 95 + 21 * p, 364, 19);
+        PlayerNameButton(int pos) {
+            this.pos = pos;
+            setGeometry(442, 95 + 21 * pos, 364, 19);
             setText("", Font.Align.LEFT, Assets.font10);
             setEntryLimit(28);
         }
 
         @Override
+        public void refresh() {
+            setPlayerWidgetColor(this, pos);
+            Player player = team.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+                setActive(false);
+            } else {
+                setText(player.name);
+                setActive(true);
+            }
+        }
+
+        @Override
         public void onChanged() {
-            player.name = text;
+            team.playerAtPosition(pos).name = text;
             setModifiedFlag();
         }
-    }
-
-    private void updateNameButton(int p) {
-        setPlayerWidgetColor(nameButtons[p], p);
-        if (p < team.players.size()) {
-            Player player = team.playerAtPosition(p);
-            nameButtons[p].setText(player.name);
-        } else {
-            nameButtons[p].setText("");
-        }
-        nameButtons[p].setActive(p < team.players.size());
     }
 
     private class PlayerShirtNameButton extends InputButton {
@@ -923,7 +924,7 @@ class EditPlayers extends GLScreen {
         skinColorButtons[pos].setDirty(true);
         selectButtons[pos].setDirty(true);
         updateNumberButton(pos);
-        updateNameButton(pos);
+        nameButtons[pos].setDirty(true);
         shirtNameButtons[pos].setDirty(true);
         nationalityButtons[pos].setDirty(true);
         roleButtons[pos].setDirty(true);
