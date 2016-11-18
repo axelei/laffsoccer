@@ -166,7 +166,7 @@ class ControlsSetup extends GLScreen {
         public void onFire1Down() {
             selectedInputDeviceButton = this;
             for (Widget widget : widgets) {
-                widget.setChanged(true);
+                widget.setDirty(true);
             }
         }
     }

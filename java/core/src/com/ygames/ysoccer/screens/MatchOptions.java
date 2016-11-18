@@ -123,7 +123,7 @@ class MatchOptions extends GLScreen {
 
         private void updateMatchLength(int n) {
             game.settings.matchLength = matchLengths.get(Emath.slide(matchLengths.indexOf(game.settings.matchLength), 0, matchLengths.size() - 1, n));
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -162,7 +162,7 @@ class MatchOptions extends GLScreen {
 
         private void updateWeatherMaxStrength(int n) {
             game.settings.weatherMaxStrength = Emath.rotate(game.settings.weatherMaxStrength, Weather.Strength.NONE, Weather.Strength.STRONG, n);
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -201,7 +201,7 @@ class MatchOptions extends GLScreen {
 
         private void toggleRadar() {
             game.settings.radar = !game.settings.radar;
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -240,7 +240,7 @@ class MatchOptions extends GLScreen {
 
         private void toggleAutoReplays() {
             game.settings.autoReplays = !game.settings.autoReplays;
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -291,7 +291,7 @@ class MatchOptions extends GLScreen {
             int zoomMin = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MAX);
             int zoomMax = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MIN);
             game.settings.zoom = Emath.slide(game.settings.zoom, zoomMin, zoomMax, 5 * n);
-            setChanged(true);
+            setDirty(true);
         }
     }
 

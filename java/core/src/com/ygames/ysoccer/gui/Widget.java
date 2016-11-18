@@ -37,7 +37,7 @@ public abstract class Widget {
     public boolean entryMode;
     public boolean visible;
     boolean addShadow;
-    boolean changed;
+    boolean dirty;
 
     public enum Event {
         NONE, FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
@@ -49,7 +49,7 @@ public abstract class Widget {
         color = new WidgetColor();
         align = Font.Align.CENTER;
         visible = true;
-        changed = true;
+        dirty = true;
     }
 
     public abstract void render(GLGraphics glGraphics);
@@ -197,12 +197,12 @@ public abstract class Widget {
     public void onUpdate() {
     }
 
-    public boolean getChanged() {
-        return changed;
+    public boolean getDirty() {
+        return dirty;
     }
 
-    public void setChanged(boolean changed) {
-        this.changed = changed;
+    public void setDirty(boolean dirty) {
+        this.dirty = dirty;
     }
 
     public static void arrange(int width, int centerY, int rowHeight, List<Widget> widgetList) {

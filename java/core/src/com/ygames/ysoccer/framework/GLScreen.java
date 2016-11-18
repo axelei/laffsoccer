@@ -45,10 +45,10 @@ public abstract class GLScreen implements Screen {
         readMenuInput();
 
         for (Widget widget : widgets) {
-            if (widget.getChanged()) {
+            if (widget.getDirty()) {
                 widget.onUpdate();
             }
-            widget.setChanged(false);
+            widget.setDirty(false);
         }
 
         GLGame.MenuInput menuInput = game.menuInput;
@@ -330,7 +330,7 @@ public abstract class GLScreen implements Screen {
 
     protected void updateAllWidgets() {
         for (Widget widget : widgets) {
-            widget.setChanged(true);
+            widget.setDirty(true);
         }
     }
 }

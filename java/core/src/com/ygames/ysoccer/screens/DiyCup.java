@@ -177,11 +177,11 @@ public class DiyCup extends GLScreen {
         @Override
         public void onFire1Down() {
             cup.bySeason = !cup.bySeason;
-            setChanged(true);
-            seasonStartButton.setChanged(true);
-            seasonSeparatorButton.setChanged(true);
-            seasonEndButton.setChanged(true);
-            pitchTypeButton.setChanged(true);
+            setDirty(true);
+            seasonStartButton.setDirty(true);
+            seasonSeparatorButton.setDirty(true);
+            seasonEndButton.setDirty(true);
+            pitchTypeButton.setDirty(true);
         }
 
         @Override
@@ -220,7 +220,7 @@ public class DiyCup extends GLScreen {
 
         private void updateSeasonStart(int n) {
             cup.seasonStart = Emath.rotate(cup.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -275,7 +275,7 @@ public class DiyCup extends GLScreen {
 
         private void updateSeasonEnd(int n) {
             cup.seasonEnd = Emath.rotate(cup.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -315,7 +315,7 @@ public class DiyCup extends GLScreen {
 
         private void updatePitchType(int n) {
             cup.pitchType = Pitch.Type.values()[Emath.rotate(cup.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -355,7 +355,7 @@ public class DiyCup extends GLScreen {
 
         private void updateTime(int n) {
             cup.time = Emath.rotate(cup.time, Time.DAY, Time.NIGHT, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -404,7 +404,7 @@ public class DiyCup extends GLScreen {
 
         private void updateSubstitutes(int n) {
             cup.substitutions = Emath.slide(cup.substitutions, 2, cup.benchSize, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -454,8 +454,8 @@ public class DiyCup extends GLScreen {
         private void updateBenchSize(int n) {
             cup.benchSize = Emath.slide(cup.benchSize, 2, 12, n);
             cup.substitutions = Math.min(cup.substitutions, cup.benchSize);
-            setChanged(true);
-            substitutesButton.setChanged(true);
+            setDirty(true);
+            substitutesButton.setDirty(true);
         }
 
         @Override
@@ -508,15 +508,15 @@ public class DiyCup extends GLScreen {
             } else {
                 cup.removeRound();
             }
-            setChanged(true);
+            setDirty(true);
             for (int i = 0; i < 6; i++) {
-                roundNameLabels[i].setChanged(true);
-                roundTeamsLabels[i].setChanged(true);
-                roundLegsButtons[i].setChanged(true);
-                roundExtraTimeButtons[i].setChanged(true);
-                roundPenaltiesButtons[i].setChanged(true);
+                roundNameLabels[i].setDirty(true);
+                roundTeamsLabels[i].setDirty(true);
+                roundLegsButtons[i].setDirty(true);
+                roundExtraTimeButtons[i].setDirty(true);
+                roundPenaltiesButtons[i].setDirty(true);
             }
-            awayGoalsButton.setChanged(true);
+            awayGoalsButton.setDirty(true);
         }
 
         @Override
@@ -555,7 +555,7 @@ public class DiyCup extends GLScreen {
 
         private void updateAwayGoals(int n) {
             cup.awayGoals = Cup.AwayGoals.values()[Emath.rotate(cup.awayGoals.ordinal(), 0, 2, n)];
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -644,8 +644,8 @@ public class DiyCup extends GLScreen {
 
         private void updateLegs(int n) {
             cup.rounds.get(round).legs = Emath.rotate(cup.rounds.get(round).legs, 1, 2, n);
-            setChanged(true);
-            awayGoalsButton.setChanged(true);
+            setDirty(true);
+            awayGoalsButton.setDirty(true);
         }
 
         @Override
@@ -680,7 +680,7 @@ public class DiyCup extends GLScreen {
 
         private void updateExtraTime(int n) {
             cup.rounds.get(round).extraTime = Round.ExtraTime.values()[Emath.rotate(cup.rounds.get(round).extraTime.ordinal(), 0, 2, n)];
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -720,7 +720,7 @@ public class DiyCup extends GLScreen {
 
         private void updatePenalties(int n) {
             cup.rounds.get(round).penalties = Round.Penalties.values()[Emath.rotate(cup.rounds.get(round).penalties.ordinal(), 0, 2, n)];
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override

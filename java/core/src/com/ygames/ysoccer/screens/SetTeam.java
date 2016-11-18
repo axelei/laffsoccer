@@ -238,7 +238,7 @@ class SetTeam extends GLScreen {
                     break;
             }
             updatePlayerButtons();
-            teamInputDeviceButton.setChanged(true);
+            teamInputDeviceButton.setDirty(true);
         }
     }
 
@@ -503,7 +503,7 @@ class SetTeam extends GLScreen {
         public void onFire1Down() {
             compareTactics = !compareTactics;
             tacticsBoard.setCompareTactics(compareTactics);
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -531,7 +531,7 @@ class SetTeam extends GLScreen {
             }
             logoWidget.setTeam(shownTeam);
             for (Widget w : widgets) {
-                w.setChanged(true);
+                w.setDirty(true);
             }
         }
     }
@@ -579,9 +579,9 @@ class SetTeam extends GLScreen {
                     ownTeam.controlMode = Team.ControlMode.PLAYER;
                     break;
             }
-            setChanged(true);
+            setDirty(true);
             updatePlayerButtons();
-            teamInputDeviceButton.setChanged(true);
+            teamInputDeviceButton.setDirty(true);
         }
     }
 
@@ -643,7 +643,7 @@ class SetTeam extends GLScreen {
 
         private void updateTeamInputDevice(int n) {
             shownTeam.inputDevice = game.inputDevices.rotateAvailable(shownTeam.inputDevice, n);
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -722,13 +722,13 @@ class SetTeam extends GLScreen {
 
     private void updatePlayerButtons() {
         for (Widget w : playerButtons) {
-            w.setChanged(true);
+            w.setDirty(true);
         }
     }
 
     private void updateTacticsButtons() {
         for (Widget w : tacticsButtons) {
-            w.setChanged(true);
+            w.setDirty(true);
         }
     }
 

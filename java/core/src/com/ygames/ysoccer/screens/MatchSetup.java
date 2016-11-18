@@ -161,8 +161,8 @@ class MatchSetup extends GLScreen {
         @Override
         public void onFire1Down() {
             matchSettings.rotateTime(1);
-            setChanged(true);
-            timePicture.setChanged(true);
+            setDirty(true);
+            timePicture.setDirty(true);
         }
     }
 
@@ -211,10 +211,10 @@ class MatchSetup extends GLScreen {
         @Override
         public void onFire1Down() {
             matchSettings.rotatePitchType(1);
-            setChanged(true);
-            pitchTypePicture.setChanged(true);
-            weatherPicture.setChanged(true);
-            weatherButton.setChanged(true);
+            setDirty(true);
+            pitchTypePicture.setDirty(true);
+            weatherPicture.setDirty(true);
+            weatherButton.setDirty(true);
         }
     }
 
@@ -265,8 +265,8 @@ class MatchSetup extends GLScreen {
         @Override
         public void onFire1Down() {
             matchSettings.rotateWeather(true);
-            setChanged(true);
-            weatherPicture.setChanged(true);
+            setDirty(true);
+            weatherPicture.setDirty(true);
         }
     }
 
@@ -331,9 +331,9 @@ class MatchSetup extends GLScreen {
         public void onFire1Down() {
             team.kitIndex = kitIndex;
             for (KitButton kitButton : kitButtons[teamIndex]) {
-                kitButton.setChanged(true);
+                kitButton.setDirty(true);
             }
-            kitPictures[teamIndex].setChanged(true);
+            kitPictures[teamIndex].setDirty(true);
             setSelectedWidget(playMatchButton);
         }
     }

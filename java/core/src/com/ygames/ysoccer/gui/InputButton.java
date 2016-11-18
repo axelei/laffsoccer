@@ -25,7 +25,7 @@ public class InputButton extends Button {
         if (entryMode && !newValue) {
             if (applyChanges) {
                 if (!text.equals(entryString)) {
-                    changed = true;
+                    dirty = true;
                 }
                 text = entryString;
             }

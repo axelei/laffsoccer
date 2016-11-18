@@ -459,7 +459,7 @@ class ImportTeams extends GLScreen {
 
         private void updateYear(int n) {
             year = Emath.slide(year, 1890, 2100, n);
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -494,7 +494,7 @@ class ImportTeams extends GLScreen {
         public void onFire1Down() {
             state = State.IMPORTING;
             for (Widget widget : widgets) {
-                widget.setChanged(true);
+                widget.setDirty(true);
             }
         }
     }

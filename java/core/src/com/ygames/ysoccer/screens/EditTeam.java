@@ -188,7 +188,7 @@ class EditTeam extends GLScreen {
 
     private void setModifiedFlag() {
         modified = true;
-        saveButton.setChanged(true);
+        saveButton.setDirty(true);
     }
 
     private class TacticsButton extends Button {
@@ -215,7 +215,7 @@ class EditTeam extends GLScreen {
             if (team.getTacticsIndex() != t) {
                 team.tactics = Tactics.codes[t];
                 for (Widget w : tacticsButtons) {
-                    w.setChanged(true);
+                    w.setDirty(true);
                 }
                 setModifiedFlag();
                 for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
@@ -310,7 +310,7 @@ class EditTeam extends GLScreen {
                 i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
                 team.coach.nationality = Assets.associations.get(i);
             }
-            setChanged(true);
+            setDirty(true);
             setModifiedFlag();
         }
     }
@@ -461,7 +461,7 @@ class EditTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             selectedKit = kitIndex;
-            kitWidget.setChanged(true);
+            kitWidget.setDirty(true);
             updateKitSelectionButtons();
             updateKitEditButtons();
         }
@@ -469,13 +469,13 @@ class EditTeam extends GLScreen {
 
     private void updateKitSelectionButtons() {
         for (Widget w : kitSelectionButtons) {
-            w.setChanged(true);
+            w.setDirty(true);
         }
     }
 
     private void updateKitEditButtons() {
         for (Widget w : kitEditButtons) {
-            w.setChanged(true);
+            w.setDirty(true);
         }
     }
 
@@ -542,10 +542,10 @@ class EditTeam extends GLScreen {
         private void updateKitStyle(int n) {
             kitIndex = Emath.rotate(kitIndex, 0, Assets.kits.size() - 1, n);
             team.kits.get(selectedKit).style = Assets.kits.get(kitIndex);
-            setChanged(true);
-            kitWidget.setChanged(true);
+            setDirty(true);
+            kitWidget.setDirty(true);
             if (selectedKit == 0 && !logoWidget.isCustom) {
-                logoWidget.setChanged(true);
+                logoWidget.setDirty(true);
             }
             setModifiedFlag();
         }
@@ -614,9 +614,9 @@ class EditTeam extends GLScreen {
                     break;
             }
             updateKitEditButtons();
-            kitWidget.setChanged(true);
+            kitWidget.setDirty(true);
             if (selectedKit == 0 && !logoWidget.isCustom) {
-                logoWidget.setChanged(true);
+                logoWidget.setDirty(true);
             }
             setModifiedFlag();
         }
@@ -732,9 +732,9 @@ class EditTeam extends GLScreen {
                     break;
             }
             updateKitEditButtons();
-            kitWidget.setChanged(true);
+            kitWidget.setDirty(true);
             if (selectedKit == 0 && !logoWidget.isCustom) {
-                logoWidget.setChanged(true);
+                logoWidget.setDirty(true);
             }
             setModifiedFlag();
         }
@@ -882,10 +882,10 @@ class EditTeam extends GLScreen {
     }
 
     private void updatePlayerButtons(int pos) {
-        numberButtons[pos].setChanged(true);
-        faceButtons[pos].setChanged(true);
-        nameButtons[pos].setChanged(true);
-        roleButtons[pos].setChanged(true);
+        numberButtons[pos].setDirty(true);
+        faceButtons[pos].setDirty(true);
+        nameButtons[pos].setDirty(true);
+        roleButtons[pos].setDirty(true);
     }
 
     private class EditPlayersButton extends Button {
@@ -939,11 +939,11 @@ class EditTeam extends GLScreen {
             kit.socks = other.socks;
 
             selectedKit = team.kits.size() - 1;
-            kitWidget.setChanged(true);
+            kitWidget.setDirty(true);
             updateKitSelectionButtons();
             updateKitEditButtons();
-            setChanged(true);
-            deleteKitButton.setChanged(true);
+            setDirty(true);
+            deleteKitButton.setDirty(true);
 
             setModifiedFlag();
         }
@@ -975,12 +975,12 @@ class EditTeam extends GLScreen {
 
             if (selectedKit >= team.kits.size() - 1) {
                 selectedKit = team.kits.size() - 1;
-                kitWidget.setChanged(true);
+                kitWidget.setDirty(true);
             }
             updateKitSelectionButtons();
             updateKitEditButtons();
-            newKitButton.setChanged(true);
-            setChanged(true);
+            newKitButton.setDirty(true);
+            setDirty(true);
 
             setModifiedFlag();
         }

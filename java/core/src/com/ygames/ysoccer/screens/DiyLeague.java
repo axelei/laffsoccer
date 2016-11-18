@@ -142,11 +142,11 @@ public class DiyLeague extends GLScreen {
         @Override
         public void onFire1Down() {
             league.bySeason = !league.bySeason;
-            setChanged(true);
-            seasonStartButton.setChanged(true);
-            seasonSeparatorButton.setChanged(true);
-            seasonEndButton.setChanged(true);
-            pitchTypeButton.setChanged(true);
+            setDirty(true);
+            seasonStartButton.setDirty(true);
+            seasonSeparatorButton.setDirty(true);
+            seasonEndButton.setDirty(true);
+            pitchTypeButton.setDirty(true);
         }
 
         @Override
@@ -185,7 +185,7 @@ public class DiyLeague extends GLScreen {
 
         private void updateSeasonStart(int n) {
             league.seasonStart = Emath.rotate(league.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -240,7 +240,7 @@ public class DiyLeague extends GLScreen {
 
         private void updateSeasonEnd(int n) {
             league.seasonEnd = Emath.rotate(league.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -280,7 +280,7 @@ public class DiyLeague extends GLScreen {
 
         private void updatePitchType(int n) {
             league.pitchType = Pitch.Type.values()[Emath.rotate(league.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -320,7 +320,7 @@ public class DiyLeague extends GLScreen {
 
         private void updateTime(int n) {
             league.time = Emath.rotate(league.time, Time.DAY, Time.NIGHT, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -369,7 +369,7 @@ public class DiyLeague extends GLScreen {
 
         private void updateNumberOfTeams(int n) {
             league.numberOfTeams = Emath.slide(league.numberOfTeams, 2, 24, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -418,7 +418,7 @@ public class DiyLeague extends GLScreen {
 
         private void updatePlayEachTeam(int n) {
             league.rounds = Emath.slide(league.rounds, 1, 10, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -457,7 +457,7 @@ public class DiyLeague extends GLScreen {
 
         private void updatePointsForAWin(int n) {
             league.pointsForAWin = Emath.rotate(league.pointsForAWin, 2, 3, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -506,7 +506,7 @@ public class DiyLeague extends GLScreen {
 
         private void updateSubstitutes(int n) {
             league.substitutions = Emath.slide(league.substitutions, 2, league.benchSize, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -556,8 +556,8 @@ public class DiyLeague extends GLScreen {
         private void updateBenchSize(int n) {
             league.benchSize = Emath.slide(league.benchSize, 2, 12, n);
             league.substitutions = Math.min(league.substitutions, league.benchSize);
-            setChanged(true);
-            substitutesButton.setChanged(true);
+            setDirty(true);
+            substitutesButton.setDirty(true);
         }
 
         @Override

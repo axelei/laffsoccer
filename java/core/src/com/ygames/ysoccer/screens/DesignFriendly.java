@@ -100,7 +100,7 @@ public class DesignFriendly extends GLScreen {
 
         private void updateSubstitutes(int n) {
             friendly.substitutions = Emath.slide(friendly.substitutions, 2, friendly.benchSize, n);
-            setChanged(true);
+            setDirty(true);
         }
 
         @Override
@@ -150,8 +150,8 @@ public class DesignFriendly extends GLScreen {
         private void updateBenchSize(int n) {
             friendly.benchSize = Emath.slide(friendly.benchSize, 2, 12, n);
             friendly.substitutions = Math.min(friendly.substitutions, friendly.benchSize);
-            setChanged(true);
-            substitutesButton.setChanged(true);
+            setDirty(true);
+            substitutesButton.setDirty(true);
         }
 
         @Override

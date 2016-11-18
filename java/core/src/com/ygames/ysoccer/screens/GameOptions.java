@@ -120,7 +120,7 @@ class GameOptions extends GLScreen {
         private void toggleFullScreen() {
             game.settings.fullScreen = !game.settings.fullScreen;
             game.setScreenMode();
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -165,7 +165,7 @@ class GameOptions extends GLScreen {
         private void toggleMouse() {
             game.settings.mouseEnabled = !game.settings.mouseEnabled;
             game.setMouse();
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -222,7 +222,7 @@ class GameOptions extends GLScreen {
             game.settings.locale = Assets.locales.get(Emath.rotate(index, 0, Assets.locales.size() - 1, direction));
             Assets.loadStrings(game.settings);
             for (Widget w : widgets) {
-                w.setChanged(true);
+                w.setDirty(true);
             }
         }
     }
@@ -267,7 +267,7 @@ class GameOptions extends GLScreen {
 
         private void updatePlayerCountry() {
             game.settings.useFlags = !game.settings.useFlags;
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -358,7 +358,7 @@ class GameOptions extends GLScreen {
                 }
             }
             game.settings.maxPlayerValue = m * Math.pow(10, e);
-            setChanged(true);
+            setDirty(true);
         }
     }
 
@@ -393,7 +393,7 @@ class GameOptions extends GLScreen {
                 i = Emath.rotate(i, 0, Assets.currencies.size() - 1, direction);
             }
             game.settings.currency = Assets.currencies.get(i);
-            setChanged(true);
+            setDirty(true);
         }
     }
 

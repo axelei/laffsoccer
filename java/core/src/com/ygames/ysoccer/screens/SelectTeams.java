@@ -211,9 +211,9 @@ class SelectTeams extends GLScreen {
                 game.teamList.add(team);
             }
             updateColors();
-            viewSelectedTeamsButton.setChanged(true);
-            playButton.setChanged(true);
-            titleButton.setChanged(true);
+            viewSelectedTeamsButton.setDirty(true);
+            playButton.setDirty(true);
+            titleButton.setDirty(true);
         }
 
         private void updateColors() {

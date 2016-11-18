@@ -144,8 +144,8 @@ class AllSelectedTeams extends GLScreen {
                 game.teamList.add(team);
             }
             updateColors();
-            playButton.setChanged(true);
-            changeTeamsButton.setChanged(true);
+            playButton.setDirty(true);
+            changeTeamsButton.setDirty(true);
         }
 
         private void updateColors() {

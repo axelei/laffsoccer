@@ -152,7 +152,7 @@ class EditPlayers extends GLScreen {
 
     private void setModifiedFlag() {
         modified = true;
-        saveButton.setChanged(true);
+        saveButton.setDirty(true);
     }
 
     private void copyPlayer(Player player) {
@@ -161,18 +161,18 @@ class EditPlayers extends GLScreen {
             game.tmpPlayer.skills = new Player.Skills();
         }
         game.tmpPlayer.copyFrom(player);
-        tmpPlayerButton.setChanged(true);
+        tmpPlayerButton.setDirty(true);
     }
 
     private void pastePlayer(Player player) {
         player.copyFrom(game.tmpPlayer);
         game.tmpPlayer = null;
-        tmpPlayerButton.setChanged(true);
+        tmpPlayerButton.setDirty(true);
     }
 
     private void clearPlayer() {
         game.tmpPlayer = null;
-        tmpPlayerButton.setChanged(true);
+        tmpPlayerButton.setDirty(true);
     }
 
     private class HairColorButton extends Button {
@@ -225,8 +225,8 @@ class EditPlayers extends GLScreen {
             i = Emath.rotate(i, 0, Assets.hairColors.size() - 1, n);
             player.hairColor = Assets.hairColors.get(i).name;
 
-            setChanged(true);
-            selectButtons[pos].setChanged(true);
+            setDirty(true);
+            selectButtons[pos].setDirty(true);
             setModifiedFlag();
         }
     }
@@ -284,8 +284,8 @@ class EditPlayers extends GLScreen {
                 i = Emath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
             }
             player.hairStyle = Assets.hairStyles.get(i);
-            setChanged(true);
-            selectButtons[pos].setChanged(true);
+            setDirty(true);
+            selectButtons[pos].setDirty(true);
             setModifiedFlag();
         }
     }
@@ -336,8 +336,8 @@ class EditPlayers extends GLScreen {
             Player player = team.playerAtPosition(pos);
             player.skinColor = Skin.Color.values()[Emath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
 
-            setChanged(true);
-            selectButtons[pos].setChanged(true);
+            setDirty(true);
+            selectButtons[pos].setDirty(true);
             setModifiedFlag();
         }
     }
@@ -396,7 +396,7 @@ class EditPlayers extends GLScreen {
             }
 
             updatePlayerButtons(pos);
-            deletePlayerButton.setChanged(true);
+            deletePlayerButton.setDirty(true);
         }
     }
 
@@ -544,7 +544,7 @@ class EditPlayers extends GLScreen {
             }
             player.nationality = Assets.associations.get(i);
 
-            setChanged(true);
+            setDirty(true);
             setModifiedFlag();
         }
     }
@@ -653,8 +653,8 @@ class EditPlayers extends GLScreen {
             Player player = team.playerAtPosition(pos);
             int value = Emath.slide(player.getSkillValue(skill), 0, 7, n);
             player.setSkillValue(skill, value);
-            setChanged(true);
-            priceButtons[pos].setChanged(true);
+            setDirty(true);
+            priceButtons[pos].setDirty(true);
             setModifiedFlag();
         }
 
@@ -705,7 +705,7 @@ class EditPlayers extends GLScreen {
         private void updatePrice(int n) {
             Player player = team.playerAtPosition(pos);
             player.value = Emath.slide(player.value, 0, 49, n);
-            setChanged(true);
+            setDirty(true);
             setModifiedFlag();
         }
     }
@@ -796,8 +796,8 @@ class EditPlayers extends GLScreen {
                 }
 
                 updatePlayerButtons(team.players.size() - 1);
-                setChanged(true);
-                deletePlayerButton.setChanged(true);
+                setDirty(true);
+                deletePlayerButton.setDirty(true);
                 setModifiedFlag();
             }
         }
@@ -839,8 +839,8 @@ class EditPlayers extends GLScreen {
                 team.deletePlayer(player);
                 updatePlayerButtons(team.players.size());
 
-                newPlayerButton.setChanged(true);
-                setChanged(true);
+                newPlayerButton.setDirty(true);
+                setDirty(true);
 
                 setModifiedFlag();
             }
@@ -924,18 +924,18 @@ class EditPlayers extends GLScreen {
     }
 
     private void updatePlayerButtons(int pos) {
-        hairColorButtons[pos].setChanged(true);
-        hairStyleButtons[pos].setChanged(true);
-        skinColorButtons[pos].setChanged(true);
-        selectButtons[pos].setChanged(true);
+        hairColorButtons[pos].setDirty(true);
+        hairStyleButtons[pos].setDirty(true);
+        skinColorButtons[pos].setDirty(true);
+        selectButtons[pos].setDirty(true);
         updateNumberButton(pos);
         updateNameButton(pos);
         updateShirtNameButton(pos);
-        nationalityButtons[pos].setChanged(true);
+        nationalityButtons[pos].setDirty(true);
         updateRoleButton(pos);
         for (Widget w : skillButtons[pos]) {
-            w.setChanged(true);
+            w.setDirty(true);
         }
-        priceButtons[pos].setChanged(true);
+        priceButtons[pos].setDirty(true);
     }
 }
