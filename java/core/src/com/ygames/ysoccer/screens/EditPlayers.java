@@ -103,7 +103,6 @@ class EditPlayers extends GLScreen {
 
             w = new PlayerRoleButton(p);
             roleButtons[p] = w;
-            updateRoleButton(p);
             widgets.add(w);
 
             for (int i = 0; i < 7; i++) {
@@ -545,12 +544,23 @@ class EditPlayers extends GLScreen {
 
     private class PlayerRoleButton extends Button {
 
-        int p;
+        int pos;
 
-        PlayerRoleButton(int p) {
-            this.p = p;
-            setGeometry(866, 95 + 21 * p, 30, 19);
+        PlayerRoleButton(int pos) {
+            this.pos = pos;
+            setGeometry(866, 95 + 21 * pos, 30, 19);
             setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void refresh() {
+            if (pos < team.players.size()) {
+                Player player = team.playerAtPosition(pos);
+                setText(Assets.strings.get(player.getRoleLabel()));
+            } else {
+                setText("");
+            }
+            setActive(pos < team.players.size());
         }
 
         @Override
@@ -574,22 +584,13 @@ class EditPlayers extends GLScreen {
         }
 
         private void updateRole(int n) {
-            Player player = team.playerAtPosition(p);
+            Player player = team.playerAtPosition(pos);
             player.role = Player.Role.values()[Emath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
-            updatePlayerButtons(p);
+            updateAllWidgets();
             setModifiedFlag();
         }
     }
 
-    private void updateRoleButton(int p) {
-        if (p < team.players.size()) {
-            Player player = team.playerAtPosition(p);
-            roleButtons[p].setText(Assets.strings.get(player.getRoleLabel()));
-        } else {
-            roleButtons[p].setText("");
-        }
-        roleButtons[p].setActive(p < team.players.size());
-    }
 
     private class SkillLabel extends Label {
 
@@ -924,7 +925,7 @@ class EditPlayers extends GLScreen {
         updateNameButton(pos);
         updateShirtNameButton(pos);
         nationalityButtons[pos].setDirty(true);
-        updateRoleButton(pos);
+        roleButtons[pos].setDirty(true);
         for (Widget w : skillButtons[pos]) {
             w.setDirty(true);
         }
