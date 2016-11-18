@@ -84,7 +84,6 @@ class EditPlayers extends GLScreen {
 
             w = new PlayerNumberButton(p);
             numberButtons[p] = w;
-            updateNumberButton(p);
             widgets.add(w);
 
             w = new PlayerNameButton(p);
@@ -399,30 +398,32 @@ class EditPlayers extends GLScreen {
 
     private class PlayerNumberButton extends InputButton {
 
-        Player player;
+        int pos;
 
-        PlayerNumberButton(int p) {
-            player = team.playerAtPosition(p);
-            setGeometry(32, 95 + 21 * p, 34, 19);
+        PlayerNumberButton(int pos) {
+            this.pos = pos;
+            setGeometry(32, 95 + 21 * pos, 34, 19);
             setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(3);
         }
 
         @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+                setActive(false);
+            } else {
+                setText(player.number);
+                setActive(true);
+            }
+        }
+
+        @Override
         public void onChanged() {
-            player.number = text;
+            team.playerAtPosition(pos).number = text;
             setModifiedFlag();
         }
-    }
-
-    private void updateNumberButton(int p) {
-        if (p < team.players.size()) {
-            Player player = team.playerAtPosition(p);
-            numberButtons[p].setText(player.number);
-        } else {
-            numberButtons[p].setText("");
-        }
-        numberButtons[p].setActive(p < team.players.size());
     }
 
     private class PlayerNameButton extends InputButton {
@@ -923,7 +924,7 @@ class EditPlayers extends GLScreen {
         hairStyleButtons[pos].setDirty(true);
         skinColorButtons[pos].setDirty(true);
         selectButtons[pos].setDirty(true);
-        updateNumberButton(pos);
+        numberButtons[pos].setDirty(true);
         nameButtons[pos].setDirty(true);
         shirtNameButtons[pos].setDirty(true);
         nationalityButtons[pos].setDirty(true);
