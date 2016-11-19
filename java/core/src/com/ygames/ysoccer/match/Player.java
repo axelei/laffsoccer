@@ -20,7 +20,7 @@ public class Player {
 
     public enum Skill {PASSING, SHOOTING, HEADING, TACKLING, CONTROL, SPEED, FINISHING}
 
-    public static final String[] roleLabels = {
+    private static final String[] roleLabels = {
             "ROLES.GOALKEEPER",
             "ROLES.RIGHT_BACK",
             "ROLES.LEFT_BACK",
@@ -31,7 +31,7 @@ public class Player {
             "ROLES.ATTACKER"
     };
 
-    public static final String[] skillLabels = {
+    private static final String[] skillLabels = {
             "SKILLS.PASSING",
             "SKILLS.SHOOTING",
             "SKILLS.HEADING",
@@ -53,7 +53,7 @@ public class Player {
     public String nationality;
     int index;
     public Role role;
-    public String number;
+    public int number;
 
     public Skin.Color skinColor;
     public String hairColor;

@@ -370,7 +370,7 @@ class EditPlayers extends GLScreen {
         }
     }
 
-    private class PlayerNumberButton extends InputButton {
+    private class PlayerNumberButton extends Button {
 
         int pos;
 
@@ -378,7 +378,6 @@ class EditPlayers extends GLScreen {
             this.pos = pos;
             setGeometry(32, 95 + 21 * pos, 34, 19);
             setText("", Font.Align.CENTER, Assets.font10);
-            setEntryLimit(3);
         }
 
         @Override
@@ -394,8 +393,29 @@ class EditPlayers extends GLScreen {
         }
 
         @Override
-        public void onChanged() {
-            team.playerAtPosition(pos).number = text;
+        public void onFire1Down() {
+            updateNumber(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateNumber(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateNumber(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateNumber(-1);
+        }
+
+        private void updateNumber(int n) {
+            Player player = team.playerAtPosition(pos);
+            team.rotatePlayerNumber(player, n);
+            setDirty(true);
             setModifiedFlag();
         }
     }

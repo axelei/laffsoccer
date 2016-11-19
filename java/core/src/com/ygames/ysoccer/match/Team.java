@@ -71,20 +71,7 @@ public class Team {
         player.shirtName = "";
         player.nationality = country;
         player.role = Player.Role.GOALKEEPER;
-
-        // number
-        for (int i = 1; i <= Const.FULL_TEAM; i++) {
-            boolean used = false;
-            for (Player ply : players) {
-                if (Integer.parseInt(ply.number) == i) {
-                    used = true;
-                }
-            }
-            if (!used) {
-                player.number = "" + i;
-                break;
-            }
-        }
+        rotatePlayerNumber(player, 1);
         player.hairColor = "BLACK";
         player.hairStyle = "SMOOTH_A";
         player.skinColor = Skin.Color.PINK;
@@ -543,5 +530,18 @@ public class Team {
                 }
             }
         }
+    }
+
+    public void rotatePlayerNumber(Player player, int direction) {
+        boolean used;
+        do {
+            player.number = Emath.rotate(player.number, 1, 99, direction);
+            used = false;
+            for (Player ply : players) {
+                if (ply != player && ply.number == player.number) {
+                    used = true;
+                }
+            }
+        } while (used);
     }
 }

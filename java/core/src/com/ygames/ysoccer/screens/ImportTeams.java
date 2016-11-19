@@ -688,7 +688,7 @@ class ImportTeams extends GLScreen {
                 pos++;
 
                 // shirt number
-                player.number = "" + (bytes[pos++] & 0xFF);
+                player.number = (bytes[pos++] & 0xFF);
 
                 // name
                 boolean surnameFound = false;

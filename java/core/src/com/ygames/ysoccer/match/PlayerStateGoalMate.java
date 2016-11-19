@@ -21,8 +21,8 @@ class PlayerStateGoalMate extends PlayerState {
     void doActions() {
         super.doActions();
 
-        player.tx = goal.player.x + (10 + (player.index % 20)) * Emath.cos(30 * player.index);
-        player.ty = goal.player.y + (10 + (player.index % 20)) * Emath.sin(30 * player.index);
+        player.tx = goal.player.x + (10 + (player.number % 20)) * Emath.cos(30 * player.number);
+        player.ty = goal.player.y + (10 + (player.number % 20)) * Emath.sin(30 * player.number);
 
         if (player.targetDistance() < 1.5f) {
             player.v = 0;

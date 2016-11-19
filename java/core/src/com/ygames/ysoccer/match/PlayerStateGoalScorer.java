@@ -88,14 +88,14 @@ class PlayerStateGoalScorer extends PlayerState {
         //check x limits
         if (Math.abs(Emath.cos(player.a)) > 0.002f) {
             float tx = player.x + d * Emath.cos(player.a);
-            tx = Emath.sgn(tx) * Math.min(Math.abs(tx), Const.TOUCH_LINE + 20 - 2 * player.index);
+            tx = Emath.sgn(tx) * Math.min(Math.abs(tx), Const.TOUCH_LINE + 20 - 2 * player.number);
             d = Math.min(d, (tx - player.x) / Emath.cos(player.a));
         }
 
         //check y limits
         if (Math.abs(Emath.sin(player.a)) > 0.002f) {
             float ty = player.y + d * Emath.sin(player.a);
-            ty = Emath.sgn(ty) * Math.min(Math.abs(ty), Const.GOAL_LINE + 10 - player.index);
+            ty = Emath.sgn(ty) * Math.min(Math.abs(ty), Const.GOAL_LINE + 10 - player.number);
             d = Math.min(d, (ty - player.y) / Emath.sin(player.a));
         }
 

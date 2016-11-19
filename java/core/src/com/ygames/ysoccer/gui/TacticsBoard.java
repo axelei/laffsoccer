@@ -11,12 +11,12 @@ import com.ygames.ysoccer.match.Team;
 
 public class TacticsBoard extends Widget {
 
-    boolean viewOpponent;
-    boolean compareTactics;
-    Team teamA;
-    Team teamB;
+    private boolean viewOpponent;
+    private boolean compareTactics;
+    private Team teamA;
+    private Team teamB;
 
-    static int[][][] positions = new int[][][]{
+    private static int[][][] positions = new int[][][]{
             {{+0, +0}, {-2, +2}, {-1, +1}, {+1, +1}, {+2, +2}, {-2, +6}, {+0, +4}, {+0, +5}, {+2, +6}, {-1, +8}, {+1, +8}}, // 442
             {{+0, +0}, {-2, +3}, {+0, +1}, {+1, +2}, {+2, +3}, {-1, +5}, {-1, +2}, {+0, +4}, {+1, +5}, {+0, +6}, {+0, +8}}, // 541
             {{+0, +0}, {-2, +2}, {-1, +1}, {+1, +1}, {+2, +2}, {-2, +6}, {+0, +4}, {+1, +5}, {+2, +6}, {-1, +5}, {+0, +8}}, // 451
@@ -77,7 +77,6 @@ public class TacticsBoard extends Widget {
                 // name
                 // fix x -y position & alignment
                 int tx = 0;
-                int ty = 0;
                 Font.Align align = Font.Align.CENTER;
                 switch (positions[baseTactics][ply][0]) {
                     case -2:
@@ -106,6 +105,7 @@ public class TacticsBoard extends Widget {
                         break;
                 }
 
+                int ty;
                 if (viewOpponent) {
                     ty = y + h - 14 - 18 - 28 * positions[baseTactics][ply][1];
                 } else {
@@ -169,7 +169,7 @@ public class TacticsBoard extends Widget {
 
                     // number
                     Player player = teamToShow.players.get(ply);
-                    Assets.font10.draw(glGraphics.batch, player.number, tx + 10, ty - 1, Font.Align.CENTER);
+                    Assets.font10.draw(glGraphics.batch, "" + player.number, tx + 10, ty - 1, Font.Align.CENTER);
                 }
             }
         }
