@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -66,6 +67,18 @@ public class Main extends GLScreen {
         }
 
         w = new LoadOldCompetitionButton(y);
+        widgets.add(w);
+
+        // release date
+        w = new Label();
+        w.setText("", Font.Align.LEFT, Assets.font10);
+        w.setPosition(20, game.gui.HEIGHT - 29);
+        widgets.add(w);
+
+        // homepage
+        w = new Label();
+        w.setText("YSOCCER.SF.NET", Font.Align.RIGHT, Assets.font10);
+        w.setPosition(game.gui.WIDTH - 20, game.gui.HEIGHT - 29);
         widgets.add(w);
     }
 
