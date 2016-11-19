@@ -13,11 +13,11 @@ import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
-public class ViewTeam extends GLScreen {
+class ViewTeam extends GLScreen {
 
-    Font font10yellow;
+    private Font font10yellow;
 
-    public ViewTeam(GLGame game, Team team, Competition competition) {
+    ViewTeam(GLGame game, Team team, Competition competition) {
         super(game);
 
         background = game.stateBackground;
@@ -42,12 +42,12 @@ public class ViewTeam extends GLScreen {
             if (team.type == Team.Type.CLUB) {
                 w = new PlayerNationalityLabel(x, p, player);
                 widgets.add(w);
-                x = x + 57;
+                x = x + 58;
             }
 
             w = new PlayerRoleLabel(x, p, player);
             widgets.add(w);
-            x = x + 31;
+            x = x + 34;
 
             Player.Skill[] orderedSkills = null;
             if (player != null) {
@@ -56,7 +56,7 @@ public class ViewTeam extends GLScreen {
             for (int j = 0; j < 3; j++) {
                 w = new PlayerSkillLabel(orderedSkills, j, x, p, player);
                 widgets.add(w);
-                x = x + 12;
+                x = x + 13;
             }
             x = x + 31;
 
@@ -78,10 +78,10 @@ public class ViewTeam extends GLScreen {
         setSelectedWidget(w);
     }
 
-    class PlayerNumberLabel extends Label {
+    private class PlayerNumberLabel extends Label {
 
-        public PlayerNumberLabel(int p, Player player) {
-            setGeometry(54, 126 + 18 * p, 30, 17);
+        PlayerNumberLabel(int p, Player player) {
+            setGeometry(54, 126 + 22 * p, 30, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
                 setText(player.number);
@@ -89,10 +89,10 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    class PlayerNameButton extends Button {
+    private class PlayerNameButton extends Button {
 
-        public PlayerNameButton(int p, Player player, Team team, Competition competition) {
-            setGeometry(84, 126 + 18 * p, 364, 17);
+        PlayerNameButton(int p, Player player, Team team, Competition competition) {
+            setGeometry(84, 126 + 22 * p, 364, 20);
             setText("", Font.Align.LEFT, Assets.font10);
             setPlayerWidgetColor(this, p, team, competition);
             if (player != null) {
@@ -102,10 +102,10 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    class PlayerNationalityLabel extends Label {
+    private class PlayerNationalityLabel extends Label {
 
-        public PlayerNationalityLabel(int x, int p, Player player) {
-            setGeometry(x + 3, 126 + 18 * p, 54, 17);
+        PlayerNationalityLabel(int x, int p, Player player) {
+            setGeometry(x + 3, 126 + 22 * p, 58, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
                 setText("(" + player.nationality + ")");
@@ -113,9 +113,10 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    class PlayerRoleLabel extends Label {
-        public PlayerRoleLabel(int x, int p, Player player) {
-            setGeometry(x, 126 + 18 * p, 30, 17);
+    private class PlayerRoleLabel extends Label {
+
+        PlayerRoleLabel(int x, int p, Player player) {
+            setGeometry(x, 126 + 22 * p, 34, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
                 setText(Assets.strings.get(player.getRoleLabel()));
@@ -123,10 +124,10 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    class PlayerSkillLabel extends Label {
+    private class PlayerSkillLabel extends Label {
 
-        public PlayerSkillLabel(Player.Skill[] skills, int j, int x, int p, Player player) {
-            setGeometry(x, 126 + 18 * p, 12, 17);
+        PlayerSkillLabel(Player.Skill[] skills, int j, int x, int p, Player player) {
+            setGeometry(x, 126 + 22 * p, 13, 20);
             setText("", Font.Align.CENTER, font10yellow);
             if (player != null && skills != null) {
                 setText(Assets.strings.get(Player.getSkillLabel(skills[j])));
@@ -134,10 +135,10 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    class PlayerGoalsLabel extends Label {
+    private class PlayerGoalsLabel extends Label {
 
-        public PlayerGoalsLabel(int x, int p, Player player) {
-            setGeometry(x, 126 + 18 * p, 30, 17);
+        PlayerGoalsLabel(int x, int p, Player player) {
+            setGeometry(x, 126 + 22 * p, 30, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
                 setText(player.goals);
@@ -155,9 +156,9 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry(game.gui.WIDTH - 185 - 30, 660, 145, 40);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
@@ -169,7 +170,7 @@ public class ViewTeam extends GLScreen {
         }
     }
 
-    static void setPlayerWidgetColor(Widget w, int p, Team team, Competition competition) {
+    private static void setPlayerWidgetColor(Widget w, int p, Team team, Competition competition) {
         // goalkeeper
         if (p == 0) {
             w.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);

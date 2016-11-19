@@ -126,7 +126,7 @@ class SetTeam extends GLScreen {
                 w = new PlayerSkillButton(pos, skillIndex, x);
                 playerButtons.add(w);
                 widgets.add(w);
-                x += 14;
+                x += 13;
             }
             x += 4;
 
@@ -409,7 +409,7 @@ class SetTeam extends GLScreen {
         PlayerSkillButton(int pos, int skillIndex, int x) {
             this.pos = pos;
             this.skillIndex = skillIndex;
-            setGeometry(x, 120 + 22 * pos, 14, 20);
+            setGeometry(x, 120 + 22 * pos, 13, 20);
             setText("", Font.Align.CENTER, font10yellow);
             setActive(false);
         }
