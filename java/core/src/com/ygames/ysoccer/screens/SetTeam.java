@@ -732,61 +732,61 @@ class SetTeam extends GLScreen {
         }
     }
 
-    private void setPlayerWidgetColor(Widget b, int pos) {
+    private void setPlayerWidgetColor(Widget w, int pos) {
         if (shownTeam == ownTeam) {
             // goalkeeper
             if (pos == 0) {
-                b.setColors(0x0094DE);
+                w.setColors(0x0094DE);
             }
             // other player
             else if (pos < Const.TEAM_SIZE) {
-                b.setColors(0x005DDE);
+                w.setColors(0x005DDE);
             }
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
                 if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                    b.setColors(0x0046A6);
+                    w.setColors(0x0046A6);
                 }
                 // out
                 else {
-                    b.setColors(0x303030);
+                    w.setColors(0x303030);
                 }
             }
             // void
             else {
-                b.setColors(0x101010);
+                w.setColors(0x101010);
             }
 
             // selected
             if (selectedPos == pos) {
-                b.setColors(0x993333);
+                w.setColors(0x993333);
             }
         }
         // opponent
         else {
             // goalkeeper
             if (pos == 0) {
-                b.setColors(0xEB4141);
+                w.setColors(0xEB4141);
             }
             // other player
             else if (pos < Const.TEAM_SIZE) {
-                b.setColors(0xAC1A1A);
+                w.setColors(0xAC1A1A);
             }
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
                 if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                    b.setColors(0x851F1F);
+                    w.setColors(0x851F1F);
                 }
                 // out
                 else {
-                    b.setColors(0x303030);
+                    w.setColors(0x303030);
                 }
             }
             // void
             else {
-                b.setColors(0x101010);
+                w.setColors(0x101010);
             }
         }
     }

@@ -150,7 +150,7 @@ class ViewTeam extends GLScreen {
 
         public TitleBar(Team team) {
             setGeometry((game.gui.WIDTH - 600) / 2, 45, 601, 41);
-            setColors(0x6A5ACD, 0x8F83D7, 0x372989);
+            setColors(0x005DDE);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -170,26 +170,29 @@ class ViewTeam extends GLScreen {
         }
     }
 
-    private static void setPlayerWidgetColor(Widget w, int p, Team team, Competition competition) {
+    private void setPlayerWidgetColor(Widget w, int pos, Team team, Competition competition) {
         // goalkeeper
-        if (p == 0) {
-            w.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);
+        if (pos == 0) {
+            w.setColors(0x0094DE);
         }
         // other player
-        else if (p < Const.TEAM_SIZE) {
-            w.setColors(0x003FDE, 0x255EFF, 0x00247E);
+        else if (pos < Const.TEAM_SIZE) {
+            w.setColors(0x005DDE);
         }
-        // bench
-        else if (p < Const.TEAM_SIZE + competition.benchSize) {
-            w.setColors(0x111188, 0x2D2DB3, 0x001140);
+        // bench / out
+        else if (pos < team.players.size()) {
+            // bench
+            if (pos < Const.TEAM_SIZE + competition.benchSize) {
+                w.setColors(0x0046A6);
+            }
+            // out
+            else {
+                w.setColors(0x303030);
+            }
         }
-        // reserve
-        else if (p < team.players.size()) {
-            w.setColors(0x404040, 0x606060, 0x202020);
-        }
-        // empty
+        // void
         else {
-            w.setColors(0x202020, 0x404040, 0x101010);
+            w.setColors(0x101010);
         }
     }
 

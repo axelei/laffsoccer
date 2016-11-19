@@ -7,9 +7,9 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
-public class ViewStatistics extends GLScreen {
+class ViewStatistics extends GLScreen {
 
-    public ViewStatistics(GLGame game) {
+    ViewStatistics(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -43,10 +43,10 @@ public class ViewStatistics extends GLScreen {
         }
     }
 
-    class HighestScorerButton extends Button {
+    private class HighestScorerButton extends Button {
 
-        public HighestScorerButton() {
-            setGeometry((game.gui.WIDTH - 340) / 2, 270, 340, 40);
+        HighestScorerButton() {
+            setGeometry((game.gui.WIDTH - 340) / 2, 270, 340, 44);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("HIGHEST SCORER LIST"), Font.Align.CENTER, Assets.font14);
         }
@@ -57,10 +57,10 @@ public class ViewStatistics extends GLScreen {
         }
     }
 
-    class CompetitionInfoButton extends Button {
+    private class CompetitionInfoButton extends Button {
 
-        public CompetitionInfoButton() {
-            setGeometry((game.gui.WIDTH - 340) / 2, 350, 340, 40);
+        CompetitionInfoButton() {
+            setGeometry((game.gui.WIDTH - 340) / 2, 350, 340, 44);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("COMPETITION INFO"), Font.Align.CENTER, Assets.font14);
         }
@@ -79,10 +79,10 @@ public class ViewStatistics extends GLScreen {
         }
     }
 
-    class ViewSquadsButton extends Button {
+    private class ViewSquadsButton extends Button {
 
-        public ViewSquadsButton() {
-            setGeometry((game.gui.WIDTH - 340) / 2, 430, 340, 40);
+        ViewSquadsButton() {
+            setGeometry((game.gui.WIDTH - 340) / 2, 430, 340, 44);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("VIEW SQUADS"), Font.Align.CENTER, Assets.font14);
         }
@@ -93,9 +93,9 @@ public class ViewStatistics extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
