@@ -119,6 +119,11 @@ public class MatchRenderer {
             drawPlayerNumberAndName(match.ball.owner);
         }
 
+        // clock
+        if (displayTime) {
+            drawTime();
+        }
+
         // goal scorer
         if (displayGoalScorer && (match.subframe % 160 > 80)) {
             drawPlayerNumberAndName(match.ball.goalOwner);
@@ -206,6 +211,32 @@ public class MatchRenderer {
         }
 
         glGraphics.batch.setColor(1, 1, 1, 1);
+    }
+
+    private void drawTime() {
+
+        int minute = match.getMinute();
+
+        // "minutes"
+        glGraphics.batch.draw(Assets.time[10], 46, 22);
+
+        // units
+        int digit = minute % 10;
+        glGraphics.batch.draw(Assets.time[digit], 34, 22);
+
+        // tens
+        minute = (minute - digit) / 10;
+        digit = minute % 10;
+        if (minute > 0) {
+            glGraphics.batch.draw(Assets.time[digit], 22, 22);
+        }
+
+        // hundreds
+        minute = (minute - digit) / 10;
+        digit = minute % 10;
+        if (digit > 0) {
+            glGraphics.batch.draw(Assets.time[digit], 10, 22);
+        }
     }
 
     void updateCameraX(int follow, int speed) {

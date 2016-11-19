@@ -73,6 +73,7 @@ public class Assets {
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
+    public static TextureRegion time[] = new TextureRegion[11];
     public static TextureRegion replay[][] = new TextureRegion[16][2];
     public static TextureRegion replaySpeed[][] = new TextureRegion[3][3];
 
@@ -112,6 +113,7 @@ public class Assets {
         loadKeeperShadow();
         loadPlayerShadow();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
+        loadTime();
         loadReplay();
         loadReplaySpeed();
     }
@@ -339,6 +341,14 @@ public class Assets {
         for (int i = 0; i < 11; i++) {
             weatherIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
             weatherIcons[i].flip(false, true);
+        }
+    }
+
+    private static void loadTime() {
+        Texture texture = new Texture("images/time.png");
+        for (int i = 0; i < 11; i++) {
+            time[i] = new TextureRegion(texture, 12 * i, 0, i < 10 ? 12 : 48, 20);
+            time[i].flip(false, true);
         }
     }
 
