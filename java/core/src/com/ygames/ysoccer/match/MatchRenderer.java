@@ -72,6 +72,7 @@ public class MatchRenderer {
             cornerFlagSprites[i] = new CornerFlagSprite(glGraphics, match.settings, i / 2 * 2 - 1, i % 2 * 2 - 1);
             allSprites.add(cornerFlagSprites[i]);
         }
+        allSprites.add(new GoalTopA(glGraphics));
 
         spriteComparator = new Sprite.SpriteComparator();
     }

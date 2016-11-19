@@ -66,6 +66,7 @@ public class Assets {
     public static TextureRegion[] ball = new TextureRegion[5];
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
+    public static Texture goalTopA;
     public static Texture goalBottom;
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
@@ -106,6 +107,7 @@ public class Assets {
         loadLightIcons();
         loadPitchIcons();
         loadWeatherIcons();
+        goalTopA = new Texture("images/stadium/goal_top_a.png");
         goalBottom = new Texture("images/stadium/goal_bottom.png");
         loadKeeperShadow();
         loadPlayerShadow();

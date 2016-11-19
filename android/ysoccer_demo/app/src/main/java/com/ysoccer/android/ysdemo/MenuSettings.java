@@ -7,17 +7,16 @@ import com.ysoccer.android.ysdemo.gui.Button;
 import com.ysoccer.android.ysdemo.gui.Widget;
 import com.ysoccer.android.ysdemo.match.Weather;
 
-public class MenuSettings extends GLScreen {
+class MenuSettings extends GLScreen {
 
-    MusicButton musicButton;
-    SfxButton sfxButton;
-    LengthButton lengthButton;
-    WeatherButton weatherButton;
-    RadarButton radarButton;
-    AutoReplayButton autoReplayButton;
+    private MusicButton musicButton;
+    private SfxButton sfxButton;
+    private LengthButton lengthButton;
+    private WeatherButton weatherButton;
 
-    class MusicMinusButton extends Button {
-        public MusicMinusButton() {
+    private class MusicMinusButton extends Button {
+
+        MusicMinusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 100, 100, 40);
             setText("-", 0, 14);
@@ -31,8 +30,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class MusicButton extends Button {
-        public MusicButton() {
+    private class MusicButton extends Button {
+
+        MusicButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 100, 200, 40);
             setText("", 0, 14);
@@ -40,13 +40,14 @@ public class MenuSettings extends GLScreen {
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText("" + Math.round(10 * glGame.settings.musicVolume));
         }
     }
 
-    class MusicPlusButton extends Button {
-        public MusicPlusButton() {
+    private class MusicPlusButton extends Button {
+
+        MusicPlusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 300, 100, 100, 40);
             setText("+", 0, 14);
@@ -60,8 +61,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class SfxMinusButton extends Button {
-        public SfxMinusButton() {
+    private class SfxMinusButton extends Button {
+
+        SfxMinusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 160, 100, 40);
             setText("-", 0, 14);
@@ -75,8 +77,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class SfxButton extends Button {
-        public SfxButton() {
+    private class SfxButton extends Button {
+
+        SfxButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 160, 200, 40);
             setText("", 0, 14);
@@ -84,13 +87,14 @@ public class MenuSettings extends GLScreen {
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText("" + Math.round(10 * glGame.settings.sfxVolume));
         }
     }
 
-    class SfxPlusButton extends Button {
-        public SfxPlusButton() {
+    private class SfxPlusButton extends Button {
+
+        SfxPlusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 300, 160, 100, 40);
             setText("+", 0, 14);
@@ -104,8 +108,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class LengthMinusButton extends Button {
-        public LengthMinusButton() {
+    private class LengthMinusButton extends Button {
+
+        LengthMinusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 220, 100, 40);
             setText("-", 0, 14);
@@ -120,8 +125,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class LengthButton extends Button {
-        public LengthButton() {
+    private class LengthButton extends Button {
+
+        LengthButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 220, 200, 40);
             setText("", 0, 14);
@@ -129,14 +135,15 @@ public class MenuSettings extends GLScreen {
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText(_(R.string.$N_MINUTES).replaceFirst("\\$N",
                     "" + Settings.gameLengths[glGame.settings.gameLengthIndex]));
         }
     }
 
-    class LengthPlusButton extends Button {
-        public LengthPlusButton() {
+    private class LengthPlusButton extends Button {
+
+        LengthPlusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 300, 220, 100, 40);
             setText("+", 0, 14);
@@ -151,8 +158,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class WeatherMinusButton extends Button {
-        public WeatherMinusButton() {
+    private class WeatherMinusButton extends Button {
+
+        WeatherMinusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 280, 100, 40);
             setText("-", 0, 14);
@@ -167,8 +175,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class WeatherButton extends Button {
-        public WeatherButton() {
+    private class WeatherButton extends Button {
+
+        WeatherButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 280, 200, 40);
             setText("", 0, 14);
@@ -176,13 +185,14 @@ public class MenuSettings extends GLScreen {
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText(_(Weather.Strength.stringIds[glGame.settings.weatherMaxStrength]));
         }
     }
 
-    class WeatherPlusButton extends Button {
-        public WeatherPlusButton() {
+    private class WeatherPlusButton extends Button {
+
+        WeatherPlusButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 300, 280, 100, 40);
             setText("+", 0, 14);
@@ -197,8 +207,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class RadarButton extends Button {
-        public RadarButton() {
+    private class RadarButton extends Button {
+
+        RadarButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 340, 400, 40);
             setText("", 0, 14);
@@ -211,7 +222,7 @@ public class MenuSettings extends GLScreen {
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             if (glGame.settings.displayRadar) {
                 setText(_(R.string.YES));
             } else {
@@ -220,8 +231,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class AutoReplayButton extends Button {
-        public AutoReplayButton() {
+    private class AutoReplayButton extends Button {
+
+        AutoReplayButton() {
             setColors(0x3C3C78, 0x5858AC, 0x202040);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 400, 400, 40);
             setText("", 0, 14);
@@ -234,7 +246,7 @@ public class MenuSettings extends GLScreen {
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             if (glGame.settings.autoReplay) {
                 setText(_(R.string.YES));
             } else {
@@ -243,8 +255,9 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    class BackButton extends Button {
-        public BackButton() {
+    private class BackButton extends Button {
+
+        BackButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 180) / 2,
                     Settings.GUI_HEIGHT - 40 - 20, 180, 40);
@@ -257,7 +270,7 @@ public class MenuSettings extends GLScreen {
         }
     }
 
-    public MenuSettings(Game game) {
+    MenuSettings(Game game) {
         super(game);
 
         setBackground(Assets.settingsMenuBackground);
@@ -347,8 +360,8 @@ public class MenuSettings extends GLScreen {
         w.isActive = false;
         getWidgets().add(w);
 
-        radarButton = new RadarButton();
-        getWidgets().add(radarButton);
+        w = new RadarButton();
+        getWidgets().add(w);
 
         // auto replay
         w = new Button();
@@ -358,14 +371,13 @@ public class MenuSettings extends GLScreen {
         w.isActive = false;
         getWidgets().add(w);
 
-        autoReplayButton = new AutoReplayButton();
-        getWidgets().add(autoReplayButton);
+        w = new AutoReplayButton();
+        getWidgets().add(w);
 
         w = new BackButton();
         getWidgets().add(w);
 
         setSelectedWidget(w);
-
     }
 
     @Override
@@ -378,5 +390,4 @@ public class MenuSettings extends GLScreen {
     public void onKeyBackHw() {
         game.setScreen(new MenuMain(game));
     }
-
 }

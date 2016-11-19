@@ -5,7 +5,7 @@ import com.ygames.ysoccer.framework.GLGraphics;
 
 import java.util.Comparator;
 
-public class Sprite {
+class Sprite {
 
     GLGraphics glGraphics;
 
@@ -15,7 +15,7 @@ public class Sprite {
     int z;
     int offset;
 
-    public Sprite(GLGraphics glGraphics) {
+    Sprite(GLGraphics glGraphics) {
         this.glGraphics = glGraphics;
     }
 
