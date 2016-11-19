@@ -85,14 +85,10 @@ public class MatchRenderer {
             }
         }
 
-        allSprites.add(flagpostSprite[0] = new FlagpostSprite(glGraphics,
-                match, -1, -1));
-        allSprites.add(flagpostSprite[1] = new FlagpostSprite(glGraphics,
-                match, -1, +1));
-        allSprites.add(flagpostSprite[2] = new FlagpostSprite(glGraphics,
-                match, +1, -1));
-        allSprites.add(flagpostSprite[3] = new FlagpostSprite(glGraphics,
-                match, +1, +1));
+        allSprites.add(flagpostSprite[0] = new FlagpostSprite(glGraphics, match, -1, -1));
+        allSprites.add(flagpostSprite[1] = new FlagpostSprite(glGraphics, match, -1, +1));
+        allSprites.add(flagpostSprite[2] = new FlagpostSprite(glGraphics, match, +1, -1));
+        allSprites.add(flagpostSprite[3] = new FlagpostSprite(glGraphics, match, +1, +1));
         allSprites.add(new GoalTopA(glGraphics));
         allSprites.add(new GoalTopB(glGraphics));
         spriteComparator = new SpriteComparator();
@@ -225,12 +221,10 @@ public class MatchRenderer {
         // gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
         gl.glMatrixMode(GL10.GL_PROJECTION);
         gl.glLoadIdentity();
-        GLU.gluOrtho2D(gl, 0, glGraphics.getWidth() * 100.0f / zoom,
-                glGraphics.getHeight() * 100.0f / zoom, 0);
+        GLU.gluOrtho2D(gl, 0, glGraphics.getWidth() * 100.0f / zoom, glGraphics.getHeight() * 100.0f / zoom, 0);
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
-        gl.glTranslatef(Const.CENTER_X - vcameraX[match.subframe],
-                Const.CENTER_Y - vcameraY[match.subframe], 0);
+        gl.glTranslatef(Const.CENTER_X - vcameraX[match.subframe], Const.CENTER_Y - vcameraY[match.subframe], 0);
 
         glGraphics.setColor(0xFFFFFF);
         renderBackground();
@@ -248,17 +242,13 @@ public class MatchRenderer {
         // redraw jumpers
         // top
         if (match.ball.data[match.subframe].y < -Const.JUMPER_Y) {
-            glGraphics.drawTexture(Assets.jumper, -Const.JUMPER_X,
-                    -Const.JUMPER_Y - 40);
-            glGraphics.drawTexture(Assets.jumper, +Const.JUMPER_X,
-                    -Const.JUMPER_Y - 40);
+            glGraphics.drawTexture(Assets.jumper, -Const.JUMPER_X, -Const.JUMPER_Y - 40);
+            glGraphics.drawTexture(Assets.jumper, +Const.JUMPER_X, -Const.JUMPER_Y - 40);
         }
         // bottom
         if (match.ball.data[match.subframe].y < +Const.JUMPER_Y) {
-            glGraphics.drawTexture(Assets.jumper, -Const.JUMPER_X,
-                    +Const.JUMPER_Y - 40);
-            glGraphics.drawTexture(Assets.jumper, +Const.JUMPER_X,
-                    +Const.JUMPER_Y - 40);
+            glGraphics.drawTexture(Assets.jumper, -Const.JUMPER_X, +Const.JUMPER_Y - 40);
+            glGraphics.drawTexture(Assets.jumper, +Const.JUMPER_X, +Const.JUMPER_Y - 40);
         }
 
         if (match.settings.weatherStrength != Weather.Strength.NONE) {
@@ -365,12 +355,9 @@ public class MatchRenderer {
         glGraphics.drawTextureRect(Assets.ball, d.x - 1 + 0.65f * d.z, d.y - 3
                 + 0.46f * d.z, 32, 0, 8, 8);
         if (match.settings.time == Time.NIGHT) {
-            glGraphics.drawTextureRect(Assets.ball, d.x - 5 - 0.65f * d.z, d.y
-                    - 3 + 0.46f * d.z, 32, 0, 8, 8);
-            glGraphics.drawTextureRect(Assets.ball, d.x - 5 - 0.65f * d.z, d.y
-                    - 3 - 0.46f * d.z, 32, 0, 8, 8);
-            glGraphics.drawTextureRect(Assets.ball, d.x - 1 + 0.65f * d.z, d.y
-                    - 3 - 0.46f * d.z, 32, 0, 8, 8);
+            glGraphics.drawTextureRect(Assets.ball, d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z, 32, 0, 8, 8);
+            glGraphics.drawTextureRect(Assets.ball, d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z, 32, 0, 8, 8);
+            glGraphics.drawTextureRect(Assets.ball, d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z, 32, 0, 8, 8);
         }
 
         Frame keyFrame;
@@ -385,8 +372,7 @@ public class MatchRenderer {
                     d = player.data[subframe];
                     if (d.isVisible) {
                         keyFrame = Assets.keeperShadowTextureRegions[d.fmx][d.fmy];
-                        batcher.drawSprite(d.x - 24 + 0.65f * d.z, d.y - 34
-                                + 0.46f * d.z, 50, 50, keyFrame);
+                        batcher.drawSprite(d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z, 50, 50, keyFrame);
                     }
                 }
             }
@@ -405,8 +391,7 @@ public class MatchRenderer {
                             float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
                             float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
                             keyFrame = Assets.playerShadowTextureRegions[d.fmx][d.fmy];
-                            batcher.drawSprite(d.x - offsetX + mX * d.z, d.y
-                                    - offsetY + 5 + mY * d.z, 32, 32, keyFrame);
+                            batcher.drawSprite(d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z, 32, 32, keyFrame);
                         }
                     }
                 }

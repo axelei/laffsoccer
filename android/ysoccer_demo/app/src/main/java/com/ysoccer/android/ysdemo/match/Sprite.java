@@ -3,7 +3,7 @@ package com.ysoccer.android.ysdemo.match;
 import com.ysoccer.android.framework.gl.Texture;
 import com.ysoccer.android.framework.impl.GLGraphics;
 
-public class Sprite {
+class Sprite {
 
     GLGraphics glGraphics;
 
@@ -13,7 +13,7 @@ public class Sprite {
     int z;
     int offset;
 
-    public Sprite(GLGraphics glGraphics) {
+    Sprite(GLGraphics glGraphics) {
         this.glGraphics = glGraphics;
     }
 
@@ -24,5 +24,4 @@ public class Sprite {
     public int getY(int subframe) {
         return y;
     }
-
 }
