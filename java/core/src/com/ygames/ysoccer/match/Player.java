@@ -58,6 +58,7 @@ public class Player {
     public Skin.Color skinColor;
     public Hair.Color hairColor;
     public String hairStyle;
+    public transient Hair hair;
 
     public Skills skills;
 

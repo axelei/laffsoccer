@@ -30,8 +30,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 
 import sun.misc.IOUtils;
@@ -71,6 +73,7 @@ public class Assets {
     public static TextureRegion keeper[][] = new TextureRegion[8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
+    public static Map<Hair, TextureRegion[][]> hairs = new HashMap<Hair, TextureRegion[][]>();
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
     public static TextureRegion time[] = new TextureRegion[11];
@@ -206,7 +209,7 @@ public class Assets {
     private static List<String> loadHairStyles() {
         List<String> hairStyles = new ArrayList<String>();
         FileHandle folder = Gdx.files.internal("images/player/hairstyles");
-        for (FileHandle file : folder.list(".PNG")) {
+        for (FileHandle file : folder.list(".png")) {
             hairStyles.add(file.nameWithoutExtension());
         }
         Collections.sort(hairStyles);
@@ -470,6 +473,44 @@ public class Assets {
                     player[p.team.index][p.skinColor.ordinal()][frameX][frameY].flip(false, true);
                 }
             }
+        }
+    }
+
+    public static void loadHair(Player player) {
+        player.hair = new Hair(player.hairColor, player.hairStyle);
+        if (hairs.get(player.hair) == null) {
+            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            addHairColors(player, rgbPairs);
+            Texture texture = loadTexture("images/player/hairstyles/" + player.hairStyle + ".png", rgbPairs);
+            TextureRegion textureRegion[][] = new TextureRegion[8][10];
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 10; j++) {
+                    textureRegion[i][j] = new TextureRegion(texture, 21 * i, 21 * j, 20, 20);
+                    textureRegion[i][j].flip(false, true);
+                }
+            }
+            hairs.put(player.hair, textureRegion);
+        }
+    }
+
+    private static void addHairColors(Player player, List<RgbPair> rgbPairs) {
+        // shaved
+        if (player.hairStyle.equals("SHAVED")) {
+            GlColor3 sc = Skin.colors[player.skinColor.ordinal()];
+            GlColor2 shavedColor = Assets.getShavedColor(player.skinColor, player.hairColor);
+            if (shavedColor != null) {
+                rgbPairs.add(new RgbPair(0xFF907130, shavedColor.color1));
+                rgbPairs.add(new RgbPair(0xFF715930, shavedColor.color2));
+            } else {
+                rgbPairs.add(new RgbPair(0xFF907130, sc.color1));
+                rgbPairs.add(new RgbPair(0xFF715930, sc.color2));
+            }
+            // others
+        } else {
+            GlColor3 hc = Hair.colors[player.hairColor.ordinal()];
+            rgbPairs.add(new RgbPair(0x907130, hc.color1));
+            rgbPairs.add(new RgbPair(0x715930, hc.color2));
+            rgbPairs.add(new RgbPair(0x514030, hc.color3));
         }
     }
 
