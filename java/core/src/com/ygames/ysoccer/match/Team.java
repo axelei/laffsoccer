@@ -72,9 +72,9 @@ public class Team {
         player.nationality = country;
         player.role = Player.Role.GOALKEEPER;
         rotatePlayerNumber(player, 1);
-        player.hairColor = "BLACK";
-        player.hairStyle = "SMOOTH_A";
         player.skinColor = Skin.Color.PINK;
+        player.hairColor = Hair.Color.BLACK;
+        player.hairStyle = "SMOOTH_A";
         player.skills = new Player.Skills();
         players.add(player);
         return player;

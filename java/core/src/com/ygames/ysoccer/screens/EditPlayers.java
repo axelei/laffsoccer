@@ -13,6 +13,7 @@ import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
@@ -165,7 +166,7 @@ class EditPlayers extends GLScreen {
             if (player == null) {
                 setActive(false);
             } else {
-                GlColor3 hairColor = Assets.getHairColorByName(player.hairColor);
+                GlColor3 hairColor = Hair.colors[player.hairColor.ordinal()];
                 setColors(hairColor.color2, hairColor.color1, hairColor.color3);
                 setActive(true);
             }
@@ -193,11 +194,10 @@ class EditPlayers extends GLScreen {
 
         private void updateHairColor(int n) {
             Player player = team.playerAtPosition(pos);
-            GlColor3 hairColor = Assets.getHairColorByName(player.hairColor);
 
-            int i = Assets.hairColors.indexOf(hairColor);
-            i = Emath.rotate(i, 0, Assets.hairColors.size() - 1, n);
-            player.hairColor = Assets.hairColors.get(i).name;
+            int color = player.hairColor.ordinal();
+            color = Emath.rotate(color, Hair.Color.BLACK.ordinal(), Hair.Color.PUNK_BLOND.ordinal(), n);
+            player.hairColor = Hair.Color.values()[color];
 
             setDirty(true);
             selectButtons[pos].setDirty(true);

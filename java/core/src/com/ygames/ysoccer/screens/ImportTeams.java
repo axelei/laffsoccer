@@ -12,6 +12,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Coach;
+import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
@@ -722,15 +723,15 @@ class ImportTeams extends GLScreen {
                 int headSkin = (b >> 3) & 0x3;
                 switch (headSkin) {
                     case 0:
-                        player.hairColor = Assets.hairColors.get(0).name;
+                        player.hairColor = Hair.Color.BLACK;
                         player.skinColor = Skin.Color.values()[0];
                         break;
                     case 1:
-                        player.hairColor = Assets.hairColors.get(1).name;
+                        player.hairColor = Hair.Color.BLOND;
                         player.skinColor = Skin.Color.values()[0];
                         break;
                     case 2:
-                        player.hairColor = Assets.hairColors.get(0).name;
+                        player.hairColor = Hair.Color.BLACK;
                         player.skinColor = Skin.Color.values()[1];
                         break;
                 }

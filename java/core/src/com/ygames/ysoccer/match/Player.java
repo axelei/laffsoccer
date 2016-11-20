@@ -56,7 +56,7 @@ public class Player {
     public int number;
 
     public Skin.Color skinColor;
-    public String hairColor;
+    public Hair.Color hairColor;
     public String hairStyle;
 
     public Skills skills;
@@ -698,7 +698,7 @@ public class Player {
                 rgbPairs.add(new RgbPair(0xFF715930, sc.color2));
             }
         } else {
-            GlColor3 hc = Assets.getHairColorByName(hairColor);
+            GlColor3 hc = Hair.colors[hairColor.ordinal()];
             rgbPairs.add(new RgbPair(0xFF907130, hc.color1));
             rgbPairs.add(new RgbPair(0xFF715930, hc.color2));
             rgbPairs.add(new RgbPair(0xFF514030, hc.color3));
