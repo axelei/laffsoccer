@@ -42,6 +42,9 @@ class GameOptions extends GLScreen {
         w = new MusicVolumeLabel();
         widgets.add(w);
 
+        w = new MusicVolumeButton();
+        widgets.add(w);
+
         w = new PlayerCountryLabel();
         widgets.add(w);
 
@@ -241,7 +244,50 @@ class GameOptions extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get("MUSIC VOLUME"));
+            setText(Assets.strings.get("MUSIC.VOLUME"));
+        }
+    }
+
+    private class MusicVolumeButton extends Button {
+
+        MusicVolumeButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.gui.WIDTH / 2 + 30, 300, 440, 38);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (game.settings.musicVolume == 0) {
+                setText(Assets.strings.get("MUSIC.OFF"));
+            } else {
+                setText(game.settings.musicVolume / 10);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateMusicVolume(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateMusicVolume(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateMusicVolume(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateMusicVolume(-1);
+        }
+
+        private void updateMusicVolume(int n) {
+            game.settings.musicVolume = Emath.slide(game.settings.musicVolume, 0, 100, 10 * n);
+            setDirty(true);
         }
     }
 

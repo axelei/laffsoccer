@@ -16,9 +16,14 @@ public class Settings {
 
     public final String APP_NAME = "YSoccer";
     public final String VERSION = "16";
+
+    // game
+    public String locale;
     public boolean fullScreen;
     public boolean mouseEnabled;
-    public String locale;
+    public int musicVolume;
+
+    // match
     public static Integer[] matchLengths = {3, 5, 7, 10};
     public int matchLength;
     public int benchSize;
@@ -29,6 +34,8 @@ public class Settings {
     public int zoom;
     public boolean radar;
     public boolean autoReplays;
+
+    // controls
     private String keyboardConfigs;
     private String joystickConfigs;
 
@@ -39,41 +46,54 @@ public class Settings {
         json.addClassTag("KeyboardConfig", KeyboardConfig.class);
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
+        // game
+        locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
         mouseEnabled = preferences.getBoolean("mouseEnabled", true);
-        locale = preferences.getString("locale", "en");
-        matchLength = preferences.getInteger("matchLength", matchLengths[0]);
-        benchSize = preferences.getInteger("benchSize", 5);
+        musicVolume = preferences.getInteger("musicVolume", 40);
         useFlags = preferences.getBoolean("useFlags", true);
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 1)
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
+
+        // match
+        matchLength = preferences.getInteger("matchLength", matchLengths[0]);
+        benchSize = preferences.getInteger("benchSize", 5);
         weatherMaxStrength = preferences.getInteger("weatherMaxStrength", Weather.Strength.LIGHT);
         zoom = preferences.getInteger("zoom", 100);
         radar = preferences.getBoolean("radar", true);
         autoReplays = preferences.getBoolean("autoReplays", true);
+
+        // controls
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
         joystickConfigs = preferences.getString("joystickConfigs", "[]");
     }
 
     public void save() {
+        // game
+        preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
         preferences.putBoolean("mouseEnabled", mouseEnabled);
-        preferences.putString("locale", locale);
-        preferences.putInteger("matchLength", matchLength);
-        preferences.putInteger("benchSize", benchSize);
+        preferences.putInteger("musicVolume", musicVolume);
         preferences.putBoolean("useFlags", useFlags);
         int e = (int) Math.log10(maxPlayerValue);
         int m = (int) (maxPlayerValue / Math.pow(10, e));
         preferences.putInteger("maxPlayerValueM", m);
         preferences.putInteger("maxPlayerValueE", e);
         preferences.putString("currency", currency);
+
+        // match
+        preferences.putInteger("matchLength", matchLength);
+        preferences.putInteger("benchSize", benchSize);
         preferences.putInteger("weatherMaxStrength", weatherMaxStrength);
         preferences.putInteger("zoom", zoom);
         preferences.putBoolean("radar", radar);
         preferences.putBoolean("autoReplays", autoReplays);
+
+        // controls
         preferences.putString("keyboardConfigs", keyboardConfigs);
         preferences.putString("joystickConfigs", joystickConfigs);
+
         preferences.flush();
     }
 
