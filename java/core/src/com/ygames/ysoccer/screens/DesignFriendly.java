@@ -9,12 +9,12 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
 
-public class DesignFriendly extends GLScreen {
+class DesignFriendly extends GLScreen {
 
-    Friendly friendly;
-    Widget substitutesButton;
+    private Friendly friendly;
+    private Widget substitutesButton;
 
-    public DesignFriendly(GLGame game) {
+    DesignFriendly(GLGame game) {
         super(game);
 
         friendly = new Friendly();
@@ -60,9 +60,9 @@ public class DesignFriendly extends GLScreen {
         }
     }
 
-    class SubstitutesLabel extends Button {
+    private class SubstitutesLabel extends Button {
 
-        public SubstitutesLabel() {
+        SubstitutesLabel() {
             setGeometry(game.gui.WIDTH / 2 - 350, 250, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
@@ -70,12 +70,17 @@ public class DesignFriendly extends GLScreen {
         }
     }
 
-    class SubstitutesButton extends Button {
+    private class SubstitutesButton extends Button {
 
-        public SubstitutesButton() {
+        SubstitutesButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 250, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(friendly.substitutions);
         }
 
         @Override
@@ -102,16 +107,11 @@ public class DesignFriendly extends GLScreen {
             friendly.substitutions = Emath.slide(friendly.substitutions, 2, friendly.benchSize, n);
             setDirty(true);
         }
-
-        @Override
-        public void refresh() {
-            setText(friendly.substitutions);
-        }
     }
 
-    class BenchSizeLabel extends Button {
+    private class BenchSizeLabel extends Button {
 
-        public BenchSizeLabel() {
+        BenchSizeLabel() {
             setGeometry(game.gui.WIDTH / 2 - 350, 305, 440, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
@@ -119,12 +119,17 @@ public class DesignFriendly extends GLScreen {
         }
     }
 
-    class BenchSizeButton extends Button {
+    private class BenchSizeButton extends Button {
 
-        public BenchSizeButton() {
+        BenchSizeButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 305, 240, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(friendly.benchSize);
         }
 
         @Override
@@ -153,16 +158,11 @@ public class DesignFriendly extends GLScreen {
             setDirty(true);
             substitutesButton.setDirty(true);
         }
-
-        @Override
-        public void refresh() {
-            setText(friendly.benchSize);
-        }
     }
 
-    class OkButton extends Button {
+    private class OkButton extends Button {
 
-        public OkButton() {
+        OkButton() {
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
             setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
@@ -174,9 +174,9 @@ public class DesignFriendly extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
