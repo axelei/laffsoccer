@@ -11,9 +11,9 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompetitionViewTeams extends GLScreen {
+class CompetitionViewTeams extends GLScreen {
 
-    public CompetitionViewTeams(GLGame game) {
+    CompetitionViewTeams(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -49,11 +49,11 @@ public class CompetitionViewTeams extends GLScreen {
         }
     }
 
-    class TeamButton extends Button {
+    private class TeamButton extends Button {
 
         Team team;
 
-        public TeamButton(Team team) {
+        TeamButton(Team team) {
             this.team = team;
             setSize(270, 30);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
@@ -66,9 +66,9 @@ public class CompetitionViewTeams extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
