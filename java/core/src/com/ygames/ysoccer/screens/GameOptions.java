@@ -39,6 +39,9 @@ class GameOptions extends GLScreen {
         w = new MouseButton();
         widgets.add(w);
 
+        w = new MusicModeLabel();
+        widgets.add(w);
+
         w = new MusicVolumeLabel();
         widgets.add(w);
 
@@ -233,11 +236,26 @@ class GameOptions extends GLScreen {
         }
     }
 
+    private class MusicModeLabel extends Button {
+
+        MusicModeLabel() {
+            setColors(0x800000);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 300, 440, 38);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get("MUSIC.MODE"));
+        }
+    }
+
     private class MusicVolumeLabel extends Button {
 
         MusicVolumeLabel() {
             setColors(0x800000);
-            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 300, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 350, 440, 38);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -252,7 +270,7 @@ class GameOptions extends GLScreen {
 
         MusicVolumeButton() {
             setColors(0x1F1F95);
-            setGeometry(game.gui.WIDTH / 2 + 30, 300, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 + 30, 350, 440, 38);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -295,7 +313,7 @@ class GameOptions extends GLScreen {
 
         PlayerCountryLabel() {
             setColors(0x800000);
-            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 350, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 400, 440, 38);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -310,7 +328,7 @@ class GameOptions extends GLScreen {
 
         PlayerCountryButton() {
             setColors(0x1F1F95);
-            setGeometry(game.gui.WIDTH / 2 + 30, 350, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 + 30, 400, 440, 38);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -339,7 +357,7 @@ class GameOptions extends GLScreen {
 
         MaxPlayerValueLabel() {
             setColors(0x800000);
-            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 400, 440, 38);
+            setGeometry(game.gui.WIDTH / 2 - 30 - 440, 450, 440, 38);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -354,7 +372,7 @@ class GameOptions extends GLScreen {
 
         MaxPlayerValueButton() {
             setColors(0x1F1F95);
-            setGeometry(game.gui.WIDTH / 2 + 30, 400, 300, 38);
+            setGeometry(game.gui.WIDTH / 2 + 30, 450, 300, 38);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -430,7 +448,7 @@ class GameOptions extends GLScreen {
 
         CurrencyButton() {
             setColors(0x1F1F95);
-            setGeometry(game.gui.WIDTH / 2 + 340, 400, 130, 38);
+            setGeometry(game.gui.WIDTH / 2 + 340, 450, 130, 38);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -465,7 +483,7 @@ class GameOptions extends GLScreen {
 
         ImportButton() {
             setColors(0x762B8E);
-            setGeometry((game.gui.WIDTH - 300) / 2, 500, 300, 36);
+            setGeometry((game.gui.WIDTH - 300) / 2, 525, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -484,7 +502,7 @@ class GameOptions extends GLScreen {
 
         QuitToOsButton() {
             setColors(0x008080);
-            setGeometry((game.gui.WIDTH - 300) / 2, 550, 300, 36);
+            setGeometry((game.gui.WIDTH - 300) / 2, 575, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
