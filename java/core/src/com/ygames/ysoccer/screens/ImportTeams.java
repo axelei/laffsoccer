@@ -295,7 +295,7 @@ class ImportTeams extends GLScreen {
     private List<Integer> position = new ArrayList<Integer>();
     FileHandle[] files;
     private int fileIndex;
-    private int imported, skipped, failed;
+    private int importedTeams, failedTeams, skippedFiles;
 
     ImportTeams(GLGame game) {
         super(game);
@@ -349,16 +349,8 @@ class ImportTeams extends GLScreen {
                     state = State.FINISHED;
                 } else {
                     FileHandle fileHandle = files[fileIndex++];
-                    try {
-                        boolean success = importFile(fileHandle);
-                        if (success) {
-                            imported++;
-                        } else {
-                            skipped++;
-                        }
-                    } catch (Exception e) {
-                        Gdx.app.log("Failed: " + fileHandle.name(), e.toString());
-                        failed++;
+                    if (!importFile(fileHandle)) {
+                        skippedFiles++;
                     }
                 }
                 updateAllWidgets();
@@ -400,9 +392,9 @@ class ImportTeams extends GLScreen {
                     setText("IMPORTING " + (fileIndex + 1) + "/" + files.length);
                     break;
                 case FINISHED:
-                    String message = imported + " IMPORTED";
-                    if (skipped > 0) message += " - " + skipped + " SKIPPED";
-                    if (failed > 0) message += " - " + failed + " FAILED";
+                    String message = importedTeams + " TEAMS IMPORTED";
+                    if (failedTeams > 0) message += " - " + failedTeams + " TEAMS FAILED";
+                    if (skippedFiles > 0) message += " - " + skippedFiles + " FILES SKIPPED";
                     setText(message);
                     break;
             }
@@ -529,7 +521,7 @@ class ImportTeams extends GLScreen {
         }
     }
 
-    private boolean importFile(FileHandle fileHandle) throws Exception {
+    private boolean importFile(FileHandle fileHandle) {
 
         String extension = fileHandle.extension();
         Team.Type teamType;
@@ -562,223 +554,244 @@ class ImportTeams extends GLScreen {
 
         // read teamList
         for (int tm = 0; tm < teams; tm++) {
-
-            Team team = new Team();
-
-            team.type = teamType;
-
-            int countryIndex = (bytes[pos++] & 0xFF);
-
-            String continent = "";
-            if (team.type == Team.Type.CLUB) {
-                team.country = "";
-                if (countryIndex < countryCodes.length) {
-                    String countryCode = countryCodes[countryIndex];
-                    team.country = countryCode;
-                    for (String[] country : countries) {
-                        if (country[0].equals(countryCode)) {
-                            continent = country[1];
-                            team.country = country[2];
-                        }
-                    }
-                }
-            }
-            if (team.type == Team.Type.NATIONAL) {
-                if (countryIndex < countryCodes.length) {
-                    continent = countryCodes[countryIndex];
-                }
-            }
-            team.city = "";
-            team.stadium = "";
-
-            // skip team number
-            pos++;
-
-            // skip general team number
-            pos += 2;
-
-            // skip unused byte
-            pos++;
-
-            team.name = "";
-            for (int i = 0; i < 19; i++) {
-                int b = bytes[pos++] & 0xFF;
-                if (b > 0) {
-                    team.name += (char) (b);
-                }
-            }
-
-            // tactics
-            team.tactics = Tactics.codes[bytes[pos++] & 0xFF];
-
-            // league
-            int division = bytes[pos++] & 0xFF;
-
-            switch (team.type) {
-                case CLUB:
-                    if (division == 4) {
-                        team.league = "NO LEAGUE";
-                    } else {
-                        team.league = "LEAGUE " + (char) ('A' + division);
-                    }
-                    break;
-
-                case NATIONAL:
-                    team.confederation = countryCodes[countryIndex];
-                    break;
-            }
-
-            // main kit
-            team.kits = new ArrayList<Kit>();
-            for (int i = 0; i < 2; i++) {
-                Kit kit = new Kit();
-                kit.style = kitNames[bytes[pos++] & 0xFF];
-                kit.shirt1 = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-                kit.shirt2 = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-                kit.shorts = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-                kit.socks = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-                team.kits.add(kit);
-            }
-
-            // third kit
-            Kit kit = new Kit();
-            kit.style = team.kits.get(0).style;
-            kit.shirt1 = team.kits.get(0).shirt1;
-            kit.shirt2 = team.kits.get(0).shirt2;
-            kit.shorts = team.kits.get(1).shorts;
-            kit.socks = team.kits.get(1).socks;
-            team.kits.add(kit);
-
-            // coach name
-            team.coach = new Coach();
-            team.coach.name = "";
-            team.coach.nationality = "";
-            for (int i = 0; i < 25; i++) {
-                int b = bytes[pos++] & 0xFF;
-                if (b > 0) {
-                    team.coach.name += (char) (b);
-                }
-            }
-
-            // player vector
-            // tell which player is stored in 'pos' position
-            position.set(0, 0);
-            for (int i = 1; i < 16; i++) {
-                position.set(i, bytes[pos++] & 0xFF);
-            }
-
-            // read players
-            team.players = new ArrayList<Player>();
-            for (int i = 0; i < 16; i++) {
-                team.players.add(new Player());
-            }
-
-            for (int i = 0; i < 16; i++) {
-
-                // initialize player
-                Player player = team.players.get(position.indexOf(i));
-
-                // nationality
-                player.nationality = "";
-                int nationalityIndex = bytes[pos++] & 0xFF;
-                if (nationalityIndex < playerCountryCodes.length) {
-                    player.nationality = playerCountryCodes[nationalityIndex];
-                }
-
-                // skip unknown Byte
-                pos++;
-
-                // shirt number
-                player.number = (bytes[pos++] & 0xFF);
-
-                // name
-                boolean surnameFound = false;
-                String surname = "";
-                String name = "";
-                for (int j = 1; j <= 23; j++) {
-                    int b = bytes[pos++] & 0xFF;
-                    if (b == 32 && !surnameFound) {
-                        surnameFound = true;
-                    } else {
-                        if (b > 0) {
-                            if (surnameFound) {
-                                surname += (char) (b);
-                            } else {
-                                name += (char) (b);
-                            }
-                        }
-                    }
-                }
-                if (surname.equals("")) {
-                    player.shirtName = name;
-                    player.name = name;
-                } else {
-                    player.shirtName = surname;
-                    player.name = name + " " + surname;
-                }
-
-                // player Type (role) + head/skin Type + skip 3 unknown bits
-                int b = bytes[pos++] & 0xFF;
-                player.role = Player.Role.values()[b >> 5];
-                int headSkin = (b >> 3) & 0x3;
-                switch (headSkin) {
-                    case 0:
-                        player.hairColor = Hair.Color.BLACK;
-                        player.skinColor = Skin.Color.values()[0];
-                        break;
-                    case 1:
-                        player.hairColor = Hair.Color.BLOND;
-                        player.skinColor = Skin.Color.values()[0];
-                        break;
-                    case 2:
-                        player.hairColor = Hair.Color.BLACK;
-                        player.skinColor = Skin.Color.values()[1];
-                        break;
-                }
-                player.hairStyle = "SMOOTH_A";
-
-                // skip unknown byte
-                pos++;
-
-                // player skills
-                player.skills = new Player.Skills();
-                player.skills.passing = bytes[pos++] & 0x7;
-
-                b = bytes[pos++] & 0xFF;
-                player.skills.shooting = (b >> 4) & 0x7;
-                player.skills.heading = (b & 0x7);
-
-                b = bytes[pos++] & 0xFF;
-                player.skills.tackling = (b >> 4) & 0x7;
-                player.skills.control = b & 0x7;
-
-                b = bytes[pos++] & 0xFF;
-                player.skills.speed = (b >> 4) & 0x7;
-                player.skills.finishing = b & 0x7;
-
-                // value
-                b = bytes[pos++] & 0xFF;
-                player.value = b;
-
-                // skip unknown bytes
-                pos += 5;
-
-                String folder = getYearFolder() + "/" + getTeamTypeFolder(team) + "/";
-                switch (team.type) {
-                    case CLUB:
-                        folder += continent + "/" + team.country + "/";
-                        break;
-                    case NATIONAL:
-                        folder += continent + "/";
-                        break;
-                }
-
-                String cleanName = team.name.toLowerCase().replace(" ", "_").replace("/", "_");
-                FileHandle fh = Assets.teamsFolder.child(folder + "team." + cleanName + ".json");
-                fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
-            }
+            pos = importTeam(fileHandle, teamType, bytes, pos);
         }
 
         return true;
+    }
+
+    private int importTeam(FileHandle fileHandle, Team.Type teamType, byte[] bytes, int pos) {
+
+        int startingPosition = pos;
+
+        Team team = new Team();
+
+        team.type = teamType;
+
+        int countryIndex = (bytes[pos++] & 0xFF);
+
+        String continent = "";
+        if (team.type == Team.Type.CLUB) {
+            team.country = "";
+            if (countryIndex < countryCodes.length) {
+                String countryCode = countryCodes[countryIndex];
+                team.country = countryCode;
+                for (String[] country : countries) {
+                    if (country[0].equals(countryCode)) {
+                        continent = country[1];
+                        team.country = country[2];
+                    }
+                }
+            }
+        }
+        if (team.type == Team.Type.NATIONAL) {
+            if (countryIndex < countryCodes.length) {
+                continent = countryCodes[countryIndex];
+            }
+        }
+        team.city = "";
+        team.stadium = "";
+
+        // skip team number
+        pos++;
+
+        // skip general team number
+        pos += 2;
+
+        // skip unused byte
+        pos++;
+
+        team.name = "";
+        for (int i = 0; i < 19; i++) {
+            int b = bytes[pos++] & 0xFF;
+            if (b > 0) {
+                team.name += (char) (b);
+            }
+        }
+
+        // tactics
+        team.tactics = Tactics.codes[bytes[pos++] & 0xFF];
+
+        // league
+        int division = bytes[pos++] & 0xFF;
+
+        switch (team.type) {
+            case CLUB:
+                if (division == 4) {
+                    team.league = "NO LEAGUE";
+                } else {
+                    team.league = "LEAGUE " + (char) ('A' + division);
+                }
+                break;
+
+            case NATIONAL:
+                team.confederation = countryCodes[countryIndex];
+                break;
+        }
+
+        // main kit
+        team.kits = new ArrayList<Kit>();
+        for (int i = 0; i < 2; i++) {
+            Kit kit = new Kit();
+            kit.style = kitNames[bytes[pos++] & 0xFF];
+            kit.shirt1 = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
+            kit.shirt2 = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
+            kit.shorts = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
+            kit.socks = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
+            team.kits.add(kit);
+        }
+
+        // third kit
+        Kit kit = new Kit();
+        kit.style = team.kits.get(0).style;
+        kit.shirt1 = team.kits.get(0).shirt1;
+        kit.shirt2 = team.kits.get(0).shirt2;
+        kit.shorts = team.kits.get(1).shorts;
+        kit.socks = team.kits.get(1).socks;
+        team.kits.add(kit);
+
+        // coach name
+        team.coach = new Coach();
+        team.coach.name = "";
+        team.coach.nationality = "";
+        for (int i = 0; i < 25; i++) {
+            int b = bytes[pos++] & 0xFF;
+            if (b > 0) {
+                team.coach.name += (char) (b);
+            }
+        }
+
+        // player vector
+        // tell which player is stored in 'pos' position
+        for (int i = 0; i < 16; i++) {
+            position.set(i, 0);
+        }
+        for (int i = 1; i < 16; i++) {
+            int p = bytes[pos++] & 0xFF;
+            if (p == 0) {
+                Gdx.app.log("Error", "player has position 0 in file: " + fileHandle.name() + ", team: " + team.name);
+                failedTeams++;
+                return startingPosition + 684;
+            } else if (position.indexOf(p) != -1) {
+                Gdx.app.log("Error", "duplicate position: " + p + " in file: " + fileHandle.name() + ", team: " + team.name);
+                failedTeams++;
+                return startingPosition + 684;
+            }
+            position.set(i, p);
+        }
+
+        // read players
+        team.players = new ArrayList<Player>();
+        for (int i = 0; i < 16; i++) {
+            team.players.add(new Player());
+        }
+
+        for (int i = 0; i < 16; i++) {
+
+            // initialize player
+                Player player = team.players.get(position.indexOf(i));
+
+            // nationality
+            player.nationality = "";
+            int nationalityIndex = bytes[pos++] & 0xFF;
+            if (nationalityIndex < playerCountryCodes.length) {
+                player.nationality = playerCountryCodes[nationalityIndex];
+            }
+
+            // skip unknown Byte
+            pos++;
+
+            // shirt number
+            player.number = (bytes[pos++] & 0xFF);
+
+            // name
+            boolean surnameFound = false;
+            String surname = "";
+            String name = "";
+            for (int j = 1; j <= 23; j++) {
+                int b = bytes[pos++] & 0xFF;
+                if (b == 32 && !surnameFound) {
+                    surnameFound = true;
+                } else {
+                    if (b > 0) {
+                        if (surnameFound) {
+                            surname += (char) (b);
+                        } else {
+                            name += (char) (b);
+                        }
+                    }
+                }
+            }
+            if (surname.equals("")) {
+                player.shirtName = name;
+                player.name = name;
+            } else {
+                player.shirtName = surname;
+                player.name = name + " " + surname;
+            }
+
+            // player Type (role) + head/skin Type + skip 3 unknown bits
+            int b = bytes[pos++] & 0xFF;
+            player.role = Player.Role.values()[b >> 5];
+            int headSkin = (b >> 3) & 0x3;
+            switch (headSkin) {
+                case 0:
+                    player.hairColor = Hair.Color.BLACK;
+                    player.skinColor = Skin.Color.values()[0];
+                    break;
+                case 1:
+                    player.hairColor = Hair.Color.BLOND;
+                    player.skinColor = Skin.Color.values()[0];
+                    break;
+                case 2:
+                    player.hairColor = Hair.Color.BLACK;
+                    player.skinColor = Skin.Color.values()[1];
+                    break;
+            }
+            player.hairStyle = "SMOOTH_A";
+
+            // skip unknown byte
+            pos++;
+
+            // player skills
+            player.skills = new Player.Skills();
+            player.skills.passing = bytes[pos++] & 0x7;
+
+            b = bytes[pos++] & 0xFF;
+            player.skills.shooting = (b >> 4) & 0x7;
+            player.skills.heading = (b & 0x7);
+
+            b = bytes[pos++] & 0xFF;
+            player.skills.tackling = (b >> 4) & 0x7;
+            player.skills.control = b & 0x7;
+
+            b = bytes[pos++] & 0xFF;
+            player.skills.speed = (b >> 4) & 0x7;
+            player.skills.finishing = b & 0x7;
+
+            // value
+            b = bytes[pos++] & 0xFF;
+            player.value = b;
+
+            // skip unknown bytes
+            pos += 5;
+        }
+
+        String folder = getYearFolder() + "/" + getTeamTypeFolder(team) + "/";
+        switch (team.type) {
+            case CLUB:
+                folder += continent + "/" + team.country + "/";
+                break;
+            case NATIONAL:
+                folder += continent + "/";
+                break;
+        }
+
+        String cleanName = team.name.toLowerCase().replace(" ", "_").replace("/", "_");
+        FileHandle fh = Assets.teamsFolder.child(folder + "team." + cleanName + ".json");
+        fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
+        importedTeams++;
+
+        return pos;
     }
 }
