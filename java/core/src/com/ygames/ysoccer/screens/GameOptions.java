@@ -541,7 +541,7 @@ class GameOptions extends GLScreen {
 
         ImportButton() {
             setColors(0x762B8E);
-            setGeometry((game.gui.WIDTH - 300) / 2, 525, 300, 36);
+            setGeometry((game.gui.WIDTH - 300) / 2, 530, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -560,7 +560,7 @@ class GameOptions extends GLScreen {
 
         QuitToOsButton() {
             setColors(0x008080);
-            setGeometry((game.gui.WIDTH - 300) / 2, 575, 300, 36);
+            setGeometry((game.gui.WIDTH - 300) / 2, 580, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
