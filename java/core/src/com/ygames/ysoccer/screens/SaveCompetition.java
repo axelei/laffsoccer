@@ -32,7 +32,7 @@ class SaveCompetition extends GLScreen {
 
         FileHandle folder = Assets.savesFolder.child(game.competition.getCategoryFolder());
         ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list()));
-        Collections.sort(files, new Assets.CompareFileHandlesByName());
+        Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (!file.isDirectory() && file.extension().equals("json")) {
                 w = new CompetitionButton(file.nameWithoutExtension());

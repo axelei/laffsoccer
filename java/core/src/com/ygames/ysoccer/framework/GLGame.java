@@ -40,6 +40,8 @@ public class GLGame extends Game {
     public ArrayList<Team> teamList;
     public Competition competition;
 
+    public MenuMusic menuMusic;
+
     @Override
     public void create() {
         settings = new Settings();
@@ -60,6 +62,9 @@ public class GLGame extends Game {
         stateColor = new WidgetColor();
 
         teamList = new ArrayList<Team>();
+
+        menuMusic = new MenuMusic("music");
+        menuMusic.setMode(settings.musicMode);
     }
 
     public void setScreenMode() {

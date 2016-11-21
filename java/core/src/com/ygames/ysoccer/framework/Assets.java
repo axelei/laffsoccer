@@ -131,7 +131,7 @@ public class Assets {
                 locales.add("en");
             }
         }
-        Collections.sort(locales, new Assets.CompareStringsByName());
+        Collections.sort(locales);
     }
 
     public static void loadStrings(Settings settings) {
@@ -158,19 +158,13 @@ public class Assets {
         }
     }
 
-    public static class CompareFileHandlesByName implements Comparator<FileHandle> {
+    public static Comparator<FileHandle> fileComparatorByName = new CompareFileHandlesByName();
+
+    private static class CompareFileHandlesByName implements Comparator<FileHandle> {
 
         @Override
         public int compare(FileHandle o1, FileHandle o2) {
             return o1.name().compareTo(o2.name());
-        }
-    }
-
-    public static class CompareStringsByName implements Comparator<String> {
-
-        @Override
-        public int compare(String o1, String o2) {
-            return o1.compareTo(o2);
         }
     }
 

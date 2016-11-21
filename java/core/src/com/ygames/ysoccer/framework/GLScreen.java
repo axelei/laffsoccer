@@ -19,14 +19,18 @@ public abstract class GLScreen implements Screen {
     protected Texture background;
     protected List<Widget> widgets;
     protected Widget selectedWidget;
+    protected boolean playMenuMusic;
 
     public GLScreen(GLGame game) {
         this.game = game;
         widgets = new ArrayList<Widget>();
+        playMenuMusic = true;
     }
 
     @Override
     public void render(float delta) {
+
+        game.menuMusic.update(playMenuMusic ? game.settings.musicVolume : 0);
 
         if (game.settings.mouseEnabled) {
             game.mouse.read(game.glGraphics.camera);
@@ -105,6 +109,16 @@ public abstract class GLScreen implements Screen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         for (Widget widget : widgets) {
             widget.render(game.glGraphics);
+        }
+
+        if (game.menuMusic.isPlaying()) {
+            batch.begin();
+            String s = "" + (char) (16 + (int) (Gdx.graphics.getFrameId() % 24) / 6);
+            if (game.menuMusic.getMode() == MenuMusic.ALL || game.menuMusic.getMode() == MenuMusic.SHUFFLE) {
+                s += " " + game.menuMusic.getCurrentTrackName();
+            }
+            Assets.font10.draw(batch, s, 8, game.gui.HEIGHT - 20, Font.Align.LEFT);
+            batch.end();
         }
     }
 

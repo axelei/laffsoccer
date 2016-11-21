@@ -35,7 +35,7 @@ class SelectFolder extends GLScreen {
         // Folders buttons
         List<Widget> list = new ArrayList<Widget>();
         ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(fileHandle.list()));
-        Collections.sort(files, new Assets.CompareFileHandlesByName());
+        Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);

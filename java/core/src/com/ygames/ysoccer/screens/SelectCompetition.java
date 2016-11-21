@@ -16,12 +16,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class SelectCompetition extends GLScreen {
+class SelectCompetition extends GLScreen {
 
     private FileHandle fileHandle;
     private boolean isDataRoot;
 
-    public SelectCompetition(GLGame game, FileHandle fileHandle) {
+    SelectCompetition(GLGame game, FileHandle fileHandle) {
         super(game);
         this.fileHandle = fileHandle;
         isDataRoot = (fileHandle.path().equals(Assets.competitionsFolder.path()));
@@ -62,7 +62,7 @@ public class SelectCompetition extends GLScreen {
         // Folders buttons
         List<Widget> foldersList = new ArrayList<Widget>();
         ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(fileHandle.list()));
-        Collections.sort(files, new Assets.CompareFileHandlesByName());
+        Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
@@ -105,11 +105,11 @@ public class SelectCompetition extends GLScreen {
         }
     }
 
-    class FolderButton extends Button {
+    private class FolderButton extends Button {
 
         FileHandle fileHandle;
 
-        public FolderButton(FileHandle fileHandle) {
+        FolderButton(FileHandle fileHandle) {
             this.fileHandle = fileHandle;
             setSize(340, 30);
             setColors(0x568200, 0x77B400, 0x243E00);
@@ -122,11 +122,11 @@ public class SelectCompetition extends GLScreen {
         }
     }
 
-    class CompetitionButton extends Button {
+    private class CompetitionButton extends Button {
 
         Competition competition;
 
-        public CompetitionButton(Competition competition) {
+        CompetitionButton(Competition competition) {
             this.competition = competition;
             setSize(480, 30);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
@@ -140,9 +140,9 @@ public class SelectCompetition extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             if (isDataRoot) {
                 setColors(0xC8000E, 0xFF1929, 0x74040C);
                 setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);

@@ -21,6 +21,7 @@ public class Settings {
     public String locale;
     public boolean fullScreen;
     public boolean mouseEnabled;
+    public int musicMode;
     public int musicVolume;
 
     // match
@@ -50,6 +51,7 @@ public class Settings {
         locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
         mouseEnabled = preferences.getBoolean("mouseEnabled", true);
+        musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);
         musicVolume = preferences.getInteger("musicVolume", 40);
         useFlags = preferences.getBoolean("useFlags", true);
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 1)
@@ -74,6 +76,7 @@ public class Settings {
         preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
         preferences.putBoolean("mouseEnabled", mouseEnabled);
+        preferences.putInteger("musicMode", musicMode);
         preferences.putInteger("musicVolume", musicVolume);
         preferences.putBoolean("useFlags", useFlags);
         int e = (int) Math.log10(maxPlayerValue);
