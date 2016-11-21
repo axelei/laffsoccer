@@ -73,7 +73,9 @@ public class MenuMusic {
                 break;
         }
 
-        state = State.PLAYING;
+        if (playList.size() > 0) {
+            state = State.PLAYING;
+        }
     }
 
     public void update(int targetVolume) {

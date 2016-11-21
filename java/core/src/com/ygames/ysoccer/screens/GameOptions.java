@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.MenuMusic;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
@@ -40,6 +41,9 @@ class GameOptions extends GLScreen {
         widgets.add(w);
 
         w = new MusicModeLabel();
+        widgets.add(w);
+
+        w = new MusicModeButton();
         widgets.add(w);
 
         w = new MusicVolumeLabel();
@@ -248,6 +252,60 @@ class GameOptions extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get("MUSIC.MODE"));
+        }
+    }
+
+    private class MusicModeButton extends Button {
+
+        MusicModeButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.gui.WIDTH / 2 + 30, 300, 440, 38);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            switch (game.settings.musicMode) {
+
+                case MenuMusic.ALL:
+                    setText(Assets.strings.get("MUSIC.ALL"));
+                    break;
+
+                case MenuMusic.SHUFFLE:
+                    setText(Assets.strings.get("MUSIC.SHUFFLE"));
+                    break;
+
+                default:
+                    String trackName = game.menuMusic.getCurrentTrackName();
+                    setText(trackName.length() > 28 ? trackName.substring(0, 28) + "..." : trackName);
+                    break;
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateMusicMode(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateMusicMode(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateMusicMode(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateMusicMode(-1);
+        }
+
+        private void updateMusicMode(int n) {
+            game.settings.musicMode = Emath.rotate(game.settings.musicMode, game.menuMusic.getModeMin(), game.menuMusic.getModeMax(), n);
+            game.menuMusic.setMode(game.settings.musicMode);
+            setDirty(true);
         }
     }
 
