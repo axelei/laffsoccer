@@ -14,6 +14,7 @@ class MatchScreen extends GLScreen {
 
     MatchScreen(GLGame game, MatchCore match) {
         super(game);
+        playMenuMusic = false;
         this.match = match;
 
         matchStarted = false;

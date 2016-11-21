@@ -50,6 +50,7 @@ class SetTeam extends GLScreen {
 
     SetTeam(GLGame game, FileHandle fileHandle, String league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
+        playMenuMusic = false;
 
         this.fileHandle = fileHandle;
         this.league = league;

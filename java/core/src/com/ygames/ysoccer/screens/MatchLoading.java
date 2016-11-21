@@ -19,6 +19,7 @@ class MatchLoading extends GLScreen {
 
     MatchLoading(GLGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings, Competition competition) {
         super(game);
+        playMenuMusic = false;
 
         matchSettings.setup();
 

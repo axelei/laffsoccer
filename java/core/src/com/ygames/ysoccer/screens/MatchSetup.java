@@ -36,6 +36,7 @@ class MatchSetup extends GLScreen {
 
     MatchSetup(GLGame game, FileHandle fileHandle, String league, Competition competition, Team homeTeam, Team awayTeam) {
         super(game);
+        playMenuMusic = false;
 
         this.fileHandle = fileHandle;
         this.league = league;

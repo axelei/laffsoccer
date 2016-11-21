@@ -22,7 +22,7 @@ public class MenuMusic {
     private int volume;
     private int mode;
     private List<FileHandle> fileList;
-    private List<FileHandle> playList;
+    public List<FileHandle> playList;
     private int currentTrack;
 
     MenuMusic(String folder) {

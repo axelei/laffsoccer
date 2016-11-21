@@ -114,7 +114,7 @@ public abstract class GLScreen implements Screen {
         if (game.menuMusic.isPlaying()) {
             batch.begin();
             String s = "" + (char) (16 + (int) (Gdx.graphics.getFrameId() % 24) / 6);
-            if (game.menuMusic.getMode() == MenuMusic.ALL || game.menuMusic.getMode() == MenuMusic.SHUFFLE) {
+            if (game.menuMusic.playList.size() > 1) {
                 s += " " + game.menuMusic.getCurrentTrackName();
             }
             Assets.font10.draw(batch, s, 8, game.gui.HEIGHT - 20, Font.Align.LEFT);
