@@ -142,7 +142,7 @@ public abstract class Competition {
     }
 
     public void save() {
-        FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".JSON");
+        FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json");
         fileHandle.writeString(Assets.json.toJson(this, Competition.class), false, "UTF-8");
     }
 
