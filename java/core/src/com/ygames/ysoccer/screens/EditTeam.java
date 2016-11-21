@@ -393,13 +393,19 @@ class EditTeam extends GLScreen {
         }
     }
 
-    private class LeagueButton extends Button {
+    private class LeagueButton extends InputButton {
 
         LeagueButton() {
             setGeometry(280, 155, 364, 32);
-            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setColors(0x10A000);
             setText(team.league, Font.Align.CENTER, Assets.font10);
-            setActive(false);
+            setEntryLimit(24);
+        }
+
+        @Override
+        public void onChanged() {
+            team.league = text;
+            setModifiedFlag();
         }
     }
 
@@ -745,8 +751,10 @@ class EditTeam extends GLScreen {
 
                 case SOCKS:
                     return kit.socks;
+
+                default:
+                    return null;
             }
-            return null;
         }
     }
 
