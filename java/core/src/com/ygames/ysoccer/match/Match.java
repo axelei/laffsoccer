@@ -58,7 +58,7 @@ public class Match implements Json.Serializable {
     public Match() {
     }
 
-    public Match(GLGame game, Team[] team, MatchSettings matchSettings, Competition competition) {
+    public void init(GLGame game, Team[] team, MatchSettings matchSettings, Competition competition) {
         this.game = game;
         this.team = team;
         this.settings = matchSettings;

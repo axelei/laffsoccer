@@ -3,6 +3,7 @@ package com.ygames.ysoccer.competitions;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Time;
@@ -63,6 +64,8 @@ public abstract class Competition {
     public void start(ArrayList<Team> teams) {
         this.teams = (ArrayList<Team>) teams.clone();
     }
+
+    public abstract Match getMatch();
 
     public boolean isEnded() {
         return true;

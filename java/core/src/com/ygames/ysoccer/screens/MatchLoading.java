@@ -23,7 +23,8 @@ class MatchLoading extends GLScreen {
 
         Team[] team = {homeTeam, awayTeam};
 
-        match = new Match(game, team, matchSettings, competition);
+        match = competition.getMatch();
+        match.init(game, team, matchSettings, competition);
 
         game.unsetMouse();
 
