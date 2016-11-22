@@ -30,7 +30,7 @@ class MatchStateHalfTimePositions extends MatchState {
         matchRenderer.actionCamera.offx = 0;
         matchRenderer.actionCamera.offy = 0;
 
-        match.period = MatchCore.Period.UNDEFINED;
+        match.period = Match.Period.UNDEFINED;
         match.clock = match.length * 45 / 90;
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);

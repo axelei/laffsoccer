@@ -7,15 +7,13 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Match;
-import com.ygames.ysoccer.match.MatchCore;
-import com.ygames.ysoccer.match.MatchRenderer;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
 class MatchLoading extends GLScreen {
 
-    MatchCore matchCore;
+    Match match;
 
     MatchLoading(GLGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings, Competition competition) {
         super(game);
@@ -25,7 +23,7 @@ class MatchLoading extends GLScreen {
 
         Team[] team = {homeTeam, awayTeam};
 
-        matchCore = new MatchCore(game, team, matchSettings, competition);
+        match = new Match(game, team, matchSettings, competition);
 
         game.unsetMouse();
 
@@ -52,6 +50,6 @@ class MatchLoading extends GLScreen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
-        game.setScreen(new MatchScreen(game, matchCore));
+        game.setScreen(new MatchScreen(game, match));
     }
 }

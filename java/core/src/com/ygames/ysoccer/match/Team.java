@@ -14,7 +14,7 @@ public class Team {
 
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 
-    public MatchCore match;
+    public Match match;
 
     public String name;
     public Type type;
@@ -80,7 +80,7 @@ public class Team {
         return player;
     }
 
-    void beforeMatch(MatchCore match) {
+    void beforeMatch(Match match) {
         this.match = match;
         lineup = new ArrayList<Player>();
         int lineupSize = Math.min(players.size(), Const.TEAM_SIZE + match.settings.benchSize);

@@ -24,7 +24,7 @@ class MatchStateEndPositions extends MatchState {
         matchRenderer.displayStatistics = false;
         matchRenderer.displayRadar = false;
 
-        match.period = MatchCore.Period.UNDEFINED;
+        match.period = Match.Period.UNDEFINED;
 
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();

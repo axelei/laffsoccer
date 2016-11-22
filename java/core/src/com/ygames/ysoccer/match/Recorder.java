@@ -7,12 +7,12 @@ class Recorder {
     private static final int MAX_RECORDS = 6;
     private static final int RECORD_SIZE = (4 + 2 * Const.TEAM_SIZE * 5 + 2) * 2 * Const.REPLAY_SUBFRAMES;
 
-    private MatchCore match;
+    private Match match;
     private short[] highlights = new short[MAX_RECORDS * RECORD_SIZE];
     private int current;
     private int recorded;
 
-    Recorder(MatchCore match) {
+    Recorder(Match match) {
         this.match = match;
     }
 

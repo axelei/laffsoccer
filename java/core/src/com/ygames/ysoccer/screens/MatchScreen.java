@@ -2,17 +2,17 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.match.MatchCore;
+import com.ygames.ysoccer.match.Match;
 
 class MatchScreen extends GLScreen {
 
-    MatchCore match;
+    Match match;
     boolean matchStarted;
     boolean matchPaused;
 
     float timer;
 
-    MatchScreen(GLGame game, MatchCore match) {
+    MatchScreen(GLGame game, Match match) {
         super(game);
         playMenuMusic = false;
         this.match = match;

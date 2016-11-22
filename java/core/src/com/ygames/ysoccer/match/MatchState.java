@@ -7,7 +7,7 @@ class MatchState {
     protected MatchFsm fsm;
 
     // convenience references
-    protected MatchCore match;
+    protected Match match;
     protected MatchRenderer matchRenderer;
 
     MatchState(MatchFsm fsm) {

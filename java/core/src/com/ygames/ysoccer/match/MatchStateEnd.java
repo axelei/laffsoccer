@@ -22,7 +22,7 @@ class MatchStateEnd extends MatchState {
         matchRenderer.displayStatistics = true;
         matchRenderer.displayRadar = false;
 
-        match.period = MatchCore.Period.UNDEFINED;
+        match.period = Match.Period.UNDEFINED;
     }
 
     @Override

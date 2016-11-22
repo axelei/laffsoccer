@@ -34,7 +34,7 @@ public class MatchRenderer {
     public int[] vcameraX = new int[Const.REPLAY_SUBFRAMES];
     public int[] vcameraY = new int[Const.REPLAY_SUBFRAMES];
 
-    public MatchCore match;
+    public Match match;
     List<Sprite> allSprites;
     Sprite.SpriteComparator spriteComparator;
     private CornerFlagSprite[] cornerFlagSprites;
@@ -48,7 +48,7 @@ public class MatchRenderer {
     boolean displayStatistics;
     boolean displayRadar;
 
-    public MatchRenderer(GLGraphics glGraphics, MatchCore match) {
+    public MatchRenderer(GLGraphics glGraphics, Match match) {
         this.glGraphics = glGraphics;
         this.match = match;
 

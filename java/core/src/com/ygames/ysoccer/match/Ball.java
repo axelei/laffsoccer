@@ -38,9 +38,9 @@ class Ball {
     Player goalOwner;
     Player holder;
 
-    MatchCore match;
+    Match match;
 
-    Ball(MatchCore match) {
+    Ball(Match match) {
         this.match = match;
 
         for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {

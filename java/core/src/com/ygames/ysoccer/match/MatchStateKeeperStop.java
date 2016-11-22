@@ -30,8 +30,8 @@ class MatchStateKeeperStop extends MatchState {
         keeperTeam = match.team[keeper.team.index];
         opponentTeam = match.team[1 - keeper.team.index];
 
-        match.data.stats[opponentTeam.index].overallShots += 1;
-        match.data.stats[opponentTeam.index].centeredShots += 1;
+        match.stats[opponentTeam.index].overallShots += 1;
+        match.stats[opponentTeam.index].centeredShots += 1;
 
         keeperTeam.assignAutomaticInputDevices(keeper);
         opponentTeam.assignAutomaticInputDevices(null);

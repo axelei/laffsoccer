@@ -34,7 +34,7 @@ public class MatchFsm {
         RESTORE_FOREGROUND
     }
 
-    private MatchCore match;
+    private Match match;
     private MatchRenderer matchRenderer;
     private int savedSubframe;
 
@@ -67,7 +67,7 @@ public class MatchFsm {
     static final int STATE_REPLAY = 20;
     static final int STATE_HIGHLIGHTS = 21;
 
-    MatchFsm(MatchCore match) {
+    MatchFsm(Match match) {
         this.match = match;
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
         states = new ArrayList<MatchState>();
@@ -100,7 +100,7 @@ public class MatchFsm {
         return currentState;
     }
 
-    public MatchCore getMatch() {
+    public Match getMatch() {
         return match;
     }
 

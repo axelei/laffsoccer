@@ -76,7 +76,7 @@ public class Player {
 
     Player facingPlayer;
     float facingAngle;
-    MatchCore match;
+    Match match;
     PlayerFsm fsm;
 
     float speed;
@@ -116,7 +116,7 @@ public class Player {
         setInputDevice(ai);
     }
 
-    void beforeMatch(MatchCore match, Team team) {
+    void beforeMatch(Match match, Team team) {
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
@@ -467,7 +467,7 @@ public class Player {
         return orderedSkills;
     }
 
-    public boolean update(MatchCore match, boolean limit) {
+    public boolean update(Match match, boolean limit) {
 
         // physical parameters
         // speeds are in pixel/s

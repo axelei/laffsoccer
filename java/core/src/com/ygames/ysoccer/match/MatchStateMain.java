@@ -61,7 +61,7 @@ class MatchStateMain extends MatchState {
                 match.updateFrameDistance();
 
                 if (match.ball.owner != null) {
-                    match.data.stats[match.ball.owner.team.index].ballPossession += 1;
+                    match.stats[match.ball.owner.team.index].ballPossession += 1;
                 }
             }
 
@@ -78,7 +78,7 @@ class MatchStateMain extends MatchState {
             match.ball.collisionFlagposts();
 
             if (match.ball.collisionGoal()) {
-                match.data.stats[attackingTeam].centeredShots += 1;
+                match.stats[attackingTeam].centeredShots += 1;
             }
 
             // goal/corner/goal-kick
@@ -86,8 +86,8 @@ class MatchStateMain extends MatchState {
                 // goal
                 if (Emath.isIn(match.ball.x, -Const.POST_X, Const.POST_X)
                         && (match.ball.z <= Const.CROSSBAR_H)) {
-                    match.data.stats[attackingTeam].goals += 1;
-                    match.data.stats[attackingTeam].centeredShots += 1;
+                    match.stats[attackingTeam].goals += 1;
+                    match.stats[attackingTeam].centeredShots += 1;
                     match.addGoal(attackingTeam);
 
                     event = Event.GOAL;
