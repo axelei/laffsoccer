@@ -149,7 +149,7 @@ class SaveCompetition extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
+        public void onFire1Up() {
             game.competition.save();
             game.setScreen(new Main(game));
         }

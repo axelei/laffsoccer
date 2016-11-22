@@ -15,14 +15,14 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PlayCup extends GLScreen {
+class PlayCup extends GLScreen {
 
     Cup cup;
-    int matches;
-    int offset;
-    ArrayList<Widget> resultWidgets;
+    private int matches;
+    private int offset;
+    private ArrayList<Widget> resultWidgets;
 
-    public PlayCup(GLGame game) {
+    PlayCup(GLGame game) {
         super(game);
 
         cup = (Cup) game.competition;
@@ -52,7 +52,7 @@ public class PlayCup extends GLScreen {
         for (int m = 0; m < matches; m++) {
             Match match = cup.calendarCurrent.get(m);
 
-            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.team[Match.HOME]), Font.Align.RIGHT);
+            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[Match.HOME]), Font.Align.RIGHT);
             resultWidgets.add(w);
             widgets.add(w);
 
@@ -80,7 +80,7 @@ public class PlayCup extends GLScreen {
             resultWidgets.add(w);
             widgets.add(w);
 
-            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.team[Match.AWAY]), Font.Align.LEFT);
+            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[Match.AWAY]), Font.Align.LEFT);
             resultWidgets.add(w);
             widgets.add(w);
 
@@ -94,13 +94,13 @@ public class PlayCup extends GLScreen {
         }
         updateResultWidgets();
 
-        Match match = cup.getMatch();
-
         // home team
         w = new Label();
         w.setGeometry(240, 618, 322, 36);
-        w.setText(cup.teams.get(match.team[Match.HOME]).name, Font.Align.RIGHT, Assets.font14);
+        w.setText(cup.getTeam(Match.HOME).name, Font.Align.RIGHT, Assets.font14);
         widgets.add(w);
+
+        Match match = cup.getMatch();
 
         // result (home goals)
         w = new Label();
@@ -134,7 +134,7 @@ public class PlayCup extends GLScreen {
         // away team
         w = new Label();
         w.setGeometry(720, 618, 322, 36);
-        w.setText(cup.teams.get(match.team[Match.AWAY]).name, Font.Align.LEFT, Assets.font14);
+        w.setText(cup.getTeam(Match.AWAY).name, Font.Align.LEFT, Assets.font14);
         widgets.add(w);
 
         w = new ViewStatisticsButton();
@@ -187,9 +187,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class TeamButton extends Button {
+    private class TeamButton extends Button {
 
-        public TeamButton(int x, int y, Team team, Font.Align align) {
+        TeamButton(int x, int y, Team team, Font.Align align) {
             setGeometry(x, y, 240, 26);
             switch (team.controlMode) {
                 case COMPUTER:
@@ -209,9 +209,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class VersusLabel extends Label {
+    private class VersusLabel extends Label {
 
-        public VersusLabel(int y, Match match) {
+        VersusLabel(int y, Match match) {
             setGeometry((game.gui.WIDTH - 30) / 2, y, 30, 26);
             // NOTE: max 2 characters
             setText(Assets.strings.get("ABBREVIATIONS.VERSUS"), Font.Align.CENTER, Assets.font10);
@@ -222,11 +222,11 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class ScrollButton extends Button {
+    private class ScrollButton extends Button {
 
         int direction;
 
-        public ScrollButton(int y, int direction) {
+        ScrollButton(int y, int direction) {
             this.direction = direction;
             setGeometry(228, y, 20, 36);
             setColors(0x000000, 0x1BC12F, 0x004814);
@@ -250,9 +250,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class PlayViewMatchButton extends Button {
+    private class PlayViewMatchButton extends Button {
 
-        public PlayViewMatchButton() {
+        PlayViewMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -267,9 +267,8 @@ public class PlayCup extends GLScreen {
         public void onFire1Down() {
             cup.userPrefersResult = false;
 
-            Match match = cup.getMatch();
-            Team homeTeam = cup.teams.get(match.team[Match.HOME]);
-            Team awayTeam = cup.teams.get(match.team[Match.AWAY]);
+            Team homeTeam = cup.getTeam(Match.HOME);
+            Team awayTeam = cup.getTeam(Match.AWAY);
 
             if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
                 game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, Match.HOME));
@@ -281,9 +280,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class NextMatchButton extends Button {
+    private class NextMatchButton extends Button {
 
-        public NextMatchButton() {
+        NextMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 460, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
@@ -305,9 +304,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class ViewResultButton extends Button {
+    private class ViewResultButton extends Button {
 
-        public ViewResultButton() {
+        ViewResultButton() {
             setGeometry(game.gui.WIDTH / 2 - 190, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -341,9 +340,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class ViewStatisticsButton extends Button {
+    private class ViewStatisticsButton extends Button {
 
-        public ViewStatisticsButton() {
+        ViewStatisticsButton() {
             setGeometry(game.gui.WIDTH / 2 + 50, 660, 180, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("STATS"), Font.Align.CENTER, Assets.font14);
@@ -355,9 +354,9 @@ public class PlayCup extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry(game.gui.WIDTH / 2 + 250, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);

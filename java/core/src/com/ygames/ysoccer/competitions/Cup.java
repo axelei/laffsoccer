@@ -12,11 +12,11 @@ import java.util.Collections;
 public class Cup extends Competition {
 
     public ArrayList<Round> rounds;
-    int currentLeg;
-    ArrayList<Integer> qualifiedTeams;
+    private int currentLeg;
+    private ArrayList<Integer> qualifiedTeams;
     public ArrayList<Match> calendarCurrent;
 
-    public enum ResultType {AFTER_90_MINS, AFTER_EXTRA_TIME, AFTER_PENALTIES}
+    private enum ResultType {AFTER_90_MINS, AFTER_EXTRA_TIME, AFTER_PENALTIES}
 
     public enum AwayGoals {
         OFF,
@@ -63,6 +63,10 @@ public class Cup extends Competition {
         return calendarCurrent.get(currentMatch);
     }
 
+    public Team getTeam(int t) {
+        return teams.get(getMatch().teams[t]);
+    }
+
     @Override
     public boolean isEnded() {
         return currentRound == rounds.size() - 1 && getMatch().qualified != -1;
@@ -75,7 +79,7 @@ public class Cup extends Competition {
         }
     }
 
-    public void nextLeg() {
+    private void nextLeg() {
         currentLeg += 1;
         currentMatch = 0;
         calendarGenerate();
@@ -84,14 +88,14 @@ public class Cup extends Competition {
         }
     }
 
-    public void nextRound() {
+    private void nextRound() {
         currentRound += 1;
         currentLeg = 0;
         currentMatch = 0;
         calendarGenerate();
     }
 
-    void calendarGenerate() {
+    private void calendarGenerate() {
 
         // first leg
         if (currentLeg == 0) {
@@ -99,8 +103,8 @@ public class Cup extends Competition {
             calendarCurrent = new ArrayList<Match>();
             for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
                 Match match = new Match();
-                match.team[Match.HOME] = qualifiedTeams.get(2 * i);
-                match.team[Match.AWAY] = qualifiedTeams.get(2 * i + 1);
+                match.teams[Match.HOME] = qualifiedTeams.get(2 * i);
+                match.teams[Match.AWAY] = qualifiedTeams.get(2 * i + 1);
                 match.result = null;
                 match.oldResult = null;
                 calendarCurrent.add(match);
@@ -114,9 +118,9 @@ public class Cup extends Competition {
                 Match match = calendarCurrent.get(i);
 
                 // swap teams
-                int tmp = match.team[Match.HOME];
-                match.team[Match.HOME] = match.team[Match.AWAY];
-                match.team[Match.AWAY] = tmp;
+                int tmp = match.teams[Match.HOME];
+                match.teams[Match.HOME] = match.teams[Match.AWAY];
+                match.teams[Match.AWAY] = tmp;
 
                 match.ended = false;
                 match.oldResult = match.result;
@@ -135,9 +139,9 @@ public class Cup extends Competition {
                 Match match = calendarCurrent.get(i);
                 if (match.qualified == -1) {
                     // swap teams
-                    int tmp = match.team[Match.HOME];
-                    match.team[Match.HOME] = match.team[Match.AWAY];
-                    match.team[Match.AWAY] = tmp;
+                    int tmp = match.teams[Match.HOME];
+                    match.teams[Match.HOME] = match.teams[Match.AWAY];
+                    match.teams[Match.AWAY] = tmp;
 
                     match.ended = false;
                     match.result = null;
@@ -157,9 +161,8 @@ public class Cup extends Competition {
     }
 
     public void generateResult() {
-        Match match = getMatch();
-        Team homeTeam = teams.get(match.team[Match.HOME]);
-        Team awayTeam = teams.get(match.team[Match.AWAY]);
+        Team homeTeam = getTeam(Match.HOME);
+        Team awayTeam = getTeam(Match.AWAY);
 
         int goalA = Match.generateScore(homeTeam, awayTeam, false);
         int goalB = Match.generateScore(awayTeam, homeTeam, false);
@@ -183,7 +186,7 @@ public class Cup extends Competition {
         }
     }
 
-    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
+    private void setResult(int homeGoals, int awayGoals, ResultType resultType) {
         Match match = getMatch();
         if (resultType == ResultType.AFTER_PENALTIES) {
             match.resultAfterPenalties = new Match.Result(homeGoals, awayGoals);
@@ -204,7 +207,7 @@ public class Cup extends Competition {
     }
 
     // decide if extra time have to be played depending on current result, leg's type and settings
-    public boolean playExtraTime() {
+    private boolean playExtraTime() {
         Match match = getMatch();
         Round round = rounds.get(currentRound);
 
@@ -288,7 +291,7 @@ public class Cup extends Competition {
     }
 
     // decide if penalties have to be played depending on current result, leg's type and settings
-    public boolean playPenalties() {
+    private boolean playPenalties() {
         Match match = getMatch();
         Round round = rounds.get(currentRound);
 
@@ -372,9 +375,9 @@ public class Cup extends Competition {
     private int getQualified(Match match) {
         if (match.resultAfterPenalties != null) {
             if (match.resultAfterPenalties.homeGoals > match.resultAfterPenalties.awayGoals) {
-                return match.team[Match.HOME];
+                return match.teams[Match.HOME];
             } else if (match.resultAfterPenalties.homeGoals < match.resultAfterPenalties.awayGoals) {
-                return match.team[Match.AWAY];
+                return match.teams[Match.AWAY];
             } else {
                 throw new GdxRuntimeException("Invalid state in cup");
             }
@@ -387,9 +390,9 @@ public class Cup extends Competition {
             switch (round.legs) {
                 case 1:
                     if (match.result.homeGoals > match.result.awayGoals) {
-                        return match.team[Match.HOME];
+                        return match.teams[Match.HOME];
                     } else if (match.result.homeGoals < match.result.awayGoals) {
-                        return match.team[Match.AWAY];
+                        return match.teams[Match.AWAY];
                     } else {
                         return -1;
                     }
@@ -403,16 +406,16 @@ public class Cup extends Competition {
             int aggregate1 = match.result.homeGoals + match.oldResult.awayGoals;
             int aggregate2 = match.result.awayGoals + match.oldResult.homeGoals;
             if (aggregate1 > aggregate2) {
-                return match.team[Match.HOME];
+                return match.teams[Match.HOME];
             } else if (aggregate1 < aggregate2) {
-                return match.team[Match.AWAY];
+                return match.teams[Match.AWAY];
             } else {
                 if ((awayGoals == AwayGoals.AFTER_90_MINS) ||
                         (awayGoals == AwayGoals.AFTER_EXTRA_TIME && match.includesExtraTime)) {
                     if (match.oldResult.awayGoals > match.result.awayGoals) {
-                        return match.team[Match.HOME];
+                        return match.teams[Match.HOME];
                     } else if (match.oldResult.awayGoals < match.result.awayGoals) {
-                        return match.team[Match.AWAY];
+                        return match.teams[Match.AWAY];
                     } else {
                         return -1;
                     }
@@ -425,9 +428,9 @@ public class Cup extends Competition {
         // replays
         else {
             if (match.result.homeGoals > match.result.awayGoals) {
-                return match.team[Match.HOME];
+                return match.teams[Match.HOME];
             } else if (match.result.homeGoals < match.result.awayGoals) {
-                return match.team[Match.AWAY];
+                return match.teams[Match.AWAY];
             } else {
                 return -1;
             }
@@ -653,8 +656,7 @@ public class Cup extends Competition {
     }
 
     public boolean bothComputers() {
-        Match match = getMatch();
-        return teams.get(match.team[Match.HOME]).controlMode == Team.ControlMode.COMPUTER
-                && teams.get(match.team[Match.AWAY]).controlMode == Team.ControlMode.COMPUTER;
+        return getTeam(Match.HOME).controlMode == Team.ControlMode.COMPUTER
+                && getTeam(Match.AWAY).controlMode == Team.ControlMode.COMPUTER;
     }
 }

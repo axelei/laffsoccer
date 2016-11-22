@@ -14,7 +14,7 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PlayLeague extends GLScreen {
+class PlayLeague extends GLScreen {
 
     private String[] headers = {
             "TABLE HEADER.PLAYED MATCHES",
@@ -28,7 +28,7 @@ public class PlayLeague extends GLScreen {
 
     private League league;
 
-    public PlayLeague(GLGame game) {
+    PlayLeague(GLGame game) {
         super(game);
 
         league = (League) game.competition;
@@ -154,19 +154,19 @@ public class PlayLeague extends GLScreen {
 
         } else {
 
-            Match match = league.getMatch();
-
             // home team
             w = new Label();
             w.setGeometry(240, 618, 322, 36);
-            w.setText(league.teams.get(match.team[Match.HOME]).name, Font.Align.RIGHT, Assets.font14);
+            w.setText(league.getTeam(Match.HOME).name, Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
             // away team
             w = new Label();
             w.setGeometry(720, 618, 322, 36);
-            w.setText(league.teams.get(match.team[Match.AWAY]).name, Font.Align.LEFT, Assets.font14);
+            w.setText(league.getTeam(Match.AWAY).name, Font.Align.LEFT, Assets.font14);
             widgets.add(w);
+
+            Match match = league.getMatch();
 
             // result (home goals)
             w = new Label();
@@ -227,9 +227,9 @@ public class PlayLeague extends GLScreen {
         }
     }
 
-    class PlayViewMatchButton extends Button {
+    private class PlayViewMatchButton extends Button {
 
-        public PlayViewMatchButton() {
+        PlayViewMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -244,9 +244,8 @@ public class PlayLeague extends GLScreen {
         public void onFire1Down() {
             league.userPrefersResult = false;
 
-            Match match = league.getMatch();
-            Team homeTeam = league.teams.get(match.team[Match.HOME]);
-            Team awayTeam = league.teams.get(match.team[Match.AWAY]);
+            Team homeTeam = league.getTeam(Match.HOME);
+            Team awayTeam = league.getTeam(Match.AWAY);
 
             if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
                 game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, Match.HOME));
@@ -258,9 +257,9 @@ public class PlayLeague extends GLScreen {
         }
     }
 
-    class NextMatchButton extends Button {
+    private class NextMatchButton extends Button {
 
-        public NextMatchButton() {
+        NextMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 460, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
@@ -282,9 +281,9 @@ public class PlayLeague extends GLScreen {
         }
     }
 
-    class ViewResultButton extends Button {
+    private class ViewResultButton extends Button {
 
-        public ViewResultButton() {
+        ViewResultButton() {
             setGeometry(game.gui.WIDTH / 2 - 190, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -318,9 +317,9 @@ public class PlayLeague extends GLScreen {
         }
     }
 
-    class ViewStatisticsButton extends Button {
+    private class ViewStatisticsButton extends Button {
 
-        public ViewStatisticsButton() {
+        ViewStatisticsButton() {
             setGeometry(game.gui.WIDTH / 2 + 50, 660, 180, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("STATS"), Font.Align.CENTER, Assets.font14);
@@ -332,9 +331,9 @@ public class PlayLeague extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry(game.gui.WIDTH / 2 + 250, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);

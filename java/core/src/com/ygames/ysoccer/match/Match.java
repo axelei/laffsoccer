@@ -5,7 +5,7 @@ public class Match {
     public static final int HOME = 0;
     public static final int AWAY = 1;
 
-    public int team[] = {0, 1};
+    public int teams[] = {-1, -1};
     public MatchStats[] stats = new MatchStats[2];
     public Result result;
     public boolean includesExtraTime;

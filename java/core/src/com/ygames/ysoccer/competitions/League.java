@@ -3,7 +3,6 @@ package com.ygames.ysoccer.competitions;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 
@@ -11,7 +10,7 @@ public class League extends Competition {
 
     public int rounds;
     public int pointsForAWin;
-    public ArrayList<Match> calendarCurrent;
+    private ArrayList<Match> calendarCurrent;
 
     public League() {
         numberOfTeams = 2;
@@ -46,6 +45,10 @@ public class League extends Competition {
         return calendarCurrent.get(currentMatch);
     }
 
+    public Team getTeam(int t) {
+        return teams.get(getMatch().teams[t]);
+    }
+
     @Override
     public boolean isEnded() {
         return currentRound == rounds;
@@ -58,17 +61,17 @@ public class League extends Competition {
         }
     }
 
-    public void nextRound() {
+    private void nextRound() {
         currentRound += 1;
         updateMonth();
     }
 
-    public void updateMonth() {
+    private void updateMonth() {
         int seasonLength = ((seasonEnd - seasonStart + 12) % 12);
         currentMonth = (seasonStart + seasonLength * currentRound / rounds) % 12;
     }
 
-    public void calendarGenerate() {
+    private void calendarGenerate() {
         calendarCurrent.clear();
         while (currentRound < rounds) {
 
@@ -82,11 +85,11 @@ public class League extends Competition {
             // create match
             Match match = new Match();
             if ((currentRound % 2) == 0) {
-                match.team[Match.HOME] = Assets.calendars[pos];
-                match.team[Match.AWAY] = Assets.calendars[pos + 1];
+                match.teams[Match.HOME] = Assets.calendars[pos];
+                match.teams[Match.AWAY] = Assets.calendars[pos + 1];
             } else {
-                match.team[Match.HOME] = Assets.calendars[pos + 1];
-                match.team[Match.AWAY] = Assets.calendars[pos];
+                match.teams[Match.HOME] = Assets.calendars[pos + 1];
+                match.teams[Match.AWAY] = Assets.calendars[pos];
             }
             calendarCurrent.add(match);
 
@@ -99,9 +102,8 @@ public class League extends Competition {
     }
 
     public void generateResult() {
-        Match match = getMatch();
-        Team homeTeam = teams.get(match.team[Match.HOME]);
-        Team awayTeam = teams.get(match.team[Match.AWAY]);
+        Team homeTeam = getTeam(Match.HOME);
+        Team awayTeam = getTeam(Match.AWAY);
 
         int goalA = Match.generateScore(homeTeam, awayTeam, false);
         int goalB = Match.generateScore(awayTeam, homeTeam, false);
@@ -112,11 +114,11 @@ public class League extends Competition {
         awayTeam.generateScorers(goalB);
     }
 
-    public void setResult(int homeGoals, int awayGoals) {
-        Match match = getMatch();
-        Team homeTeam = teams.get(match.team[Match.HOME]);
-        Team awayTeam = teams.get(match.team[Match.AWAY]);
+    private void setResult(int homeGoals, int awayGoals) {
+        Team homeTeam = getTeam(Match.HOME);
+        Team awayTeam = getTeam(Match.AWAY);
 
+        Match match = getMatch();
         match.result = new Match.Result(homeGoals, awayGoals);
         homeTeam.updateStats(homeGoals, awayGoals, pointsForAWin);
         awayTeam.updateStats(awayGoals, homeGoals, pointsForAWin);
@@ -124,9 +126,8 @@ public class League extends Competition {
     }
 
     public boolean bothComputers() {
-        Match match = getMatch();
-        Team homeTeam = teams.get(match.team[Match.HOME]);
-        Team awayTeam = teams.get(match.team[Match.AWAY]);
+        Team homeTeam = getTeam(Match.HOME);
+        Team awayTeam = getTeam(Match.AWAY);
 
         return homeTeam.controlMode == Team.ControlMode.COMPUTER
                 && awayTeam.controlMode == Team.ControlMode.COMPUTER;
