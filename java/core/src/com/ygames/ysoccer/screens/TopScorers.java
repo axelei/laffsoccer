@@ -15,9 +15,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class TopScorers extends GLScreen {
+class TopScorers extends GLScreen {
 
-    public TopScorers(GLGame game) {
+    TopScorers(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -82,9 +82,9 @@ public class TopScorers extends GLScreen {
         return scorers;
     }
 
-    class GoalsGroupBar extends Button {
+    private class GoalsGroupBar extends Button {
 
-        public GoalsGroupBar(int y, int goals) {
+        GoalsGroupBar(int y, int goals) {
             setGeometry((game.gui.WIDTH - 240) / 2, y, 240, 22);
             setColors(0x00825F, 0x00C28E, 0x00402F);
             setText(goals, Font.Align.CENTER, Assets.font10);
@@ -92,9 +92,9 @@ public class TopScorers extends GLScreen {
         }
     }
 
-    class ScorerNameButton extends Button {
+    private class ScorerNameButton extends Button {
 
-        public ScorerNameButton(int y, String name) {
+        ScorerNameButton(int y, String name) {
             setGeometry((game.gui.WIDTH - 240) / 2, y, 240, 22);
             setColors(0x1F1F95, 0x000000, 0x000000);
             setText(name, Font.Align.CENTER, Assets.font10);
@@ -102,9 +102,9 @@ public class TopScorers extends GLScreen {
         }
     }
 
-    class TeamNameLabel extends Label {
+    private class TeamNameLabel extends Label {
 
-        public TeamNameLabel(int y, String name) {
+        TeamNameLabel(int y, String name) {
             setGeometry((game.gui.WIDTH / 2) + 130, y, 240, 22);
             setText(" (" + name + ")", Font.Align.LEFT, Assets.font10);
         }
@@ -120,9 +120,9 @@ public class TopScorers extends GLScreen {
         }
     }
 
-    class ExitButton extends Button {
+    private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
@@ -140,7 +140,7 @@ public class TopScorers extends GLScreen {
         public String team;
     }
 
-    static class CompareScorerByGoals implements Comparator<Scorer> {
+    private static class CompareScorerByGoals implements Comparator<Scorer> {
 
         @Override
         public int compare(Scorer o1, Scorer o2) {
