@@ -3,6 +3,9 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateKickOff extends MatchState {
 
     private Player kickOffPlayer;
@@ -77,7 +80,7 @@ class MatchStateKickOff extends MatchState {
     @Override
     void checkConditions() {
         if (Emath.dist(match.ball.x, match.ball.y, 0, 0) > 10) {
-            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            for (int t = HOME; t <= AWAY; t++) {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     Player player = match.team[t].lineup.get(i);
                     if (player != kickOffPlayer) {

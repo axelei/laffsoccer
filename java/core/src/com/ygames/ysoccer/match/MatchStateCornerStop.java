@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateCornerStop extends MatchState {
 
     private int cornerX;
@@ -25,10 +28,10 @@ class MatchStateCornerStop extends MatchState {
         matchRenderer.displayStatistics = false;
         matchRenderer.displayRadar = true;
 
-        if (match.team[Match.HOME].side == -match.ball.ySide) {
-            match.stats[Match.HOME].cornersWon += 1;
+        if (match.team[HOME].side == -match.ball.ySide) {
+            match.stats[HOME].cornersWon += 1;
         } else {
-            match.stats[Match.AWAY].cornersWon += 1;
+            match.stats[AWAY].cornersWon += 1;
         }
 
         // TODO
@@ -41,8 +44,8 @@ class MatchStateCornerStop extends MatchState {
         // even before moving the ball itself
         match.ball.updateZone(cornerX, cornerY, 0, 0);
         match.updateTeamTactics();
-        match.team[Match.HOME].lineup.get(0).setTarget(0, match.team[Match.HOME].side * (Const.GOAL_LINE - 8));
-        match.team[Match.AWAY].lineup.get(0).setTarget(0, match.team[Match.AWAY].side * (Const.GOAL_LINE - 8));
+        match.team[HOME].lineup.get(0).setTarget(0, match.team[HOME].side * (Const.GOAL_LINE - 8));
+        match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));
 
         match.resetAutomaticInputDevices();
 

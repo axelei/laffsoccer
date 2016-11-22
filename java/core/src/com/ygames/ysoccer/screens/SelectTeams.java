@@ -16,6 +16,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
 class SelectTeams extends GLScreen {
@@ -321,16 +323,16 @@ class SelectTeams extends GLScreen {
                 case FRIENDLY:
                     // choose the menu to set
                     game.inputDevices.setAvailability(true);
-                    game.teamList.get(Match.HOME).setInputDevice(null);
-                    game.teamList.get(Match.HOME).releaseNonAiInputDevices();
-                    game.teamList.get(Match.AWAY).setInputDevice(null);
-                    game.teamList.get(Match.AWAY).releaseNonAiInputDevices();
-                    if (game.teamList.get(Match.HOME).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.HOME));
-                    } else if (game.teamList.get(Match.AWAY).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY), Match.AWAY));
+                    game.teamList.get(HOME).setInputDevice(null);
+                    game.teamList.get(HOME).releaseNonAiInputDevices();
+                    game.teamList.get(AWAY).setInputDevice(null);
+                    game.teamList.get(AWAY).releaseNonAiInputDevices();
+                    if (game.teamList.get(HOME).controlMode != Team.ControlMode.COMPUTER) {
+                        game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY), HOME));
+                    } else if (game.teamList.get(AWAY).controlMode != Team.ControlMode.COMPUTER) {
+                        game.setScreen(new SetTeam(game, fileHandle, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY), AWAY));
                     } else {
-                        game.setScreen(new MatchSetup(game, fileHandle, league, competition, game.teamList.get(Match.HOME), game.teamList.get(Match.AWAY)));
+                        game.setScreen(new MatchSetup(game, fileHandle, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY)));
                     }
                     break;
 

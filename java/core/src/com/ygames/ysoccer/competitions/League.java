@@ -6,6 +6,9 @@ import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 public class League extends Competition {
 
     public int rounds;
@@ -85,11 +88,11 @@ public class League extends Competition {
             // create match
             Match match = new Match();
             if ((currentRound % 2) == 0) {
-                match.teams[Match.HOME] = Assets.calendars[pos];
-                match.teams[Match.AWAY] = Assets.calendars[pos + 1];
+                match.teams[HOME] = Assets.calendars[pos];
+                match.teams[AWAY] = Assets.calendars[pos + 1];
             } else {
-                match.teams[Match.HOME] = Assets.calendars[pos + 1];
-                match.teams[Match.AWAY] = Assets.calendars[pos];
+                match.teams[HOME] = Assets.calendars[pos + 1];
+                match.teams[AWAY] = Assets.calendars[pos];
             }
             calendarCurrent.add(match);
 
@@ -102,8 +105,8 @@ public class League extends Competition {
     }
 
     public void generateResult() {
-        Team homeTeam = getTeam(Match.HOME);
-        Team awayTeam = getTeam(Match.AWAY);
+        Team homeTeam = getTeam(HOME);
+        Team awayTeam = getTeam(AWAY);
 
         int goalA = Match.generateScore(homeTeam, awayTeam, false);
         int goalB = Match.generateScore(awayTeam, homeTeam, false);
@@ -115,8 +118,8 @@ public class League extends Competition {
     }
 
     private void setResult(int homeGoals, int awayGoals) {
-        Team homeTeam = getTeam(Match.HOME);
-        Team awayTeam = getTeam(Match.AWAY);
+        Team homeTeam = getTeam(HOME);
+        Team awayTeam = getTeam(AWAY);
 
         Match match = getMatch();
         match.result = new Match.Result(homeGoals, awayGoals);
@@ -126,8 +129,8 @@ public class League extends Competition {
     }
 
     public boolean bothComputers() {
-        Team homeTeam = getTeam(Match.HOME);
-        Team awayTeam = getTeam(Match.AWAY);
+        Team homeTeam = getTeam(HOME);
+        Team awayTeam = getTeam(AWAY);
 
         return homeTeam.controlMode == Team.ControlMode.COMPUTER
                 && awayTeam.controlMode == Team.ControlMode.COMPUTER;

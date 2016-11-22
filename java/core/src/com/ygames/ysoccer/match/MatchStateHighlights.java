@@ -4,6 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateHighlights extends MatchState {
 
     private int subframe0;
@@ -71,8 +74,8 @@ class MatchStateHighlights extends MatchState {
     void checkConditions() {
 
         // quit on touch
-        if ((match.team[Match.HOME].fire1Up() != null)
-                || (match.team[Match.AWAY].fire1Up() != null)) {
+        if ((match.team[HOME].fire1Up() != null)
+                || (match.team[AWAY].fire1Up() != null)) {
             match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
             return;
         }

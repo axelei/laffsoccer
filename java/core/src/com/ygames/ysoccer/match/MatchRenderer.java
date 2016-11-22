@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.badlogic.gdx.Gdx.gl;
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 public class MatchRenderer {
 
@@ -62,7 +64,7 @@ public class MatchRenderer {
 
         allSprites = new ArrayList<Sprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
-        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+        for (int t = HOME; t <= AWAY; t++) {
             int len = match.team[t].lineup.size();
             for (int i = 0; i < len; i++) {
                 PlayerSprite playerSprite = new PlayerSprite(glGraphics, match.team[t].lineup.get(i));
@@ -184,7 +186,7 @@ public class MatchRenderer {
         }
 
         // keepers
-        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+        for (int t = HOME; t <= AWAY; t++) {
             for (Player player : match.team[t].lineup) {
                 if (player.role == Player.Role.GOALKEEPER) {
                     d = player.data[subframe];
@@ -203,7 +205,7 @@ public class MatchRenderer {
 
         // players
         for (int i = 0; i < (match.settings.time == Time.NIGHT ? 4 : 1); i++) {
-            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            for (int t = HOME; t <= AWAY; t++) {
                 for (Player player : match.team[t].lineup) {
                     if (player.role != Player.Role.GOALKEEPER) {
                         d = player.data[subframe];
@@ -253,8 +255,8 @@ public class MatchRenderer {
         int y0 = guiHeight - 16;
 
         // teams
-        Assets.font14.draw(glGraphics.batch, match.team[Match.HOME].name, +10, y0 - 22, Font.Align.LEFT);
-        Assets.font14.draw(glGraphics.batch, match.team[Match.AWAY].name, guiWidth - 8, y0 - 22, Font.Align.RIGHT);
+        Assets.font14.draw(glGraphics.batch, match.team[HOME].name, +10, y0 - 22, Font.Align.LEFT);
+        Assets.font14.draw(glGraphics.batch, match.team[AWAY].name, guiWidth - 8, y0 - 22, Font.Align.RIGHT);
 
         // bars
         glGraphics.batch.end();

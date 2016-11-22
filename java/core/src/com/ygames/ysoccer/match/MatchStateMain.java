@@ -4,6 +4,9 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateMain extends MatchState {
 
     private enum Event {
@@ -113,7 +116,7 @@ class MatchStateMain extends MatchState {
             match.updatePlayers(true);
             match.findNearest();
 
-            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            for (int t = HOME; t <= AWAY; t++) {
                 if (match.team[t].usesAutomaticInputDevice()) {
                     match.team[t].automaticInputDeviceSelection();
                 }

@@ -14,6 +14,9 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class PlayLeague extends GLScreen {
 
     private String[] headers = {
@@ -157,13 +160,13 @@ class PlayLeague extends GLScreen {
             // home team
             w = new Label();
             w.setGeometry(240, 618, 322, 36);
-            w.setText(league.getTeam(Match.HOME).name, Font.Align.RIGHT, Assets.font14);
+            w.setText(league.getTeam(HOME).name, Font.Align.RIGHT, Assets.font14);
             widgets.add(w);
 
             // away team
             w = new Label();
             w.setGeometry(720, 618, 322, 36);
-            w.setText(league.getTeam(Match.AWAY).name, Font.Align.LEFT, Assets.font14);
+            w.setText(league.getTeam(AWAY).name, Font.Align.LEFT, Assets.font14);
             widgets.add(w);
 
             Match match = league.getMatch();
@@ -244,13 +247,13 @@ class PlayLeague extends GLScreen {
         public void onFire1Down() {
             league.userPrefersResult = false;
 
-            Team homeTeam = league.getTeam(Match.HOME);
-            Team awayTeam = league.getTeam(Match.AWAY);
+            Team homeTeam = league.getTeam(HOME);
+            Team awayTeam = league.getTeam(AWAY);
 
             if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, Match.HOME));
+                game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, HOME));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, Match.AWAY));
+                game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, AWAY));
             } else {
                 game.setScreen(new MatchSetup(game, null, null, league, homeTeam, awayTeam));
             }

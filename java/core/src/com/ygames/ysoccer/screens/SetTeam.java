@@ -25,6 +25,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class SetTeam extends GLScreen {
 
     private FileHandle fileHandle;
@@ -58,7 +61,7 @@ class SetTeam extends GLScreen {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.teamToSet = teamToSet;
-        if (teamToSet == Match.HOME) {
+        if (teamToSet == HOME) {
             ownTeam = homeTeam;
             opponentTeam = awayTeam;
             reservedInputDevices = (ownTeam.controlMode != Team.ControlMode.COMPUTER) && (opponentTeam.controlMode != Team.ControlMode.COMPUTER) ? 1 : 0;
@@ -682,8 +685,8 @@ class SetTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            if (teamToSet == Match.HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, fileHandle, league, competition, homeTeam, awayTeam, Match.AWAY));
+            if (teamToSet == HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
+                game.setScreen(new SetTeam(game, fileHandle, league, competition, homeTeam, awayTeam, AWAY));
             } else {
                 game.setScreen(new MatchSetup(game, fileHandle, league, competition, homeTeam, awayTeam));
             }

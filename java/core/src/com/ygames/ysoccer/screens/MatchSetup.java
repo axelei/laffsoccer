@@ -18,6 +18,9 @@ import com.ygames.ysoccer.match.Time;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchSetup extends GLScreen {
 
     private FileHandle fileHandle;
@@ -81,8 +84,8 @@ class MatchSetup extends GLScreen {
         weatherButton = new WeatherButton();
         widgets.add(weatherButton);
 
-        for (int t = Match.HOME; t <= Match.AWAY; t++) {
-            Team team = (t == Match.HOME) ? homeTeam : awayTeam;
+        for (int t = HOME; t <= AWAY; t++) {
+            Team team = (t == HOME) ? homeTeam : awayTeam;
 
             w = new TeamNameButton(team, t);
             widgets.add(w);

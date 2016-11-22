@@ -9,6 +9,9 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 public class Cup extends Competition {
 
     public ArrayList<Round> rounds;
@@ -103,8 +106,8 @@ public class Cup extends Competition {
             calendarCurrent = new ArrayList<Match>();
             for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
                 Match match = new Match();
-                match.teams[Match.HOME] = qualifiedTeams.get(2 * i);
-                match.teams[Match.AWAY] = qualifiedTeams.get(2 * i + 1);
+                match.teams[HOME] = qualifiedTeams.get(2 * i);
+                match.teams[AWAY] = qualifiedTeams.get(2 * i + 1);
                 match.result = null;
                 match.oldResult = null;
                 calendarCurrent.add(match);
@@ -118,9 +121,9 @@ public class Cup extends Competition {
                 Match match = calendarCurrent.get(i);
 
                 // swap teams
-                int tmp = match.teams[Match.HOME];
-                match.teams[Match.HOME] = match.teams[Match.AWAY];
-                match.teams[Match.AWAY] = tmp;
+                int tmp = match.teams[HOME];
+                match.teams[HOME] = match.teams[AWAY];
+                match.teams[AWAY] = tmp;
 
                 match.ended = false;
                 match.oldResult = match.result;
@@ -139,9 +142,9 @@ public class Cup extends Competition {
                 Match match = calendarCurrent.get(i);
                 if (match.qualified == -1) {
                     // swap teams
-                    int tmp = match.teams[Match.HOME];
-                    match.teams[Match.HOME] = match.teams[Match.AWAY];
-                    match.teams[Match.AWAY] = tmp;
+                    int tmp = match.teams[HOME];
+                    match.teams[HOME] = match.teams[AWAY];
+                    match.teams[AWAY] = tmp;
 
                     match.ended = false;
                     match.result = null;
@@ -161,8 +164,8 @@ public class Cup extends Competition {
     }
 
     public void generateResult() {
-        Team homeTeam = getTeam(Match.HOME);
-        Team awayTeam = getTeam(Match.AWAY);
+        Team homeTeam = getTeam(HOME);
+        Team awayTeam = getTeam(AWAY);
 
         int goalA = Match.generateScore(homeTeam, awayTeam, false);
         int goalB = Match.generateScore(awayTeam, homeTeam, false);
@@ -375,9 +378,9 @@ public class Cup extends Competition {
     private int getQualified(Match match) {
         if (match.resultAfterPenalties != null) {
             if (match.resultAfterPenalties.homeGoals > match.resultAfterPenalties.awayGoals) {
-                return match.teams[Match.HOME];
+                return match.teams[HOME];
             } else if (match.resultAfterPenalties.homeGoals < match.resultAfterPenalties.awayGoals) {
-                return match.teams[Match.AWAY];
+                return match.teams[AWAY];
             } else {
                 throw new GdxRuntimeException("Invalid state in cup");
             }
@@ -390,9 +393,9 @@ public class Cup extends Competition {
             switch (round.legs) {
                 case 1:
                     if (match.result.homeGoals > match.result.awayGoals) {
-                        return match.teams[Match.HOME];
+                        return match.teams[HOME];
                     } else if (match.result.homeGoals < match.result.awayGoals) {
-                        return match.teams[Match.AWAY];
+                        return match.teams[AWAY];
                     } else {
                         return -1;
                     }
@@ -406,16 +409,16 @@ public class Cup extends Competition {
             int aggregate1 = match.result.homeGoals + match.oldResult.awayGoals;
             int aggregate2 = match.result.awayGoals + match.oldResult.homeGoals;
             if (aggregate1 > aggregate2) {
-                return match.teams[Match.HOME];
+                return match.teams[HOME];
             } else if (aggregate1 < aggregate2) {
-                return match.teams[Match.AWAY];
+                return match.teams[AWAY];
             } else {
                 if ((awayGoals == AwayGoals.AFTER_90_MINS) ||
                         (awayGoals == AwayGoals.AFTER_EXTRA_TIME && match.includesExtraTime)) {
                     if (match.oldResult.awayGoals > match.result.awayGoals) {
-                        return match.teams[Match.HOME];
+                        return match.teams[HOME];
                     } else if (match.oldResult.awayGoals < match.result.awayGoals) {
-                        return match.teams[Match.AWAY];
+                        return match.teams[AWAY];
                     } else {
                         return -1;
                     }
@@ -428,9 +431,9 @@ public class Cup extends Competition {
         // replays
         else {
             if (match.result.homeGoals > match.result.awayGoals) {
-                return match.teams[Match.HOME];
+                return match.teams[HOME];
             } else if (match.result.homeGoals < match.result.awayGoals) {
-                return match.teams[Match.AWAY];
+                return match.teams[AWAY];
             } else {
                 return -1;
             }
@@ -656,7 +659,7 @@ public class Cup extends Competition {
     }
 
     public boolean bothComputers() {
-        return getTeam(Match.HOME).controlMode == Team.ControlMode.COMPUTER
-                && getTeam(Match.AWAY).controlMode == Team.ControlMode.COMPUTER;
+        return getTeam(HOME).controlMode == Team.ControlMode.COMPUTER
+                && getTeam(AWAY).controlMode == Team.ControlMode.COMPUTER;
     }
 }

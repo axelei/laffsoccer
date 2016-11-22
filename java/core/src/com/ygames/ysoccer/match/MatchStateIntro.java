@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateIntro extends MatchState {
 
     private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
@@ -49,8 +52,8 @@ class MatchStateIntro extends MatchState {
     @Override
     void checkConditions() {
         if (match.enterPlayersFinished(timer, enterDelay)) {
-            if ((match.team[Match.HOME].fire1Down() != null)
-                    || (match.team[Match.AWAY].fire1Down() != null)
+            if ((match.team[HOME].fire1Down() != null)
+                    || (match.team[AWAY].fire1Down() != null)
                     || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
             }

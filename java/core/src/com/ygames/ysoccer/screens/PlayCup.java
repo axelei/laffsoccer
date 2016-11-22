@@ -15,6 +15,9 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class PlayCup extends GLScreen {
 
     Cup cup;
@@ -52,7 +55,7 @@ class PlayCup extends GLScreen {
         for (int m = 0; m < matches; m++) {
             Match match = cup.calendarCurrent.get(m);
 
-            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[Match.HOME]), Font.Align.RIGHT);
+            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[HOME]), Font.Align.RIGHT);
             resultWidgets.add(w);
             widgets.add(w);
 
@@ -80,7 +83,7 @@ class PlayCup extends GLScreen {
             resultWidgets.add(w);
             widgets.add(w);
 
-            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[Match.AWAY]), Font.Align.LEFT);
+            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[AWAY]), Font.Align.LEFT);
             resultWidgets.add(w);
             widgets.add(w);
 
@@ -97,7 +100,7 @@ class PlayCup extends GLScreen {
         // home team
         w = new Label();
         w.setGeometry(240, 618, 322, 36);
-        w.setText(cup.getTeam(Match.HOME).name, Font.Align.RIGHT, Assets.font14);
+        w.setText(cup.getTeam(HOME).name, Font.Align.RIGHT, Assets.font14);
         widgets.add(w);
 
         Match match = cup.getMatch();
@@ -134,7 +137,7 @@ class PlayCup extends GLScreen {
         // away team
         w = new Label();
         w.setGeometry(720, 618, 322, 36);
-        w.setText(cup.getTeam(Match.AWAY).name, Font.Align.LEFT, Assets.font14);
+        w.setText(cup.getTeam(AWAY).name, Font.Align.LEFT, Assets.font14);
         widgets.add(w);
 
         w = new ViewStatisticsButton();
@@ -267,13 +270,13 @@ class PlayCup extends GLScreen {
         public void onFire1Down() {
             cup.userPrefersResult = false;
 
-            Team homeTeam = cup.getTeam(Match.HOME);
-            Team awayTeam = cup.getTeam(Match.AWAY);
+            Team homeTeam = cup.getTeam(HOME);
+            Team awayTeam = cup.getTeam(AWAY);
 
             if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, Match.HOME));
+                game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, HOME));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, Match.AWAY));
+                game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, AWAY));
             } else {
                 game.setScreen(new MatchSetup(game, null, null, cup, homeTeam, awayTeam));
             }

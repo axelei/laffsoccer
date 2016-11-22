@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateGoal extends MatchState {
 
     private Goal goal;
@@ -29,10 +32,10 @@ class MatchStateGoal extends MatchState {
 
         goal = match.goals.get(match.goals.size() - 1);
 
-        if (match.team[Match.HOME].side == match.ball.ySide) {
-            match.kickOffTeam = Match.HOME;
-        } else if (match.team[Match.AWAY].side == match.ball.ySide) {
-            match.kickOffTeam = Match.AWAY;
+        if (match.team[HOME].side == match.ball.ySide) {
+            match.kickOffTeam = HOME;
+        } else if (match.team[AWAY].side == match.ball.ySide) {
+            match.kickOffTeam = AWAY;
         } else {
             throw new RuntimeException("cannot decide kick_off_team!");
         }

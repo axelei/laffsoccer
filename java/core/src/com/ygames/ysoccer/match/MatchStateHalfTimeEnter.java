@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateHalfTimeEnter extends MatchState {
 
     private int enteringCounter;
@@ -37,7 +40,7 @@ class MatchStateHalfTimeEnter extends MatchState {
             if (match.subframe % GLGame.SUBFRAMES == 0) {
                 match.updateAi();
                 if ((enteringCounter % 4) == 0 && enteringCounter / 4 < Const.TEAM_SIZE) {
-                    for (int t = Match.HOME; t <= Match.AWAY; t++) {
+                    for (int t = HOME; t <= AWAY; t++) {
                         int i = enteringCounter / 4;
                         Player player = match.team[t].lineup.get(i);
                         player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);

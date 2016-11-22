@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchStateEnd extends MatchState {
 
     MatchStateEnd(MatchFsm fsm) {
@@ -45,7 +48,7 @@ class MatchStateEnd extends MatchState {
 
     @Override
     void checkConditions() {
-        if (match.team[Match.HOME].fire1Up() != null || match.team[Match.AWAY].fire1Up() != null
+        if (match.team[HOME].fire1Up() != null || match.team[AWAY].fire1Up() != null
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
             // TODO
             // match.quit();

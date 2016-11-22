@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class Recorder {
 
     private static final int MAX_RECORDS = 6;
@@ -31,7 +34,7 @@ class Recorder {
             highlights[index++] = (short) ballData.fmx;
 
             // players
-            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            for (int t = HOME; t <= AWAY; t++) {
                 for (int j = 0; j < Const.TEAM_SIZE; j++) {
                     Player player = match.team[t].players.get(j);
                     Data playerData = player.data[match.subframe];
@@ -80,7 +83,7 @@ class Recorder {
             ballData.fmx = highlights[offset++];
 
             // players
-            for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            for (int t = HOME; t <= AWAY; t++) {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     Player player = match.team[t].players.get(i);
                     Data playerData = player.data[match.subframe];

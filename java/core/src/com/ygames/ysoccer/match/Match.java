@@ -14,7 +14,6 @@ public class Match implements Json.Serializable {
 
     public static final int HOME = 0;
     public static final int AWAY = 1;
-
     public int teams[] = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
     public Result result;

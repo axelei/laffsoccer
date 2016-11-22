@@ -11,6 +11,9 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class MatchLoading extends GLScreen {
 
     Match match;
@@ -32,7 +35,7 @@ class MatchLoading extends GLScreen {
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
         Assets.loadKeeper();
-        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+        for (int t = HOME; t <= AWAY; t++) {
             int len = team[t].lineup.size();
             for (int i = 0; i < len; i++) {
                 Player player = team[t].lineup.get(i);
