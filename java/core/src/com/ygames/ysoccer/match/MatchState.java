@@ -4,10 +4,16 @@ class MatchState {
 
     protected int timer;
     protected int id;
-    protected MatchCore match;
+    protected MatchFsm fsm;
 
-    MatchState(MatchCore match) {
-        this.match = match;
+    // convenience references
+    protected MatchCore match;
+    protected MatchRenderer matchRenderer;
+
+    MatchState(MatchFsm fsm) {
+        this.fsm = fsm;
+        this.match = fsm.getMatch();
+        this.matchRenderer = fsm.getMatchRenderer();
     }
 
     void entryActions() {

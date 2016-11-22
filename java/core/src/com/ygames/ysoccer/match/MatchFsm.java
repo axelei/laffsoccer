@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
-class MatchFsm {
+public class MatchFsm {
 
     private class Action {
         ActionType type;
@@ -35,6 +35,7 @@ class MatchFsm {
     }
 
     private MatchCore match;
+    private MatchRenderer matchRenderer;
     private int savedSubframe;
 
     private List<MatchState> states;
@@ -68,34 +69,43 @@ class MatchFsm {
 
     MatchFsm(MatchCore match) {
         this.match = match;
+        matchRenderer = new MatchRenderer(match.game.glGraphics, match);
         states = new ArrayList<MatchState>();
         actions = new ArrayDeque<Action>();
 
-        states.add(new MatchStateIntro(match));
-        states.add(new MatchStateStartingPositions(match));
-        states.add(new MatchStateKickOff(match));
-        states.add(new MatchStateMain(match));
-        states.add(new MatchStateThrowInStop(match));
-        states.add(new MatchStateThrowIn(match));
-        states.add(new MatchStateGoalKickStop(match));
-        states.add(new MatchStateGoalKick(match));
-        states.add(new MatchStateCornerStop(match));
-        states.add(new MatchStateCornerKick(match));
-        states.add(new MatchStateKeeperStop(match));
-        states.add(new MatchStateGoal(match));
-        states.add(new MatchStateHalfTimeStop(match));
-        states.add(new MatchStateHalfTimePositions(match));
-        states.add(new MatchStateHalfTimeWait(match));
-        states.add(new MatchStateHalfTimeEnter(match));
-        states.add(new MatchStateFullTimeStop(match));
-        states.add(new MatchStateEndPositions(match));
-        states.add(new MatchStateEnd(match));
-        states.add(new MatchStateReplay(match));
-        states.add(new MatchStateHighlights(match));
+        states.add(new MatchStateIntro(this));
+        states.add(new MatchStateStartingPositions(this));
+        states.add(new MatchStateKickOff(this));
+        states.add(new MatchStateMain(this));
+        states.add(new MatchStateThrowInStop(this));
+        states.add(new MatchStateThrowIn(this));
+        states.add(new MatchStateGoalKickStop(this));
+        states.add(new MatchStateGoalKick(this));
+        states.add(new MatchStateCornerStop(this));
+        states.add(new MatchStateCornerKick(this));
+        states.add(new MatchStateKeeperStop(this));
+        states.add(new MatchStateGoal(this));
+        states.add(new MatchStateHalfTimeStop(this));
+        states.add(new MatchStateHalfTimePositions(this));
+        states.add(new MatchStateHalfTimeWait(this));
+        states.add(new MatchStateHalfTimeEnter(this));
+        states.add(new MatchStateFullTimeStop(this));
+        states.add(new MatchStateEndPositions(this));
+        states.add(new MatchStateEnd(this));
+        states.add(new MatchStateReplay(this));
+        states.add(new MatchStateHighlights(this));
     }
 
     public MatchState getState() {
         return currentState;
+    }
+
+    public MatchCore getMatch() {
+        return match;
+    }
+
+    public MatchRenderer getMatchRenderer() {
+        return matchRenderer;
     }
 
     void think(float deltaTime) {
@@ -105,12 +115,12 @@ class MatchFsm {
         // fade in/out
         if (currentAction != null && currentAction.type == ActionType.FADE_OUT) {
             // TODO
-            // match.renderer.glGraphics.light = 8 * (currentAction.timer - 1);
+            // match.matchRenderer.glGraphics.light = 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
         if (currentAction != null && currentAction.type == ActionType.FADE_IN) {
             // TODO
-            // match.renderer.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
+            // match.matchRenderer.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
 

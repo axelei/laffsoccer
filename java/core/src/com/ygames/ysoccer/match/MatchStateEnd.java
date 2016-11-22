@@ -4,8 +4,8 @@ import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateEnd extends MatchState {
 
-    MatchStateEnd(MatchCore match) {
-        super(match);
+    MatchStateEnd(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_END;
     }
 
@@ -13,14 +13,14 @@ class MatchStateEnd extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = false;
-        match.renderer.displayWindVane = false;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = true;
-        match.renderer.displayRadar = false;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = false;
+        matchRenderer.displayWindVane = false;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = true;
+        matchRenderer.displayRadar = false;
 
         match.period = MatchCore.Period.UNDEFINED;
     }
@@ -36,8 +36,8 @@ class MatchStateEnd extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
-            match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
+            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
+            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

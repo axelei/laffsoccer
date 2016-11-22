@@ -7,8 +7,8 @@ class MatchStateGoalKickStop extends MatchState {
     private int xSide;
     private int ySide;
 
-    MatchStateGoalKickStop(MatchCore match) {
-        super(match);
+    MatchStateGoalKickStop(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_GOAL_KICK_STOP;
     }
 
@@ -16,14 +16,14 @@ class MatchStateGoalKickStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         // TODO
         // match.listener.whistleSound(match.settings.sfxVolume);
@@ -71,8 +71,8 @@ class MatchStateGoalKickStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

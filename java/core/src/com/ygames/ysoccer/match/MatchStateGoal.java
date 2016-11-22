@@ -6,8 +6,8 @@ class MatchStateGoal extends MatchState {
 
     private Goal goal;
 
-    MatchStateGoal(MatchCore match) {
-        super(match);
+    MatchStateGoal(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_GOAL;
     }
 
@@ -15,14 +15,14 @@ class MatchStateGoal extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = true;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = true;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         // TODO
         // match.listener.homeGoalSound(match.settings.sfxVolume);
@@ -70,12 +70,12 @@ class MatchStateGoal extends MatchState {
 
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
-                match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
-                match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL, 0, false);
+                matchRenderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+                matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL, 0, false);
             } else {
                 // follow scorer
-                match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].x);
-                match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].y, false);
+                matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].x);
+                matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].y, false);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -86,12 +86,12 @@ class MatchStateGoal extends MatchState {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
                 && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
 
-            match.recorder.saveHighlight();
+            match.recorder.saveHighlight(matchRenderer);
 
             match.ball.setPosition(0, 0, 0);
             match.ball.updatePrediction();
-            match.renderer.actionCamera.offx = 0;
-            match.renderer.actionCamera.offy = 0;
+            matchRenderer.actionCamera.offx = 0;
+            matchRenderer.actionCamera.offy = 0;
 
             if (match.game.settings.autoReplays) {
                 match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);

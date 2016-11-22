@@ -16,22 +16,22 @@ class MatchStateReplay extends MatchState {
     private int position;
     private InputDevice inputDevice;
 
-    MatchStateReplay(MatchCore match) {
-        super(match);
+    MatchStateReplay(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_REPLAY;
     }
 
     @Override
     void entryActions() {
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = false;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = false;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = false;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = false;
 
         subframe0 = match.subframe;
 
@@ -130,11 +130,11 @@ class MatchStateReplay extends MatchState {
         super.render();
 
         int f = Math.round(match.subframe / GLGame.SUBFRAMES) % 32;
-        match.renderer.glGraphics.batch.draw(Assets.replay[f % 16][f / 16], 34, 28);
+        matchRenderer.glGraphics.batch.draw(Assets.replay[f % 16][f / 16], 34, 28);
         if (inputDevice != null) {
             int frameX = 1 + inputDevice.x1;
             int frameY = 1 + inputDevice.y1;
-            match.renderer.glGraphics.batch.draw(Assets.replaySpeed[frameX][frameY], match.renderer.guiWidth - 50, match.renderer.guiHeight - 50);
+            matchRenderer.glGraphics.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
         }
     }
 

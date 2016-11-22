@@ -8,8 +8,8 @@ class MatchStateKeeperStop extends MatchState {
     private Team keeperTeam;
     private Team opponentTeam;
 
-    MatchStateKeeperStop(MatchCore match) {
-        super(match);
+    MatchStateKeeperStop(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_KEEPER_STOP;
     }
 
@@ -17,14 +17,14 @@ class MatchStateKeeperStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = true;
-        match.renderer.displayBallOwner = true;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = true;
+        matchRenderer.displayBallOwner = true;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         keeper = match.ball.holder;
         keeperTeam = match.team[keeper.team.index];
@@ -62,8 +62,8 @@ class MatchStateKeeperStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

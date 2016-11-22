@@ -4,8 +4,8 @@ import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateHalfTimeStop extends MatchState {
 
-    MatchStateHalfTimeStop(MatchCore match) {
-        super(match);
+    MatchStateHalfTimeStop(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_HALF_TIME_STOP;
     }
 
@@ -13,14 +13,14 @@ class MatchStateHalfTimeStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         // TODO
         // match.listener.endGameSound(match.settings.sfxVolume);
@@ -49,8 +49,8 @@ class MatchStateHalfTimeStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

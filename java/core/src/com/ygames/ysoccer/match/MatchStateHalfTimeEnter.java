@@ -6,8 +6,8 @@ class MatchStateHalfTimeEnter extends MatchState {
 
     private int enteringCounter;
 
-    MatchStateHalfTimeEnter(MatchCore match) {
-        super(match);
+    MatchStateHalfTimeEnter(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_HALF_TIME_ENTER;
     }
 
@@ -15,14 +15,14 @@ class MatchStateHalfTimeEnter extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         match.setStartingPositions();
     }
@@ -52,8 +52,8 @@ class MatchStateHalfTimeEnter extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

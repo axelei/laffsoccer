@@ -7,8 +7,8 @@ class MatchStateCornerStop extends MatchState {
     private int cornerX;
     private int cornerY;
 
-    MatchStateCornerStop(MatchCore match) {
-        super(match);
+    MatchStateCornerStop(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_CORNER_STOP;
     }
 
@@ -16,14 +16,14 @@ class MatchStateCornerStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = true;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = true;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         if (match.team[Match.HOME].side == -match.ball.ySide) {
             match.data.stats[Match.HOME].cornersWon += 1;
@@ -72,8 +72,8 @@ class MatchStateCornerStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -15,13 +15,12 @@ public class MatchCore {
 
     public GLGame game;
 
-    MatchFsm fsm;
+    public MatchFsm fsm;
 
     final Ball ball;
     public final Team team[];
     public int benchSide; // 1 = home upside, -1 = home downside
 
-    public MatchRenderer renderer;
     public MatchSettings settings;
     private Competition competition;
 
@@ -50,14 +49,14 @@ public class MatchCore {
         this.settings = matchSettings;
         this.competition = competition;
 
-        fsm = new MatchFsm(this);
-
         ball = new Ball(this);
 
         for (int t = HOME; t <= AWAY; t++) {
             team[t].index = t;
             team[t].beforeMatch(this);
         }
+
+        fsm = new MatchFsm(this);
 
         team[HOME].side = 1 - 2 * Assets.random.nextInt(2); // -1 = up, 1 = down
         team[AWAY].side = -team[HOME].side;

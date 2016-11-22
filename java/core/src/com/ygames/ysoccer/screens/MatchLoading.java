@@ -26,7 +26,6 @@ class MatchLoading extends GLScreen {
         Team[] team = {homeTeam, awayTeam};
 
         matchCore = new MatchCore(game, team, matchSettings, competition);
-        matchCore.renderer = new MatchRenderer(game.glGraphics, matchCore);
 
         game.unsetMouse();
 

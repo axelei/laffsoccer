@@ -4,8 +4,8 @@ import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateFullTimeStop extends MatchState {
 
-    MatchStateFullTimeStop(MatchCore match) {
-        super(match);
+    MatchStateFullTimeStop(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_FULL_TIME_STOP;
     }
 
@@ -13,14 +13,14 @@ class MatchStateFullTimeStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         match.clock = match.length;
 
@@ -51,8 +51,8 @@ class MatchStateFullTimeStop extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

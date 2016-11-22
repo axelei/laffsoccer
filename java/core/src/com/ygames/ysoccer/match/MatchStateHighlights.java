@@ -11,8 +11,8 @@ class MatchStateHighlights extends MatchState {
     private boolean keySlow;
     private boolean slowMotion;
 
-    MatchStateHighlights(MatchCore match) {
-        super(match);
+    MatchStateHighlights(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_HIGHLIGHTS;
     }
 
@@ -20,14 +20,14 @@ class MatchStateHighlights extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = false;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = false;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = false;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = false;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = false;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = false;
 
         // position of current frame inside the highlights vector
         position = 0;
@@ -39,7 +39,7 @@ class MatchStateHighlights extends MatchState {
         // store initial frame
         subframe0 = match.subframe;
 
-        match.recorder.loadHighlight();
+        match.recorder.loadHighlight(matchRenderer);
     }
 
     @Override

@@ -8,8 +8,8 @@ class MatchStateGoalKick extends MatchState {
     private Player goalKickPlayer;
     private boolean isKicking;
 
-    MatchStateGoalKick(MatchCore match) {
-        super(match);
+    MatchStateGoalKick(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_GOAL_KICK;
     }
 
@@ -17,19 +17,19 @@ class MatchStateGoalKick extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = true;
-        match.renderer.displayBallOwner = true;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = true;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = true;
+        matchRenderer.displayBallOwner = true;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = true;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         goalKickTeam = match.team[1 - match.ball.ownerLast.team.index];
 
-        match.renderer.actionCamera.offx = -30 * match.ball.xSide;
-        match.renderer.actionCamera.offy = -30 * match.ball.ySide;
+        matchRenderer.actionCamera.offx = -30 * match.ball.xSide;
+        matchRenderer.actionCamera.offy = -30 * match.ball.ySide;
 
         isKicking = false;
 
@@ -59,8 +59,8 @@ class MatchStateGoalKick extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

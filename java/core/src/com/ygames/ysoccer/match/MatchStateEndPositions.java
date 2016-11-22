@@ -6,8 +6,8 @@ class MatchStateEndPositions extends MatchState {
 
     boolean move;
 
-    MatchStateEndPositions(MatchCore match) {
-        super(match);
+    MatchStateEndPositions(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_END_POSITIONS;
     }
 
@@ -15,22 +15,22 @@ class MatchStateEndPositions extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = false;
-        match.renderer.displayBallOwner = false;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = false;
-        match.renderer.displayWindVane = false;
-        match.renderer.displayScore = true;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = false;
+        matchRenderer.displayControlledPlayer = false;
+        matchRenderer.displayBallOwner = false;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = false;
+        matchRenderer.displayWindVane = false;
+        matchRenderer.displayScore = true;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = false;
 
         match.period = MatchCore.Period.UNDEFINED;
 
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();
 
-        match.renderer.actionCamera.offx = 0;
-        match.renderer.actionCamera.offy = 0;
+        matchRenderer.actionCamera.offx = 0;
+        matchRenderer.actionCamera.offy = 0;
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
         match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
@@ -53,8 +53,8 @@ class MatchStateEndPositions extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
-            match.renderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
+            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
+            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

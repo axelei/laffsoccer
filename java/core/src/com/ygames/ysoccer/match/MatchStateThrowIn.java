@@ -8,8 +8,8 @@ class MatchStateThrowIn extends MatchState {
     private Player throwInPlayer;
     private boolean isThrowingIn;
 
-    MatchStateThrowIn(MatchCore match) {
-        super(match);
+    MatchStateThrowIn(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_THROW_IN;
     }
 
@@ -17,14 +17,14 @@ class MatchStateThrowIn extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        match.renderer.displayControlledPlayer = true;
-        match.renderer.displayBallOwner = true;
-        match.renderer.displayGoalScorer = false;
-        match.renderer.displayTime = true;
-        match.renderer.displayWindVane = true;
-        match.renderer.displayScore = true;
-        match.renderer.displayStatistics = false;
-        match.renderer.displayRadar = true;
+        matchRenderer.displayControlledPlayer = true;
+        matchRenderer.displayBallOwner = true;
+        matchRenderer.displayGoalScorer = false;
+        matchRenderer.displayTime = true;
+        matchRenderer.displayWindVane = true;
+        matchRenderer.displayScore = true;
+        matchRenderer.displayStatistics = false;
+        matchRenderer.displayRadar = true;
 
         throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
         isThrowingIn = false;
@@ -58,8 +58,8 @@ class MatchStateThrowIn extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

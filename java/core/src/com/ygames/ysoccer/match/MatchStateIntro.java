@@ -6,8 +6,8 @@ class MatchStateIntro extends MatchState {
 
     private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
 
-    MatchStateIntro(MatchCore match) {
-        super(match);
+    MatchStateIntro(MatchFsm fsm) {
+        super(fsm);
         id = MatchFsm.STATE_INTRO;
     }
 
@@ -39,8 +39,8 @@ class MatchStateIntro extends MatchState {
 
             match.save();
 
-            match.renderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
-            match.renderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -36,13 +36,13 @@ class MatchScreen extends GLScreen {
             match.update(deltaTime);
         }
 
-        match.renderer.render(game);
+        match.fsm.getMatchRenderer().render(game);
     }
 
     @Override
     public void resize(int width, int height) {
         super.resize(width, height);
 
-        match.renderer.resize(width, height, game.settings);
+        match.fsm.getMatchRenderer().resize(width, height, game.settings);
     }
 }
