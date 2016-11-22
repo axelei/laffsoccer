@@ -654,7 +654,7 @@ class ImportTeams extends GLScreen {
         team.coach = new Coach();
         team.coach.name = "";
         team.coach.nationality = "";
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 24; i++) {
             int b = bytes[pos++] & 0xFF;
             if (b > 0) {
                 team.coach.name += (char) (b);
@@ -664,15 +664,11 @@ class ImportTeams extends GLScreen {
         // player vector
         // tell which player is stored in 'pos' position
         for (int i = 0; i < 16; i++) {
-            position.set(i, 0);
+            position.set(i, -1);
         }
-        for (int i = 1; i < 16; i++) {
+        for (int i = 0; i < 16; i++) {
             int p = bytes[pos++] & 0xFF;
-            if (p == 0) {
-                Gdx.app.log("Error", "player has position 0 in file: " + fileHandle.name() + ", team: " + team.name);
-                failedTeams++;
-                return startingPosition + 684;
-            } else if (position.indexOf(p) != -1) {
+            if (position.indexOf(p) != -1) {
                 Gdx.app.log("Error", "duplicate position: " + p + " in file: " + fileHandle.name() + ", team: " + team.name);
                 failedTeams++;
                 return startingPosition + 684;
@@ -689,7 +685,7 @@ class ImportTeams extends GLScreen {
         for (int i = 0; i < 16; i++) {
 
             // initialize player
-                Player player = team.players.get(position.indexOf(i));
+            Player player = team.players.get(position.indexOf(i));
 
             // nationality
             player.nationality = "";
