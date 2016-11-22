@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -19,6 +20,8 @@ public class MatchRenderer {
     public static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
     public static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
     public static final float VISIBLE_FIELD_WIDTH_MIN = 0.65f;
+
+    private static final float guiAlpha = 0.9f;
 
     GLGraphics glGraphics;
     int screenWidth;
@@ -112,6 +115,7 @@ public class MatchRenderer {
         glGraphics.camera.setToOrtho(true, guiWidth, guiHeight);
         glGraphics.camera.update();
         glGraphics.batch.setProjectionMatrix(glGraphics.camera.combined);
+        glGraphics.shapeRenderer.setProjectionMatrix(glGraphics.camera.combined);
         glGraphics.batch.begin();
 
         // ball owner
@@ -122,6 +126,11 @@ public class MatchRenderer {
         // clock
         if (displayTime) {
             drawTime();
+        }
+
+        // score
+        if (displayScore) {
+            drawScore();
         }
 
         // goal scorer
@@ -237,6 +246,31 @@ public class MatchRenderer {
         if (digit > 0) {
             glGraphics.batch.draw(Assets.time[digit], 10, 22);
         }
+    }
+
+    private void drawScore() {
+
+        int y0 = guiHeight - 16;
+
+        // teams
+        Assets.font14.draw(glGraphics.batch, match.team[Match.HOME].name, +10, y0 - 22, Font.Align.LEFT);
+        Assets.font14.draw(glGraphics.batch, match.team[Match.AWAY].name, guiWidth - 8, y0 - 22, Font.Align.RIGHT);
+
+        // bars
+        glGraphics.batch.end();
+        glGraphics.shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+
+        glGraphics.shapeRenderer.setColor(1, 1, 1, guiAlpha);
+        glGraphics.shapeRenderer.rect(10, y0, guiWidth / 2 - 22, 2);
+        glGraphics.shapeRenderer.rect(guiWidth / 2 + 12, y0, guiWidth / 2 - 22, 2);
+
+        glGraphics.shapeRenderer.setColor(0.1f, 0.1f, 0.1f, guiAlpha);
+        glGraphics.shapeRenderer.rect(12, y0 + 2, guiWidth / 2 - 22, 2);
+        glGraphics.shapeRenderer.rect(guiWidth / 2 + 14, y0 + 2, guiWidth / 2 - 22, 2);
+
+        glGraphics.shapeRenderer.end();
+
+        glGraphics.batch.begin();
     }
 
     void updateCameraX(int follow, int speed) {
