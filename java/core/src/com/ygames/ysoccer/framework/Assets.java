@@ -21,6 +21,7 @@ import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -35,8 +36,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-
-import sun.misc.IOUtils;
 
 public class Assets {
 
@@ -541,7 +540,10 @@ public class Assets {
         try {
             in = Gdx.files.internal(internalPath).read();
 
-            byte[] bytes = IOUtils.readFully(PngEditor.editPalette(in, rgbPairs), -1, true);
+            ByteArrayInputStream inputStream = PngEditor.editPalette(in, rgbPairs);
+
+            byte[] bytes = FileUtils.inputStreamToBytes(inputStream);
+
             Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
             return new Texture(pixmap);
         } catch (IOException e) {
@@ -551,6 +553,7 @@ public class Assets {
                 try {
                     in.close();
                 } catch (IOException e) {
+                    Gdx.app.error("loadTexture", e.toString());
                 }
         }
     }
@@ -561,7 +564,10 @@ public class Assets {
             in = Gdx.files.internal(internalPath).read();
             InputStream palette = Gdx.files.internal(paletteFile).read();
 
-            byte[] bytes = IOUtils.readFully(PngEditor.swapPalette(in, palette), -1, true);
+            ByteArrayInputStream inputStream = PngEditor.swapPalette(in, palette);
+
+            byte[] bytes = FileUtils.inputStreamToBytes(inputStream);
+
             Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
             return new Texture(pixmap);
         } catch (IOException e) {
@@ -571,6 +577,7 @@ public class Assets {
                 try {
                     in.close();
                 } catch (IOException e) {
+                    Gdx.app.error("loadTexture", e.toString());
                 }
         }
     }

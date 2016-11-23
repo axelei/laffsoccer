@@ -6,16 +6,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import sun.misc.IOUtils;
-
 public class Font {
 
-    RgbPair rgbPair;
+    private RgbPair rgbPair;
 
     public enum Align {
         RIGHT, CENTER, LEFT
@@ -23,8 +22,8 @@ public class Font {
 
     public int size;
     public Texture texture;
-    public int[] widths = new int[1024];
-    public TextureRegion[] regions = new TextureRegion[1024];
+    private int[] widths = new int[1024];
+    private TextureRegion[] regions = new TextureRegion[1024];
 
     public Font(int size) {
         this.size = size;
@@ -40,12 +39,14 @@ public class Font {
             texture = new Texture("images/font_" + size + ".png");
         } else {
             InputStream in = null;
+            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            rgbPairs.add(rgbPair);
             try {
                 in = Gdx.files.internal("images/font_" + size + ".png").read();
 
-                List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
-                rgbPairs.add(rgbPair);
-                byte[] bytes = IOUtils.readFully(PngEditor.editPalette(in, rgbPairs), -1, true);
+                ByteArrayInputStream inputStream = PngEditor.editPalette(in, rgbPairs);
+
+                byte[] bytes = FileUtils.inputStreamToBytes(inputStream);
 
                 Pixmap pixmap = new Pixmap(bytes, 0, bytes.length);
                 texture = new Texture(pixmap);
@@ -56,6 +57,7 @@ public class Font {
                     try {
                         in.close();
                     } catch (IOException e) {
+                        Gdx.app.error(getClass().toString(), e.toString());
                     }
             }
         }
@@ -74,7 +76,7 @@ public class Font {
         }
     }
 
-    protected static void loadFontWidths(int[] fontWidths, String filePath) {
+    private static void loadFontWidths(int[] fontWidths, String filePath) {
         InputStream in = null;
 
         try {
@@ -87,6 +89,7 @@ public class Font {
                 try {
                     in.close();
                 } catch (IOException e) {
+                    Gdx.app.error("loadFontWidths", e.toString());
                 }
         }
     }
@@ -173,7 +176,7 @@ public class Font {
         }
     }
 
-    public int textWidth(String text) {
+    private int textWidth(String text) {
         int w = 0;
         for (int i = 0; i < text.length(); i++) {
             int c = text.charAt(i);
@@ -189,5 +192,4 @@ public class Font {
         }
         return w;
     }
-
 }
