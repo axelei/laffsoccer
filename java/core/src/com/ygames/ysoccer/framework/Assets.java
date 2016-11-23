@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.framework;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Cursor;
@@ -89,6 +90,15 @@ public class Assets {
         font14.load();
         font10 = new Font(10);
         font10.load();
+
+        // first-time setup of local data for android
+        if (Gdx.app.getType() == Application.ApplicationType.Android) {
+            FileHandle localDataFolder = Gdx.files.local("data");
+            if (localDataFolder.list().length == 0) {
+                Gdx.files.internal("data").copyTo(localDataFolder);
+            }
+        }
+
         teamsFolder = Gdx.files.local("data/teams");
         competitionsFolder = Gdx.files.local("data/competitions");
         savesFolder = Gdx.files.local("data/saves/competitions");
