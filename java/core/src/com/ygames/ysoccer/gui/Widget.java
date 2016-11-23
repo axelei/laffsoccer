@@ -3,9 +3,9 @@ package com.ygames.ysoccer.gui;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.math.Emath;
 
-import java.awt.Color;
 import java.util.Comparator;
 import java.util.List;
 
@@ -83,7 +83,7 @@ public abstract class Widget {
         this.color.set(body, lightBorder, darkBorder);
     }
 
-    public void setColors(Color body, Color lightBorder, Color darkBorder) {
+    public void setColors(GlColor body, GlColor lightBorder, GlColor darkBorder) {
         this.color.set(body.getRGB(), lightBorder.getRGB(), darkBorder.getRGB());
     }
 
@@ -92,11 +92,11 @@ public abstract class Widget {
     }
 
     public void setColors(int color) {
-        setColors(new Color(color));
+        setColors(new GlColor(color));
     }
 
-    public void setColors(Color color) {
-        setColors(color.getRGB(), color.brighter().getRGB(), color.darker().getRGB());
+    public void setColors(GlColor color) {
+        setColors(color.getRGB(), color.brighter().getRGB(), color.darker(0.7D).getRGB());
     }
 
     public void setText(String text) {

@@ -1,22 +1,46 @@
 package com.ygames.ysoccer.framework;
 
-import java.awt.Color;
-
-public class GlColor extends Color {
+public class GlColor {
 
     public enum Component {ALPHA, RED, GREEN, BLUE}
 
+    private int ARGB;
+
+    public GlColor(int red, int green, int blue) {
+        this(red, green, blue, 255);
+    }
+
+    public GlColor(int red, int green, int blue, int alpha) {
+        ARGB = (alpha & 255) << 24 | (red & 255) << 16 | (green & 255) << 8 | (blue & 255);
+    }
+
     public GlColor(int rgb) {
-        super(rgb);
+        this.ARGB = -16777216 | rgb;
     }
 
     // "#ABCDEF" format
     public GlColor(String hexString) {
-        super(Integer.parseInt(hexString.substring(1), 16));
+        this(Integer.parseInt(hexString.substring(1), 16));
     }
 
-    public GlColor(int red, int green, int blue) {
-        super(red, green, blue);
+    public int getAlpha() {
+        return this.getRGB() >> 24 & 255;
+    }
+
+    public int getRed() {
+        return this.getRGB() >> 16 & 255;
+    }
+
+    public int getGreen() {
+        return this.getRGB() >> 8 & 255;
+    }
+
+    public int getBlue() {
+        return this.getRGB() & 255;
+    }
+
+    public int getRGB() {
+        return this.ARGB;
     }
 
     public String toHexString() {
@@ -24,16 +48,17 @@ public class GlColor extends Color {
     }
 
     public int getComponentValue(Component component) {
-        if (component == Component.ALPHA) {
-            return getAlpha();
-        } else if (component == Component.RED) {
-            return getRed();
-        } else if (component == Component.GREEN) {
-            return getGreen();
-        } else if (component == Component.BLUE) {
-            return getBlue();
-        } else {
-            return -1;
+        switch (component) {
+            case ALPHA:
+                return getAlpha();
+            case RED:
+                return getRed();
+            case GREEN:
+                return getGreen();
+            case BLUE:
+                return getBlue();
+            default:
+                return -1;
         }
     }
 
@@ -53,8 +78,42 @@ public class GlColor extends Color {
         return (rgb & 0xFF);
     }
 
-    public Color darker(double factor) {
-        return new Color(
+    public boolean equals(Object color) {
+        return color instanceof GlColor && ((GlColor) color).getRGB() == this.getRGB();
+    }
+
+    public GlColor brighter() {
+        int red = this.getRed();
+        int green = this.getGreen();
+        int blue = this.getBlue();
+        int alpha = this.getAlpha();
+        byte b = 3;
+        if (red == 0 && green == 0 && blue == 0) {
+            return new GlColor(b, b, b, alpha);
+        } else {
+            if (red > 0 && red < b) {
+                red = b;
+            }
+
+            if (green > 0 && green < b) {
+                green = b;
+            }
+
+            if (blue > 0 && blue < b) {
+                blue = b;
+            }
+
+            return new GlColor(
+                    Math.min((int) ((double) red / 0.7D), 255),
+                    Math.min((int) ((double) green / 0.7D), 255),
+                    Math.min((int) ((double) blue / 0.7D), 255),
+                    alpha
+            );
+        }
+    }
+
+    public GlColor darker(double factor) {
+        return new GlColor(
                 Math.max((int) ((double) this.getRed() * factor), 0),
                 Math.max((int) ((double) this.getGreen() * factor), 0),
                 Math.max((int) ((double) this.getBlue() * factor), 0),

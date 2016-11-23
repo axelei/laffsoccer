@@ -1,24 +1,22 @@
 package com.ygames.ysoccer.framework;
 
-import java.awt.Color;
-
 public class RgbPair {
 
-    Color rgbOld;
-    Color rgbNew;
+    GlColor rgbOld;
+    GlColor rgbNew;
 
-    public RgbPair(Color rgbOld, Color rgbNew) {
+    public RgbPair(GlColor rgbOld, GlColor rgbNew) {
         this.rgbOld = rgbOld;
         this.rgbNew = rgbNew;
     }
 
-    public RgbPair(int rgbOld, Color rgbNew) {
-        this.rgbOld = new Color(rgbOld);
+    public RgbPair(int rgbOld, GlColor rgbNew) {
+        this.rgbOld = new GlColor(rgbOld);
         this.rgbNew = rgbNew;
     }
 
     public RgbPair(int rgbOld, int rgbNew) {
-        this.rgbOld = new Color(rgbOld);
-        this.rgbNew = new Color(rgbNew);
+        this.rgbOld = new GlColor(rgbOld);
+        this.rgbNew = new GlColor(rgbNew);
     }
 }
