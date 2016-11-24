@@ -21,7 +21,7 @@ import com.ygames.ysoccer.gui.Widget;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class ControlsSetup extends GLScreen {
+class SetupControls extends GLScreen {
 
     private enum ConfigParam {KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, BUTTON_1, BUTTON_2}
 
@@ -31,7 +31,7 @@ class ControlsSetup extends GLScreen {
     private InputProcessor inputProcessor;
     private JoystickListener joystickListener;
 
-    ControlsSetup(GLGame game) {
+    SetupControls(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_controls.jpg");
 

@@ -62,8 +62,16 @@ public class GlColor {
         }
     }
 
+    public static int argb(int r, int g, int b, int a) {
+        return ((a << 24) | (r << 16) | (g << 8) | b);
+    }
+
     public static int rgb(int r, int g, int b) {
         return ((r << 16) | (g << 8) | b);
+    }
+
+    public static int alpha(int rgb) {
+        return ((rgb >> 24) & 0xFF);
     }
 
     public static int red(int rgb) {
@@ -112,12 +120,55 @@ public class GlColor {
         }
     }
 
+    public static int brighter(int color) {
+        int red = red(color);
+        int green = green(color);
+        int blue = blue(color);
+        int alpha = alpha(color);
+        byte b = 3;
+        if (red == 0 && green == 0 && blue == 0) {
+            return argb(red, green, blue, alpha);
+        } else {
+            if (red > 0 && red < b) {
+                red = b;
+            }
+
+            if (green > 0 && green < b) {
+                green = b;
+            }
+
+            if (blue > 0 && blue < b) {
+                blue = b;
+            }
+
+            return argb(
+                    Math.min((int) ((double) red / 0.7D), 255),
+                    Math.min((int) ((double) green / 0.7D), 255),
+                    Math.min((int) ((double) blue / 0.7D), 255),
+                    alpha
+            );
+        }
+    }
+
     public GlColor darker(double factor) {
         return new GlColor(
                 Math.max((int) ((double) this.getRed() * factor), 0),
                 Math.max((int) ((double) this.getGreen() * factor), 0),
                 Math.max((int) ((double) this.getBlue() * factor), 0),
                 this.getAlpha()
+        );
+    }
+
+    public static int darker(int color) {
+        return darker(color, 0.7D);
+    }
+
+    public static int darker(int color, double factor) {
+        return argb(
+                Math.max((int) ((double) red(color) * factor), 0),
+                Math.max((int) ((double) green(color) * factor), 0),
+                Math.max((int) ((double) blue(color) * factor), 0),
+                alpha(color)
         );
     }
 

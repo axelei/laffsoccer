@@ -37,7 +37,7 @@ public abstract class Widget {
     public boolean entryMode;
     public boolean visible;
     boolean addShadow;
-    boolean dirty;
+    private boolean dirty;
 
     public enum Event {
         NONE, FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
@@ -214,7 +214,7 @@ public abstract class Widget {
             w = widgetList.get(i);
             if (len <= 8) {
                 w.x = (width - w.w) / 2;
-                w.y = centerY + rowHeight * (i - len / 2);
+                w.y = centerY - rowHeight * len / 2 + rowHeight * i;
             } else {
                 if (i < col1) {
                     w.x = (width - 3 * w.w) / 2 - 20;
@@ -239,7 +239,9 @@ public abstract class Widget {
         return (x0 >= x) && (x0 <= x + w) && (y0 >= y) && (y0 <= y + h);
     }
 
-    public static class CompareByText implements Comparator<Widget> {
+    public static Comparator<Widget> widgetComparatorByText = new CompareByText();
+
+    private static class CompareByText implements Comparator<Widget> {
 
         @Override
         public int compare(Widget o1, Widget o2) {

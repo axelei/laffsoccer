@@ -176,7 +176,7 @@ public class Font {
         }
     }
 
-    private int textWidth(String text) {
+    public int textWidth(String text) {
         int w = 0;
         for (int i = 0; i < text.length(); i++) {
             int c = text.charAt(i);

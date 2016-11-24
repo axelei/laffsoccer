@@ -18,13 +18,11 @@ import java.util.List;
 
 class SelectCompetition extends GLScreen {
 
-    private FileHandle fileHandle;
-    private boolean isDataRoot;
+    private FileHandle currentFolder;
 
-    SelectCompetition(GLGame game, FileHandle fileHandle) {
+    SelectCompetition(GLGame game, FileHandle folder) {
         super(game);
-        this.fileHandle = fileHandle;
-        isDataRoot = (fileHandle.path().equals(Assets.competitionsFolder.path()));
+        this.currentFolder = folder;
 
         background = game.stateBackground;
 
@@ -32,10 +30,30 @@ class SelectCompetition extends GLScreen {
         w = new TitleBar();
         widgets.add(w);
 
+        // Breadcrumb
+        List<Widget> breadcrumb = new ArrayList<Widget>();
+
+        FileHandle fh = currentFolder;
+        boolean isDataRoot;
+        do {
+            isDataRoot = fh.path().equals(Assets.competitionsFolder.path());
+            w = new BreadCrumbButton(fh, isDataRoot);
+            breadcrumb.add(w);
+            fh = fh.parent();
+        } while (!isDataRoot);
+
+        Collections.reverse(breadcrumb);
+        int x = (game.gui.WIDTH - 960) / 2;
+        for (Widget b : breadcrumb) {
+            b.setPosition(x, 72);
+            x += b.w + 2;
+        }
+        widgets.addAll(breadcrumb);
+
         // Competitions buttons
         List<Widget> competitionsList = new ArrayList<Widget>();
 
-        FileHandle leaguesFile = fileHandle.child("leagues.json");
+        FileHandle leaguesFile = currentFolder.child("leagues.json");
         if (leaguesFile.exists()) {
             League[] leagues = Assets.json.fromJson(League[].class, leaguesFile.readString("UTF-8"));
             for (League league : leagues) {
@@ -47,7 +65,7 @@ class SelectCompetition extends GLScreen {
             }
         }
 
-        FileHandle cupsFile = fileHandle.child("cups.json");
+        FileHandle cupsFile = currentFolder.child("cups.json");
         if (cupsFile.exists()) {
             Cup[] cups = Assets.json.fromJson(Cup[].class, cupsFile.readString("UTF-8"));
             for (Cup cup : cups) {
@@ -61,7 +79,7 @@ class SelectCompetition extends GLScreen {
 
         // Folders buttons
         List<Widget> foldersList = new ArrayList<Widget>();
-        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(fileHandle.list()));
+        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(currentFolder.list()));
         Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
@@ -71,19 +89,19 @@ class SelectCompetition extends GLScreen {
             }
         }
 
-        int topY = 365 - 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2;
-        int centerY = topY + 30 * competitionsList.size() / 2;
+        int topY = 380 - 28 * (competitionsList.size() + Widget.getRows(foldersList)) / 2;
+        int centerY = topY + 28 * competitionsList.size() / 2;
         if (competitionsList.size() > 0) {
-            Widget.arrange(game.gui.WIDTH, centerY, 30, competitionsList);
+            Widget.arrange(game.gui.WIDTH, centerY, 28, competitionsList);
             setSelectedWidget(competitionsList.get(0));
         }
-        centerY += 30 * (competitionsList.size() + Widget.getRows(foldersList)) / 2 + 6;
+        centerY += 28 * (competitionsList.size() + Widget.getRows(foldersList)) / 2 + 6;
         if (foldersList.size() > 0) {
-            Widget.arrange(game.gui.WIDTH, centerY, 30, foldersList);
+            Widget.arrange(game.gui.WIDTH, centerY, 28, foldersList);
             setSelectedWidget(foldersList.get(0));
         }
 
-        w = new ExitButton();
+        w = new AbortButton();
         widgets.add(w);
         if (selectedWidget == null) {
             setSelectedWidget(w);
@@ -93,32 +111,50 @@ class SelectCompetition extends GLScreen {
     class TitleBar extends Button {
 
         public TitleBar() {
-            String title = Assets.strings.get("CHOOSE PRESET COMPETITION");
-            if (!isDataRoot) {
-                title += " - " + fileHandle.name();
-            }
-            int w = Math.max(400, 80 + 16 * title.length());
-            setGeometry((game.gui.WIDTH - w) / 2, 30, w, 40);
+            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
             setColors(game.stateColor);
-            setText(title, Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("CHOOSE PRESET COMPETITION"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class BreadCrumbButton extends Button {
+
+        FileHandle folder;
+
+        BreadCrumbButton(FileHandle folder, boolean isDataRoot) {
+            this.folder = folder;
+            setSize(0, 32);
+            if (folder == currentFolder) {
+                setColors(game.stateColor.darker());
+                setActive(false);
+            } else {
+                setColors(game.stateColor);
+            }
+            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font10);
+            autoWidth();
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectCompetition(game, folder));
         }
     }
 
     private class FolderButton extends Button {
 
-        FileHandle fileHandle;
+        FileHandle folder;
 
-        FolderButton(FileHandle fileHandle) {
-            this.fileHandle = fileHandle;
-            setSize(340, 30);
+        FolderButton(FileHandle folder) {
+            this.folder = folder;
+            setSize(340, 28);
             setColors(0x568200, 0x77B400, 0x243E00);
-            setText(fileHandle.name(), Font.Align.CENTER, Assets.font14);
+            setText(folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectCompetition(game, fileHandle));
+            game.setScreen(new SelectCompetition(game, folder));
         }
     }
 
@@ -128,7 +164,7 @@ class SelectCompetition extends GLScreen {
 
         CompetitionButton(Competition competition) {
             this.competition = competition;
-            setSize(480, 30);
+            setSize(480, 28);
             setColors(0x1B4D85, 0x256AB7, 0x001D3E);
             setText(competition.name, Font.Align.CENTER, Assets.font14);
         }
@@ -136,30 +172,21 @@ class SelectCompetition extends GLScreen {
         @Override
         public void onFire1Down() {
             game.teamList = competition.loadTeams();
-            game.setScreen(new AllSelectedTeams(game, fileHandle, competition));
+            game.setScreen(new AllSelectedTeams(game, Assets.teamsFolder.child(competition.path), null, competition));
         }
     }
 
-    private class ExitButton extends Button {
+    private class AbortButton extends Button {
 
-        ExitButton() {
-            if (isDataRoot) {
-                setColors(0xC8000E, 0xFF1929, 0x74040C);
-                setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
-            } else {
-                setColors(0xC84200, 0xFF6519, 0x803300);
-                setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
-            }
+        AbortButton() {
+            setColors(0xC8000E);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
 
         @Override
         public void onFire1Down() {
-            if (isDataRoot) {
-                game.setScreen(new Main(game));
-            } else {
-                game.setScreen(new SelectCompetition(game, fileHandle.parent()));
-            }
+            game.setScreen(new Main(game));
         }
     }
 }

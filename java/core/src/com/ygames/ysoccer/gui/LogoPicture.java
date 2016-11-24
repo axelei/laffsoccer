@@ -25,7 +25,7 @@ public class LogoPicture extends Picture {
         FileHandle customLogo = Assets.teamsFolder.child(logoPath);
         if (customLogo.exists()) {
             isCustom = true;
-            Texture texture = new Texture(customLogo.path());
+            Texture texture = new Texture(customLogo);
             TextureRegion textureRegion = new TextureRegion(texture);
             textureRegion.flip(false, true);
             setTextureRegion(textureRegion);

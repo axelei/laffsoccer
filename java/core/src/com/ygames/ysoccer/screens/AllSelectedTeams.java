@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
@@ -12,18 +11,22 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class AllSelectedTeams extends GLScreen {
 
-    private FileHandle fileHandle;
-    private Widget playButton;
-    private Widget changeTeamsButton;
+    private FileHandle currentFolder;
+    private String league;
     private Competition competition;
 
-    AllSelectedTeams(GLGame game, FileHandle fileHandle, Competition competition) {
+    private Widget playButton;
+    private Widget changeTeamsButton;
+
+    AllSelectedTeams(GLGame game, FileHandle folder, String league, Competition competition) {
         super(game);
-        this.fileHandle = fileHandle;
+        this.currentFolder = folder;
+        this.league = league;
         this.competition = competition;
 
         background = game.stateBackground;
@@ -33,13 +36,46 @@ class AllSelectedTeams extends GLScreen {
         w = new TitleButton();
         widgets.add(w);
 
+        // Breadcrumb
+        List<Widget> breadcrumb = new ArrayList<Widget>();
+        if (league != null) {
+            w = new BreadCrumbLeagueLabel();
+            breadcrumb.add(w);
+        }
+        FileHandle fh = currentFolder;
+        boolean isDataRoot;
+        do {
+            isDataRoot = fh.equals(Assets.teamsFolder);
+            boolean disabled = (league == null && fh == currentFolder);
+            w = new BreadCrumbButton(fh, isDataRoot, disabled);
+            breadcrumb.add(w);
+            fh = fh.parent();
+        } while (!isDataRoot);
+
+        Collections.reverse(breadcrumb);
+        int x = (game.gui.WIDTH - 960) / 2;
+        for (Widget b : breadcrumb) {
+            b.setPosition(x, 72);
+            x += b.w + 2;
+        }
+        widgets.addAll(breadcrumb);
+
         w = new ComputerButton();
+        widgets.add(w);
+
+        w = new ComputerLabel();
         widgets.add(w);
 
         w = new PlayerCoachButton();
         widgets.add(w);
 
+        w = new PlayerCoachLabel();
+        widgets.add(w);
+
         w = new CoachButton();
+        widgets.add(w);
+
+        w = new CoachLabel();
         widgets.add(w);
 
         List<Widget> list = new ArrayList<Widget>();
@@ -48,6 +84,7 @@ class AllSelectedTeams extends GLScreen {
             list.add(w);
             widgets.add(w);
         }
+        Collections.sort(list, Widget.widgetComparatorByText);
         Widget.arrange(game.gui.WIDTH, 350, 32, list);
 
         w = new ChangeTeamsButton();
@@ -70,23 +107,66 @@ class AllSelectedTeams extends GLScreen {
     class TitleButton extends Button {
 
         public TitleButton() {
-            String title = Assets.strings.get("ALL SELECTED TEAMS FOR")
-                    + " " + competition.name
-                    + " - " + fileHandle.name();
-            int w = Math.max(960, 80 + 16 * title.length());
-            setGeometry((game.gui.WIDTH - w) / 2, 30, w, 40);
+            String title = Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + competition.name;
+            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
             setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
 
+    private class BreadCrumbLeagueLabel extends Button {
+
+        BreadCrumbLeagueLabel() {
+            setSize(0, 32);
+            setColors(game.stateColor.darker());
+            setActive(false);
+            setText(league, Font.Align.CENTER, Assets.font10);
+            autoWidth();
+        }
+    }
+
+    private class BreadCrumbButton extends Button {
+
+        private FileHandle folder;
+
+        BreadCrumbButton(FileHandle folder, boolean isDataRoot, boolean disabled) {
+            this.folder = folder;
+            setSize(0, 32);
+            if (disabled) {
+                setColors(game.stateColor.darker());
+                setActive(false);
+            } else {
+                setColors(game.stateColor);
+            }
+            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font10);
+            autoWidth();
+        }
+
+        @Override
+        public void onFire1Down() {
+            if (folder == currentFolder && league != null) {
+                game.setScreen(new SelectTeams(game, folder, null, competition));
+            } else {
+                game.setScreen(new SelectFolder(game, folder, competition));
+            }
+        }
+    }
+
     private class ComputerButton extends Button {
 
         ComputerButton() {
-            setGeometry((game.gui.WIDTH - 3 * 300) / 2 - 20, 86, 300, 30);
+            setGeometry((game.gui.WIDTH - 3 * 260) / 2 - 20, 112, 60, 26);
             setColors(0x981E1E, 0xC72929, 0x640000);
-            setText(Assets.strings.get("CONTROL MODE.COMPUTER"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class ComputerLabel extends Button {
+
+        ComputerLabel() {
+            setGeometry((game.gui.WIDTH - 3 * 260) / 2 - 20 + 80, 112, 180, 26);
+            setText(Assets.strings.get("CONTROL MODE.COMPUTER"), Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
     }
@@ -94,9 +174,17 @@ class AllSelectedTeams extends GLScreen {
     private class PlayerCoachButton extends Button {
 
         PlayerCoachButton() {
-            setGeometry((game.gui.WIDTH - 300) / 2, 86, 300, 30);
+            setGeometry((game.gui.WIDTH - 260) / 2, 112, 60, 26);
             setColors(0x0000C8, 0x1919FF, 0x000078);
-            setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class PlayerCoachLabel extends Button {
+
+        PlayerCoachLabel() {
+            setGeometry((game.gui.WIDTH - 260) / 2 + 80, 112, 180, 26);
+            setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH"), Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
     }
@@ -104,16 +192,24 @@ class AllSelectedTeams extends GLScreen {
     private class CoachButton extends Button {
 
         CoachButton() {
-            setGeometry((game.gui.WIDTH + 300) / 2 + 20, 86, 300, 30);
+            setGeometry((game.gui.WIDTH + 260) / 2 + 20, 112, 60, 26);
             setColors(0x009BDC, 0x19BBFF, 0x0071A0);
-            setText(Assets.strings.get("CONTROL MODE.COACH"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class CoachLabel extends Button {
+
+        CoachLabel() {
+            setGeometry((game.gui.WIDTH + 260) / 2 + 20 + 80, 112, 180, 26);
+            setText(Assets.strings.get("CONTROL MODE.COACH"), Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
     }
 
     private class TeamButton extends Button {
 
-        Team team;
+        private Team team;
 
         TeamButton(Team team) {
             this.team = team;
@@ -184,12 +280,11 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            FileHandle fileHandle = Gdx.files.local(competition.absolutePath);
-            FileHandle[] teamFileHandles = fileHandle.list(Assets.teamFilenameFilter);
+            FileHandle[] teamFileHandles = currentFolder.list(Assets.teamFilenameFilter);
             if (teamFileHandles.length > 0) {
-                game.setScreen(new SelectTeams(game, fileHandle, null, competition));
+                game.setScreen(new SelectTeams(game, currentFolder, league, competition));
             } else {
-                game.setScreen(new SelectFolder(game, fileHandle, competition));
+                game.setScreen(new SelectFolder(game, currentFolder, competition));
             }
         }
     }

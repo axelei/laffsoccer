@@ -18,12 +18,12 @@ import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
 class SelectTeam extends GLScreen {
 
-    private FileHandle fileHandle;
+    private FileHandle currentFolder;
     private String league;
 
-    SelectTeam(GLGame game, FileHandle fileHandle, String league) {
+    SelectTeam(GLGame game, FileHandle folder, String league) {
         super(game);
-        this.fileHandle = fileHandle;
+        this.currentFolder = folder;
         this.league = league;
 
         background = game.stateBackground;
@@ -38,7 +38,7 @@ class SelectTeam extends GLScreen {
         HashSet<String> leagues = new HashSet<String>();
 
         List<Team> teamList = new ArrayList<Team>();
-        FileHandle[] teamFileHandles = fileHandle.list(Assets.teamFilenameFilter);
+        FileHandle[] teamFileHandles = currentFolder.list(Assets.teamFilenameFilter);
         for (FileHandle teamFileHandle : teamFileHandles) {
             Team team = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
             team.path = Assets.getRelativeTeamPath(teamFileHandle);
@@ -57,6 +57,11 @@ class SelectTeam extends GLScreen {
                 list.add(leagueButton);
                 widgets.add(leagueButton);
             }
+            if (list.size() > 0) {
+                Collections.sort(list, Widget.widgetComparatorByText);
+                Widget.arrange(game.gui.WIDTH, 380, 34, list);
+                setSelectedWidget(list.get(0));
+            }
         }
 
         // teams
@@ -66,13 +71,37 @@ class SelectTeam extends GLScreen {
                 list.add(w);
                 widgets.add(w);
             }
+            if (list.size() > 0) {
+                Collections.sort(list, Widget.widgetComparatorByText);
+                Widget.arrange(game.gui.WIDTH, 380, 30, list);
+                setSelectedWidget(list.get(0));
+            }
         }
 
-        if (list.size() > 0) {
-            Collections.sort(list, new Widget.CompareByText());
-            Widget.arrange(game.gui.WIDTH, 370, 32, list);
-            setSelectedWidget(list.get(0));
+
+        // Breadcrumb
+        List<Widget> breadcrumb = new ArrayList<Widget>();
+        if (league != null) {
+            w = new BreadCrumbLeagueLabel();
+            breadcrumb.add(w);
         }
+        FileHandle fh = currentFolder;
+        boolean isDataRoot;
+        do {
+            isDataRoot = fh.path().equals(Assets.teamsFolder.path());
+            boolean disabled = (league == null && fh == currentFolder);
+            w = new BreadCrumbButton(fh, isDataRoot, disabled);
+            breadcrumb.add(w);
+            fh = fh.parent();
+        } while (!isDataRoot);
+
+        Collections.reverse(breadcrumb);
+        int x = (game.gui.WIDTH - 960) / 2;
+        for (Widget b : breadcrumb) {
+            b.setPosition(x, 72);
+            x += b.w + 2;
+        }
+        widgets.addAll(breadcrumb);
 
         w = new ExitButton();
         widgets.add(w);
@@ -84,28 +113,65 @@ class SelectTeam extends GLScreen {
     class TitleButton extends Button {
 
         public TitleButton() {
+            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
+            setColors(game.stateColor);
             String title = "";
             switch (game.getState()) {
                 case EDIT:
-                    title = Assets.strings.get("EDIT TEAMS") + " - " + fileHandle.name();
+                    title = Assets.strings.get("EDIT TEAMS");
                     break;
 
                 case TRAINING:
                     // TODO
                     break;
             }
-            int w = Math.max(960, 80 + 16 * title.length());
-            setGeometry((game.gui.WIDTH - w) / 2, 30, w, 40);
-            setColors(game.stateColor);
             setText(title, Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class BreadCrumbLeagueLabel extends Button {
+
+        BreadCrumbLeagueLabel() {
+            setSize(0, 32);
+            setColors(game.stateColor.darker());
+            setActive(false);
+            setText(league, Font.Align.CENTER, Assets.font10);
+            autoWidth();
+        }
+    }
+
+    private class BreadCrumbButton extends Button {
+
+        private FileHandle folder;
+
+        BreadCrumbButton(FileHandle folder, boolean isDataRoot, boolean disabled) {
+            this.folder = folder;
+            setSize(0, 32);
+            if (disabled) {
+                setColors(game.stateColor.darker());
+                setActive(false);
+            } else {
+                setColors(game.stateColor);
+            }
+            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font10);
+            autoWidth();
+        }
+
+        @Override
+        public void onFire1Down() {
+            if (folder == currentFolder && league != null) {
+                game.setScreen(new SelectTeam(game, folder, null));
+            } else {
+                game.setScreen(new SelectFolder(game, folder, null));
+            }
         }
     }
 
     private class LeagueButton extends Button {
 
         LeagueButton(String name) {
-            setSize(300, 30);
+            setSize(300, 32);
             setColors(0x1B4D85);
             setText(name, Font.Align.CENTER, Assets.font14);
         }
@@ -114,7 +180,7 @@ class SelectTeam extends GLScreen {
         public void onFire1Down() {
             switch (game.getState()) {
                 case EDIT:
-                    game.setScreen(new SelectTeam(game, fileHandle, text));
+                    game.setScreen(new SelectTeam(game, currentFolder, text));
                     break;
 
                 case TRAINING:
@@ -126,11 +192,11 @@ class SelectTeam extends GLScreen {
 
     private class TeamButton extends Button {
 
-        Team team;
+        private Team team;
 
         TeamButton(Team team) {
             this.team = team;
-            setSize(270, 30);
+            setSize(270, 28);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
             setText(team.name, Font.Align.CENTER, Assets.font14);
         }
@@ -139,7 +205,7 @@ class SelectTeam extends GLScreen {
         public void onFire1Down() {
             switch (game.getState()) {
                 case EDIT:
-                    game.setScreen(new EditPlayers(game, fileHandle, league, team, false));
+                    game.setScreen(new EditPlayers(game, currentFolder, league, team, false));
                     break;
 
                 case TRAINING:
@@ -152,18 +218,14 @@ class SelectTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200, 0xFF6519, 0x803300);
+            setColors(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            if (league == null) {
-                game.setScreen(new SelectFolder(game, fileHandle.parent(), null));
-            } else {
-                game.setScreen(new SelectTeam(game, fileHandle, null));
-            }
+            game.setScreen(new Main(game));
         }
     }
 }

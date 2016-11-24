@@ -135,4 +135,8 @@ public class Button extends Widget {
     public String getText() {
         return text;
     }
+
+    protected void autoWidth() {
+        w = font.textWidth(text) + 3 * font.size;
+    }
 }
