@@ -28,8 +28,7 @@ public class MatchRenderer {
 
     private static final float guiAlpha = 0.9f;
 
-    GLGraphics glGraphics;
-    private SpriteBatch batch;
+    SpriteBatch batch;
     private GlShapeRenderer shapeRenderer;
     private OrthographicCamera camera;
     int screenWidth;
@@ -57,7 +56,6 @@ public class MatchRenderer {
     boolean displayRadar;
 
     public MatchRenderer(GLGraphics glGraphics, Match match) {
-        this.glGraphics = glGraphics;
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
         this.camera = glGraphics.camera;
