@@ -28,7 +28,6 @@ public class League extends Competition {
 
     public void init() {
         numberOfTeams = teams.size();
-        absolutePath = Assets.teamsFolder.child(path).path();
     }
 
     public void start(ArrayList<Team> teams) {
