@@ -9,7 +9,7 @@
     "substitutions": 3,
     "benchSize": 5,
     "time": 0,
-    "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
+    "teamsFolder": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
     "teams": [
       {
         "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json"
@@ -71,7 +71,7 @@
     "name": "SERIE B 1964-65",
     "rounds": 2,
     "pointsForAWin": 2,
-    "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
+    "teamsFolder": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
     "teams": [
       {
         "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json"
