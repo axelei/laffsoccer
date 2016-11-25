@@ -27,7 +27,8 @@ class SelectCompetition extends GLScreen {
         background = game.stateBackground;
 
         Widget w;
-        w = new TitleBar();
+
+        w = new TitleBar(Assets.strings.get("CHOOSE PRESET COMPETITION"), game.stateColor.body);
         widgets.add(w);
 
         // Breadcrumb
@@ -36,7 +37,7 @@ class SelectCompetition extends GLScreen {
         FileHandle fh = currentFolder;
         boolean isDataRoot;
         do {
-            isDataRoot = fh.path().equals(Assets.competitionsFolder.path());
+            isDataRoot = fh.equals(Assets.competitionsFolder);
             w = new BreadCrumbButton(fh, isDataRoot);
             breadcrumb.add(w);
             fh = fh.parent();
@@ -105,16 +106,6 @@ class SelectCompetition extends GLScreen {
         widgets.add(w);
         if (selectedWidget == null) {
             setSelectedWidget(w);
-        }
-    }
-
-    class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
-            setColors(game.stateColor);
-            setText(Assets.strings.get("CHOOSE PRESET COMPETITION"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
         }
     }
 

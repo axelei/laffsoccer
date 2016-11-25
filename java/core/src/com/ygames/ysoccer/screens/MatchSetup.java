@@ -9,7 +9,6 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
@@ -54,7 +53,8 @@ class MatchSetup extends GLScreen {
         background = new Texture("images/backgrounds/menu_match_presentation.jpg");
 
         Widget w;
-        w = new TitleButton();
+
+        w = new TitleBar(competition.name, game.stateColor.body);
         widgets.add(w);
 
         w = new TimeLabel();
@@ -110,21 +110,11 @@ class MatchSetup extends GLScreen {
         widgets.add(w);
     }
 
-    private class TitleButton extends Button {
-
-        TitleButton() {
-            setGeometry((game.gui.WIDTH - 840) / 2, 30, 840, 44);
-            setColors(0x008080, 0x00B2B4, 0x004040);
-            setText(competition.name, Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
-    }
-
     private class TimeLabel extends Button {
 
         TimeLabel() {
             setColors(0x800000);
-            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 - 300 + 25, 130 - 40 / 2, 300, 40);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -134,7 +124,7 @@ class MatchSetup extends GLScreen {
 
         TimePicture() {
             setColors(0x666666);
-            setGeometry((game.gui.WIDTH - 50) / 2, 130 - 50 / 2, 50, 50);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 130 - 50 / 2, 50, 50);
             setActive(false);
         }
 
@@ -174,7 +164,7 @@ class MatchSetup extends GLScreen {
 
         PitchTypeLabel() {
             setColors(0x800000);
-            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 - 300 + 25, 200 - 40 / 2, 300, 40);
             setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -184,7 +174,7 @@ class MatchSetup extends GLScreen {
 
         PitchTypePicture() {
             setColors(0x666666);
-            setGeometry((game.gui.WIDTH - 50) / 2, 200 - 50 / 2, 50, 50);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 200 - 50 / 2, 50, 50);
             setActive(false);
         }
 
@@ -226,7 +216,7 @@ class MatchSetup extends GLScreen {
 
         WeatherLabel() {
             setColors(0x800000);
-            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
+            setGeometry(game.gui.WIDTH / 2 - 300 + 25, 270 - 40 / 2, 300, 40);
             setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -236,7 +226,7 @@ class MatchSetup extends GLScreen {
 
         WeatherPicture() {
             setColors(0x666666);
-            setGeometry((game.gui.WIDTH - 50) / 2, 270 - 50 / 2, 50, 50);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 270 - 50 / 2, 50, 50);
             setActive(false);
         }
 
@@ -278,7 +268,7 @@ class MatchSetup extends GLScreen {
 
         TeamNameButton(Team team, int teamIndex) {
             int sign = teamIndex == 0 ? -1 : 1;
-            setGeometry((game.gui.WIDTH - 520) / 2 + 280 * sign, 330, 520, 34);
+            setGeometry((game.gui.WIDTH - 500) / 2 + (500 / 2 + 20) * sign, 326, 500, 42);
             setColors(0x1F1F95);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -292,7 +282,7 @@ class MatchSetup extends GLScreen {
         KitPicture(Team team, int teamIndex) {
             this.team = team;
             int sign = teamIndex == 0 ? -1 : 1;
-            setGeometry(game.gui.WIDTH / 2 - 83 + 280 * sign, 390, 167, 304);
+            setGeometry(game.gui.WIDTH / 2 - 83 + 270 * sign, 390, 167, 304);
             setActive(false);
         }
 
@@ -313,7 +303,7 @@ class MatchSetup extends GLScreen {
             this.teamIndex = teamIndex;
             this.kitIndex = kitIndex;
             setSize(58, 104);
-            setImageScale(0.33333334f, 0.33333334f);
+            setImageScale(1 / 3f, 1 / 3f);
         }
 
         @Override
@@ -325,7 +315,7 @@ class MatchSetup extends GLScreen {
                 setVisible(true);
                 int position = kitIndex - (team.kitIndex < kitIndex ? 1 : 0);
                 int sign = teamIndex == 0 ? -1 : 1;
-                int x = (1 + 2 * teamIndex) * (game.gui.WIDTH) / 4 + sign * (50 + 68 * (1 + position / 2)) - 34;
+                int x = game.gui.WIDTH / 2 + sign * (340 + 68 * (1 + position / 2)) - 34;
                 int y = 430 + 114 * (position % 2);
                 setPosition(x, y);
             }

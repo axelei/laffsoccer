@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
 
@@ -345,6 +346,16 @@ public abstract class GLScreen implements Screen {
     protected void updateAllWidgets() {
         for (Widget widget : widgets) {
             widget.setDirty(true);
+        }
+    }
+
+    protected class TitleBar extends Button {
+
+        public TitleBar(String text, int color) {
+            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
+            setColors(color);
+            setText(text, Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }

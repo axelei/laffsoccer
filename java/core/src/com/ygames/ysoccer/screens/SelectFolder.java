@@ -27,7 +27,8 @@ class SelectFolder extends GLScreen {
         background = game.stateBackground;
 
         Widget w;
-        w = new TitleBar();
+
+        w = new TitleBar(getTitle(), game.stateColor.body);
         widgets.add(w);
 
         // Breadcrumb
@@ -36,7 +37,7 @@ class SelectFolder extends GLScreen {
         FileHandle fh = currentFolder;
         boolean isDataRoot;
         do {
-            isDataRoot = fh.path().equals(Assets.teamsFolder.path());
+            isDataRoot = fh.equals(Assets.teamsFolder);
             w = new BreadCrumbButton(fh, isDataRoot);
             breadcrumb.add(w);
             fh = fh.parent();
@@ -74,31 +75,25 @@ class SelectFolder extends GLScreen {
         }
     }
 
-    class TitleBar extends Button {
+    private String getTitle() {
+        String title = "";
+        switch (game.getState()) {
+            case COMPETITION:
+            case FRIENDLY:
+                int diff = competition.numberOfTeams - game.teamList.size();
+                title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
+                        + " " + competition.name;
+                break;
 
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
-            setColors(game.stateColor);
-            String title = "";
-            switch (game.getState()) {
-                case COMPETITION:
-                case FRIENDLY:
-                    int diff = competition.numberOfTeams - game.teamList.size();
-                    title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
-                            + " " + competition.name;
-                    break;
+            case EDIT:
+                title = Assets.strings.get("EDIT TEAMS");
+                break;
 
-                case EDIT:
-                    title = Assets.strings.get("EDIT TEAMS");
-                    break;
-
-                case TRAINING:
-                    // TODO
-                    break;
-            }
-            setText(title, Font.Align.CENTER, Assets.font14);
-            setActive(false);
+            case TRAINING:
+                // TODO
+                break;
         }
+        return title;
     }
 
     private class BreadCrumbButton extends Button {

@@ -39,7 +39,7 @@ class SelectTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleButton();
+        w = new TitleBar();
         widgets.add(w);
         titleButton = w;
 
@@ -148,9 +148,9 @@ class SelectTeams extends GLScreen {
         }
     }
 
-    class TitleButton extends Button {
+    private class TitleBar extends Button {
 
-        public TitleButton() {
+        TitleBar() {
             setColors(game.stateColor);
             setActive(false);
         }

@@ -40,7 +40,8 @@ class SetupControls extends GLScreen {
         joystickListener = new JoystickListener();
 
         Widget w;
-        w = new TitleButton();
+
+        w = new TitleBar(Assets.strings.get("CONTROLS"), 0x83079C);
         widgets.add(w);
 
         int pos = 0;
@@ -117,16 +118,6 @@ class SetupControls extends GLScreen {
         widgets.add(w);
     }
 
-    private class TitleButton extends Button {
-
-        TitleButton() {
-            setColors(0xA905A3);
-            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
-            setText(Assets.strings.get("CONTROLS"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
-    }
-
     private class InputDeviceButton extends Button {
 
         private InputDeviceConfig config;
@@ -135,7 +126,7 @@ class SetupControls extends GLScreen {
         InputDeviceButton(InputDeviceConfig config, int port, int pos) {
             this.config = config;
             this.port = port;
-            setGeometry(game.gui.WIDTH / 2 - 560, 180 + 45 * pos, 220, 40);
+            setGeometry(game.gui.WIDTH / 2 - 560, 180 + 46 * pos, 240, 42);
             switch (config.type) {
                 case KEYBOARD:
                     setText(Assets.strings.get("KEYBOARD") + " " + (port + 1), Font.Align.CENTER, Assets.font14);
@@ -174,7 +165,7 @@ class SetupControls extends GLScreen {
     private class InputDeviceLabel extends Button {
 
         InputDeviceLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 250, 140, 760, 40);
+            setGeometry((game.gui.WIDTH - 760) / 2, 100, 760, 40);
             setColors(0x404040);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -290,7 +281,7 @@ class SetupControls extends GLScreen {
         }
 
         @Override
-        public void onFire1Up() {
+        public void onFire1Down() {
             entryMode = true;
             game.inputDevices.clear();
             updateAllWidgets();
@@ -353,7 +344,7 @@ class SetupControls extends GLScreen {
     private class LeftLabel extends Button {
 
         LeftLabel() {
-            setGeometry((game.gui.WIDTH - 220) / 2 - 150, 370, 220, 40);
+            setGeometry((game.gui.WIDTH - 200) / 2 - 150, 340, 200, 40);
             setText(Assets.strings.get("CONTROLS.LEFT"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -364,7 +355,7 @@ class SetupControls extends GLScreen {
 
         LeftButton() {
             configParam = ConfigParam.KEY_LEFT;
-            setGeometry((game.gui.WIDTH - 220) / 2 - 150, 410, 220, 48);
+            setGeometry((game.gui.WIDTH - 200) / 2 - 150, 380, 200, 46);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -403,7 +394,7 @@ class SetupControls extends GLScreen {
     private class RightLabel extends Button {
 
         RightLabel() {
-            setGeometry((game.gui.WIDTH - 220) / 2 + 150, 370, 220, 40);
+            setGeometry((game.gui.WIDTH - 200) / 2 + 150, 340, 200, 40);
             setText(Assets.strings.get("CONTROLS.RIGHT"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -414,7 +405,7 @@ class SetupControls extends GLScreen {
 
         RightButton() {
             configParam = ConfigParam.KEY_RIGHT;
-            setGeometry((game.gui.WIDTH - 220) / 2 + 150, 410, 220, 48);
+            setGeometry((game.gui.WIDTH - 200) / 2 + 150, 380, 200, 46);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -453,7 +444,7 @@ class SetupControls extends GLScreen {
     private class UpLabel extends Button {
 
         UpLabel() {
-            setGeometry((game.gui.WIDTH - 220) / 2, 240, 220, 40);
+            setGeometry((game.gui.WIDTH - 200) / 2, 180, 200, 40);
             setText(Assets.strings.get("CONTROLS.UP"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -464,7 +455,7 @@ class SetupControls extends GLScreen {
 
         UpButton() {
             configParam = ConfigParam.KEY_UP;
-            setGeometry((game.gui.WIDTH - 220) / 2, 280, 220, 48);
+            setGeometry((game.gui.WIDTH - 200) / 2, 220, 200, 46);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -503,7 +494,7 @@ class SetupControls extends GLScreen {
     private class DownLabel extends Button {
 
         DownLabel() {
-            setGeometry((game.gui.WIDTH - 220) / 2, 500, 220, 40);
+            setGeometry((game.gui.WIDTH - 200) / 2, 500, 200, 40);
             setText(Assets.strings.get("CONTROLS.DOWN"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -514,7 +505,7 @@ class SetupControls extends GLScreen {
 
         DownButton() {
             configParam = ConfigParam.KEY_DOWN;
-            setGeometry((game.gui.WIDTH - 220) / 2, 540, 220, 48);
+            setGeometry((game.gui.WIDTH - 200) / 2, 540, 200, 46);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -553,7 +544,7 @@ class SetupControls extends GLScreen {
     private class FireLabel extends Button {
 
         FireLabel(int buttonNumber) {
-            setGeometry((game.gui.WIDTH - 240) / 2 + 420, 280 + (180 * (buttonNumber - 1)), 220, 40);
+            setGeometry((game.gui.WIDTH - 200) / 2 + 420, 240 + (210 * (buttonNumber - 1)), 200, 40);
             setText(Assets.strings.get("CONTROLS.BUTTON") + " " + ((buttonNumber == 1) ? "A" : "B"), Font.Align.CENTER, Assets.font14);
             setColors(0x404040);
             setActive(false);
@@ -567,7 +558,7 @@ class SetupControls extends GLScreen {
         FireButton(int buttonNumber) {
             this.buttonNumber = buttonNumber;
             configParam = (buttonNumber == 1) ? ConfigParam.BUTTON_1 : ConfigParam.BUTTON_2;
-            setGeometry((game.gui.WIDTH - 240) / 2 + 420, 320 + (180 * (buttonNumber - 1)), 220, 48);
+            setGeometry((game.gui.WIDTH - 200) / 2 + 420, 280 + (210 * (buttonNumber - 1)), 200, 46);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 

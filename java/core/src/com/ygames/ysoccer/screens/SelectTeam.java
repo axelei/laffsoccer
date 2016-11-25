@@ -30,7 +30,7 @@ class SelectTeam extends GLScreen {
 
         Widget w;
 
-        w = new TitleButton();
+        w = new TitleBar(getTitle(), game.stateColor.body);
         widgets.add(w);
 
         List<Widget> list = new ArrayList<Widget>();
@@ -88,7 +88,7 @@ class SelectTeam extends GLScreen {
         FileHandle fh = currentFolder;
         boolean isDataRoot;
         do {
-            isDataRoot = fh.path().equals(Assets.teamsFolder.path());
+            isDataRoot = fh.equals(Assets.teamsFolder);
             boolean disabled = (league == null && fh == currentFolder);
             w = new BreadCrumbButton(fh, isDataRoot, disabled);
             breadcrumb.add(w);
@@ -110,24 +110,18 @@ class SelectTeam extends GLScreen {
         }
     }
 
-    class TitleButton extends Button {
+    private String getTitle() {
+        String title = "";
+        switch (game.getState()) {
+            case EDIT:
+                title = Assets.strings.get("EDIT TEAMS");
+                break;
 
-        public TitleButton() {
-            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
-            setColors(game.stateColor);
-            String title = "";
-            switch (game.getState()) {
-                case EDIT:
-                    title = Assets.strings.get("EDIT TEAMS");
-                    break;
-
-                case TRAINING:
-                    // TODO
-                    break;
-            }
-            setText(title, Font.Align.CENTER, Assets.font14);
-            setActive(false);
+            case TRAINING:
+                // TODO
+                break;
         }
+        return title;
     }
 
     private class BreadCrumbLeagueLabel extends Button {

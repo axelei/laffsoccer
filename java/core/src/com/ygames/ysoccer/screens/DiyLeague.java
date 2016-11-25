@@ -35,7 +35,7 @@ class DiyLeague extends GLScreen {
 
         Widget w;
 
-        w = new TitleButton();
+        w = new TitleBar(Assets.strings.get("DESIGN DIY LEAGUE"), game.stateColor.body);
         widgets.add(w);
 
         w = new LeagueNameButton();
@@ -102,18 +102,8 @@ class DiyLeague extends GLScreen {
         w = new OkButton();
         widgets.add(w);
 
-        w = new ExitButton();
+        w = new AbortButton();
         widgets.add(w);
-    }
-
-    class TitleButton extends Button {
-
-        public TitleButton() {
-            setGeometry((game.gui.WIDTH - 520) / 2, 30, 520, 40);
-            setColors(game.stateColor);
-            setText(Assets.strings.get("DESIGN DIY LEAGUE"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
     }
 
     private class LeagueNameButton extends InputButton {
@@ -570,7 +560,7 @@ class DiyLeague extends GLScreen {
 
         OkButton() {
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 38);
+            setGeometry((game.gui.WIDTH - 180) / 2, 605, 180, 38);
             setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -580,12 +570,12 @@ class DiyLeague extends GLScreen {
         }
     }
 
-    private class ExitButton extends Button {
+    private class AbortButton extends Button {
 
-        ExitButton() {
-            setColors(0xC84200, 0xFF6519, 0x803300);
+        AbortButton() {
+            setColors(0xC8000E);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override

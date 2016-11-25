@@ -4,7 +4,7 @@ import com.ygames.ysoccer.framework.GlColor;
 
 public class WidgetColor {
 
-    int body;
+    public int body;
     int lightBorder;
     int darkBorder;
 

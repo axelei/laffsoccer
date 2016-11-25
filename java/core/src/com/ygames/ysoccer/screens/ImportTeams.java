@@ -309,7 +309,8 @@ class ImportTeams extends GLScreen {
         }
 
         Widget w;
-        w = new TitleButton();
+
+        w = new TitleBar(Assets.strings.get("IMPORT"), 0x762B8E);
         widgets.add(w);
 
         w = new InfoLabel();
@@ -358,16 +359,6 @@ class ImportTeams extends GLScreen {
             case FINISHED:
                 updateAllWidgets();
                 break;
-        }
-    }
-
-    private class TitleButton extends Button {
-
-        TitleButton() {
-            setColors(0x762B8E);
-            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
-            setText(Assets.strings.get("IMPORT"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
         }
     }
 

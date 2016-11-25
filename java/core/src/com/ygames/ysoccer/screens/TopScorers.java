@@ -55,7 +55,7 @@ class TopScorers extends GLScreen {
             widget.y = widget.y + y0;
         }
 
-        w = new TitleBar();
+        w = new TitleBar(Assets.strings.get("HIGHEST SCORER LIST"), game.stateColor.body);
         widgets.add(w);
 
         w = new ExitButton();
@@ -107,16 +107,6 @@ class TopScorers extends GLScreen {
         TeamNameLabel(int y, String name) {
             setGeometry((game.gui.WIDTH / 2) + 130, y, 240, 22);
             setText(" (" + name + ")", Font.Align.LEFT, Assets.font10);
-        }
-    }
-
-    class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 400) / 2, 30, 400, 40);
-            setColors(0x415600, 0x5E7D00, 0x243000);
-            setText(Assets.strings.get("HIGHEST SCORER LIST"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
         }
     }
 

@@ -24,7 +24,7 @@ class LoadCompetition extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar();
+        w = new TitleBar(Assets.strings.get("LOAD OLD COMPETITION"), 0x2898c7);
         widgets.add(w);
 
         // Competitions buttons
@@ -71,16 +71,6 @@ class LoadCompetition extends GLScreen {
 
         if (selectedWidget == null) {
             setSelectedWidget(w);
-        }
-    }
-
-    public class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 520) / 2, 30, 520, 40);
-            setColors(0x2898c7, 0x32bffa, 0x1e7194);
-            setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
         }
     }
 

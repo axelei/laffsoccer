@@ -22,7 +22,19 @@ class CreateCompetitionWarning extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar();
+        String titleLabel = Competition.getCategoryLabel(createCategory);
+        // TODO refactor into Competition.getCategoryColor method
+        int titleColor = 0;
+        switch (createCategory) {
+            case DIY_COMPETITION:
+                titleColor = 0x376E2F;
+                break;
+
+            case PRESET_COMPETITION:
+                titleColor = 0x415600;
+                break;
+        }
+        w = new TitleBar(Assets.strings.get(titleLabel), titleColor);
         widgets.add(w);
 
         // warning
@@ -54,29 +66,10 @@ class CreateCompetitionWarning extends GLScreen {
         setSelectedWidget(w);
     }
 
-    public class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 400) / 2, 30, 400, 40);
-            switch (createCategory) {
-                case DIY_COMPETITION:
-                    setColors(0x376E2F, 0x4E983F, 0x214014);
-                    break;
-
-                case PRESET_COMPETITION:
-                    setColors(0x415600, 0x5E7D00, 0x243000);
-                    break;
-            }
-            String label = Competition.getCategoryLabel(createCategory);
-            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
-    }
-
     private class ContinueButton extends Button {
 
         ContinueButton() {
-            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 605, 180, 36);
             setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("CONTINUE"), Font.Align.CENTER, Assets.font14);
         }

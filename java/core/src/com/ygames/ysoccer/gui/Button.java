@@ -10,7 +10,7 @@ import com.ygames.ysoccer.framework.GlShapeRenderer;
 public class Button extends Widget {
 
     private static final double sweepSpeed = 0.4;
-    private static final float alpha = 0.9f;
+    private static final float alpha = 0.92f;
 
     public Button() {
         active = true;

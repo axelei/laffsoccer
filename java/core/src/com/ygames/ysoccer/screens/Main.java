@@ -34,7 +34,7 @@ public class Main extends GLScreen {
         w = new MatchOptionsButton();
         widgets.add(w);
 
-        w = new ControlButton();
+        w = new ControlsButton();
         widgets.add(w);
 
         w = new EditTacticsButton();
@@ -99,7 +99,7 @@ public class Main extends GLScreen {
     private class MatchOptionsButton extends Button {
 
         MatchOptionsButton() {
-            setColors(0x6101D7, 0x7D1DFF, 0x3A0181);
+            setColors(0x3847A3);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 315, 350, 36);
             setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
         }
@@ -110,24 +110,24 @@ public class Main extends GLScreen {
         }
     }
 
-    private class ControlButton extends Button {
+    private class ControlsButton extends Button {
 
-        ControlButton() {
-            setColors(0xA905A3, 0xE808E0, 0x5A0259);
+        ControlsButton() {
+            setColors(0x83079C);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 360, 350, 36);
             setText(Assets.strings.get("CONTROLS"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new ControlsSetup(game));
+            game.setScreen(new SetupControls(game));
         }
     }
 
     private class EditTacticsButton extends Button {
 
         EditTacticsButton() {
-            setColors(0xBA9206, 0xE9B607, 0x6A5304);
+            setColors(0xBA9206);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 405, 350, 36);
             setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font14);
         }
@@ -264,7 +264,7 @@ public class Main extends GLScreen {
     private class LoadOldCompetitionButton extends Button {
 
         LoadOldCompetitionButton(int y) {
-            setColors(0x2898c7, 0x32bffa, 0x1e7194);
+            setColors(0x2898c7);
             setGeometry((game.gui.WIDTH - 600) / 2, y, 600, 32);
             setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font10);
         }

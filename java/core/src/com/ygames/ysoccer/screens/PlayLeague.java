@@ -39,7 +39,8 @@ class PlayLeague extends GLScreen {
         background = game.stateBackground;
 
         Widget w;
-        w = new TitleBar();
+
+        w = new TitleBar(league.getMenuTitle(), game.stateColor.body);
         widgets.add(w);
 
         // table headers
@@ -217,16 +218,6 @@ class PlayLeague extends GLScreen {
                     setSelectedWidget(playMatchButton);
                 }
             }
-        }
-    }
-
-    class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 840) / 2, 30, 840, 40);
-            setColors(0x415600, 0x5E7D00, 0x243000);
-            setText(league.getMenuTitle(), Font.Align.CENTER, Assets.font14);
-            setActive(false);
         }
     }
 

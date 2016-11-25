@@ -19,7 +19,7 @@ class LoadCompetitionWarning extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar();
+        w = new TitleBar(Assets.strings.get("LOAD OLD COMPETITION"), 0x2898c7);
         widgets.add(w);
 
         // warning
@@ -49,16 +49,6 @@ class LoadCompetitionWarning extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
-    }
-
-    public class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 400) / 2, 30, 400, 40);
-            setColors(0x2898c7, 0x32bffa, 0x1e7194);
-            setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
     }
 
     private class ContinueButton extends Button {

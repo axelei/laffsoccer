@@ -23,7 +23,7 @@ class InfoLeague extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar();
+        w = new TitleBar(league.name, game.stateColor.body);
         widgets.add(w);
 
         w = new SeasonPitchTypeButton();
@@ -81,16 +81,6 @@ class InfoLeague extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
-    }
-
-    class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 680) / 2, 30, 680, 40);
-            setColors(game.stateColor);
-            setText(league.name, Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
     }
 
     private class SeasonPitchTypeButton extends Button {

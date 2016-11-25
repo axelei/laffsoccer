@@ -146,9 +146,9 @@ class ViewTeam extends GLScreen {
         }
     }
 
-    class TitleBar extends Button {
+    private class TitleBar extends Button {
 
-        public TitleBar(Team team) {
+        TitleBar(Team team) {
             setGeometry((game.gui.WIDTH - 600) / 2, 45, 601, 41);
             setColors(0x005DDE);
             setText(team.name, Font.Align.CENTER, Assets.font14);

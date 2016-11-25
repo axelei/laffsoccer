@@ -18,7 +18,7 @@ class SelectTactics extends GLScreen {
 
         Widget w;
 
-        w = new TitleButton();
+        w = new TitleBar(Assets.strings.get("EDIT TACTICS"), 0xBA9206);
         widgets.add(w);
 
         for (int t = 12; t < 18; t++) {
@@ -33,23 +33,13 @@ class SelectTactics extends GLScreen {
         widgets.add(w);
     }
 
-    private class TitleButton extends Button {
-
-        public TitleButton() {
-            setColors(0xBA9206);
-            setGeometry((game.gui.WIDTH - 400) / 2, 20, 400, 40);
-            setText("EDIT TACTICS", Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
-    }
-
     private class TacticsButton extends Button {
 
-        int tacticsIndex;
+        private int tacticsIndex;
 
         TacticsButton(int tacticsIndex) {
             this.tacticsIndex = tacticsIndex;
-            setGeometry((game.gui.WIDTH - 340) / 2, 150 + 75 * (tacticsIndex - 12), 340, 40);
+            setGeometry((game.gui.WIDTH - 340) / 2, 150 + 75 * (tacticsIndex - 12), 340, 44);
             setColors(0x568200);
             setText(Tactics.codes[tacticsIndex], Font.Align.CENTER, Assets.font14);
         }

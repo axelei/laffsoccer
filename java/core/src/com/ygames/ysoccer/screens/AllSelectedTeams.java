@@ -33,7 +33,7 @@ class AllSelectedTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleButton();
+        w = new TitleBar(Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + competition.name, game.stateColor.body);
         widgets.add(w);
 
         // Breadcrumb
@@ -101,17 +101,6 @@ class AllSelectedTeams extends GLScreen {
         int diff = competition.numberOfTeams - game.teamList.size();
         if (diff == 0) {
             setSelectedWidget(w);
-        }
-    }
-
-    class TitleButton extends Button {
-
-        public TitleButton() {
-            String title = Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + competition.name;
-            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
-            setColors(game.stateColor);
-            setText(title, Font.Align.CENTER, Assets.font14);
-            setActive(false);
         }
     }
 

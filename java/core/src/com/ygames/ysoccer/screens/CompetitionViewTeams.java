@@ -20,7 +20,7 @@ class CompetitionViewTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar();
+        w = new TitleBar(Assets.strings.get("SELECT SQUAD TO VIEW"), game.stateColor.body);
         widgets.add(w);
 
         List<Widget> list = new ArrayList<Widget>();
@@ -37,16 +37,6 @@ class CompetitionViewTeams extends GLScreen {
 
         w = new ExitButton();
         widgets.add(w);
-    }
-
-    class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 660) / 2, 30, 660, 40);
-            setColors(0x415600, 0x5E7D00, 0x243000);
-            setText(Assets.strings.get("SELECT SQUAD TO VIEW"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
     }
 
     private class TeamButton extends Button {

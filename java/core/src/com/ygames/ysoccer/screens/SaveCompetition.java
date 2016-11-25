@@ -23,7 +23,8 @@ class SaveCompetition extends GLScreen {
         background = game.stateBackground;
 
         Widget w;
-        w = new TitleBar();
+
+        w = new TitleBar(Assets.strings.get("SAVE %s").replace("%s", game.competition.name), game.stateColor.body);
         widgets.add(w);
 
         // Competitions buttons
@@ -72,17 +73,6 @@ class SaveCompetition extends GLScreen {
 
         w = new AbortButton();
         widgets.add(w);
-    }
-
-    class TitleBar extends Button {
-
-        public TitleBar() {
-            setGeometry((game.gui.WIDTH - 520) / 2, 30, 520, 40);
-            setColors(0x415600, 0x5E7D00, 0x243000);
-            String s = Assets.strings.get("SAVE %s");
-            setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font14);
-            setActive(false);
-        }
     }
 
     private class CompetitionButton extends Button {
