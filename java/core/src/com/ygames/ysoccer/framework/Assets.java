@@ -477,7 +477,7 @@ public class Assets {
     public static void loadPlayer(Player p) {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         p.team.kits.get(p.team.kitIndex).addKitColors(rgbPairs);
-        addSkinColors(p, rgbPairs);
+        p.addSkinColors(rgbPairs);
         if (player[p.team.index][p.skinColor.ordinal()][0][0] == null) {
             Texture playerTexture = loadTexture("images/player/" + p.team.kits.get(p.team.kitIndex).style + ".png", rgbPairs);
             for (int frameX = 0; frameX < 8; frameX++) {
@@ -525,13 +525,6 @@ public class Assets {
             rgbPairs.add(new RgbPair(0x715930, hc.color2));
             rgbPairs.add(new RgbPair(0x514030, hc.color3));
         }
-    }
-
-    private static void addSkinColors(Player player, List<RgbPair> rgbPairs) {
-        Color3 sc = Skin.colors[player.skinColor.ordinal()];
-        rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
-        rgbPairs.add(new RgbPair(0xB54200, sc.color2));
-        rgbPairs.add(new RgbPair(0x631800, sc.color3));
     }
 
     public static TextureRegion loadTextureRegion(String internalPath) {

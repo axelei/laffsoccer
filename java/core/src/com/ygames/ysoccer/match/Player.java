@@ -682,11 +682,9 @@ public class Player {
 
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
 
-        // skin color
+        addSkinColors(rgbPairs);
+
         Color3 sc = Skin.colors[skinColor.ordinal()];
-        rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
-        rgbPairs.add(new RgbPair(0xB54200, sc.color2));
-        rgbPairs.add(new RgbPair(0x631800, sc.color3));
 
         // hair color
         if (hairStyle.equals("SHAVED")) {
@@ -707,6 +705,13 @@ public class Player {
 
         String filename = "images/player/menu/" + hairStyle + ".PNG";
         return Assets.loadTextureRegion(filename, rgbPairs);
+    }
+
+    public void addSkinColors(List<RgbPair> rgbPairs) {
+        Color3 sc = Skin.colors[skinColor.ordinal()];
+        rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
+        rgbPairs.add(new RgbPair(0xB54200, sc.color2));
+        rgbPairs.add(new RgbPair(0x631800, sc.color3));
     }
 
     boolean searchFacingPlayer(boolean longRange) {
