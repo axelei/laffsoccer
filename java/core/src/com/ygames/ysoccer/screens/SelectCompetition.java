@@ -37,7 +37,7 @@ class SelectCompetition extends GLScreen {
         FileHandle fh = currentFolder;
         boolean isDataRoot;
         do {
-            isDataRoot = fh.equals(Assets.competitionsFolder);
+            isDataRoot = fh.equals(Assets.competitionsRootFolder);
             w = new BreadCrumbButton(fh, isDataRoot);
             breadcrumb.add(w);
             fh = fh.parent();

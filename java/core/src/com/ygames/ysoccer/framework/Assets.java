@@ -48,7 +48,7 @@ public class Assets {
     public static Font font14;
     public static Font font10;
     public static FileHandle teamsRootFolder;
-    public static FileHandle competitionsFolder;
+    public static FileHandle competitionsRootFolder;
     public static FileHandle savesFolder;
     public static Json json;
     public static int[] calendars = new int[4600];
@@ -100,7 +100,7 @@ public class Assets {
         }
 
         teamsRootFolder = Gdx.files.local("data/teams");
-        competitionsFolder = Gdx.files.local("data/competitions");
+        competitionsRootFolder = Gdx.files.local("data/competitions");
         savesFolder = Gdx.files.local("data/saves/competitions");
         json = new Json();
         json.addClassTag("CUP", Cup.class);

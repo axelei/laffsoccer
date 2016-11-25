@@ -84,7 +84,7 @@ class CreateCompetitionWarning extends GLScreen {
 
                 case PRESET_COMPETITION:
                     game.setState(GLGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
-                    game.setScreen(new SelectCompetition(game, Assets.competitionsFolder));
+                    game.setScreen(new SelectCompetition(game, Assets.competitionsRootFolder));
                     break;
             }
         }
