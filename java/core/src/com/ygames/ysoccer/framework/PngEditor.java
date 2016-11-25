@@ -162,9 +162,9 @@ class PngEditor {
                 GlColor color = new GlColor(r, g, b);
                 RgbPair pair = rgbPairs.get(j);
                 if (color.equals(pair.rgbOld)) {
-                    bytes[paletteOffset + 8 + 3 * i] = (byte) pair.rgbNew.getRed();
-                    bytes[paletteOffset + 8 + 3 * i + 1] = (byte) pair.rgbNew.getGreen();
-                    bytes[paletteOffset + 8 + 3 * i + 2] = (byte) pair.rgbNew.getBlue();
+                    bytes[paletteOffset + 8 + 3 * i] = (byte) GlColor.red(pair.rgbNew);
+                    bytes[paletteOffset + 8 + 3 * i + 1] = (byte) GlColor.green(pair.rgbNew);
+                    bytes[paletteOffset + 8 + 3 * i + 2] = (byte) GlColor.blue(pair.rgbNew);
                 }
             }
         }
