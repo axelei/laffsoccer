@@ -90,36 +90,6 @@ public class GlColor {
         return color instanceof GlColor && ((GlColor) color).getRGB() == this.getRGB();
     }
 
-    public GlColor brighter() {
-        int red = this.getRed();
-        int green = this.getGreen();
-        int blue = this.getBlue();
-        int alpha = this.getAlpha();
-        byte b = 3;
-        if (red == 0 && green == 0 && blue == 0) {
-            return new GlColor(b, b, b, alpha);
-        } else {
-            if (red > 0 && red < b) {
-                red = b;
-            }
-
-            if (green > 0 && green < b) {
-                green = b;
-            }
-
-            if (blue > 0 && blue < b) {
-                blue = b;
-            }
-
-            return new GlColor(
-                    Math.min((int) ((double) red / 0.7D), 255),
-                    Math.min((int) ((double) green / 0.7D), 255),
-                    Math.min((int) ((double) blue / 0.7D), 255),
-                    alpha
-            );
-        }
-    }
-
     public static int brighter(int color) {
         int red = red(color);
         int green = green(color);
@@ -148,15 +118,6 @@ public class GlColor {
                     alpha
             );
         }
-    }
-
-    public GlColor darker(double factor) {
-        return new GlColor(
-                Math.max((int) ((double) this.getRed() * factor), 0),
-                Math.max((int) ((double) this.getGreen() * factor), 0),
-                Math.max((int) ((double) this.getBlue() * factor), 0),
-                this.getAlpha()
-        );
     }
 
     public static int darker(int color) {
