@@ -1,18 +1,12 @@
 package com.ygames.ysoccer.framework;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
+
 public class GlColor {
 
     public enum Component {ALPHA, RED, GREEN, BLUE}
 
     private int ARGB;
-
-    public GlColor(int red, int green, int blue) {
-        this(red, green, blue, 255);
-    }
-
-    public GlColor(int red, int green, int blue, int alpha) {
-        ARGB = (alpha & 255) << 24 | (red & 255) << 16 | (green & 255) << 8 | (blue & 255);
-    }
 
     public GlColor(int rgb) {
         this.ARGB = -16777216 | rgb;
@@ -55,18 +49,18 @@ public class GlColor {
         return String.format("#%02x%02x%02x", red(color), green(color), blue(color));
     }
 
-    public int getComponentValue(Component component) {
+    public static int getComponentValue(int color, Component component) {
         switch (component) {
             case ALPHA:
-                return getAlpha();
+                return alpha(color);
             case RED:
-                return getRed();
+                return red(color);
             case GREEN:
-                return getGreen();
+                return green(color);
             case BLUE:
-                return getBlue();
+                return blue(color);
             default:
-                return -1;
+                throw new GdxRuntimeException("Component not found");
         }
     }
 

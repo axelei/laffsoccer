@@ -672,7 +672,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            this.value = getColor().getComponentValue(component);
+            this.value = GlColor.getComponentValue(getColor(), component);
             setText(String.format("%02X", value));
         }
 
@@ -698,35 +698,35 @@ class EditTeam extends GLScreen {
 
         private void updateValue(int n) {
             value = Emath.rotate(value, 0, 255, n);
-            GlColor color = getColor();
+            int color = getColor();
             switch (component) {
                 case RED:
-                    color = new GlColor(value, color.getGreen(), color.getBlue());
+                    color = GlColor.rgb(value, GlColor.green(color), GlColor.blue(color));
                     break;
 
                 case GREEN:
-                    color = new GlColor(color.getRed(), value, color.getBlue());
+                    color = GlColor.rgb(GlColor.red(color), value, GlColor.blue(color));
                     break;
 
                 case BLUE:
-                    color = new GlColor(color.getRed(), color.getGreen(), value);
+                    color = GlColor.rgb(GlColor.red(color), GlColor.green(color), value);
                     break;
             }
             switch (field) {
                 case SHIRT1:
-                    team.kits.get(selectedKit).shirt1 = color;
+                    team.kits.get(selectedKit).shirt1 = new GlColor(color);
                     break;
 
                 case SHIRT2:
-                    team.kits.get(selectedKit).shirt2 = color;
+                    team.kits.get(selectedKit).shirt2 = new GlColor(color);
                     break;
 
                 case SHORTS:
-                    team.kits.get(selectedKit).shorts = color;
+                    team.kits.get(selectedKit).shorts = new GlColor(color);
                     break;
 
                 case SOCKS:
-                    team.kits.get(selectedKit).socks = color;
+                    team.kits.get(selectedKit).socks = new GlColor(color);
                     break;
             }
             updateKitEditButtons();
@@ -737,23 +737,23 @@ class EditTeam extends GLScreen {
             setModifiedFlag();
         }
 
-        private GlColor getColor() {
+        private int getColor() {
             Kit kit = team.kits.get(selectedKit);
             switch (field) {
                 case SHIRT1:
-                    return kit.shirt1;
+                    return kit.shirt1.getRGB();
 
                 case SHIRT2:
-                    return kit.shirt2;
+                    return kit.shirt2.getRGB();
 
                 case SHORTS:
-                    return kit.shorts;
+                    return kit.shorts.getRGB();
 
                 case SOCKS:
-                    return kit.socks;
+                    return kit.socks.getRGB();
 
                 default:
-                    return null;
+                    return 0;
             }
         }
     }
