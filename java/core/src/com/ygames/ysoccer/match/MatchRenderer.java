@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -26,6 +27,7 @@ public class MatchRenderer {
     private static final float guiAlpha = 0.9f;
 
     GLGraphics glGraphics;
+    private SpriteBatch batch;
     int screenWidth;
     int screenHeight;
     int zoom;
@@ -37,8 +39,8 @@ public class MatchRenderer {
     public int[] vcameraY = new int[Const.REPLAY_SUBFRAMES];
 
     public Match match;
-    List<Sprite> allSprites;
-    Sprite.SpriteComparator spriteComparator;
+    private List<Sprite> allSprites;
+    private Sprite.SpriteComparator spriteComparator;
     private CornerFlagSprite[] cornerFlagSprites;
 
     boolean displayControlledPlayer;
@@ -52,6 +54,7 @@ public class MatchRenderer {
 
     public MatchRenderer(GLGraphics glGraphics, Match match) {
         this.glGraphics = glGraphics;
+        this.batch = glGraphics.batch;
         this.match = match;
 
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.game.settings);
@@ -99,16 +102,16 @@ public class MatchRenderer {
         glGraphics.camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
         glGraphics.camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
         glGraphics.camera.update();
-        glGraphics.batch.setProjectionMatrix(glGraphics.camera.combined);
-        glGraphics.batch.begin();
+        batch.setProjectionMatrix(glGraphics.camera.combined);
+        batch.begin();
 
         renderBackground();
         renderSprites(match.subframe);
 
         // redraw bottom goal
-        glGraphics.batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
+        batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
-        glGraphics.batch.end();
+        batch.end();
 
         renderGui();
     }
@@ -116,9 +119,9 @@ public class MatchRenderer {
     private void renderGui() {
         glGraphics.camera.setToOrtho(true, guiWidth, guiHeight);
         glGraphics.camera.update();
-        glGraphics.batch.setProjectionMatrix(glGraphics.camera.combined);
+        batch.setProjectionMatrix(glGraphics.camera.combined);
         glGraphics.shapeRenderer.setProjectionMatrix(glGraphics.camera.combined);
-        glGraphics.batch.begin();
+        batch.begin();
 
         // ball owner
         if (displayBallOwner && match.ball.owner != null) {
@@ -145,17 +148,17 @@ public class MatchRenderer {
         if (matchState != null) {
             matchState.render();
         }
-        glGraphics.batch.end();
+        batch.end();
     }
 
     private void renderBackground() {
-        glGraphics.batch.disableBlending();
+        batch.disableBlending();
         for (int c = 0; c < 4; c++) {
             for (int r = 0; r < 4; r++) {
-                glGraphics.batch.draw(Assets.stadium[r][c], -Const.CENTER_X + 512 * c, -Const.CENTER_Y + 512 * r);
+                batch.draw(Assets.stadium[r][c], -Const.CENTER_X + 512 * c, -Const.CENTER_Y + 512 * r);
             }
         }
-        glGraphics.batch.enableBlending();
+        batch.enableBlending();
     }
 
     private void renderSprites(int subframe) {
@@ -171,18 +174,18 @@ public class MatchRenderer {
     }
 
     private void drawShadows(int subframe) {
-        glGraphics.batch.setColor(1, 1, 1, match.settings.shadowAlpha);
+        batch.setColor(1, 1, 1, match.settings.shadowAlpha);
 
         Data d = match.ball.data[subframe];
-        glGraphics.batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 + 0.46f * d.z);
+        batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 + 0.46f * d.z);
         if (match.settings.time == Time.NIGHT) {
-            glGraphics.batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z);
-            glGraphics.batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z);
-            glGraphics.batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z);
+            batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z);
+            batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z);
+            batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z);
         }
 
         for (int i = 0; i < 4; i++) {
-            cornerFlagSprites[i].drawShadow(subframe, glGraphics.batch);
+            cornerFlagSprites[i].drawShadow(subframe, batch);
         }
 
         // keepers
@@ -191,12 +194,12 @@ public class MatchRenderer {
                 if (player.role == Player.Role.GOALKEEPER) {
                     d = player.data[subframe];
                     if (d.isVisible) {
-                        glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                        batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
                         if (match.settings.time == Time.NIGHT) {
                             // TODO
-                            // glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
-                            // glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
-                            // glGraphics.batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
                         }
                     }
                 }
@@ -214,14 +217,14 @@ public class MatchRenderer {
                             float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
                             float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
                             float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
-                            glGraphics.batch.draw(Assets.playerShadow[d.fmx][d.fmy][i], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+                            batch.draw(Assets.playerShadow[d.fmx][d.fmy][i], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
                         }
                     }
                 }
             }
         }
 
-        glGraphics.batch.setColor(1, 1, 1, 1);
+        batch.setColor(1, 1, 1, 1);
     }
 
     private void drawTime() {
@@ -229,24 +232,24 @@ public class MatchRenderer {
         int minute = match.getMinute();
 
         // "minutes"
-        glGraphics.batch.draw(Assets.time[10], 46, 22);
+        batch.draw(Assets.time[10], 46, 22);
 
         // units
         int digit = minute % 10;
-        glGraphics.batch.draw(Assets.time[digit], 34, 22);
+        batch.draw(Assets.time[digit], 34, 22);
 
         // tens
         minute = (minute - digit) / 10;
         digit = minute % 10;
         if (minute > 0) {
-            glGraphics.batch.draw(Assets.time[digit], 22, 22);
+            batch.draw(Assets.time[digit], 22, 22);
         }
 
         // hundreds
         minute = (minute - digit) / 10;
         digit = minute % 10;
         if (digit > 0) {
-            glGraphics.batch.draw(Assets.time[digit], 10, 22);
+            batch.draw(Assets.time[digit], 10, 22);
         }
     }
 
@@ -255,11 +258,11 @@ public class MatchRenderer {
         int y0 = guiHeight - 16;
 
         // teams
-        Assets.font14.draw(glGraphics.batch, match.team[HOME].name, +10, y0 - 22, Font.Align.LEFT);
-        Assets.font14.draw(glGraphics.batch, match.team[AWAY].name, guiWidth - 8, y0 - 22, Font.Align.RIGHT);
+        Assets.font14.draw(batch, match.team[HOME].name, +10, y0 - 22, Font.Align.LEFT);
+        Assets.font14.draw(batch, match.team[AWAY].name, guiWidth - 8, y0 - 22, Font.Align.RIGHT);
 
         // bars
-        glGraphics.batch.end();
+        batch.end();
         glGraphics.shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 
         glGraphics.shapeRenderer.setColor(1, 1, 1, guiAlpha);
@@ -271,30 +274,29 @@ public class MatchRenderer {
         glGraphics.shapeRenderer.rect(guiWidth / 2 + 14, y0 + 2, guiWidth / 2 - 22, 2);
 
         glGraphics.shapeRenderer.end();
-        glGraphics.batch.begin();
+        batch.begin();
 
         // home score
-        glGraphics.batch.setColor(1, 1, 1, 1);
         int f0 = match.stats[Match.HOME].goals % 10;
         int f1 = ((match.stats[Match.HOME].goals - f0) / 10) % 10;
 
         if (f1 > 0) {
-            glGraphics.batch.draw(Assets.score[f1], guiWidth / 2 - 15 - 48, y0 - 40);
+            batch.draw(Assets.score[f1], guiWidth / 2 - 15 - 48, y0 - 40);
         }
-        glGraphics.batch.draw(Assets.score[f0], guiWidth / 2 - 15 - 24, y0 - 40);
+        batch.draw(Assets.score[f0], guiWidth / 2 - 15 - 24, y0 - 40);
 
         // "-"
-        glGraphics.batch.draw(Assets.score[10], guiWidth / 2 - 9, y0 - 40);
+        batch.draw(Assets.score[10], guiWidth / 2 - 9, y0 - 40);
 
         // away score
         f0 = match.stats[Match.AWAY].goals % 10;
         f1 = (match.stats[Match.AWAY].goals - f0) / 10 % 10;
 
         if (f1 > 0) {
-            glGraphics.batch.draw(Assets.score[f1], guiWidth / 2 + 17, y0 - 40);
-            glGraphics.batch.draw(Assets.score[f0], guiWidth / 2 + 17 + 24, y0 - 40);
+            batch.draw(Assets.score[f1], guiWidth / 2 + 17, y0 - 40);
+            batch.draw(Assets.score[f0], guiWidth / 2 + 17 + 24, y0 - 40);
         } else {
-            glGraphics.batch.draw(Assets.score[f0], guiWidth / 2 + 17, y0 - 40);
+            batch.draw(Assets.score[f0], guiWidth / 2 + 17, y0 - 40);
         }
     }
 
@@ -323,6 +325,6 @@ public class MatchRenderer {
     }
 
     private void drawPlayerNumberAndName(Player player) {
-        Assets.font10.draw(glGraphics.batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
+        Assets.font10.draw(batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
     }
 }
