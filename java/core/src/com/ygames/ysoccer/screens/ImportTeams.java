@@ -625,10 +625,10 @@ class ImportTeams extends GLScreen {
         for (int i = 0; i < 2; i++) {
             Kit kit = new Kit();
             kit.style = kitNames[bytes[pos++] & 0xFF];
-            kit.shirt1 = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-            kit.shirt2 = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-            kit.shorts = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
-            kit.socks = new GlColor(Kit.colors[bytes[pos++] & 0xFF]);
+            kit.shirt1 = Kit.colors[bytes[pos++] & 0xFF];
+            kit.shirt2 = Kit.colors[bytes[pos++] & 0xFF];
+            kit.shorts = Kit.colors[bytes[pos++] & 0xFF];
+            kit.socks = Kit.colors[bytes[pos++] & 0xFF];
             team.kits.add(kit);
         }
 

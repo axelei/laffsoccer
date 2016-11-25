@@ -593,7 +593,7 @@ class EditTeam extends GLScreen {
 
         private void updateColor(int n) {
             colorIndex = Emath.rotate(colorIndex, 0, Kit.colors.length - 1, n);
-            GlColor color = new GlColor(Kit.colors[colorIndex]);
+            int color = Kit.colors[colorIndex];
             switch (field) {
                 case SHIRT1:
                     team.kits.get(selectedKit).shirt1 = color;
@@ -621,7 +621,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            GlColor color = null;
+            int color = 0;
             switch (field) {
                 case SHIRT1:
                     color = team.kits.get(selectedKit).shirt1;
@@ -639,7 +639,7 @@ class EditTeam extends GLScreen {
                     color = team.kits.get(selectedKit).socks;
                     break;
             }
-            setColors(color.getRGB());
+            setColors(color);
         }
     }
 
@@ -714,19 +714,19 @@ class EditTeam extends GLScreen {
             }
             switch (field) {
                 case SHIRT1:
-                    team.kits.get(selectedKit).shirt1 = new GlColor(color);
+                    team.kits.get(selectedKit).shirt1 = color;
                     break;
 
                 case SHIRT2:
-                    team.kits.get(selectedKit).shirt2 = new GlColor(color);
+                    team.kits.get(selectedKit).shirt2 = color;
                     break;
 
                 case SHORTS:
-                    team.kits.get(selectedKit).shorts = new GlColor(color);
+                    team.kits.get(selectedKit).shorts = color;
                     break;
 
                 case SOCKS:
-                    team.kits.get(selectedKit).socks = new GlColor(color);
+                    team.kits.get(selectedKit).socks = color;
                     break;
             }
             updateKitEditButtons();
@@ -741,16 +741,16 @@ class EditTeam extends GLScreen {
             Kit kit = team.kits.get(selectedKit);
             switch (field) {
                 case SHIRT1:
-                    return kit.shirt1.getRGB();
+                    return kit.shirt1;
 
                 case SHIRT2:
-                    return kit.shirt2.getRGB();
+                    return kit.shirt2;
 
                 case SHORTS:
-                    return kit.shorts.getRGB();
+                    return kit.shorts;
 
                 case SOCKS:
-                    return kit.socks.getRGB();
+                    return kit.socks;
 
                 default:
                     return 0;

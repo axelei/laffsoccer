@@ -92,11 +92,7 @@ public abstract class Widget {
     }
 
     public void setColors(int color) {
-        setColors(new GlColor(color));
-    }
-
-    public void setColors(GlColor color) {
-        setColors(color.getRGB(), GlColor.brighter(color.getRGB()), GlColor.darker(color.getRGB(), 0.7D));
+        setColors(color, GlColor.brighter(color), GlColor.darker(color, 0.7D));
     }
 
     public void setText(String text) {

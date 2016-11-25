@@ -1,7 +1,5 @@
 package com.ygames.ysoccer.framework;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-
 public class GlColor {
 
     public enum Component {ALPHA, RED, GREEN, BLUE}
@@ -17,7 +15,7 @@ public class GlColor {
         this(Integer.parseInt(hexString.substring(1), 16));
     }
 
-    static int valueOf(String hexString) {
+    public static int valueOf(String hexString) {
         return Integer.parseInt(hexString.substring(1), 16);
     }
 
@@ -45,7 +43,7 @@ public class GlColor {
         return String.format("#%02x%02x%02x", getRed(), getGreen(), getBlue());
     }
 
-    static String toHexString(int color) {
+    public static String toHexString(int color) {
         return String.format("#%02x%02x%02x", red(color), green(color), blue(color));
     }
 
@@ -59,9 +57,8 @@ public class GlColor {
                 return green(color);
             case BLUE:
                 return blue(color);
-            default:
-                throw new GdxRuntimeException("Component not found");
         }
+        return 0;
     }
 
     public static int argb(int r, int g, int b, int a) {
