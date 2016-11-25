@@ -9,7 +9,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.GlShapeRenderer;
 import com.ygames.ysoccer.framework.Settings;
 
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public class MatchRenderer {
     private static final float guiAlpha = 0.9f;
 
     SpriteBatch batch;
-    private GlShapeRenderer shapeRenderer;
+    private ShapeRenderer shapeRenderer;
     private OrthographicCamera camera;
     int screenWidth;
     int screenHeight;
