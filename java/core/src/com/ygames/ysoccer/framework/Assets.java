@@ -47,7 +47,7 @@ public class Assets {
     public static List<String> locales;
     public static Font font14;
     public static Font font10;
-    public static FileHandle teamsFolder;
+    public static FileHandle teamsRootFolder;
     public static FileHandle competitionsFolder;
     public static FileHandle savesFolder;
     public static Json json;
@@ -99,7 +99,7 @@ public class Assets {
             }
         }
 
-        teamsFolder = Gdx.files.local("data/teams");
+        teamsRootFolder = Gdx.files.local("data/teams");
         competitionsFolder = Gdx.files.local("data/competitions");
         savesFolder = Gdx.files.local("data/saves/competitions");
         json = new Json();
@@ -593,7 +593,7 @@ public class Assets {
     }
 
     public static String getRelativeTeamPath(FileHandle fileHandle) {
-        return fileHandle.path().replaceFirst(teamsFolder.path(), "");
+        return fileHandle.path().replaceFirst(teamsRootFolder.path(), "");
     }
 
     public static FilenameFilter teamFilenameFilter = new FilenameFilter() {

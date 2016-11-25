@@ -775,7 +775,7 @@ class ImportTeams extends GLScreen {
         }
 
         String cleanName = team.name.toLowerCase().replace(" ", "_").replace("/", "_");
-        FileHandle fh = Assets.teamsFolder.child(folder + "team." + cleanName + ".json");
+        FileHandle fh = Assets.teamsRootFolder.child(folder + "team." + cleanName + ".json");
         fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
         importedTeams++;
 

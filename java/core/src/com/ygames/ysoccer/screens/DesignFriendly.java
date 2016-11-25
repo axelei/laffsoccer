@@ -160,7 +160,7 @@ class DesignFriendly extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectFolder(game, Assets.teamsFolder, friendly));
+            game.setScreen(new SelectFolder(game, Assets.teamsRootFolder, friendly));
         }
     }
 

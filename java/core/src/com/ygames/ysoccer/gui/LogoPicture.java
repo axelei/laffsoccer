@@ -22,7 +22,7 @@ public class LogoPicture extends Picture {
     @Override
     public void refresh() {
         String logoPath = team.path.replaceFirst("/team.", "/logo.").replaceFirst(".json", ".png");
-        FileHandle customLogo = Assets.teamsFolder.child(logoPath);
+        FileHandle customLogo = Assets.teamsRootFolder.child(logoPath);
         if (customLogo.exists()) {
             isCustom = true;
             Texture texture = new Texture(customLogo);

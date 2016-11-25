@@ -1006,7 +1006,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            FileHandle fh = Assets.teamsFolder.child(team.path);
+            FileHandle fh = Assets.teamsRootFolder.child(team.path);
             String path = team.path;
             team.path = null;
             fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");

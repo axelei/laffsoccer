@@ -76,7 +76,7 @@ public abstract class Competition {
     public ArrayList<Team> loadTeams() {
         ArrayList<Team> teamList = new ArrayList<Team>();
         for (Team teamStub : teams) {
-            FileHandle teamFile = Assets.teamsFolder.child(teamStub.path);
+            FileHandle teamFile = Assets.teamsRootFolder.child(teamStub.path);
             if (teamFile.exists()) {
                 Team team = Assets.json.fromJson(Team.class, teamFile.readString("UTF-8"));
                 team.path = teamStub.path;

@@ -149,7 +149,7 @@ public class Main extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setState(GLGame.State.EDIT, null);
-            game.setScreen(new SelectFolder(game, Assets.teamsFolder, null));
+            game.setScreen(new SelectFolder(game, Assets.teamsRootFolder, null));
         }
     }
 

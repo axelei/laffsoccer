@@ -566,7 +566,7 @@ class DiyLeague extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectFolder(game, Assets.teamsFolder, league));
+            game.setScreen(new SelectFolder(game, Assets.teamsRootFolder, league));
         }
     }
 

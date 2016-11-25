@@ -45,7 +45,7 @@ class AllSelectedTeams extends GLScreen {
         FileHandle fh = currentFolder;
         boolean isDataRoot;
         do {
-            isDataRoot = fh.equals(Assets.teamsFolder);
+            isDataRoot = fh.equals(Assets.teamsRootFolder);
             boolean disabled = (league == null && fh == currentFolder);
             w = new BreadCrumbButton(fh, isDataRoot, disabled);
             breadcrumb.add(w);
