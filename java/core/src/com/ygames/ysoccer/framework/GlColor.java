@@ -23,6 +23,10 @@ public class GlColor {
         this(Integer.parseInt(hexString.substring(1), 16));
     }
 
+    static int valueOf(String hexString) {
+        return Integer.parseInt(hexString.substring(1), 16);
+    }
+
     public int getAlpha() {
         return this.getRGB() >> 24 & 255;
     }
@@ -45,6 +49,10 @@ public class GlColor {
 
     public String toHexString() {
         return String.format("#%02x%02x%02x", getRed(), getGreen(), getBlue());
+    }
+
+    static String toHexString(int color) {
+        return String.format("#%02x%02x%02x", red(color), green(color), blue(color));
     }
 
     public int getComponentValue(Component component) {

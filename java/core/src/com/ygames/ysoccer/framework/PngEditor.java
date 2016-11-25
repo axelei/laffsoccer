@@ -159,9 +159,9 @@ class PngEditor {
 
             int len2 = rgbPairs.size();
             for (int j = 0; j < len2; j++) {
-                GlColor color = new GlColor(r, g, b);
+                int color = GlColor.rgb(r, g, b);
                 RgbPair pair = rgbPairs.get(j);
-                if (color.equals(pair.rgbOld)) {
+                if (color == pair.rgbOld) {
                     bytes[paletteOffset + 8 + 3 * i] = (byte) GlColor.red(pair.rgbNew);
                     bytes[paletteOffset + 8 + 3 * i + 1] = (byte) GlColor.green(pair.rgbNew);
                     bytes[paletteOffset + 8 + 3 * i + 2] = (byte) GlColor.blue(pair.rgbNew);

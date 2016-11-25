@@ -5,11 +5,6 @@ public class RgbPair {
     int rgbOld;
     int rgbNew;
 
-    public RgbPair(GlColor rgbOld, GlColor rgbNew) {
-        this.rgbOld = rgbOld.getRGB();
-        this.rgbNew = rgbNew.getRGB();
-    }
-
     public RgbPair(int rgbOld, GlColor rgbNew) {
         this.rgbOld = rgbOld;
         this.rgbNew = rgbNew.getRGB();
