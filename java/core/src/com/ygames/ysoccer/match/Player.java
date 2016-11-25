@@ -684,25 +684,25 @@ public class Player {
 
         // skin color
         Color3 sc = Skin.colors[skinColor.ordinal()];
-        rgbPairs.add(new RgbPair(0xFFFF6300, sc.color1));
-        rgbPairs.add(new RgbPair(0xFFB54200, sc.color2));
-        rgbPairs.add(new RgbPair(0xFF631800, sc.color3));
+        rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
+        rgbPairs.add(new RgbPair(0xB54200, sc.color2));
+        rgbPairs.add(new RgbPair(0x631800, sc.color3));
 
         // hair color
         if (hairStyle.equals("SHAVED")) {
             GlColor2 shavedColor = Assets.getShavedColor(skinColor, hairColor);
             if (shavedColor != null) {
-                rgbPairs.add(new RgbPair(0xFF907130, shavedColor.color1));
-                rgbPairs.add(new RgbPair(0xFF715930, shavedColor.color2));
+                rgbPairs.add(new RgbPair(0x907130, shavedColor.color1));
+                rgbPairs.add(new RgbPair(0x715930, shavedColor.color2));
             } else {
-                rgbPairs.add(new RgbPair(0xFF907130, sc.color1));
-                rgbPairs.add(new RgbPair(0xFF715930, sc.color2));
+                rgbPairs.add(new RgbPair(0x907130, sc.color1));
+                rgbPairs.add(new RgbPair(0x715930, sc.color2));
             }
         } else {
             Color3 hc = Hair.colors[hairColor.ordinal()];
-            rgbPairs.add(new RgbPair(0xFF907130, hc.color1));
-            rgbPairs.add(new RgbPair(0xFF715930, hc.color2));
-            rgbPairs.add(new RgbPair(0xFF514030, hc.color3));
+            rgbPairs.add(new RgbPair(0x907130, hc.color1));
+            rgbPairs.add(new RgbPair(0x715930, hc.color2));
+            rgbPairs.add(new RgbPair(0x514030, hc.color3));
         }
 
         String filename = "images/player/menu/" + hairStyle + ".PNG";
