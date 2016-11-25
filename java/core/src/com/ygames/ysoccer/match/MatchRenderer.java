@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
@@ -28,6 +29,7 @@ public class MatchRenderer {
 
     GLGraphics glGraphics;
     private SpriteBatch batch;
+    private OrthographicCamera camera;
     int screenWidth;
     int screenHeight;
     int zoom;
@@ -55,6 +57,7 @@ public class MatchRenderer {
     public MatchRenderer(GLGraphics glGraphics, Match match) {
         this.glGraphics = glGraphics;
         this.batch = glGraphics.batch;
+        this.camera = glGraphics.camera;
         this.match = match;
 
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.game.settings);
@@ -99,10 +102,10 @@ public class MatchRenderer {
     public void render(GLGame game) {
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        glGraphics.camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
-        glGraphics.camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
-        glGraphics.camera.update();
-        batch.setProjectionMatrix(glGraphics.camera.combined);
+        camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
+        camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
         renderBackground();
@@ -117,10 +120,10 @@ public class MatchRenderer {
     }
 
     private void renderGui() {
-        glGraphics.camera.setToOrtho(true, guiWidth, guiHeight);
-        glGraphics.camera.update();
-        batch.setProjectionMatrix(glGraphics.camera.combined);
-        glGraphics.shapeRenderer.setProjectionMatrix(glGraphics.camera.combined);
+        camera.setToOrtho(true, guiWidth, guiHeight);
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+        glGraphics.shapeRenderer.setProjectionMatrix(camera.combined);
         batch.begin();
 
         // ball owner
