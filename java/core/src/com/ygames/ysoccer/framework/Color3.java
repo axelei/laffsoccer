@@ -3,17 +3,17 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 
-public class GlColor3 implements Json.Serializable {
+public class Color3 implements Json.Serializable {
 
     public String name;
     public int color1;
     public int color2;
     public int color3;
 
-    public GlColor3() {
+    public Color3() {
     }
 
-    public GlColor3(String name, int color1, int color2, int color3) {
+    public Color3(String name, int color1, int color2, int color3) {
         this.name = name;
         this.color1 = color1;
         this.color2 = color2;

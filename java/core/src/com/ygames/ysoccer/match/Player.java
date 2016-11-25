@@ -5,7 +5,7 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlColor2;
-import com.ygames.ysoccer.framework.GlColor3;
+import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
@@ -683,7 +683,7 @@ public class Player {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
 
         // skin color
-        GlColor3 sc = Skin.colors[skinColor.ordinal()];
+        Color3 sc = Skin.colors[skinColor.ordinal()];
         rgbPairs.add(new RgbPair(0xFFFF6300, sc.color1));
         rgbPairs.add(new RgbPair(0xFFB54200, sc.color2));
         rgbPairs.add(new RgbPair(0xFF631800, sc.color3));
@@ -699,7 +699,7 @@ public class Player {
                 rgbPairs.add(new RgbPair(0xFF715930, sc.color2));
             }
         } else {
-            GlColor3 hc = Hair.colors[hairColor.ordinal()];
+            Color3 hc = Hair.colors[hairColor.ordinal()];
             rgbPairs.add(new RgbPair(0xFF907130, hc.color1));
             rgbPairs.add(new RgbPair(0xFF715930, hc.color2));
             rgbPairs.add(new RgbPair(0xFF514030, hc.color3));

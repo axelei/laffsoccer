@@ -7,7 +7,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.GlColor3;
+import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
@@ -166,7 +166,7 @@ class EditPlayers extends GLScreen {
             if (player == null) {
                 setActive(false);
             } else {
-                GlColor3 hairColor = Hair.colors[player.hairColor.ordinal()];
+                Color3 hairColor = Hair.colors[player.hairColor.ordinal()];
                 setColors(hairColor.color2, hairColor.color1, hairColor.color3);
                 setActive(true);
             }
@@ -280,7 +280,7 @@ class EditPlayers extends GLScreen {
             if (player == null) {
                 setActive(false);
             } else {
-                GlColor3 skinColor = Skin.colors[player.skinColor.ordinal()];
+                Color3 skinColor = Skin.colors[player.skinColor.ordinal()];
                 setColors(skinColor.color2, skinColor.color1, skinColor.color3);
                 setActive(true);
             }

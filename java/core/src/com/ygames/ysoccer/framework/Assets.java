@@ -509,7 +509,7 @@ public class Assets {
     private static void addHairColors(Player player, List<RgbPair> rgbPairs) {
         // shaved
         if (player.hairStyle.equals("SHAVED")) {
-            GlColor3 sc = Skin.colors[player.skinColor.ordinal()];
+            Color3 sc = Skin.colors[player.skinColor.ordinal()];
             GlColor2 shavedColor = Assets.getShavedColor(player.skinColor, player.hairColor);
             if (shavedColor != null) {
                 rgbPairs.add(new RgbPair(0xFF907130, shavedColor.color1));
@@ -520,7 +520,7 @@ public class Assets {
             }
             // others
         } else {
-            GlColor3 hc = Hair.colors[player.hairColor.ordinal()];
+            Color3 hc = Hair.colors[player.hairColor.ordinal()];
             rgbPairs.add(new RgbPair(0x907130, hc.color1));
             rgbPairs.add(new RgbPair(0x715930, hc.color2));
             rgbPairs.add(new RgbPair(0x514030, hc.color3));
@@ -528,7 +528,7 @@ public class Assets {
     }
 
     private static void addSkinColors(Player player, List<RgbPair> rgbPairs) {
-        GlColor3 sc = Skin.colors[player.skinColor.ordinal()];
+        Color3 sc = Skin.colors[player.skinColor.ordinal()];
         rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
         rgbPairs.add(new RgbPair(0xB54200, sc.color2));
         rgbPairs.add(new RgbPair(0x631800, sc.color3));
