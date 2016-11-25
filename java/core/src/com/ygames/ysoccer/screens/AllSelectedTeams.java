@@ -36,30 +36,6 @@ class AllSelectedTeams extends GLScreen {
         w = new TitleBar(Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + competition.name, game.stateColor.body);
         widgets.add(w);
 
-        // Breadcrumb
-        List<Widget> breadcrumb = new ArrayList<Widget>();
-        if (league != null) {
-            w = new BreadCrumbLeagueLabel();
-            breadcrumb.add(w);
-        }
-        FileHandle fh = currentFolder;
-        boolean isDataRoot;
-        do {
-            isDataRoot = fh.equals(Assets.teamsRootFolder);
-            boolean disabled = (league == null && fh == currentFolder);
-            w = new BreadCrumbButton(fh, isDataRoot, disabled);
-            breadcrumb.add(w);
-            fh = fh.parent();
-        } while (!isDataRoot);
-
-        Collections.reverse(breadcrumb);
-        int x = (game.gui.WIDTH - 960) / 2;
-        for (Widget b : breadcrumb) {
-            b.setPosition(x, 72);
-            x += b.w + 2;
-        }
-        widgets.addAll(breadcrumb);
-
         w = new ComputerButton();
         widgets.add(w);
 
@@ -85,7 +61,7 @@ class AllSelectedTeams extends GLScreen {
             widgets.add(w);
         }
         Collections.sort(list, Widget.widgetComparatorByText);
-        Widget.arrange(game.gui.WIDTH, 350, 32, list);
+        Widget.arrange(game.gui.WIDTH, 392, 29, list);
 
         w = new ChangeTeamsButton();
         widgets.add(w);
@@ -101,44 +77,6 @@ class AllSelectedTeams extends GLScreen {
         int diff = competition.numberOfTeams - game.teamList.size();
         if (diff == 0) {
             setSelectedWidget(w);
-        }
-    }
-
-    private class BreadCrumbLeagueLabel extends Button {
-
-        BreadCrumbLeagueLabel() {
-            setSize(0, 32);
-            setColors(game.stateColor.darker());
-            setActive(false);
-            setText(league, Font.Align.CENTER, Assets.font10);
-            autoWidth();
-        }
-    }
-
-    private class BreadCrumbButton extends Button {
-
-        private FileHandle folder;
-
-        BreadCrumbButton(FileHandle folder, boolean isDataRoot, boolean disabled) {
-            this.folder = folder;
-            setSize(0, 32);
-            if (disabled) {
-                setColors(game.stateColor.darker());
-                setActive(false);
-            } else {
-                setColors(game.stateColor);
-            }
-            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font10);
-            autoWidth();
-        }
-
-        @Override
-        public void onFire1Down() {
-            if (folder == currentFolder && league != null) {
-                game.setScreen(new SelectTeams(game, folder, null, competition));
-            } else {
-                game.setScreen(new SelectFolder(game, folder, competition));
-            }
         }
     }
 
@@ -202,7 +140,7 @@ class AllSelectedTeams extends GLScreen {
 
         TeamButton(Team team) {
             this.team = team;
-            setSize(270, 30);
+            setSize(300, 28);
             updateColors();
             setText(team.name, Font.Align.CENTER, Assets.font14);
         }

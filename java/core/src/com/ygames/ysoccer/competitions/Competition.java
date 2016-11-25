@@ -16,6 +16,7 @@ public abstract class Competition {
     public String name;
     public String filename;
     public String teamsPath;
+    public String teamsLeague;
 
     public enum Type {
         FRIENDLY, LEAGUE, CUP
