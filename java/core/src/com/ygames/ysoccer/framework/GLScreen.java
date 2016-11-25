@@ -209,29 +209,27 @@ public abstract class GLScreen implements Screen {
 
         // up/down
         int bias = 1;
-        if (menuInput.y == -1 && menuInput.yTimer == 0) {
-            Widget current = selectedWidget;
-            float distMin = 50000;
-            float distance;
-            for (Widget w : widgets) {
-                if ((w.y + w.h) <= current.y) {
-                    distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
-                    if (distance < distMin) {
-                        if (setSelectedWidget(w)) {
+        if (selectedWidget != null) {
+            if (menuInput.y == -1 && menuInput.yTimer == 0) {
+                Widget current = selectedWidget;
+                float distMin = 50000;
+                float distance;
+                for (Widget w : widgets) {
+                    if ((w.y + w.h) <= current.y) {
+                        distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
+                        if (distance < distMin && setSelectedWidget(w)) {
                             distMin = distance;
                         }
                     }
                 }
-            }
-        } else if (menuInput.y == 1 && menuInput.yTimer == 0) {
-            Widget current = selectedWidget;
-            float distMin = 50000;
-            float distance;
-            for (Widget w : widgets) {
-                if (w.y >= (current.y + current.h)) {
-                    distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
-                    if (distance < distMin) {
-                        if (setSelectedWidget(w)) {
+            } else if (menuInput.y == 1 && menuInput.yTimer == 0) {
+                Widget current = selectedWidget;
+                float distMin = 50000;
+                float distance;
+                for (Widget w : widgets) {
+                    if (w.y >= (current.y + current.h)) {
+                        distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
+                        if (distance < distMin && setSelectedWidget(w)) {
                             distMin = distance;
                         }
                     }
@@ -241,30 +239,27 @@ public abstract class GLScreen implements Screen {
 
         // left/right
         bias = 9;
-        if (menuInput.x == -1 && menuInput.xTimer == 0) {
-            Widget current = selectedWidget;
-            float distMin = 50000;
-            float distance;
-            for (Widget w : widgets) {
-                if ((w.x + w.w) <= current.x) {
-                    distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
-                    if (distance < distMin) {
-                        if (setSelectedWidget(w)) {
+        if (selectedWidget != null) {
+            if (menuInput.x == -1 && menuInput.xTimer == 0) {
+                Widget current = selectedWidget;
+                float distMin = 50000;
+                float distance;
+                for (Widget w : widgets) {
+                    if ((w.x + w.w) <= current.x) {
+                        distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
+                        if (distance < distMin && setSelectedWidget(w)) {
                             distMin = distance;
                         }
-
                     }
                 }
-            }
-        } else if (menuInput.x == 1 && menuInput.xTimer == 0) {
-            Widget current = selectedWidget;
-            float distMin = 50000;
-            float distance;
-            for (Widget w : widgets) {
-                if (w.x >= (current.x + current.w)) {
-                    distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
-                    if (distance < distMin) {
-                        if (setSelectedWidget(w)) {
+            } else if (menuInput.x == 1 && menuInput.xTimer == 0) {
+                Widget current = selectedWidget;
+                float distMin = 50000;
+                float distance;
+                for (Widget w : widgets) {
+                    if (w.x >= (current.x + current.w)) {
+                        distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
+                        if (distance < distMin && setSelectedWidget(w)) {
                             distMin = distance;
                         }
                     }

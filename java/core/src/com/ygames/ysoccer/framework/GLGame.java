@@ -64,7 +64,6 @@ public class GLGame extends Game {
         teamList = new ArrayList<Team>();
 
         menuMusic = new MenuMusic("music");
-        menuMusic.setMode(settings.musicMode);
     }
 
     public void setScreenMode() {

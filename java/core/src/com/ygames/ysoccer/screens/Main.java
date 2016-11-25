@@ -12,9 +12,9 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 
-public class Main extends GLScreen {
+class Main extends GLScreen {
 
-    public Main(GLGame game) {
+    Main(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_main.jpg");
         TextureRegion logo = Assets.loadTextureRegion("images/logo.png");
@@ -78,7 +78,7 @@ public class Main extends GLScreen {
         // homepage
         w = new Label();
         w.setText("YSOCCER.SF.NET", Font.Align.RIGHT, Assets.font10);
-        w.setPosition(game.gui.WIDTH - 20, game.gui.HEIGHT - 29);
+        w.setGeometry(game.gui.WIDTH - 300, game.gui.HEIGHT - 20, 300, 20);
         widgets.add(w);
     }
 
