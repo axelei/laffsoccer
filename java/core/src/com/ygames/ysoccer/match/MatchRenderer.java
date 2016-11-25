@@ -271,8 +271,31 @@ public class MatchRenderer {
         glGraphics.shapeRenderer.rect(guiWidth / 2 + 14, y0 + 2, guiWidth / 2 - 22, 2);
 
         glGraphics.shapeRenderer.end();
-
         glGraphics.batch.begin();
+
+        // home score
+        glGraphics.batch.setColor(1, 1, 1, 1);
+        int f0 = match.stats[Match.HOME].goals % 10;
+        int f1 = ((match.stats[Match.HOME].goals - f0) / 10) % 10;
+
+        if (f1 > 0) {
+            glGraphics.batch.draw(Assets.score[f1], guiWidth / 2 - 15 - 48, y0 - 40);
+        }
+        glGraphics.batch.draw(Assets.score[f0], guiWidth / 2 - 15 - 24, y0 - 40);
+
+        // "-"
+        glGraphics.batch.draw(Assets.score[10], guiWidth / 2 - 9, y0 - 40);
+
+        // away score
+        f0 = match.stats[Match.AWAY].goals % 10;
+        f1 = (match.stats[Match.AWAY].goals - f0) / 10 % 10;
+
+        if (f1 > 0) {
+            glGraphics.batch.draw(Assets.score[f1], guiWidth / 2 + 17, y0 - 40);
+            glGraphics.batch.draw(Assets.score[f0], guiWidth / 2 + 17 + 24, y0 - 40);
+        } else {
+            glGraphics.batch.draw(Assets.score[f0], guiWidth / 2 + 17, y0 - 40);
+        }
     }
 
     void updateCameraX(int follow, int speed) {

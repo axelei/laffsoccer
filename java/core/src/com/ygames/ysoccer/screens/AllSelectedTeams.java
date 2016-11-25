@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class AllSelectedTeams extends GLScreen {
 
     private FileHandle currentFolder;
@@ -275,7 +278,19 @@ class AllSelectedTeams extends GLScreen {
         public void onFire1Down() {
             switch (competition.getType()) {
                 case FRIENDLY:
-                    // TODO
+                    // choose the menu to set
+                    game.inputDevices.setAvailability(true);
+                    game.teamList.get(HOME).setInputDevice(null);
+                    game.teamList.get(HOME).releaseNonAiInputDevices();
+                    game.teamList.get(AWAY).setInputDevice(null);
+                    game.teamList.get(AWAY).releaseNonAiInputDevices();
+                    if (game.teamList.get(HOME).controlMode != Team.ControlMode.COMPUTER) {
+                        game.setScreen(new SetTeam(game, currentFolder, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY), HOME));
+                    } else if (game.teamList.get(AWAY).controlMode != Team.ControlMode.COMPUTER) {
+                        game.setScreen(new SetTeam(game, currentFolder, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY), AWAY));
+                    } else {
+                        game.setScreen(new MatchSetup(game, currentFolder, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY)));
+                    }
                     break;
 
                 case LEAGUE:

@@ -77,6 +77,7 @@ public class Assets {
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
     public static TextureRegion time[] = new TextureRegion[11];
+    public static TextureRegion score[] = new TextureRegion[11];
     public static TextureRegion replay[][] = new TextureRegion[16][2];
     public static TextureRegion replaySpeed[][] = new TextureRegion[3][3];
 
@@ -125,6 +126,7 @@ public class Assets {
         loadPlayerShadow();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
         loadTime();
+        loadScore();
         loadReplay();
         loadReplaySpeed();
     }
@@ -333,6 +335,14 @@ public class Assets {
         for (int i = 0; i < 11; i++) {
             time[i] = new TextureRegion(texture, 12 * i, 0, i < 10 ? 12 : 48, 20);
             time[i].flip(false, true);
+        }
+    }
+
+    private static void loadScore() {
+        Texture texture = new Texture("images/score.png");
+        for (int i = 0; i < 11; i++) {
+            score[i] = new TextureRegion(texture, 24 * i, 0, 24, 38);
+            score[i].flip(false, true);
         }
     }
 
