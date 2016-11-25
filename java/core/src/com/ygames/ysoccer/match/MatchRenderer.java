@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GlShapeRenderer;
 import com.ygames.ysoccer.framework.Settings;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class MatchRenderer {
 
     GLGraphics glGraphics;
     private SpriteBatch batch;
+    private GlShapeRenderer shapeRenderer;
     private OrthographicCamera camera;
     int screenWidth;
     int screenHeight;
@@ -57,6 +59,7 @@ public class MatchRenderer {
     public MatchRenderer(GLGraphics glGraphics, Match match) {
         this.glGraphics = glGraphics;
         this.batch = glGraphics.batch;
+        this.shapeRenderer = glGraphics.shapeRenderer;
         this.camera = glGraphics.camera;
         this.match = match;
 
@@ -123,7 +126,7 @@ public class MatchRenderer {
         camera.setToOrtho(true, guiWidth, guiHeight);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
-        glGraphics.shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.setProjectionMatrix(camera.combined);
         batch.begin();
 
         // ball owner
@@ -266,17 +269,17 @@ public class MatchRenderer {
 
         // bars
         batch.end();
-        glGraphics.shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 
-        glGraphics.shapeRenderer.setColor(1, 1, 1, guiAlpha);
-        glGraphics.shapeRenderer.rect(10, y0, guiWidth / 2 - 22, 2);
-        glGraphics.shapeRenderer.rect(guiWidth / 2 + 12, y0, guiWidth / 2 - 22, 2);
+        shapeRenderer.setColor(1, 1, 1, guiAlpha);
+        shapeRenderer.rect(10, y0, guiWidth / 2 - 22, 2);
+        shapeRenderer.rect(guiWidth / 2 + 12, y0, guiWidth / 2 - 22, 2);
 
-        glGraphics.shapeRenderer.setColor(0.1f, 0.1f, 0.1f, guiAlpha);
-        glGraphics.shapeRenderer.rect(12, y0 + 2, guiWidth / 2 - 22, 2);
-        glGraphics.shapeRenderer.rect(guiWidth / 2 + 14, y0 + 2, guiWidth / 2 - 22, 2);
+        shapeRenderer.setColor(0.1f, 0.1f, 0.1f, guiAlpha);
+        shapeRenderer.rect(12, y0 + 2, guiWidth / 2 - 22, 2);
+        shapeRenderer.rect(guiWidth / 2 + 14, y0 + 2, guiWidth / 2 - 22, 2);
 
-        glGraphics.shapeRenderer.end();
+        shapeRenderer.end();
         batch.begin();
 
         // home score
