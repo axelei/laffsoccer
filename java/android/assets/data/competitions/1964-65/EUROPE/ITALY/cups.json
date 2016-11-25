@@ -34,7 +34,7 @@
     "substitutions": 3,
     "benchSize": 5,
     "time": 0,
-    "teamsFolder": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
+    "teamsPath": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
     "teams": [
       {
         "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json"

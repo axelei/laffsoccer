@@ -15,7 +15,7 @@ import java.util.Calendar;
 public abstract class Competition {
     public String name;
     public String filename;
-    public String teamsFolder;
+    public String teamsPath;
 
     public enum Type {
         FRIENDLY, LEAGUE, CUP
@@ -44,7 +44,7 @@ public abstract class Competition {
 
     public Competition() {
         filename = "";
-        teamsFolder = "";
+        teamsPath = "";
         bySeason = true;
         seasonStart = Calendar.AUGUST;
         seasonEnd = Calendar.MAY;
