@@ -3,11 +3,15 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonWriter;
+import com.ygames.ysoccer.export.Config;
+import com.ygames.ysoccer.export.FileConfig;
+import com.ygames.ysoccer.export.TeamConfig;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -33,7 +37,7 @@ class ImportTeams extends GLScreen {
 
     private int year = 2016;
 
-    private String[] countryCodes = {
+    static String[] countryCodes = {
             "ALB", "AUT", "BEL", "BUL", "CRO", "CYP", "CZE", "DEN", "ENG", "009",
             "EST", "FRO", "FIN", "FRA", "GER", "GRE", "HUN", "ISL", "IRL", "ISR",
             "ITA", "LVA", "LTU", "LUX", "MLT", "NED", "NIR", "NOR", "POL", "POR",
@@ -45,7 +49,7 @@ class ImportTeams extends GLScreen {
             "EUROPE", "AFRICA", "SOUTH AMERICA", "NORTH AMERICA", "ASIA", "OCEANIA"
     };
 
-    private String[][] countries = {
+    private static String[][] countries = {
             {"ALB", "EUROPE", "ALBANIA"},
             {"AND", "EUROPE", "ANDORRA"},
             {"ARM", "EUROPE", "ARMENIA"},
@@ -266,7 +270,7 @@ class ImportTeams extends GLScreen {
 
     };
 
-    private String[] playerCountryCodes = {
+    static String[] playerCountryCodes = {
             "ALB", "AUT", "BEL", "BUL", "CRO", "CYP", "CZE", "DEN", "ENG", "EST",
             "FRO", "FIN", "FRA", "GER", "GRE", "HUN", "ISL", "ISR", "ITA", "LVA",
             "LTU", "LUX", "MLT", "NED", "NIR", "NOR", "POL", "POR", "ROM", "RUS",
@@ -296,6 +300,9 @@ class ImportTeams extends GLScreen {
     FileHandle[] files;
     private int fileIndex;
     private int importedTeams, failedTeams, skippedFiles;
+    private Widget exitButton;
+
+    private Config exportConfigs;
 
     ImportTeams(GLGame game) {
         super(game);
@@ -303,6 +310,11 @@ class ImportTeams extends GLScreen {
         background = new Texture("images/backgrounds/menu_set_team.jpg");
 
         FileHandle importFolder = Gdx.files.local("data/import");
+
+        Json json = new Json();
+        json.setOutputType(JsonWriter.OutputType.json);
+
+        exportConfigs = new Config();
 
         for (int i = 0; i < 16; i++) {
             position.add(i);
@@ -326,6 +338,9 @@ class ImportTeams extends GLScreen {
         if (files.length > 0) {
             state = State.READY;
 
+            w = new WarningLabel();
+            widgets.add(w);
+
             w = new StartButton();
             widgets.add(w);
 
@@ -336,8 +351,12 @@ class ImportTeams extends GLScreen {
             widgets.add(w);
         }
 
-        w = new ExitButton();
-        widgets.add(w);
+        exitButton = new ExitButton();
+        widgets.add(exitButton);
+
+        if (selectedWidget == null) {
+            setSelectedWidget(exitButton);
+        }
     }
 
     @Override
@@ -348,6 +367,8 @@ class ImportTeams extends GLScreen {
             case IMPORTING:
                 if (fileIndex == files.length) {
                     state = State.FINISHED;
+                    FileHandle fh = Assets.teamsRootFolder.child(getYearFolder() + "/export_" + getYearFolder() + ".json");
+                    fh.writeString(Assets.json.prettyPrint(exportConfigs), false, "UTF-8");
                 } else {
                     FileHandle fileHandle = files[fileIndex++];
                     if (!importFile(fileHandle)) {
@@ -387,6 +408,7 @@ class ImportTeams extends GLScreen {
                     if (failedTeams > 0) message += " - " + failedTeams + " TEAMS FAILED";
                     if (skippedFiles > 0) message += " - " + skippedFiles + " FILES SKIPPED";
                     setText(message);
+                    setSelectedWidget(exitButton);
                     break;
             }
         }
@@ -410,7 +432,7 @@ class ImportTeams extends GLScreen {
     private class YearButton extends Button {
 
         YearButton() {
-            setColors(0xC84200);
+            setColors(0x568200);
             setGeometry(game.gui.WIDTH / 2 + 5, 360, 180, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -442,7 +464,7 @@ class ImportTeams extends GLScreen {
         }
 
         private void updateYear(int n) {
-            year = Emath.slide(year, 1890, 2100, n);
+            year = Emath.slide(year, 1863, 2100, n);
             setDirty(true);
         }
     }
@@ -461,11 +483,26 @@ class ImportTeams extends GLScreen {
         return "";
     }
 
+    private class WarningLabel extends Button {
+
+        WarningLabel() {
+            setColors(0xDC0000);
+            setGeometry((game.gui.WIDTH - 920) / 2, 420, 920, 60);
+            setText("EXISTING FILES IN THE DESTINATION FOLDER WILL BE OVERWRITTEN", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(state == State.READY);
+        }
+    }
+
     private class StartButton extends Button {
 
         StartButton() {
             setColors(0x138B21);
-            setGeometry((game.gui.WIDTH - 220) / 2, 420, 220, 42);
+            setGeometry((game.gui.WIDTH - 220) / 2, 498, 220, 42);
             setText("START", Font.Align.CENTER, Assets.font14);
         }
 
@@ -517,6 +554,9 @@ class ImportTeams extends GLScreen {
         String extension = fileHandle.extension();
         Team.Type teamType;
 
+        // prepare an export config for easy exporting back
+        FileConfig exportConfig = new FileConfig(fileHandle.name());
+
         if (extension.equals("CUS")) {
             Gdx.app.log("Skipped", fileHandle.name());
             return false;
@@ -545,13 +585,15 @@ class ImportTeams extends GLScreen {
 
         // read teamList
         for (int tm = 0; tm < teams; tm++) {
-            pos = importTeam(fileHandle, teamType, bytes, pos);
+            pos = importTeam(fileHandle, teamType, bytes, pos, exportConfig);
         }
+
+        exportConfigs.files.add(exportConfig);
 
         return true;
     }
 
-    private int importTeam(FileHandle fileHandle, Team.Type teamType, byte[] bytes, int pos) {
+    private int importTeam(FileHandle fileHandle, Team.Type teamType, byte[] bytes, int pos, FileConfig exportConfig) {
 
         int startingPosition = pos;
 
@@ -562,6 +604,7 @@ class ImportTeams extends GLScreen {
         int countryIndex = (bytes[pos++] & 0xFF);
 
         String continent = "";
+        String teamCountry = "";
         if (team.type == Team.Type.CLUB) {
             team.country = "";
             if (countryIndex < countryCodes.length) {
@@ -570,7 +613,7 @@ class ImportTeams extends GLScreen {
                 for (String[] country : countries) {
                     if (country[0].equals(countryCode)) {
                         continent = country[1];
-                        team.country = country[2];
+                        teamCountry = country[2];
                     }
                 }
             }
@@ -587,7 +630,7 @@ class ImportTeams extends GLScreen {
         pos++;
 
         // skip general team number
-        pos += 2;
+        int gtn = (bytes[pos++] & 0xFF) << 8 | (bytes[pos++] & 0xFF);
 
         // skip unused byte
         pos++;
@@ -695,7 +738,7 @@ class ImportTeams extends GLScreen {
             boolean surnameFound = false;
             String surname = "";
             String name = "";
-            for (int j = 1; j <= 23; j++) {
+            for (int j = 1; j <= 22; j++) {
                 int b = bytes[pos++] & 0xFF;
                 if (b == 32 && !surnameFound) {
                     surnameFound = true;
@@ -716,6 +759,9 @@ class ImportTeams extends GLScreen {
                 player.shirtName = surname;
                 player.name = name + " " + surname;
             }
+
+            // skip cards and injures
+            pos++;
 
             // player Type (role) + head/skin Type + skip 3 unknown bits
             int b = bytes[pos++] & 0xFF;
@@ -767,7 +813,7 @@ class ImportTeams extends GLScreen {
         String folder = getYearFolder() + "/" + getTeamTypeFolder(team) + "/";
         switch (team.type) {
             case CLUB:
-                folder += continent + "/" + team.country + "/";
+                folder += continent + "/" + teamCountry + "/";
                 break;
             case NATIONAL:
                 folder += continent + "/";
@@ -777,6 +823,9 @@ class ImportTeams extends GLScreen {
         String cleanName = team.name.toLowerCase().replace(" ", "_").replace("/", "_");
         FileHandle fh = Assets.teamsRootFolder.child(folder + "team." + cleanName + ".json");
         fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
+
+        exportConfig.teams.add(new TeamConfig(Assets.getRelativeTeamPath(fh), gtn, division));
+
         importedTeams++;
 
         return pos;
