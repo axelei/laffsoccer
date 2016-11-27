@@ -71,6 +71,9 @@ class GameOptions extends GLScreen {
         w = new ImportButton();
         widgets.add(w);
 
+        w = new ExportButton();
+        widgets.add(w);
+
         w = new QuitToOsButton();
         widgets.add(w);
 
@@ -542,7 +545,7 @@ class GameOptions extends GLScreen {
 
         ImportButton() {
             setColors(0x762B8E);
-            setGeometry((game.gui.WIDTH - 300) / 2, 530, 300, 36);
+            setGeometry(game.gui.WIDTH  / 2- 260 -10, 530, 260, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -554,6 +557,25 @@ class GameOptions extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new ImportTeams(game));
+        }
+    }
+
+    private class ExportButton extends Button {
+
+        ExportButton() {
+            setColors(0x762B8E);
+            setGeometry(game.gui.WIDTH / 2 +10, 530, 260, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get("EXPORT"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new ExportTeams(game));
         }
     }
 
