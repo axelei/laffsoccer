@@ -305,37 +305,37 @@ class ExportTeams extends GLScreen {
 
                 Player.Skills skills = player.skills;
                 int passing = skills.passing;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, PASSING)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(PASSING)) {
                     passing |= 8;
                 }
                 file.writeBytes(getByte(passing), true);
 
                 int shooting = skills.shooting;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, SHOOTING)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(SHOOTING)) {
                     shooting |= 8;
                 }
                 int heading = skills.heading;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, HEADING)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(HEADING)) {
                     heading |= 8;
                 }
                 file.writeBytes(getByte(shooting << 4 | heading), true);
 
                 int tackling = skills.tackling;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, TACKLING)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(TACKLING)) {
                     tackling |= 8;
                 }
                 int control = skills.control;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, CONTROL)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(CONTROL)) {
                     control |= 8;
                 }
                 file.writeBytes(getByte(tackling << 4 | control), true);
 
                 int speed = skills.speed;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, SPEED)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(SPEED)) {
                     speed |= 8;
                 }
                 int finishing = skills.finishing;
-                if (player.role != Player.Role.GOALKEEPER && isBestSkill(orderedSkills, FINISHING)) {
+                if (player.role != Player.Role.GOALKEEPER && player.bestSkills.contains(FINISHING)) {
                     finishing |= 8;
                 }
                 file.writeBytes(getByte(speed << 4 | finishing), true);
@@ -455,10 +455,6 @@ class ExportTeams extends GLScreen {
             default:
                 return 0;
         }
-    }
-
-    private boolean isBestSkill(Player.Skill[] orderedSkills, Player.Skill skill) {
-        return (skill == orderedSkills[0] || skill == orderedSkills[1] || skill == orderedSkills[2]);
     }
 
     private int getSkinColorIndex(Skin.Color color) {
