@@ -1,0 +1,86 @@
+[
+  {
+    "name": "ARMBAND",
+    "index": 0
+  },
+  {
+    "name": "BAND",
+    "index": 2
+  },
+  {
+    "name": "BIG_CHECK",
+    "index": 0
+  },
+  {
+    "name": "BIG_V",
+    "index": 0
+  },
+  {
+    "name": "CHECK",
+    "index": 0
+  },
+  {
+    "name": "CROSS",
+    "index": 0
+  },
+  {
+    "name": "DIAGONAL",
+    "index": 0
+  },
+  {
+    "name": "DIAGONAL_HALF",
+    "index": 0
+  },
+  {
+    "name": "DOUBLE_STRIPE",
+    "index": 0
+  },
+  {
+    "name": "HORIZONTAL",
+    "index": 3
+  },
+  {
+    "name": "LARGE_STRIPS",
+    "index": 2
+  },
+  {
+    "name": "LINE",
+    "index": 0
+  },
+  {
+    "name": "PLAIN",
+    "index": 0
+  },
+  {
+    "name": "SIDE_LINES",
+    "index": 0
+  },
+  {
+    "name": "SLEEVES",
+    "index": 1
+  },
+  {
+    "name": "SPICE",
+    "index": 0
+  },
+  {
+    "name": "STRIP",
+    "index": 0
+  },
+  {
+    "name": "TWO_STRIPES",
+    "index": 0
+  },
+  {
+    "name": "VERTICAL",
+    "index": 2
+  },
+  {
+    "name": "VERTICAL_HALF",
+    "index": 0
+  },
+  {
+    "name": "VERTICAL_STRIP",
+    "index": 0
+  }
+]

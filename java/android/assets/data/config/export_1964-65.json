@@ -1,0 +1,264 @@
+{
+  "files": [
+    {
+      "filename": "TEAM.020",
+      "teams": [
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json",
+          "gtn": 884,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catania.json",
+          "gtn": 885,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.arezzo.json",
+          "gtn": 886,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ascoli.json",
+          "gtn": 887,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json",
+          "gtn": 888,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.biellese.json",
+          "gtn": 889,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bari.json",
+          "gtn": 890,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bologna.json",
+          "gtn": 891,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.brescia.json",
+          "gtn": 892,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cagliari.json",
+          "gtn": 893,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.mantova.json",
+          "gtn": 894,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.casertana.json",
+          "gtn": 895,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.novara.json",
+          "gtn": 896,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.savona.json",
+          "gtn": 897,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cosenza.json",
+          "gtn": 898,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json",
+          "gtn": 899,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catanzaro.json",
+          "gtn": 900,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.solbiatese.json",
+          "gtn": 901,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json",
+          "gtn": 902,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.foggia.json",
+          "gtn": 903,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.genoa.json",
+          "gtn": 904,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json",
+          "gtn": 905,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.juventus.json",
+          "gtn": 906,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lazio.json",
+          "gtn": 907,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lecco.json",
+          "gtn": 908,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.livorno.json",
+          "gtn": 909,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.modena.json",
+          "gtn": 910,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.monza.json",
+          "gtn": 911,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.napoli.json",
+          "gtn": 912,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.padova.json",
+          "gtn": 913,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.palermo.json",
+          "gtn": 914,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.parma.json",
+          "gtn": 915,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.perugia.json",
+          "gtn": 916,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.propatria.json",
+          "gtn": 917,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.messina.json",
+          "gtn": 918,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.pisa.json",
+          "gtn": 919,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.trani.json",
+          "gtn": 920,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.potenza.json",
+          "gtn": 921,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggiana.json",
+          "gtn": 922,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggina.json",
+          "gtn": 923,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.roma.json",
+          "gtn": 924,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.triestina.json",
+          "gtn": 925,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.sampdoria.json",
+          "gtn": 926,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.spal.json",
+          "gtn": 927,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.taranto.json",
+          "gtn": 928,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ternana.json",
+          "gtn": 929,
+          "division": 4
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.torino.json",
+          "gtn": 930,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.varese.json",
+          "gtn": 931,
+          "division": 0
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.venezia.json",
+          "gtn": 932,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.verona.json",
+          "gtn": 933,
+          "division": 1
+        },
+        {
+          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.vicenza.json",
+          "gtn": 934,
+          "division": 0
+        }
+      ]
+    }
+  ]
+}
