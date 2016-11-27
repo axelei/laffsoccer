@@ -4,10 +4,10 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
@@ -28,7 +28,7 @@ class EditPlayers extends GLScreen {
     Team team;
     private int selectedPos;
     private boolean modified;
-    private TextureRegion[] imageSkill = new TextureRegion[8];
+    private TextureRegion[][] imageSkill = new TextureRegion[8][2];
 
     private Widget[] selectButtons = new Widget[Const.FULL_TEAM];
     private Widget[] priceButtons = new Widget[Const.FULL_TEAM];
@@ -48,8 +48,10 @@ class EditPlayers extends GLScreen {
 
         Texture texture = new Texture("images/skill.png");
         for (int i = 0; i < 8; i++) {
-            imageSkill[i] = new TextureRegion(texture, 32 * i, 0, 32, 13);
-            imageSkill[i].flip(false, true);
+            for (int j = 0; j < 2; j++) {
+                imageSkill[i][j] = new TextureRegion(texture, 32 * i, 13 * j, 32, 13);
+                imageSkill[i][j].flip(false, true);
+            }
         }
 
         Widget w;
@@ -613,7 +615,8 @@ class EditPlayers extends GLScreen {
             setPlayerWidgetColor(this, pos);
             Player player = team.playerAtPosition(pos);
             if (player != null && player.role != Player.Role.GOALKEEPER) {
-                textureRegion = imageSkill[player.getSkillValue(skill)];
+                boolean isBest = player.bestSkills.contains(skill);
+                textureRegion = imageSkill[player.getSkillValue(skill)][isBest ? 1 : 0];
                 setActive(true);
             } else {
                 textureRegion = null;

@@ -69,6 +69,7 @@ public class Player {
     public transient Hair hair;
 
     public Skills skills;
+    public List<Skill> bestSkills = new ArrayList<Skill>();
 
     int skillKeeper;
 
