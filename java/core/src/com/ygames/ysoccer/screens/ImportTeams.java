@@ -788,19 +788,47 @@ class ImportTeams extends GLScreen {
 
             // player skills
             player.skills = new Player.Skills();
-            player.skills.passing = bytes[pos++] & 0x7;
+            int passing = bytes[pos++] & 0xF;
+            player.skills.passing = passing & 0x7;
+            if ((passing >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.PASSING);
+            }
 
             b = bytes[pos++] & 0xFF;
-            player.skills.shooting = (b >> 4) & 0x7;
-            player.skills.heading = (b & 0x7);
+            int shooting = b >>> 4;
+            player.skills.shooting = shooting & 0x7;
+            if ((shooting >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.SHOOTING);
+            }
+            int heading = b & 0xF;
+            player.skills.heading = heading & 0x7;
+            if ((heading >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.HEADING);
+            }
 
             b = bytes[pos++] & 0xFF;
-            player.skills.tackling = (b >> 4) & 0x7;
-            player.skills.control = b & 0x7;
+            int tackling = b >>> 4;
+            player.skills.tackling = tackling & 0x7;
+            if ((tackling >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.TACKLING);
+            }
+            int control = b & 0xF;
+            player.skills.control = control & 0x7;
+            if ((control >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.CONTROL);
+            }
 
             b = bytes[pos++] & 0xFF;
-            player.skills.speed = (b >> 4) & 0x7;
-            player.skills.finishing = b & 0x7;
+            int speed = b >>> 4;
+            player.skills.speed = speed & 0x7;
+            if ((speed >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.SPEED);
+            }
+            int finishing = b & 0xF;
+            player.skills.finishing = finishing & 0x7;
+            if ((finishing >>> 3) == 1) {
+                player.bestSkills.add(Player.Skill.FINISHING);
+            }
 
             // value
             b = bytes[pos++] & 0xFF;
