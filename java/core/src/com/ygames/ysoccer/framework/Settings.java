@@ -20,6 +20,7 @@ public class Settings {
     // game
     public String locale;
     public boolean fullScreen;
+    public boolean showIntro;
     public boolean mouseEnabled;
     public int musicMode;
     public int musicVolume;
@@ -50,6 +51,7 @@ public class Settings {
         // game
         locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
+        showIntro = preferences.getBoolean("showIntro", true);
         mouseEnabled = preferences.getBoolean("mouseEnabled", true);
         musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);
         musicVolume = preferences.getInteger("musicVolume", 40);
@@ -75,6 +77,7 @@ public class Settings {
         // game
         preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
+        preferences.putBoolean("showIntro", showIntro);
         preferences.putBoolean("mouseEnabled", mouseEnabled);
         preferences.putInteger("musicMode", musicMode);
         preferences.putInteger("musicVolume", musicVolume);

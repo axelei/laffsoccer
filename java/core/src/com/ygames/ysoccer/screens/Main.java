@@ -12,9 +12,9 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 
-class Main extends GLScreen {
+public class Main extends GLScreen {
 
-    Main(GLGame game) {
+    public Main(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_main.jpg");
         TextureRegion logo = Assets.loadTextureRegion("images/logo.png");
