@@ -626,33 +626,30 @@ class EditPlayers extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            updateSkill(1);
+            updateSkill();
         }
 
         @Override
         public void onFire1Hold() {
-            updateSkill(1);
+            updateSkill();
         }
 
-        @Override
-        public void onFire2Down() {
-            updateSkill(-1);
-        }
-
-        @Override
-        public void onFire2Hold() {
-            updateSkill(-1);
-        }
-
-        private void updateSkill(int n) {
+        private void updateSkill() {
             Player player = team.playerAtPosition(pos);
-            int value = Emath.slide(player.getSkillValue(skill), 0, 7, n);
+            int value = Emath.rotate(player.getSkillValue(skill), 0, 7, 1);
             player.setSkillValue(skill, value);
             setDirty(true);
             priceButtons[pos].setDirty(true);
             setModifiedFlag();
         }
 
+        @Override
+        public void onFire2Down() {
+            if (team.playerAtPosition(pos).toggleBestSkill(skill)) {
+                setDirty(true);
+                setModifiedFlag();
+            }
+        }
     }
 
     private class PlayerPriceButton extends Button {

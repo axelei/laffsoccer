@@ -649,6 +649,56 @@ public class Player {
                 skills.finishing = value;
                 break;
         }
+
+        if (bestSkills.contains(skill)) {
+            // remove if a not-best skill with higher value exists
+            for (int i = Skill.PASSING.ordinal(); i <= Skill.FINISHING.ordinal(); i++) {
+                Skill s = Skill.values()[i];
+                if (s != skill && !bestSkills.contains(s) && getSkillValue(s) > value) {
+                    removeBestSkill(skill);
+                }
+            }
+        } else {
+            // add if a best skill with lower value exists
+            for (int i = Skill.PASSING.ordinal(); i <= Skill.FINISHING.ordinal(); i++) {
+                Skill s = Skill.values()[i];
+                if (s != skill && bestSkills.contains(s) && getSkillValue(s) < value) {
+                    addBestSkill(skill);
+                }
+            }
+        }
+    }
+
+    private boolean addBestSkill(Skill skill) {
+        if (bestSkills.contains(skill)) {
+            return false;
+        }
+        // fails if a not-best skills with higher value exists
+        for (int i = Skill.PASSING.ordinal(); i <= Skill.FINISHING.ordinal(); i++) {
+            Skill s = Skill.values()[i];
+            if (s != skill && !bestSkills.contains(s) && getSkillValue(s) > getSkillValue(skill)) {
+                return false;
+            }
+        }
+        return bestSkills.add(skill);
+    }
+
+    private boolean removeBestSkill(Skill skill) {
+        if (!bestSkills.contains(skill)) {
+            return false;
+        }
+        // fails if a best skills with lower value exists
+        for (int i = Skill.PASSING.ordinal(); i <= Skill.FINISHING.ordinal(); i++) {
+            Skill s = Skill.values()[i];
+            if (s != skill && bestSkills.contains(s) && getSkillValue(s) < getSkillValue(skill)) {
+                return false;
+            }
+        }
+        return bestSkills.remove(skill);
+    }
+
+    public boolean toggleBestSkill(Skill skill) {
+        return bestSkills.contains(skill) ? removeBestSkill(skill) : addBestSkill(skill);
     }
 
     public int getValue() {
