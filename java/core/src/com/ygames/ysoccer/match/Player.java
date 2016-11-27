@@ -3,9 +3,9 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GlColor2;
-import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
@@ -39,6 +39,14 @@ public class Player {
             "SKILLS.CONTROL",
             "SKILLS.SPEED",
             "SKILLS.FINISHING"
+    };
+
+    private static final int[] stars = {
+            0, 0, 0, 0, 1, 1, 1, 2, 2, 2,
+            2, 3, 3, 3, 3, 3, 4, 4, 4, 4,
+            4, 4, 5, 5, 5, 5, 5, 5, 5, 6,
+            6, 6, 6, 6, 7, 7, 7, 7, 7, 7,
+            8, 8, 8, 8, 8, 8, 8, 9, 9, 9,
     };
 
     // keeper collision types
@@ -654,6 +662,10 @@ public class Player {
                     + skills.speed
                     + skills.finishing;
         }
+    }
+
+    public int getStars() {
+        return stars[getValue()];
     }
 
     public String getPrice(double maxPlayerPrice) {

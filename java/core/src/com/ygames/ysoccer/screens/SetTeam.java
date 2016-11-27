@@ -450,7 +450,7 @@ class SetTeam extends GLScreen {
             if (player == null) {
                 textureRegion = null;
             } else {
-                textureRegion = Assets.stars[Emath.floor((player.getValue() + 3) / 5.5)];
+                textureRegion = Assets.stars[player.getStars()];
             }
         }
     }
