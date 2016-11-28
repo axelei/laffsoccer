@@ -63,7 +63,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ROBERTO RANZANI",
@@ -82,7 +87,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ARTURO BERTUCCIOLI",
@@ -101,7 +111,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIANFRANCO BOZZAO",
@@ -120,7 +135,12 @@
 			"control": 3,
 			"speed": 5,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "DARIO CAVALLITO",
@@ -139,7 +159,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "DANTE CRIPPA",
@@ -158,7 +183,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "OSVALDO BAGNOLI",
@@ -177,7 +207,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"CONTROL",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "SERGIO FRASCOLI",
@@ -196,7 +231,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "OSCAR MASSEI",
@@ -215,7 +255,12 @@
 			"control": 6,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ENRICO MUZZIO",
@@ -234,7 +279,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GABRIELE CANTAGALLO",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "COSTANZO BALLERI",
@@ -284,7 +339,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "OSVALDO RIVA",
@@ -303,7 +363,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "CARLO NOVELLI",
@@ -322,7 +387,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "MAURIZIO MORETTI",
@@ -341,7 +411,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "LUIGI PASETTI",
@@ -360,7 +435,12 @@
 			"control": 2,
 			"speed": 4,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIANFRANCO DE BERNARDI",
@@ -379,7 +459,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "BRUNO ONORATO FOCHESATO",
@@ -398,7 +483,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "FABIO CAPELLO",
@@ -417,7 +507,12 @@
 			"control": 3,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "FRANCO PEZZATO",
@@ -436,7 +531,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED",
+			"SHOOTING"
+		]
 	}
 ]
 }

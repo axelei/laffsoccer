@@ -63,7 +63,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ROMANO MICELLI",
@@ -82,7 +87,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "MATTEO RINALDI",
@@ -101,7 +111,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ANTONIO BETTONI",
@@ -120,7 +135,12 @@
 			"control": 5,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "ARMANNO FAVALLI",
@@ -139,7 +159,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "PAOLO LAZZOTTI",
@@ -158,7 +183,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIORGIO MAIOLI",
@@ -177,7 +207,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "FRANCESCO PATINO",
@@ -196,7 +231,12 @@
 			"control": 4,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "DANTE MICHELI",
@@ -215,7 +255,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "COSIMO NOCERA",
@@ -234,7 +279,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GASTONE BALLARINI",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "ANGELO BERTUOLO",
@@ -284,7 +339,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ROBERTO OLTRAMARI",
@@ -303,7 +363,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "CATALDO GAMBINO",
@@ -322,7 +387,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "ROBERTO CORRADI",
@@ -341,7 +411,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ANTONIO GHEDINI",
@@ -360,7 +435,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "VINCENZO FALEO",
@@ -379,7 +459,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "PASQUALE DI GIOVANNI",
@@ -398,7 +483,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	}
 ]
 }

@@ -63,7 +63,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIANCARLO VASINI",
@@ -82,7 +87,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "EUGENIO RIZZOLINI",
@@ -101,7 +111,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "FERDINANDO MANGILI",
@@ -120,7 +135,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "EGIDIO SALVI",
@@ -139,7 +159,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "OTTAVIO BIANCHI",
@@ -158,7 +183,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "GIUSTO LODI",
@@ -177,7 +207,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "ABBONDANZIO PAGANI",
@@ -196,7 +231,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "VIRGINIO DE PAOLI",
@@ -215,7 +255,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "FERNANDO VENERANDA",
@@ -234,7 +279,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "PAOLO CIMPIEL",
@@ -265,7 +315,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "AZEGLIO VICINI",
@@ -284,7 +339,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "SANTINO MAESTRI",
@@ -303,7 +363,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "MINO FAVINI",
@@ -322,7 +387,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "BERNARDINO BUSI",
@@ -341,7 +411,12 @@
 			"control": 3,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIUSEPPE TOMASINI",
@@ -360,7 +435,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "SEVERINO JOSIO",
@@ -379,7 +459,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "CARLO LANCINI",
@@ -398,7 +483,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "LUIGI TOSCHI",
@@ -417,7 +507,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "WALTER FRISONI",
@@ -436,7 +531,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "PARZANI",
@@ -455,7 +555,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "GIANNI BORGO",
@@ -474,7 +579,12 @@
 			"control": 3,
 			"speed": 2,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"SPEED"
+		]
 	}
 ]
 }

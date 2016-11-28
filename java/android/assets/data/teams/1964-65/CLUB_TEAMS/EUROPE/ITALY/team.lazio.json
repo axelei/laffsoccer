@@ -63,7 +63,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "PIERO DOTTI",
@@ -82,7 +87,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "VINCENZO GASPERI",
@@ -101,7 +111,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "PIERLUIGI PAGNI",
@@ -120,7 +135,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ALBERTO MARI",
@@ -139,7 +159,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "KURT CHRISTENSEN",
@@ -158,7 +183,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "NELLO GOVERNATO",
@@ -177,7 +207,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "PAOLO CAROSI",
@@ -196,7 +231,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "VITO D'AMATO",
@@ -215,7 +255,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GIAMPAOLO PIACERI",
@@ -234,7 +279,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "ROBERTO GORI",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "CAN BARTU",
@@ -284,7 +339,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "ANTONIO RENNA",
@@ -303,7 +363,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "CARLO GALLI",
@@ -322,7 +387,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "EUGENIO FASCETTI",
@@ -341,7 +411,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIANFRANCO PETRIS",
@@ -360,7 +435,12 @@
 			"control": 2,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	}
 ]
 }

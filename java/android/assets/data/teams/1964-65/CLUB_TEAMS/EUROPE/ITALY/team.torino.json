@@ -63,7 +63,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ROBERTO ROSATO",
@@ -82,7 +87,12 @@
 			"control": 7,
 			"speed": 7,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIORGIO PUIA",
@@ -101,7 +111,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "LUCIANO BUZZACCHERA",
@@ -120,7 +135,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIAMBATTISTA MOSCHINO",
@@ -139,7 +159,12 @@
 			"control": 6,
 			"speed": 5,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "AMILCARE FERRETTI",
@@ -158,7 +183,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "LUIGI SIMONI",
@@ -177,7 +207,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIORGIO FERRINI",
@@ -196,7 +231,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "LUIGI MERONI",
@@ -215,7 +255,12 @@
 			"control": 7,
 			"speed": 7,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GERRY HITCHENS",
@@ -234,7 +279,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "ADRIANO REGINATO",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "GIANCARLO CELLA",
@@ -284,7 +339,12 @@
 			"control": 6,
 			"speed": 5,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "CARLO CRIPPA",
@@ -303,7 +363,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ENRICO ALBRIGI",
@@ -322,7 +387,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "LUCIANO TENEGGI",
@@ -341,7 +411,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "REMO LANCIONI",
@@ -360,7 +435,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ALBERTO CARELLI",
@@ -379,7 +459,12 @@
 			"control": 4,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "SERGIO BRIGHENTI",
@@ -398,7 +483,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SHOOTING"
+		]
 	}
 ]
 }

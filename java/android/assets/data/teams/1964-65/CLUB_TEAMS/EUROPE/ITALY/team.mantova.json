@@ -63,7 +63,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "PIERO SCESA",
@@ -82,7 +87,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ERMANNO TARABBIA",
@@ -101,7 +111,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "BENIAMINO CANCIAN",
@@ -120,7 +135,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIANFRANCO TROMBINI",
@@ -139,7 +159,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "SERGIO PINI",
@@ -158,7 +183,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "TORBJÖRN JONSSON",
@@ -177,7 +207,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "UGO TOMEAZZI",
@@ -196,7 +231,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "NICOLA CICCOLO",
@@ -215,7 +255,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "BENIAMINO DI GIACOMO",
@@ -234,7 +279,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "ITALO GHIZZARDI",
@@ -265,7 +315,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "CLAUDIO CORRENTI",
@@ -284,7 +339,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "CARLO VOLPI",
@@ -303,7 +363,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "MARCELO PAGANI",
@@ -322,7 +387,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "ITALO MAZZERO",
@@ -341,7 +411,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "LUIGI BARTOLOMEI",
@@ -360,7 +435,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ROBERTO DE PAOLI",
@@ -379,7 +459,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "FRANCO ZAGLIO",
@@ -398,7 +483,12 @@
 			"control": 4,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "FRANCESCO SCARATTI",
@@ -417,7 +507,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIORGIO BERNARDIS",
@@ -436,7 +531,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ROMANO TACCOLA",
@@ -455,7 +555,12 @@
 			"control": 2,
 			"speed": 2,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "LIBERO VAROLI",
@@ -474,7 +579,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "AURELIO GERIN",
@@ -493,7 +603,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "SERGIO PELLIZZARO",
@@ -512,7 +627,12 @@
 			"control": 2,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"SPEED"
+		]
 	}
 ]
 }

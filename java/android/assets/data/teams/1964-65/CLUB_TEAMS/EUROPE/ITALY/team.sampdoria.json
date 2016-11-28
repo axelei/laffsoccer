@@ -63,7 +63,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "FRANCESCO MORINI",
@@ -82,7 +87,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GUIDO VINCENZI",
@@ -101,7 +111,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GIOVANNI DELFINO",
@@ -120,7 +135,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "FRANCISCO LOJACONO",
@@ -139,7 +159,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ENEA MASIERO",
@@ -158,7 +183,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "MARIO FRUSTALUPI",
@@ -177,7 +207,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "PAOLO BARISON",
@@ -196,7 +231,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "JOSÉ RICARDO DA SILVA",
@@ -215,7 +255,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "ANGELO BENEDICTO SORMANI",
@@ -234,7 +279,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "PIETRO BATTARA",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ENRICO DORDONI",
@@ -284,7 +339,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "BRUNO FRANZINI",
@@ -303,7 +363,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "LUIGI TOSCHI",
@@ -322,7 +387,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "PAOLO MAROCCHI",
@@ -341,7 +411,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "LUIS CÉSAR CARNIGLIA",
@@ -360,7 +435,12 @@
 			"control": 4,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIUSEPPE TRINCHERO",
@@ -379,7 +459,12 @@
 			"control": 3,
 			"speed": 3,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "GIOVAN BATTISTA PIENTI",
@@ -398,7 +483,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIAN PIERO GHIO",
@@ -417,7 +507,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED",
+			"SHOOTING"
+		]
 	}
 ]
 }

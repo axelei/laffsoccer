@@ -1,36 +1,36 @@
 {
-"name": "REGGIANA",
+"name": "AREZZO",
 "type": "CLUB",
 "country": "ITA",
-"league": "SERIE B",
-"city": "REGGIO EMILIA",
-"stadium": "COMUNALE MIRABELLO",
+"league": "SERIE C GIRONE B",
+"city": "AREZZO",
+"stadium": "",
 "coach": {
-	"name": "DINO BALLACCI",
+	"name": "CESARE MEUCCI",
 	"nationality": "ITA"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "PLAIN",
+		"style": "LINE",
 		"shirt1": "#993333",
 		"shirt2": "#dfe8eb",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#0b7dd5",
-		"shirt2": "#993333",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
+		"shorts": "#1e1e1e",
+		"socks": "#993333"
 	},
 	{
 		"style": "PLAIN",
 		"shirt1": "#dfe8eb",
-		"shirt2": "#a31212",
-		"shorts": "#dfe8eb",
+		"shirt2": "#993333",
+		"shorts": "#993333",
 		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f59ee1",
+		"shirt2": "#993333",
+		"shorts": "#f59ee1",
+		"socks": "#993333"
 	}
 ],
 "players": [

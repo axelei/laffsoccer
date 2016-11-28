@@ -1,36 +1,36 @@
 {
-"name": "REGGIANA",
+"name": "TARANTO",
 "type": "CLUB",
 "country": "ITA",
-"league": "SERIE B",
-"city": "REGGIO EMILIA",
-"stadium": "COMUNALE MIRABELLO",
+"league": "SERIE C GIRONE C",
+"city": "TARANTO",
+"stadium": "",
 "coach": {
-	"name": "DINO BALLACCI",
+	"name": "RENATO TOFANI",
 	"nationality": "ITA"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "PLAIN",
-		"shirt1": "#993333",
-		"shirt2": "#dfe8eb",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
+		"style": "LARGE_STRIPS",
+		"shirt1": "#f61c1c",
+		"shirt2": "#2e247a",
+		"shorts": "#2e247a",
+		"socks": "#2e247a"
 	},
 	{
-		"style": "PLAIN",
-		"shirt1": "#0b7dd5",
-		"shirt2": "#993333",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
-	},
-	{
-		"style": "PLAIN",
+		"style": "LINE",
 		"shirt1": "#dfe8eb",
-		"shirt2": "#a31212",
+		"shirt2": "#f61c1c",
 		"shorts": "#dfe8eb",
-		"socks": "#dfe8eb"
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "LINE",
+		"shirt1": "#0b7dd5",
+		"shirt2": "#f61c1c",
+		"shorts": "#0b7dd5",
+		"socks": "#0b7dd5"
 	}
 ],
 "players": [

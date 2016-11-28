@@ -1,36 +1,36 @@
 {
-"name": "REGGIANA",
+"name": "SAVONA",
 "type": "CLUB",
 "country": "ITA",
-"league": "SERIE B",
-"city": "REGGIO EMILIA",
-"stadium": "COMUNALE MIRABELLO",
+"league": "SERIE C GIRONE A",
+"city": "SAVONA",
+"stadium": "",
 "coach": {
-	"name": "DINO BALLACCI",
+	"name": "ANGELO ROSSO",
 	"nationality": "ITA"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "PLAIN",
-		"shirt1": "#993333",
-		"shirt2": "#dfe8eb",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#0b7dd5",
-		"shirt2": "#993333",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
-	},
-	{
-		"style": "PLAIN",
+		"style": "LARGE_STRIPS",
 		"shirt1": "#dfe8eb",
-		"shirt2": "#a31212",
-		"shorts": "#dfe8eb",
-		"socks": "#dfe8eb"
+		"shirt2": "#2e247a",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#dfe8eb",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "SLEEVES",
+		"shirt1": "#417039",
+		"shirt2": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
 	}
 ],
 "players": [

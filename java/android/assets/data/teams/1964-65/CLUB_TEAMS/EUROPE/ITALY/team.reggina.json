@@ -1,12 +1,12 @@
 {
-"name": "REGGIANA",
+"name": "REGGINA",
 "type": "CLUB",
 "country": "ITA",
-"league": "SERIE B",
-"city": "REGGIO EMILIA",
-"stadium": "COMUNALE MIRABELLO",
+"league": "SERIE C GIRONE C",
+"city": "REGGIO CALABRIA",
+"stadium": "",
 "coach": {
-	"name": "DINO BALLACCI",
+	"name": "TOMMASO MAESTRELLI",
 	"nationality": "ITA"
 },
 "tactics": "4-4-2",
@@ -14,21 +14,21 @@
 	{
 		"style": "PLAIN",
 		"shirt1": "#993333",
-		"shirt2": "#dfe8eb",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#0b7dd5",
-		"shirt2": "#993333",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
+		"shirt2": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#993333"
 	},
 	{
 		"style": "PLAIN",
 		"shirt1": "#dfe8eb",
-		"shirt2": "#a31212",
+		"shirt2": "#993333",
+		"shorts": "#993333",
+		"socks": "#993333"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#993333",
 		"shorts": "#dfe8eb",
 		"socks": "#dfe8eb"
 	}

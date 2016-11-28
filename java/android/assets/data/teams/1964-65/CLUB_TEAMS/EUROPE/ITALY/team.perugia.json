@@ -1,34 +1,34 @@
 {
-"name": "REGGIANA",
+"name": "PERUGIA",
 "type": "CLUB",
 "country": "ITA",
-"league": "SERIE B",
-"city": "REGGIO EMILIA",
-"stadium": "COMUNALE MIRABELLO",
+"league": "SERIE C GIRONE B",
+"city": "PERUGIA",
+"stadium": "",
 "coach": {
-	"name": "DINO BALLACCI",
+	"name": "DOMENICO BOSI",
 	"nationality": "ITA"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
 		"style": "PLAIN",
-		"shirt1": "#993333",
+		"shirt1": "#f61c1c",
 		"shirt2": "#dfe8eb",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#0b7dd5",
-		"shirt2": "#993333",
-		"shorts": "#0b7dd5",
-		"socks": "#1e1e1e"
+		"shorts": "#dfe8eb",
+		"socks": "#f61c1c"
 	},
 	{
 		"style": "PLAIN",
 		"shirt1": "#dfe8eb",
-		"shirt2": "#a31212",
+		"shirt2": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
 		"shorts": "#dfe8eb",
 		"socks": "#dfe8eb"
 	}
@@ -54,12 +54,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -70,12 +65,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -86,12 +76,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -102,12 +87,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -118,12 +98,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -134,12 +109,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -150,12 +120,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -166,12 +131,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -182,12 +142,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -198,12 +153,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -225,12 +175,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -241,12 +186,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -257,12 +197,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
-		]
+		"skills": {}
 	},
 	{
 		"name": "",
@@ -273,12 +208,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
-		]
+		"skills": {}
 	}
 ]
 }

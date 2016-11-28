@@ -63,7 +63,12 @@
 			"control": 6,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "CESARE MALDINI",
@@ -82,7 +87,12 @@
 			"control": 7,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "VÍCTOR BENÍTEZ",
@@ -101,7 +111,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "GILBERTO NOLETTI",
@@ -120,7 +135,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "BRUNO MORA",
@@ -139,7 +159,12 @@
 			"control": 6,
 			"speed": 7,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"FINISHING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "GIOVANNI TRAPATTONI",
@@ -158,7 +183,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIANNI RIVERA",
@@ -177,7 +207,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIOVANNI LODETTI",
@@ -196,7 +231,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "AMARILDO TAVARES DA SILVEIRA",
@@ -215,7 +255,12 @@
 			"control": 4,
 			"speed": 6,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "PAOLO FERRARIO",
@@ -234,7 +279,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GIORGIO GHEZZI",
@@ -265,7 +315,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "LUIGI RADICE",
@@ -284,7 +339,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "GIULIANO FORTUNATO",
@@ -303,7 +363,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "JOSÉ ALTAFINI",
@@ -322,7 +387,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "LUIGI BALZARINI",
@@ -353,7 +423,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "BRUNO BACCHETTA",
@@ -372,7 +447,12 @@
 			"control": 6,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "MARIO DAVID",
@@ -391,7 +471,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIANCARLO SALVI",
@@ -410,7 +495,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SHOOTING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "AQUILINO BONFANTI",
@@ -429,7 +519,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "JOSÉ GERMANO DE SALES",
@@ -448,7 +543,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "CLAUDIO MANTOVANI",

@@ -63,7 +63,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "SERGIO CARANTINI",
@@ -82,7 +87,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "AMEDEO STENTI",
@@ -101,7 +111,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIULIO SAVOINI",
@@ -120,7 +135,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "LUIGI MENTI",
@@ -139,7 +159,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "SANDRO TIBERI",
@@ -158,7 +183,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "LUCIO DELL'ANGELO",
@@ -177,7 +207,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIOVANNI VASTOLA",
@@ -196,7 +231,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "LUIS VINICIO",
@@ -215,7 +255,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GIORDANO COLAUSIG",
@@ -234,7 +279,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "EDO PATREGNANI",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIOBATTA ZOPPELLETTO",
@@ -284,7 +339,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "HÉCTOR DEMARCO",
@@ -303,7 +363,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "SERGIO CAMPANA",
@@ -322,7 +387,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "ADRIANO BARDIN",
@@ -353,7 +423,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIOVANNI CONSOLE",
@@ -372,7 +447,12 @@
 			"control": 3,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"SHOOTING"
+		]
 	}
 ]
 }

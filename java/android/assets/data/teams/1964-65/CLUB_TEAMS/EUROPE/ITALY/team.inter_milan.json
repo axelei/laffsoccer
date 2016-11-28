@@ -63,7 +63,12 @@
 			"control": 5,
 			"speed": 7,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ARMANDO PICCHI",
@@ -82,7 +87,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "ARISTIDE GUARNERI",
@@ -101,7 +111,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIACINTO FACCHETTI",
@@ -120,7 +135,12 @@
 			"control": 6,
 			"speed": 7,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		]
 	},
 	{
 		"name": "LUIS SUÁREZ",
@@ -139,7 +159,12 @@
 			"control": 7,
 			"speed": 7,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "GIANFRANCO BEDIN",
@@ -158,7 +183,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "MARIO CORSO",
@@ -177,7 +207,12 @@
 			"control": 7,
 			"speed": 5,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "SANDRO MAZZOLA",
@@ -196,7 +231,12 @@
 			"control": 7,
 			"speed": 7,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "JAIR DA COSTA",
@@ -215,7 +255,12 @@
 			"control": 6,
 			"speed": 7,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "JOAQUÍN PEIRÓ",
@@ -234,7 +279,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "OTTAVIO BUGATTI",
@@ -265,7 +315,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "CARLO TAGNIN",
@@ -284,7 +339,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ANGELO DOMENGHINI",
@@ -303,7 +363,12 @@
 			"control": 6,
 			"speed": 7,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "AURELIO MILANI",
@@ -322,7 +387,12 @@
 			"control": 4,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"SHOOTING"
+		]
 	},
 	{
 		"name": "ROSARIO DI VINCENZO",
@@ -365,7 +435,12 @@
 			"control": 4,
 			"speed": 4,
 			"finishing": 2
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "FRANCO ZAGLIO",
@@ -384,7 +459,12 @@
 			"control": 5,
 			"speed": 3,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "SAUL MALATRASI",
@@ -403,7 +483,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "SERGIO GORI",
@@ -422,7 +507,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "BRUNO PETRONI",
@@ -441,7 +531,12 @@
 			"control": 4,
 			"speed": 5,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "FRANCESCO CANELLA",
@@ -460,7 +555,12 @@
 			"control": 5,
 			"speed": 4,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL",
+			"SPEED"
+		]
 	}
 ]
 }
