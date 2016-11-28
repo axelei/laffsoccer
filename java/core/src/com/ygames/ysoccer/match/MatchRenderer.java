@@ -162,6 +162,12 @@ public class MatchRenderer {
             drawTime();
         }
 
+        // wind vane
+        if (displayWindVane && (match.settings.wind.speed > 0)) {
+            batch.setColor(1f, 1f, 1f, 1f);
+            batch.draw(Assets.wind[match.settings.wind.direction][match.settings.wind.speed - 1], guiWidth - 50, 20);
+        }
+
         // score
         if (displayScore) {
             drawScore();

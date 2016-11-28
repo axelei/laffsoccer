@@ -154,7 +154,16 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            matchSettings.rotateTime(1);
+            rotateTime(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            rotateTime(-1);
+        }
+
+        private void rotateTime(int n) {
+            matchSettings.rotateTime(n);
             setDirty(true);
             timePicture.setDirty(true);
         }
@@ -204,7 +213,16 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            matchSettings.rotatePitchType(1);
+            rotatePitchType(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            rotatePitchType(-1);
+        }
+
+        private void rotatePitchType(int n) {
+            matchSettings.rotatePitchType(n);
             setDirty(true);
             pitchTypePicture.setDirty(true);
             weatherPicture.setDirty(true);
