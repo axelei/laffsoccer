@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -126,6 +127,7 @@ public class MatchRenderer {
                     break;
 
                 case Weather.SNOW:
+                    drawSnow(match.settings, match.subframe);
                     break;
 
                 case Weather.FOG:
@@ -290,7 +292,7 @@ public class MatchRenderer {
     }
 
     private void drawRain(MatchSettings matchSettings, int subframe) {
-        batch.setColor(1, 1, 1, 0.6f);
+        batch.setColor(1f, 1f, 1f, 0.6f);
         Assets.random.setSeed(1);
         for (int i = 1; i <= 40 * matchSettings.weatherStrength; i++) {
             int x = Assets.random.nextInt(modW);
@@ -310,7 +312,27 @@ public class MatchRenderer {
                 }
             }
         }
-        batch.setColor(1, 1, 1, 1f);
+        batch.setColor(1f, 1f, 1f, 1f);
+    }
+
+    private void drawSnow(MatchSettings matchSettings, int subframe) {
+        batch.setColor(1f, 1f, 1f, 0.7f);
+
+        Assets.random.setSeed(1);
+        for (int i = 1; i <= 30 * matchSettings.weatherStrength; i++) {
+            int x = Assets.random.nextInt(modW);
+            int y = Assets.random.nextInt(modH);
+            int s = i % 3;
+            int a = Assets.random.nextInt(360);
+            for (int fx = 0; fx <= modX; fx++) {
+                for (int fy = 0; fy <= modY; fy++) {
+                    int px = (int) (((x + modW + 30 * Emath.sin(360 * subframe / ((float) Const.REPLAY_SUBFRAMES) + a)) % modW) + modW * (fx - 1));
+                    int py = ((y + 2 * Math.round(subframe / GLGame.SUBFRAMES)) % modH) + modH * (fy - 1);
+                    batch.draw(Assets.snow[s], -Const.CENTER_X + px, -Const.CENTER_Y + py);
+                }
+            }
+        }
+        batch.setColor(1f, 1f, 1f, 1f);
     }
 
     private void drawTime() {

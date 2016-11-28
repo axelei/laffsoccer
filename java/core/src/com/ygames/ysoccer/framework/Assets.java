@@ -82,6 +82,7 @@ public class Assets {
     public static TextureRegion replay[][] = new TextureRegion[16][2];
     public static TextureRegion replaySpeed[][] = new TextureRegion[3][3];
     public static TextureRegion[] rain = new TextureRegion[4];
+    public static TextureRegion[] snow = new TextureRegion[3];
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -133,6 +134,7 @@ public class Assets {
         loadReplay();
         loadReplaySpeed();
         loadRain();
+        loadSnow();
     }
 
     private static void loadLocales() {
@@ -375,6 +377,14 @@ public class Assets {
         for (int i = 0; i < 4; i++) {
             rain[i] = new TextureRegion(texture, 30 * i, 0, 30, 30);
             rain[i].flip(false, true);
+        }
+    }
+
+    private static void loadSnow() {
+        Texture texture = new Texture("images/snow.png");
+        for (int i = 0; i < 3; i++) {
+            snow[i] = new TextureRegion(texture, 3 * i, 0, 3, 3);
+            snow[i].flip(false, true);
         }
     }
 
