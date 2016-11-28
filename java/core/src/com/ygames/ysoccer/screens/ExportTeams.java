@@ -416,7 +416,7 @@ class ExportTeams extends GLScreen {
     private int getKitColorIndex(int color) {
         int index = 0;
         float difference = GlColor.difference(color, Kit.colors[0]);
-        for (int i = 1; i < Kit.colors.length; i++) {
+        for (int i = 1; i < 10; i++) {
             if (GlColor.difference(color, Kit.colors[i]) < difference) {
                 difference = GlColor.difference(color, Kit.colors[i]);
                 index = i;
