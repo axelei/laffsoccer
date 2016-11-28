@@ -45,6 +45,11 @@ public class MatchRenderer {
     private Sprite.SpriteComparator spriteComparator;
     private CornerFlagSprite[] cornerFlagSprites;
 
+    private final int modW = Const.REPLAY_FRAMES;
+    private final int modH = 2 * Const.REPLAY_FRAMES;
+    private final int modX = (int) Math.ceil(Const.PITCH_W / ((float) modW));
+    private final int modY = (int) Math.ceil(Const.PITCH_H / ((float) modH));
+
     boolean displayControlledPlayer;
     boolean displayBallOwner;
     boolean displayGoalScorer;
@@ -113,6 +118,20 @@ public class MatchRenderer {
 
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
+
+        if (match.settings.weatherStrength != Weather.Strength.NONE) {
+            switch (match.settings.weatherEffect) {
+                case Weather.RAIN:
+                    drawRain(match.settings, match.subframe);
+                    break;
+
+                case Weather.SNOW:
+                    break;
+
+                case Weather.FOG:
+                    break;
+            }
+        }
 
         if (displayControlledPlayer) {
             drawControlledPlayersNumbers();
@@ -268,6 +287,30 @@ public class MatchRenderer {
         } else {
             batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2, dy, 6, 10);
         }
+    }
+
+    private void drawRain(MatchSettings matchSettings, int subframe) {
+        batch.setColor(1, 1, 1, 0.6f);
+        Assets.random.setSeed(1);
+        for (int i = 1; i <= 40 * matchSettings.weatherStrength; i++) {
+            int x = Assets.random.nextInt(modW);
+            int y = Assets.random.nextInt(modH);
+            int h = (Assets.random.nextInt(modH) + subframe) % modH;
+            if (h > 0.3f * modH) {
+                for (int fx = 0; fx <= modX; fx++) {
+                    for (int fy = 0; fy <= modY; fy++) {
+                        int px = ((x + modW - Math.round(subframe / ((float) GLGame.SUBFRAMES))) % modW) + modW * (fx - 1);
+                        int py = ((y + 4 * Math.round(subframe / GLGame.SUBFRAMES)) % modH) + modH * (fy - 1);
+                        int f = 3 * h / modH;
+                        if (h > 0.9f * modH) {
+                            f = 3;
+                        }
+                        batch.draw(Assets.rain[f], -Const.CENTER_X + px, -Const.CENTER_Y + py);
+                    }
+                }
+            }
+        }
+        batch.setColor(1, 1, 1, 1f);
     }
 
     private void drawTime() {
