@@ -848,11 +848,12 @@ class ImportTeams extends GLScreen {
                 break;
         }
 
-        String cleanName = team.name.toLowerCase().replace(" ", "_").replace("/", "_");
-        FileHandle fh = Assets.teamsRootFolder.child(folder + "team." + cleanName + ".json");
-        fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
+        String cleanName = team.name.toLowerCase().replace(" ", "_").replace("/", "_").replace(".", "");
+        team.path = folder + "team." + cleanName + ".json";
 
-        exportConfig.teams.add(new TeamConfig(Assets.getRelativeTeamPath(fh), gtn, division));
+        team.persist();
+
+        exportConfig.teams.add(new TeamConfig(team.path, gtn, division));
 
         importedTeams++;
 

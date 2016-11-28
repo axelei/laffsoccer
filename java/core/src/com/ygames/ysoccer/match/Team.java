@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
@@ -543,5 +545,17 @@ public class Team {
                 }
             }
         } while (used);
+    }
+
+    public void persist() {
+        if (path == null || path.equals("")) {
+            Gdx.app.error("Team", "Cannot save in empty path");
+            return;
+        }
+        FileHandle fh = Assets.teamsRootFolder.child(path);
+        String tmp = path;
+        path = null;
+        fh.writeString(Assets.json.prettyPrint(this), false, "UTF-8");
+        path = tmp;
     }
 }

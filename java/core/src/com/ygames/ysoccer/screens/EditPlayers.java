@@ -845,12 +845,7 @@ class EditPlayers extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            FileHandle fh = Assets.teamsRootFolder.child(team.path);
-            String path = team.path;
-            team.path = null;
-            fh.writeString(Assets.json.prettyPrint(team), false, "UTF-8");
-            team.path = path;
-
+            team.persist();
             game.setScreen(new SelectTeam(game, fileHandle, league));
         }
     }
