@@ -131,6 +131,7 @@ public class MatchRenderer {
                     break;
 
                 case Weather.FOG:
+                    drawFog(match.settings, match.subframe);
                     break;
             }
         }
@@ -331,6 +332,26 @@ public class MatchRenderer {
                     batch.draw(Assets.snow[s], -Const.CENTER_X + px, -Const.CENTER_Y + py);
                 }
             }
+        }
+        batch.setColor(1f, 1f, 1f, 1f);
+    }
+
+    private void drawFog(MatchSettings matchSettings, int subframe) {
+        batch.setColor(1f, 1f, 1f, 0.25f * matchSettings.weatherStrength);
+
+        int TILE_WIDTH = 256;
+        int fogX = -Const.CENTER_X + vcameraX[subframe] - 2 * TILE_WIDTH
+                + ((Const.CENTER_X - vcameraX[subframe]) % TILE_WIDTH + 2 * TILE_WIDTH) % TILE_WIDTH;
+        int fogY = -Const.CENTER_Y + vcameraY[subframe] - 2 * TILE_WIDTH
+                + ((Const.CENTER_Y - vcameraY[subframe]) % TILE_WIDTH + 2 * TILE_WIDTH) % TILE_WIDTH;
+        int x = fogX;
+        while (x < (fogX + screenWidth + 2 * TILE_WIDTH)) {
+            int y = fogY;
+            while (y < (fogY + screenHeight + 2 * TILE_WIDTH)) {
+                batch.draw(Assets.fog, x + ((subframe / GLGame.SUBFRAMES) % TILE_WIDTH), y + ((2 * subframe / GLGame.SUBFRAMES) % TILE_WIDTH), 256, 256, 0, 0, 256, 256, false, true);
+                y = y + TILE_WIDTH;
+            }
+            x = x + TILE_WIDTH;
         }
         batch.setColor(1f, 1f, 1f, 1f);
     }

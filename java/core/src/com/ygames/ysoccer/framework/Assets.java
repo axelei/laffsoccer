@@ -83,6 +83,7 @@ public class Assets {
     public static TextureRegion replaySpeed[][] = new TextureRegion[3][3];
     public static TextureRegion[] rain = new TextureRegion[4];
     public static TextureRegion[] snow = new TextureRegion[3];
+    public static Texture fog;
 
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
@@ -135,6 +136,7 @@ public class Assets {
         loadReplaySpeed();
         loadRain();
         loadSnow();
+        fog = new Texture("images/fog.png");
     }
 
     private static void loadLocales() {
