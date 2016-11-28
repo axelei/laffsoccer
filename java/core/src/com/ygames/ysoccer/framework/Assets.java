@@ -76,6 +76,7 @@ public class Assets {
     public static Map<Hair, TextureRegion[][]> hairs = new HashMap<Hair, TextureRegion[][]>();
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
+    public static TextureRegion[][] playerNumbers = new TextureRegion[10][2];
     public static TextureRegion time[] = new TextureRegion[11];
     public static TextureRegion score[] = new TextureRegion[11];
     public static TextureRegion replay[][] = new TextureRegion[16][2];
@@ -125,6 +126,7 @@ public class Assets {
         loadKeeperShadow();
         loadPlayerShadow();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
+        loadPlayerNumbers();
         loadTime();
         loadScore();
         loadReplay();
@@ -470,6 +472,16 @@ public class Assets {
                     Assets.playerShadow[frameX][frameY][i] = new TextureRegion(textureShadow, 32 * frameX, 32 * frameY, 32, 32);
                     Assets.playerShadow[frameX][frameY][i].flip(false, true);
                 }
+            }
+        }
+    }
+
+    private static void loadPlayerNumbers() {
+        Texture texture = new Texture("images/player/numbers.png");
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 2; j++) {
+                Assets.playerNumbers[i][j] = new TextureRegion(texture, 6 * i, 16 * j, 6, 10);
+                Assets.playerNumbers[i][j].flip(false, true);
             }
         }
     }

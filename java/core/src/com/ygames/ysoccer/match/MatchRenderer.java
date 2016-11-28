@@ -114,6 +114,10 @@ public class MatchRenderer {
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
+        if (displayControlledPlayer) {
+            drawControlledPlayersNumbers();
+        }
+
         batch.end();
 
         renderGui();
@@ -228,6 +232,42 @@ public class MatchRenderer {
         }
 
         batch.setColor(1, 1, 1, 1);
+    }
+
+    private void drawControlledPlayersNumbers() {
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            if (match.team[t] != null) {
+                int len = match.team[t].lineup.size();
+                for (int i = 0; i < len; i++) {
+                    Player player = match.team[t].lineup.get(i);
+                    if (player.inputDevice != player.ai && player.isVisible) {
+                        drawPlayerNumber(player);
+                    }
+                }
+            }
+        }
+    }
+
+    private void drawPlayerNumber(Player player) {
+
+        int f0 = player.number % 10;
+        int f1 = (player.number - f0) / 10 % 10;
+
+        int dx = Math.round(player.x) + 1;
+        int dy = Math.round(player.y) - 40 - Math.round(player.z);
+
+        int w0 = 6 - ((f0 == 1) ? 2 : 1);
+        int w1 = 6 - ((f1 == 1) ? 2 : 1);
+
+        int fy = match.settings.pitchType == Pitch.Type.WHITE ? 1 : 0;
+        if (f1 > 0) {
+            dx = dx - (w0 + 2 + w1) / 2;
+            batch.draw(Assets.playerNumbers[f1][fy], dx, dy, 6, 10);
+            dx = dx + w1 + 2;
+            batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
+        } else {
+            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2, dy, 6, 10);
+        }
     }
 
     private void drawTime() {
