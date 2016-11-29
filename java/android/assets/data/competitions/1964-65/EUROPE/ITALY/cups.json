@@ -35,8 +35,8 @@
     "benchSize": 5,
     "time": 0,
     "numberOfTeams": 32,
-    "teamsPath": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
     "files": {
+      "folder": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
       "teams": [
         "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json",
         "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json",

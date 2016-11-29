@@ -17,8 +17,6 @@ public abstract class Competition {
     public String name;
     public String filename;
     public Files files;
-    public String teamsPath;
-    public String teamsLeague;
 
     public enum Type {
         FRIENDLY, LEAGUE, CUP
@@ -47,7 +45,6 @@ public abstract class Competition {
 
     public Competition() {
         filename = "";
-        teamsPath = "";
         bySeason = true;
         seasonStart = Calendar.AUGUST;
         seasonEnd = Calendar.MAY;
@@ -166,7 +163,9 @@ public abstract class Competition {
         }
     }
 
-    private static class Files {
+    public static class Files {
+        public String folder;
+        public String league;
         public List<String> teams;
     }
 }

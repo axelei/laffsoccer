@@ -161,7 +161,7 @@ class SelectCompetition extends GLScreen {
         @Override
         public void onFire1Down() {
             game.teamList = competition.loadTeams();
-            game.setScreen(new AllSelectedTeams(game, Assets.teamsRootFolder.child(competition.teamsPath), competition.teamsLeague, competition));
+            game.setScreen(new AllSelectedTeams(game, Assets.teamsRootFolder.child(competition.files.folder), competition.files.league, competition));
         }
     }
 
