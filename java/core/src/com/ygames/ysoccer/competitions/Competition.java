@@ -11,10 +11,12 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public abstract class Competition {
     public String name;
     public String filename;
+    public Files files;
     public String teamsPath;
     public String teamsLeague;
 
@@ -76,11 +78,11 @@ public abstract class Competition {
 
     public ArrayList<Team> loadTeams() {
         ArrayList<Team> teamList = new ArrayList<Team>();
-        for (Team teamStub : teams) {
-            FileHandle teamFile = Assets.teamsRootFolder.child(teamStub.path);
+        for (String path : files.teams) {
+            FileHandle teamFile = Assets.teamsRootFolder.child(path);
             if (teamFile.exists()) {
                 Team team = Assets.json.fromJson(Team.class, teamFile.readString("UTF-8"));
-                team.path = teamStub.path;
+                team.path = path;
                 team.controlMode = Team.ControlMode.COMPUTER;
                 teamList.add(team);
             }
@@ -145,6 +147,8 @@ public abstract class Competition {
     }
 
     public void save() {
+        files = null;
+
         FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json");
         fileHandle.writeString(Assets.json.toJson(this, Competition.class), false, "UTF-8");
     }
@@ -160,5 +164,9 @@ public abstract class Competition {
             default:
                 throw new GdxRuntimeException("Unknown category");
         }
+    }
+
+    private static class Files {
+        public List<String> teams;
     }
 }

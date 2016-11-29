@@ -26,10 +26,6 @@ public class League extends Competition {
         return Type.LEAGUE;
     }
 
-    public void init() {
-        numberOfTeams = teams.size();
-    }
-
     public void start(ArrayList<Team> teams) {
         super.start(teams);
         calendarGenerate();
