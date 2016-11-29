@@ -151,6 +151,7 @@ public class MatchRenderer {
         batch.setProjectionMatrix(camera.combined);
         shapeRenderer.setProjectionMatrix(camera.combined);
         batch.begin();
+        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, guiAlpha);
 
         // ball owner
         if (displayBallOwner && match.ball.owner != null) {
@@ -164,13 +165,17 @@ public class MatchRenderer {
 
         // wind vane
         if (displayWindVane && (match.settings.wind.speed > 0)) {
-            batch.setColor(1f, 1f, 1f, 1f);
             batch.draw(Assets.wind[match.settings.wind.direction][match.settings.wind.speed - 1], guiWidth - 50, 20);
         }
 
         // score
         if (displayScore) {
             drawScore();
+        }
+
+        // statistics
+        if (displayStatistics) {
+            drawStatistics();
         }
 
         // goal scorer
@@ -398,9 +403,10 @@ public class MatchRenderer {
 
         // bars
         batch.end();
+        gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-
         shapeRenderer.setColor(1, 1, 1, guiAlpha);
+
         shapeRenderer.rect(10, y0, guiWidth / 2 - 22, 2);
         shapeRenderer.rect(guiWidth / 2 + 12, y0, guiWidth / 2 - 22, 2);
 
@@ -410,6 +416,7 @@ public class MatchRenderer {
 
         shapeRenderer.end();
         batch.begin();
+        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, guiAlpha);
 
         // home score
         int f0 = match.stats[Match.HOME].goals % 10;
@@ -433,6 +440,156 @@ public class MatchRenderer {
         } else {
             batch.draw(Assets.score[f0], guiWidth / 2 + 17, y0 - 40);
         }
+    }
+
+    private void drawStatistics() {
+
+        int l = 13 + (guiWidth - 640) / 5 + 2;
+        int r = guiWidth - l + 2;
+        int w = r - l;
+        int t = 20 + (guiHeight - 400) / 5 + 2;
+        int b = guiHeight - t + 8 + 2;
+        int h = b - t;
+        int hw = guiWidth / 2;
+
+        // fading
+        batch.end();
+        gl.glEnable(GL20.GL_BLEND);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+
+        // top strip
+        fadeRect(l + 2, t + 2, r - 2, t + h / 10 + 1, 0.35f, 0x000000);
+
+        // middle strips
+        int i = t + h / 10 + 2;
+        for (int j = 1; j < 9; j++) {
+            fadeRect(l + 2, i + 1, r - 2, i + h / 10 - 1, 0.35f, 0x000000);
+            i = i + h / 10;
+        }
+
+        // bottom strip
+        fadeRect(l + 2, i + 1, r - 2, b - 2, 0.35f, 0x000000);
+
+        // frame shadow
+        GLGraphics.setShapeRendererColor(shapeRenderer, 0x242424, guiAlpha);
+        drawFrame(l, t, r - l, b - t);
+
+        l = l - 2;
+        r = r - 2;
+        t = t - 2;
+        b = b - 2;
+
+        // frame
+        GLGraphics.setShapeRendererColor(shapeRenderer, 0xFFFFFF, guiAlpha);
+        drawFrame(l, t, r - l, b - t);
+
+        shapeRenderer.end();
+        batch.begin();
+        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, guiAlpha);
+
+        MatchStats homeStats = match.stats[Match.HOME];
+        MatchStats awayStats = match.stats[Match.AWAY];
+
+        int possHome = Math.round(100 * (1 + match.stats[Match.HOME].ballPossession) / (2 + homeStats.ballPossession + awayStats.ballPossession));
+        int possAway = 100 - possHome;
+
+        // text
+        int lc = l + w / 5;
+        int rc = r - w / 5;
+        i = t + h / 20 - 8;
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS"), hw, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, match.team[Match.HOME].name, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, match.team[Match.AWAY].name, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.goals, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.GOALS"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.goals, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, possHome, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.POSSESSION"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, possAway, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.overallShots, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.GOAL ATTEMPTS"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.overallShots, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.centeredShots, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.ON TARGET"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.centeredShots, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.cornersWon, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.CORNERS WON"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.cornersWon, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.foulsConceded, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.FOULS CONCEDED"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.foulsConceded, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.yellowCards, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.BOOKINGS"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.yellowCards, rc, i, Font.Align.CENTER);
+
+        i = i + h / 10;
+        Assets.font14.draw(batch, homeStats.redCards, lc, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.SENDINGS OFF"), hw, i, Font.Align.CENTER);
+        Assets.font14.draw(batch, awayStats.redCards, rc, i, Font.Align.CENTER);
+
+        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, 1);
+    }
+
+    private void fadeRect(int x0, int y0, int x1, int y1, float alpha, int color) {
+        GLGraphics.setShapeRendererColor(shapeRenderer, color, alpha);
+        shapeRenderer.rect(x0, y0, x1 - x0, y1 - y0);
+    }
+
+    private void drawFrame(int x, int y, int w, int h) {
+        int r = x + w;
+        int b = y + h;
+
+        // top
+        shapeRenderer.rect(x + 5, y, w - 8, 1);
+        shapeRenderer.rect(x + 3, y + 1, w - 4, 1);
+
+        // top-left
+        shapeRenderer.rect(x + 2, y + 2, 4, 1);
+        shapeRenderer.rect(x + 2, y + 3, 1, 3);
+        shapeRenderer.rect(x + 3, y + 3, 1, 1);
+
+        // top-right
+        shapeRenderer.rect(r - 4, y + 2, 4, 1);
+        shapeRenderer.rect(r - 1, y + 3, 1, 3);
+        shapeRenderer.rect(r - 2, y + 3, 1, 1);
+
+        // left
+        shapeRenderer.rect(x, y + 5, 1, h - 8);
+        shapeRenderer.rect(x + 1, y + 3, 1, h - 4);
+
+        // right
+        shapeRenderer.rect(r + 1, y + 5, 1, h - 8);
+        shapeRenderer.rect(r, y + 3, 1, h - 4);
+
+        // bottom-left
+        shapeRenderer.rect(x + 2, b - 4, 1, 3);
+        shapeRenderer.rect(x + 2, b - 1, 4, 1);
+        shapeRenderer.rect(x + 3, b - 2, 1, 1);
+
+        // bottom-right
+        shapeRenderer.rect(r - 1, b - 4, 1, 3);
+        shapeRenderer.rect(r - 4, b - 1, 4, 1);
+        shapeRenderer.rect(r - 2, b - 2, 1, 1);
+
+        // bottom
+        shapeRenderer.rect(x + 5, b + 1, w - 8, 1);
+        shapeRenderer.rect(x + 3, b, w - 4, 1);
     }
 
     void updateCameraX(int follow, int speed) {

@@ -21,7 +21,11 @@ public class GLGraphics {
         shapeRenderer.dispose();
     }
 
-    public static void shapeRendererSetColor(ShapeRenderer shapeRenderer, int rgb, float alpha) {
+    public static void setSpriteBatchColor(SpriteBatch spriteBatch, int rgb, float alpha) {
+        spriteBatch.setColor(GlColor.red(rgb) / 255f, GlColor.green(rgb) / 255f, GlColor.blue(rgb) / 255f, alpha);
+    }
+
+    public static void setShapeRendererColor(ShapeRenderer shapeRenderer, int rgb, float alpha) {
         shapeRenderer.setColor(GlColor.red(rgb) / 255f, GlColor.green(rgb) / 255f, GlColor.blue(rgb) / 255f, alpha);
     }
 }

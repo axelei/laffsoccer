@@ -28,7 +28,7 @@ public class Button extends Widget {
 
         // body (0x000000 = invisible)
         if (color.body != 0x000000) {
-            GLGraphics.shapeRendererSetColor(shapeRenderer, color.body, alpha);
+            GLGraphics.setShapeRendererColor(shapeRenderer, color.body, alpha);
             shapeRenderer.rect(x + 2, y + 2, w - 4, h - 4);
         }
 
@@ -79,14 +79,14 @@ public class Button extends Widget {
                             int bh, int topLeftColor, int bottomRightColor) {
 
         // top left border
-        GLGraphics.shapeRendererSetColor(shapeRenderer, topLeftColor, alpha);
+        GLGraphics.setShapeRendererColor(shapeRenderer, topLeftColor, alpha);
         shapeRenderer.triangle(bx, by, bx + bw, by, bx + bw - 1, by + 2);
         shapeRenderer.triangle(bx + bw - 1, by + 2, bx + 1, by + 2, bx, by);
         shapeRenderer.triangle(bx, by + 1, bx, by + bh, bx + 2, by + bh - 1);
         shapeRenderer.triangle(bx + 2, by + bh - 1, bx + 2, by + 2, bx, by + 1);
 
         // bottom right border
-        GLGraphics.shapeRendererSetColor(shapeRenderer, bottomRightColor, alpha);
+        GLGraphics.setShapeRendererColor(shapeRenderer, bottomRightColor, alpha);
         shapeRenderer.triangle(bx + bw - 2, by + 2, bx + bw - 2, by + bh - 1, bx + bw, by + bh);
         shapeRenderer.triangle(bx + bw, by + bh, bx + bw, by + 1, bx + bw - 2, by + 2);
         shapeRenderer.triangle(bx + 2, by + bh - 2, bx + bw - 2, by + bh - 2, bx + bw - 1, by + bh);

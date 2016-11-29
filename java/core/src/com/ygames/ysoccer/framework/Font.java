@@ -176,6 +176,10 @@ public class Font {
         }
     }
 
+    public void draw(SpriteBatch batch, int i, int x, int y, Align align) {
+        draw(batch, "" + i, x, y, align);
+    }
+
     public int textWidth(String text) {
         int w = 0;
         for (int i = 0; i < text.length(); i++) {
