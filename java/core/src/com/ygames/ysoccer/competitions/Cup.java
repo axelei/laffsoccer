@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Match;
@@ -13,7 +15,7 @@ import java.util.Collections;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
-public class Cup extends Competition {
+public class Cup extends Competition implements Json.Serializable {
 
     public ArrayList<Round> rounds;
     private int currentLeg;
@@ -36,6 +38,44 @@ public class Cup extends Competition {
         currentLeg = 0;
         calendarCurrent = null;
         qualifiedTeams = new ArrayList<Integer>();
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+        json.readFields(this, jsonData);
+    }
+
+    @Override
+    public void write(Json json) {
+        // config
+        json.writeValue("name", name);
+        json.writeValue("filename", filename);
+        json.writeValue("category", category);
+        json.writeValue("numberOfTeams", numberOfTeams);
+        json.writeValue("rounds", rounds, Round[].class, Round.class);
+        json.writeValue("substitutions", substitutions);
+        json.writeValue("benchSize", benchSize);
+        if (hasTwoLegsRound()) {
+            json.writeValue("awayGoals", awayGoals);
+        }
+        json.writeValue("time", time);
+        json.writeValue("weather", weather);
+        if (weather == Weather.BY_SEASON) {
+            json.writeValue("seasonStart", seasonStart);
+            json.writeValue("seasonEnd", seasonEnd);
+            json.writeValue("currentMonth", currentMonth);
+        } else {
+            json.writeValue("pitchType", pitchType);
+        }
+
+        // state
+        json.writeValue("userPrefersResult", userPrefersResult);
+        json.writeValue("currentRound", currentRound);
+        json.writeValue("currentLeg", currentLeg);
+        json.writeValue("currentMatch", currentMatch);
+        json.writeValue("teams", teams, Team[].class, Team.class);
+        json.writeValue("qualifiedTeams", qualifiedTeams);
+        json.writeValue("calendarCurrent", calendarCurrent, Match[].class, Match.class);
     }
 
     public void start(ArrayList<Team> teams) {
@@ -92,6 +132,13 @@ public class Cup extends Competition {
         currentLeg = 0;
         currentMatch = 0;
         calendarGenerate();
+    }
+
+    private void updateMonth() {
+        if (weather == Weather.BY_SEASON) {
+            int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
+            currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds.size()) % 12];
+        }
     }
 
     private void calendarGenerate() {
@@ -154,9 +201,7 @@ public class Cup extends Competition {
             }
         }
 
-        // update month
-        int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
-        currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds.size()) % 12];
+        updateMonth();
     }
 
     public void generateResult() {

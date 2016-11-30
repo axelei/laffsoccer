@@ -1,6 +1,7 @@
 [
   {
     "name": "COPPA ITALIA 1964-65",
+    "numberOfTeams": 32,
     "rounds": [
       {
         "legs": 1,
@@ -28,13 +29,12 @@
         "penalties": "OFF"
       }
     ],
-    "weather": "BY_SEASON",
-    "seasonStart": "SEPTEMBER",
-    "seasonEnd": "AUGUST",
     "substitutions": 3,
     "benchSize": 5,
     "time": "NIGHT",
-    "numberOfTeams": 32,
+    "weather": "BY_SEASON",
+    "seasonStart": "SEPTEMBER",
+    "seasonEnd": "AUGUST",
     "files": {
       "folder": "1964-65/CLUB_TEAMS/EUROPE/ITALY",
       "teams": [
