@@ -1,31 +1,35 @@
 package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 
-public class Round {
+public class Round implements Json.Serializable {
+
+    public enum ExtraTime {OFF, ON, IF_REPLAY}
+
+    public enum Penalties {OFF, ON, IF_REPLAY}
 
     public int legs;
-
-    public enum ExtraTime {
-        OFF,
-        ON,
-        IF_REPLAY
-    }
-
     public ExtraTime extraTime;
-
-    public enum Penalties {
-        OFF,
-        ON,
-        IF_REPLAY
-    }
-
     public Penalties penalties;
 
-    public Round() {
+    Round() {
         legs = 1;
         extraTime = ExtraTime.ON;
         penalties = Penalties.OFF;
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+        json.readFields(this, jsonData);
+    }
+
+    @Override
+    public void write(Json json) {
+        json.writeValue("legs", legs);
+        json.writeValue("extraTime", extraTime);
+        json.writeValue("penalties", penalties);
     }
 
     public String getLegsLabel() {
@@ -41,35 +45,23 @@ public class Round {
         }
     }
 
+    private static String[] extraTimeLabels = {
+            "EXTRA TIME.OFF",
+            "EXTRA TIME.ON",
+            "EXTRA TIME.IF REPLAY"
+    };
+
     public String getExtraTimeLabel() {
-        switch (extraTime) {
-            case OFF:
-                return "EXTRA TIME.OFF";
-
-            case ON:
-                return "EXTRA TIME.ON";
-
-            case IF_REPLAY:
-                return "EXTRA TIME.IF REPLAY";
-
-            default:
-                throw new GdxRuntimeException("Unknown extraTime value");
-        }
+        return extraTimeLabels[extraTime.ordinal()];
     }
 
+    private static String[] penaltiesLabels = {
+            "PENALTIES.OFF",
+            "PENALTIES.ON",
+            "PENALTIES.IF REPLAY"
+    };
+
     public String getPenaltiesLabel() {
-        switch (penalties) {
-            case OFF:
-                return "PENALTIES.OFF";
-
-            case ON:
-                return "PENALTIES.ON";
-
-            case IF_REPLAY:
-                return "PENALTIES.IF REPLAY";
-
-            default:
-                throw new GdxRuntimeException("Unknown penalties value");
-        }
+        return penaltiesLabels[penalties.ordinal()];
     }
 }
