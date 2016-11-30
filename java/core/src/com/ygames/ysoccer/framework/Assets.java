@@ -16,7 +16,6 @@ import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
-import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.math.Emath;
@@ -55,7 +54,6 @@ public class Assets {
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
     public static List<String> hairStyles;
-    public static List<GlColor2> shavedColors;
     public static List<String> currencies;
     public static TextureRegion[] stars = new TextureRegion[10];
     public static TextureRegion[][] controls = new TextureRegion[2][3];
@@ -116,7 +114,6 @@ public class Assets {
         loadTactics();
         loadKits();
         hairStyles = loadHairStyles();
-        shavedColors = new ArrayList<GlColor2>(Arrays.asList(loadJsonFile(GlColor2[].class, "player/shaved_colors.json")));
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
         loadStars();
         loadControls();
@@ -228,15 +225,6 @@ public class Assets {
         }
         Collections.sort(hairStyles);
         return hairStyles;
-    }
-
-    public static GlColor2 getShavedColor(Skin.Color skinColor, Hair.Color hairColor) {
-        for (GlColor2 shavedColor : Assets.shavedColors) {
-            if (shavedColor.name.equals(skinColor + "-" + hairColor)) {
-                return shavedColor;
-            }
-        }
-        return null;
     }
 
     public static String moneyFormat(double p) {
@@ -538,7 +526,7 @@ public class Assets {
         player.hair = new Hair(player.hairColor, player.hairStyle);
         if (hairs.get(player.hair) == null) {
             List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
-            addHairColors(player, rgbPairs);
+            player.addHairColors(rgbPairs);
             Texture texture = loadTexture("images/player/hairstyles/" + player.hairStyle + ".png", rgbPairs);
             TextureRegion textureRegion[][] = new TextureRegion[8][10];
             for (int i = 0; i < 8; i++) {
@@ -548,27 +536,6 @@ public class Assets {
                 }
             }
             hairs.put(player.hair, textureRegion);
-        }
-    }
-
-    private static void addHairColors(Player player, List<RgbPair> rgbPairs) {
-        // shaved
-        if (player.hairStyle.equals("SHAVED")) {
-            Color3 sc = Skin.colors[player.skinColor.ordinal()];
-            GlColor2 shavedColor = Assets.getShavedColor(player.skinColor, player.hairColor);
-            if (shavedColor != null) {
-                rgbPairs.add(new RgbPair(0xFF907130, shavedColor.color1));
-                rgbPairs.add(new RgbPair(0xFF715930, shavedColor.color2));
-            } else {
-                rgbPairs.add(new RgbPair(0xFF907130, sc.color1));
-                rgbPairs.add(new RgbPair(0xFF715930, sc.color2));
-            }
-            // others
-        } else {
-            Color3 hc = Hair.colors[player.hairColor.ordinal()];
-            rgbPairs.add(new RgbPair(0x907130, hc.color1));
-            rgbPairs.add(new RgbPair(0x715930, hc.color2));
-            rgbPairs.add(new RgbPair(0x514030, hc.color3));
         }
     }
 

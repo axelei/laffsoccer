@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Color2;
 import com.ygames.ysoccer.framework.Color3;
 
 public class Hair {
@@ -88,5 +89,116 @@ public class Hair {
             new Color3(0xD5D5D5, 0xADADAD, 0x848484), // WHITE
             new Color3(0xFF00A8, 0x722F2F, 0x421A1A), // PUNK_FUCHSIA
             new Color3(0xFDFB35, 0x808202, 0x595A05), // PUNK_BLOND
+    };
+
+    public static Color2[][] shavedColors = {
+            // PINK
+            {
+                    new Color2(0xA1785F, 0x7D5D4A), // BLACK
+                    new Color2(0xBFC768, 0x999F54), // BLOND
+                    new Color2(0xC79341, 0x94713B), // BROWN
+                    new Color2(0xC79341, 0x94713B), // RED
+                    new Color2(0xBFC768, 0x999F54), // PLATINUM
+                    new Color2(0xA1785F, 0x7D5D4A), // GRAY
+                    new Color2(0xD6BE97, 0xAB997C), // WHITE
+                    new Color2(0xC79341, 0x94713B), // PUNK_FUCHSIA
+                    new Color2(0xBFC768, 0x999F54), // PUNK_BLOND
+            },
+            // BLACK
+            {
+                    new Color2(0x423225, 0x312418), // BLACK
+                    null, // BLOND
+                    null, // BROWN
+                    null, // RED
+                    null, // PLATINUM
+                    null, // GRAY
+                    null, // WHITE
+                    null, // PUNK_FUCHSIA
+                    null, // PUNK_BLOND
+            },
+            // PALE
+            {
+                    new Color2(0xA1785F, 0x7D5D4A), // BLACK
+                    new Color2(0xBFC768, 0x999F54), // BLOND
+                    new Color2(0xC79341, 0x94713B), // BROWN
+                    new Color2(0xC79341, 0x94713B), // RED
+                    new Color2(0xBFC768, 0x999F54), // PLATINUM
+                    new Color2(0xA1785F, 0x7D5D4A), // GRAY
+                    new Color2(0xD6BE97, 0xAB997C), // WHITE
+                    new Color2(0xC79341, 0x94713B), // PUNK_FUCHSIA
+                    new Color2(0xBFC768, 0x999F54), // PUNK_BLOND
+            },
+            // ASIATIC
+            {
+                    new Color2(0xA1785F, 0x7D5D4A), // BLACK
+                    new Color2(0xBFC768, 0x999F54), // BLOND
+                    new Color2(0xC79341, 0x94713B), // BROWN
+                    new Color2(0xC79341, 0x94713B), // RED
+                    new Color2(0xBFC768, 0x999F54), // PLATINUM
+                    new Color2(0xA1785F, 0x7D5D4A), // GRAY
+                    new Color2(0xD6BE97, 0xAB997C), // WHITE
+                    new Color2(0xC79341, 0x94713B), // PUNK_FUCHSIA
+                    new Color2(0xBFC768, 0x999F54), // PUNK_BLOND
+            },
+            // ARAB
+            {
+                    new Color2(0x916847, 0x765331), // BLACK
+                    null, // BLOND
+                    null, // BROWN
+                    null, // RED
+                    null, // PLATINUM
+                    null, // GRAY
+                    null, // WHITE
+                    null, // PUNK_FUCHSIA
+                    null, // PUNK_BLOND
+            },
+            // MULATTO
+            {
+                    new Color2(0x916847, 0x765331), // BLACK
+                    null, // BLOND
+                    null, // BROWN
+                    null, // RED
+                    null, // PLATINUM
+                    null, // GRAY
+                    null, // WHITE
+                    null, // PUNK_FUCHSIA
+                    null, // PUNK_BLOND
+            },
+            // RED
+            {
+                    new Color2(0xA1785F, 0x7D5D4A), // BLACK
+                    new Color2(0xBFC768, 0x999F54), // BLOND
+                    new Color2(0xC79341, 0x94713B), // BROWN
+                    new Color2(0xC79341, 0x94713B), // RED
+                    new Color2(0xBFC768, 0x999F54), // PLATINUM
+                    new Color2(0xA1785F, 0x7D5D4A), // GRAY
+                    new Color2(0xD6BE97, 0xAB997C), // WHITE
+                    new Color2(0xC79341, 0x94713B), // PUNK_FUCHSIA
+                    new Color2(0xBFC768, 0x999F54), // PUNK_BLOND
+            },
+            // ALIEN
+            {
+                    null, // BLACK
+                    null, // BLOND
+                    null, // BROWN
+                    null, // RED
+                    null, // PLATINUM
+                    null, // GRAY
+                    null, // WHITE
+                    null, // PUNK_FUCHSIA
+                    null, // PUNK_BLOND
+            },
+            // YODA
+            {
+                    null, // BLACK
+                    null, // BLOND
+                    null, // BROWN
+                    null, // RED
+                    null, // PLATINUM
+                    null, // GRAY
+                    null, // WHITE
+                    null, // PUNK_FUCHSIA
+                    null, // PUNK_BLOND
+            },
     };
 }

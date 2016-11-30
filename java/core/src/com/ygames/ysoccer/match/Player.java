@@ -3,9 +3,9 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Color2;
 import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GlColor2;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
@@ -746,25 +746,7 @@ public class Player {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
 
         addSkinColors(rgbPairs);
-
-        Color3 sc = Skin.colors[skinColor.ordinal()];
-
-        // hair color
-        if (hairStyle.equals("SHAVED")) {
-            GlColor2 shavedColor = Assets.getShavedColor(skinColor, hairColor);
-            if (shavedColor != null) {
-                rgbPairs.add(new RgbPair(0x907130, shavedColor.color1));
-                rgbPairs.add(new RgbPair(0x715930, shavedColor.color2));
-            } else {
-                rgbPairs.add(new RgbPair(0x907130, sc.color1));
-                rgbPairs.add(new RgbPair(0x715930, sc.color2));
-            }
-        } else {
-            Color3 hc = Hair.colors[hairColor.ordinal()];
-            rgbPairs.add(new RgbPair(0x907130, hc.color1));
-            rgbPairs.add(new RgbPair(0x715930, hc.color2));
-            rgbPairs.add(new RgbPair(0x514030, hc.color3));
-        }
+        addHairColors(rgbPairs);
 
         String filename = "images/player/menu/" + hairStyle + ".PNG";
         return Assets.loadTextureRegion(filename, rgbPairs);
@@ -775,6 +757,25 @@ public class Player {
         rgbPairs.add(new RgbPair(0xFF6300, sc.color1));
         rgbPairs.add(new RgbPair(0xB54200, sc.color2));
         rgbPairs.add(new RgbPair(0x631800, sc.color3));
+    }
+
+    public void addHairColors(List<RgbPair> rgbPairs) {
+        if (hairStyle.equals("SHAVED")) {
+            Color2 shavedColor = Hair.shavedColors[skinColor.ordinal()][hairColor.ordinal()];
+            if (shavedColor != null) {
+                rgbPairs.add(new RgbPair(0x907130, shavedColor.color1));
+                rgbPairs.add(new RgbPair(0x715930, shavedColor.color2));
+            } else {
+                Color3 sc = Skin.colors[skinColor.ordinal()];
+                rgbPairs.add(new RgbPair(0x907130, sc.color1));
+                rgbPairs.add(new RgbPair(0x715930, sc.color2));
+            }
+        } else {
+            Color3 hc = Hair.colors[hairColor.ordinal()];
+            rgbPairs.add(new RgbPair(0x907130, hc.color1));
+            rgbPairs.add(new RgbPair(0x715930, hc.color2));
+            rgbPairs.add(new RgbPair(0x514030, hc.color3));
+        }
     }
 
     boolean searchFacingPlayer(boolean longRange) {
