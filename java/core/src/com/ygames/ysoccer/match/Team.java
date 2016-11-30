@@ -251,7 +251,7 @@ public class Team {
     @Override
     public boolean equals(Object obj) {
         Team t = (Team) obj;
-        return path.equals(t.path);
+        return Assets.teamsRootFolder.child(path).equals(Assets.teamsRootFolder.child(t.path));
     }
 
     public static class CompareByStats implements Comparator<Team> {

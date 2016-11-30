@@ -105,9 +105,9 @@ public class Assets {
             }
         }
 
-        teamsRootFolder = Gdx.files.local("data/teams");
-        competitionsRootFolder = Gdx.files.local("data/competitions");
-        savesFolder = Gdx.files.local("data/saves/competitions");
+        teamsRootFolder = Gdx.files.local("data/teams/");
+        competitionsRootFolder = Gdx.files.local("data/competitions/");
+        savesFolder = Gdx.files.local("data/saves/competitions/");
         json = new Json();
         json.addClassTag("CUP", Cup.class);
         json.addClassTag("LEAGUE", League.class);
