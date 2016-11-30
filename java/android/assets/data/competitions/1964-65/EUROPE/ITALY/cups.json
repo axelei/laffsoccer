@@ -28,7 +28,7 @@
         "penalties": "OFF"
       }
     ],
-    "bySeason": true,
+    "weather": "BY_SEASON",
     "seasonStart": 8,
     "seasonEnd": 7,
     "substitutions": 3,

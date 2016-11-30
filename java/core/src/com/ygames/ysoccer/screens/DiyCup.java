@@ -53,7 +53,7 @@ class DiyCup extends GLScreen {
         w = new CupNameButton();
         widgets.add(w);
 
-        w = new SeasonPitchTypeButton();
+        w = new WeatherButton();
         widgets.add(w);
 
         w = new SeasonStartButton();
@@ -156,9 +156,9 @@ class DiyCup extends GLScreen {
         }
     }
 
-    private class SeasonPitchTypeButton extends Button {
+    private class WeatherButton extends Button {
 
-        SeasonPitchTypeButton() {
+        WeatherButton() {
             setGeometry(game.gui.WIDTH / 2 - 470, 165, 236, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -166,7 +166,7 @@ class DiyCup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            cup.bySeason = !cup.bySeason;
+            cup.weather = Competition.Weather.values()[Emath.rotate(cup.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
@@ -176,7 +176,7 @@ class DiyCup extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(cup.getBySeasonLabel()));
+            setText(Assets.strings.get(cup.getWeatherLabel()));
         }
     }
 
@@ -216,7 +216,7 @@ class DiyCup extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Time.monthNames[cup.seasonStart]));
-            setVisible(cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_SEASON);
         }
     }
 
@@ -231,7 +231,7 @@ class DiyCup extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_SEASON);
         }
     }
 
@@ -271,7 +271,7 @@ class DiyCup extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]));
-            setVisible(cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_SEASON);
         }
     }
 
@@ -311,7 +311,7 @@ class DiyCup extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Pitch.names[cup.pitchType.ordinal()]));
-            setVisible(!cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_PITCH_TYPE);
         }
     }
 

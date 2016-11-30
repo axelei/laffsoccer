@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -27,7 +28,7 @@ class InfoCup extends GLScreen {
         w = new TitleBar(cup.name, game.stateColor.body);
         widgets.add(w);
 
-        w = new SeasonPitchTypeButton();
+        w = new WeatherButton();
         widgets.add(w);
 
         w = new SeasonStartButton();
@@ -102,12 +103,12 @@ class InfoCup extends GLScreen {
         setSelectedWidget(w);
     }
 
-    private class SeasonPitchTypeButton extends Button {
+    private class WeatherButton extends Button {
 
-        SeasonPitchTypeButton() {
+        WeatherButton() {
             setGeometry(game.gui.WIDTH / 2 - 470, 165, 236, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(cup.getBySeasonLabel()), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(cup.getWeatherLabel()), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -118,7 +119,7 @@ class InfoCup extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 232, 165, 176, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Time.monthNames[cup.seasonStart]), Font.Align.CENTER, Assets.font14);
-            setVisible(cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }
     }
@@ -129,7 +130,7 @@ class InfoCup extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 54, 165, 36, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
-            setVisible(cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }
     }
@@ -140,7 +141,7 @@ class InfoCup extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 16, 165, 176, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]), Font.Align.CENTER, Assets.font14);
-            setVisible(cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }
     }
@@ -151,7 +152,7 @@ class InfoCup extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 232, 165, 392, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get(Pitch.names[cup.pitchType.ordinal()]), Font.Align.CENTER, Assets.font14);
-            setVisible(!cup.bySeason);
+            setVisible(cup.weather == Competition.Weather.BY_PITCH_TYPE);
             setActive(false);
         }
     }

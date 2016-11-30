@@ -31,7 +31,13 @@ public abstract class Competition {
 
     public int numberOfTeams;
     public ArrayList<Team> teams;
-    public boolean bySeason; // true = by season, false = by pitch type
+
+    public enum Weather {
+        BY_SEASON,
+        BY_PITCH_TYPE
+    }
+
+    public Weather weather;
     public int seasonStart;
     public int seasonEnd;
     public int currentMonth;
@@ -45,7 +51,7 @@ public abstract class Competition {
 
     public Competition() {
         filename = "";
-        bySeason = true;
+        weather = Weather.BY_SEASON;
         seasonStart = Calendar.AUGUST;
         seasonEnd = Calendar.MAY;
         pitchType = Pitch.Type.RANDOM;
@@ -115,14 +121,14 @@ public abstract class Competition {
         return label;
     }
 
-    public String getBySeasonLabel() {
-        return bySeason ? "SEASON" : "PITCH TYPE";
+    public String getWeatherLabel() {
+        return weather == Weather.BY_SEASON ? "SEASON" : "PITCH TYPE";
     }
 
     public Pitch.Type resolvePitchType() {
         int p;
 
-        if (bySeason) {
+        if (weather == Weather.BY_SEASON) {
             p = -1;
             int n = Emath.rand(0, 99);
             int tot = 0;
@@ -131,7 +137,7 @@ public abstract class Competition {
                 tot = tot + Pitch.probabilityByMonth[currentMonth][p];
             } while (tot <= n);
         }
-        // by pitch type
+        // BY_PITCH_TYPE
         else {
             if (pitchType == Pitch.Type.RANDOM) {
                 p = Emath.rand(Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal());

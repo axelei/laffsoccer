@@ -37,6 +37,10 @@ public class Emath {
         return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
     }
 
+    public static <T extends Enum<T>> int rotate(Enum<T> value, Enum<T> low, Enum<T> high, int direction) {
+        return ((value.ordinal() - low.ordinal() + (high.ordinal() - low.ordinal() + 1) + direction) % (high.ordinal() - low.ordinal() + 1)) + low.ordinal();
+    }
+
     public static int slide(int value, int low, int high, int step) {
         return Math.min(Math.max(value + step, low), high);
     }

@@ -41,7 +41,7 @@ class DiyLeague extends GLScreen {
         w = new LeagueNameButton();
         widgets.add(w);
 
-        w = new SeasonPitchTypeButton();
+        w = new WeatherButton();
         widgets.add(w);
 
         w = new SeasonStartButton();
@@ -121,9 +121,9 @@ class DiyLeague extends GLScreen {
         }
     }
 
-    private class SeasonPitchTypeButton extends Button {
+    private class WeatherButton extends Button {
 
-        SeasonPitchTypeButton() {
+        WeatherButton() {
             setGeometry(game.gui.WIDTH / 2 - 350, 175, 290, 38);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
@@ -131,7 +131,7 @@ class DiyLeague extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            league.bySeason = !league.bySeason;
+            league.weather = Competition.Weather.values()[Emath.rotate(league.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
@@ -141,7 +141,7 @@ class DiyLeague extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(league.getBySeasonLabel()));
+            setText(Assets.strings.get(league.getWeatherLabel()));
         }
     }
 
@@ -181,7 +181,7 @@ class DiyLeague extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Time.monthNames[league.seasonStart]));
-            setVisible(league.bySeason);
+            setVisible(league.weather == Competition.Weather.BY_SEASON);
         }
     }
 
@@ -196,7 +196,7 @@ class DiyLeague extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(league.bySeason);
+            setVisible(league.weather == Competition.Weather.BY_SEASON);
         }
     }
 
@@ -236,7 +236,7 @@ class DiyLeague extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Time.monthNames[league.seasonEnd]));
-            setVisible(league.bySeason);
+            setVisible(league.weather == Competition.Weather.BY_SEASON);
         }
     }
 
@@ -276,7 +276,7 @@ class DiyLeague extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Pitch.names[league.pitchType.ordinal()]));
-            setVisible(!league.bySeason);
+            setVisible(league.weather == Competition.Weather.BY_PITCH_TYPE);
         }
     }
 
