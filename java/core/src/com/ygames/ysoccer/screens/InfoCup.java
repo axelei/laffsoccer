@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 
@@ -172,7 +173,7 @@ class InfoCup extends GLScreen {
         TimeButton() {
             setGeometry(game.gui.WIDTH / 2 + 312, 165, 158, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(Time.names[cup.time]), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(MatchSettings.getTimeLabel(cup.time)), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

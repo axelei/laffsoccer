@@ -130,7 +130,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.lightIcons[matchSettings.time];
+            textureRegion = Assets.lightIcons[matchSettings.time.ordinal()];
         }
     }
 
@@ -149,7 +149,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.names[matchSettings.time]));
+            setText(Assets.strings.get(MatchSettings.getTimeLabel(matchSettings.time)));
         }
 
         @Override

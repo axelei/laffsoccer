@@ -218,7 +218,7 @@ public class MatchRenderer {
 
         Data d = match.ball.data[subframe];
         batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 + 0.46f * d.z);
-        if (match.settings.time == Time.NIGHT) {
+        if (match.settings.time == MatchSettings.Time.NIGHT) {
             batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z);
             batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z);
             batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z);
@@ -235,7 +235,7 @@ public class MatchRenderer {
                     d = player.data[subframe];
                     if (d.isVisible) {
                         batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
-                        if (match.settings.time == Time.NIGHT) {
+                        if (match.settings.time == MatchSettings.Time.NIGHT) {
                             // TODO
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
@@ -247,7 +247,7 @@ public class MatchRenderer {
         }
 
         // players
-        for (int i = 0; i < (match.settings.time == Time.NIGHT ? 4 : 1); i++) {
+        for (int i = 0; i < (match.settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
             for (int t = HOME; t <= AWAY; t++) {
                 for (Player player : match.team[t].lineup) {
                     if (player.role != Player.Role.GOALKEEPER) {

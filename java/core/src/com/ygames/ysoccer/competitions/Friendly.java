@@ -1,8 +1,8 @@
 package com.ygames.ysoccer.competitions;
 
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.match.Time;
 
 public class Friendly extends Competition {
 
@@ -11,7 +11,7 @@ public class Friendly extends Competition {
     public Friendly() {
         match = new Match();
         numberOfTeams = 2;
-        time = Time.RANDOM;
+        time = MatchSettings.Time.RANDOM;
     }
 
     public Type getType() {

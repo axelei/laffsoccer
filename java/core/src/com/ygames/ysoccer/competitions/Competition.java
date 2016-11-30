@@ -4,9 +4,9 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
@@ -32,10 +32,7 @@ public abstract class Competition {
     public int numberOfTeams;
     public ArrayList<Team> teams;
 
-    public enum Weather {
-        BY_SEASON,
-        BY_PITCH_TYPE
-    }
+    public enum Weather {BY_SEASON, BY_PITCH_TYPE}
 
     public Weather weather;
     public int seasonStart;
@@ -44,7 +41,7 @@ public abstract class Competition {
     public Pitch.Type pitchType;
     public int substitutions;
     public int benchSize;
-    public int time;
+    public MatchSettings.Time time;
     public boolean userPrefersResult;
     public int currentRound;
     public int currentMatch;
@@ -57,7 +54,7 @@ public abstract class Competition {
         pitchType = Pitch.Type.RANDOM;
         substitutions = 3;
         benchSize = 5;
-        time = Time.DAY;
+        time = MatchSettings.Time.DAY;
     }
 
     public abstract Type getType();

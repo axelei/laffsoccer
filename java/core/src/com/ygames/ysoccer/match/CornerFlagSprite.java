@@ -37,7 +37,7 @@ class CornerFlagSprite extends Sprite {
             frameY = 1 + matchSettings.wind.dirY;
         }
         batch.draw(Assets.cornerFlagsShadows[frameX][frameY][0], x - 12, y + 1);
-        if (matchSettings.time == Time.NIGHT) {
+        if (matchSettings.time == MatchSettings.Time.NIGHT) {
             batch.draw(Assets.cornerFlagsShadows[frameX][frameY][1], x - 28, y + 1);
             batch.draw(Assets.cornerFlagsShadows[frameX][frameY][2], x - 28, y - 10);
             batch.draw(Assets.cornerFlagsShadows[frameX][frameY][3], x - 12, y - 10);

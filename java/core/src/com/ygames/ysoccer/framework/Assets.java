@@ -19,7 +19,6 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
-import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
 
 import java.io.ByteArrayInputStream;
@@ -406,7 +405,7 @@ public class Assets {
 
         String paletteName = matchSettings.pitchType.toString().toLowerCase();
         switch (matchSettings.time) {
-            case Time.DAY:
+            case DAY:
                 switch (matchSettings.sky) {
                     case Sky.CLEAR:
                         paletteName += "_sunny.pal";
@@ -418,7 +417,7 @@ public class Assets {
                 }
                 break;
 
-            case Time.NIGHT:
+            case NIGHT:
                 paletteName += "_night.pal";
                 break;
         }
@@ -433,12 +432,12 @@ public class Assets {
     public static void loadBall(MatchSettings matchSettings) {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         switch (matchSettings.time) {
-            case Time.DAY:
+            case DAY:
                 rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
                 rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.darkShadow));
                 break;
 
-            case Time.NIGHT:
+            case NIGHT:
                 rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
                 rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.lightShadow));
                 break;
@@ -454,11 +453,11 @@ public class Assets {
     public static void loadCornerFlags(MatchSettings matchSettings) {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         switch (matchSettings.time) {
-            case Time.DAY:
+            case DAY:
                 rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.darkShadow));
                 break;
 
-            case Time.NIGHT:
+            case NIGHT:
                 rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.lightShadow));
                 break;
         }

@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
@@ -309,13 +310,13 @@ class DiyLeague extends GLScreen {
         }
 
         private void updateTime(int n) {
-            league.time = Emath.rotate(league.time, Time.DAY, Time.NIGHT, n);
+            league.time = MatchSettings.Time.values()[Emath.rotate(league.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.names[league.time]));
+            setText(Assets.strings.get(MatchSettings.getTimeLabel(league.time)));
         }
     }
 

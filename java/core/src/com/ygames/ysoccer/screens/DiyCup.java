@@ -11,6 +11,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
@@ -344,13 +345,13 @@ class DiyCup extends GLScreen {
         }
 
         private void updateTime(int n) {
-            cup.time = Emath.rotate(cup.time, Time.DAY, Time.NIGHT, n);
+            cup.time = MatchSettings.Time.values()[Emath.rotate(cup.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.names[cup.time]));
+            setText(Assets.strings.get(MatchSettings.getTimeLabel(cup.time)));
         }
     }
 

@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Settings;
@@ -8,7 +9,10 @@ import com.ygames.ysoccer.math.Emath;
 public class MatchSettings {
 
     int matchLength;
-    public int time;
+
+    public enum Time {DAY, NIGHT, RANDOM}
+
+    public Time time;
     float shadowAlpha;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
     public Pitch.Type pitchType;
@@ -44,7 +48,7 @@ public class MatchSettings {
     }
 
     public void rotateTime(int direction) {
-        time = Emath.rotate(time, Time.DAY, Time.RANDOM, direction);
+        time = MatchSettings.Time.values()[Emath.rotate(time, MatchSettings.Time.DAY, MatchSettings.Time.RANDOM, direction)];
     }
 
     public void rotatePitchType(int direction) {
@@ -113,6 +117,19 @@ public class MatchSettings {
             return true;
         }
         return false;
+    }
+
+    public static String getTimeLabel(Time time) {
+        switch (time) {
+            case DAY:
+                return "TIME.DAY";
+            case NIGHT:
+                return "TIME.NIGHT";
+            case RANDOM:
+                return "RANDOM";
+            default:
+                throw new GdxRuntimeException("Unknown time");
+        }
     }
 
     public String getWeatherLabel() {
@@ -197,7 +214,7 @@ public class MatchSettings {
 
     private void initTime() {
         if (time == Time.RANDOM) {
-            time = Assets.random.nextInt(Time.RANDOM);
+            time = Time.values()[Assets.random.nextInt(Time.RANDOM.ordinal())];
         }
 
         if (time == Time.NIGHT) {
