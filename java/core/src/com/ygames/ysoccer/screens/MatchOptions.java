@@ -113,7 +113,8 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateMatchLength(int n) {
-            game.settings.matchLength = matchLengths.get(Emath.slide(matchLengths.indexOf(game.settings.matchLength), 0, matchLengths.size() - 1, n));
+            int index = matchLengths.indexOf(game.settings.matchLength);
+            game.settings.matchLength = matchLengths.get(Emath.slide(index, 0, matchLengths.size() - 1, n));
             setDirty(true);
         }
     }

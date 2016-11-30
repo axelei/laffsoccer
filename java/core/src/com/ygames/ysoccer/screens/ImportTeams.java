@@ -702,7 +702,7 @@ class ImportTeams extends GLScreen {
         }
         for (int i = 0; i < 16; i++) {
             int p = bytes[pos++] & 0xFF;
-            if (position.indexOf(p) != -1) {
+            if (position.contains(p)) {
                 Gdx.app.log("Error", "duplicate position: " + p + " in file: " + fileHandle.name() + ", team: " + team.name);
                 failedTeams++;
                 return startingPosition + 684;

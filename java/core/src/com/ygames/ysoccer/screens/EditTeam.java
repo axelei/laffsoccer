@@ -302,8 +302,11 @@ class EditTeam extends GLScreen {
 
         private void updateNationality(int n) {
             int i = Assets.associations.indexOf(team.coach.nationality);
-            if (i == -1) i = 0;
-            i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
+            if (i == -1) {
+                i = 0; // not found, start from 0
+            } else {
+                i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
+            }
             team.coach.nationality = Assets.associations.get(i);
             setDirty(true);
             setModifiedFlag();

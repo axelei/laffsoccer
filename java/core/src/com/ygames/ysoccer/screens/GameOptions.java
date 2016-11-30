@@ -532,7 +532,7 @@ class GameOptions extends GLScreen {
         private void updateCurrency(int direction) {
             int i = Assets.currencies.indexOf(game.settings.currency);
             if (i == -1) {
-                i = 0;
+                i = 0; // not found, start from 0
             } else {
                 i = Emath.rotate(i, 0, Assets.currencies.size() - 1, direction);
             }
@@ -545,7 +545,7 @@ class GameOptions extends GLScreen {
 
         ImportButton() {
             setColors(0x762B8E);
-            setGeometry(game.gui.WIDTH  / 2- 260 -10, 530, 260, 36);
+            setGeometry(game.gui.WIDTH / 2 - 260 - 10, 530, 260, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -564,7 +564,7 @@ class GameOptions extends GLScreen {
 
         ExportButton() {
             setColors(0x762B8E);
-            setGeometry(game.gui.WIDTH / 2 +10, 530, 260, 36);
+            setGeometry(game.gui.WIDTH / 2 + 10, 530, 260, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
