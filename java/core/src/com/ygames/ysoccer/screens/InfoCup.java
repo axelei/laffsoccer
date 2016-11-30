@@ -6,12 +6,12 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.match.Time;
 
 class InfoCup extends GLScreen {
 
@@ -119,7 +119,7 @@ class InfoCup extends GLScreen {
         SeasonStartButton() {
             setGeometry(game.gui.WIDTH / 2 - 232, 165, 176, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(Time.monthNames[cup.seasonStart]), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(Month.getLabel(cup.seasonStart)), Font.Align.CENTER, Assets.font14);
             setVisible(cup.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }
@@ -141,7 +141,7 @@ class InfoCup extends GLScreen {
         SeasonEndButton() {
             setGeometry(game.gui.WIDTH / 2 - 16, 165, 176, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(Month.getLabel(cup.seasonEnd)), Font.Align.CENTER, Assets.font14);
             setVisible(cup.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }

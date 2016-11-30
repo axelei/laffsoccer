@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.competitions;
 
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 
@@ -65,8 +66,8 @@ public class League extends Competition {
     }
 
     private void updateMonth() {
-        int seasonLength = ((seasonEnd - seasonStart + 12) % 12);
-        currentMonth = (seasonStart + seasonLength * currentRound / rounds) % 12;
+        int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
+        currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds) % 12];
     }
 
     private void calendarGenerate() {

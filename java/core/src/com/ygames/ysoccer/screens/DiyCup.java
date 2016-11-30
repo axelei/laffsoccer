@@ -7,16 +7,14 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
-
-import java.util.Calendar;
 
 class DiyCup extends GLScreen {
 
@@ -210,13 +208,13 @@ class DiyCup extends GLScreen {
         }
 
         private void updateSeasonStart(int n) {
-            cup.seasonStart = Emath.rotate(cup.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
+            cup.seasonStart = Month.values()[Emath.rotate(cup.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.monthNames[cup.seasonStart]));
+            setText(Assets.strings.get(Month.getLabel(cup.seasonStart)));
             setVisible(cup.weather == Competition.Weather.BY_SEASON);
         }
     }
@@ -265,13 +263,13 @@ class DiyCup extends GLScreen {
         }
 
         private void updateSeasonEnd(int n) {
-            cup.seasonEnd = Emath.rotate(cup.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
+            cup.seasonEnd = Month.values()[Emath.rotate(cup.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.monthNames[cup.seasonEnd]));
+            setText(Assets.strings.get(Month.getLabel(cup.seasonEnd)));
             setVisible(cup.weather == Competition.Weather.BY_SEASON);
         }
     }

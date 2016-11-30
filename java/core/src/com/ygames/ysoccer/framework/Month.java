@@ -1,8 +1,21 @@
-package com.ygames.ysoccer.match;
+package com.ygames.ysoccer.framework;
 
-public class Time {
+public enum Month {
 
-    public static final String[] monthNames = {
+    JANUARY,
+    FEBRUARY,
+    MARCH,
+    APRIL,
+    MAY,
+    JUNE,
+    JULY,
+    AUGUST,
+    SEPTEMBER,
+    OCTOBER,
+    NOVEMBER,
+    DECEMBER;
+
+    private static final String[] labels = {
             "MONTHS.JANUARY",
             "MONTHS.FEBRUARY",
             "MONTHS.MARCH",
@@ -16,4 +29,8 @@ public class Time {
             "MONTHS.NOVEMBER",
             "MONTHS.DECEMBER"
     };
+
+    public static String getLabel(Month month) {
+        return labels[month.ordinal()];
+    }
 }

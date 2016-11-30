@@ -12,7 +12,6 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.match.Time;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,6 +3,7 @@ package com.ygames.ysoccer.competitions;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
@@ -10,7 +11,6 @@ import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public abstract class Competition {
@@ -35,9 +35,9 @@ public abstract class Competition {
     public enum Weather {BY_SEASON, BY_PITCH_TYPE}
 
     public Weather weather;
-    public int seasonStart;
-    public int seasonEnd;
-    public int currentMonth;
+    public Month seasonStart;
+    public Month seasonEnd;
+    public Month currentMonth;
     public Pitch.Type pitchType;
     public int substitutions;
     public int benchSize;
@@ -49,8 +49,8 @@ public abstract class Competition {
     public Competition() {
         filename = "";
         weather = Weather.BY_SEASON;
-        seasonStart = Calendar.AUGUST;
-        seasonEnd = Calendar.MAY;
+        seasonStart = Month.AUGUST;
+        seasonEnd = Month.MAY;
         pitchType = Pitch.Type.RANDOM;
         substitutions = 3;
         benchSize = 5;
@@ -131,7 +131,7 @@ public abstract class Competition {
             int tot = 0;
             do {
                 p = p + 1;
-                tot = tot + Pitch.probabilityByMonth[currentMonth][p];
+                tot = tot + Pitch.probabilityByMonth[currentMonth.ordinal()][p];
             } while (tot <= n);
         }
         // BY_PITCH_TYPE

@@ -29,8 +29,8 @@
       }
     ],
     "weather": "BY_SEASON",
-    "seasonStart": 8,
-    "seasonEnd": 7,
+    "seasonStart": "SEPTEMBER",
+    "seasonEnd": "AUGUST",
     "substitutions": 3,
     "benchSize": 5,
     "time": "NIGHT",

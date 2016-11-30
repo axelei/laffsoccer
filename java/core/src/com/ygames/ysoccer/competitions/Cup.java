@@ -2,6 +2,7 @@ package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
@@ -154,8 +155,8 @@ public class Cup extends Competition {
         }
 
         // update month
-        int seasonLength = ((seasonEnd - seasonStart + 12) % 12);
-        currentMonth = (seasonStart + seasonLength * currentRound / rounds.size()) % 12;
+        int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
+        currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds.size()) % 12];
     }
 
     public void generateResult() {

@@ -6,15 +6,13 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.match.Time;
 import com.ygames.ysoccer.math.Emath;
-
-import java.util.Calendar;
 
 class DiyLeague extends GLScreen {
 
@@ -175,13 +173,13 @@ class DiyLeague extends GLScreen {
         }
 
         private void updateSeasonStart(int n) {
-            league.seasonStart = Emath.rotate(league.seasonStart, Calendar.JANUARY, Calendar.DECEMBER, n);
+            league.seasonStart = Month.values()[Emath.rotate(league.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.monthNames[league.seasonStart]));
+            setText(Assets.strings.get(Month.getLabel(league.seasonStart)));
             setVisible(league.weather == Competition.Weather.BY_SEASON);
         }
     }
@@ -230,13 +228,13 @@ class DiyLeague extends GLScreen {
         }
 
         private void updateSeasonEnd(int n) {
-            league.seasonEnd = Emath.rotate(league.seasonEnd, Calendar.JANUARY, Calendar.DECEMBER, n);
+            league.seasonEnd = Month.values()[Emath.rotate(league.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Time.monthNames[league.seasonEnd]));
+            setText(Assets.strings.get(Month.getLabel(league.seasonEnd)));
             setVisible(league.weather == Competition.Weather.BY_SEASON);
         }
     }
