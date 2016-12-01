@@ -56,12 +56,12 @@ class LoadCompetition extends GLScreen {
         if (competitionButtonsList.size() > 0) {
             int len = competitionButtonsList.size();
             for (int i = 0; i < len; i++) {
-                w = competitionButtonsList.get(i);
-                w.x = (game.gui.WIDTH) / 2 - w.w + 180;
-                w.y = 320 + 34 * (i - len / 2);
-                w = categoryLabelsList.get(i);
-                w.x = (game.gui.WIDTH) / 2 + 180;
-                w.y = 320 + 34 * (i - len / 2);
+                Widget b = competitionButtonsList.get(i);
+                Widget l = categoryLabelsList.get(i);
+                b.x = (game.gui.WIDTH - b.w - l.w - 4) / 2;
+                b.y = 355 + 34 * (i - len / 2);
+                l.x = (game.gui.WIDTH + b.w - l.w + 4) / 2;
+                l.y = 355 + 34 * (i - len / 2);
             }
             setSelectedWidget(competitionButtonsList.get(0));
         }
@@ -92,7 +92,7 @@ class LoadCompetition extends GLScreen {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
                     game.setState(GLGame.State.COMPETITION, game.competition.category);
-                    switch (game.competition.getType()) {
+                    switch (game.competition.type) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));
                             break;
@@ -111,7 +111,14 @@ class LoadCompetition extends GLScreen {
         CategoryLabel(Competition competition) {
             setSize(180, 30);
             setText(competition.getCategoryFolder(), Font.Align.CENTER, Assets.font14);
-            setColors(0x666666, 0x8F8D8D, 0x404040);
+            switch (competition.category) {
+                case DIY_COMPETITION:
+                    setColors(0x376E2F);
+                    break;
+                case PRESET_COMPETITION:
+                    setColors(0x415600);
+                    break;
+            }
             setActive(false);
         }
     }

@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -40,7 +41,7 @@ class SaveCompetition extends GLScreen {
                 competitionButtonsList.add(w);
                 widgets.add(w);
 
-                w = new CategoryLabel(game.competition.getCategoryFolder());
+                w = new CategoryLabel(game.competition);
                 categoryLabelsList.add(w);
                 widgets.add(w);
             }
@@ -49,12 +50,12 @@ class SaveCompetition extends GLScreen {
         if (competitionButtonsList.size() > 0) {
             int len = competitionButtonsList.size();
             for (int i = 0; i < len; i++) {
-                w = competitionButtonsList.get(i);
-                w.x = (game.gui.WIDTH) / 2 - w.w + 180;
-                w.y = 320 + 34 * (i - len / 2);
-                w = categoryLabelsList.get(i);
-                w.x = (game.gui.WIDTH) / 2 + 180;
-                w.y = 320 + 34 * (i - len / 2);
+                Widget b = competitionButtonsList.get(i);
+                Widget l = categoryLabelsList.get(i);
+                b.x = (game.gui.WIDTH - b.w - l.w - 4) / 2;
+                b.y = 300 + 34 * (i - len / 2);
+                l.x = (game.gui.WIDTH + b.w - l.w + 4) / 2;
+                l.y = 300 + 34 * (i - len / 2);
             }
         }
 
@@ -96,10 +97,17 @@ class SaveCompetition extends GLScreen {
 
     private class CategoryLabel extends Button {
 
-        CategoryLabel(String category) {
+        CategoryLabel(Competition competition) {
             setSize(180, 30);
-            setText(category, Font.Align.CENTER, Assets.font14);
-            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(competition.getCategoryFolder(), Font.Align.CENTER, Assets.font14);
+            switch (competition.category) {
+                case DIY_COMPETITION:
+                    setColors(0x376E2F);
+                    break;
+                case PRESET_COMPETITION:
+                    setColors(0x415600);
+                    break;
+            }
             setActive(false);
         }
     }
@@ -107,7 +115,7 @@ class SaveCompetition extends GLScreen {
     private class FilenameLabel extends Label {
 
         FilenameLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 360, 500, 180, 36);
+            setGeometry(game.gui.WIDTH / 2 - 360 - 2, 550, 180, 36);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(Assets.strings.get("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
         }
@@ -116,7 +124,7 @@ class SaveCompetition extends GLScreen {
     private class FilenameButton extends InputButton {
 
         FilenameButton() {
-            setGeometry(game.gui.WIDTH / 2 - 180, 500, 540, 36);
+            setGeometry(game.gui.WIDTH / 2 - 180 + 2, 550, 540, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
             setText(game.competition.filename, Font.Align.CENTER, Assets.font14);
             setEntryLimit(30);
@@ -133,7 +141,7 @@ class SaveCompetition extends GLScreen {
     private class SaveButton extends Button {
 
         SaveButton() {
-            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
+            setGeometry((game.gui.WIDTH - 180) / 2, 605, 180, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
             setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
         }

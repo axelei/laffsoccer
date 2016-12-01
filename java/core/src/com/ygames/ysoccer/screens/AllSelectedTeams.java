@@ -244,7 +244,7 @@ class AllSelectedTeams extends GLScreen {
         public void refresh() {
             int diff = competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
-                switch (competition.getType()) {
+                switch (competition.type) {
                     case FRIENDLY:
                         setText(Assets.strings.get("PLAY FRIENDLY"));
                         break;
@@ -276,7 +276,7 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.getType()) {
+            switch (competition.type) {
                 case FRIENDLY:
                     // choose the menu to set
                     game.inputDevices.setAvailability(true);

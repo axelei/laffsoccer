@@ -58,7 +58,7 @@ class ViewStatistics extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (game.competition.getType()) {
+            switch (game.competition.type) {
                 case LEAGUE:
                     game.setScreen(new InfoLeague(game));
                     break;
@@ -94,7 +94,7 @@ class ViewStatistics extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (game.competition.getType()) {
+            switch (game.competition.type) {
                 case LEAGUE:
                     game.setScreen(new PlayLeague(game));
                     break;

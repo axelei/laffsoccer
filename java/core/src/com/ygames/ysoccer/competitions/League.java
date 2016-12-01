@@ -19,6 +19,7 @@ public class League extends Competition implements Json.Serializable {
     private ArrayList<Match> calendarCurrent;
 
     public League() {
+        super(Type.LEAGUE);
         numberOfTeams = 2;
         rounds = 1;
         pointsForAWin = 3;
@@ -57,10 +58,6 @@ public class League extends Competition implements Json.Serializable {
         json.writeValue("currentMatch", currentMatch);
         json.writeValue("teams", teams, Team[].class, Team.class);
         json.writeValue("calendarCurrent", calendarCurrent, Match[].class, Match.class);
-    }
-
-    public Type getType() {
-        return Type.LEAGUE;
     }
 
     public void start(ArrayList<Team> teams) {

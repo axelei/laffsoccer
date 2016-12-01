@@ -136,7 +136,7 @@ class MatchSetup extends GLScreen {
     private class TimeButton extends Button {
 
         TimeButton() {
-            if (competition.getType() == Competition.Type.FRIENDLY) {
+            if (competition.type == Competition.Type.FRIENDLY) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
@@ -195,7 +195,7 @@ class MatchSetup extends GLScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            if (competition.getType() == Competition.Type.FRIENDLY) {
+            if (competition.type == Competition.Type.FRIENDLY) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
@@ -263,7 +263,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            if (competition.getType() == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
+            if (competition.type == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
                 setColors(0x1F1F95);
                 setActive(true);
             } else {
@@ -373,7 +373,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.getType()) {
+            switch (competition.type) {
                 case FRIENDLY:
                     game.setScreen(new SelectTeams(game, fileHandle, league, competition));
                     break;

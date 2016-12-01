@@ -14,20 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Competition {
+
+    public enum Type {FRIENDLY, LEAGUE, CUP}
+
+    public enum Category {DIY_COMPETITION, PRESET_COMPETITION}
+
     public String name;
     public String filename;
-    public Files files;
-
-    public enum Type {
-        FRIENDLY, LEAGUE, CUP
-    }
-
-    public enum Category {
-        DIY_COMPETITION,
-        PRESET_COMPETITION
-    }
-
+    public final Type type;
     public Category category;
+    public Files files;
 
     public int numberOfTeams;
     public ArrayList<Team> teams;
@@ -46,7 +42,8 @@ public abstract class Competition {
     public int currentRound;
     public int currentMatch;
 
-    public Competition() {
+    protected Competition(Type type) {
+        this.type = type;
         filename = "";
         weather = Weather.BY_SEASON;
         seasonStart = Month.AUGUST;
@@ -56,8 +53,6 @@ public abstract class Competition {
         benchSize = 5;
         time = MatchSettings.Time.DAY;
     }
-
-    public abstract Type getType();
 
     public String getMenuTitle() {
         return name;

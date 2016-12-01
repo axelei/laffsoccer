@@ -33,6 +33,7 @@ public class Cup extends Competition implements Json.Serializable {
     public AwayGoals awayGoals;
 
     public Cup() {
+        super(Type.CUP);
         rounds = new ArrayList<Round>();
         awayGoals = AwayGoals.OFF;
         currentLeg = 0;
@@ -637,10 +638,6 @@ public class Cup extends Competition implements Json.Serializable {
         }
 
         return title;
-    }
-
-    public Type getType() {
-        return Type.CUP;
     }
 
     public void addRound() {

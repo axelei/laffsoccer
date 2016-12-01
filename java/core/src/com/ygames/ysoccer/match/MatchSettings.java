@@ -26,7 +26,7 @@ public class MatchSettings {
     public int benchSize;
 
     public MatchSettings(Competition competition, Settings gameSettings) {
-        if (competition.getType() == Competition.Type.FRIENDLY || competition.category == Competition.Category.DIY_COMPETITION) {
+        if (competition.type == Competition.Type.FRIENDLY || competition.category == Competition.Category.DIY_COMPETITION) {
             matchLength = gameSettings.matchLength;
         } else {
             matchLength = Settings.matchLengths[0];
@@ -36,7 +36,7 @@ public class MatchSettings {
         this.grass = new Grass();
         this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
-        if (competition.getType() == Competition.Type.FRIENDLY) {
+        if (competition.type == Competition.Type.FRIENDLY) {
             weatherEffect = Weather.RANDOM;
         } else {
             for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {

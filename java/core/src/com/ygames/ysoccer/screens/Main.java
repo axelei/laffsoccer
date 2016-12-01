@@ -232,7 +232,7 @@ public class Main extends GLScreen {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
                     game.setState(GLGame.State.COMPETITION, game.competition.category);
-                    switch (game.competition.getType()) {
+                    switch (game.competition.type) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));
                             break;

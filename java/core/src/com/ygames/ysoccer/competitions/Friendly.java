@@ -9,13 +9,10 @@ public class Friendly extends Competition {
     private Match match;
 
     public Friendly() {
+        super(Type.FRIENDLY);
         match = new Match();
         numberOfTeams = 2;
         time = MatchSettings.Time.RANDOM;
-    }
-
-    public Type getType() {
-        return Type.FRIENDLY;
     }
 
     @Override
