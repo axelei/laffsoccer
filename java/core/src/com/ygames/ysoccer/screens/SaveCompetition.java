@@ -18,18 +18,12 @@ import java.util.List;
 
 class SaveCompetition extends GLScreen {
 
-    private String filename;
+    private Button fileNameButton;
 
     SaveCompetition(GLGame game) {
         super(game);
 
         background = game.stateBackground;
-
-        filename = game.competition.filename;
-
-        if (filename.length() == 0) {
-            filename = game.competition.getNewFilename();
-        }
 
         Widget w;
 
@@ -70,8 +64,8 @@ class SaveCompetition extends GLScreen {
         w = new FilenameLabel();
         widgets.add(w);
 
-        w = new FilenameButton();
-        widgets.add(w);
+        fileNameButton = new FilenameButton();
+        widgets.add(fileNameButton);
 
         w = new SaveButton();
         widgets.add(w);
@@ -94,8 +88,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition.filename = filename;
-            game.competition.save();
+            game.competition.save(filename);
             game.setScreen(new Main(game));
         }
     }
@@ -129,6 +122,10 @@ class SaveCompetition extends GLScreen {
     private class FilenameButton extends InputButton {
 
         FilenameButton() {
+            String filename = game.competition.filename;
+            if (filename.length() == 0) {
+                filename = game.competition.getNewFilename();
+            }
             setGeometry(game.gui.WIDTH / 2 - 180 + 2, 550, 540, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
             setText(filename, Font.Align.CENTER, Assets.font14);
@@ -137,8 +134,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onChanged() {
-            game.competition.filename = text;
-            game.competition.save();
+            game.competition.save(text);
             game.setScreen(new Main(game));
         }
     }
@@ -153,8 +149,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onFire1Up() {
-            game.competition.filename = filename;
-            game.competition.save();
+            game.competition.save(fileNameButton.getText());
             game.setScreen(new Main(game));
         }
     }

@@ -35,7 +35,9 @@ public class League extends Competition implements Json.Serializable {
     public void write(Json json) {
         // config
         json.writeValue("name", name);
-        json.writeValue("filename", filename);
+        if (filename.length() > 0) {
+            json.writeValue("filename", filename);
+        }
         json.writeValue("category", category);
         json.writeValue("numberOfTeams", numberOfTeams);
         json.writeValue("rounds", rounds);

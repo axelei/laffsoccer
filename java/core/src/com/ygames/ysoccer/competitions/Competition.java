@@ -145,8 +145,9 @@ public abstract class Competition {
         return Assets.json.fromJson(Competition.class, fileHandle);
     }
 
-    public void save() {
+    public void save(String filename) {
         save(Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json"));
+        this.filename = filename;
     }
 
     public void save(FileHandle fileHandle) {
