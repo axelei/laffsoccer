@@ -50,8 +50,6 @@ public class GLGame extends Game {
         setScreenMode();
         Assets.load(settings);
 
-        restoreSaveGame();
-
         inputDevices = new InputDeviceList();
         reloadInputDevices();
 
@@ -66,6 +64,8 @@ public class GLGame extends Game {
         teamList = new ArrayList<Team>();
 
         menuMusic = new MenuMusic("music");
+
+        restoreSaveGame();
     }
 
     private void createSaveGame() {
@@ -188,6 +188,7 @@ public class GLGame extends Game {
 
     public void setCompetition(Competition competition) {
         this.competition = competition;
+        setState(GLGame.State.COMPETITION, competition.category);
     }
 
     public void clearCompetition() {

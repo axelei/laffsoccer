@@ -18,10 +18,18 @@ import java.util.List;
 
 class SaveCompetition extends GLScreen {
 
+    private String filename;
+
     SaveCompetition(GLGame game) {
         super(game);
 
         background = game.stateBackground;
+
+        filename = game.competition.filename;
+
+        if (filename.length() == 0) {
+            filename = game.competition.getNewFilename();
+        }
 
         Widget w;
 
@@ -64,13 +72,10 @@ class SaveCompetition extends GLScreen {
 
         w = new FilenameButton();
         widgets.add(w);
-        setSelectedWidget(w);
 
-        if (game.competition.filename.length() > 0) {
-            w = new SaveButton();
-            widgets.add(w);
-            setSelectedWidget(w);
-        }
+        w = new SaveButton();
+        widgets.add(w);
+        setSelectedWidget(w);
 
         w = new AbortButton();
         widgets.add(w);
@@ -126,7 +131,7 @@ class SaveCompetition extends GLScreen {
         FilenameButton() {
             setGeometry(game.gui.WIDTH / 2 - 180 + 2, 550, 540, 36);
             setColors(0x1769BD, 0x3A90E8, 0x10447A);
-            setText(game.competition.filename, Font.Align.CENTER, Assets.font14);
+            setText(filename, Font.Align.CENTER, Assets.font14);
             setEntryLimit(30);
         }
 
@@ -148,6 +153,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onFire1Up() {
+            game.competition.filename = filename;
             game.competition.save();
             game.setScreen(new Main(game));
         }

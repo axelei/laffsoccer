@@ -153,6 +153,16 @@ public abstract class Competition {
         fileHandle.writeString(Assets.json.toJson(this, Competition.class), false, "UTF-8");
     }
 
+    public String getNewFilename() {
+        String newFilename = name;
+        int i = 2;
+        while (Assets.savesFolder.child(getCategoryFolder()).child(newFilename + ".json").exists()) {
+            newFilename = name + " (" + i + ")";
+            i++;
+        }
+        return newFilename;
+    }
+
     public String getCategoryFolder() {
         switch (category) {
             case DIY_COMPETITION:

@@ -183,7 +183,7 @@ public class Assets {
 
         @Override
         public int compare(FileHandle o1, FileHandle o2) {
-            return o1.name().compareTo(o2.name());
+            return o1.nameWithoutExtension().compareTo(o2.nameWithoutExtension());
         }
     }
 
