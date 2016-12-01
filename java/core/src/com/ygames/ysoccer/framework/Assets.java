@@ -48,6 +48,7 @@ public class Assets {
     public static FileHandle teamsRootFolder;
     public static FileHandle competitionsRootFolder;
     public static FileHandle savesFolder;
+    public static FileHandle saveGame;
     public static Json json;
     public static int[] calendars = new int[4600];
     public static List<String> associations;
@@ -105,6 +106,7 @@ public class Assets {
         teamsRootFolder = Gdx.files.local("data/teams/");
         competitionsRootFolder = Gdx.files.local("data/competitions/");
         savesFolder = Gdx.files.local("data/saves/competitions/");
+        saveGame = savesFolder.child("savegame.json");
         json = new Json();
         json.addClassTag("CUP", Cup.class);
         json.addClassTag("LEAGUE", League.class);

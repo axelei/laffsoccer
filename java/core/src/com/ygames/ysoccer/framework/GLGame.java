@@ -50,6 +50,8 @@ public class GLGame extends Game {
         setScreenMode();
         Assets.load(settings);
 
+        restoreSaveGame();
+
         inputDevices = new InputDeviceList();
         reloadInputDevices();
 
@@ -64,6 +66,21 @@ public class GLGame extends Game {
         teamList = new ArrayList<Team>();
 
         menuMusic = new MenuMusic("music");
+    }
+
+    private void createSaveGame() {
+        if (hasCompetition()) {
+            competition.save(Assets.saveGame);
+        } else if (Assets.saveGame.exists()) {
+            Assets.saveGame.delete();
+        }
+    }
+
+    private void restoreSaveGame() {
+        if (Assets.saveGame.exists()) {
+            Competition competition = Competition.load(Assets.saveGame);
+            setCompetition(competition);
+        }
     }
 
     public void setScreenMode() {
@@ -100,6 +117,12 @@ public class GLGame extends Game {
         }
 
         deltaTime -= subFrames * SUBFRAME_DURATION;
+    }
+
+    @Override
+    public void pause() {
+        super.pause();
+        createSaveGame();
     }
 
     @Override

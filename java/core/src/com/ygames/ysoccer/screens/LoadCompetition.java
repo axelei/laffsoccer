@@ -39,7 +39,7 @@ class LoadCompetition extends GLScreen {
                 Collections.sort(files, Assets.fileComparatorByName);
                 for (FileHandle file : files) {
                     if (!file.isDirectory() && file.extension().equals("json")) {
-                        Competition competition = Assets.json.fromJson(Competition.class, file);
+                        Competition competition = Competition.load(file);
 
                         w = new CompetitionButton(file.nameWithoutExtension(), competition);
                         competitionButtonsList.add(w);

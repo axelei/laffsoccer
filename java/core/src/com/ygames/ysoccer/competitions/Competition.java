@@ -141,10 +141,15 @@ public abstract class Competition {
         return Pitch.Type.values()[p];
     }
 
-    public void save() {
-        files = null;
+    public static Competition load(FileHandle fileHandle) {
+        return Assets.json.fromJson(Competition.class, fileHandle);
+    }
 
-        FileHandle fileHandle = Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json");
+    public void save() {
+        save(Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json"));
+    }
+
+    public void save(FileHandle fileHandle) {
         fileHandle.writeString(Assets.json.toJson(this, Competition.class), false, "UTF-8");
     }
 
