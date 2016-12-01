@@ -84,10 +84,6 @@ public abstract class Widget {
         this.color.set(body, lightBorder, darkBorder);
     }
 
-    public void setColors(GlColor body, GlColor lightBorder, GlColor darkBorder) {
-        this.color.set(body.getRGB(), lightBorder.getRGB(), darkBorder.getRGB());
-    }
-
     public void setColors(WidgetColor color) {
         this.color.set(color.body, color.lightBorder, color.darkBorder);
     }

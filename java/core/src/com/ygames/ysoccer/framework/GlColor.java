@@ -4,43 +4,8 @@ public class GlColor {
 
     public enum Component {ALPHA, RED, GREEN, BLUE}
 
-    private int ARGB;
-
-    public GlColor(int rgb) {
-        this.ARGB = -16777216 | rgb;
-    }
-
-    // "#ABCDEF" format
-    public GlColor(String hexString) {
-        this(Integer.parseInt(hexString.substring(1), 16));
-    }
-
     public static int valueOf(String hexString) {
         return Integer.parseInt(hexString.substring(1), 16);
-    }
-
-    public int getAlpha() {
-        return this.getRGB() >> 24 & 255;
-    }
-
-    public int getRed() {
-        return this.getRGB() >> 16 & 255;
-    }
-
-    public int getGreen() {
-        return this.getRGB() >> 8 & 255;
-    }
-
-    public int getBlue() {
-        return this.getRGB() & 255;
-    }
-
-    public int getRGB() {
-        return this.ARGB;
-    }
-
-    public String toHexString() {
-        return String.format("#%02x%02x%02x", getRed(), getGreen(), getBlue());
     }
 
     public static String toHexString(int color) {
@@ -83,10 +48,6 @@ public class GlColor {
 
     public static int blue(int rgb) {
         return (rgb & 0xFF);
-    }
-
-    public boolean equals(Object color) {
-        return color instanceof GlColor && ((GlColor) color).getRGB() == this.getRGB();
     }
 
     public static int brighter(int color) {
