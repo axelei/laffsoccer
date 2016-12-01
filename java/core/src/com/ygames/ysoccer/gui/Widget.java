@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.framework.GlColor;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Comparator;
@@ -89,7 +89,7 @@ public abstract class Widget {
     }
 
     public void setColors(int color) {
-        setColors(color, GlColor.brighter(color), GlColor.darker(color, 0.7D));
+        setColors(color, GLColor.brighter(color), GLColor.darker(color, 0.7D));
     }
 
     public void setText(String text) {

@@ -6,7 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.GlColor;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.LogoPicture;
@@ -138,7 +138,7 @@ class EditTeam extends GLScreen {
             kitEditButtons[1 + 4 * f] = w;
 
             for (int c = 1; c < 4; c++) {
-                w = new ColorComponentButton(Kit.Field.values()[f], GlColor.Component.values()[c], 525 + c * 45, 418 + 54 * f + 23);
+                w = new ColorComponentButton(Kit.Field.values()[f], GLColor.Component.values()[c], 525 + c * 45, 418 + 54 * f + 23);
                 kitEditButtons[1 + 4 * f + c] = w;
                 widgets.add(w);
             }
@@ -648,10 +648,10 @@ class EditTeam extends GLScreen {
     private class ColorComponentButton extends Button {
 
         Kit.Field field;
-        GlColor.Component component;
+        GLColor.Component component;
         int value;
 
-        ColorComponentButton(Kit.Field field, GlColor.Component component, int x, int y) {
+        ColorComponentButton(Kit.Field field, GLColor.Component component, int x, int y) {
             this.field = field;
             this.component = component;
             setGeometry(x, y, 43, 24);
@@ -674,7 +674,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            this.value = GlColor.getComponentValue(getColor(), component);
+            this.value = GLColor.getComponentValue(getColor(), component);
             setText(String.format("%02X", value));
         }
 
@@ -703,15 +703,15 @@ class EditTeam extends GLScreen {
             int color = getColor();
             switch (component) {
                 case RED:
-                    color = GlColor.rgb(value, GlColor.green(color), GlColor.blue(color));
+                    color = GLColor.rgb(value, GLColor.green(color), GLColor.blue(color));
                     break;
 
                 case GREEN:
-                    color = GlColor.rgb(GlColor.red(color), value, GlColor.blue(color));
+                    color = GLColor.rgb(GLColor.red(color), value, GLColor.blue(color));
                     break;
 
                 case BLUE:
-                    color = GlColor.rgb(GlColor.red(color), GlColor.green(color), value);
+                    color = GLColor.rgb(GLColor.red(color), GLColor.green(color), value);
                     break;
             }
             switch (field) {

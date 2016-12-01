@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.framework;
 
-public class GlColor {
+public class GLColor {
 
     public enum Component {ALPHA, RED, GREEN, BLUE}
 

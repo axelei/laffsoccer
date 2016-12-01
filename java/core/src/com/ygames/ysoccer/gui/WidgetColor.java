@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.gui;
 
-import com.ygames.ysoccer.framework.GlColor;
+import com.ygames.ysoccer.framework.GLColor;
 
 public class WidgetColor {
 
@@ -24,10 +24,10 @@ public class WidgetColor {
     }
 
     public WidgetColor brighter() {
-        return new WidgetColor(GlColor.brighter(body), GlColor.brighter(lightBorder), GlColor.brighter(darkBorder));
+        return new WidgetColor(GLColor.brighter(body), GLColor.brighter(lightBorder), GLColor.brighter(darkBorder));
     }
 
     public WidgetColor darker() {
-        return new WidgetColor(GlColor.darker(body), GlColor.darker(lightBorder), GlColor.darker(darkBorder));
+        return new WidgetColor(GLColor.darker(body), GLColor.darker(lightBorder), GLColor.darker(darkBorder));
     }
 }

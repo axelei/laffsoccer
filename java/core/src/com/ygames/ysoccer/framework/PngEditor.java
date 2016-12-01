@@ -90,7 +90,7 @@ class PngEditor {
                 int g = Integer.parseInt(colors[1]);
                 int b = Integer.parseInt(colors[2]);
 
-                palette[i] = GlColor.rgb(r, g, b);
+                palette[i] = GLColor.rgb(r, g, b);
             }
 
             is.close();
@@ -109,9 +109,9 @@ class PngEditor {
 
         // write new palette
         for (int i = 0; i < (dataSize / 3); i++) {
-            bytes[paletteOffset + 8 + 3 * i] = (byte) GlColor.red(palette[i]);
-            bytes[paletteOffset + 8 + 3 * i + 1] = (byte) GlColor.green(palette[i]);
-            bytes[paletteOffset + 8 + 3 * i + 2] = (byte) GlColor.blue(palette[i]);
+            bytes[paletteOffset + 8 + 3 * i] = (byte) GLColor.red(palette[i]);
+            bytes[paletteOffset + 8 + 3 * i + 1] = (byte) GLColor.green(palette[i]);
+            bytes[paletteOffset + 8 + 3 * i + 2] = (byte) GLColor.blue(palette[i]);
         }
 
         // write new crc
@@ -159,12 +159,12 @@ class PngEditor {
 
             int len2 = rgbPairs.size();
             for (int j = 0; j < len2; j++) {
-                int color = GlColor.rgb(r, g, b);
+                int color = GLColor.rgb(r, g, b);
                 RgbPair pair = rgbPairs.get(j);
                 if (color == pair.rgbOld) {
-                    bytes[paletteOffset + 8 + 3 * i] = (byte) GlColor.red(pair.rgbNew);
-                    bytes[paletteOffset + 8 + 3 * i + 1] = (byte) GlColor.green(pair.rgbNew);
-                    bytes[paletteOffset + 8 + 3 * i + 2] = (byte) GlColor.blue(pair.rgbNew);
+                    bytes[paletteOffset + 8 + 3 * i] = (byte) GLColor.red(pair.rgbNew);
+                    bytes[paletteOffset + 8 + 3 * i + 1] = (byte) GLColor.green(pair.rgbNew);
+                    bytes[paletteOffset + 8 + 3 * i + 2] = (byte) GLColor.blue(pair.rgbNew);
                 }
             }
         }

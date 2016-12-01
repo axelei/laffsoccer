@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.framework.GlColor;
+import com.ygames.ysoccer.framework.GLColor;
 
 public class Button extends Widget {
 
@@ -98,11 +98,11 @@ public class Button extends Widget {
         int gl = (int) Math.abs(((sweepSpeed * Math.abs(System.currentTimeMillis())) % 200) - 100) + 100;
 
         // border color 1
-        int bdr1 = GlColor.rgb(gl, gl, gl);
+        int bdr1 = GLColor.rgb(gl, gl, gl);
 
         // border color 2
         gl = gl - 50;
-        int bdr2 = GlColor.rgb(gl, gl, gl);
+        int bdr2 = GLColor.rgb(gl, gl, gl);
 
         drawBorder(shapeRenderer, x, y, w, h, bdr1, bdr2);
     }

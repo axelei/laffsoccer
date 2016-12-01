@@ -20,15 +20,15 @@ public class Color3 implements Json.Serializable {
 
     @Override
     public void write(Json json) {
-        json.writeValue("color1", GlColor.toHexString(color1));
-        json.writeValue("color2", GlColor.toHexString(color2));
-        json.writeValue("color3", GlColor.toHexString(color3));
+        json.writeValue("color1", GLColor.toHexString(color1));
+        json.writeValue("color2", GLColor.toHexString(color2));
+        json.writeValue("color3", GLColor.toHexString(color3));
     }
 
     @Override
     public void read(Json json, JsonValue jsonMap) {
-        color1 = GlColor.valueOf(jsonMap.getString("color1"));
-        color2 = GlColor.valueOf(jsonMap.getString("color2"));
-        color3 = GlColor.valueOf(jsonMap.getString("color3"));
+        color1 = GLColor.valueOf(jsonMap.getString("color1"));
+        color2 = GLColor.valueOf(jsonMap.getString("color2"));
+        color3 = GLColor.valueOf(jsonMap.getString("color3"));
     }
 }

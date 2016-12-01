@@ -11,6 +11,6 @@ public class GLShapeRenderer extends ShapeRenderer {
     }
 
     public void setColor(int rgb, float alpha) {
-        setColor(graphics.light * GlColor.red(rgb) / 65025f, graphics.light * GlColor.green(rgb) / 65025f, graphics.light * GlColor.blue(rgb) / 65025f, alpha);
+        setColor(graphics.light * GLColor.red(rgb) / 65025f, graphics.light * GLColor.green(rgb) / 65025f, graphics.light * GLColor.blue(rgb) / 65025f, alpha);
     }
 }

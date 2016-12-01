@@ -12,7 +12,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.GlColor;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -415,10 +415,10 @@ class ExportTeams extends GLScreen {
 
     private int getKitColorIndex(int color) {
         int index = 0;
-        float difference = GlColor.difference(color, Kit.colors[0]);
+        float difference = GLColor.difference(color, Kit.colors[0]);
         for (int i = 1; i < 10; i++) {
-            if (GlColor.difference(color, Kit.colors[i]) < difference) {
-                difference = GlColor.difference(color, Kit.colors[i]);
+            if (GLColor.difference(color, Kit.colors[i]) < difference) {
+                difference = GLColor.difference(color, Kit.colors[i]);
                 index = i;
             }
         }
