@@ -3,12 +3,13 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
@@ -28,8 +29,8 @@ public class MatchRenderer {
 
     private static final float guiAlpha = 0.9f;
 
-    SpriteBatch batch;
-    private ShapeRenderer shapeRenderer;
+    GLSpriteBatch batch;
+    private GLShapeRenderer shapeRenderer;
     private OrthographicCamera camera;
     int screenWidth;
     int screenHeight;
@@ -151,7 +152,7 @@ public class MatchRenderer {
         batch.setProjectionMatrix(camera.combined);
         shapeRenderer.setProjectionMatrix(camera.combined);
         batch.begin();
-        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, guiAlpha);
 
         // ball owner
         if (displayBallOwner && match.ball.owner != null) {
@@ -214,7 +215,7 @@ public class MatchRenderer {
     }
 
     private void drawShadows(int subframe) {
-        batch.setColor(1, 1, 1, match.settings.shadowAlpha);
+        batch.setColor(0xFFFFFF, match.settings.shadowAlpha);
 
         Data d = match.ball.data[subframe];
         batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 + 0.46f * d.z);
@@ -264,7 +265,7 @@ public class MatchRenderer {
             }
         }
 
-        batch.setColor(1, 1, 1, 1);
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     private void drawControlledPlayersNumbers() {
@@ -304,7 +305,7 @@ public class MatchRenderer {
     }
 
     private void drawRain(MatchSettings matchSettings, int subframe) {
-        batch.setColor(1f, 1f, 1f, 0.6f);
+        batch.setColor(0xFFFFFF, 0.6f);
         Assets.random.setSeed(1);
         for (int i = 1; i <= 40 * matchSettings.weatherStrength; i++) {
             int x = Assets.random.nextInt(modW);
@@ -324,11 +325,11 @@ public class MatchRenderer {
                 }
             }
         }
-        batch.setColor(1f, 1f, 1f, 1f);
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     private void drawSnow(MatchSettings matchSettings, int subframe) {
-        batch.setColor(1f, 1f, 1f, 0.7f);
+        batch.setColor(0xFFFFFF, 0.7f);
 
         Assets.random.setSeed(1);
         for (int i = 1; i <= 30 * matchSettings.weatherStrength; i++) {
@@ -344,11 +345,11 @@ public class MatchRenderer {
                 }
             }
         }
-        batch.setColor(1f, 1f, 1f, 1f);
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     private void drawFog(MatchSettings matchSettings, int subframe) {
-        batch.setColor(1f, 1f, 1f, 0.25f * matchSettings.weatherStrength);
+        batch.setColor(0xFFFFFF, 0.25f * matchSettings.weatherStrength);
 
         int TILE_WIDTH = 256;
         int fogX = -Const.CENTER_X + vcameraX[subframe] - 2 * TILE_WIDTH
@@ -364,7 +365,7 @@ public class MatchRenderer {
             }
             x = x + TILE_WIDTH;
         }
-        batch.setColor(1f, 1f, 1f, 1f);
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     private void drawTime() {
@@ -405,18 +406,18 @@ public class MatchRenderer {
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(1, 1, 1, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
 
         shapeRenderer.rect(10, y0, guiWidth / 2 - 22, 2);
         shapeRenderer.rect(guiWidth / 2 + 12, y0, guiWidth / 2 - 22, 2);
 
-        shapeRenderer.setColor(0.1f, 0.1f, 0.1f, guiAlpha);
+        shapeRenderer.setColor(0x242424, guiAlpha);
         shapeRenderer.rect(12, y0 + 2, guiWidth / 2 - 22, 2);
         shapeRenderer.rect(guiWidth / 2 + 14, y0 + 2, guiWidth / 2 - 22, 2);
 
         shapeRenderer.end();
         batch.begin();
-        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, guiAlpha);
 
         // home score
         int f0 = match.stats[Match.HOME].goals % 10;
@@ -471,7 +472,7 @@ public class MatchRenderer {
         fadeRect(l + 2, i + 1, r - 2, b - 2, 0.35f, 0x000000);
 
         // frame shadow
-        GLGraphics.setShapeRendererColor(shapeRenderer, 0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, guiAlpha);
         drawFrame(l, t, r - l, b - t);
 
         l = l - 2;
@@ -480,12 +481,12 @@ public class MatchRenderer {
         b = b - 2;
 
         // frame
-        GLGraphics.setShapeRendererColor(shapeRenderer, 0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
         drawFrame(l, t, r - l, b - t);
 
         shapeRenderer.end();
         batch.begin();
-        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, guiAlpha);
 
         MatchStats homeStats = match.stats[Match.HOME];
         MatchStats awayStats = match.stats[Match.AWAY];
@@ -543,11 +544,11 @@ public class MatchRenderer {
         Assets.font14.draw(batch, Assets.strings.get("MATCH STATISTICS.SENDINGS OFF"), hw, i, Font.Align.CENTER);
         Assets.font14.draw(batch, awayStats.redCards, rc, i, Font.Align.CENTER);
 
-        GLGraphics.setSpriteBatchColor(batch, 0xFFFFFF, 1);
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     private void fadeRect(int x0, int y0, int x1, int y1, float alpha, int color) {
-        GLGraphics.setShapeRendererColor(shapeRenderer, color, alpha);
+        shapeRenderer.setColor(color, alpha);
         shapeRenderer.rect(x0, y0, x1 - x0, y1 - y0);
     }
 

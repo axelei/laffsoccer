@@ -5,8 +5,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
@@ -17,6 +15,10 @@ import java.util.List;
 public abstract class GLScreen implements Screen {
 
     protected GLGame game;
+    private OrthographicCamera camera;
+    private GLSpriteBatch batch;
+    private GLShapeRenderer shapeRenderer;
+
     protected Texture background;
     protected List<Widget> widgets;
     protected Widget selectedWidget;
@@ -24,6 +26,10 @@ public abstract class GLScreen implements Screen {
 
     public GLScreen(GLGame game) {
         this.game = game;
+        camera = game.glGraphics.camera;
+        batch = game.glGraphics.batch;
+        shapeRenderer = game.glGraphics.shapeRenderer;
+
         widgets = new ArrayList<Widget>();
         playMenuMusic = true;
     }
@@ -34,7 +40,7 @@ public abstract class GLScreen implements Screen {
         game.menuMusic.update(playMenuMusic ? game.settings.musicVolume : 0);
 
         if (game.settings.mouseEnabled) {
-            game.mouse.read(game.glGraphics.camera);
+            game.mouse.read(camera);
 
             for (Widget w : widgets) {
                 if (w.contains(game.mouse.position.x, game.mouse.position.y)) {
@@ -85,19 +91,20 @@ public abstract class GLScreen implements Screen {
             selectedWidget.fireEvent(widgetEvent);
         }
 
-        OrthographicCamera camera = game.glGraphics.camera;
-        SpriteBatch batch = game.glGraphics.batch;
-        ShapeRenderer shapeRenderer = game.glGraphics.shapeRenderer;
-
         camera.setToOrtho(true, game.gui.screenWidth, game.gui.screenHeight);
         camera.translate(-game.gui.originX, -game.gui.originY);
         camera.update();
+
+        batch.setProjectionMatrix(camera.combined);
+        batch.setColor(0xFFFFFF, 1f);
+
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.setColor(0xFFFFFF, 1f);
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // background
-        batch.setProjectionMatrix(camera.combined);
         if (background != null) {
             batch.disableBlending();
             batch.begin();
@@ -107,9 +114,8 @@ public abstract class GLScreen implements Screen {
         }
 
         // widgets
-        shapeRenderer.setProjectionMatrix(camera.combined);
         for (Widget widget : widgets) {
-            widget.render(game.glGraphics);
+            widget.render(game.glGraphics.batch, game.glGraphics.shapeRenderer);
         }
 
         if (game.menuMusic.isPlaying()) {

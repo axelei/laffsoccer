@@ -1,8 +1,8 @@
 package com.ygames.ysoccer.gui;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 
 public class Picture extends Widget {
 
@@ -19,13 +19,12 @@ public class Picture extends Widget {
     }
 
     @Override
-    public void render(GLGraphics glGraphics) {
+    public void render(GLSpriteBatch batch, GLShapeRenderer shapeRenderer) {
         if (!visible) {
             return;
         }
 
         if (textureRegion != null) {
-            SpriteBatch batch = glGraphics.batch;
             batch.begin();
             batch.draw(textureRegion, x, y, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
             batch.end();

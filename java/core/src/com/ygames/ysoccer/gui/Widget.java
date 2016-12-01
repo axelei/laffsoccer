@@ -2,7 +2,8 @@ package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.framework.GlColor;
 import com.ygames.ysoccer.math.Emath;
 
@@ -52,7 +53,7 @@ public abstract class Widget {
         dirty = true;
     }
 
-    public abstract void render(GLGraphics glGraphics);
+    public abstract void render(GLSpriteBatch batch, GLShapeRenderer shapeRenderer);
 
     public void setGeometry(int x, int y, int w, int h) {
         setPosition(x, y);

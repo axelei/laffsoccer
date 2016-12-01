@@ -7,10 +7,10 @@ import com.ygames.ysoccer.match.Match;
 class MatchScreen extends GLScreen {
 
     Match match;
-    boolean matchStarted;
-    boolean matchPaused;
+    private boolean matchStarted;
+    private boolean matchPaused;
 
-    float timer;
+    private float timer;
 
     MatchScreen(GLGame game, Match match) {
         super(game);
@@ -19,6 +19,7 @@ class MatchScreen extends GLScreen {
 
         matchStarted = false;
         matchPaused = false;
+        game.glGraphics.light = 0;
     }
 
     @Override
@@ -27,7 +28,7 @@ class MatchScreen extends GLScreen {
 
         // TODO: wait texture loading instead
         timer += deltaTime;
-        if (!matchStarted && timer > 2.0f) {
+        if (!matchStarted && timer > 0.1f) {
             match.start();
             matchStarted = true;
         }

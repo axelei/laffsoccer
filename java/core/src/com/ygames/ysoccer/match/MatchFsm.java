@@ -114,13 +114,11 @@ public class MatchFsm {
 
         // fade in/out
         if (currentAction != null && currentAction.type == ActionType.FADE_OUT) {
-            // TODO
-            // match.matchRenderer.glGraphics.light = 8 * (currentAction.timer - 1);
+            match.game.glGraphics.light = 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
         if (currentAction != null && currentAction.type == ActionType.FADE_IN) {
-            // TODO
-            // match.matchRenderer.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
+            match.game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
 

@@ -6,8 +6,9 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.Align;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.gui.Widget;
 
 import java.util.Arrays;
@@ -53,14 +54,14 @@ public class Intro extends GLScreen {
         }
 
         @Override
-        public void render(GLGraphics glGraphics) {
-            glGraphics.batch.begin();
+        public void render(GLSpriteBatch batch, GLShapeRenderer shapeRenderer) {
+            batch.begin();
             int y = top;
             for (String line : lines) {
-                font.draw(glGraphics.batch, line, game.gui.WIDTH / 2, y, 0, Align.center, true);
+                font.draw(batch, line, game.gui.WIDTH / 2, y, 0, Align.center, true);
                 y += 18;
             }
-            glGraphics.batch.end();
+            batch.end();
         }
     }
 

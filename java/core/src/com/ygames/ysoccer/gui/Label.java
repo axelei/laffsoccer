@@ -1,21 +1,22 @@
 package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 
 public class Label extends Widget {
 
     @Override
-    public void render(GLGraphics glGraphics) {
+    public void render(GLSpriteBatch batch, GLShapeRenderer shapeRenderer) {
         if (!visible) {
             return;
         }
 
-        glGraphics.batch.begin();
+        batch.begin();
 
-        drawText(glGraphics.batch);
+        drawText(batch);
 
-        glGraphics.batch.end();
+        batch.end();
     }
 
     private void drawText(SpriteBatch batch) {

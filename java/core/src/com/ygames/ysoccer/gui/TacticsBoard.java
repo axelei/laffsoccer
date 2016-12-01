@@ -4,7 +4,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
@@ -57,14 +58,14 @@ public class TacticsBoard extends Widget {
     }
 
     @Override
-    public void render(GLGraphics glGraphics) {
+    public void render(GLSpriteBatch batch, GLShapeRenderer shapeRenderer) {
         if (!visible) {
             return;
         }
 
-        glGraphics.batch.begin();
+        batch.begin();
 
-        glGraphics.batch.draw(textureRegion, x, y, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
+        batch.draw(textureRegion, x, y, textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
 
         if ((!compareTactics) || (viewOpponent)) {
 
@@ -118,7 +119,7 @@ public class TacticsBoard extends Widget {
                         player.shirtName.substring(0, 8) + "." :
                         player.shirtName;
 
-                font.draw(glGraphics.batch, name, tx, ty, align);
+                font.draw(batch, name, tx, ty, align);
             }
 
         } else {
@@ -165,15 +166,15 @@ public class TacticsBoard extends Widget {
                     } else {
                         ty = y + 14 + 28 * positions[baseTactics][ply][1];
                     }
-                    glGraphics.batch.draw(Assets.pieces[tm][ply > 0 ? 1 : 0], tx, ty);
+                    batch.draw(Assets.pieces[tm][ply > 0 ? 1 : 0], tx, ty);
 
                     // number
                     Player player = teamToShow.players.get(ply);
-                    Assets.font10.draw(glGraphics.batch, "" + player.number, tx + 10, ty - 1, Font.Align.CENTER);
+                    Assets.font10.draw(batch, "" + player.number, tx + 10, ty - 1, Font.Align.CENTER);
                 }
             }
         }
 
-        glGraphics.batch.end();
+        batch.end();
     }
 }
