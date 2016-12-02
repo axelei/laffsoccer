@@ -62,6 +62,7 @@ public class League extends Competition implements Json.Serializable {
         json.writeValue("calendarCurrent", calendarCurrent, Match[].class, Match.class);
     }
 
+    @Override
     public void start(ArrayList<Team> teams) {
         super.start(teams);
         calendarGenerate();
@@ -69,10 +70,7 @@ public class League extends Competition implements Json.Serializable {
 
     @Override
     public void restart() {
-        currentRound = 0;
-        currentMatch = 0;
-        calendarGenerate();
-        start(loadTeams());
+        resetCalendar();
     }
 
     public Match getMatch() {
@@ -135,6 +133,21 @@ public class League extends Competition implements Json.Serializable {
         currentMatch = 0;
         currentRound = 0;
         updateMonth();
+    }
+
+    private void resetCalendar() {
+        for (Match match : calendarCurrent) {
+            resetMatch(match);
+        }
+
+        currentRound = 0;
+        currentMatch = 0;
+        updateMonth();
+    }
+
+    private void resetMatch(Match match) {
+        match.result = null;
+        match.ended = false;
     }
 
     public void generateResult() {

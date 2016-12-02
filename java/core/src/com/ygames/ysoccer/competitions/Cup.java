@@ -81,6 +81,7 @@ public class Cup extends Competition implements Json.Serializable {
         json.writeValue("calendarCurrent", calendarCurrent, Match[].class, Match.class);
     }
 
+    @Override
     public void start(ArrayList<Team> teams) {
         super.start(teams);
         for (int i = 0; i < teams.size(); i++) {

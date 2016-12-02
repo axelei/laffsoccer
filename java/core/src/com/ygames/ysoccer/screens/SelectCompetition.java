@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -160,7 +161,7 @@ class SelectCompetition extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.teamList = competition.loadTeams();
+            game.teamList = Team.loadTeamList(competition.files.teams);
             game.setScreen(new AllSelectedTeams(game, Assets.teamsRootFolder.child(competition.files.folder), competition.files.league, competition));
         }
     }

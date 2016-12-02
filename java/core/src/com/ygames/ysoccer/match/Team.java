@@ -558,4 +558,18 @@ public class Team {
         fh.writeString(Assets.json.prettyPrint(this), false, "UTF-8");
         path = tmp;
     }
+
+    public static ArrayList<Team> loadTeamList(List<String> paths) {
+        ArrayList<Team> teamList = new ArrayList<Team>();
+        for (String path : paths) {
+            FileHandle teamFile = Assets.teamsRootFolder.child(path);
+            if (teamFile.exists()) {
+                Team team = Assets.json.fromJson(Team.class, teamFile.readString("UTF-8"));
+                team.path = path;
+                team.controlMode = Team.ControlMode.COMPUTER;
+                teamList.add(team);
+            }
+        }
+        return teamList;
+    }
 }

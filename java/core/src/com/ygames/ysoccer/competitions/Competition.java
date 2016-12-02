@@ -59,7 +59,7 @@ public abstract class Competition {
     }
 
     public void start(ArrayList<Team> teams) {
-        this.teams = (ArrayList<Team>) teams.clone();
+        this.teams = new ArrayList<Team>(teams);
     }
 
     public abstract Match getMatch();
@@ -69,20 +69,6 @@ public abstract class Competition {
     }
 
     public void restart() {
-    }
-
-    public ArrayList<Team> loadTeams() {
-        ArrayList<Team> teamList = new ArrayList<Team>();
-        for (String path : files.teams) {
-            FileHandle teamFile = Assets.teamsRootFolder.child(path);
-            if (teamFile.exists()) {
-                Team team = Assets.json.fromJson(Team.class, teamFile.readString("UTF-8"));
-                team.path = path;
-                team.controlMode = Team.ControlMode.COMPUTER;
-                teamList.add(team);
-            }
-        }
-        return teamList;
     }
 
     public static String getCategoryLabel(Category category) {
