@@ -65,7 +65,7 @@ class PlayCup extends GLScreen {
             w.setGeometry(640 - 45, dy + 64 * m, 30, 26);
             w.setText("", Font.Align.RIGHT, Assets.font10);
             if (match.ended) {
-                w.setText(match.result.homeGoals);
+                w.setText(match.result[HOME]);
             }
             resultWidgets.add(w);
             widgets.add(w);
@@ -79,7 +79,7 @@ class PlayCup extends GLScreen {
             w.setGeometry(640 + 15, dy + 64 * m, 30, 26);
             w.setText("", Font.Align.LEFT, Assets.font10);
             if (match.ended) {
-                w.setText(match.result.awayGoals);
+                w.setText(match.result[AWAY]);
             }
             resultWidgets.add(w);
             widgets.add(w);
@@ -111,7 +111,7 @@ class PlayCup extends GLScreen {
         w.setGeometry(game.gui.WIDTH / 2 - 60, 618, 40, 36);
         w.setText("", Font.Align.RIGHT, Assets.font14);
         if (match.ended) {
-            w.setText(match.result.homeGoals);
+            w.setText(match.result[HOME]);
         }
         widgets.add(w);
 
@@ -131,7 +131,7 @@ class PlayCup extends GLScreen {
         w.setGeometry(game.gui.WIDTH / 2 + 20, 618, 40, 36);
         w.setText("", Font.Align.LEFT, Assets.font14);
         if (match.ended) {
-            w.setText(match.result.awayGoals);
+            w.setText(match.result[AWAY]);
         }
         widgets.add(w);
 

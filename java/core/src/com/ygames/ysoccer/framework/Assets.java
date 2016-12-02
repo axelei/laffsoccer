@@ -68,17 +68,17 @@ public class Assets {
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static Texture goalTopA;
     public static Texture goalBottom;
-    public static TextureRegion keeper[][][][] = new TextureRegion[2][10][8][19];
+    public static TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
     public static Map<Hair, TextureRegion[][]> hairs = new HashMap<Hair, TextureRegion[][]>();
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
     public static TextureRegion[][] playerNumbers = new TextureRegion[10][2];
-    public static TextureRegion time[] = new TextureRegion[11];
-    public static TextureRegion score[] = new TextureRegion[11];
-    public static TextureRegion replay[][] = new TextureRegion[16][2];
-    public static TextureRegion replaySpeed[][] = new TextureRegion[3][3];
+    public static TextureRegion[] time = new TextureRegion[11];
+    public static TextureRegion[] score = new TextureRegion[11];
+    public static TextureRegion[][] replay = new TextureRegion[16][2];
+    public static TextureRegion[][] replaySpeed = new TextureRegion[3][3];
     public static TextureRegion[] rain = new TextureRegion[4];
     public static TextureRegion[] snow = new TextureRegion[3];
     public static Texture fog;
@@ -534,7 +534,7 @@ public class Assets {
             List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
             player.addHairColors(rgbPairs);
             Texture texture = loadTexture("images/player/hairstyles/" + player.hairStyle + ".png", rgbPairs);
-            TextureRegion textureRegion[][] = new TextureRegion[8][10];
+            TextureRegion[][] textureRegion = new TextureRegion[8][10];
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 10; j++) {
                     textureRegion[i][j] = new TextureRegion(texture, 21 * i, 21 * j, 20, 20);

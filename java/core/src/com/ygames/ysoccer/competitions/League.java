@@ -169,7 +169,7 @@ public class League extends Competition implements Json.Serializable {
         Team awayTeam = getTeam(AWAY);
 
         Match match = getMatch();
-        match.result = new Match.Result(homeGoals, awayGoals);
+        match.setResult(homeGoals, awayGoals);
         homeTeam.updateStats(homeGoals, awayGoals, pointsForAWin);
         awayTeam.updateStats(awayGoals, homeGoals, pointsForAWin);
         match.ended = true;

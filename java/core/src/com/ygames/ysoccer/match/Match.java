@@ -16,11 +16,11 @@ public class Match implements Json.Serializable {
     public static final int AWAY = 1;
     public int teams[] = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
-    public Result result;
+    public int[] result;
     public boolean includesExtraTime;
-    public Result resultAfter90;
-    public Result resultAfterPenalties;
-    public Result oldResult;
+    public int[] resultAfter90;
+    public int[] resultAfterPenalties;
+    public int[] oldResult;
     public int qualified = -1;
     public String status = "";
     public boolean ended;
@@ -95,21 +95,28 @@ public class Match implements Json.Serializable {
     @Override
     public void write(Json json) {
         json.writeValue("teams", teams);
-        json.writeValue("result", result);
+        if (result != null) {
+            json.writeValue("result", result);
+        }
+        if (resultAfter90 != null) {
+            json.writeValue("resultAfter90", resultAfter90);
+        }
+        if (resultAfterPenalties != null) {
+            json.writeValue("resultAfterPenalties", resultAfterPenalties);
+        }
         json.writeValue("ended", ended);
     }
 
-    public static class Result {
-        public int homeGoals;
-        public int awayGoals;
+    public void setResult(int homeGoals, int awayGoals) {
+        result = new int[]{homeGoals, awayGoals};
+    }
 
-        public Result() {
-        }
+    public void setResultAfter90(int homeGoals, int awayGoals) {
+        resultAfter90 = new int[]{homeGoals, awayGoals};
+    }
 
-        public Result(int homeGoals, int awayGoals) {
-            this.homeGoals = homeGoals;
-            this.awayGoals = awayGoals;
-        }
+    public void setResultAfterPenalties(int homeGoals, int awayGoals) {
+        resultAfterPenalties = new int[]{homeGoals, awayGoals};
     }
 
     public static int generateScore(Team teamA, Team teamB, boolean extraTimeResult) {

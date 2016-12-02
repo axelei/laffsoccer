@@ -177,7 +177,7 @@ class PlayLeague extends GLScreen {
             w.setGeometry(game.gui.WIDTH / 2 - 60, 618, 40, 36);
             w.setText("", Font.Align.RIGHT, Assets.font14);
             if (match.ended) {
-                w.setText(match.result.homeGoals);
+                w.setText(match.result[HOME]);
             }
             widgets.add(w);
 
@@ -197,7 +197,7 @@ class PlayLeague extends GLScreen {
             w.setGeometry(game.gui.WIDTH / 2 + 20, 618, 40, 36);
             w.setText("", Font.Align.LEFT, Assets.font14);
             if (match.ended) {
-                w.setText(match.result.awayGoals);
+                w.setText(match.result[AWAY]);
             }
             widgets.add(w);
 
