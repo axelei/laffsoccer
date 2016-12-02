@@ -70,6 +70,7 @@ public class League extends Competition implements Json.Serializable {
 
     @Override
     public void restart() {
+        super.restart();
         resetCalendar();
     }
 

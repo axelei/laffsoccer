@@ -95,7 +95,6 @@ public class Match implements Json.Serializable {
     @Override
     public void write(Json json) {
         json.writeValue("teams", teams);
-        json.writeValue("stats", stats);
         json.writeValue("result", result);
         json.writeValue("ended", ended);
     }

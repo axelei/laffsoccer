@@ -69,6 +69,10 @@ public abstract class Competition {
     }
 
     public void restart() {
+        userPrefersResult = false;
+        for (Team team : teams) {
+            team.resetStatistics();
+        }
     }
 
     public static String getCategoryLabel(Category category) {
@@ -131,7 +135,8 @@ public abstract class Competition {
         return Assets.json.fromJson(Competition.class, fileHandle);
     }
 
-    public void save(String filename) {
+    public void saveAndSetFilename(String filename) {
+        this.filename = "";
         save(Assets.savesFolder.child(getCategoryFolder()).child(filename + ".json"));
         this.filename = filename;
     }

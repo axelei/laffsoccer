@@ -572,4 +572,16 @@ public class Team {
         }
         return teamList;
     }
+
+    public void resetStatistics() {
+        won = 0;
+        drawn = 0;
+        lost = 0;
+        goalsFor = 0;
+        goalsAgainst = 0;
+        points = 0;
+        for (Player player : players) {
+            player.goals = 0;
+        }
+    }
 }

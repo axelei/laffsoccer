@@ -88,7 +88,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.competition.save(filename);
+            game.competition.saveAndSetFilename(filename);
             game.setScreen(new Main(game));
         }
     }
@@ -134,7 +134,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onChanged() {
-            game.competition.save(text);
+            game.competition.saveAndSetFilename(text);
             game.setScreen(new Main(game));
         }
     }
@@ -149,7 +149,7 @@ class SaveCompetition extends GLScreen {
 
         @Override
         public void onFire1Up() {
-            game.competition.save(fileNameButton.getText());
+            game.competition.saveAndSetFilename(fileNameButton.getText());
             game.setScreen(new Main(game));
         }
     }

@@ -92,6 +92,7 @@ public class Cup extends Competition implements Json.Serializable {
 
     @Override
     public void restart() {
+        super.restart();
         currentRound = 0;
         currentMatch = 0;
         currentLeg = 0;
