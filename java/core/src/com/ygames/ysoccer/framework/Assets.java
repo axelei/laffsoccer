@@ -68,7 +68,7 @@ public class Assets {
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static Texture goalTopA;
     public static Texture goalBottom;
-    public static TextureRegion keeper[][] = new TextureRegion[8][19];
+    public static TextureRegion keeper[][][][] = new TextureRegion[2][10][8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
     public static Map<Hair, TextureRegion[][]> hairs = new HashMap<Hair, TextureRegion[][]>();
@@ -465,12 +465,16 @@ public class Assets {
         }
     }
 
-    public static void loadKeeper() {
-        Texture keeper = new Texture("images/player/keeper.png");
-        for (int frameX = 0; frameX < 8; frameX++) {
-            for (int frameY = 0; frameY < 19; frameY++) {
-                Assets.keeper[frameX][frameY] = new TextureRegion(keeper, 50 * frameX, 50 * frameY, 50, 50);
-                Assets.keeper[frameX][frameY].flip(false, true);
+    public static void loadKeeper(Player p) {
+        if (keeper[p.team.index][p.skinColor.ordinal()][0][0] == null) {
+            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            p.addSkinColors(rgbPairs);
+            Texture keeper = loadTexture("images/player/keeper.png", rgbPairs);
+            for (int frameX = 0; frameX < 8; frameX++) {
+                for (int frameY = 0; frameY < 19; frameY++) {
+                    Assets.keeper[p.team.index][p.skinColor.ordinal()][frameX][frameY] = new TextureRegion(keeper, 50 * frameX, 50 * frameY, 50, 50);
+                    Assets.keeper[p.team.index][p.skinColor.ordinal()][frameX][frameY].flip(false, true);
+                }
             }
         }
     }
@@ -510,10 +514,10 @@ public class Assets {
     }
 
     public static void loadPlayer(Player p) {
-        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
-        p.team.kits.get(p.team.kitIndex).addKitColors(rgbPairs);
-        p.addSkinColors(rgbPairs);
         if (player[p.team.index][p.skinColor.ordinal()][0][0] == null) {
+            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            p.team.kits.get(p.team.kitIndex).addKitColors(rgbPairs);
+            p.addSkinColors(rgbPairs);
             Texture playerTexture = loadTexture("images/player/" + p.team.kits.get(p.team.kitIndex).style + ".png", rgbPairs);
             for (int frameX = 0; frameX < 8; frameX++) {
                 for (int frameY = 0; frameY < 16; frameY++) {

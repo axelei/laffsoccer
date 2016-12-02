@@ -34,12 +34,13 @@ class MatchLoading extends GLScreen {
         Assets.loadStadium(matchSettings);
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
-        Assets.loadKeeper();
         for (int t = HOME; t <= AWAY; t++) {
             int len = team[t].lineup.size();
             for (int i = 0; i < len; i++) {
                 Player player = team[t].lineup.get(i);
-                if (player.role != Player.Role.GOALKEEPER) {
+                if (player.role == Player.Role.GOALKEEPER) {
+                    Assets.loadKeeper(player);
+                } else {
                     Assets.loadPlayer(player);
                 }
                 Assets.loadHair(player);

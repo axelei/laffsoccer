@@ -42,7 +42,7 @@ class PlayerSprite extends Sprite {
         }
 
         if (player.role == Player.Role.GOALKEEPER) {
-            glGraphics.batch.draw(Assets.keeper[d.fmx][d.fmy], d.x - 24, d.y - 34 - d.z);
+            glGraphics.batch.draw(Assets.keeper[player.team.index][player.skinColor.ordinal()][d.fmx][d.fmy], d.x - 24, d.y - 34 - d.z);
 
             if (Hair.map[d.fmy][d.fmx + 8][2] != 0 || Hair.map[d.fmy][d.fmx + 8][3] != 0) {
                 glGraphics.batch.draw(
