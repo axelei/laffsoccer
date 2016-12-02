@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Team {
 
-    public enum Type {CLUB, NATIONAL}
+    public enum Type {CLUB, NATIONAL, CUSTOM}
 
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 

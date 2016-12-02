@@ -1,0 +1,444 @@
+{
+"name": "PAINTERS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "PARIS",
+"stadium": "LE LOUVRE",
+"coach": {
+	"name": "LEONARDO DA VINCI",
+	"nationality": "ITA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "BIG_CHECK",
+		"shirt1": "#f5732c",
+		"shirt2": "#81ff11",
+		"shorts": "#d000ef",
+		"socks": "#0b7dd5"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#3033c1",
+		"shirt2": "#dfe8eb",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shorts": "#3033c1",
+		"socks": "#3033c1"
+	}
+],
+"players": [
+	{
+		"name": "VINCENT VAN GOGH",
+		"shirtName": "VAN GOGH",
+		"nationality": "NED",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 33
+	},
+	{
+		"name": "JOHN CONSTABLE",
+		"shirtName": "CONSTABLE",
+		"nationality": "ENG",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 1,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 17
+	},
+	{
+		"name": "EDVARD MÜNCH",
+		"shirtName": "MÜNCH",
+		"nationality": "NOR",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 4,
+			"control": 3,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 24
+	},
+	{
+		"name": "WILLIAM BLAKE",
+		"shirtName": "BLAKE",
+		"nationality": "ENG",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 4,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 9
+	},
+	{
+		"name": "GUSTAVE MONET",
+		"shirtName": "MONET",
+		"nationality": "FRA",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 3,
+			"control": 1,
+			"speed": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 9
+	},
+	{
+		"name": "VASILIJ KANDISKIJ",
+		"shirtName": "KANDISKIJ",
+		"nationality": "RUS",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 2,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		],
+		"value": 14
+	},
+	{
+		"name": "PABLO PICASSO",
+		"shirtName": "PICASSO",
+		"nationality": "ESP",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 17
+	},
+	{
+		"name": "HENRI MATISSE",
+		"shirtName": "MATISSE",
+		"nationality": "FRA",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 1,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING"
+		],
+		"value": 20
+	},
+	{
+		"name": "PAUL GAUGUIN",
+		"shirtName": "GAUGUIN",
+		"nationality": "TAH",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 3,
+			"heading": 1,
+			"control": 2,
+			"speed": 3,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"CONTROL"
+		],
+		"value": 11
+	},
+	{
+		"name": "MICHELANGELO CARAVAGGIO",
+		"shirtName": "CARAVAGGIO",
+		"nationality": "CZE",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 20
+	},
+	{
+		"name": "ALESSANDRO BOTTICELLI",
+		"shirtName": "BOTTICELLI",
+		"nationality": "CZE",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 6,
+			"control": 3,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 26
+	},
+	{
+		"name": "JAN MATEJKO",
+		"shirtName": "MATEJKO",
+		"nationality": "POL",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {},
+		"value": 18
+	},
+	{
+		"name": "GIOTTO",
+		"shirtName": "GIOTTO",
+		"nationality": "ITA",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 1,
+			"control": 1,
+			"speed": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 8
+	},
+	{
+		"name": "FRANCISCO GOYA",
+		"shirtName": "GOYA",
+		"nationality": "CZE",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 2,
+			"control": 2,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 14
+	},
+	{
+		"name": "VEIT STOSS",
+		"shirtName": "STOSS",
+		"nationality": "CZE",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 1,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 11
+	},
+	{
+		"name": "GEORGES SEURAT",
+		"shirtName": "SEURAT",
+		"nationality": "CZE",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 1,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 19
+	},
+	{
+		"name": "GUSTAV KLIMT",
+		"shirtName": "KLIMT",
+		"nationality": "AUT",
+		"index": 16,
+		"role": "GOALKEEPER",
+		"number": 17,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_C",
+		"skills": {},
+		"value": 19
+	}
+]
+}

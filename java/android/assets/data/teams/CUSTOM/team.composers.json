@@ -1,0 +1,409 @@
+{
+"name": "COMPOSERS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "COACH",
+	"nationality": ""
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "BIG_CHECK",
+		"shirt1": "#d000ef",
+		"shirt2": "#30c52c",
+		"shorts": "#a31212",
+		"socks": "#2e247a"
+	},
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#0b7dd5",
+		"shirt2": "#ffd200",
+		"shorts": "#e8ef2f",
+		"socks": "#f59ee1"
+	},
+	{
+		"style": "STRIP",
+		"shirt1": "#5083b8",
+		"shirt2": "#ffd200",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
+	}
+],
+"players": [
+	{
+		"name": "JOHANN S. BACH",
+		"shirtName": "BACH",
+		"nationality": "GER",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {},
+		"value": 37
+	},
+	{
+		"name": "RICHARD WAGNER",
+		"shirtName": "WAGNER",
+		"nationality": "GER",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 6,
+			"shooting": 2,
+			"heading": 3,
+			"control": 1,
+			"speed": 5
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 17
+	},
+	{
+		"name": "ANTONIO VIVALDI",
+		"shirtName": "VIVALDI",
+		"nationality": "ITA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"tackling": 1,
+			"control": 4,
+			"speed": 7
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		],
+		"value": 15
+	},
+	{
+		"name": "MODEST P. MUSSORGSKY",
+		"shirtName": "MUSSORGSKY",
+		"nationality": "RUS",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 6,
+			"tackling": 5,
+			"control": 6,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL",
+			"TACKLING"
+		],
+		"value": 28
+	},
+	{
+		"name": "JOHANN STRAUSS JR.",
+		"shirtName": "STRAUSS JR.",
+		"nationality": "AUT",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 7,
+			"heading": 2,
+			"control": 5,
+			"speed": 3,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		],
+		"value": 18
+	},
+	{
+		"name": "MAURICE RAVEL",
+		"shirtName": "RAVEL",
+		"nationality": "FRA",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 6,
+			"heading": 4,
+			"tackling": 1,
+			"control": 2,
+			"speed": 6,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"SHOOTING"
+		],
+		"value": 30
+	},
+	{
+		"name": "GIOACCHINO ROSSINI",
+		"shirtName": "ROSSINI",
+		"nationality": "ITA",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 24
+	},
+	{
+		"name": "LUDWIG VAN BEETHOVEN",
+		"shirtName": "BEETHOVEN",
+		"nationality": "GER",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"speed": 7,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"SHOOTING"
+		],
+		"value": 16
+	},
+	{
+		"name": "PYOTR ILIYICH TCHAIKOVSKIJ",
+		"shirtName": "TCHAIKOVSKIJ",
+		"nationality": "RUS",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"tackling": 2,
+			"control": 5,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"CONTROL",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 14
+	},
+	{
+		"name": "WOLFGANG A. MOZART",
+		"shirtName": "MOZART",
+		"nationality": "AUT",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"FINISHING",
+			"HEADING"
+		],
+		"value": 14
+	},
+	{
+		"name": "FREDERIC CHOPIN",
+		"shirtName": "CHOPIN",
+		"nationality": "POL",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 3,
+			"control": 1,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"TACKLING"
+		],
+		"value": 19
+	},
+	{
+		"name": "GIUSEPPE VERDI",
+		"shirtName": "VERDI",
+		"nationality": "ITA",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_F",
+		"skills": {},
+		"value": 11
+	},
+	{
+		"name": "GAETANO DONIZETTI",
+		"shirtName": "DONIZETTI",
+		"nationality": "ITA",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 6,
+			"heading": 1,
+			"tackling": 7,
+			"control": 4,
+			"speed": 3,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"TACKLING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 30
+	},
+	{
+		"name": "EDVARD GRIEG",
+		"shirtName": "GRIEG",
+		"nationality": "NOR",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 5,
+			"heading": 1,
+			"control": 3,
+			"speed": 7
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"SHOOTING"
+		],
+		"value": 21
+	},
+	{
+		"name": "GIACOMO PUCCINI",
+		"shirtName": "PUCCINI",
+		"nationality": "ITA",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 1,
+			"control": 2,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 27
+	},
+	{
+		"name": "ERIK SATIE",
+		"shirtName": "SATIE",
+		"nationality": "FRA",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 7,
+			"heading": 4,
+			"tackling": 5,
+			"control": 6,
+			"speed": 7,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"FINISHING"
+		],
+		"value": 38
+	}
+]
+}

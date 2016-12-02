@@ -1,0 +1,410 @@
+{
+"name": "REBELS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "CORK",
+"stadium": "",
+"coach": {
+	"name": "GEORGE WASHINGTON",
+	"nationality": "USA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#a31212",
+		"shorts": "#a31212",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "BAND",
+		"shirt1": "#f5732c",
+		"shirt2": "#993333",
+		"shorts": "#dfe8eb",
+		"socks": "#30c52c"
+	},
+	{
+		"style": "STRIP",
+		"shirt1": "#f59ee1",
+		"shirt2": "#5d2399",
+		"shorts": "#5083b8",
+		"socks": "#7be2e3"
+	}
+],
+"players": [
+	{
+		"name": "RASPUTIN",
+		"shirtName": "RASPUTIN",
+		"nationality": "RUS",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_C",
+		"skills": {},
+		"value": 7
+	},
+	{
+		"name": "THEOBALD WOLFE-TONE",
+		"shirtName": "WOLFE-TONE",
+		"nationality": "IRL",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"shooting": 6,
+			"heading": 7,
+			"tackling": 6,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"TACKLING"
+		],
+		"value": 27
+	},
+	{
+		"name": "GUGLIELMO OBERDAN",
+		"shirtName": "OBERDAN",
+		"nationality": "ITA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"tackling": 2,
+			"control": 2,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"FINISHING"
+		],
+		"value": 17
+	},
+	{
+		"name": "BOBBY SANDS",
+		"shirtName": "SANDS",
+		"nationality": "NIR",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 1,
+			"speed": 3,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"PASSING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 25
+	},
+	{
+		"name": "SPARTACUS",
+		"shirtName": "SPARTACUS",
+		"nationality": "ITA",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 7,
+			"heading": 3,
+			"tackling": 1,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"FINISHING"
+		],
+		"value": 21
+	},
+	{
+		"name": "EMILIANO ZAPATA",
+		"shirtName": "ZAPATA",
+		"nationality": "MEX",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 5,
+			"heading": 5,
+			"tackling": 6,
+			"control": 6,
+			"speed": 2,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"CONTROL",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 29
+	},
+	{
+		"name": "PANCHO VILLA",
+		"shirtName": "PANCHO VILLA",
+		"nationality": "MEX",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 23
+	},
+	{
+		"name": "ERNESTO CHE GUEVARA",
+		"shirtName": "CHE GUEVARA",
+		"nationality": "ARG",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 3,
+			"shooting": 7,
+			"control": 5,
+			"speed": 6,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 28
+	},
+	{
+		"name": "CAMILO CIENFUEGOS",
+		"shirtName": "CIENFUEGOS",
+		"nationality": "CUB",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 5,
+			"control": 6,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL",
+			"FINISHING",
+			"TACKLING"
+		],
+		"value": 26
+	},
+	{
+		"name": "MICHAEL COLLINS",
+		"shirtName": "COLLINS",
+		"nationality": "IRL",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 7,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 26
+	},
+	{
+		"name": "WILLIAM WALLACE",
+		"shirtName": "WALLACE",
+		"nationality": "SCO",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 7,
+			"speed": 1,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 26
+	},
+	{
+		"name": "MAXIMILIEN ROBESPIERRE",
+		"shirtName": "ROBESPIERRE",
+		"nationality": "FRA",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {},
+		"value": 15
+	},
+	{
+		"name": "COLA DI RIENZO",
+		"shirtName": "COLA DI RIENZO",
+		"nationality": "ITA",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 5,
+			"heading": 6,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"SPEED"
+		],
+		"value": 22
+	},
+	{
+		"name": "MASANIELLO",
+		"shirtName": "MASANIELLO",
+		"nationality": "ITA",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 5,
+			"heading": 5,
+			"tackling": 6,
+			"control": 3,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 24
+	},
+	{
+		"name": "SABINO ARANA",
+		"shirtName": "ARANA",
+		"nationality": "ESP",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 1,
+			"shooting": 7,
+			"heading": 1,
+			"tackling": 1,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"SPEED",
+			"FINISHING"
+		],
+		"value": 20
+	},
+	{
+		"name": "NIKOLAJ LENIN",
+		"shirtName": "LENIN",
+		"nationality": "RUS",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "THINNING_B",
+		"skills": {
+			"passing": 7,
+			"shooting": 6,
+			"heading": 3,
+			"tackling": 2,
+			"control": 4,
+			"speed": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"SHOOTING",
+			"CONTROL"
+		],
+		"value": 24
+	}
+]
+}

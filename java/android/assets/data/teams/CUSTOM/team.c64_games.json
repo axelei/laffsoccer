@@ -1,0 +1,420 @@
+{
+"name": "C64 GAMES",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "EMLYN HUGHES",
+	"nationality": "ENG"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "BAND",
+		"shirt1": "#3033c1",
+		"shirt2": "#f61c1c",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#ffd200",
+		"shirt2": "#dfe8eb",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#993333",
+		"shirt2": "#993333",
+		"shorts": "#dfe8eb",
+		"socks": "#3033c1"
+	}
+],
+"players": [
+	{
+		"name": "IMPOSSIBLE MISSION",
+		"shirtName": "MISSION",
+		"nationality": "CUS",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 16
+	},
+	{
+		"name": "GREEN BERET",
+		"shirtName": "BERET",
+		"nationality": "CUS",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"tackling": 5,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 13
+	},
+	{
+		"name": "HERO",
+		"shirtName": "HERO",
+		"nationality": "CUS",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 17
+	},
+	{
+		"name": "COMMANDO",
+		"shirtName": "COMMANDO",
+		"nationality": "CUS",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 16
+	},
+	{
+		"name": "HUNCHBACK",
+		"shirtName": "HUNCHBACK",
+		"nationality": "CUS",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 13
+	},
+	{
+		"name": "DECATHLON",
+		"shirtName": "DECATHLON",
+		"nationality": "CUS",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 2,
+			"control": 6,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 17
+	},
+	{
+		"name": "BRUCE LEE",
+		"shirtName": "LEE",
+		"nationality": "CUS",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 22
+	},
+	{
+		"name": "ARCHON",
+		"shirtName": "ARCHON",
+		"nationality": "CUS",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"heading": 1,
+			"tackling": 5,
+			"control": 1,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 17
+	},
+	{
+		"name": "GHOSTS'N GOBLINS",
+		"shirtName": "GOBLINS",
+		"nationality": "CUS",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 7,
+			"speed": 7,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"TACKLING"
+		],
+		"value": 23
+	},
+	{
+		"name": "PITSTOP",
+		"shirtName": "PITSTOP",
+		"nationality": "CUS",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 19
+	},
+	{
+		"name": "ARKANOID",
+		"shirtName": "ARKANOID",
+		"nationality": "CUS",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 7,
+			"heading": 6,
+			"tackling": 2,
+			"control": 1,
+			"speed": 1,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 26
+	},
+	{
+		"name": "RAID OVER MOSCOW",
+		"shirtName": "OVER MOSCOW",
+		"nationality": "CUS",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 10
+	},
+	{
+		"name": "SQUISH'EM",
+		"shirtName": "SQUISH'EM",
+		"nationality": "CUS",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"tackling": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 1
+	},
+	{
+		"name": "URIDIUM",
+		"shirtName": "URIDIUM",
+		"nationality": "CUS",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 3,
+			"control": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 12
+	},
+	{
+		"name": "EXPLODING FIST",
+		"shirtName": "FIST",
+		"nationality": "CUS",
+		"index": 14,
+		"role": "LEFT_BACK",
+		"number": 17,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 13
+	},
+	{
+		"name": "SPINDIZZY",
+		"shirtName": "SPINDIZZY",
+		"nationality": "CUS",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"heading": 2,
+			"tackling": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 11
+	}
+]
+}

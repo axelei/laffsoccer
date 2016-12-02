@@ -1,0 +1,420 @@
+{
+"name": "PACIFISTS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "",
+	"nationality": ""
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#81ff11",
+		"shirt2": "#ffd200",
+		"shorts": "#f61c1c",
+		"socks": "#5083b8"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#ffd200",
+		"shirt2": "#dfe8eb",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#993333",
+		"shirt2": "#993333",
+		"shorts": "#dfe8eb",
+		"socks": "#3033c1"
+	}
+],
+"players": [
+	{
+		"name": "JEAN HENRY DUNANT",
+		"shirtName": "DUNANT",
+		"nationality": "SUI",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 16
+	},
+	{
+		"name": "MIKHAIL GORBACEV",
+		"shirtName": "GORBACEV",
+		"nationality": "RUS",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "THINNING_A",
+		"skills": {
+			"passing": 1,
+			"tackling": 5,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 13
+	},
+	{
+		"name": "BERTOLT BRECHT",
+		"shirtName": "BRECHT",
+		"nationality": "GER",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 17
+	},
+	{
+		"name": "FRIDTJOF NANSEN",
+		"shirtName": "NANSEN",
+		"nationality": "NOR",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 16
+	},
+	{
+		"name": "BARTOLOMEO DE LAS CASAS",
+		"shirtName": "DE LAS CASAS",
+		"nationality": "ESP",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 13
+	},
+	{
+		"name": "TENZIN GYATSO",
+		"shirtName": "GYATSO",
+		"nationality": "CHN",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SHAVED",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 2,
+			"control": 6,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 17
+	},
+	{
+		"name": "BERTRAND RUSSELL",
+		"shirtName": "RUSSELL",
+		"nationality": "SCO",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 22
+	},
+	{
+		"name": "NELSON MANDELA",
+		"shirtName": "MANDELA",
+		"nationality": "RSA",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "BLACK",
+		"hairColor": "GRAY",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 6,
+			"heading": 1,
+			"tackling": 5,
+			"control": 1,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 17
+	},
+	{
+		"name": "MAHATMA GHANDI",
+		"shirtName": "GHANDI",
+		"nationality": "IND",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 7,
+			"speed": 7,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"TACKLING"
+		],
+		"value": 23
+	},
+	{
+		"name": "MARTIN LUTHER KING",
+		"shirtName": "LUTHER KING",
+		"nationality": "USA",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 19
+	},
+	{
+		"name": "JOHN LENNON",
+		"shirtName": "LENNON",
+		"nationality": "ENG",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 2,
+			"control": 1,
+			"speed": 1,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"PASSING"
+		],
+		"value": 21
+	},
+	{
+		"name": "ALBERT SCHWEITZER",
+		"shirtName": "SCHWEITZER",
+		"nationality": "GER",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 10
+	},
+	{
+		"name": "LECH WALESA",
+		"shirtName": "WALESA",
+		"nationality": "POL",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"tackling": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 1
+	},
+	{
+		"name": "ROGER WATERS",
+		"shirtName": "WATERS",
+		"nationality": "ENG",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 3,
+			"control": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 12
+	},
+	{
+		"name": "ALDO CAPITINI",
+		"shirtName": "CAPITINI",
+		"nationality": "ITA",
+		"index": 14,
+		"role": "LEFT_BACK",
+		"number": 17,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 13
+	},
+	{
+		"name": "DAVID HENRY THOREAU",
+		"shirtName": "THOREAU",
+		"nationality": "ENG",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"heading": 2,
+			"tackling": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 11
+	}
+]
+}

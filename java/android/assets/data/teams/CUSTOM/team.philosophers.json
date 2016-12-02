@@ -1,0 +1,440 @@
+{
+"name": "PHILOSOPHERS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "PLATO",
+	"nationality": "GRE"
+},
+"tactics": "3-5-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#949494",
+		"shorts": "#afb2b9",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#3033c1",
+		"shirt2": "#3033c1",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "VOLTAIRE",
+		"shirtName": "VOLTAIRE",
+		"nationality": "FRA",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {},
+		"value": 32
+	},
+	{
+		"name": "BLAISE PASCAL",
+		"shirtName": "PASCAL",
+		"nationality": "FRA",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 7,
+			"control": 4,
+			"speed": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 34
+	},
+	{
+		"name": "GIOVANNI GENTILE",
+		"shirtName": "GENTILE",
+		"nationality": "ITA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 32
+	},
+	{
+		"name": "RENÉ DESCARTES",
+		"shirtName": "DESCARTES",
+		"nationality": "FRA",
+		"index": 3,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 7,
+			"control": 4,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 34
+	},
+	{
+		"name": "MICHEL FOCAULT",
+		"shirtName": "FOCAULT",
+		"nationality": "FRA",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 7,
+			"control": 5,
+			"speed": 7,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 43
+	},
+	{
+		"name": "FRIEDRICH NIETZSCHE",
+		"shirtName": "NIETZSCHE",
+		"nationality": "GER",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 7,
+			"speed": 7,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"FINISHING"
+		],
+		"value": 34
+	},
+	{
+		"name": "WILLIAM OF OCKHAM",
+		"shirtName": "OCKHAM",
+		"nationality": "NED",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 7,
+			"control": 3,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 35
+	},
+	{
+		"name": "SOCRATES",
+		"shirtName": "SOCRATES",
+		"nationality": "GRE",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 7,
+			"control": 3,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 29
+	},
+	{
+		"name": "THOMAS AQUINAS",
+		"shirtName": "AQUINAS",
+		"nationality": "ITA",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 4,
+			"control": 7,
+			"speed": 7,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 39
+	},
+	{
+		"name": "JOHN LOCKE",
+		"shirtName": "LOCKE",
+		"nationality": "ENG",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 7,
+			"control": 7,
+			"speed": 7,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 48
+	},
+	{
+		"name": "ARISTOTLE",
+		"shirtName": "ARISTOTLE",
+		"nationality": "GRE",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 7,
+			"tackling": 5,
+			"control": 4,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 36
+	},
+	{
+		"name": "LUDWIG WITTGENSTEIN",
+		"shirtName": "WITTGENSTEIN",
+		"nationality": "AUT",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 29
+	},
+	{
+		"name": "BENEDETTO CROCE",
+		"shirtName": "CROCE",
+		"nationality": "ITA",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 30
+	},
+	{
+		"name": "CICERO",
+		"shirtName": "CICERO",
+		"nationality": "ITA",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 7,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 30
+	},
+	{
+		"name": "ARTUR SCHOPENHAUER",
+		"shirtName": "SCHOPENHAUER",
+		"nationality": "GER",
+		"index": 14,
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 7,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 31
+	},
+	{
+		"name": "IMMANUEL KANT",
+		"shirtName": "KANT",
+		"nationality": "GER",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"PASSING"
+		],
+		"value": 34
+	}
+]
+}

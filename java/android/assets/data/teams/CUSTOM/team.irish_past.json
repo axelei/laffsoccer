@@ -1,0 +1,412 @@
+{
+"name": "IRISH PAST",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "RECESS",
+"stadium": "TURF PITCH",
+"coach": {
+	"name": "LADY ERIN",
+	"nationality": "IRL"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#30c52c",
+		"shirt2": "#417039",
+		"shorts": "#417039",
+		"socks": "#81ff11"
+	},
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#81ff11",
+		"shorts": "#dfe8eb",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "BIG_V",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#3033c1",
+		"shorts": "#f61c1c",
+		"socks": "#47bfeb"
+	}
+],
+"players": [
+	{
+		"name": "RORY GALLAGHER",
+		"shirtName": "GALLAGHER",
+		"nationality": "IRL",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_O",
+		"skills": {},
+		"value": 19
+	},
+	{
+		"name": "PADRAIG PEARSE",
+		"shirtName": "PEARSE",
+		"nationality": "IRL",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 2,
+			"control": 1,
+			"speed": 2,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"FINISHING"
+		],
+		"value": 26
+	},
+	{
+		"name": "DANIEL O'CONNELL",
+		"shirtName": "O'CONNELL",
+		"nationality": "IRL",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"tackling": 5,
+			"control": 7,
+			"speed": 4,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL",
+			"FINISHING",
+			"TACKLING"
+		],
+		"value": 26
+	},
+	{
+		"name": "ST. PATRICK",
+		"shirtName": "ST. PATRICK",
+		"nationality": "IRL",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 6,
+			"heading": 2,
+			"tackling": 5,
+			"control": 4,
+			"speed": 6,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"FINISHING"
+		],
+		"value": 31
+	},
+	{
+		"name": "EOGHAIN",
+		"shirtName": "EOGHAIN",
+		"nationality": "IRL",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 1,
+			"control": 4,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"CONTROL"
+		],
+		"value": 19
+	},
+	{
+		"name": "SIR ARTHUR GUINNESS",
+		"shirtName": "GUINNESS",
+		"nationality": "IRL",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 6,
+			"heading": 5,
+			"control": 7,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 22
+	},
+	{
+		"name": "OF THE 9 HOST. NIALL",
+		"shirtName": "NIALL",
+		"nationality": "IRL",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"shooting": 5,
+			"heading": 1,
+			"tackling": 6,
+			"control": 6,
+			"speed": 7,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 30
+	},
+	{
+		"name": "DIARMUID",
+		"shirtName": "DIARMUID",
+		"nationality": "IRL",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 2,
+			"shooting": 6,
+			"heading": 2,
+			"control": 5,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"SPEED",
+			"CONTROL"
+		],
+		"value": 22
+	},
+	{
+		"name": "BRIAN BORU",
+		"shirtName": "BRIAN BORU",
+		"nationality": "IRL",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 7,
+			"speed": 5,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"TACKLING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 30
+	},
+	{
+		"name": "RED HUGH O'DONNELL",
+		"shirtName": "O'DONNELL",
+		"nationality": "IRL",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 6,
+			"tackling": 4,
+			"speed": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"TACKLING"
+		],
+		"value": 17
+	},
+	{
+		"name": "FIONN MCCUMHAIL",
+		"shirtName": "MCCUMHAIL",
+		"nationality": "IRL",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"shooting": 6,
+			"heading": 2,
+			"tackling": 4,
+			"control": 3,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"TACKLING"
+		],
+		"value": 22
+	},
+	{
+		"name": "REGINALD",
+		"shirtName": "REGINALD",
+		"nationality": "NOR",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {},
+		"value": 15
+	},
+	{
+		"name": "ST. BRENDAN",
+		"shirtName": "ST. BRENDAN",
+		"nationality": "IRL",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 4,
+			"control": 5,
+			"speed": 2,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"CONTROL",
+			"HEADING"
+		],
+		"value": 21
+	},
+	{
+		"name": "ST. COLMAN",
+		"shirtName": "ST. COLMAN",
+		"nationality": "IRL",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 1,
+			"heading": 4,
+			"tackling": 1,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 22
+	},
+	{
+		"name": "MICHAEL DEVITT",
+		"shirtName": "DEVITT",
+		"nationality": "IRL",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 6,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"FINISHING"
+		],
+		"value": 26
+	},
+	{
+		"name": "ST. COLUMBA",
+		"shirtName": "ST. COLUMBA",
+		"nationality": "SCO",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 1,
+			"control": 2,
+			"speed": 6,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SPEED",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 19
+	}
+]
+}

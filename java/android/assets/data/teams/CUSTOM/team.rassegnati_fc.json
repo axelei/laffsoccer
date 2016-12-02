@@ -1,0 +1,458 @@
+{
+"name": "RASSEGNATI FC",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "DANIELE'S HEAD",
+"stadium": "MASSIMO ARENA",
+"coach": {
+	"name": "MASSIMUZZO",
+	"nationality": "ITA"
+},
+"tactics": "3-5-2",
+"kits": [
+	{
+		"style": "LINE",
+		"shirt1": "#5083b8",
+		"shirt2": "#0b7dd5",
+		"shorts": "#5083b8",
+		"socks": "#0b7dd5"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#3033c1",
+		"shirt2": "#3033c1",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "ARMADIETTO",
+		"shirtName": "ARMADIETTO",
+		"nationality": "CUS",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 30
+	},
+	{
+		"name": "DOSBOX",
+		"shirtName": "DOSBOX",
+		"nationality": "ENG",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "BLACK",
+		"hairColor": "WHITE",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 7,
+			"control": 4,
+			"speed": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 34
+	},
+	{
+		"name": "CARDINAL MAZZARINO",
+		"shirtName": "MAZZARINO",
+		"nationality": "FRA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 5,
+			"speed": 4
+		},
+		"bestSkills": [
+			"CONTROL",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 24
+	},
+	{
+		"name": "ALCOHOLIC GATTOLICO",
+		"shirtName": "GATTOLICO",
+		"nationality": "CUS",
+		"index": 3,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "RED",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 7,
+			"control": 4,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 34
+	},
+	{
+		"name": "CCTV5",
+		"shirtName": "CCTV5",
+		"nationality": "CHN",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 7,
+			"control": 5,
+			"speed": 7,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 43
+	},
+	{
+		"name": "SUOR AUSILIA",
+		"shirtName": "SUOR AUSILIA",
+		"nationality": "ITA",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 6,
+			"control": 7,
+			"speed": 7,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"TACKLING"
+		],
+		"value": 37
+	},
+	{
+		"name": "ER DOTTORINO",
+		"shirtName": "ER DOTTORINO",
+		"nationality": "ITA",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 7,
+			"control": 3,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 35
+	},
+	{
+		"name": "CHUCK NORRIS",
+		"shirtName": "NORRIS",
+		"nationality": "USA",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 7,
+			"control": 7,
+			"speed": 7,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 48
+	},
+	{
+		"name": "MICHELE CERULARIO",
+		"shirtName": "CERULARIO",
+		"nationality": "GRE",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 4,
+			"control": 7,
+			"speed": 7,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 39
+	},
+	{
+		"name": "LUPO MANGIAFRUTTA",
+		"shirtName": "MANGIAFRUTTA",
+		"nationality": "MSR",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "ALIEN",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_D",
+		"skills": {
+			"heading": 7,
+			"tackling": 7,
+			"control": 7,
+			"speed": 7,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 35
+	},
+	{
+		"name": "PERA MANTOVANA",
+		"shirtName": "PERA MANTOVANA",
+		"nationality": "ITA",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "YODA",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 7,
+			"tackling": 5,
+			"control": 4,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 36
+	},
+	{
+		"name": "MOSTRO REFRATTARIO",
+		"shirtName": "REFRATTARIO",
+		"nationality": "CUS",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 29
+	},
+	{
+		"name": "UOMO DEL MONTE",
+		"shirtName": "UOMO DEL MONTE",
+		"nationality": "CRC",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 30
+	},
+	{
+		"name": "OSVALDINO",
+		"shirtName": "OSVALDINO",
+		"nationality": "IRL",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "ASIATIC",
+		"hairColor": "PUNK_BLOND",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 7,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 30
+	},
+	{
+		"name": "ZI'PITA",
+		"shirtName": "ZI'PITA",
+		"nationality": "CUS",
+		"index": 14,
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 7,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 31
+	},
+	{
+		"name": "'A CRIATURA",
+		"shirtName": "'A CRIATURA",
+		"nationality": "CUS",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "ALIEN",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_O",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"PASSING"
+		],
+		"value": 34
+	},
+	{
+		"name": "CECCOPEPPE",
+		"shirtName": "CECCOPEPPE",
+		"nationality": "TAN",
+		"index": 16,
+		"role": "RIGHT_WINGER",
+		"number": 17,
+		"skinColor": "YODA",
+		"hairColor": "RED",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 6,
+			"speed": 6
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"CONTROL"
+		],
+		"value": 12
+	}
+]
+}

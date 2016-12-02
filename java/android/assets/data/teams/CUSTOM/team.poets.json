@@ -1,0 +1,435 @@
+{
+"name": "POETS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "TROY",
+"stadium": "PRIAM'S PALACE",
+"coach": {
+	"name": "CALLIOPE",
+	"nationality": "GRE"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "SPICE",
+		"shirt1": "#cac47d",
+		"shirt2": "#ffd200",
+		"shorts": "#5083b8",
+		"socks": "#cac47d"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#5083b8",
+		"shorts": "#1e1e1e",
+		"socks": "#5083b8"
+	},
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#f5732c",
+		"shirt2": "#cac47d",
+		"shorts": "#f5732c",
+		"socks": "#5083b8"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#3033c1",
+		"shirt2": "#3033c1",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "CHARLES BAUDELAIRE",
+		"shirtName": "BAUDELAIRE",
+		"nationality": "FRA",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 25
+	},
+	{
+		"name": "FEDERICO GARCIA LORCA",
+		"shirtName": "GARCIA LORCA",
+		"nationality": "ESP",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 6,
+			"control": 1,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 20
+	},
+	{
+		"name": "JUVENAL",
+		"shirtName": "JUVENAL",
+		"nationality": "ITA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 6,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"CONTROL"
+		],
+		"value": 21
+	},
+	{
+		"name": "LORD GEORGE N. BYRON",
+		"shirtName": "BYRON",
+		"nationality": "ENG",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 7,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 27
+	},
+	{
+		"name": "GIACOMO LEOPARDI",
+		"shirtName": "LEOPARDI",
+		"nationality": "ITA",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 5,
+			"control": 2,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 20
+	},
+	{
+		"name": "FRANCESCO PETRARCA",
+		"shirtName": "PETRARCA",
+		"nationality": "ITA",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 1,
+			"control": 7,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 21
+	},
+	{
+		"name": "WILLIAM BUTLER YEATS",
+		"shirtName": "YEATS",
+		"nationality": "IRL",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 7,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 21
+	},
+	{
+		"name": "VIRIGILIUS",
+		"shirtName": "VIRIGILIUS",
+		"nationality": "ITA",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 5,
+			"control": 4,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 24
+	},
+	{
+		"name": "DANTE ALIGHIERI",
+		"shirtName": "ALIGHIERI",
+		"nationality": "ITA",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 2,
+			"control": 7,
+			"speed": 7,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 35
+	},
+	{
+		"name": "PABLO NERUDA",
+		"shirtName": "NERUDA",
+		"nationality": "ESP",
+		"index": 9,
+		"role": "MIDFIELDER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 7,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 7,
+			"control": 2,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 22
+	},
+	{
+		"name": "HOMER",
+		"shirtName": "HOMER",
+		"nationality": "GRE",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 31
+	},
+	{
+		"name": "EDGAR ALLAN POE",
+		"shirtName": "POE",
+		"nationality": "ENG",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 19
+	},
+	{
+		"name": "JORGE LUIS BORGES",
+		"shirtName": "BORGES",
+		"nationality": "ARG",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 3,
+			"control": 1,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 15
+	},
+	{
+		"name": "CATULLUS",
+		"shirtName": "CATULLUS",
+		"nationality": "ITA",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 19
+	},
+	{
+		"name": "GIOVANNI PASCOLI",
+		"shirtName": "PASCOLI",
+		"nationality": "ITA",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"control": 2,
+			"speed": 1,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 17
+	},
+	{
+		"name": "EURIPIDES",
+		"shirtName": "EURIPIDES",
+		"nationality": "GRE",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 1,
+			"heading": 1,
+			"tackling": 1,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 5
+	}
+]
+}

@@ -1,0 +1,413 @@
+{
+"name": "JURISTS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "HAMMURABI",
+	"nationality": ""
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "VERTICAL_HALF",
+		"shirt1": "#949494",
+		"shirt2": "#afb2b9",
+		"shorts": "#949494",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "DIAGONAL_HALF",
+		"shirt1": "#417039",
+		"shirt2": "#f61c1c",
+		"shorts": "#993333",
+		"socks": "#ffd200"
+	},
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#3033c1",
+		"shirt2": "#3033c1",
+		"shorts": "#993333",
+		"socks": "#a31212"
+	}
+],
+"players": [
+	{
+		"name": "HANS KELSEN",
+		"shirtName": "KELSEN",
+		"nationality": "AUT",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "THINNING_A",
+		"skills": {},
+		"value": 38
+	},
+	{
+		"name": "SOLON",
+		"shirtName": "SOLON",
+		"nationality": "GRE",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 6,
+			"shooting": 7,
+			"heading": 4,
+			"tackling": 6,
+			"speed": 5,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 33
+	},
+	{
+		"name": "WILLIAM BLACKSTONE",
+		"shirtName": "BLACKSTONE",
+		"nationality": "ENG",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "CURLY_E",
+		"skills": {
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 5,
+			"control": 3,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 20
+	},
+	{
+		"name": "RUDOLF VON JHERING",
+		"shirtName": "VON JHERING",
+		"nationality": "GER",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"shooting": 5,
+			"heading": 7,
+			"tackling": 2,
+			"control": 2,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 22
+	},
+	{
+		"name": "RECCESWINTH",
+		"shirtName": "RECCESWINTH",
+		"nationality": "ESP",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_J",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"control": 5,
+			"speed": 4
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 16
+	},
+	{
+		"name": "GAIUS",
+		"shirtName": "GAIUS",
+		"nationality": "ITA",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 6,
+			"heading": 6,
+			"tackling": 1,
+			"control": 2,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 25
+	},
+	{
+		"name": "HUGO GROTHIUS",
+		"shirtName": "GROTHIUS",
+		"nationality": "NED",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 6,
+			"control": 5,
+			"speed": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		],
+		"value": 22
+	},
+	{
+		"name": "FRIEDRICH CARL VON SAVIGNY",
+		"shirtName": "VON SAVIGNY",
+		"nationality": "GER",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 6,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 5,
+			"control": 5,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"PASSING"
+		],
+		"value": 33
+	},
+	{
+		"name": "ROBERT JOSEPH POTHIER",
+		"shirtName": "POTHIER",
+		"nationality": "FRA",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 4,
+			"control": 5,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		],
+		"value": 26
+	},
+	{
+		"name": "AEMILIUS PAPINIANUS",
+		"shirtName": "PAPINIANUS",
+		"nationality": "ITA",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"control": 6,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"HEADING"
+		],
+		"value": 23
+	},
+	{
+		"name": "IRNERIUS",
+		"shirtName": "IRNERIUS",
+		"nationality": "ITA",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 7,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"CONTROL"
+		],
+		"value": 28
+	},
+	{
+		"name": "MARCUS A. LABEO",
+		"shirtName": "LABEO",
+		"nationality": "ITA",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 41
+	},
+	{
+		"name": "THEODOR MOMMSEN",
+		"shirtName": "MOMMSEN",
+		"nationality": "GER",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"tackling": 7,
+			"control": 6,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"CONTROL",
+			"SPEED"
+		],
+		"value": 18
+	},
+	{
+		"name": "PEPO",
+		"shirtName": "PEPO",
+		"nationality": "ITA",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 6,
+			"heading": 3,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"SPEED",
+			"HEADING"
+		],
+		"value": 16
+	},
+	{
+		"name": "R.-THÉODORE TROPLONG",
+		"shirtName": "TROPLONG",
+		"nationality": "FRA",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"heading": 3,
+			"control": 2,
+			"speed": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"SPEED"
+		],
+		"value": 10
+	},
+	{
+		"name": "DOMITIUS ULPIANUS",
+		"shirtName": "ULPIANUS",
+		"nationality": "ITA",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 7,
+			"control": 3,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"PASSING"
+		],
+		"value": 24
+	}
+]
+}

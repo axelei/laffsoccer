@@ -1,0 +1,440 @@
+{
+"name": "INVENTORS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "LEONARDO DA VINCI",
+	"nationality": "ITA"
+},
+"tactics": "3-4-3",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#1e1e1e",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	}
+],
+"players": [
+	{
+		"name": "ALESSANDRO VOLTA",
+		"shirtName": "VOLTA",
+		"nationality": "ITA",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 31
+	},
+	{
+		"name": "SAMUEL MORSE",
+		"shirtName": "MORSE",
+		"nationality": "USA",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 7,
+			"control": 3,
+			"speed": 7,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 34
+	},
+	{
+		"name": "BENJAMIN FRANKLIN",
+		"shirtName": "FRANKLIN",
+		"nationality": "USA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 7,
+			"control": 5,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"CONTROL"
+		],
+		"value": 33
+	},
+	{
+		"name": "ALFRED NOBEL",
+		"shirtName": "NOBEL",
+		"nationality": "SWE",
+		"index": 3,
+		"role": "MIDFIELDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 4,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 35
+	},
+	{
+		"name": "JOHANN GUTENBERG",
+		"shirtName": "GUTENBERG",
+		"nationality": "GER",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 7,
+			"control": 2,
+			"speed": 7,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"FINISHING"
+		],
+		"value": 32
+	},
+	{
+		"name": "CHARLES BABBAGE",
+		"shirtName": "BABBAGE",
+		"nationality": "ENG",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 3,
+			"control": 5,
+			"speed": 5,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"FINISHING"
+		],
+		"value": 30
+	},
+	{
+		"name": "GUGLIEMO MARCONI",
+		"shirtName": "MARCONI",
+		"nationality": "ITA",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 7,
+			"control": 4,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 35
+	},
+	{
+		"name": "ANTONIO MEUCCI",
+		"shirtName": "MEUCCI",
+		"nationality": "ITA",
+		"index": 7,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 7,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 35
+	},
+	{
+		"name": "THOMAS EDISON",
+		"shirtName": "EDISON",
+		"nationality": "USA",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 33
+	},
+	{
+		"name": "ISAAC NEWTON",
+		"shirtName": "NEWTON",
+		"nationality": "ENG",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"PASSING"
+		],
+		"value": 34
+	},
+	{
+		"name": "ARCHIMEDES",
+		"shirtName": "ARCHIMEDES",
+		"nationality": "GRE",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 7,
+			"tackling": 5,
+			"control": 4,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 36
+	},
+	{
+		"name": "ALAN TURING",
+		"shirtName": "TURING",
+		"nationality": "ENG",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_D",
+		"skills": {},
+		"value": 28
+	},
+	{
+		"name": "LEVI STRAUSS",
+		"shirtName": "STRAUSS",
+		"nationality": "USA",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 30
+	},
+	{
+		"name": "WILHELM CONRAD RONTGEN",
+		"shirtName": "RONTGEN",
+		"nationality": "GER",
+		"index": 13,
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 30
+	},
+	{
+		"name": "NIKOLA TESLA",
+		"shirtName": "TESLA",
+		"nationality": "SBM",
+		"index": 14,
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 7,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 7,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 32
+	},
+	{
+		"name": "FRANK HORNBY",
+		"shirtName": "HORNBY",
+		"nationality": "ENG",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "THINNING_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"CONTROL"
+		],
+		"value": 30
+	}
+]
+}

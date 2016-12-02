@@ -1,0 +1,414 @@
+{
+"name": "KINGS AND EMPER.",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "COACH",
+	"nationality": ""
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "SPICE",
+		"shirt1": "#993333",
+		"shirt2": "#cac47d",
+		"shorts": "#993333",
+		"socks": "#cac47d"
+	},
+	{
+		"style": "DIAGONAL_HALF",
+		"shirt1": "#cac47d",
+		"shirt2": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#cac47d"
+	},
+	{
+		"style": "LINE",
+		"shirt1": "#2e247a",
+		"shirt2": "#3033c1",
+		"shorts": "#ffd200",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "MONTEZUMA",
+		"shirtName": "MONTEZUMA",
+		"nationality": "MEX",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 21
+	},
+	{
+		"name": "FREDRIK II",
+		"shirtName": "FREDRIK II",
+		"nationality": "SWE",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 7,
+			"control": 3,
+			"speed": 6
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 29
+	},
+	{
+		"name": "SIGISMUND JAGIELLONE",
+		"shirtName": "JAGIELLONE",
+		"nationality": "POL",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_O",
+		"skills": {
+			"passing": 2,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 7,
+			"speed": 5,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		],
+		"value": 26
+	},
+	{
+		"name": "SALADIN",
+		"shirtName": "SALADIN",
+		"nationality": "TUR",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 4,
+			"control": 5,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"PASSING",
+			"FINISHING",
+			"CONTROL"
+		],
+		"value": 32
+	},
+	{
+		"name": "FERDINAND D'ARAGON",
+		"shirtName": "D'ARAGON",
+		"nationality": "ESP",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 6,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 24
+	},
+	{
+		"name": "CHARLES MAGNE",
+		"shirtName": "CHARLES MAGNE",
+		"nationality": "FRA",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 3,
+			"control": 6,
+			"speed": 4,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 31
+	},
+	{
+		"name": "ALEXANDER",
+		"shirtName": "ALEXANDER",
+		"nationality": "GRE",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_O",
+		"skills": {
+			"shooting": 3,
+			"heading": 1,
+			"tackling": 5,
+			"control": 4,
+			"speed": 6,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED",
+			"TACKLING"
+		],
+		"value": 26
+	},
+	{
+		"name": "GENGIS KHAN",
+		"shirtName": "GENGIS KHAN",
+		"nationality": "MGL",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 1,
+			"control": 6,
+			"speed": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"HEADING"
+		],
+		"value": 30
+	},
+	{
+		"name": "TSAR PIOTR T.GREAT",
+		"shirtName": "PIOTR T.GREAT",
+		"nationality": "RUS",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 6,
+			"control": 5,
+			"speed": 1,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 23
+	},
+	{
+		"name": "RICHARD LIONHEART",
+		"shirtName": "LIONHEART",
+		"nationality": "ENG",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 6,
+			"heading": 7,
+			"control": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"PASSING"
+		],
+		"value": 26
+	},
+	{
+		"name": "OCTAVIANUS AUGUSTUS",
+		"shirtName": "AUGUSTUS",
+		"nationality": "ITA",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 5,
+			"control": 2,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 23
+	},
+	{
+		"name": "FRANZ JOSEF",
+		"shirtName": "FRANZ JOSEF",
+		"nationality": "AUT",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {},
+		"value": 24
+	},
+	{
+		"name": "RAMSES II",
+		"shirtName": "RAMSES II",
+		"nationality": "EGY",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 24
+	},
+	{
+		"name": "PIRRUS",
+		"shirtName": "PIRRUS",
+		"nationality": "ALB",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 5,
+			"control": 3,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 24
+	},
+	{
+		"name": "FREDRIK REDBEARD",
+		"shirtName": "REDBEARD",
+		"nationality": "GER",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 5,
+			"shooting": 7,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 22
+	},
+	{
+		"name": "SERSE",
+		"shirtName": "SERSE",
+		"nationality": "IRN",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"shooting": 6,
+			"heading": 6,
+			"tackling": 1,
+			"control": 5,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"CONTROL"
+		],
+		"value": 21
+	}
+]
+}

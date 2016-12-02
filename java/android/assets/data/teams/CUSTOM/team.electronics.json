@@ -1,0 +1,435 @@
+{
+"name": "ELECTRONICS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "WELDER",
+	"nationality": ""
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#dfe8eb",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#1e1e1e",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
+	}
+],
+"players": [
+	{
+		"name": "7812",
+		"shirtName": "7812",
+		"nationality": "CUS",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 23
+	},
+	{
+		"name": "10100",
+		"shirtName": "10100",
+		"nationality": "CUS",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 6,
+			"control": 1,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 20
+	},
+	{
+		"name": "7402",
+		"shirtName": "7402",
+		"nationality": "CUS",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 6,
+			"control": 1,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 16
+	},
+	{
+		"name": "4001",
+		"shirtName": "4001",
+		"nationality": "CUS",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 7,
+			"tackling": 7,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 27
+	},
+	{
+		"name": "5402",
+		"shirtName": "5402",
+		"nationality": "CUS",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 5,
+			"control": 2,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 20
+	},
+	{
+		"name": "1N4007",
+		"shirtName": "1N4007",
+		"nationality": "CUS",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 1,
+			"control": 7,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 21
+	},
+	{
+		"name": "741",
+		"shirtName": "741",
+		"nationality": "CUS",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 7,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		],
+		"value": 21
+	},
+	{
+		"name": "555",
+		"shirtName": "555",
+		"nationality": "CUS",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 21
+	},
+	{
+		"name": "2N2222",
+		"shirtName": "2N2222",
+		"nationality": "CUS",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 2,
+			"control": 7,
+			"speed": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"FINISHING"
+		],
+		"value": 24
+	},
+	{
+		"name": "LM317",
+		"shirtName": "LM317",
+		"nationality": "CUS",
+		"index": 9,
+		"role": "MIDFIELDER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 7,
+			"control": 2,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 22
+	},
+	{
+		"name": "2N3055",
+		"shirtName": "2N3055",
+		"nationality": "CUS",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 7,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"CONTROL"
+		],
+		"value": 26
+	},
+	{
+		"name": "7912",
+		"shirtName": "7912",
+		"nationality": "CUS",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 19
+	},
+	{
+		"name": "10500",
+		"shirtName": "10500",
+		"nationality": "CUS",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 3,
+			"control": 1,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 15
+	},
+	{
+		"name": "LM101",
+		"shirtName": "LM101",
+		"nationality": "CUS",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 19
+	},
+	{
+		"name": "1N4148",
+		"shirtName": "1N4148",
+		"nationality": "CUS",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"control": 2,
+			"speed": 1,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 17
+	},
+	{
+		"name": "2N3905",
+		"shirtName": "2N3905",
+		"nationality": "CUS",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"heading": 1,
+			"tackling": 1,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 5
+	}
+]
+}

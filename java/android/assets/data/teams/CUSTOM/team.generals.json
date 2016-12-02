@@ -1,0 +1,410 @@
+{
+"name": "GENERALS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "SERGEANT HARTMANN",
+	"nationality": ""
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#417039",
+		"shirt2": "#a31212",
+		"shorts": "#417039",
+		"socks": "#a31212"
+	},
+	{
+		"style": "TWO_STRIPES",
+		"shirt1": "#5083b8",
+		"shirt2": "#cac47d",
+		"shorts": "#3033c1",
+		"socks": "#a31212"
+	},
+	{
+		"style": "DIAGONAL_HALF",
+		"shirt1": "#afb2b9",
+		"shirt2": "#2e247a",
+		"shorts": "#5083b8",
+		"socks": "#417039"
+	}
+],
+"players": [
+	{
+		"name": "LEONIDAS",
+		"shirtName": "LEONIDAS",
+		"nationality": "GRE",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 39
+	},
+	{
+		"name": "ROBERT E. LEE",
+		"shirtName": "LEE",
+		"nationality": "USA",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"shooting": 7,
+			"heading": 6,
+			"tackling": 6,
+			"control": 5,
+			"speed": 6
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 30
+	},
+	{
+		"name": "DWIGHT D. EISENHOWER",
+		"shirtName": "EISENHOWER",
+		"nationality": "USA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "THINNING_B",
+		"skills": {
+			"passing": 7,
+			"shooting": 7,
+			"heading": 7,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"SHOOTING"
+		],
+		"value": 28
+	},
+	{
+		"name": "JOSEPH RADETZKY",
+		"shirtName": "RADETZKY",
+		"nationality": "AUT",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 6,
+			"control": 2,
+			"speed": 6
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 19
+	},
+	{
+		"name": "GILBERT DE LAFAYETTE",
+		"shirtName": "LAFAYETTE",
+		"nationality": "FRA",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 6,
+			"control": 6,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		],
+		"value": 32
+	},
+	{
+		"name": "ERWIN ROMMEL",
+		"shirtName": "ROMMEL",
+		"nationality": "GER",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_B",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"tackling": 7,
+			"control": 6,
+			"speed": 2,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"FINISHING"
+		],
+		"value": 34
+	},
+	{
+		"name": "BERNARD MONTGOMERY",
+		"shirtName": "MONTGOMERY",
+		"nationality": "ENG",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 5,
+			"heading": 6,
+			"tackling": 2,
+			"control": 6,
+			"speed": 3,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 29
+	},
+	{
+		"name": "ARTHUR DUKE OF WELLINGTON",
+		"shirtName": "WELLINGTON",
+		"nationality": "IRL",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 6,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"FINISHING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 21
+	},
+	{
+		"name": "EPAMINONDAS",
+		"shirtName": "EPAMINONDAS",
+		"nationality": "GRE",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 7,
+			"heading": 2,
+			"tackling": 6,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 26
+	},
+	{
+		"name": "GAIUS JULIUS CAESAR",
+		"shirtName": "CAESAR",
+		"nationality": "ITA",
+		"index": 9,
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 6,
+			"heading": 4,
+			"tackling": 3,
+			"control": 1,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"FINISHING"
+		],
+		"value": 20
+	},
+	{
+		"name": "NAPOLEON",
+		"shirtName": "NAPOLEON",
+		"nationality": "FRA",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 7,
+			"shooting": 2,
+			"tackling": 6,
+			"control": 5,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		],
+		"value": 23
+	},
+	{
+		"name": "HORATIO NELSON",
+		"shirtName": "NELSON",
+		"nationality": "ENG",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_M",
+		"skills": {},
+		"value": 19
+	},
+	{
+		"name": "FRANCIS DRAKE",
+		"shirtName": "DRAKE",
+		"nationality": "ENG",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 4,
+			"control": 5,
+			"speed": 3,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"SHOOTING",
+			"CONTROL"
+		],
+		"value": 27
+	},
+	{
+		"name": "ALCIBIADES",
+		"shirtName": "ALCIBIADES",
+		"nationality": "GRE",
+		"index": 13,
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"tackling": 6,
+			"control": 1,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 22
+	},
+	{
+		"name": "TADAMICHI KURIBAYASHI",
+		"shirtName": "KURIBAYASHI",
+		"nationality": "JPN",
+		"index": 14,
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLOND",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 4,
+			"heading": 7,
+			"tackling": 5,
+			"control": 5,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL",
+			"TACKLING"
+		],
+		"value": 23
+	},
+	{
+		"name": "BELISARIUS",
+		"shirtName": "BELISARIUS",
+		"nationality": "BUL",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 5,
+			"tackling": 1,
+			"control": 2,
+			"speed": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"SHOOTING"
+		],
+		"value": 22
+	}
+]
+}

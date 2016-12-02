@@ -1,0 +1,437 @@
+{
+"name": "MONEY",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "GOLD",
+	"nationality": ""
+},
+"tactics": "4-5-1",
+"kits": [
+	{
+		"style": "SLEEVES",
+		"shirt1": "#e8ef2f",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#e8ef2f"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shorts": "#f5732c",
+		"socks": "#993333"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "SLEEVES",
+		"shirt1": "#f5732c",
+		"shirt2": "#993333",
+		"shorts": "#f5732c",
+		"socks": "#993333"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#f5732c"
+	}
+],
+"players": [
+	{
+		"name": "RUPEE",
+		"shirtName": "RUPEE",
+		"nationality": "IND",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {},
+		"value": 18
+	},
+	{
+		"name": "FRANC",
+		"shirtName": "FRANC",
+		"nationality": "SUI",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 6,
+			"control": 2,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 19
+	},
+	{
+		"name": "DOLLAR",
+		"shirtName": "DOLLAR",
+		"nationality": "USA",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_B",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 6,
+			"tackling": 7,
+			"control": 3,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"CONTROL"
+		],
+		"value": 21
+	},
+	{
+		"name": "PESO",
+		"shirtName": "PESO",
+		"nationality": "MEX",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 7,
+			"control": 1,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"PASSING"
+		],
+		"value": 20
+	},
+	{
+		"name": "PATACA",
+		"shirtName": "PATACA",
+		"nationality": "CUS",
+		"index": 4,
+		"role": "LEFT_BACK",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 5,
+			"control": 1,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 16
+	},
+	{
+		"name": "POUND",
+		"shirtName": "POUND",
+		"nationality": "ENG",
+		"index": 5,
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 1,
+			"control": 5,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"FINISHING"
+		],
+		"value": 20
+	},
+	{
+		"name": "EURO",
+		"shirtName": "EURO",
+		"nationality": "BEL",
+		"index": 6,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 7,
+			"control": 1,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 19
+	},
+	{
+		"name": "YEN",
+		"shirtName": "YEN",
+		"nationality": "JPN",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 10,
+		"skinColor": "ASIATIC",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 7,
+			"control": 1,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		],
+		"value": 19
+	},
+	{
+		"name": "REAL",
+		"shirtName": "REAL",
+		"nationality": "BRA",
+		"index": 8,
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 2,
+			"control": 5,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		],
+		"value": 20
+	},
+	{
+		"name": "KRONE",
+		"shirtName": "KRONE",
+		"nationality": "CZE",
+		"index": 9,
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 7,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 21
+	},
+	{
+		"name": "WON",
+		"shirtName": "WON",
+		"nationality": "KOR",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 2,
+			"control": 1,
+			"speed": 2,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
+		],
+		"value": 21
+	},
+	{
+		"name": "ZLOTY",
+		"shirtName": "ZLOTY",
+		"nationality": "POL",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SHORT_A",
+		"skills": {},
+		"value": 17
+	},
+	{
+		"name": "RENMINBI",
+		"shirtName": "RENMINBI",
+		"nationality": "CHN",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 7,
+			"tackling": 7,
+			"control": 2,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 22
+	},
+	{
+		"name": "FLORIN",
+		"shirtName": "FLORIN",
+		"nationality": "HUN",
+		"index": 13,
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 1,
+			"heading": 6,
+			"tackling": 6,
+			"control": 2,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 18
+	},
+	{
+		"name": "DINAR",
+		"shirtName": "DINAR",
+		"nationality": "ROM",
+		"index": 14,
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 1,
+			"tackling": 5,
+			"control": 1,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		],
+		"value": 18
+	},
+	{
+		"name": "ROUBLE",
+		"shirtName": "ROUBLE",
+		"nationality": "RUS",
+		"index": 15,
+		"role": "MIDFIELDER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 6,
+			"control": 2,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		],
+		"value": 17
+	}
+]
+}

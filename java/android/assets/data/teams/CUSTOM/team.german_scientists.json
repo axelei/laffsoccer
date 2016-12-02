@@ -1,0 +1,440 @@
+{
+"name": "GERMAN SCIENTISTS",
+"type": "CUSTOM",
+"country": "CUS",
+"city": "",
+"stadium": "",
+"coach": {
+	"name": "JOHANNES KEPLER",
+	"nationality": "GER"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#1e1e1e",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#30c52c",
+		"shirt2": "#f5732c",
+		"shorts": "#30c52c",
+		"socks": "#f5732c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "VERTICAL",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#dfe8eb",
+		"shorts": "#30c52c",
+		"socks": "#f5732c"
+	},
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#30c52c",
+		"shirt2": "#f5732c",
+		"shorts": "#1e1e1e",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "WILHELM WEBER",
+		"shirtName": "WEBER",
+		"nationality": "GER",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_A",
+		"skills": {},
+		"value": 29
+	},
+	{
+		"name": "GEORG OHM",
+		"shirtName": "OHM",
+		"nationality": "GER",
+		"index": 1,
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 5,
+			"control": 2,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 28
+	},
+	{
+		"name": "MAX PLANCK",
+		"shirtName": "PLANCK",
+		"nationality": "GER",
+		"index": 2,
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "THINNING_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 5,
+			"control": 4,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"FINISHING"
+		],
+		"value": 29
+	},
+	{
+		"name": "ALBERT EINSTEIN",
+		"shirtName": "EINSTEIN",
+		"nationality": "GER",
+		"index": 3,
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_G",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 7,
+			"control": 2,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 30
+	},
+	{
+		"name": "ERNST KARL ABBE",
+		"shirtName": "ABBE",
+		"nationality": "GER",
+		"index": 4,
+		"role": "RIGHT_WINGER",
+		"number": 3,
+		"skinColor": "PALE",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 7,
+			"control": 4,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"CONTROL"
+		],
+		"value": 29
+	},
+	{
+		"name": "HEINRICH R. HERTZ",
+		"shirtName": "HERTZ",
+		"nationality": "GER",
+		"index": 5,
+		"role": "LEFT_WINGER",
+		"number": 11,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 6,
+			"heading": 5,
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"CONTROL"
+		],
+		"value": 29
+	},
+	{
+		"name": "GOTTFRIED LEIBNIZ",
+		"shirtName": "LEIBNIZ",
+		"nationality": "GER",
+		"index": 6,
+		"role": "LEFT_BACK",
+		"number": 6,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 7,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		],
+		"value": 29
+	},
+	{
+		"name": "JAMES CLERK MAXWELL",
+		"shirtName": "MAXWELL",
+		"nationality": "GER",
+		"index": 7,
+		"role": "MIDFIELDER",
+		"number": 10,
+		"skinColor": "PALE",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"SHOOTING",
+			"TACKLING"
+		],
+		"value": 28
+	},
+	{
+		"name": "WILHELM RONTGEN",
+		"shirtName": "RONTGEN",
+		"nationality": "GER",
+		"index": 8,
+		"role": "ATTACKER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 7,
+			"tackling": 2,
+			"control": 6,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"CONTROL"
+		],
+		"value": 33
+	},
+	{
+		"name": "MAX BORN",
+		"shirtName": "BORN",
+		"nationality": "GER",
+		"index": 9,
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PALE",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 7,
+			"shooting": 7,
+			"heading": 1,
+			"tackling": 6,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"SHOOTING",
+			"TACKLING"
+		],
+		"value": 33
+	},
+	{
+		"name": "CARL FRIEDRICH GAUSS",
+		"shirtName": "GAUSS",
+		"nationality": "GER",
+		"index": 10,
+		"role": "ATTACKER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 6,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		],
+		"value": 29
+	},
+	{
+		"name": "RUDOLF CLAUSIUS",
+		"shirtName": "CLAUSIUS",
+		"nationality": "GER",
+		"index": 11,
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_F",
+		"skills": {},
+		"value": 24
+	},
+	{
+		"name": "JOSEPH VAN FRAUNHOFER",
+		"shirtName": "VAN FRAUNHOFER",
+		"nationality": "GER",
+		"index": 12,
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 6,
+			"tackling": 5,
+			"control": 2,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SHOOTING"
+		],
+		"value": 26
+	},
+	{
+		"name": "WERNER HEISENBERG",
+		"shirtName": "HEISENBERG",
+		"nationality": "GER",
+		"index": 13,
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		],
+		"value": 23
+	},
+	{
+		"name": "GUSTAV ROBERT KIRCHHOFF",
+		"shirtName": "KIRCHHOFF",
+		"nationality": "GER",
+		"index": 14,
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 7,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 5,
+			"control": 3,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		],
+		"value": 26
+	},
+	{
+		"name": "HERMAN VON HELMHOLTZ",
+		"shirtName": "VON HELMHOLTZ",
+		"nationality": "GER",
+		"index": 15,
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "PALE",
+		"hairColor": "WHITE",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"CONTROL"
+		],
+		"value": 26
+	}
+]
+}
