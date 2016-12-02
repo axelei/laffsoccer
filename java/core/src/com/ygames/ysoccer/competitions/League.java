@@ -65,7 +65,7 @@ public class League extends Competition implements Json.Serializable {
     @Override
     public void start(ArrayList<Team> teams) {
         super.start(teams);
-        calendarGenerate();
+        generateCalendar();
     }
 
     @Override
@@ -105,7 +105,7 @@ public class League extends Competition implements Json.Serializable {
         }
     }
 
-    private void calendarGenerate() {
+    private void generateCalendar() {
         calendarCurrent.clear();
         while (currentRound < rounds) {
 
