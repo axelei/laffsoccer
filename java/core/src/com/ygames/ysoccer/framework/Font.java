@@ -162,6 +162,10 @@ public class Font {
 
             if (c == 8364) c = 128; // €
 
+            if (c >= regions.length) {
+                c = 0;
+            }
+
             switch (size) {
                 case 14:
                     batch.draw(regions[c], x, y, 16, 22);
@@ -190,6 +194,10 @@ public class Font {
             // carriage return/line feed
             if (c == 13 && (i + 1 < text.length()) && text.charAt(i + 1) == 10) {
                 break;
+            }
+
+            if (c >= widths.length) {
+                c = 0;
             }
 
             w = w + widths[c];
