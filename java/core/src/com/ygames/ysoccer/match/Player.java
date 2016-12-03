@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Color2;
@@ -14,7 +16,7 @@ import com.ygames.ysoccer.math.Vector2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player implements Json.Serializable {
 
     public enum Role {GOALKEEPER, RIGHT_BACK, LEFT_BACK, DEFENDER, RIGHT_WINGER, LEFT_WINGER, MIDFIELDER, ATTACKER}
 
@@ -66,7 +68,7 @@ public class Player {
     public Skin.Color skinColor;
     public Hair.Color hairColor;
     public String hairStyle;
-    public transient Hair hair;
+    public Hair hair;
 
     public Skills skills;
     public List<Skill> bestSkills = new ArrayList<Skill>();
@@ -77,8 +79,8 @@ public class Player {
 
     public int goals;
 
-    public transient InputDevice inputDevice;
-    public transient Ai ai;
+    public InputDevice inputDevice;
+    public Ai ai;
 
     float kickAngle;
     float defendDistance;
@@ -123,6 +125,29 @@ public class Player {
     public Player() {
         setAi(new Ai(this));
         setInputDevice(ai);
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+        json.readFields(this, jsonData);
+    }
+
+    @Override
+    public void write(Json json) {
+        json.writeValue("name", name);
+        json.writeValue("shirtName", shirtName);
+        json.writeValue("nationality", nationality);
+        json.writeValue("role", role);
+        json.writeValue("number", number);
+        json.writeValue("skinColor", skinColor);
+        json.writeValue("hairColor", hairColor);
+        json.writeValue("hairStyle", hairStyle);
+        if (role == Role.GOALKEEPER) {
+            json.writeValue("value", value);
+        } else {
+            json.writeValue("skills", skills);
+            json.writeValue("bestSkills", bestSkills, Skill[].class, Skill.class);
+        }
     }
 
     void beforeMatch(Match match, Team team) {
