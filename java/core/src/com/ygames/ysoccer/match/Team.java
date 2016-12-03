@@ -9,7 +9,6 @@ import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Team implements Json.Serializable {
@@ -48,14 +47,6 @@ public class Team implements Json.Serializable {
 
     Player near1; // nearest to the ball
     Player bestDefender;
-
-    public int won;
-    public int drawn;
-    public int lost;
-
-    public int goalsFor;
-    public int goalsAgainst;
-    public int points;
 
     public Team() {
         controlMode = ControlMode.UNDEFINED;
@@ -286,32 +277,6 @@ public class Team implements Json.Serializable {
         return Assets.teamsRootFolder.child(path).equals(Assets.teamsRootFolder.child(t.path));
     }
 
-    public static class CompareByStats implements Comparator<Team> {
-
-        @Override
-        public int compare(Team o1, Team o2) {
-            // by points
-            if (o1.points != o2.points) {
-                return o2.points - o1.points;
-            }
-
-            // by goals diff
-            int diff1 = o1.goalsFor - o1.goalsAgainst;
-            int diff2 = o2.goalsFor - o2.goalsAgainst;
-            if (diff1 != diff2) {
-                return diff2 - diff1;
-            }
-
-            // by scored goals
-            if (o1.goalsFor != o2.goalsFor) {
-                return o2.goalsFor - o1.goalsFor;
-            }
-
-            // by names
-            return o1.name.compareTo(o2.name);
-        }
-    }
-
     public void releaseNonAiInputDevices() {
         for (Player player : players) {
             if (player.inputDevice != player.ai) {
@@ -430,20 +395,6 @@ public class Team implements Json.Serializable {
             }
         }
         return null;
-    }
-
-    public void updateStats(int goalsFor, int goalsAgainst, int pointsForAWin) {
-        this.goalsFor += goalsFor;
-        this.goalsAgainst += goalsAgainst;
-        if (goalsFor > goalsAgainst) {
-            won += 1;
-            points += pointsForAWin;
-        } else if (goalsFor == goalsAgainst) {
-            drawn += 1;
-            points += 1;
-        } else {
-            lost += 1;
-        }
     }
 
     public void generateScorers(int goals) {
@@ -606,12 +557,6 @@ public class Team implements Json.Serializable {
     }
 
     public void resetStatistics() {
-        won = 0;
-        drawn = 0;
-        lost = 0;
-        goalsFor = 0;
-        goalsAgainst = 0;
-        points = 0;
         for (Player player : players) {
             player.goals = 0;
         }

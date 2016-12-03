@@ -13,7 +13,6 @@ import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -42,9 +41,6 @@ class PlayCup extends GLScreen {
         if ((matches > 8) && (cup.currentMatch > 4)) {
             offset = Math.min(cup.currentMatch - 4, matches - 8);
         }
-
-        ArrayList<Team> teamsList = (ArrayList<Team>) cup.teams.clone();
-        Collections.sort(teamsList, new Team.CompareByStats());
 
         int dy = 100;
         if (matches < 8) {

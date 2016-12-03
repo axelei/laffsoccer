@@ -11,23 +11,10 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
 class PlayLeague extends GLScreen {
-
-    private String[] headers = {
-            "TABLE HEADER.PLAYED MATCHES",
-            "TABLE HEADER.WON MATCHES",
-            "TABLE HEADER.DRAWN MATCHES",
-            "TABLE HEADER.LOST MATCHES",
-            "TABLE HEADER.GOALS FOR",
-            "TABLE HEADER.GOALS AGAINST",
-            "TABLE HEADER.POINTS"
-    };
 
     private League league;
 
@@ -46,6 +33,15 @@ class PlayLeague extends GLScreen {
         // table headers
         int dx = 590;
         int dy = 86 + 10 * (24 - league.numberOfTeams);
+        String[] headers = {
+                "TABLE HEADER.PLAYED MATCHES",
+                "TABLE HEADER.WON MATCHES",
+                "TABLE HEADER.DRAWN MATCHES",
+                "TABLE HEADER.LOST MATCHES",
+                "TABLE HEADER.GOALS FOR",
+                "TABLE HEADER.GOALS AGAINST",
+                "TABLE HEADER.POINTS"
+        };
         for (String header : headers) {
             w = new Label();
             w.setGeometry(dx, dy, 62, 21);
@@ -54,20 +50,17 @@ class PlayLeague extends GLScreen {
             dx += 60;
         }
 
-        ArrayList<Team> teamsList = (ArrayList<Team>) league.teams.clone();
-
-        Collections.sort(teamsList, new Team.CompareByStats());
-
-        // table
+        // table body
         int tm = 0;
         dx = 590;
-        for (Team team : teamsList) {
+        for (League.TableRow row : league.table) {
             w = new Button();
             w.setGeometry(230, dy + 20 + 21 * tm, 36, 23);
             w.setText(tm + 1, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
+            Team team = league.teams.get(row.team);
             w = new Button();
             w.setGeometry(270, dy + 20 + 21 * tm, 322, 23);
             switch (team.controlMode) {
@@ -91,7 +84,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.won + team.drawn + team.lost, Font.Align.CENTER, Assets.font10);
+            w.setText(row.won + row.drawn + row.lost, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -99,7 +92,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx + 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.won, Font.Align.CENTER, Assets.font10);
+            w.setText(row.won, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -107,7 +100,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx + 2 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.drawn, Font.Align.CENTER, Assets.font10);
+            w.setText(row.drawn, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -115,7 +108,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx + 3 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.lost, Font.Align.CENTER, Assets.font10);
+            w.setText(row.lost, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -123,7 +116,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx + 4 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.goalsFor, Font.Align.CENTER, Assets.font10);
+            w.setText(row.goalsFor, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -131,7 +124,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx + 5 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.goalsAgainst, Font.Align.CENTER, Assets.font10);
+            w.setText(row.goalsAgainst, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
@@ -139,7 +132,7 @@ class PlayLeague extends GLScreen {
             w = new Button();
             w.setGeometry(dx + 6 * 60, dy + 20 + 21 * tm, 62, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
-            w.setText(team.points, Font.Align.CENTER, Assets.font10);
+            w.setText(row.points, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
