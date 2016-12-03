@@ -264,6 +264,14 @@ class PlayCup extends GLScreen {
             Team homeTeam = cup.getTeam(HOME);
             Team awayTeam = cup.getTeam(AWAY);
 
+            // reset input devices
+            game.inputDevices.setAvailability(true);
+            homeTeam.setInputDevice(null);
+            homeTeam.releaseNonAiInputDevices();
+            awayTeam.setInputDevice(null);
+            awayTeam.releaseNonAiInputDevices();
+
+            // choose the menu to set
             if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
                 game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, HOME));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
