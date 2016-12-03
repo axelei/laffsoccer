@@ -2,6 +2,8 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Team {
+public class Team implements Json.Serializable {
 
     public enum Type {CLUB, NATIONAL, CUSTOM}
 
@@ -57,6 +59,36 @@ public class Team {
 
     public Team() {
         controlMode = ControlMode.UNDEFINED;
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+        json.readFields(this, jsonData);
+    }
+
+    @Override
+    public void write(Json json) {
+        json.writeValue("name", name);
+        if (path != null) {
+            json.writeValue("path", path);
+        }
+        if (controlMode != ControlMode.UNDEFINED) {
+            json.writeValue("controlMode", controlMode);
+        }
+        json.writeValue("type", type);
+        json.writeValue("country", country);
+        if (confederation != null) {
+            json.writeValue("confederation", confederation);
+        }
+        if (league != null) {
+            json.writeValue("league", league);
+        }
+        json.writeValue("city", city);
+        json.writeValue("stadium", stadium);
+        json.writeValue("coach", coach);
+        json.writeValue("tactics", tactics);
+        json.writeValue("kits", kits, Kit[].class, Kit.class);
+        json.writeValue("players", players, Player[].class, Player.class);
     }
 
     public void setInputDevice(InputDevice inputDevice) {

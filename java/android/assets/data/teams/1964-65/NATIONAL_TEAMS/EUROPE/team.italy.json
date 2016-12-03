@@ -10,7 +10,6 @@
 	"nationality": "ITA"
 },
 "tactics": "SWEEP",
-"kitIndex": 2,
 "kits": [
 	{
 		"style": "PLAIN",
@@ -44,7 +43,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 39
 	},
 	{
@@ -64,7 +62,12 @@
 			"control": 5,
 			"speed": 7,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
 	},
 	{
 		"name": "ARMANDO PICCHI",
@@ -83,7 +86,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"PASSING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "ROBERTO ROSATO",
@@ -102,7 +110,12 @@
 			"control": 7,
 			"speed": 7,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "ARISTIDE GUARNERI",
@@ -121,7 +134,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 3
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "GIACOMO BULGARELLI",
@@ -140,7 +158,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 5
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"TACKLING"
+		]
 	},
 	{
 		"name": "GIANNI RIVERA",
@@ -159,7 +182,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"HEADING"
+		]
 	},
 	{
 		"name": "SAUL MALATRASI",
@@ -178,7 +206,12 @@
 			"control": 5,
 			"speed": 5,
 			"finishing": 1
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED"
+		]
 	},
 	{
 		"name": "MARIO CORSO",
@@ -197,7 +230,12 @@
 			"control": 7,
 			"speed": 5,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "SANDRO MAZZOLA",
@@ -216,7 +254,12 @@
 			"control": 7,
 			"speed": 7,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"FINISHING"
+		]
 	},
 	{
 		"name": "ALBERTO ORLANDO",
@@ -235,7 +278,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
 	},
 	{
 		"name": "WILLIAM NEGRI",
@@ -246,7 +294,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 38
 	},
 	{
@@ -266,7 +313,12 @@
 			"control": 7,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "GIOVANNI TRAPATTONI",
@@ -285,7 +337,12 @@
 			"control": 6,
 			"speed": 6,
 			"finishing": 4
-		}
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		]
 	},
 	{
 		"name": "GIAMPAOLO MENICHELLI",
@@ -304,7 +361,12 @@
 			"control": 6,
 			"speed": 7,
 			"finishing": 6
-		}
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
 	},
 	{
 		"name": "EZIO PASCUTTI",
@@ -323,7 +385,12 @@
 			"control": 5,
 			"speed": 6,
 			"finishing": 7
-		}
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"SPEED"
+		]
 	}
 ]
 }
