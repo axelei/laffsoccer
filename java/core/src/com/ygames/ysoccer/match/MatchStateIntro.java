@@ -59,4 +59,10 @@ class MatchStateIntro extends MatchState {
             }
         }
     }
+
+    @Override
+    void render() {
+        super.render();
+        matchRenderer.drawRosters();
+    }
 }

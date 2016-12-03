@@ -123,6 +123,7 @@ public class Player implements Json.Serializable {
     int frameDistance;
 
     public Player() {
+        skills = new Skills();
         setAi(new Ai(this));
         setInputDevice(ai);
     }

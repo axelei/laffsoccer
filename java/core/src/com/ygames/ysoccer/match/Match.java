@@ -34,7 +34,7 @@ public class Match implements Json.Serializable {
     public int benchSide; // 1 = home upside, -1 = home downside
 
     public MatchSettings settings;
-    private Competition competition;
+    Competition competition;
 
     enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
 

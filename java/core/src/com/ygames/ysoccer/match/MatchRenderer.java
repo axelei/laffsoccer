@@ -368,6 +368,99 @@ public class MatchRenderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
+    void drawRosters() {
+
+        int l = 13 + (guiWidth - 640) / 5 + 2;
+        int r = guiWidth - l + 2;
+        int w = r - l;
+        int t = 20 + (guiHeight - 400) / 5 + 2;
+        int b = guiHeight - t + 8 + 2;
+        int h = b - t;
+        int m1 = t + h / 8 + 2;
+        int m2 = t + h / 3 + 2;
+        int hw = guiWidth / 2 + 2;
+
+        // fading
+        batch.end();
+        gl.glEnable(GL20.GL_BLEND);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+
+        fadeRect(l + 2, t + 2, r - 2, b - 2, 0.35f, 0x000000);
+
+        // line's shadows
+        shapeRenderer.setColor(0x242424, guiAlpha);
+        drawRosterLines(l, r, w, t, b, m1, m2, hw);
+
+        l = l - 2;
+        r = r - 2;
+        t = t - 2;
+        b = b - 2;
+        m1 = m1 - 2;
+        m2 = m2 - 2;
+        hw = hw - 2;
+
+        // lines
+        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        drawRosterLines(l, r, w, t, b, m1, m2, hw);
+
+        shapeRenderer.end();
+        batch.begin();
+        batch.setColor(0xFFFFFF, guiAlpha);
+
+        // title
+        int y = t + h / 23;
+        Assets.font14.draw(batch, match.competition.name, guiWidth / 2, y, Font.Align.CENTER);
+
+        // city & stadium
+        if (match.team[HOME].city.length() > 0 && match.team[HOME].stadium.length() > 0) {
+            y = t + h / 6;
+            Assets.font14.draw(batch, match.team[HOME].stadium + ", " + match.team[HOME].city, guiWidth / 2, y, Font.Align.CENTER);
+        }
+
+        // TODO: club logos/national flags
+
+        // team name
+        y = t + h / 4;
+        Assets.font14.draw(batch, match.team[HOME].name, l + w / 4, y, Font.Align.CENTER);
+        Assets.font14.draw(batch, match.team[AWAY].name, l + 3 * w / 4, y, Font.Align.CENTER);
+
+        // players
+        for (int tm = HOME; tm <= AWAY; tm++) {
+            y = t + 16 * h / 42;
+            for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
+                Player player = match.team[tm].playerAtPosition(pos);
+                Assets.font10.draw(batch, player.number, l + tm * w / 2 + w / 10, y, Font.Align.CENTER);
+                Assets.font10.draw(batch, player.shirtName, l + tm * w / 2 + w / 7, y, Font.Align.LEFT);
+                y = y + h / 23;
+            }
+        }
+
+        // coach
+        y = t + 7 * h / 8;
+        Assets.font10.draw(batch, Assets.strings.get("COACH") + ":", l + 2 * w / 25, y, Font.Align.LEFT);
+        Assets.font10.draw(batch, Assets.strings.get("COACH") + ":", l + 5 * w / 9, y, Font.Align.LEFT);
+
+        y = t + 37 * h / 40;
+        Assets.font10.draw(batch, match.team[HOME].coach.name, l + w / 4, y, Font.Align.CENTER);
+        Assets.font10.draw(batch, match.team[AWAY].coach.name, l + 3 * w / 4, y, Font.Align.CENTER);
+    }
+
+    private void drawRosterLines(int l, int r, int w, int t, int b, int m1, int m2, int hw) {
+        drawFrame(l, t, r - l, b - t);
+
+        // middle
+        shapeRenderer.rect(hw - 0.2f * w, m1, 0.4f * w, 1);
+        shapeRenderer.rect(hw - 0.2f * w, m1 + 1, 0.4f * w, 1);
+
+        // middle left
+        shapeRenderer.rect(l + 0.05f * w, m2, hw - l - 0.1f * w, 1);
+        shapeRenderer.rect(l + 0.05f * w, m2 + 1, hw - l - 0.1f * w, 1);
+
+        // middle right
+        shapeRenderer.rect(hw + 0.05f * w, m2, r - hw - 0.1f * w, 1);
+        shapeRenderer.rect(hw + 0.05f * w, m2 + 1, r - hw - 0.1f * w, 1);
+    }
+
     private void drawTime() {
 
         int minute = match.getMinute();
