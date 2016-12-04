@@ -11,6 +11,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -186,8 +187,9 @@ public class Cup extends Competition implements Json.Serializable {
 
         // replays
         else {
-            for (int i = 0; i < calendarCurrent.size(); i++) {
-                Match match = calendarCurrent.get(i);
+            Iterator<Match> iterator = calendarCurrent.iterator();
+            while (iterator.hasNext()) {
+                Match match = iterator.next();
                 if (match.qualified == -1) {
                     // swap teams
                     int tmp = match.teams[HOME];
@@ -201,7 +203,7 @@ public class Cup extends Competition implements Json.Serializable {
                     match.oldResult = null;
                     match.status = "";
                 } else {
-                    calendarCurrent.remove(match);
+                    iterator.remove();
                 }
             }
         }
