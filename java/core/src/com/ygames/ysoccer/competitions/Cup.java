@@ -78,7 +78,7 @@ public class Cup extends Competition implements Json.Serializable {
         json.writeValue("currentLeg", currentLeg);
         json.writeValue("currentMatch", currentMatch);
         json.writeValue("teams", teams, Team[].class, Team.class);
-        json.writeValue("qualifiedTeams", qualifiedTeams);
+        json.writeValue("qualifiedTeams", qualifiedTeams, Integer[].class, Integer.class);
         json.writeValue("calendarCurrent", calendarCurrent, Match[].class, Match.class);
     }
 
