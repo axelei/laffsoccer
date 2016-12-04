@@ -45,6 +45,7 @@ public class GLGame extends Game {
     @Override
     public void create() {
         settings = new Settings();
+        Gdx.app.setLogLevel(settings.logLevel);
         glGraphics = new GLGraphics();
         gui = new Gui();
         setScreenMode();

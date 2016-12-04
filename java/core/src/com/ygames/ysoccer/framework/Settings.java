@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.framework;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Preferences;
@@ -18,6 +19,7 @@ public class Settings {
     public final String VERSION = "16";
 
     // game
+    public int logLevel;
     public String locale;
     public boolean fullScreen;
     public boolean showIntro;
@@ -49,6 +51,7 @@ public class Settings {
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
         // game
+        logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
         locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
         showIntro = preferences.getBoolean("showIntro", true);
@@ -75,6 +78,7 @@ public class Settings {
 
     public void save() {
         // game
+        preferences.putInteger("logLevel", logLevel);
         preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
         preferences.putBoolean("showIntro", showIntro);
