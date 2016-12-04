@@ -1,14 +1,20 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Player;
+
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchScreen extends GLScreen {
 
     Match match;
     private boolean matchStarted;
     private boolean matchPaused;
+    private boolean matchEnded;
 
     private float timer;
 
@@ -19,7 +25,14 @@ class MatchScreen extends GLScreen {
 
         matchStarted = false;
         matchPaused = false;
+        matchEnded = false;
         game.glGraphics.light = 0;
+
+        match.listener = new Match.MatchListener() {
+            public void quitMatch() {
+                quit();
+            }
+        };
     }
 
     @Override
@@ -37,7 +50,9 @@ class MatchScreen extends GLScreen {
             match.update(deltaTime);
         }
 
-        match.fsm.getMatchRenderer().render(game);
+        if (!matchEnded) {
+            match.fsm.getMatchRenderer().render(game);
+        }
     }
 
     @Override
@@ -45,5 +60,38 @@ class MatchScreen extends GLScreen {
         super.resize(width, height);
 
         match.fsm.getMatchRenderer().resize(width, height, game.settings);
+    }
+
+    private void quit() {
+        matchEnded = true;
+        game.setMouse();
+
+        for (int t = HOME; t <= AWAY; t++) {
+            int len = match.team[t].lineup.size();
+            for (int i = 0; i < len; i++) {
+                Player player = match.team[t].lineup.get(i);
+                if (player.role == Player.Role.GOALKEEPER) {
+                    Assets.unloadKeeper(player);
+                } else {
+                    Assets.unloadPlayer(player);
+                }
+                Assets.unloadHair(player);
+            }
+            match.team[t].lineup.clear();
+        }
+
+        switch (match.competition.type) {
+            case FRIENDLY:
+                // TODO game.setScreen(new ReplayMatch(game));
+                break;
+
+            case LEAGUE:
+                game.setScreen(new PlayLeague(game));
+                break;
+
+            case CUP:
+                game.setScreen(new PlayCup(game));
+                break;
+        }
     }
 }

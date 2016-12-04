@@ -195,7 +195,7 @@ public class League extends Competition implements Json.Serializable {
         awayTeam.generateScorers(goalB);
     }
 
-    private void setResult(int homeGoals, int awayGoals) {
+    public void setResult(int homeGoals, int awayGoals) {
         Match match = getMatch();
         match.setResult(homeGoals, awayGoals);
         match.ended = true;

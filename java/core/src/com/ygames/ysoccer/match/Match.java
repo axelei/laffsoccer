@@ -12,6 +12,10 @@ import java.util.List;
 
 public class Match implements Json.Serializable {
 
+    public interface MatchListener {
+        void quitMatch();
+    }
+
     public static final int HOME = 0;
     public static final int AWAY = 1;
     public int teams[] = {-1, -1};
@@ -33,8 +37,9 @@ public class Match implements Json.Serializable {
     public Team team[];
     public int benchSide; // 1 = home upside, -1 = home downside
 
+    public MatchListener listener;
     public MatchSettings settings;
-    Competition competition;
+    public Competition competition;
 
     enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
 
@@ -417,5 +422,9 @@ public class Match implements Json.Serializable {
     void swapTeamSides() {
         team[HOME].side = -team[HOME].side;
         team[AWAY].side = -team[AWAY].side;
+    }
+
+    void quit() {
+        listener.quitMatch();
     }
 }

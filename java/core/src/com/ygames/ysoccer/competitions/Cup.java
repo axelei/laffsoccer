@@ -22,7 +22,7 @@ public class Cup extends Competition implements Json.Serializable {
     private ArrayList<Integer> qualifiedTeams;
     public ArrayList<Match> calendarCurrent;
 
-    private enum ResultType {AFTER_90_MINS, AFTER_EXTRA_TIME, AFTER_PENALTIES}
+    public enum ResultType {AFTER_90_MINS, AFTER_EXTRA_TIME, AFTER_PENALTIES}
 
     public enum AwayGoals {
         OFF,
@@ -235,7 +235,7 @@ public class Cup extends Competition implements Json.Serializable {
         }
     }
 
-    private void setResult(int homeGoals, int awayGoals, ResultType resultType) {
+    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
         Match match = getMatch();
         if (resultType == ResultType.AFTER_PENALTIES) {
             match.setResultAfterPenalties(homeGoals, awayGoals);
@@ -256,7 +256,7 @@ public class Cup extends Competition implements Json.Serializable {
     }
 
     // decide if extra time have to be played depending on current result, leg's type and settings
-    private boolean playExtraTime() {
+    public boolean playExtraTime() {
         Match match = getMatch();
         Round round = rounds.get(currentRound);
 

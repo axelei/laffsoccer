@@ -48,10 +48,10 @@ class MatchStateEnd extends MatchState {
 
     @Override
     void checkConditions() {
-        if (match.team[HOME].fire1Up() != null || match.team[AWAY].fire1Up() != null
+        if (match.team[HOME].fire1Up() != null
+                || match.team[AWAY].fire1Up() != null
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
-            // TODO
-            // match.quit();
+            match.quit();
         }
     }
 }

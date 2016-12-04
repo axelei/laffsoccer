@@ -479,6 +479,16 @@ public class Assets {
         }
     }
 
+    public static void unloadKeeper(Player p) {
+        if (keeper[p.team.index][p.skinColor.ordinal()][0][0] != null) {
+            for (int frameX = 0; frameX < 8; frameX++) {
+                for (int frameY = 0; frameY < 19; frameY++) {
+                    Assets.keeper[p.team.index][p.skinColor.ordinal()][frameX][frameY] = null;
+                }
+            }
+        }
+    }
+
     private static void loadKeeperShadow() {
         for (int i = 0; i < 4; i++) {
             Texture textureShadow = new Texture("images/player/shadows/keeper_" + i + ".png");
@@ -528,6 +538,16 @@ public class Assets {
         }
     }
 
+    public static void unloadPlayer(Player p) {
+        if (player[p.team.index][p.skinColor.ordinal()][0][0] != null) {
+            for (int frameX = 0; frameX < 8; frameX++) {
+                for (int frameY = 0; frameY < 16; frameY++) {
+                    player[p.team.index][p.skinColor.ordinal()][frameX][frameY] = null;
+                }
+            }
+        }
+    }
+
     public static void loadHair(Player player) {
         player.hair = new Hair(player.hairColor, player.hairStyle);
         if (hairs.get(player.hair) == null) {
@@ -542,6 +562,13 @@ public class Assets {
                 }
             }
             hairs.put(player.hair, textureRegion);
+        }
+    }
+
+    public static void unloadHair(Player player) {
+        player.hair = new Hair(player.hairColor, player.hairStyle);
+        if (hairs.get(player.hair) != null) {
+            hairs.remove(player.hair);
         }
     }
 
