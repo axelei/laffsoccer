@@ -223,7 +223,7 @@ class AllSelectedTeams extends GLScreen {
 
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setColors(0xC8000E, 0xFF1929, 0x74040C);
+            setColors(0xC8000E);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -290,8 +290,14 @@ class AllSelectedTeams extends GLScreen {
 
                     // choose the menu to set
                     if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+                        if (lastFireInputDevice != null) {
+                            homeTeam.setInputDevice(lastFireInputDevice);
+                        }
                         game.setScreen(new SetTeam(game, currentFolder, league, competition, homeTeam, awayTeam, HOME));
                     } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+                        if (lastFireInputDevice != null) {
+                            awayTeam.setInputDevice(lastFireInputDevice);
+                        }
                         game.setScreen(new SetTeam(game, currentFolder, league, competition, homeTeam, awayTeam, AWAY));
                     } else {
                         game.setScreen(new MatchSetup(game, currentFolder, league, competition, homeTeam, awayTeam));

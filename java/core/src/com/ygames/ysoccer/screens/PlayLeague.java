@@ -243,8 +243,14 @@ class PlayLeague extends GLScreen {
 
             // choose the menu to set
             if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+                if (lastFireInputDevice != null) {
+                    homeTeam.setInputDevice(lastFireInputDevice);
+                }
                 game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, HOME));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+                if (lastFireInputDevice != null) {
+                    awayTeam.setInputDevice(lastFireInputDevice);
+                }
                 game.setScreen(new SetTeam(game, null, null, league, homeTeam, awayTeam, AWAY));
             } else {
                 game.setScreen(new MatchSetup(game, null, null, league, homeTeam, awayTeam));

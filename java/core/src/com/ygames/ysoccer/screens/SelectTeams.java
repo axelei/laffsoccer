@@ -141,7 +141,7 @@ class SelectTeams extends GLScreen {
         }
         widgets.addAll(breadcrumb);
 
-        w = new ExitButton();
+        w = new AbortButton();
         widgets.add(w);
         if (selectedWidget == null) {
             setSelectedWidget(w);
@@ -349,11 +349,11 @@ class SelectTeams extends GLScreen {
         }
     }
 
-    private class ExitButton extends Button {
+    private class AbortButton extends Button {
 
-        ExitButton() {
-            setColors(0xC8000E);
+        AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC8000E);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -408,18 +408,29 @@ class SelectTeams extends GLScreen {
         public void onFire1Down() {
             switch (competition.type) {
                 case FRIENDLY:
-                    // choose the menu to set
+                    Team homeTeam = game.teamList.get(HOME);
+                    Team awayTeam = game.teamList.get(AWAY);
+
+                    // reset input devices
                     game.inputDevices.setAvailability(true);
-                    game.teamList.get(HOME).setInputDevice(null);
-                    game.teamList.get(HOME).releaseNonAiInputDevices();
-                    game.teamList.get(AWAY).setInputDevice(null);
-                    game.teamList.get(AWAY).releaseNonAiInputDevices();
-                    if (game.teamList.get(HOME).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, currentFolder, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY), HOME));
-                    } else if (game.teamList.get(AWAY).controlMode != Team.ControlMode.COMPUTER) {
-                        game.setScreen(new SetTeam(game, currentFolder, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY), AWAY));
+                    homeTeam.setInputDevice(null);
+                    homeTeam.releaseNonAiInputDevices();
+                    awayTeam.setInputDevice(null);
+                    awayTeam.releaseNonAiInputDevices();
+
+                    // choose the menu to set
+                    if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+                        if (lastFireInputDevice != null) {
+                            homeTeam.setInputDevice(lastFireInputDevice);
+                        }
+                        game.setScreen(new SetTeam(game, currentFolder, league, competition, homeTeam, awayTeam, HOME));
+                    } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+                        if (lastFireInputDevice != null) {
+                            awayTeam.setInputDevice(lastFireInputDevice);
+                        }
+                        game.setScreen(new SetTeam(game, currentFolder, league, competition, homeTeam, awayTeam, AWAY));
                     } else {
-                        game.setScreen(new MatchSetup(game, currentFolder, league, competition, game.teamList.get(HOME), game.teamList.get(AWAY)));
+                        game.setScreen(new MatchSetup(game, currentFolder, league, competition, homeTeam, awayTeam));
                     }
                     break;
 

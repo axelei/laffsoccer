@@ -23,6 +23,7 @@ public abstract class GLScreen implements Screen {
     protected List<Widget> widgets;
     protected Widget selectedWidget;
     protected boolean playMenuMusic;
+    protected InputDevice lastFireInputDevice;
 
     public GLScreen(GLGame game) {
         this.game = game;
@@ -135,9 +136,9 @@ public abstract class GLScreen implements Screen {
         // fire 1 delay
         if (menuInput.fire1) {
             if (!menuInput.fire1Old) {
-                menuInput.fire1Timer = 10;
+                menuInput.fire1Timer = 20;
             } else if (menuInput.fire1Timer == 0) {
-                menuInput.fire1Timer = 4;
+                menuInput.fire1Timer = 6;
             }
         } else {
             if (!menuInput.fire1Old) {
@@ -152,9 +153,9 @@ public abstract class GLScreen implements Screen {
         // fire 2 delay
         if (menuInput.fire2) {
             if (!menuInput.fire2Old) {
-                menuInput.fire2Timer = 10;
+                menuInput.fire2Timer = 20;
             } else if (menuInput.fire2Timer == 0) {
-                menuInput.fire2Timer = 4;
+                menuInput.fire2Timer = 6;
             }
         } else {
             if (!menuInput.fire2Old) {
@@ -194,11 +195,13 @@ public abstract class GLScreen implements Screen {
             // fire 1
             if (inputDevice.fire11) {
                 menuInput.fire1 = true;
+                lastFireInputDevice = inputDevice;
             }
 
             // fire 2
             if (inputDevice.fire21) {
                 menuInput.fire2 = true;
+                lastFireInputDevice = inputDevice;
             }
         }
 
@@ -207,9 +210,11 @@ public abstract class GLScreen implements Screen {
                 && selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
             if (game.mouse.button1) {
                 menuInput.fire1 = true;
+                lastFireInputDevice = null;
             }
             if (game.mouse.button2) {
                 menuInput.fire2 = true;
+                lastFireInputDevice = null;
             }
         }
 
