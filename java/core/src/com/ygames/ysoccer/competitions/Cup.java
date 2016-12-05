@@ -215,25 +215,25 @@ public class Cup extends Competition implements Json.Serializable {
         Team homeTeam = getTeam(HOME);
         Team awayTeam = getTeam(AWAY);
 
-        int goalA = Match.generateScore(homeTeam, awayTeam, false);
-        int goalB = Match.generateScore(awayTeam, homeTeam, false);
-        setResult(goalA, goalB, Cup.ResultType.AFTER_90_MINS);
+        int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
+        int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
+        setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_90_MINS);
 
         if (playExtraTime()) {
-            goalA += Match.generateScore(homeTeam, awayTeam, true);
-            goalB += Match.generateScore(awayTeam, homeTeam, true);
-            setResult(goalA, goalB, Cup.ResultType.AFTER_EXTRA_TIME);
+            homeGoals += Match.generateGoals(homeTeam, awayTeam, true);
+            awayGoals += Match.generateGoals(awayTeam, homeTeam, true);
+            setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_EXTRA_TIME);
         }
 
-        homeTeam.generateScorers(goalA);
-        awayTeam.generateScorers(goalB);
+        generateScorers(homeTeam, homeGoals);
+        generateScorers(awayTeam, awayGoals);
 
         if (playPenalties()) {
             do {
-                goalA = Emath.floor(6 * Math.random());
-                goalB = Emath.floor(6 * Math.random());
-            } while (goalA == goalB);
-            setResult(goalA, goalB, Cup.ResultType.AFTER_PENALTIES);
+                homeGoals = Emath.floor(6 * Math.random());
+                awayGoals = Emath.floor(6 * Math.random());
+            } while (homeGoals == awayGoals);
+            setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_PENALTIES);
         }
     }
 
@@ -700,10 +700,5 @@ public class Cup extends Competition implements Json.Serializable {
             }
         }
         return false;
-    }
-
-    public boolean bothComputers() {
-        return getTeam(HOME).controlMode == Team.ControlMode.COMPUTER
-                && getTeam(AWAY).controlMode == Team.ControlMode.COMPUTER;
     }
 }

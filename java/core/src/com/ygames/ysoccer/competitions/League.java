@@ -21,7 +21,7 @@ public class League extends Competition implements Json.Serializable {
     public int pointsForAWin;
     private ArrayList<Match> calendar;
     public List<TableRow> table;
-    private Comparator<League.TableRow> tableRowComparator = new TableRowComparator();
+    private Comparator<League.TableRow> tableRowComparator;
 
     public League() {
         super(Type.LEAGUE);
@@ -30,41 +30,32 @@ public class League extends Competition implements Json.Serializable {
         pointsForAWin = 3;
         calendar = new ArrayList<Match>();
         table = new ArrayList<TableRow>();
+        tableRowComparator = new TableRowComparator();
     }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        json.readFields(this, jsonData);
+        super.read(json, jsonData);
+        rounds = jsonData.getInt("rounds");
+        pointsForAWin = jsonData.getInt("pointsForAWin");
+
+        Match[] calendarArray = json.readValue("calendar", Match[].class, jsonData);
+        if (calendarArray != null) {
+            Collections.addAll(calendar, calendarArray);
+        }
+
+        TableRow[] tableArray = json.readValue("table", TableRow[].class, jsonData);
+        if (tableArray != null) {
+            Collections.addAll(table, tableArray);
+        }
     }
 
     @Override
     public void write(Json json) {
-        // config
-        json.writeValue("name", name);
-        if (filename.length() > 0) {
-            json.writeValue("filename", filename);
-        }
-        json.writeValue("category", category);
-        json.writeValue("numberOfTeams", numberOfTeams);
+        super.write(json);
+
         json.writeValue("rounds", rounds);
         json.writeValue("pointsForAWin", pointsForAWin);
-        json.writeValue("substitutions", substitutions);
-        json.writeValue("benchSize", benchSize);
-        json.writeValue("time", time);
-        json.writeValue("weather", weather);
-        if (weather == Weather.BY_SEASON) {
-            json.writeValue("seasonStart", seasonStart);
-            json.writeValue("seasonEnd", seasonEnd);
-            json.writeValue("currentMonth", currentMonth);
-        } else {
-            json.writeValue("pitchType", pitchType);
-        }
-
-        // state
-        json.writeValue("userPrefersResult", userPrefersResult);
-        json.writeValue("currentRound", currentRound);
-        json.writeValue("currentMatch", currentMatch);
-        json.writeValue("teams", teams, Team[].class, Team.class);
         json.writeValue("calendar", calendar, Match[].class, Match.class);
         json.writeValue("table", table, TableRow[].class, TableRow.class);
     }
@@ -85,14 +76,6 @@ public class League extends Competition implements Json.Serializable {
 
     public Match getMatch() {
         return calendar.get(currentMatch);
-    }
-
-    public Team getTeam(int side) {
-        return teams.get(getTeamIndex(side));
-    }
-
-    private int getTeamIndex(int side) {
-        return getMatch().teams[side];
     }
 
     @Override
@@ -186,13 +169,13 @@ public class League extends Competition implements Json.Serializable {
         Team homeTeam = getTeam(HOME);
         Team awayTeam = getTeam(AWAY);
 
-        int goalA = Match.generateScore(homeTeam, awayTeam, false);
-        int goalB = Match.generateScore(awayTeam, homeTeam, false);
+        int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
+        int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
 
-        setResult(goalA, goalB);
+        setResult(homeGoals, awayGoals);
 
-        homeTeam.generateScorers(goalA);
-        awayTeam.generateScorers(goalB);
+        generateScorers(homeTeam, homeGoals);
+        generateScorers(awayTeam, awayGoals);
     }
 
     public void setResult(int homeGoals, int awayGoals) {
@@ -209,14 +192,6 @@ public class League extends Competition implements Json.Serializable {
             }
         }
         sortTable();
-    }
-
-    public boolean bothComputers() {
-        Team homeTeam = getTeam(HOME);
-        Team awayTeam = getTeam(AWAY);
-
-        return homeTeam.controlMode == Team.ControlMode.COMPUTER
-                && awayTeam.controlMode == Team.ControlMode.COMPUTER;
     }
 
     public static class TableRow {

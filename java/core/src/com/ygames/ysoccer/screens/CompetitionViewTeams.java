@@ -9,6 +9,7 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class CompetitionViewTeams extends GLScreen {
@@ -29,11 +30,13 @@ class CompetitionViewTeams extends GLScreen {
             list.add(w);
             widgets.add(w);
 
-            if (selectedWidget == null) {
-                setSelectedWidget(w);
-            }
         }
-        Widget.arrange(game.gui.WIDTH, 350, 32, list);
+
+        if (list.size() > 0) {
+            Collections.sort(list, Widget.widgetComparatorByText);
+            Widget.arrange(game.gui.WIDTH, 350, 32, list);
+            setSelectedWidget(list.get(0));
+        }
 
         w = new ExitButton();
         widgets.add(w);

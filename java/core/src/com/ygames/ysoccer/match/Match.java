@@ -124,9 +124,9 @@ public class Match implements Json.Serializable {
         resultAfterPenalties = new int[]{homeGoals, awayGoals};
     }
 
-    public static int generateScore(Team teamA, Team teamB, boolean extraTimeResult) {
+    public static int generateGoals(Team teamFor, Team teamAgainst, boolean extraTimeResult) {
 
-        double factor = (teamA.offenseRating() - teamB.defenseRating() + 300) / 60.0;
+        double factor = (teamFor.offenseRating() - teamAgainst.defenseRating() + 300) / 60.0;
 
         int a, b;
         int[] goalsProbability = new int[7];
@@ -396,7 +396,7 @@ public class Match implements Json.Serializable {
     void addGoal(int attackingTeam) {
         Goal goal;
         if (team[attackingTeam] == ball.goalOwner.team) {
-            ball.goalOwner.goals += 1;
+            competition.addGoal(ball.goalOwner);
             goal = new Goal(ball.goalOwner, getMinute(), Goal.Type.NORMAL);
         } else {
             goal = new Goal(ball.goalOwner, getMinute(), Goal.Type.OWN_GOAL);

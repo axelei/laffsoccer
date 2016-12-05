@@ -77,8 +77,6 @@ public class Player implements Json.Serializable {
 
     public int value; // 0 to 49
 
-    public int goals;
-
     public InputDevice inputDevice;
     public Ai ai;
 
@@ -151,13 +149,12 @@ public class Player implements Json.Serializable {
         }
     }
 
-    void beforeMatch(Match match, Team team) {
+    void beforeMatch(Match match) {
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
         fsm = new PlayerFsm(this);
         isVisible = true;
-        this.team = team;
         this.match = match;
     }
 
@@ -537,7 +534,6 @@ public class Player implements Json.Serializable {
         ballDistance = Emath.dist(x, y, match.ball.x, match.ball.y);
 
         return ((v > 0) || (vz != 0));
-
     }
 
     private void limitInsideField() {
@@ -765,6 +761,34 @@ public class Player implements Json.Serializable {
         public int control;
         public int speed;
         public int finishing;
+    }
+
+    public int getIndex() {
+        return this.team.players.indexOf(this);
+    }
+
+    public int getScoringWeight() {
+        int value = skills.heading + skills.shooting + skills.finishing;
+
+        if (getIndex() < Const.TEAM_SIZE) {
+            value *= 4;
+        }
+
+        switch (role) {
+            case RIGHT_WINGER:
+            case LEFT_WINGER:
+                value *= 5;
+                break;
+
+            case MIDFIELDER:
+                value *= 3;
+                break;
+
+            case ATTACKER:
+                value *= 10;
+                break;
+        }
+        return value;
     }
 
     public TextureRegion createFace() {

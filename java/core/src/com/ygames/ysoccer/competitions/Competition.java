@@ -2,16 +2,25 @@ package com.ygames.ysoccer.competitions;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Month;
+import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
+import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 public abstract class Competition {
 
@@ -19,17 +28,16 @@ public abstract class Competition {
 
     public enum Category {DIY_COMPETITION, PRESET_COMPETITION}
 
+    public enum Weather {BY_SEASON, BY_PITCH_TYPE}
+
     public String name;
     public String filename;
     public final Type type;
     public Category category;
+    public int numberOfTeams;
     public Files files;
 
-    public int numberOfTeams;
-    public ArrayList<Team> teams;
-
-    public enum Weather {BY_SEASON, BY_PITCH_TYPE}
-
+    public MatchSettings.Time time;
     public Weather weather;
     public Month seasonStart;
     public Month seasonEnd;
@@ -37,14 +45,18 @@ public abstract class Competition {
     public Pitch.Type pitchType;
     public int substitutions;
     public int benchSize;
-    public MatchSettings.Time time;
     public boolean userPrefersResult;
     public int currentRound;
     public int currentMatch;
 
+    public List<Team> teams;
+    public ArrayList<Scorer> scorers;
+    private Comparator<Scorer> scorerComparator;
+
     protected Competition(Type type) {
         this.type = type;
         filename = "";
+        teams = new ArrayList<Team>();
         weather = Weather.BY_SEASON;
         seasonStart = Month.AUGUST;
         seasonEnd = Month.MAY;
@@ -52,6 +64,81 @@ public abstract class Competition {
         substitutions = 3;
         benchSize = 5;
         time = MatchSettings.Time.DAY;
+        scorers = new ArrayList<Scorer>();
+        scorerComparator = new ScorerComparator();
+    }
+
+    public void read(Json json, JsonValue jsonData) {
+        name = jsonData.getString("name");
+        filename = jsonData.getString("filename", "");
+        category = json.readValue("category", Category.class, jsonData);
+        numberOfTeams = jsonData.getInt("numberOfTeams");
+        files = json.readValue("files", Files.class, jsonData);
+
+        time = json.readValue("time", MatchSettings.Time.class, jsonData);
+        weather = json.readValue("weather", Weather.class, jsonData);
+        if (weather == Weather.BY_SEASON) {
+            seasonStart = json.readValue("seasonStart", Month.class, jsonData);
+            seasonEnd = json.readValue("seasonEnd", Month.class, jsonData);
+            currentMonth = json.readValue("currentMonth", Month.class, jsonData);
+        } else {
+            pitchType = json.readValue("pitchType", Pitch.Type.class, jsonData);
+        }
+        substitutions = jsonData.getInt("substitutions", 3);
+        benchSize = jsonData.getInt("benchSize", 5);
+        userPrefersResult = jsonData.getBoolean("userPrefersResult", false);
+        currentRound = jsonData.getInt("currentRound", 0);
+        currentMatch = jsonData.getInt("currentMatch", 0);
+
+        Team[] teamsArray = json.readValue("teams", Team[].class, jsonData);
+        if (teamsArray != null) {
+            Collections.addAll(teams, teamsArray);
+        }
+
+        JsonValue rawScorers = jsonData.get("scorers");
+        if (rawScorers != null) {
+            JsonValue rawScorer = rawScorers.child();
+            while (rawScorer != null) {
+                Team team = teams.get(rawScorer.getInt("team"));
+                Player player = team.players.get(rawScorer.getInt("player"));
+                scorers.add(new Scorer(player, rawScorer.getInt("goals")));
+                rawScorer = rawScorer.next();
+            }
+        }
+    }
+
+    public void write(Json json) {
+        json.writeValue("name", name);
+        if (filename.length() > 0) {
+            json.writeValue("filename", filename);
+        }
+        json.writeValue("category", category);
+        json.writeValue("numberOfTeams", numberOfTeams);
+
+        json.writeValue("time", time);
+        json.writeValue("weather", weather);
+        if (weather == Weather.BY_SEASON) {
+            json.writeValue("seasonStart", seasonStart);
+            json.writeValue("seasonEnd", seasonEnd);
+            json.writeValue("currentMonth", currentMonth);
+        } else {
+            json.writeValue("pitchType", pitchType);
+        }
+        json.writeValue("substitutions", substitutions);
+        json.writeValue("benchSize", benchSize);
+        json.writeValue("userPrefersResult", userPrefersResult);
+        json.writeValue("currentRound", currentRound);
+        json.writeValue("currentMatch", currentMatch);
+        json.writeValue("teams", teams, Team[].class, Team.class);
+        json.writeArrayStart("scorers");
+        for (Scorer scorer : scorers) {
+            json.writeObjectStart();
+            json.writeValue("team", teams.indexOf(scorer.player.team));
+            json.writeValue("player", scorer.player.team.players.indexOf(scorer.player));
+            json.writeValue("goals", scorer.goals);
+            json.writeObjectEnd();
+        }
+        json.writeArrayEnd();
     }
 
     public String getMenuTitle() {
@@ -64,15 +151,26 @@ public abstract class Competition {
 
     public abstract Match getMatch();
 
+    public Team getTeam(int side) {
+        return teams.get(getTeamIndex(side));
+    }
+
+    int getTeamIndex(int side) {
+        return getMatch().teams[side];
+    }
+
+    public boolean bothComputers() {
+        return getTeam(HOME).controlMode == Team.ControlMode.COMPUTER
+                && getTeam(AWAY).controlMode == Team.ControlMode.COMPUTER;
+    }
+
     public boolean isEnded() {
         return true;
     }
 
     public void restart() {
         userPrefersResult = false;
-        for (Team team : teams) {
-            team.resetStatistics();
-        }
+        scorers.clear();
     }
 
     public static String getCategoryLabel(Category category) {
@@ -172,5 +270,86 @@ public abstract class Competition {
         public String folder;
         public String league;
         public List<String> teams;
+    }
+
+    public static class Scorer {
+        public Player player;
+        public int goals;
+
+        Scorer(Player player, int goals) {
+            this.player = player;
+            this.goals = goals;
+        }
+    }
+
+    private class ScorerComparator implements Comparator<Scorer> {
+
+        @Override
+        public int compare(Scorer o1, Scorer o2) {
+            // by goals
+            if (o1.goals != o2.goals) {
+                return o2.goals - o1.goals;
+            }
+
+            // by team name
+            if (o1.player.team != o2.player.team) {
+                return o1.player.team.name.compareTo(o2.player.team.name);
+            }
+
+            // by names
+            return o1.player.name.compareTo(o2.player.name);
+        }
+    }
+
+    private void sortScorerList() {
+        Collections.sort(scorers, scorerComparator);
+    }
+
+
+    void generateScorers(Team team, int goals) {
+        int teamWeight = 0;
+        for (int playerIndex = 0; playerIndex < Const.TEAM_SIZE + benchSize; playerIndex++) {
+            Player player = team.players.get(playerIndex);
+            teamWeight += player.getScoringWeight();
+        }
+
+        for (int i = 0; i < goals; i++) {
+            int target = 1 + Emath.floor(teamWeight * Math.random());
+            int sum = teamWeight;
+            for (int playerIndex = 0; playerIndex < Const.TEAM_SIZE + benchSize; playerIndex++) {
+                Player player = team.players.get(playerIndex);
+
+                sum -= player.getScoringWeight();
+
+                if (sum < target) {
+                    addGoal(player);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void addGoal(Player player) {
+        Scorer scorer = searchScorer(player);
+        if (scorer == null) {
+            scorers.add(new Scorer(player, 1));
+        } else {
+            scorer.goals++;
+        }
+        sortScorerList();
+    }
+
+    private Scorer searchScorer(Player player) {
+        for (Scorer scorer : scorers) {
+            if (scorer.player == player) {
+                return scorer;
+            }
+        }
+        return null;
+    }
+
+    public int getScorerGoals(Player player) {
+        Scorer scorer = searchScorer(player);
+        return scorer == null ? 0 : scorer.goals;
     }
 }

@@ -141,7 +141,7 @@ class ViewTeam extends GLScreen {
             setGeometry(x, 126 + 22 * p, 30, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             if (player != null) {
-                setText(player.goals);
+                setText(game.competition.getScorerGoals(player));
             }
         }
     }
@@ -195,5 +195,4 @@ class ViewTeam extends GLScreen {
             w.setColors(0x101010);
         }
     }
-
 }

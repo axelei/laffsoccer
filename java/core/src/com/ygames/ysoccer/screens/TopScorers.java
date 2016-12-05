@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -7,13 +8,6 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.match.Player;
-import com.ygames.ysoccer.match.Team;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 class TopScorers extends GLScreen {
 
@@ -22,13 +16,11 @@ class TopScorers extends GLScreen {
 
         background = game.stateBackground;
 
-        List<Scorer> scorers = getScorersList(game);
-
         Widget w;
         int row = 0;
         int goals = 10000;
-        for (Scorer scorer : scorers) {
-            // goals group
+        for (Competition.Scorer scorer : game.competition.scorers) {
+            // group
             if (scorer.goals < goals) {
                 row = row + 2;
                 w = new GoalsGroupBar(22 * row, scorer.goals);
@@ -38,13 +30,13 @@ class TopScorers extends GLScreen {
 
             row = row + 1;
 
-            w = new ScorerNameButton(22 * row, scorer.name);
+            w = new ScorerNameButton(22 * row, scorer.player.shirtName);
             widgets.add(w);
 
-            w = new TeamNameLabel(22 * row, scorer.team);
+            w = new TeamNameLabel(22 * row, scorer.player.team.name);
             widgets.add(w);
 
-            if (row > 24) {
+            if (row > 23) {
                 break;
             }
         }
@@ -62,24 +54,6 @@ class TopScorers extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
-    }
-
-    private List<Scorer> getScorersList(GLGame game) {
-        List<Scorer> scorers = new ArrayList<Scorer>();
-        for (Team team : game.competition.teams) {
-            for (Player player : team.players) {
-                if (player.goals > 0) {
-                    Scorer scorer = new Scorer();
-                    scorer.name = player.shirtName;
-                    scorer.goals = player.goals;
-                    scorer.team = team.name;
-                    scorers.add(scorer);
-                }
-            }
-        }
-
-        Collections.sort(scorers, new CompareScorerByGoals());
-        return scorers;
     }
 
     private class GoalsGroupBar extends Button {
@@ -121,31 +95,6 @@ class TopScorers extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new ViewStatistics(game));
-        }
-    }
-
-    private class Scorer {
-        public String name;
-        public int goals;
-        public String team;
-    }
-
-    private static class CompareScorerByGoals implements Comparator<Scorer> {
-
-        @Override
-        public int compare(Scorer o1, Scorer o2) {
-            // by goals
-            if (o1.goals != o2.goals) {
-                return o2.goals - o1.goals;
-            }
-
-            // by team
-            if (!o1.team.equals(o2.team)) {
-                return o1.team.compareTo(o2.team);
-            }
-
-            // by names
-            return o1.name.compareTo(o2.name);
         }
     }
 }

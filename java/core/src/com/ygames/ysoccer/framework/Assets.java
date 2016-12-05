@@ -111,6 +111,7 @@ public class Assets {
         json.addClassTag("CUP", Cup.class);
         json.addClassTag("LEAGUE", League.class);
         json.setOutputType(JsonWriter.OutputType.json);
+        json.setUsePrototypes(false);
         loadCalendars();
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
         loadTactics();
