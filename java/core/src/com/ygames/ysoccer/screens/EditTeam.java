@@ -486,6 +486,7 @@ class EditTeam extends GLScreen {
             this.team = team;
             setSize(167, 304);
             setActive(false);
+            setAddShadow(true);
         }
 
         @Override

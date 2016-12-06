@@ -151,10 +151,10 @@ class PlayCup extends GLScreen {
         } else {
 
             if (matches.size() > 8) {
-                w = new ScrollButton(94, -1);
+                w = new ScrollButton(115, -1);
                 widgets.add(w);
 
-                w = new ScrollButton(548, +1);
+                w = new ScrollButton(564, +1);
                 widgets.add(w);
             }
 
@@ -223,9 +223,8 @@ class PlayCup extends GLScreen {
         ScrollButton(int y, int direction) {
             this.direction = direction;
             setGeometry(228, y, 20, 36);
-            setColors(0x000000, 0x1BC12F, 0x004814);
-            // TODO: replace text with scroll icon
-            setText((direction == 1) ? "D" : "U", Font.Align.CENTER, Assets.font10);
+            textureRegion = Assets.scroll[direction == 1 ? 1 : 0];
+            setAddShadow(true);
         }
 
         @Override

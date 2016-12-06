@@ -301,6 +301,7 @@ class MatchSetup extends GLScreen {
             int sign = teamIndex == 0 ? -1 : 1;
             setGeometry(game.gui.WIDTH / 2 - 83 + 270 * sign, 390, 167, 304);
             setActive(false);
+            setAddShadow(true);
         }
 
         @Override
@@ -321,6 +322,7 @@ class MatchSetup extends GLScreen {
             this.kitIndex = kitIndex;
             setSize(58, 104);
             setImageScale(1 / 3f, 1 / 3f);
+            setAddShadow(true);
         }
 
         @Override

@@ -56,6 +56,7 @@ public class Assets {
     public static List<String> kits;
     public static List<String> hairStyles;
     public static List<String> currencies;
+    public static TextureRegion[] scroll = new TextureRegion[2];
     public static TextureRegion[] stars = new TextureRegion[10];
     public static TextureRegion[][] controls = new TextureRegion[2][3];
     public static TextureRegion[][] pieces = new TextureRegion[2][2];
@@ -118,6 +119,7 @@ public class Assets {
         loadKits();
         hairStyles = loadHairStyles();
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
+        loadScroll();
         loadStars();
         loadControls();
         loadPieces();
@@ -275,6 +277,14 @@ public class Assets {
         } catch (Exception e) {
             Gdx.app.log("Warning", e.getMessage());
             return null;
+        }
+    }
+
+    private static void loadScroll() {
+        Texture texture = new Texture("images/scroll.png");
+        for (int i = 0; i < 2; i++) {
+            scroll[i] = new TextureRegion(texture, 16 * i, 0, 16, 32);
+            scroll[i].flip(false, true);
         }
     }
 
