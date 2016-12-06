@@ -74,6 +74,7 @@ public class League extends Competition implements Json.Serializable {
         resetTable();
     }
 
+    @Override
     public Match getMatch() {
         return calendar.get(currentMatch);
     }

@@ -4,27 +4,27 @@
     "numberOfTeams": 32,
     "rounds": [
       {
-        "legs": 1,
+        "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
-        "legs": 1,
+        "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
-        "legs": 1,
+        "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
-        "legs": 1,
+        "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
-        "legs": 1,
+        "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF"
       }

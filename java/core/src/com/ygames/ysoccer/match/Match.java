@@ -25,8 +25,6 @@ public class Match implements Json.Serializable {
     public int[] resultAfter90;
     public int[] resultAfterPenalties;
     public int[] oldResult;
-    public int qualified = -1;
-    public String status = "";
     public boolean ended;
 
     public GLGame game;
@@ -102,6 +100,9 @@ public class Match implements Json.Serializable {
         json.writeValue("teams", teams);
         if (result != null) {
             json.writeValue("result", result);
+        }
+        if (includesExtraTime) {
+            json.writeValue("includesExtraTime", includesExtraTime);
         }
         if (resultAfter90 != null) {
             json.writeValue("resultAfter90", resultAfter90);

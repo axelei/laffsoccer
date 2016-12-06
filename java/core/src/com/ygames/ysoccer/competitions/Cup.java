@@ -11,7 +11,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.List;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -19,15 +19,13 @@ import static com.ygames.ysoccer.match.Match.HOME;
 public class Cup extends Competition implements Json.Serializable {
 
     public ArrayList<Round> rounds;
-    private int currentLeg;
-    private ArrayList<Integer> qualifiedTeams;
-    public ArrayList<Match> calendarCurrent;
+    public int currentLeg;
 
-    public enum ResultType {AFTER_90_MINS, AFTER_EXTRA_TIME, AFTER_PENALTIES}
+    public enum ResultType {AFTER_90_MINUTES, AFTER_EXTRA_TIME, AFTER_PENALTIES}
 
     public enum AwayGoals {
         OFF,
-        AFTER_90_MINS,
+        AFTER_90_MINUTES,
         AFTER_EXTRA_TIME
     }
 
@@ -38,57 +36,45 @@ public class Cup extends Competition implements Json.Serializable {
         rounds = new ArrayList<Round>();
         awayGoals = AwayGoals.OFF;
         currentLeg = 0;
-        calendarCurrent = null;
-        qualifiedTeams = new ArrayList<Integer>();
     }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        json.readFields(this, jsonData);
+        super.read(json, jsonData);
+        Round[] roundsArray = json.readValue("rounds", Round[].class, jsonData);
+        if (roundsArray != null) {
+            for (Round round : roundsArray) {
+                round.setCup(this);
+                rounds.add(round);
+            }
+        }
+        currentLeg = jsonData.getInt("currentLeg", 0);
+        if (hasTwoLegsRound()) {
+            awayGoals = json.readValue("awayGoals", AwayGoals.class, jsonData);
+        }
     }
 
     @Override
     public void write(Json json) {
-        // config
-        json.writeValue("name", name);
-        if (filename.length() > 0) {
-            json.writeValue("filename", filename);
-        }
-        json.writeValue("category", category);
-        json.writeValue("numberOfTeams", numberOfTeams);
+        super.write(json);
+
         json.writeValue("rounds", rounds, Round[].class, Round.class);
-        json.writeValue("substitutions", substitutions);
-        json.writeValue("benchSize", benchSize);
+        json.writeValue("currentLeg", currentLeg);
         if (hasTwoLegsRound()) {
             json.writeValue("awayGoals", awayGoals);
         }
-        json.writeValue("time", time);
-        json.writeValue("weather", weather);
-        if (weather == Weather.BY_SEASON) {
-            json.writeValue("seasonStart", seasonStart);
-            json.writeValue("seasonEnd", seasonEnd);
-            json.writeValue("currentMonth", currentMonth);
-        } else {
-            json.writeValue("pitchType", pitchType);
-        }
-
-        // state
-        json.writeValue("userPrefersResult", userPrefersResult);
-        json.writeValue("currentRound", currentRound);
-        json.writeValue("currentLeg", currentLeg);
-        json.writeValue("currentMatch", currentMatch);
-        json.writeValue("teams", teams, Team[].class, Team.class);
-        json.writeValue("qualifiedTeams", qualifiedTeams, Integer[].class, Integer.class);
-        json.writeValue("calendarCurrent", calendarCurrent, Match[].class, Match.class);
     }
 
     @Override
     public void start(ArrayList<Team> teams) {
         super.start(teams);
-        for (int i = 0; i < teams.size(); i++) {
-            qualifiedTeams.add(i);
+
+        // if first leg is not preset, create it
+        if (getRound().legs.size() == 0) {
+            getRound().newLeg();
+            generateMatches();
         }
-        calendarGenerate();
+        updateMonth();
     }
 
     @Override
@@ -97,29 +83,65 @@ public class Cup extends Competition implements Json.Serializable {
         currentRound = 0;
         currentMatch = 0;
         currentLeg = 0;
-        qualifiedTeams.clear();
-        for (int i = 0; i < teams.size(); i++) {
-            qualifiedTeams.add(i);
+
+        // copy first round, first leg matches
+        List<Match> firstLegMatches = new ArrayList<Match>();
+        for (Match m : rounds.get(0).legs.get(0).matches) {
+            Match match = new Match();
+            match.teams[HOME] = m.teams[HOME];
+            match.teams[AWAY] = m.teams[AWAY];
+            firstLegMatches.add(match);
         }
-        calendarGenerate();
+
+        // clear all legs
+        for (int r = 0; r < rounds.size(); r++) {
+            Round round = rounds.get(r);
+            round.legs.clear();
+            // restore first leg matches
+            if (r == 0) {
+                round.newLeg();
+                round.legs.get(0).matches.addAll(firstLegMatches);
+            }
+        }
     }
 
+    public Round getRound() {
+        return rounds.get(currentRound);
+    }
+
+    public Leg getLeg() {
+        return getRound().legs.get(currentLeg);
+    }
+
+    @Override
     public Match getMatch() {
-        return calendarCurrent.get(currentMatch);
+        return getLeg().matches.get(currentMatch);
+    }
+
+    public ArrayList<Match> getMatches() {
+        return getLeg().matches;
     }
 
     public Team getTeam(int t) {
         return teams.get(getMatch().teams[t]);
     }
 
+    public boolean isLegEnded() {
+        return currentMatch == getLeg().matches.size() - 1;
+    }
+
+    public boolean isRoundEnded() {
+        return currentLeg == getRound().legs.size() - 1 && !getLeg().hasReplays();
+    }
+
     @Override
     public boolean isEnded() {
-        return currentRound == rounds.size() - 1 && getMatch().qualified != -1;
+        return currentRound == rounds.size() - 1 && getLeg().getQualifiedTeam(getMatch()) != -1;
     }
 
     public void nextMatch() {
         currentMatch += 1;
-        if (currentMatch == calendarCurrent.size()) {
+        if (currentMatch == getLeg().matches.size()) {
             nextLeg();
         }
     }
@@ -127,17 +149,20 @@ public class Cup extends Competition implements Json.Serializable {
     private void nextLeg() {
         currentLeg += 1;
         currentMatch = 0;
-        calendarGenerate();
-        if (calendarCurrent.size() == 0) {
+        getRound().newLeg();
+        generateMatches();
+        if (getLeg().matches.size() == 0) {
             nextRound();
         }
+        updateMonth();
     }
 
     private void nextRound() {
         currentRound += 1;
         currentLeg = 0;
         currentMatch = 0;
-        calendarGenerate();
+        getRound().newLeg();
+        generateMatches();
     }
 
     private void updateMonth() {
@@ -147,68 +172,54 @@ public class Cup extends Competition implements Json.Serializable {
         }
     }
 
-    private void calendarGenerate() {
+    private void generateMatches() {
 
         // first leg
         if (currentLeg == 0) {
+            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+            if (currentRound == 0) {
+                for (int i = 0; i < numberOfTeams; i++) {
+                    qualifiedTeams.add(i);
+                }
+            } else {
+                for (Leg leg : rounds.get(currentRound - 1).legs) {
+                    qualifiedTeams.addAll(leg.getQualifiedTeams());
+                }
+            }
+
             Collections.shuffle(qualifiedTeams);
-            calendarCurrent = new ArrayList<Match>();
+
             for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
                 Match match = new Match();
                 match.teams[HOME] = qualifiedTeams.get(2 * i);
                 match.teams[AWAY] = qualifiedTeams.get(2 * i + 1);
-                match.result = null;
-                match.oldResult = null;
-                calendarCurrent.add(match);
+                getLeg().matches.add(match);
             }
-            qualifiedTeams.clear();
         }
 
         // second leg
-        else if ((currentLeg == 1) && (rounds.get(currentRound).legs == 2)) {
-            for (int i = 0; i < calendarCurrent.size(); i++) {
-                Match match = calendarCurrent.get(i);
-
-                // swap teams
-                int tmp = match.teams[HOME];
-                match.teams[HOME] = match.teams[AWAY];
-                match.teams[AWAY] = tmp;
-
-                match.ended = false;
-                match.oldResult = match.result;
-                match.result = null;
-                match.includesExtraTime = false;
-                match.resultAfter90 = null;
-                match.status = Assets.strings.get("MATCH STATUS.1ST LEG") +
-                        " " + match.oldResult[AWAY] +
-                        "-" + match.oldResult[HOME];
+        else if ((currentLeg == 1) && (getRound().numberOfLegs == 2)) {
+            for (Match oldMatch : getRound().legs.get(0).matches) {
+                Match match = new Match();
+                match.teams[HOME] = oldMatch.teams[AWAY];
+                match.teams[AWAY] = oldMatch.teams[HOME];
+                match.oldResult = oldMatch.result;
+                getLeg().matches.add(match);
             }
         }
 
         // replays
         else {
-            Iterator<Match> iterator = calendarCurrent.iterator();
-            while (iterator.hasNext()) {
-                Match match = iterator.next();
-                if (match.qualified == -1) {
-                    // swap teams
-                    int tmp = match.teams[HOME];
-                    match.teams[HOME] = match.teams[AWAY];
-                    match.teams[AWAY] = tmp;
-
-                    match.ended = false;
-                    match.result = null;
-                    match.includesExtraTime = false;
-                    match.resultAfter90 = null;
-                    match.oldResult = null;
-                    match.status = "";
-                } else {
-                    iterator.remove();
+            Leg previousLeg = getRound().legs.get(currentLeg - 1);
+            for (Match oldMatch : previousLeg.matches) {
+                if (previousLeg.getQualifiedTeam(oldMatch) == -1) {
+                    Match match = new Match();
+                    match.teams[HOME] = oldMatch.teams[AWAY];
+                    match.teams[AWAY] = oldMatch.teams[HOME];
+                    getLeg().matches.add(match);
                 }
             }
         }
-
-        updateMonth();
     }
 
     public void generateResult() {
@@ -217,7 +228,7 @@ public class Cup extends Competition implements Json.Serializable {
 
         int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
         int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
-        setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_90_MINS);
+        setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_90_MINUTES);
 
         if (playExtraTime()) {
             homeGoals += Match.generateGoals(homeTeam, awayTeam, true);
@@ -249,11 +260,6 @@ public class Cup extends Competition implements Json.Serializable {
                 match.setResultAfter90(homeGoals, awayGoals);
             }
         }
-        match.qualified = getQualified(match);
-        match.status = getMatchStatus(match);
-        if (match.qualified != -1) {
-            qualifiedTeams.add(match.qualified);
-        }
         match.ended = true;
     }
 
@@ -266,7 +272,7 @@ public class Cup extends Competition implements Json.Serializable {
         if (currentLeg == 0) {
 
             // two legs round
-            if (round.legs == 2) {
+            if (round.numberOfLegs == 2) {
                 return false;
             }
 
@@ -289,7 +295,7 @@ public class Cup extends Competition implements Json.Serializable {
         }
 
         // second leg
-        else if (currentLeg == 1 && round.legs == 2) {
+        else if (currentLeg == 1 && round.numberOfLegs == 2) {
 
             // aggregate goals
             int aggregate1 = match.result[HOME] + match.oldResult[AWAY];
@@ -299,7 +305,7 @@ public class Cup extends Competition implements Json.Serializable {
             }
 
             // away goals
-            if ((match.oldResult[AWAY] != match.result[AWAY]) && (awayGoals == AwayGoals.AFTER_90_MINS)) {
+            if ((match.oldResult[AWAY] != match.result[AWAY]) && (awayGoals == AwayGoals.AFTER_90_MINUTES)) {
                 return false;
             }
 
@@ -350,7 +356,7 @@ public class Cup extends Competition implements Json.Serializable {
         if (currentLeg == 0) {
 
             // two legs round
-            if (round.legs == 2) {
+            if (round.numberOfLegs == 2) {
                 return false;
             }
 
@@ -373,7 +379,7 @@ public class Cup extends Competition implements Json.Serializable {
         }
 
         // second leg
-        else if ((currentLeg == 1) && (round.legs == 2)) {
+        else if ((currentLeg == 1) && (round.numberOfLegs == 2)) {
 
             // aggregate goals
             int aggregate1 = match.result[HOME] + match.oldResult[AWAY];
@@ -423,82 +429,16 @@ public class Cup extends Competition implements Json.Serializable {
         return false;
     }
 
-    private int getQualified(Match match) {
-        if (match.resultAfterPenalties != null) {
-            if (match.resultAfterPenalties[HOME] > match.resultAfterPenalties[AWAY]) {
-                return match.teams[HOME];
-            } else if (match.resultAfterPenalties[HOME] < match.resultAfterPenalties[AWAY]) {
-                return match.teams[AWAY];
-            } else {
-                throw new GdxRuntimeException("Invalid state in cup");
-            }
-        }
-
-        Round round = rounds.get(currentRound);
-
-        // first leg
-        if (currentLeg == 0) {
-            switch (round.legs) {
-                case 1:
-                    if (match.result[HOME] > match.result[AWAY]) {
-                        return match.teams[HOME];
-                    } else if (match.result[HOME] < match.result[AWAY]) {
-                        return match.teams[AWAY];
-                    } else {
-                        return -1;
-                    }
-                case 2:
-                    return -1;
-            }
-        }
-
-        // second leg
-        else if ((currentLeg == 1) && (round.legs == 2)) {
-            int aggregate1 = match.result[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.result[AWAY] + match.oldResult[HOME];
-            if (aggregate1 > aggregate2) {
-                return match.teams[HOME];
-            } else if (aggregate1 < aggregate2) {
-                return match.teams[AWAY];
-            } else {
-                if ((awayGoals == AwayGoals.AFTER_90_MINS) ||
-                        (awayGoals == AwayGoals.AFTER_EXTRA_TIME && match.includesExtraTime)) {
-                    if (match.oldResult[AWAY] > match.result[AWAY]) {
-                        return match.teams[HOME];
-                    } else if (match.oldResult[AWAY] < match.result[AWAY]) {
-                        return match.teams[AWAY];
-                    } else {
-                        return -1;
-                    }
-                } else {
-                    return -1;
-                }
-            }
-        }
-
-        // replays
-        else {
-            if (match.result[HOME] > match.result[AWAY]) {
-                return match.teams[HOME];
-            } else if (match.result[HOME] < match.result[AWAY]) {
-                return match.teams[AWAY];
-            } else {
-                return -1;
-            }
-        }
-
-        // should never get here
-        return -1;
-    }
-
-    private String getMatchStatus(Match match) {
+    public String getMatchStatus(Match match) {
         String s = "";
 
+        int qualified = getLeg().getQualifiedTeam(match);
+
         // first leg
         if (currentLeg == 0) {
-            if (match.qualified != -1) {
+            if (qualified != -1) {
                 if (match.resultAfterPenalties != null) {
-                    s = teams.get(match.qualified).name
+                    s = teams.get(qualified).name
                             + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                             + Math.max(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
                             + "-"
@@ -521,11 +461,11 @@ public class Cup extends Competition implements Json.Serializable {
         }
 
         // second leg
-        else if ((currentLeg == 1) && (rounds.get(currentRound).legs == 2)) {
-            if (match.qualified != -1) {
+        else if ((currentLeg == 1) && (rounds.get(currentRound).numberOfLegs == 2)) {
+            if (qualified != -1) {
                 // penalties
                 if (match.resultAfterPenalties != null) {
-                    s = teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                    s = teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                             + Math.max(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
                             + "-"
                             + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
@@ -545,11 +485,11 @@ public class Cup extends Competition implements Json.Serializable {
                     // away goals
                     if (agg_score_a == agg_score_b) {
                         s += agg_score_a + "-" + agg_score_b + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE") + " "
-                                + teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " " + Assets.strings.get("MATCH STATUS.ON AWAY GOALS");
+                                + teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " " + Assets.strings.get("MATCH STATUS.ON AWAY GOALS");
                     }
                     //on aggregate
                     else {
-                        s = teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                        s = teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                                 + Math.max(agg_score_a, agg_score_b)
                                 + "-"
                                 + Math.min(agg_score_a, agg_score_b)
@@ -562,14 +502,13 @@ public class Cup extends Competition implements Json.Serializable {
             } else {
                 s = Assets.strings.get("MATCH STATUS.1ST LEG") + " " + match.oldResult[HOME] + "-" + match.oldResult[AWAY];
             }
-
         }
 
         // replays
         else {
-            if (match.qualified != -1) {
+            if (qualified != -1) {
                 if (match.resultAfterPenalties != null) {
-                    s = teams.get(match.qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                    s = teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
                             + Math.max(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
                             + "-"
                             + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
@@ -591,8 +530,8 @@ public class Cup extends Competition implements Json.Serializable {
     public String getMenuTitle() {
 
         String title = name + " " + Assets.strings.get(getRoundName(currentRound));
-        int matches = calendarCurrent.size();
-        switch (rounds.get(currentRound).legs) {
+        int matches = getLeg().matches.size();
+        switch (rounds.get(currentRound).numberOfLegs) {
             case 1:
                 switch (currentLeg) {
                     case 0:
@@ -648,7 +587,9 @@ public class Cup extends Competition implements Json.Serializable {
 
     public void addRound() {
         if (rounds.size() < 6) {
-            rounds.add(new Round());
+            Round round = new Round();
+            round.setCup(this);
+            rounds.add(round);
         }
         numberOfTeams = getRoundTeams(0);
     }
@@ -684,7 +625,7 @@ public class Cup extends Competition implements Json.Serializable {
         switch (awayGoals) {
             case OFF:
                 return "OFF";
-            case AFTER_90_MINS:
+            case AFTER_90_MINUTES:
                 return "AFTER 90 MINS";
             case AFTER_EXTRA_TIME:
                 return "AFTER EXTRA TIME";
@@ -695,7 +636,7 @@ public class Cup extends Competition implements Json.Serializable {
 
     public boolean hasTwoLegsRound() {
         for (Round round : rounds) {
-            if (round.legs == 2) {
+            if (round.numberOfLegs == 2) {
                 return true;
             }
         }

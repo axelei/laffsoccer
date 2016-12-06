@@ -3,6 +3,10 @@ package com.ygames.ysoccer.competitions;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.match.Match;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Round implements Json.Serializable {
 
@@ -10,30 +14,57 @@ public class Round implements Json.Serializable {
 
     public enum Penalties {OFF, ON, IF_REPLAY}
 
-    public int legs;
+    Cup cup;
+    public int numberOfLegs;
     public ExtraTime extraTime;
     public Penalties penalties;
+    public ArrayList<Leg> legs;
 
     Round() {
-        legs = 1;
+        numberOfLegs = 1;
         extraTime = ExtraTime.ON;
         penalties = Penalties.OFF;
+        legs = new ArrayList<Leg>();
     }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        json.readFields(this, jsonData);
+        numberOfLegs = jsonData.getInt("numberOfLegs");
+        extraTime = json.readValue("extraTime", ExtraTime.class, jsonData);
+        penalties = json.readValue("penalties", Penalties.class, jsonData);
+
+        Match[][] legsArray = json.readValue("legs", Match[][].class, jsonData);
+        if (legsArray != null) {
+            for (Match[] matchesArray : legsArray) {
+                Leg leg = new Leg(this);
+                Collections.addAll(leg.matches, matchesArray);
+                legs.add(leg);
+            }
+        }
     }
 
     @Override
     public void write(Json json) {
-        json.writeValue("legs", legs);
+        json.writeValue("numberOfLegs", numberOfLegs);
         json.writeValue("extraTime", extraTime);
         json.writeValue("penalties", penalties);
+        json.writeArrayStart("legs");
+        for (Leg leg : legs) {
+            json.writeArrayStart();
+            for (Match match : leg.matches) {
+                json.writeValue(match, Match.class);
+            }
+            json.writeArrayEnd();
+        }
+        json.writeArrayEnd();
+    }
+
+    public void setCup(Cup cup) {
+        this.cup = cup;
     }
 
     public String getLegsLabel() {
-        switch (legs) {
+        switch (numberOfLegs) {
             case 1:
                 return "ONE LEG";
 
@@ -41,7 +72,7 @@ public class Round implements Json.Serializable {
                 return "TWO LEGS";
 
             default:
-                throw new GdxRuntimeException("Wrong legs value");
+                throw new GdxRuntimeException("Wrong numberOfLegs value");
         }
     }
 
@@ -63,5 +94,14 @@ public class Round implements Json.Serializable {
 
     public String getPenaltiesLabel() {
         return penaltiesLabels[penalties.ordinal()];
+    }
+
+    public int getIndex() {
+        return cup.rounds.indexOf(this);
+    }
+
+    void newLeg() {
+        Leg leg = new Leg(this);
+        legs.add(leg);
     }
 }

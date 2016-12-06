@@ -20,7 +20,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 class PlayCup extends GLScreen {
 
     Cup cup;
-    private int matches;
+    private ArrayList<Match> matches;
     private int offset;
     private ArrayList<Widget> resultWidgets;
 
@@ -36,23 +36,24 @@ class PlayCup extends GLScreen {
         w = new TitleBar(cup.getMenuTitle(), game.stateColor.body);
         widgets.add(w);
 
-        matches = cup.calendarCurrent.size();
+        matches = cup.getMatches();
         offset = 0;
-        if ((matches > 8) && (cup.currentMatch > 4)) {
-            offset = Math.min(cup.currentMatch - 4, matches - 8);
+        if ((matches.size() > 8) && (cup.currentMatch > 4)) {
+            offset = Math.min(cup.currentMatch - 4, matches.size() - 8);
         }
 
         int dy = 100;
-        if (matches < 8) {
-            dy = dy + 64 * (8 - matches) / 2;
+        if (matches.size() < 8) {
+            dy = dy + 64 * (8 - matches.size()) / 2;
         }
 
         // calendar
         resultWidgets = new ArrayList<Widget>();
-        for (int m = 0; m < matches; m++) {
-            Match match = cup.calendarCurrent.get(m);
+        for (int m = 0; m < matches.size(); m++) {
+            Match match = matches.get(m);
+            int qualified = cup.getLeg().getQualifiedTeam(match);
 
-            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[HOME]), Font.Align.RIGHT);
+            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[HOME]), Font.Align.RIGHT, qualified == match.teams[HOME]);
             resultWidgets.add(w);
             widgets.add(w);
 
@@ -80,7 +81,7 @@ class PlayCup extends GLScreen {
             resultWidgets.add(w);
             widgets.add(w);
 
-            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[AWAY]), Font.Align.LEFT);
+            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[AWAY]), Font.Align.LEFT, qualified == match.teams[AWAY]);
             resultWidgets.add(w);
             widgets.add(w);
 
@@ -88,7 +89,7 @@ class PlayCup extends GLScreen {
             w = new Label();
             w.setGeometry(game.gui.WIDTH / 2 - 360, dy + 26 + 64 * m, 720, 26);
             // TODO: use green charset
-            w.setText(match.status, Font.Align.CENTER, Assets.font10);
+            w.setText(cup.getMatchStatus(match), Font.Align.CENTER, Assets.font10);
             resultWidgets.add(w);
             widgets.add(w);
         }
@@ -149,7 +150,7 @@ class PlayCup extends GLScreen {
 
         } else {
 
-            if (matches > 8) {
+            if (matches.size() > 8) {
                 w = new ScrollButton(94, -1);
                 widgets.add(w);
 
@@ -179,21 +180,24 @@ class PlayCup extends GLScreen {
 
     private class TeamButton extends Button {
 
-        TeamButton(int x, int y, Team team, Font.Align align) {
+        TeamButton(int x, int y, Team team, Font.Align align, boolean qualified) {
             setGeometry(x, y, 240, 26);
+            int bodyColor = 0;
             switch (team.controlMode) {
                 case COMPUTER:
-                    setColors(0x981E1E, 0x000001, 0x000001);
+                    bodyColor = 0x981E1E;
                     break;
 
                 case PLAYER:
-                    setColors(0x0000C8, 0x000001, 0x000001);
+                    bodyColor = 0x0000C8;
                     break;
 
                 case COACH:
-                    setColors(0x009BDC, 0x000001, 0x000001);
+                    bodyColor = 0x009BDC;
                     break;
             }
+            int borderColor = qualified ? 0xBFBFBF : 0x1A1A1A;
+            setColors(bodyColor, borderColor, borderColor);
             setText(team.name, align, Assets.font10);
             setActive(false);
         }
@@ -235,7 +239,7 @@ class PlayCup extends GLScreen {
         }
 
         private void scroll(int direction) {
-            offset = Emath.slide(offset, 0, matches - 8, direction);
+            offset = Emath.slide(offset, 0, matches.size() - 8, direction);
             updateResultWidgets();
         }
     }
@@ -286,10 +290,35 @@ class PlayCup extends GLScreen {
 
     private class NextMatchButton extends Button {
 
+        private boolean onHold;
+
         NextMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 460, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
+            String label;
+            if (cup.isLegEnded()) {
+                if (cup.isRoundEnded()) {
+                    label = cup.getRoundName(cup.currentRound + 1);
+                } else {
+                    switch (cup.currentLeg) {
+                        case 0:
+                            if (cup.getRound().numberOfLegs == 2) {
+                                label = "CUP.2ND LEG ROUND";
+                            } else {
+                                label = "CUP.PLAY REPLAYS";
+                            }
+                            break;
+                        default:
+                            label = "CUP.PLAY REPLAYS";
+                            break;
+                    }
+                }
+                onHold = false;
+            } else {
+                label = "NEXT MATCH";
+                onHold = true;
+            }
+            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -299,7 +328,9 @@ class PlayCup extends GLScreen {
 
         @Override
         public void onFire1Hold() {
-            nextMatch();
+            if (onHold) {
+                nextMatch();
+            }
         }
 
         private void nextMatch() {
@@ -373,7 +404,7 @@ class PlayCup extends GLScreen {
     }
 
     private void updateResultWidgets() {
-        if (matches > 8) {
+        if (matches.size() > 8) {
             int m = 0;
             for (Widget w : resultWidgets) {
                 if ((m >= 6 * offset) && (m < 6 * (offset + 8))) {

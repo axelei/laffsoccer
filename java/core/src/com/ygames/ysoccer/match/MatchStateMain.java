@@ -193,7 +193,7 @@ class MatchStateMain extends MatchState {
 
                         case CUP:
                             Cup cup = (Cup) match.competition;
-                            cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_90_MINS);
+                            cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_90_MINUTES);
 
                             if (cup.playExtraTime()) {
                                 // TODO

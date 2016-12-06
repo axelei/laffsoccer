@@ -632,7 +632,7 @@ class DiyCup extends GLScreen {
         }
 
         private void updateLegs(int n) {
-            cup.rounds.get(round).legs = Emath.rotate(cup.rounds.get(round).legs, 1, 2, n);
+            cup.rounds.get(round).numberOfLegs = Emath.rotate(cup.rounds.get(round).numberOfLegs, 1, 2, n);
             setDirty(true);
             awayGoalsButton.setDirty(true);
         }
