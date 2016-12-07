@@ -62,6 +62,9 @@ class MatchOptions extends GLScreen {
         w = new ZoomButton();
         widgets.add(w);
 
+        w = new SfxVolumeLabel();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -284,6 +287,16 @@ class MatchOptions extends GLScreen {
             int zoomMax = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MIN);
             game.settings.zoom = Emath.slide(game.settings.zoom, zoomMin, zoomMax, 5 * n);
             setDirty(true);
+        }
+    }
+
+    private class SfxVolumeLabel extends Button {
+
+        SfxVolumeLabel() {
+            setColors(0x76683C);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 440, 440, 40);
+            setText(Assets.strings.get("MATCH OPTIONS.SOUND VOLUME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 

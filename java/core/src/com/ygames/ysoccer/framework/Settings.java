@@ -38,6 +38,7 @@ public class Settings {
     public int zoom;
     public boolean radar;
     public boolean autoReplays;
+    public int sfxVolume;
 
     // controls
     private String keyboardConfigs;
@@ -70,6 +71,7 @@ public class Settings {
         zoom = preferences.getInteger("zoom", 100);
         radar = preferences.getBoolean("radar", true);
         autoReplays = preferences.getBoolean("autoReplays", true);
+        sfxVolume = preferences.getInteger("sfxVolume", 40);
 
         // controls
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
@@ -99,6 +101,7 @@ public class Settings {
         preferences.putInteger("zoom", zoom);
         preferences.putBoolean("radar", radar);
         preferences.putBoolean("autoReplays", autoReplays);
+        preferences.putInteger("sfxVolume", sfxVolume);
 
         // controls
         preferences.putString("keyboardConfigs", keyboardConfigs);
