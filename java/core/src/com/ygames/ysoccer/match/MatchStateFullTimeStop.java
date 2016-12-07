@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateFullTimeStop extends MatchState {
@@ -24,8 +25,7 @@ class MatchStateFullTimeStop extends MatchState {
 
         match.clock = match.length;
 
-        // TODO
-        // match.listener.endGameSound(match.settings.sfxVolume);
+        Assets.Sounds.end.play(match.settings.soundVolume / 100f);
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(PlayerFsm.STATE_IDLE, null);

@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateHead extends PlayerState {
@@ -26,8 +27,7 @@ class PlayerStateHead extends PlayerState {
                     ball.vz = 100 - 8 * player.skills.heading + player.vz;
                     hit = true;
 
-                    // TODO
-                    // player.match.listener.kickSound(0.1f * (1 + 0.03f * timer) * player.match.settings.sfxVolume);
+                    Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * player.match.settings.soundVolume / 100f);
 
                     if (player.inputDevice.value) {
                         ball.a = player.inputDevice.angle;

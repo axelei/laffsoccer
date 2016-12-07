@@ -24,6 +24,7 @@ public class MatchSettings {
     public Wind wind;
     public int substitutions;
     public int benchSize;
+    public int soundVolume;
 
     public MatchSettings(Competition competition, Settings gameSettings) {
         if (competition.type == Competition.Type.FRIENDLY || competition.category == Competition.Category.DIY_COMPETITION) {
@@ -45,6 +46,7 @@ public class MatchSettings {
         }
         substitutions = competition.substitutions;
         benchSize = competition.benchSize;
+        soundVolume = gameSettings.soundVolume;
     }
 
     public void rotateTime(int direction) {

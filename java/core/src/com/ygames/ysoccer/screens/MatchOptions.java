@@ -313,10 +313,10 @@ class MatchOptions extends GLScreen {
 
         @Override
         public void refresh() {
-            if (game.settings.sfxVolume == 0) {
+            if (game.settings.soundVolume == 0) {
                 setText(Assets.strings.get("MATCH OPTIONS.SOUND VOLUME.OFF"));
             } else {
-                setText(game.settings.sfxVolume / 10);
+                setText(game.settings.soundVolume / 10);
             }
         }
 
@@ -341,7 +341,7 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateSfxVolume(int n) {
-            game.settings.sfxVolume = Emath.slide(game.settings.sfxVolume, 0, 100, 10 * n);
+            game.settings.soundVolume = Emath.slide(game.settings.soundVolume, 0, 100, 10 * n);
             setDirty(true);
         }
     }

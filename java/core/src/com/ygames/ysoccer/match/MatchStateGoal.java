@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -27,8 +28,7 @@ class MatchStateGoal extends MatchState {
         matchRenderer.displayStatistics = false;
         matchRenderer.displayRadar = true;
 
-        // TODO
-        // match.listener.homeGoalSound(match.settings.sfxVolume);
+        Assets.Sounds.homeGoal.play(match.settings.soundVolume / 100f);
 
         goal = match.goals.get(match.goals.size() - 1);
 

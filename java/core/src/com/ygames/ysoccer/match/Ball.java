@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
@@ -328,8 +329,7 @@ class Ball {
 
         // sound
         if (hit) {
-            // TODO
-            // match.listener.postSound(1.0f * match.settings.sfxVolume);
+            Assets.Sounds.post.play(match.settings.soundVolume / 100f);
         }
 
         return hit;
@@ -352,8 +352,7 @@ class Ball {
             x = x0;
             y = y0;
 
-            // TODO
-            // match.listener.postSound(0.5f * match.settings.sfxVolume);
+            Assets.Sounds.post.play(0.5f * match.settings.soundVolume / 100f);
         }
     }
 
@@ -386,8 +385,7 @@ class Ball {
             }
 
             if (sfx) {
-                // TODO
-                // match.listener.netSound(0.5f * match.settings.sfxVolume);
+                Assets.Sounds.net.play(0.5f * match.settings.soundVolume / 100f);
             }
         }
     }
@@ -443,8 +441,7 @@ class Ball {
             x = x0;
             y = y0;
 
-            // TODO
-            // match.listener.bounceSound(0.5f * match.settings.sfxVolume);
+            Assets.Sounds.bounce.play(0.5f * match.settings.soundVolume / 100f);
         }
     }
 

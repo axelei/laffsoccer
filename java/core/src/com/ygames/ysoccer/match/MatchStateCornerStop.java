@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -34,8 +35,7 @@ class MatchStateCornerStop extends MatchState {
             match.stats[AWAY].cornersWon += 1;
         }
 
-        // TODO
-        // match.listener.whistleSound(match.settings.sfxVolume);
+        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
         cornerX = (Const.TOUCH_LINE - 12) * match.ball.xSide;
         cornerY = (Const.GOAL_LINE - 12) * match.ball.ySide;

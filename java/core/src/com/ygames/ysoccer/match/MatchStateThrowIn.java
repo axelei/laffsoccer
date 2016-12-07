@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateThrowIn extends MatchState {
@@ -66,8 +67,7 @@ class MatchStateThrowIn extends MatchState {
 
         if (!move && !isThrowingIn) {
 
-            // TODO
-            // match.listener.whistleSound(match.settings.sfxVolume);
+            Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
             throwInPlayer.fsm.setState(PlayerFsm.STATE_THROW_IN_ANGLE);
             if (throwInPlayer.team.usesAutomaticInputDevice()) {

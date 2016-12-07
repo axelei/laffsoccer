@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateCornerKick extends MatchState {
@@ -69,8 +70,7 @@ class MatchStateCornerKick extends MatchState {
         }
 
         if (!move && !isKicking) {
-            // TODO
-            // match.listener.whistleSound(match.settings.sfxVolume);
+            Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
             cornerKickPlayer.fsm.setState(PlayerFsm.STATE_CORNER_KICK_ANGLE);
             if (cornerKickPlayer.team.usesAutomaticInputDevice()) {

@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -51,6 +52,7 @@ class MatchStateEnd extends MatchState {
         if (match.team[HOME].fire1Up() != null
                 || match.team[AWAY].fire1Up() != null
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
+            Assets.Sounds.crowd.stop();
             match.quit();
         }
     }

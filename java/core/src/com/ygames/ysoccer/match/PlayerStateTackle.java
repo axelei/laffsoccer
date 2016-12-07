@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateTackle extends PlayerState {
@@ -34,8 +35,7 @@ class PlayerStateTackle extends PlayerState {
                         ball.a = player.a;
                     }
 
-                    // TODO
-                    // player.match.listener.kickSound(0.1f * (1 + 0.03f * timer) * player.match.settings.sfxVolume);
+                    Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * player.match.settings.soundVolume / 100f);
                 }
             }
         }

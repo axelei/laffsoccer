@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateKick extends PlayerState {
@@ -93,8 +94,7 @@ class PlayerStateKick extends PlayerState {
         ball.v = 190.0f;
         ball.a = player.kickAngle;
 
-        // TODO
-        // player.match.listener.kickSound(1.0f * player.match.settings.sfxVolume);
+        Assets.Sounds.kick.play(player.match.settings.soundVolume / 100f);
     }
 
     @Override

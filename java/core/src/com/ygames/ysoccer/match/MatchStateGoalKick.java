@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateGoalKick extends MatchState {
@@ -66,8 +67,7 @@ class MatchStateGoalKick extends MatchState {
         }
 
         if (!move && !isKicking) {
-            // TODO
-            // match.listener.whistleSound(match.settings.sfxVolume);
+            Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
             goalKickPlayer.fsm.setState(PlayerFsm.STATE_GOAL_KICK);
             if (goalKickPlayer.team.usesAutomaticInputDevice()) {

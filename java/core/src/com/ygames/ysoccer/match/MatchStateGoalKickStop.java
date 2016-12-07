@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateGoalKickStop extends MatchState {
@@ -25,8 +26,7 @@ class MatchStateGoalKickStop extends MatchState {
         matchRenderer.displayStatistics = false;
         matchRenderer.displayRadar = true;
 
-        // TODO
-        // match.listener.whistleSound(match.settings.sfxVolume);
+        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
         xSide = match.ball.xSide;
         ySide = match.ball.ySide;

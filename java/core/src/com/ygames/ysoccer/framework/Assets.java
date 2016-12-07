@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -85,6 +86,41 @@ public class Assets {
     public static Texture fog;
     public static TextureRegion[][] wind = new TextureRegion[8][2];
 
+    public static class Sounds {
+
+        public static Sound bounce;
+        public static Sound chant;
+        public static Sound crowd;
+        public static Sound deflect;
+        public static Sound hold;
+        public static Sound homeGoal;
+        public static Sound intro;
+        public static Sound kick;
+        public static Sound net;
+        public static Sound post;
+        public static Sound end;
+        public static Sound whistle;
+
+        public static void load() {
+            bounce = newSound("bounce.ogg");
+            chant = newSound("chant.ogg");
+            crowd = newSound("crowd.ogg");
+            deflect = newSound("deflect.ogg");
+            end = newSound("end.ogg");
+            hold = newSound("hold.ogg");
+            homeGoal = newSound("home_goal.ogg");
+            intro = newSound("intro.ogg");
+            kick = newSound("kick.ogg");
+            net = newSound("net.ogg");
+            post = newSound("post.ogg");
+            whistle = newSound("whistle.ogg");
+        }
+
+        private static Sound newSound(String filename) {
+            return Gdx.audio.newSound(Gdx.files.internal("sounds").child(filename));
+        }
+    }
+
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
         customCursor = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/arrow.png")), 0, 0);
@@ -140,6 +176,7 @@ public class Assets {
         loadSnow();
         fog = new Texture("images/fog.png");
         loadWind();
+        Sounds.load();
     }
 
     private static void loadLocales() {

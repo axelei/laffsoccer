@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -31,8 +32,7 @@ class MatchStateKickOff extends MatchState {
 
         isKickingOff = false;
 
-        // TODO
-        // match.listener.whistleSound(match.settings.sfxVolume);
+        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
         Team kickOffTeam = match.team[match.kickOffTeam];
         kickOffTeam.updateFrameDistance();
