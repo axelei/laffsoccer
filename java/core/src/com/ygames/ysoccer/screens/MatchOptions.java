@@ -65,6 +65,9 @@ class MatchOptions extends GLScreen {
         w = new SfxVolumeLabel();
         widgets.add(w);
 
+        w = new SfxVolumeButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -297,6 +300,49 @@ class MatchOptions extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 440, 440, 40);
             setText(Assets.strings.get("MATCH OPTIONS.SOUND VOLUME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class SfxVolumeButton extends Button {
+
+        SfxVolumeButton() {
+            setColors(0x2B4A61);
+            setGeometry(game.gui.WIDTH / 2 + 10, 440, 440, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (game.settings.sfxVolume == 0) {
+                setText(Assets.strings.get("MATCH OPTIONS.SOUND VOLUME.OFF"));
+            } else {
+                setText(game.settings.sfxVolume / 10);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSfxVolume(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSfxVolume(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSfxVolume(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSfxVolume(-1);
+        }
+
+        private void updateSfxVolume(int n) {
+            game.settings.sfxVolume = Emath.slide(game.settings.sfxVolume, 0, 100, 10 * n);
+            setDirty(true);
         }
     }
 
