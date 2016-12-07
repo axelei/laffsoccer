@@ -25,7 +25,6 @@ public class Match implements Json.Serializable {
     public int[] resultAfter90;
     public int[] resultAfterPenalties;
     public int[] oldResult;
-    public boolean ended;
 
     public GLGame game;
 
@@ -110,7 +109,6 @@ public class Match implements Json.Serializable {
         if (resultAfterPenalties != null) {
             json.writeValue("resultAfterPenalties", resultAfterPenalties);
         }
-        json.writeValue("ended", ended);
     }
 
     public void setResult(int homeGoals, int awayGoals) {
@@ -123,6 +121,10 @@ public class Match implements Json.Serializable {
 
     public void setResultAfterPenalties(int homeGoals, int awayGoals) {
         resultAfterPenalties = new int[]{homeGoals, awayGoals};
+    }
+
+    public boolean isEnded() {
+        return result != null;
     }
 
     public static int generateGoals(Team teamFor, Team teamAgainst, boolean extraTimeResult) {

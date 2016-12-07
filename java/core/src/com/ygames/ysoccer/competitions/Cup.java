@@ -260,7 +260,6 @@ public class Cup extends Competition implements Json.Serializable {
                 match.setResultAfter90(homeGoals, awayGoals);
             }
         }
-        match.ended = true;
     }
 
     // decide if extra time have to be played depending on current result, leg's type and settings

@@ -169,7 +169,7 @@ class PlayLeague extends GLScreen {
             w = new Label();
             w.setGeometry(game.gui.WIDTH / 2 - 60, 618, 40, 36);
             w.setText("", Font.Align.RIGHT, Assets.font14);
-            if (match.ended) {
+            if (match.isEnded()) {
                 w.setText(match.result[HOME]);
             }
             widgets.add(w);
@@ -178,7 +178,7 @@ class PlayLeague extends GLScreen {
             w = new Label();
             w.setGeometry(game.gui.WIDTH / 2 - 20, 618, 40, 36);
             w.setText("", Font.Align.CENTER, Assets.font14);
-            if (match.ended) {
+            if (match.isEnded()) {
                 w.setText("-");
             } else {
                 w.setText(Assets.strings.get("ABBREVIATIONS.VERSUS"));
@@ -189,12 +189,12 @@ class PlayLeague extends GLScreen {
             w = new Label();
             w.setGeometry(game.gui.WIDTH / 2 + 20, 618, 40, 36);
             w.setText("", Font.Align.LEFT, Assets.font14);
-            if (match.ended) {
+            if (match.isEnded()) {
                 w.setText(match.result[AWAY]);
             }
             widgets.add(w);
 
-            if (match.ended) {
+            if (match.isEnded()) {
                 w = new NextMatchButton();
                 widgets.add(w);
                 setSelectedWidget(w);

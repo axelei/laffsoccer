@@ -66,7 +66,7 @@ class PlayCup extends GLScreen {
             w = new Label();
             w.setGeometry(640 - 45, dy + 64 * m, 30, 26);
             w.setText("", Font.Align.RIGHT, Assets.font10);
-            if (match.ended) {
+            if (match.result != null) {
                 w.setText(match.result[HOME]);
             }
             resultWidgets.add(w);
@@ -80,7 +80,7 @@ class PlayCup extends GLScreen {
             w = new Label();
             w.setGeometry(640 + 15, dy + 64 * m, 30, 26);
             w.setText("", Font.Align.LEFT, Assets.font10);
-            if (match.ended) {
+            if (match.isEnded()) {
                 w.setText(match.result[AWAY]);
             }
             resultWidgets.add(w);
@@ -111,7 +111,7 @@ class PlayCup extends GLScreen {
         w = new Label();
         w.setGeometry(game.gui.WIDTH / 2 - 60, 618, 40, 36);
         w.setText("", Font.Align.RIGHT, Assets.font14);
-        if (match.ended) {
+        if (match.isEnded()) {
             w.setText(match.result[HOME]);
         }
         widgets.add(w);
@@ -120,7 +120,7 @@ class PlayCup extends GLScreen {
         w = new Label();
         w.setGeometry(game.gui.WIDTH / 2 - 20, 618, 40, 36);
         w.setText("", Font.Align.CENTER, Assets.font14);
-        if (match.ended) {
+        if (match.isEnded()) {
             w.setText("-");
         } else {
             w.setText(Assets.strings.get("ABBREVIATIONS.VERSUS"));
@@ -131,7 +131,7 @@ class PlayCup extends GLScreen {
         w = new Label();
         w.setGeometry(game.gui.WIDTH / 2 + 20, 618, 40, 36);
         w.setText("", Font.Align.LEFT, Assets.font14);
-        if (match.ended) {
+        if (match.isEnded()) {
             w.setText(match.result[AWAY]);
         }
         widgets.add(w);
@@ -162,7 +162,7 @@ class PlayCup extends GLScreen {
                 widgets.add(w);
             }
 
-            if (match.ended) {
+            if (match.isEnded()) {
                 w = new NextMatchButton();
                 widgets.add(w);
                 setSelectedWidget(w);
@@ -213,7 +213,7 @@ class PlayCup extends GLScreen {
             setGeometry((game.gui.WIDTH - 30) / 2, y, 30, 26);
             // NOTE: max 2 characters
             setText(Assets.strings.get("ABBREVIATIONS.VERSUS"), Font.Align.CENTER, Assets.font10);
-            if (match.ended) {
+            if (match.isEnded()) {
                 setText("-");
             }
             setActive(false);
