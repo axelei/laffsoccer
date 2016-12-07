@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -23,6 +24,7 @@ class PlayCup extends GLScreen {
     private ArrayList<Match> matches;
     private int offset;
     private ArrayList<Widget> resultWidgets;
+    private Font font10green;
 
     PlayCup(GLGame game) {
         super(game);
@@ -30,6 +32,9 @@ class PlayCup extends GLScreen {
         cup = (Cup) game.competition;
 
         background = game.stateBackground;
+
+        font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
+        font10green.load();
 
         Widget w;
 
@@ -88,8 +93,7 @@ class PlayCup extends GLScreen {
             // status
             w = new Label();
             w.setGeometry(game.gui.WIDTH / 2 - 360, dy + 26 + 64 * m, 720, 26);
-            // TODO: use green charset
-            w.setText(cup.getMatchStatus(match), Font.Align.CENTER, Assets.font10);
+            w.setText(cup.getMatchStatus(match), Font.Align.CENTER, font10green);
             resultWidgets.add(w);
             widgets.add(w);
         }
@@ -196,7 +200,7 @@ class PlayCup extends GLScreen {
                     bodyColor = 0x009BDC;
                     break;
             }
-            int borderColor = qualified ? 0xBFBFBF : 0x1A1A1A;
+            int borderColor = qualified ? 0x21E337 : 0x1A1A1A;
             setColors(bodyColor, borderColor, borderColor);
             setText(team.name, align, Assets.font10);
             setActive(false);
