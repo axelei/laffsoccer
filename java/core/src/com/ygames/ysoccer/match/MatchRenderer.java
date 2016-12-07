@@ -93,6 +93,8 @@ public class MatchRenderer {
         allSprites.add(new GoalTopA(glGraphics));
 
         spriteComparator = new Sprite.SpriteComparator();
+
+        Assets.crowdRenderer.setMaxRank(match.getRank());
     }
 
     public void resize(int width, int height, Settings settings) {
@@ -116,6 +118,9 @@ public class MatchRenderer {
         batch.begin();
 
         renderBackground();
+
+        Assets.crowdRenderer.draw(batch);
+
         renderSprites(match.subframe);
 
         // redraw bottom goal

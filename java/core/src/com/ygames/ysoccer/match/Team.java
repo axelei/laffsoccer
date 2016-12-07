@@ -466,6 +466,16 @@ public class Team implements Json.Serializable {
         }
     }
 
+    float getRank() {
+        // absolute ranking from 0 to 10
+        float r = 0;
+        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            Player player = lineup.get(i);
+            r += player.getValue() / 5.0f;
+        }
+        return r / Const.TEAM_SIZE;
+    }
+
     public void rotatePlayerNumber(Player player, int direction) {
         boolean used;
         do {

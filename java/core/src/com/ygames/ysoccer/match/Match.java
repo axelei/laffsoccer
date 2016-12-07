@@ -430,4 +430,10 @@ public class Match implements Json.Serializable {
     void quit() {
         listener.quitMatch();
     }
+
+    // returns an integer from 0 to 9
+    int getRank() {
+        int matchRank = (int) ((team[HOME].getRank() + 2 * team[AWAY].getRank()) / 3);
+        return (competition.type == Competition.Type.FRIENDLY) ? matchRank : (matchRank + 1);
+    }
 }

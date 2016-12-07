@@ -32,6 +32,7 @@ class MatchLoading extends GLScreen {
         game.unsetMouse();
 
         Assets.loadStadium(matchSettings);
+        Assets.loadCrowd(match.team[Match.HOME]);
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
         for (int t = HOME; t <= AWAY; t++) {

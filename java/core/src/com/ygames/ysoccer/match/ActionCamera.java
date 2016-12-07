@@ -27,7 +27,6 @@ public class ActionCamera {
         this.renderer = renderer;
         x = 0.5f * (Const.PITCH_W - renderer.screenWidth / (renderer.zoom / 100.0f));
         y = 0;
-        y = Const.CENTER_Y - renderer.screenHeight / (2 * renderer.zoom / 100.0f);
     }
 
     // follow: CF_NONE, CF_BALL, CF_TARGET

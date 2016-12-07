@@ -14,11 +14,13 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.CrowdRenderer;
 import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
+import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
 import java.io.ByteArrayInputStream;
@@ -65,6 +67,8 @@ public class Assets {
     public static TextureRegion[] pitchIcons = new TextureRegion[10];
     public static TextureRegion[] weatherIcons = new TextureRegion[11];
     public static TextureRegion[][] stadium = new TextureRegion[4][4];
+    public static TextureRegion[] crowd = new TextureRegion[5];
+    public static CrowdRenderer crowdRenderer;
     public static TextureRegion[] ball = new TextureRegion[5];
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
@@ -162,6 +166,7 @@ public class Assets {
         loadLightIcons();
         loadPitchIcons();
         loadWeatherIcons();
+        crowdRenderer = new CrowdRenderer(Gdx.files.local("images/stadium/crowd.json"));
         goalTopA = new Texture("images/stadium/goal_top_a.png");
         goalBottom = new Texture("images/stadium/goal_bottom.png");
         loadKeeperShadow();
@@ -465,6 +470,22 @@ public class Assets {
                 stadium[r][c] = loadTextureRegion("images/stadium/generic_" + c + "" + r + ".png", "images/stadium/palettes/" + paletteName);
             }
         }
+    }
+
+    public static void loadCrowd(Team team) {
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        team.kits.get(0).addKitColors(rgbPairs);
+        Texture texture = loadTexture("images/stadium/crowd.png", rgbPairs);
+        crowd[0] = new TextureRegion(texture, 0, 0, 47, 35);
+        crowd[0].flip(false, true);
+        crowd[1] = new TextureRegion(texture, 70, 0, 47, 35);
+        crowd[1].flip(false, true);
+        crowd[2] = new TextureRegion(texture, 0, 38, 47, 26);
+        crowd[2].flip(false, true);
+        crowd[3] = new TextureRegion(texture, 49, 29, 23, 35);
+        crowd[3].flip(false, true);
+        crowd[4] = new TextureRegion(texture, 105, 29, 23, 35);
+        crowd[4].flip(false, true);
     }
 
     public static void loadBall(MatchSettings matchSettings) {
