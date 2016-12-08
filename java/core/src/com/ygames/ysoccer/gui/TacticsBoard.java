@@ -79,7 +79,8 @@ public class TacticsBoard extends Widget {
                 // fix x -y position & alignment
                 int tx = 0;
                 Font.Align align = Font.Align.CENTER;
-                switch (positions[baseTactics][ply][0]) {
+                int xSide = positions[baseTactics][ply][0];
+                switch (viewOpponent ? -xSide : xSide) {
                     case -2:
                         tx = x + 10;
                         align = Font.Align.LEFT;
@@ -137,7 +138,8 @@ public class TacticsBoard extends Widget {
 
                 for (int ply = 0; ply < Const.TEAM_SIZE; ply++) {
                     int tx = 0;
-                    switch (positions[baseTactics][ply][0]) {
+                    int xSide = positions[baseTactics][ply][0];
+                    switch (tm == (viewOpponent ? 0 : 1) ? -xSide : xSide) {
                         case -2:
                             tx = x + 26;
                             break;

@@ -9,7 +9,7 @@
 	"name": "ANGELO PICCIOLI",
 	"nationality": "ITA"
 },
-"tactics": "4-4-2",
+"tactics": "SWEEP",
 "kits": [
 	{
 		"style": "VERTICAL",
@@ -50,7 +50,7 @@
 		"shirtName": "FACCA",
 		"nationality": "ITA",
 		"role": "RIGHT_BACK",
-		"number": 13,
+		"number": 2,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -94,8 +94,8 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIOVANNI SACCHI",
+		"shirtName": "SACCHI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": 4,
@@ -103,42 +103,41 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 3,
+			"speed": 3,
+			"finishing": 1
 		},
 		"bestSkills": [
-			"TACKLING",
 			"HEADING",
+			"TACKLING",
 			"PASSING"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ATTILIO BRAVI",
+		"shirtName": "BRAVI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
+		"role": "RIGHT_BACK",
 		"number": 5,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
 		},
 		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
+			"SPEED",
+			"TACKLING"
 		]
 	},
 	{
@@ -146,7 +145,7 @@
 		"shirtName": "FERRARI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
-		"number": 7,
+		"number": 6,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -169,7 +168,7 @@
 		"shirtName": "SCHIAVO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
-		"number": 8,
+		"number": 7,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -193,7 +192,7 @@
 		"shirtName": "AZZIMONTI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
-		"number": 6,
+		"number": 8,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -212,27 +211,26 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ITALO GALBIATI",
+		"shirtName": "GALBIATI",
 		"nationality": "ITA",
-		"role": "MIDFIELDER",
+		"role": "LEFT_WINGER",
 		"number": 9,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 4,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
 		},
 		"bestSkills": [
 			"PASSING",
-			"TACKLING",
-			"CONTROL"
+			"SPEED"
 		]
 	},
 	{
@@ -295,11 +293,11 @@
 		"value": 22
 	},
 	{
-		"name": "ATTILIO BRAVI",
-		"shirtName": "BRAVI",
+		"name": "EZIO TETTAMANTI",
+		"shirtName": "TETTAMANTI",
 		"nationality": "ITA",
 		"role": "RIGHT_BACK",
-		"number": 2,
+		"number": 13,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -313,8 +311,8 @@
 			"finishing": 1
 		},
 		"bestSkills": [
-			"SPEED",
-			"TACKLING"
+			"TACKLING",
+			"SPEED"
 		]
 	},
 	{
