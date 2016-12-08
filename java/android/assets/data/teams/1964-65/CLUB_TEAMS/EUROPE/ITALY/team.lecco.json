@@ -9,7 +9,7 @@
 	"name": "ANGELO PICCIOLI",
 	"nationality": "ITA"
 },
-"tactics": "SWEEP",
+"tactics": "4-3-3",
 "kits": [
 	{
 		"style": "VERTICAL",
@@ -105,14 +105,13 @@
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
-			"heading": 5,
+			"heading": 4,
 			"tackling": 5,
 			"control": 3,
 			"speed": 3,
 			"finishing": 1
 		},
 		"bestSkills": [
-			"HEADING",
 			"TACKLING",
 			"PASSING"
 		]
@@ -173,7 +172,7 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
+			"passing": 4,
 			"shooting": 3,
 			"heading": 4,
 			"tackling": 4,
@@ -203,18 +202,19 @@
 			"tackling": 2,
 			"control": 4,
 			"speed": 3,
-			"finishing": 3
+			"finishing": 4
 		},
 		"bestSkills": [
 			"PASSING",
-			"CONTROL"
+			"CONTROL",
+			"FINISHING"
 		]
 	},
 	{
 		"name": "ITALO GALBIATI",
 		"shirtName": "GALBIATI",
 		"nationality": "ITA",
-		"role": "LEFT_WINGER",
+		"role": "MIDFIELDER",
 		"number": 9,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
@@ -234,27 +234,27 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "SAURO FRACASSA",
+		"shirtName": "FRACASSA",
 		"nationality": "ITA",
-		"role": "ATTACKER",
+		"role": "RIGHT_WINGER",
 		"number": 10,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 3
 		},
 		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
+			"CONTROL",
+			"SPEED",
+			"PASSING"
 		]
 	},
 	{
@@ -316,8 +316,8 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "LUCIANO RIGATO",
+		"shirtName": "RIGATO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": 14,
@@ -325,23 +325,22 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
 		},
 		"bestSkills": [
 			"PASSING",
-			"TACKLING",
-			"CONTROL"
+			"SPEED"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "RICCARDO INNOCENTI",
+		"shirtName": "INNOCENTI",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": 15,
@@ -349,23 +348,23 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 2,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
 		},
 		"bestSkills": [
 			"HEADING",
-			"FINISHING",
-			"SPEED"
+			"SHOOTING",
+			"FINISHING"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ANGELO LONGONI",
+		"shirtName": "LONGONI",
 		"nationality": "ITA",
 		"role": "ATTACKER",
 		"number": 16,
@@ -373,114 +372,40 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 4,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 1,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
 		},
 		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
+			"CONTROL",
+			"PASSING"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ISIDORO BRUSADELLI",
+		"shirtName": "BRUSADELLI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
+		"role": "MIDFIELDER",
 		"number": 17,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 2,
+			"finishing": 1
 		},
 		"bestSkills": [
-			"TACKLING",
-			"HEADING",
+			"CONTROL",
 			"PASSING"
-		]
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": 18,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
-		},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": 19,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
-		},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
-	},
-	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": 20,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
-		},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED"
 		]
 	}
 ]

@@ -128,6 +128,15 @@ public class League extends Competition implements Json.Serializable {
             nextMatch();
         }
 
+        // randomize teams
+        List<Integer> randomIndexes = new ArrayList<Integer>();
+        for (int i = 0; i < numberOfTeams; i++) randomIndexes.add(i);
+        Collections.shuffle(randomIndexes);
+        for (Match match : calendar) {
+            match.teams[HOME] = randomIndexes.get(match.teams[HOME]);
+            match.teams[AWAY] = randomIndexes.get(match.teams[AWAY]);
+        }
+
         currentMatch = 0;
         currentRound = 0;
         updateMonth();
