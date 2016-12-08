@@ -20,6 +20,7 @@ public class Match implements Json.Serializable {
     public static final int AWAY = 1;
     public int teams[] = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
+    public Scorers scorers;
     public int[] result;
     public boolean includesExtraTime;
     public int[] resultAfter90;
@@ -65,6 +66,7 @@ public class Match implements Json.Serializable {
         this.settings = matchSettings;
         this.competition = competition;
 
+        scorers = new Scorers();
         ball = new Ball(this);
 
         for (int t = HOME; t <= AWAY; t++) {
@@ -407,7 +409,7 @@ public class Match implements Json.Serializable {
 
         goals.add(goal);
 
-        //TODO buildScorerLists();
+        scorers.build(goals);
     }
 
     boolean periodIsTerminable() {

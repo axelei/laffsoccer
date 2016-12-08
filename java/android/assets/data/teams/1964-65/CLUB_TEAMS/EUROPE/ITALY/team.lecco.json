@@ -43,23 +43,29 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 23
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ATTILIO BRAVI",
+		"shirtName": "BRAVI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
+		"role": "RIGHT_BACK",
 		"number": 2,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 1
+		},
 		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
+			"SPEED",
+			"TACKLING"
 		]
 	},
 	{
@@ -71,7 +77,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -87,7 +101,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -103,7 +125,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -119,7 +149,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -127,35 +165,50 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "SERGIO FERRARI",
+		"shirtName": "FERRARI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": 7,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
 		"bestSkills": [
 			"PASSING",
-			"TACKLING",
 			"CONTROL"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "GIAMPIERO SCHIAVO",
+		"shirtName": "SCHIAVO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": 8,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
 		"bestSkills": [
-			"PASSING",
+			"HEADING",
 			"TACKLING",
-			"CONTROL"
+			"PASSING"
 		]
 	},
 	{
@@ -167,7 +220,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -183,7 +244,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
@@ -223,7 +292,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 22
 	},
 	{
@@ -235,7 +303,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -251,7 +327,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -267,7 +351,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
@@ -283,7 +375,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
@@ -299,7 +399,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -315,7 +423,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -331,7 +447,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -347,7 +471,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",

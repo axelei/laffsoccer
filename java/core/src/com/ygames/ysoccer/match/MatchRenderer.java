@@ -494,7 +494,10 @@ public class MatchRenderer {
 
     private void drawScore() {
 
-        int y0 = guiHeight - 16;
+        // max rows of rows
+        int rows = Math.max(match.scorers.rows[HOME].size(), match.scorers.rows[AWAY].size());
+
+        int y0 = guiHeight - 16 - 14 * rows;
 
         // teams
         Assets.font14.draw(batch, match.team[HOME].name, +10, y0 - 22, Font.Align.LEFT);
@@ -538,6 +541,17 @@ public class MatchRenderer {
             batch.draw(Assets.score[f0], guiWidth / 2 + 17 + 24, y0 - 40);
         } else {
             batch.draw(Assets.score[f0], guiWidth / 2 + 17, y0 - 40);
+        }
+
+        // scorers
+        for (int t = HOME; t <= AWAY; t++) {
+            int y = y0 + 4;
+            for (String row : match.scorers.rows[t]) {
+                int x = guiWidth / 2 + (t == HOME ? -12 : +14);
+                Font.Align align = t == HOME ? Font.Align.RIGHT : Font.Align.LEFT;
+                Assets.font10.draw(batch, row, x, y, align);
+                y += 14;
+            }
         }
     }
 
