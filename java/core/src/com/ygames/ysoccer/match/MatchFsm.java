@@ -62,10 +62,11 @@ public class MatchFsm {
     static final int STATE_HALF_TIME_WAIT = 15;
     static final int STATE_HALF_TIME_ENTER = 16;
     static final int STATE_FULL_TIME_STOP = 17;
-    static final int STATE_END_POSITIONS = 18;
-    static final int STATE_END = 19;
-    static final int STATE_REPLAY = 20;
-    static final int STATE_HIGHLIGHTS = 21;
+    static final int STATE_EXTRA_TIME_STOP = 18;
+    static final int STATE_END_POSITIONS = 19;
+    static final int STATE_END = 20;
+    static final int STATE_REPLAY = 21;
+    static final int STATE_HIGHLIGHTS = 22;
 
     MatchFsm(Match match) {
         this.match = match;
@@ -90,6 +91,7 @@ public class MatchFsm {
         states.add(new MatchStateHalfTimeWait(this));
         states.add(new MatchStateHalfTimeEnter(this));
         states.add(new MatchStateFullTimeStop(this));
+        states.add(new MatchStateExtraTimeStop(this));
         states.add(new MatchStateEndPositions(this));
         states.add(new MatchStateEnd(this));
         states.add(new MatchStateReplay(this));

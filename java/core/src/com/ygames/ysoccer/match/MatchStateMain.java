@@ -195,7 +195,7 @@ class MatchStateMain extends MatchState {
                             cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_90_MINUTES);
 
                             if (cup.playExtraTime()) {
-                                // TODO
+                                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_EXTRA_TIME_STOP);
                                 return;
                             } else {
                                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);

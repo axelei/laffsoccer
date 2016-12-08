@@ -46,31 +46,32 @@
 		"value": 23
 	},
 	{
-		"name": "ATTILIO BRAVI",
-		"shirtName": "BRAVI",
+		"name": "VINICIO FACCA",
+		"shirtName": "FACCA",
 		"nationality": "ITA",
 		"role": "RIGHT_BACK",
-		"number": 2,
+		"number": 13,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
-			"heading": 3,
+			"heading": 4,
 			"tackling": 4,
 			"control": 3,
 			"speed": 4,
 			"finishing": 1
 		},
 		"bestSkills": [
-			"SPEED",
-			"TACKLING"
+			"HEADING",
+			"TACKLING",
+			"SPEED"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ANTONIO PASINATO",
+		"shirtName": "PASINATO",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": 3,
@@ -78,18 +79,18 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
 		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
-			"PASSING"
+			"SPEED"
 		]
 	},
 	{
@@ -141,30 +142,6 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": 6,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
-		},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
-		]
-	},
-	{
 		"name": "SERGIO FERRARI",
 		"shirtName": "FERRARI",
 		"nationality": "ITA",
@@ -209,6 +186,29 @@
 			"HEADING",
 			"TACKLING",
 			"PASSING"
+		]
+	},
+	{
+		"name": "GIORGIO AZZIMONTI",
+		"shirtName": "AZZIMONTI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 2,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL"
 		]
 	},
 	{
@@ -295,27 +295,26 @@
 		"value": 22
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "ATTILIO BRAVI",
+		"shirtName": "BRAVI",
 		"nationality": "ITA",
-		"role": "DEFENDER",
-		"number": 13,
+		"role": "RIGHT_BACK",
+		"number": 2,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
 		},
 		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
+			"SPEED",
+			"TACKLING"
 		]
 	},
 	{
