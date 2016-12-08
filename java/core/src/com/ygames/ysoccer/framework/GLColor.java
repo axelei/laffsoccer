@@ -173,4 +173,109 @@ public class GLColor {
     public static float difference(int rgb1, int rgb2) {
         return labDifference(xyzToLab(rgbToXyz(rgb1)), xyzToLab(rgbToXyz(rgb2)));
     }
+
+    private static float[] rgbToHsv(int c) {
+        float r = red(c) / 255f;
+        float g = green(c) / 255f;
+        float b = blue(c) / 255f;
+
+        float vMin = Math.min(r, Math.min(g, b));
+        float vMax = Math.max(r, Math.max(g, b));
+        float delta = vMax - vMin;
+
+        float h = 0;
+        float s = 0;
+        float v = 100 * vMax;
+
+        if (delta > 0) {
+            s = 100 * delta / vMax;
+
+            if (r == vMax) {
+                h = (g - b) / delta;
+            } else if (g == vMax) {
+                h = 2 + (b - r) / delta;
+            } else if (b == vMax) {
+                h = 4 + (r - g) / delta;
+            }
+
+            h *= 60;
+
+            if (h < 0) {
+                h += 360;
+            }
+        }
+        return new float[]{h, s, v};
+    }
+
+    private static int hsvToRgb(float[] hsv) {
+        float h = hsv[0] / 60;
+        float s = hsv[1] / 100;
+        float v = hsv[2] / 100;
+
+        float r;
+        float g;
+        float b;
+
+        if (s == 0) {
+            r = v;
+            g = v;
+            b = v;
+        } else {
+            if (h == 6) {
+                h = 0;
+            }
+
+            int i = (int) h;
+            float f = h - i;
+            float p = v * (1 - s);
+            float q = v * (1 - s * f);
+            float t = v * (1 - s * (1 - f));
+
+            switch (i) {
+                case 0:
+                    r = v;
+                    g = t;
+                    b = p;
+                    break;
+                case 1:
+                    r = q;
+                    g = v;
+                    b = p;
+                    break;
+                case 2:
+                    r = p;
+                    g = v;
+                    b = t;
+                    break;
+                case 3:
+                    r = p;
+                    g = q;
+                    b = v;
+                    break;
+                case 4:
+                    r = t;
+                    g = p;
+                    b = v;
+                    break;
+                default:
+                    r = v;
+                    g = p;
+                    b = q;
+                    break;
+            }
+        }
+
+        r *= 255;
+        g *= 255;
+        b *= 255;
+
+        return rgb((int) r, (int) g, (int) b);
+    }
+
+    public static int grayscale(int c) {
+        float[] hsv = rgbToHsv(c);
+        hsv[1] = 0;
+        hsv[2] = 100 * (0.21f * red(c) / 255.0f + 0.72f * green(c) / 255.0f + 0.07f * blue(c) / 255.0f);
+        return hsvToRgb(hsv);
+    }
 }
