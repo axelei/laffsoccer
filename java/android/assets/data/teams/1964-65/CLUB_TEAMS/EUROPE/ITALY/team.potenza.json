@@ -35,15 +35,15 @@
 ],
 "players": [
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "BRUNO DUCATI",
+		"shirtName": "DUCATI",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": 1,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"value": 21
 	},
 	{
 		"name": "",
@@ -54,7 +54,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -70,7 +78,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -86,7 +102,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -102,7 +126,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -118,7 +150,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -134,7 +174,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -150,7 +198,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -158,19 +214,27 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "PILADE CANUTI",
+		"shirtName": "CANUTI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": 9,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
 		"bestSkills": [
 			"PASSING",
-			"TACKLING",
-			"CONTROL"
+			"HEADING",
+			"SPEED"
 		]
 	},
 	{
@@ -182,7 +246,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
@@ -198,7 +270,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
@@ -206,15 +286,15 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "LUCIANO MASIERO",
+		"shirtName": "MASIERO",
 		"nationality": "ITA",
 		"role": "GOALKEEPER",
 		"number": 12,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {}
+		"value": 18
 	},
 	{
 		"name": "",
@@ -225,7 +305,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"TACKLING",
 			"HEADING",
@@ -241,7 +329,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
@@ -257,7 +353,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
@@ -273,7 +377,15 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",

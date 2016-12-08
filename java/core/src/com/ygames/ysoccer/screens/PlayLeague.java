@@ -31,7 +31,7 @@ class PlayLeague extends GLScreen {
         widgets.add(w);
 
         // table headers
-        int dx = 590;
+        int dx = 570;
         int dy = 86 + 10 * (24 - league.numberOfTeams);
         String[] headers = {
                 "TABLE HEADER.PLAYED MATCHES",
@@ -44,25 +44,25 @@ class PlayLeague extends GLScreen {
         };
         for (String header : headers) {
             w = new Label();
-            w.setGeometry(dx, dy, 62, 21);
+            w.setGeometry(dx, dy, 72, 21);
             w.setText(Assets.strings.get(header), Font.Align.CENTER, Assets.font10);
             widgets.add(w);
-            dx += 60;
+            dx += 70;
         }
 
         // table body
         int tm = 0;
-        dx = 590;
+        dx = 570;
         for (League.TableRow row : league.table) {
             w = new Button();
-            w.setGeometry(230, dy + 20 + 21 * tm, 36, 23);
+            w.setGeometry(210, dy + 20 + 21 * tm, 36, 23);
             w.setText(tm + 1, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
             widgets.add(w);
 
             Team team = league.teams.get(row.team);
             w = new Button();
-            w.setGeometry(270, dy + 20 + 21 * tm, 322, 23);
+            w.setGeometry(250, dy + 20 + 21 * tm, 322, 23);
             switch (team.controlMode) {
                 case COMPUTER:
                     w.setColors(0x981E1E, 0x000001, 0x000001);
@@ -82,7 +82,7 @@ class PlayLeague extends GLScreen {
 
             // played
             w = new Button();
-            w.setGeometry(dx, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.won + row.drawn + row.lost, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -90,7 +90,7 @@ class PlayLeague extends GLScreen {
 
             // won
             w = new Button();
-            w.setGeometry(dx + 60, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx + 70, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.won, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -98,7 +98,7 @@ class PlayLeague extends GLScreen {
 
             // drawn
             w = new Button();
-            w.setGeometry(dx + 2 * 60, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx + 2 * 70, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.drawn, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -106,7 +106,7 @@ class PlayLeague extends GLScreen {
 
             // lost
             w = new Button();
-            w.setGeometry(dx + 3 * 60, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx + 3 * 70, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.lost, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -114,7 +114,7 @@ class PlayLeague extends GLScreen {
 
             // goals for
             w = new Button();
-            w.setGeometry(dx + 4 * 60, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx + 4 * 70, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.goalsFor, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -122,7 +122,7 @@ class PlayLeague extends GLScreen {
 
             // goals against
             w = new Button();
-            w.setGeometry(dx + 5 * 60, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx + 5 * 70, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.goalsAgainst, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
@@ -130,7 +130,7 @@ class PlayLeague extends GLScreen {
 
             // points
             w = new Button();
-            w.setGeometry(dx + 6 * 60, dy + 20 + 21 * tm, 62, 23);
+            w.setGeometry(dx + 6 * 70, dy + 20 + 21 * tm, 72, 23);
             w.setColors(0x808080, 0x010001, 0x010001);
             w.setText(row.points, Font.Align.CENTER, Assets.font10);
             w.setActive(false);
