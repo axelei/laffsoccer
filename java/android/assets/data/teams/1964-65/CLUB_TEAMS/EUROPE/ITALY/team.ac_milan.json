@@ -43,7 +43,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 36
 	},
 	{
@@ -58,7 +57,7 @@
 		"skills": {
 			"passing": 6,
 			"shooting": 4,
-			"heading": 6,
+			"heading": 5,
 			"tackling": 7,
 			"control": 6,
 			"speed": 5,
@@ -66,8 +65,7 @@
 		},
 		"bestSkills": [
 			"TACKLING",
-			"PASSING",
-			"HEADING"
+			"PASSING"
 		]
 	},
 	{
@@ -106,11 +104,11 @@
 		"skills": {
 			"passing": 6,
 			"shooting": 4,
-			"heading": 6,
+			"heading": 5,
 			"tackling": 7,
 			"control": 6,
 			"speed": 6,
-			"finishing": 5
+			"finishing": 4
 		},
 		"bestSkills": [
 			"TACKLING",
@@ -128,9 +126,9 @@
 		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 6,
-			"shooting": 5,
-			"heading": 7,
+			"passing": 5,
+			"shooting": 4,
+			"heading": 6,
 			"tackling": 7,
 			"control": 5,
 			"speed": 6,
@@ -138,8 +136,7 @@
 		},
 		"bestSkills": [
 			"TACKLING",
-			"HEADING",
-			"SPEED"
+			"HEADING"
 		]
 	},
 	{
@@ -158,12 +155,12 @@
 			"tackling": 4,
 			"control": 6,
 			"speed": 7,
-			"finishing": 7
+			"finishing": 6
 		},
 		"bestSkills": [
 			"SPEED",
-			"FINISHING",
-			"CONTROL"
+			"CONTROL",
+			"FINISHING"
 		]
 	},
 	{
@@ -225,12 +222,12 @@
 		"hairStyle": "SHORT_C",
 		"skills": {
 			"passing": 6,
-			"shooting": 5,
-			"heading": 5,
+			"shooting": 4,
+			"heading": 4,
 			"tackling": 6,
 			"control": 7,
 			"speed": 6,
-			"finishing": 5
+			"finishing": 4
 		},
 		"bestSkills": [
 			"CONTROL",
@@ -295,22 +292,45 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"value": 35
+		"value": 33
+	},
+	{
+		"name": "NELLO SANTIN",
+		"shirtName": "SANTIN",
+		"nationality": "ITA",
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 6,
+			"tackling": 5,
+			"control": 5,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"CONTROL"
+		]
 	},
 	{
 		"name": "MARIO TREBBI",
 		"shirtName": "TREBBI",
 		"nationality": "ITA",
 		"role": "LEFT_BACK",
-		"number": 13,
+		"number": 14,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
 			"shooting": 4,
-			"heading": 5,
+			"heading": 3,
 			"tackling": 6,
 			"control": 5,
 			"speed": 6,
@@ -320,30 +340,6 @@
 			"TACKLING",
 			"SPEED",
 			"PASSING"
-		]
-	},
-	{
-		"name": "LUIGI RADICE",
-		"shirtName": "RADICE",
-		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": 14,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
-			"shooting": 4,
-			"heading": 4,
-			"tackling": 6,
-			"control": 6,
-			"speed": 6,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"TACKLING",
-			"SPEED",
-			"CONTROL"
 		]
 	},
 	{
@@ -358,14 +354,13 @@
 		"skills": {
 			"passing": 4,
 			"shooting": 5,
-			"heading": 6,
+			"heading": 3,
 			"tackling": 4,
-			"control": 5,
+			"control": 4,
 			"speed": 6,
 			"finishing": 5
 		},
 		"bestSkills": [
-			"HEADING",
 			"SPEED",
 			"FINISHING"
 		]
@@ -383,7 +378,7 @@
 			"passing": 5,
 			"shooting": 7,
 			"heading": 7,
-			"tackling": 5,
+			"tackling": 4,
 			"control": 6,
 			"speed": 6,
 			"finishing": 7
@@ -403,55 +398,53 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"value": 31
+		"value": 28
 	},
 	{
-		"name": "NELLO SANTIN",
-		"shirtName": "SANTIN",
+		"name": "LUIGI RADICE",
+		"shirtName": "RADICE",
 		"nationality": "ITA",
-		"role": "DEFENDER",
+		"role": "LEFT_BACK",
 		"number": 18,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 4,
-			"heading": 6,
+			"shooting": 3,
+			"heading": 4,
 			"tackling": 5,
 			"control": 5,
-			"speed": 4,
-			"finishing": 3
-		},
-		"bestSkills": [
-			"HEADING",
-			"TACKLING",
-			"CONTROL"
-		]
-	},
-	{
-		"name": "BRUNO BACCHETTA",
-		"shirtName": "BACCHETTA",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": 19,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 5,
-			"shooting": 3,
-			"heading": 5,
-			"tackling": 5,
-			"control": 6,
-			"speed": 4,
+			"speed": 5,
 			"finishing": 2
 		},
 		"bestSkills": [
 			"CONTROL",
-			"PASSING",
+			"SPEED",
 			"TACKLING"
+		]
+	},
+	{
+		"name": "GIANCARLO SALVI",
+		"shirtName": "SALVI",
+		"nationality": "ITA",
+		"role": "MIDFIELDER",
+		"number": 19,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"SPEED"
 		]
 	},
 	{
@@ -464,42 +457,17 @@
 		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
+			"passing": 4,
 			"shooting": 4,
 			"heading": 4,
-			"tackling": 4,
-			"control": 5,
+			"tackling": 3,
+			"control": 4,
 			"speed": 4,
 			"finishing": 4
 		},
 		"bestSkills": [
 			"PASSING",
-			"CONTROL",
-			"TACKLING"
-		]
-	},
-	{
-		"name": "GIANCARLO SALVI",
-		"shirtName": "SALVI",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": 21,
-		"skinColor": "PINK",
-		"hairColor": "BROWN",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
-			"shooting": 5,
-			"heading": 4,
-			"tackling": 4,
-			"control": 5,
-			"speed": 5,
-			"finishing": 5
-		},
-		"bestSkills": [
-			"CONTROL",
-			"SHOOTING",
-			"SPEED"
+			"CONTROL"
 		]
 	},
 	{
@@ -507,60 +475,24 @@
 		"shirtName": "BONFANTI",
 		"nationality": "ITA",
 		"role": "ATTACKER",
-		"number": 22,
+		"number": 21,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 5,
-			"heading": 6,
-			"tackling": 5,
-			"control": 4,
-			"speed": 4,
-			"finishing": 6
-		},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SHOOTING"
-		]
-	},
-	{
-		"name": "JOSÉ GERMANO DE SALES",
-		"shirtName": "GERMANO",
-		"nationality": "BRA",
-		"role": "ATTACKER",
-		"number": 23,
-		"skinColor": "BLACK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
+			"passing": 3,
 			"shooting": 5,
 			"heading": 5,
-			"tackling": 4,
-			"control": 5,
-			"speed": 6,
-			"finishing": 5
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
 		},
 		"bestSkills": [
-			"SPEED",
+			"SHOOTING",
 			"HEADING",
 			"FINISHING"
 		]
-	},
-	{
-		"name": "CLAUDIO MANTOVANI",
-		"shirtName": "MANTOVANI",
-		"nationality": "ITA",
-		"role": "GOALKEEPER",
-		"number": 24,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"value": 30
 	}
 ]
 }

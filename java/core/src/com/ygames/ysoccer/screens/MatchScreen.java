@@ -82,7 +82,7 @@ class MatchScreen extends GLScreen {
 
         switch (match.competition.type) {
             case FRIENDLY:
-                // TODO game.setScreen(new ReplayMatch(game));
+                game.setScreen(new ReplayMatch(game));
                 break;
 
             case LEAGUE:
