@@ -214,7 +214,9 @@ class MatchStateMain extends MatchState {
             case SECOND_EXTRA_TIME:
                 if ((match.clock > (match.length * 120 / 90)) && match.periodIsTerminable()) {
                     // at present an extra time is only possible in cups...
-                    // TODO
+                    Cup cup = (Cup) match.competition;
+                    cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_EXTRA_TIME);
+                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_EXTRA_TIME_STOP);
                 }
                 break;
         }

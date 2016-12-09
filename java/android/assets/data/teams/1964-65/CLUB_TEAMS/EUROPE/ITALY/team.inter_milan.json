@@ -43,7 +43,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BROWN",
 		"hairStyle": "SHORT_C",
-		"skills": {},
 		"value": 40
 	},
 	{
@@ -263,27 +262,27 @@
 		]
 	},
 	{
-		"name": "JOAQUÍN PEIRÓ",
-		"shirtName": "PEIRÓ",
-		"nationality": "ESP",
-		"role": "ATTACKER",
+		"name": "ANGELO DOMENGHINI",
+		"shirtName": "DOMENGHINI",
+		"nationality": "ITA",
+		"role": "RIGHT_WINGER",
 		"number": 9,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 6,
-			"heading": 6,
+			"passing": 5,
+			"shooting": 5,
+			"heading": 4,
 			"tackling": 4,
-			"control": 5,
-			"speed": 5,
+			"control": 6,
+			"speed": 7,
 			"finishing": 6
 		},
 		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SHOOTING"
+			"SPEED",
+			"CONTROL",
+			"FINISHING"
 		]
 	},
 	{
@@ -295,7 +294,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 36
 	},
 	{
@@ -347,27 +345,27 @@
 		]
 	},
 	{
-		"name": "ANGELO DOMENGHINI",
-		"shirtName": "DOMENGHINI",
-		"nationality": "ITA",
-		"role": "RIGHT_WINGER",
+		"name": "JOAQUÍN PEIRÓ",
+		"shirtName": "PEIRÓ",
+		"nationality": "ESP",
+		"role": "ATTACKER",
 		"number": 15,
 		"skinColor": "PINK",
-		"hairColor": "BROWN",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 5,
-			"shooting": 5,
-			"heading": 4,
+			"passing": 4,
+			"shooting": 6,
+			"heading": 6,
 			"tackling": 4,
-			"control": 6,
-			"speed": 7,
+			"control": 5,
+			"speed": 5,
 			"finishing": 6
 		},
 		"bestSkills": [
-			"SPEED",
-			"CONTROL",
-			"FINISHING"
+			"HEADING",
+			"FINISHING",
+			"SHOOTING"
 		]
 	},
 	{
@@ -403,27 +401,14 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 31
-	},
-	{
-		"name": "GIOVANNI FERRETTI",
-		"shirtName": "FERRETTI",
-		"nationality": "ITA",
-		"role": "GOALKEEPER",
-		"number": 18,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {},
-		"value": 26
 	},
 	{
 		"name": "GIORGIO DELLA GIOVANNA",
 		"shirtName": "DELLA GIOVANNA",
 		"nationality": "ITA",
 		"role": "DEFENDER",
-		"number": 19,
+		"number": 18,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -443,35 +428,11 @@
 		]
 	},
 	{
-		"name": "FRANCO ZAGLIO",
-		"shirtName": "ZAGLIO",
-		"nationality": "ITA",
-		"role": "MIDFIELDER",
-		"number": 20,
-		"skinColor": "PINK",
-		"hairColor": "RED",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
-			"shooting": 2,
-			"heading": 4,
-			"tackling": 4,
-			"control": 5,
-			"speed": 3,
-			"finishing": 3
-		},
-		"bestSkills": [
-			"CONTROL",
-			"PASSING",
-			"TACKLING"
-		]
-	},
-	{
 		"name": "SAUL MALATRASI",
 		"shirtName": "MALATRASI",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
-		"number": 21,
+		"number": 19,
 		"skinColor": "PINK",
 		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
@@ -491,59 +452,11 @@
 		]
 	},
 	{
-		"name": "SERGIO GORI",
-		"shirtName": "GORI",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": 22,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
-			"shooting": 5,
-			"heading": 4,
-			"tackling": 3,
-			"control": 4,
-			"speed": 5,
-			"finishing": 4
-		},
-		"bestSkills": [
-			"SPEED",
-			"SHOOTING",
-			"HEADING"
-		]
-	},
-	{
-		"name": "BRUNO PETRONI",
-		"shirtName": "PETRONI",
-		"nationality": "ITA",
-		"role": "ATTACKER",
-		"number": 23,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 4,
-			"shooting": 4,
-			"heading": 6,
-			"tackling": 3,
-			"control": 4,
-			"speed": 5,
-			"finishing": 4
-		},
-		"bestSkills": [
-			"HEADING",
-			"SPEED",
-			"FINISHING"
-		]
-	},
-	{
 		"name": "FRANCESCO CANELLA",
 		"shirtName": "CANELLA",
 		"nationality": "ITA",
 		"role": "ATTACKER",
-		"number": 24,
+		"number": 20,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -560,6 +473,30 @@
 			"HEADING",
 			"CONTROL",
 			"SPEED"
+		]
+	},
+	{
+		"name": "SERGIO GORI",
+		"shirtName": "GORI",
+		"nationality": "ITA",
+		"role": "ATTACKER",
+		"number": 21,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"HEADING"
 		]
 	}
 ]

@@ -70,8 +70,8 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "PAOLO VAINI",
+		"shirtName": "VAINI",
 		"nationality": "ITA",
 		"role": "DEFENDER",
 		"number": 3,
@@ -79,18 +79,17 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 2,
+			"speed": 3,
+			"finishing": 1
 		},
 		"bestSkills": [
-			"TACKLING",
 			"HEADING",
-			"PASSING"
+			"TACKLING"
 		]
 	},
 	{
@@ -142,8 +141,8 @@
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "VINCENZO ROSITO",
+		"shirtName": "ROSITO",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": 6,
@@ -151,23 +150,23 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 3
 		},
 		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"CONTROL"
+			"SHOOTING",
+			"CONTROL",
+			"SPEED"
 		]
 	},
 	{
-		"name": "",
-		"shirtName": "",
+		"name": "SILVANO MERKUZA",
+		"shirtName": "MERKUZA",
 		"nationality": "ITA",
 		"role": "MIDFIELDER",
 		"number": 7,
@@ -175,18 +174,18 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 0,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 1
 		},
 		"bestSkills": [
 			"PASSING",
-			"TACKLING",
-			"CONTROL"
+			"HEADING",
+			"TACKLING"
 		]
 	},
 	{
