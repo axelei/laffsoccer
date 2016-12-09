@@ -81,6 +81,7 @@ public class Assets {
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
     public static TextureRegion[][] playerNumbers = new TextureRegion[10][2];
+    public static TextureRegion[] tinyNumbers = new TextureRegion[10];
     public static TextureRegion[] time = new TextureRegion[11];
     public static TextureRegion[] score = new TextureRegion[11];
     public static TextureRegion[][] replay = new TextureRegion[16][2];
@@ -173,6 +174,7 @@ public class Assets {
         loadPlayerShadow();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));
         loadPlayerNumbers();
+        loadTinyNumbers();
         loadTime();
         loadScore();
         loadReplay();
@@ -589,6 +591,14 @@ public class Assets {
                 Assets.playerNumbers[i][j] = new TextureRegion(texture, 6 * i, 16 * j, 6, 10);
                 Assets.playerNumbers[i][j].flip(false, true);
             }
+        }
+    }
+
+    private static void loadTinyNumbers() {
+        Texture texture = new Texture("images/tiny_numbers.png");
+        for (int i = 0; i < 10; i++) {
+            Assets.tinyNumbers[i] = new TextureRegion(texture, 4 * i + (i == 1 ? 2 : 0), 0, (i == 1 ? 2 : 4), 6);
+            Assets.tinyNumbers[i].flip(false, true);
         }
     }
 

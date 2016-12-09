@@ -267,6 +267,10 @@ public class Team implements Json.Serializable {
         return kit;
     }
 
+    public Kit getKit() {
+        return kits.get(kitIndex);
+    }
+
     public boolean deleteKit() {
         if (kits.size() > MIN_KITS) {
             return kits.remove(kits.get(kits.size() - 1));

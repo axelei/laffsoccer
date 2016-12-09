@@ -44,6 +44,7 @@ public class MatchRenderer {
 
     public Match match;
     private List<Sprite> allSprites;
+    private List<PlayerSprite> radarPlayers;
     private Sprite.SpriteComparator spriteComparator;
     private CornerFlagSprite[] cornerFlagSprites;
 
@@ -76,12 +77,16 @@ public class MatchRenderer {
         }
 
         allSprites = new ArrayList<Sprite>();
+        radarPlayers = new ArrayList<PlayerSprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
         for (int t = HOME; t <= AWAY; t++) {
             int len = match.team[t].lineup.size();
             for (int i = 0; i < len; i++) {
                 PlayerSprite playerSprite = new PlayerSprite(glGraphics, match.team[t].lineup.get(i));
                 allSprites.add(playerSprite);
+                if (i < Const.TEAM_SIZE) {
+                    radarPlayers.add(playerSprite);
+                }
             }
         }
 
@@ -167,6 +172,11 @@ public class MatchRenderer {
         // clock
         if (displayTime) {
             drawTime();
+        }
+
+        // radar
+        if (displayRadar && match.game.settings.radar) {
+            drawRadar(match.subframe);
         }
 
         // wind vane
@@ -489,6 +499,95 @@ public class MatchRenderer {
         digit = minute % 10;
         if (digit > 0) {
             batch.draw(Assets.time[digit], 10, 22);
+        }
+    }
+
+    private void drawRadar(int subframe) {
+
+        final int RX = 10;
+        final int RY = 60;
+        final int RW = 132;
+        final int RH = 166;
+
+        batch.end();
+        gl.glEnable(GL20.GL_BLEND);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+
+        fadeRect(RX, RY, RX + RW, RY + RH, 0.6f, match.settings.grass.darkShadow);
+
+        shapeRenderer.setColor(0x000000, 1f);
+        shapeRenderer.rect(RX, RY, 1, RH);
+        shapeRenderer.rect(RX + 1, RY, RW - 2, 1);
+        shapeRenderer.rect(RX + 1, RY + RH / 2, RW - 2, 1);
+        shapeRenderer.rect(RX + 1, RY + RH - 1, RW - 2, 1);
+        shapeRenderer.rect(RX + RW - 1, RY, 1, RH);
+
+        // prepare y-sorted list
+        spriteComparator.subframe = subframe;
+        Collections.sort(radarPlayers, spriteComparator);
+
+        // shirt colors
+        int[] shirt1 = new int[2];
+        int[] shirt2 = new int[2];
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            Kit kit = match.team[t].getKit();
+            shirt1[t] = kit.shirt1;
+            shirt2[t] = kit.shirt2;
+        }
+
+        // placeholders
+        for (PlayerSprite playerSprite : radarPlayers) {
+            Player player = playerSprite.player;
+            Data d = player.data[subframe];
+            if (d.isVisible) {
+                int dx = RX + RW / 2 + d.x / 8;
+                int dy = RY + RH / 2 + d.y / 8;
+
+                shapeRenderer.setColor(0x242424, 1f);
+                shapeRenderer.rect(dx - 3, dy - 3, 6, 1);
+                shapeRenderer.rect(dx - 4, dy - 2, 1, 4);
+                shapeRenderer.rect(dx - 3, dy + 2, 6, 1);
+                shapeRenderer.rect(dx + 3, dy - 2, 1, 4);
+
+                shapeRenderer.setColor(shirt1[player.team.index], 1f);
+                shapeRenderer.rect(dx - 3, dy - 2, 3, 4);
+
+                shapeRenderer.setColor(shirt2[player.team.index], 1f);
+                shapeRenderer.rect(dx, dy - 2, 3, 4);
+            }
+        }
+
+        shapeRenderer.end();
+        batch.begin();
+        batch.setColor(0xFFFFFF, guiAlpha);
+
+        // controlled players numbers
+        if (displayControlledPlayer) {
+            for (PlayerSprite playerSprite : radarPlayers) {
+                Player player = playerSprite.player;
+                Data d = player.data[subframe];
+                if ((d.isVisible) && (player.inputDevice != player.ai)) {
+                    int dx = RX + RW / 2 + d.x / 8 + 1;
+                    int dy = RY + RH / 2 + d.y / 8 - 10;
+
+                    int f0 = player.number % 10;
+                    int f1 = (player.number - f0) / 10 % 10;
+
+                    int w0, w1;
+                    if (f1 > 0) {
+                        w0 = 4 - (f0 == 1 ? 2 : 0);
+                        w1 = 4 - (f1 == 1 ? 2 : 0);
+                        dx = dx - (w0 + w1) / 2;
+                        batch.draw(Assets.tinyNumbers[f1], dx, dy);
+                        dx = dx + w1;
+                        batch.draw(Assets.tinyNumbers[f0], dx, dy);
+                    } else {
+                        w0 = 4 - (f0 == 1 ? 2 : 0);
+                        dx = dx - w0 / 2;
+                        batch.draw(Assets.tinyNumbers[f0], dx, dy);
+                    }
+                }
+            }
         }
     }
 
