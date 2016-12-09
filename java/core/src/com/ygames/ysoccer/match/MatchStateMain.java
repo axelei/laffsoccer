@@ -207,7 +207,7 @@ class MatchStateMain extends MatchState {
 
             case FIRST_EXTRA_TIME:
                 if ((match.clock > (match.length * 105 / 90)) && match.periodIsTerminable()) {
-                    // TODO
+                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_EXTRA_TIME_STOP);
                 }
                 break;
 
