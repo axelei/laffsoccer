@@ -67,7 +67,7 @@ class PlayerStateKeeperDivingMiddleTwo extends PlayerState {
             player.vz = 70 + 30 * player.thrustZ;
             active = frames[1];
         } else if (timer < 0.5f * Const.SECOND) {
-            player.v = (128 + player.skillKeeper) * player.thrustX;
+            player.v = (128 + player.getSkillKeeper()) * player.thrustX;
             active = frames[2];
         } else if (timer < 0.7f * Const.SECOND) {
             player.v = 50 * player.thrustX;
@@ -92,7 +92,7 @@ class PlayerStateKeeperDivingMiddleTwo extends PlayerState {
     State checkConditions() {
         if (timer >= 1.1f * Const.SECOND) {
             if (ball.holder == player) {
-                 return player.fsm.stateKeeperKickAngle;
+                return player.fsm.stateKeeperKickAngle;
             } else {
                 return player.fsm.stateKeeperPositioning;
             }

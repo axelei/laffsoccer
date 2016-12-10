@@ -73,8 +73,6 @@ public class Player implements Json.Serializable {
     public Skills skills;
     public List<Skill> bestSkills = new ArrayList<Skill>();
 
-    int skillKeeper;
-
     public int value; // 0 to 49
 
     public InputDevice inputDevice;
@@ -718,6 +716,10 @@ public class Player implements Json.Serializable {
 
     public boolean toggleBestSkill(Skill skill) {
         return bestSkills.contains(skill) ? removeBestSkill(skill) : addBestSkill(skill);
+    }
+
+    public int getSkillKeeper() {
+        return (int) ((value + 0.5f) / 7);
     }
 
     public int getValue() {

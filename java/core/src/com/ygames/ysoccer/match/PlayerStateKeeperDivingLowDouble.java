@@ -45,7 +45,7 @@ class PlayerStateKeeperDivingLowDouble extends PlayerState {
             player.v = 10;
             active = frames[0];
         } else if (timer < 0.5f * Const.SECOND) {
-            player.v = 20 + (140 + player.skillKeeper) * player.thrustX;
+            player.v = 20 + (140 + player.getSkillKeeper()) * player.thrustX;
             active = frames[1];
         } else if (timer < 0.55f * Const.SECOND) {
             player.v = 20;
@@ -64,7 +64,7 @@ class PlayerStateKeeperDivingLowDouble extends PlayerState {
     State checkConditions() {
         if (timer >= 0.75f * Const.SECOND) {
             if (ball.holder == player) {
-                 return player.fsm.stateKeeperKickAngle;
+                return player.fsm.stateKeeperKickAngle;
             } else {
                 return player.fsm.stateKeeperPositioning;
             }
