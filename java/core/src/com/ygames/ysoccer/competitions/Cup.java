@@ -50,7 +50,7 @@ public class Cup extends Competition implements Json.Serializable {
         }
         currentLeg = jsonData.getInt("currentLeg", 0);
         if (hasTwoLegsRound()) {
-            awayGoals = json.readValue("awayGoals", AwayGoals.class, jsonData);
+            awayGoals = json.readValue("awayGoals", AwayGoals.class, AwayGoals.AFTER_90_MINUTES, jsonData);
         }
     }
 
