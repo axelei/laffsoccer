@@ -18,7 +18,6 @@ class DesignFriendly extends GLScreen {
         super(game);
 
         friendly = new Friendly();
-        friendly.name = Assets.strings.get("FRIENDLY");
 
         game.setState(GLGame.State.FRIENDLY, null);
 

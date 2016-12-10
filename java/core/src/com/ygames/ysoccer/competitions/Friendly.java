@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.competitions;
 
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
@@ -10,6 +11,7 @@ public class Friendly extends Competition {
 
     public Friendly() {
         super(Type.FRIENDLY);
+        name = Assets.strings.get("FRIENDLY");
         match = new Match();
         numberOfTeams = 2;
         time = MatchSettings.Time.RANDOM;
