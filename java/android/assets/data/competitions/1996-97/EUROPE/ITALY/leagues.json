@@ -1,0 +1,76 @@
+[
+  {
+    "name": "SERIE A 1996-97",
+    "numberOfTeams": 18,
+    "rounds": 2,
+    "pointsForAWin": 3,
+    "substitutions": 3,
+    "benchSize": 5,
+    "time": "DAY",
+    "weather": "BY_SEASON",
+    "seasonStart": "SEPTEMBER",
+    "seasonEnd": "JUNE",
+    "files": {
+      "folder": "1996-97/CLUB_TEAMS/EUROPE/ITALY",
+      "league": "SERIE A",
+      "teams": [
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.bologna.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cagliari.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.juventus.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.lazio.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.napoli.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.parma.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.perugia.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.piacenza.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.reggiana.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.roma.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.sampdoria.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.udinese.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.verona.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.vicenza.json"
+      ]
+    }
+  },
+  {
+    "name": "SERIE B 1996-97",
+    "numberOfTeams": 20,
+    "rounds": 2,
+    "pointsForAWin": 3,
+    "substitutions": 3,
+    "benchSize": 5,
+    "time": "DAY",
+    "weather": "BY_SEASON",
+    "seasonStart": "SEPTEMBER",
+    "seasonEnd": "JUNE",
+    "files": {
+      "folder": "1996-97/CLUB_TEAMS/EUROPE/ITALY",
+      "league": "SERIE B",
+      "teams": [
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.bari.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.brescia.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.castel_di_sangro.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cesena.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.chievo.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cosenza.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cremonese.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.empoli.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.foggia.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.genoa.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.lecce.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.lucchese.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.padova.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.palermo.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.pescara.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.ravenna.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.reggina.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.salernitana.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.torino.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.venezia.json"
+      ]
+    }
+  }
+]

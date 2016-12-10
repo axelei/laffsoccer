@@ -154,9 +154,11 @@ class SelectCompetition extends GLScreen {
 
         CompetitionButton(Competition competition) {
             this.competition = competition;
+            boolean dataFolderExists = Assets.teamsRootFolder.child(competition.files.folder).exists();
             setSize(480, 28);
-            setColors(0x1B4D85, 0x256AB7, 0x001D3E);
+            setColors(dataFolderExists ? 0x1B4D85 : 0x666666);
             setText(competition.name, Font.Align.CENTER, Assets.font14);
+            setActive(dataFolderExists);
         }
 
         @Override

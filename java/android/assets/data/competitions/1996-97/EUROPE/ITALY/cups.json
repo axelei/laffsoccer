@@ -1,0 +1,177 @@
+[
+  {
+    "name": "COPPA ITALIA 1996-97",
+    "numberOfTeams": 32,
+    "rounds": [
+      {
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "OFF",
+        "legs": [
+          [
+            {
+              "teams": [
+                9,
+                0
+              ]
+            },
+            {
+              "teams": [
+                27,
+                24
+              ]
+            },
+            {
+              "teams": [
+                12,
+                26
+              ]
+            },
+            {
+              "teams": [
+                16,
+                31
+              ]
+            },
+            {
+              "teams": [
+                8,
+                29
+              ]
+            },
+            {
+              "teams": [
+                5,
+                25
+              ]
+            },
+            {
+              "teams": [
+                3,
+                28
+              ]
+            },
+            {
+              "teams": [
+                7,
+                11
+              ]
+            },
+            {
+              "teams": [
+                1,
+                15
+              ]
+            },
+            {
+              "teams": [
+                2,
+                30
+              ]
+            },
+            {
+              "teams": [
+                21,
+                19
+              ]
+            },
+            {
+              "teams": [
+                17,
+                18
+              ]
+            },
+            {
+              "teams": [
+                6,
+                4
+              ]
+            },
+            {
+              "teams": [
+                23,
+                13
+              ]
+            },
+            {
+              "teams": [
+                22,
+                20
+              ]
+            },
+            {
+              "teams": [
+                10,
+                14
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "OFF"
+      },
+      {
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "OFF"
+      },
+      {
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "OFF"
+      },
+      {
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "OFF"
+      }
+    ],
+    "awayGoals": "AFTER_90_MINUTES",
+    "substitutions": 3,
+    "benchSize": 5,
+    "time": "NIGHT",
+    "weather": "BY_SEASON",
+    "seasonStart": "AUGUST",
+    "seasonEnd": "MAY",
+    "files": {
+      "folder": "1996-97/CLUB_TEAMS/EUROPE/ITALY",
+      "teams": [
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.avellino.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.bari.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.bologna.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cagliari.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cesena.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.chievo.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cosenza.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.cremonese.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.empoli.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.fidelis_andria.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.genoa.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.juventus.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.lazio.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.lucchese.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.monza.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.napoli.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.parma.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.perugia.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.pescara.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.piacenza.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.ravenna.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.reggiana.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.roma.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.sampdoria.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.spal.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.torino.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.udinese.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.verona.json",
+        "1996-97/CLUB_TEAMS/EUROPE/ITALY/team.vicenza.json"
+      ]
+    }
+  }
+]
