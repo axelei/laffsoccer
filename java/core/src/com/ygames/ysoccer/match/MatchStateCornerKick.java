@@ -14,20 +14,18 @@ class MatchStateCornerKick extends MatchState {
     MatchStateCornerKick(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_CORNER_KICK;
+
+        displayControlledPlayer = true;
+        displayBallOwner = true;
+        displayTime = true;
+        displayWindVane = true;
+        displayScore = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = true;
-        matchRenderer.displayBallOwner = true;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = true;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         cornerKickTeam = match.team[1 - match.ball.ownerLast.team.index];
 

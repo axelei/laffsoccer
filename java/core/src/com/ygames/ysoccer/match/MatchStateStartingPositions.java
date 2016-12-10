@@ -11,20 +11,15 @@ class MatchStateStartingPositions extends MatchState {
     MatchStateStartingPositions(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_STARTING_POSITIONS;
+
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         match.setStartingPositions();
         match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);

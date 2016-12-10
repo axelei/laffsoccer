@@ -16,8 +16,6 @@ class MatchScreen extends GLScreen {
     private boolean matchPaused;
     private boolean matchEnded;
 
-    private float timer;
-
     MatchScreen(GLGame game, Match match) {
         super(game);
         playMenuMusic = false;
@@ -39,9 +37,7 @@ class MatchScreen extends GLScreen {
     public void render(float deltaTime) {
         super.render(deltaTime);
 
-        // TODO: wait texture loading instead
-        timer += deltaTime;
-        if (!matchStarted && timer > 0.1f) {
+        if (!matchStarted) {
             match.start();
             matchStarted = true;
         }

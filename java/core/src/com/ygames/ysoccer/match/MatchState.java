@@ -6,6 +6,15 @@ class MatchState {
     protected int id;
     protected MatchFsm fsm;
 
+    boolean displayControlledPlayer;
+    boolean displayBallOwner;
+    boolean displayGoalScorer;
+    boolean displayTime;
+    boolean displayWindVane;
+    boolean displayScore;
+    boolean displayStatistics;
+    boolean displayRadar;
+
     // convenience references
     protected Match match;
     protected MatchRenderer matchRenderer;

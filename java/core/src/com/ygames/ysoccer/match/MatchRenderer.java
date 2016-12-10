@@ -43,6 +43,7 @@ public class MatchRenderer {
     public int[] vcameraY = new int[Const.REPLAY_SUBFRAMES];
 
     public Match match;
+    private MatchState matchState;
     private List<Sprite> allSprites;
     private List<PlayerSprite> radarPlayers;
     private Sprite.SpriteComparator spriteComparator;
@@ -52,15 +53,6 @@ public class MatchRenderer {
     private final int modH = 2 * Const.REPLAY_FRAMES;
     private final int modX = (int) Math.ceil(Const.PITCH_W / ((float) modW));
     private final int modY = (int) Math.ceil(Const.PITCH_H / ((float) modH));
-
-    boolean displayControlledPlayer;
-    boolean displayBallOwner;
-    boolean displayGoalScorer;
-    boolean displayTime;
-    boolean displayWindVane;
-    boolean displayScore;
-    boolean displayStatistics;
-    boolean displayRadar;
 
     public MatchRenderer(GLGraphics glGraphics, Match match) {
         this.batch = glGraphics.batch;
@@ -114,6 +106,8 @@ public class MatchRenderer {
     }
 
     public void render(GLGame game) {
+        matchState = match.fsm.getState();
+
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
@@ -147,7 +141,7 @@ public class MatchRenderer {
             }
         }
 
-        if (displayControlledPlayer) {
+        if (matchState.displayControlledPlayer) {
             drawControlledPlayersNumbers();
         }
 
@@ -165,37 +159,37 @@ public class MatchRenderer {
         batch.setColor(0xFFFFFF, guiAlpha);
 
         // ball owner
-        if (displayBallOwner && match.ball.owner != null) {
+        if (matchState.displayBallOwner && match.ball.owner != null) {
             drawPlayerNumberAndName(match.ball.owner);
         }
 
         // clock
-        if (displayTime) {
+        if (matchState.displayTime) {
             drawTime();
         }
 
         // radar
-        if (displayRadar && match.game.settings.radar) {
+        if (matchState.displayRadar && match.game.settings.radar) {
             drawRadar(match.subframe);
         }
 
         // wind vane
-        if (displayWindVane && (match.settings.wind.speed > 0)) {
+        if (matchState.displayWindVane && (match.settings.wind.speed > 0)) {
             batch.draw(Assets.wind[match.settings.wind.direction][match.settings.wind.speed - 1], guiWidth - 50, 20);
         }
 
         // score
-        if (displayScore) {
+        if (matchState.displayScore) {
             drawScore();
         }
 
         // statistics
-        if (displayStatistics) {
+        if (matchState.displayStatistics) {
             drawStatistics();
         }
 
         // goal scorer
-        if (displayGoalScorer && (match.subframe % 160 > 80)) {
+        if (matchState.displayGoalScorer && (match.subframe % 160 > 80)) {
             drawPlayerNumberAndName(match.ball.goalOwner);
         }
 
@@ -562,7 +556,7 @@ public class MatchRenderer {
         batch.setColor(0xFFFFFF, guiAlpha);
 
         // controlled players numbers
-        if (displayControlledPlayer) {
+        if (matchState.displayControlledPlayer) {
             for (PlayerSprite playerSprite : radarPlayers) {
                 Player player = playerSprite.player;
                 Data d = player.data[subframe];

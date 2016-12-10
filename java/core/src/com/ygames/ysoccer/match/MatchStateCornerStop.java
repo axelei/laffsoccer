@@ -16,20 +16,16 @@ class MatchStateCornerStop extends MatchState {
     MatchStateCornerStop(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_CORNER_STOP;
+
+        displayControlledPlayer = true;
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = true;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         if (match.team[HOME].side == -match.ball.ySide) {
             match.stats[HOME].cornersWon += 1;

@@ -11,20 +11,15 @@ class MatchStateHalfTimePositions extends MatchState {
     MatchStateHalfTimePositions(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_HALF_TIME_POSITIONS;
+
+        displayTime = true;
+        displayWindVane = true;
+        displayStatistics = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = true;
-        matchRenderer.displayRadar = false;
 
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();

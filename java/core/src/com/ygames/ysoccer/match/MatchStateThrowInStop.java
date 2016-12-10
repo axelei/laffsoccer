@@ -12,20 +12,17 @@ class MatchStateThrowInStop extends MatchState {
     MatchStateThrowInStop(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_THROW_IN_STOP;
+
+        displayControlledPlayer = true;
+        displayBallOwner = true;
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = true;
-        matchRenderer.displayBallOwner = true;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 

@@ -13,20 +13,13 @@ class MatchStateEnd extends MatchState {
     MatchStateEnd(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_END;
+
+        displayStatistics = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = false;
-        matchRenderer.displayWindVane = false;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = true;
-        matchRenderer.displayRadar = false;
 
         match.period = Match.Period.UNDEFINED;
     }

@@ -17,20 +17,13 @@ class MatchStateHighlights extends MatchState {
     MatchStateHighlights(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_HIGHLIGHTS;
+
+        displayWindVane = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = false;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = false;
 
         // position of current frame inside the highlights vector
         position = 0;

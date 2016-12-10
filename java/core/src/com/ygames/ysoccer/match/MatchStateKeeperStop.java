@@ -13,20 +13,17 @@ class MatchStateKeeperStop extends MatchState {
     MatchStateKeeperStop(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_KEEPER_STOP;
+
+        displayControlledPlayer = true;
+        displayBallOwner = true;
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = true;
-        matchRenderer.displayBallOwner = true;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         keeper = match.ball.holder;
         keeperTeam = match.team[keeper.team.index];

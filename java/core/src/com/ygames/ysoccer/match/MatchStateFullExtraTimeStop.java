@@ -10,20 +10,15 @@ class MatchStateFullExtraTimeStop extends MatchState {
     MatchStateFullExtraTimeStop(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_FULL_EXTRA_TIME_STOP;
+
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         match.clock = match.length * 120 / 90;
 

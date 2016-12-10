@@ -15,20 +15,16 @@ class MatchStateGoal extends MatchState {
     MatchStateGoal(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_GOAL;
+
+        displayGoalScorer = true;
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = true;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         Assets.Sounds.homeGoal.play(match.settings.soundVolume / 100f);
 

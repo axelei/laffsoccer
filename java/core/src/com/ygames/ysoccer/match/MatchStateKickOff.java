@@ -14,23 +14,21 @@ class MatchStateKickOff extends MatchState {
     private Player kickOffPlayer;
     private boolean isKickingOff;
 
-    public MatchStateKickOff(MatchFsm fsm) {
+    MatchStateKickOff(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_KICK_OFF;
+
+        displayControlledPlayer = true;
+        displayBallOwner = true;
+        displayTime = true;
+        displayWindVane = true;
+        displayScore = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = true;
-        matchRenderer.displayBallOwner = true;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = true;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         isKickingOff = false;
 

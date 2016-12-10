@@ -10,20 +10,15 @@ class MatchStateHalfTimeStop extends MatchState {
     MatchStateHalfTimeStop(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_HALF_TIME_STOP;
+
+        displayTime = true;
+        displayWindVane = true;
+        displayRadar = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = true;
 
         Assets.Sounds.end.play(match.settings.soundVolume / 100f);
 

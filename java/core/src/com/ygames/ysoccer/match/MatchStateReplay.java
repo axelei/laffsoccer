@@ -19,19 +19,12 @@ class MatchStateReplay extends MatchState {
     MatchStateReplay(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_REPLAY;
+
+        displayWindVane = true;
     }
 
     @Override
     void entryActions() {
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = false;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = false;
-        matchRenderer.displayRadar = false;
 
         subframe0 = match.subframe;
 

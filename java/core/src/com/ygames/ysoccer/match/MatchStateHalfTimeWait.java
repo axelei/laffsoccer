@@ -12,20 +12,15 @@ class MatchStateHalfTimeWait extends MatchState {
     MatchStateHalfTimeWait(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_HALF_TIME_WAIT;
+
+        displayTime = true;
+        displayWindVane = true;
+        displayStatistics = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
-
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayBallOwner = false;
-        matchRenderer.displayGoalScorer = false;
-        matchRenderer.displayTime = true;
-        matchRenderer.displayWindVane = true;
-        matchRenderer.displayScore = false;
-        matchRenderer.displayStatistics = true;
-        matchRenderer.displayRadar = false;
 
         match.swapTeamSides();
 

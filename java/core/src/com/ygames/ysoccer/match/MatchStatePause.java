@@ -14,14 +14,12 @@ class MatchStatePause extends MatchState {
     MatchStatePause(MatchFsm fsm) {
         super(fsm);
         id = MatchFsm.STATE_PAUSE;
+
+        displayWindVane = true;
     }
 
     @Override
     void entryActions() {
-        matchRenderer.displayControlledPlayer = false;
-        matchRenderer.displayTime = false;
-        matchRenderer.displayRadar = false;
-
         keyPause = Gdx.input.isKeyPressed(Input.Keys.P);
         waitingNoPauseKey = true;
         resume = false;
