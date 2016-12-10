@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
@@ -61,7 +63,13 @@ class MatchStateIntro extends MatchState {
                     || (match.team[AWAY].fire1Down() != null)
                     || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                return;
             }
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
+            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            return;
         }
     }
 

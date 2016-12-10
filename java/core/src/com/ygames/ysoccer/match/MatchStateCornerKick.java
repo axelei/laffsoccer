@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
@@ -85,6 +87,11 @@ class MatchStateCornerKick extends MatchState {
         if (match.ball.v > 0) {
             match.setPlayersState(PlayerFsm.STATE_STAND_RUN, cornerKickPlayer);
             match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
+            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
@@ -54,6 +56,11 @@ class MatchStateEnd extends MatchState {
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
             Assets.Sounds.crowd.stop();
             match.quit();
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
+            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            return;
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
@@ -208,6 +210,7 @@ class MatchStateMain extends MatchState {
             case FIRST_EXTRA_TIME:
                 if ((match.clock > (match.length * 105 / 90)) && match.periodIsTerminable()) {
                     match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_EXTRA_TIME_STOP);
+                    return;
                 }
                 break;
 
@@ -217,8 +220,14 @@ class MatchStateMain extends MatchState {
                     Cup cup = (Cup) match.competition;
                     cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_EXTRA_TIME);
                     match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_EXTRA_TIME_STOP);
+                    return;
                 }
                 break;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
+            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            return;
         }
     }
 }

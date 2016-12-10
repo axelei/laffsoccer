@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
 class MatchStateKeeperStop extends MatchState {
@@ -75,6 +77,11 @@ class MatchStateKeeperStop extends MatchState {
             keeperTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, null);
             match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
+            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

@@ -86,6 +86,7 @@ public class Assets {
     public static TextureRegion[] score = new TextureRegion[11];
     public static TextureRegion[][] replay = new TextureRegion[16][2];
     public static TextureRegion[][] replaySpeed = new TextureRegion[3][3];
+    public static TextureRegion pause;
     public static TextureRegion[] rain = new TextureRegion[4];
     public static TextureRegion[] snow = new TextureRegion[3];
     public static Texture fog;
@@ -178,6 +179,7 @@ public class Assets {
         loadTime();
         loadScore();
         loadReplay();
+        loadPause();
         loadReplaySpeed();
         loadRain();
         loadSnow();
@@ -408,6 +410,12 @@ public class Assets {
                 replay[i][j].flip(false, true);
             }
         }
+    }
+
+    private static void loadPause() {
+        Texture texture = new Texture("images/pause.png");
+        pause = new TextureRegion(texture);
+        pause.flip(false, true);
     }
 
     private static void loadReplaySpeed() {
