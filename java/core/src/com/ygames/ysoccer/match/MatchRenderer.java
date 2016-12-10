@@ -388,8 +388,8 @@ public class MatchRenderer {
         int l = 13 + (guiWidth - 640) / 5 + 2;
         int r = guiWidth - l + 2;
         int w = r - l;
-        int t = 20 + (guiHeight - 400) / 5 + 2;
-        int b = guiHeight - t + 8 + 2;
+        int t = guiHeight / 2 - 270 + 2;
+        int b = guiHeight / 2 + 270 + 2;
         int h = b - t;
         int m1 = t + h / 8 + 2;
         int m2 = t + h / 3 + 2;
@@ -659,8 +659,8 @@ public class MatchRenderer {
         int l = 13 + (guiWidth - 640) / 5 + 2;
         int r = guiWidth - l + 2;
         int w = r - l;
-        int t = 20 + (guiHeight - 400) / 5 + 2;
-        int b = guiHeight - t + 8 + 2;
+        int t = guiHeight / 2 - 270 + 2;
+        int b = guiHeight / 2 + 270 + 2;
         int h = b - t;
         int hw = guiWidth / 2;
 
