@@ -32,6 +32,9 @@ class ReplayMatch extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     private class ReplayButton extends Button {
@@ -45,6 +48,20 @@ class ReplayMatch extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new MatchLoading(game, match.team[HOME], match.team[AWAY], match.settings, new Friendly()));
+        }
+    }
+
+    private class ExitButton extends Button {
+
+        ExitButton() {
+            setColors(0xC84200);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 }

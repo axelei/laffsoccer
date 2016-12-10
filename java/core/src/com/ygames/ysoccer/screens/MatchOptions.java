@@ -351,7 +351,7 @@ class MatchOptions extends GLScreen {
         ExitButton() {
             setColors(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText("EXIT", Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
