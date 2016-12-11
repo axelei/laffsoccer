@@ -11,6 +11,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 class MatchStateGoal extends MatchState {
 
     private Goal goal;
+    private boolean replayDone;
 
     MatchStateGoal(MatchFsm fsm) {
         super(fsm);
@@ -25,6 +26,8 @@ class MatchStateGoal extends MatchState {
     @Override
     void entryActions() {
         super.entryActions();
+
+        replayDone = false;
 
         Assets.Sounds.homeGoal.play(match.settings.soundVolume / 100f);
 
@@ -87,22 +90,27 @@ class MatchStateGoal extends MatchState {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
                 && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
 
-            match.recorder.saveHighlight(matchRenderer);
-
-            match.ball.setPosition(0, 0, 0);
-            match.ball.updatePrediction();
-            matchRenderer.actionCamera.offx = 0;
-            matchRenderer.actionCamera.offy = 0;
-
-            if (match.game.settings.autoReplays) {
-                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_REPLAY);
-                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+            if (match.game.settings.autoReplays && !replayDone) {
+                replay();
+                replayDone = true;
                 return;
             } else {
+                match.recorder.saveHighlight(matchRenderer);
+
+                match.ball.setPosition(0, 0, 0);
+                match.ball.updatePrediction();
+                matchRenderer.actionCamera.offx = 0;
+                matchRenderer.actionCamera.offy = 0;
+
                 match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
                 return;
             }
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+            replay();
+            replayDone = true;
+            return;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {

@@ -137,8 +137,7 @@ class MatchStateReplay extends MatchState {
             match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
         }
 
-        // TODO: replace with action RESTORE_FOREGROUND
-        match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+        match.fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
 
         // if final frame is different from starting frame then fade in
         if (position != Const.REPLAY_SUBFRAMES) {

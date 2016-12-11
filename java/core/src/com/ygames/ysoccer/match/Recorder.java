@@ -7,7 +7,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class Recorder {
 
-    private static final int MAX_RECORDS = 6;
+    private static final int MAX_RECORDS = 12;
     private static final int RECORD_SIZE = (4 + 2 * Const.TEAM_SIZE * 5 + 2) * 2 * Const.REPLAY_SUBFRAMES;
 
     private Match match;

@@ -48,4 +48,10 @@ class MatchState {
 
     void render() {
     }
+
+    void replay() {
+        match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+        match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_REPLAY);
+        match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+    }
 }

@@ -60,6 +60,11 @@ class MatchStateHalfTimeStop extends MatchState {
             return;
         }
 
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+            replay();
+            return;
+        }
+
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
             match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
