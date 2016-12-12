@@ -134,14 +134,14 @@ class MatchStateReplay extends MatchState {
     private void quit() {
         // if final frame is different from starting frame then fade out
         if (position != Const.REPLAY_SUBFRAMES) {
-            match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+            fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
         }
 
-        match.fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+        fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
 
         // if final frame is different from starting frame then fade in
         if (position != Const.REPLAY_SUBFRAMES) {
-            match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+            fsm.pushAction(MatchFsm.ActionType.FADE_IN);
         }
     }
 }

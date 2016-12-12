@@ -27,8 +27,8 @@ class MatchScreen extends GLScreen {
         game.glGraphics.light = 0;
 
         match.listener = new Match.MatchListener() {
-            public void quitMatch() {
-                quit();
+            public void quitMatch(boolean matchCompleted) {
+                quit(matchCompleted);
             }
         };
     }
@@ -58,7 +58,7 @@ class MatchScreen extends GLScreen {
         match.fsm.getMatchRenderer().resize(width, height, game.settings);
     }
 
-    private void quit() {
+    private void quit(boolean matchCompleted) {
         matchEnded = true;
         game.setMouse();
 

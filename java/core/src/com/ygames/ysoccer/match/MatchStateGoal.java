@@ -102,9 +102,14 @@ class MatchStateGoal extends MatchState {
                 matchRenderer.actionCamera.offx = 0;
                 matchRenderer.actionCamera.offy = 0;
 
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
                 return;
             }
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            quitMatch();
+            return;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
@@ -114,7 +119,7 @@ class MatchStateGoal extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

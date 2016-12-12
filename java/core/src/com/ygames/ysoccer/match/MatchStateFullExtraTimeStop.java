@@ -21,6 +21,7 @@ class MatchStateFullExtraTimeStop extends MatchState {
         super.entryActions();
 
         match.clock = match.length * 120 / 90;
+        fsm.matchCompleted = true;
 
         Assets.Sounds.end.play(match.settings.soundVolume / 100f);
 
@@ -58,7 +59,12 @@ class MatchStateFullExtraTimeStop extends MatchState {
     @Override
     void checkConditions() {
         if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
-            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END_POSITIONS);
+            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END_POSITIONS);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            quitMatch();
             return;
         }
 
@@ -68,7 +74,7 @@ class MatchStateFullExtraTimeStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

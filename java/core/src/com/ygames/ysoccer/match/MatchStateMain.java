@@ -144,23 +144,23 @@ class MatchStateMain extends MatchState {
     void checkConditions() {
         switch (event) {
             case KEEPER_STOP:
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KEEPER_STOP);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KEEPER_STOP);
                 return;
 
             case GOAL:
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL);
                 return;
 
             case CORNER:
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_STOP);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_CORNER_STOP);
                 return;
 
             case GOAL_KICK:
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK_STOP);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK_STOP);
                 return;
 
             case THROW_IN:
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_THROW_IN_STOP);
                 return;
         }
 
@@ -171,7 +171,7 @@ class MatchStateMain extends MatchState {
 
             case FIRST_HALF:
                 if ((match.clock > (match.length * 45 / 90)) && match.periodIsTerminable()) {
-                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_STOP);
+                    fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_STOP);
                     return;
                 }
                 break;
@@ -180,13 +180,13 @@ class MatchStateMain extends MatchState {
                 if ((match.clock > match.length) && match.periodIsTerminable()) {
                     switch (match.competition.type) {
                         case FRIENDLY:
-                            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
+                            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
                             return;
 
                         case LEAGUE:
                             League league = (League) match.competition;
                             league.setResult(match.stats[HOME].goals, match.stats[AWAY].goals);
-                            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
+                            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
                             return;
 
                         case CUP:
@@ -194,10 +194,10 @@ class MatchStateMain extends MatchState {
                             cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_90_MINUTES);
 
                             if (cup.playExtraTime()) {
-                                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_EXTRA_TIME_STOP);
+                                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_EXTRA_TIME_STOP);
                                 return;
                             } else {
-                                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
+                                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
                                 return;
                             }
                     }
@@ -206,7 +206,7 @@ class MatchStateMain extends MatchState {
 
             case FIRST_EXTRA_TIME:
                 if ((match.clock > (match.length * 105 / 90)) && match.periodIsTerminable()) {
-                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_EXTRA_TIME_STOP);
+                    fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_EXTRA_TIME_STOP);
                     return;
                 }
                 break;
@@ -216,10 +216,15 @@ class MatchStateMain extends MatchState {
                     // at present an extra time is only possible in cups...
                     Cup cup = (Cup) match.competition;
                     cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Cup.ResultType.AFTER_EXTRA_TIME);
-                    match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_EXTRA_TIME_STOP);
+                    fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_EXTRA_TIME_STOP);
                     return;
                 }
                 break;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            quitMatch();
+            return;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
@@ -228,7 +233,7 @@ class MatchStateMain extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

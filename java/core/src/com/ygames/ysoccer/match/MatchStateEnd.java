@@ -46,13 +46,13 @@ class MatchStateEnd extends MatchState {
     void checkConditions() {
         if (match.team[HOME].fire1Up() != null
                 || match.team[AWAY].fire1Up() != null
+                || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
-            Assets.Sounds.crowd.stop();
-            match.quit();
+            quitMatch();
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

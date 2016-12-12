@@ -13,7 +13,7 @@ import java.util.List;
 public class Match implements Json.Serializable {
 
     public interface MatchListener {
-        void quitMatch();
+        void quitMatch(boolean matchCompleted);
     }
 
     public static final int HOME = 0;
@@ -430,7 +430,13 @@ public class Match implements Json.Serializable {
     }
 
     void quit() {
-        listener.quitMatch();
+        Assets.Sounds.chant.stop();
+        Assets.Sounds.crowd.stop();
+        Assets.Sounds.end.stop();
+        Assets.Sounds.homeGoal.stop();
+        Assets.Sounds.intro.stop();
+
+        listener.quitMatch(fsm.matchCompleted);
     }
 
     // returns an integer from 0 to 9

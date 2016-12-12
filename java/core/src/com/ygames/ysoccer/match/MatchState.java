@@ -50,8 +50,12 @@ class MatchState {
     }
 
     void replay() {
-        match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-        match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_REPLAY);
-        match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+        fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+        fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_REPLAY);
+        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+    }
+
+    void quitMatch() {
+        match.quit();
     }
 }

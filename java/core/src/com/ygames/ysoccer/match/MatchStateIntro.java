@@ -21,6 +21,7 @@ class MatchStateIntro extends MatchState {
     void entryActions() {
         super.entryActions();
 
+        fsm.matchCompleted = false;
         match.setIntroPositions();
         match.resetData();
 
@@ -62,9 +63,14 @@ class MatchStateIntro extends MatchState {
             if ((match.team[HOME].fire1Down() != null)
                     || (match.team[AWAY].fire1Down() != null)
                     || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
                 return;
             }
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            quitMatch();
+            return;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
@@ -73,7 +79,7 @@ class MatchStateIntro extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

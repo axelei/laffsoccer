@@ -66,10 +66,16 @@ class MatchStateHighlights extends MatchState {
     @Override
     void checkConditions() {
 
-        // quit on touch
+        // quit on ESC
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            quit();
+            return;
+        }
+
+        // quit on fire button
         if ((match.team[HOME].fire1Up() != null)
                 || (match.team[AWAY].fire1Up() != null)) {
-            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+            quit();
             return;
         }
 
@@ -77,14 +83,20 @@ class MatchStateHighlights extends MatchState {
         if (position == Const.REPLAY_SUBFRAMES) {
             match.recorder.nextHighlight();
             if (match.recorder.hasEnded()) {
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                quit();
                 return;
             } else {
-                match.fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-                match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-                match.fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+                fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+                fsm.pushAction(MatchFsm.ActionType.FADE_IN);
                 return;
             }
         }
+    }
+
+    void quit() {
+        fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+        fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
     }
 }

@@ -44,21 +44,21 @@ class MatchStatePause extends MatchState {
     void checkConditions() {
 
         if (resume) {
-            match.fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+            fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
             return;
         }
 
         // resume on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
-                match.fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+                fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
                 return;
             }
         }
 
         // resume on 'Esc'
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            match.fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+            fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
             return;
         }
     }

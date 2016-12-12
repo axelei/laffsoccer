@@ -73,7 +73,12 @@ class MatchStateKeeperStop extends MatchState {
         if (match.ball.holder == null) {
             keeperTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, null);
-            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            quitMatch();
             return;
         }
 
@@ -83,7 +88,7 @@ class MatchStateKeeperStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            match.fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
         }
     }

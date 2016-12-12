@@ -35,6 +35,7 @@ public class MatchFsm {
     }
 
     private Match match;
+    protected boolean matchCompleted;
     private MatchRenderer matchRenderer;
     private int savedSubframe;
 
@@ -179,7 +180,7 @@ public class MatchFsm {
 
             case NEW_FOREGROUND:
                 currentState = searchState(currentAction.stateId);
-                Gdx.app.log("NEW_FOREGROUND", currentState.getClass().toString());
+                Gdx.app.debug("NEW_FOREGROUND", currentState.getClass().getSimpleName());
                 break;
 
             case HOLD_FOREGROUND:
