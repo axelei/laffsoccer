@@ -2,15 +2,17 @@ package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Comparator;
 import java.util.List;
 
 public abstract class Widget {
+
+    protected static final float alpha = 0.92f;
 
     // geometry
     public int x;
@@ -19,8 +21,6 @@ public abstract class Widget {
     public int h;
 
     public TextureRegion textureRegion;
-    int imageX;
-    int imageY;
     float imageScaleX;
     float imageScaleY;
 
@@ -63,11 +63,6 @@ public abstract class Widget {
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    protected void setImagePosition(int imageX, int imageY) {
-        this.imageX = imageX;
-        this.imageY = imageY;
     }
 
     protected void setImageScale(float scaleX, float scaleY) {

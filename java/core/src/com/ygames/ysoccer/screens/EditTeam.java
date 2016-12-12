@@ -4,12 +4,12 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
-import com.ygames.ysoccer.gui.LogoPicture;
+import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
@@ -40,7 +40,7 @@ class EditTeam extends GLScreen {
     private Widget[] nameButtons = new Widget[Const.TEAM_SIZE];
     private Widget[] roleButtons = new Widget[Const.TEAM_SIZE];
 
-    private LogoPicture logoWidget;
+    private Picture teamImage;
     private Widget kitWidget;
     private Widget newKitButton;
     private Widget deleteKitButton;
@@ -69,8 +69,8 @@ class EditTeam extends GLScreen {
         w = new TeamNameButton();
         widgets.add(w);
 
-        logoWidget = new LogoPicture(team, 135, 50);
-        widgets.add(logoWidget);
+        teamImage = new TeamPicture();
+        widgets.add(teamImage);
 
         w = new CoachLabel();
         widgets.add(w);
@@ -238,6 +238,26 @@ class EditTeam extends GLScreen {
         public void onChanged() {
             team.name = text;
             setModifiedFlag();
+        }
+    }
+
+    private class TeamPicture extends Picture {
+
+        TeamPicture() {
+            setAddShadow(true);
+        }
+
+        @Override
+        public void refresh() {
+            if (team.image == null) {
+                team.loadImage();
+            } else if (selectedKit == 0 && team.imageIsDefaultLogo) {
+                team.image = null;
+                team.loadImage();
+            }
+            textureRegion = team.image;
+            limitToSize(100, 70);
+            setPosition(125, 52);
         }
     }
 
@@ -545,9 +565,7 @@ class EditTeam extends GLScreen {
             team.kits.get(selectedKit).style = Assets.kits.get(kitIndex);
             setDirty(true);
             kitWidget.setDirty(true);
-            if (selectedKit == 0 && !logoWidget.isCustom) {
-                logoWidget.setDirty(true);
-            }
+            teamImage.setDirty(true);
             setModifiedFlag();
         }
     }
@@ -616,9 +634,7 @@ class EditTeam extends GLScreen {
             }
             updateKitEditButtons();
             kitWidget.setDirty(true);
-            if (selectedKit == 0 && !logoWidget.isCustom) {
-                logoWidget.setDirty(true);
-            }
+            teamImage.setDirty(true);
             setModifiedFlag();
         }
 
@@ -734,9 +750,7 @@ class EditTeam extends GLScreen {
             }
             updateKitEditButtons();
             kitWidget.setDirty(true);
-            if (selectedKit == 0 && !logoWidget.isCustom) {
-                logoWidget.setDirty(true);
-            }
+            teamImage.setDirty(true);
             setModifiedFlag();
         }
 

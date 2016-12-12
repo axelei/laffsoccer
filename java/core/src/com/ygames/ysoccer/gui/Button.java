@@ -4,14 +4,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.framework.GLColor;
 
 public class Button extends Widget {
 
     private static final double sweepSpeed = 0.4;
-    private static final float alpha = 0.92f;
+
+    int imageX;
+    int imageY;
 
     public Button() {
         active = true;
@@ -60,6 +62,11 @@ public class Button extends Widget {
         }
 
         batch.setColor(0xFFFFFF, 1f);
+    }
+
+    protected void setImagePosition(int imageX, int imageY) {
+        this.imageX = imageX;
+        this.imageY = imageY;
     }
 
     private void drawImage(GLSpriteBatch batch) {

@@ -24,7 +24,7 @@ public class Main extends GLScreen {
         Widget w;
 
         w = new Picture(logo);
-        w.setPosition((game.gui.WIDTH - logo.getRegionWidth()) / 2, 100);
+        w.setPosition(game.gui.WIDTH / 2, 164);
         widgets.add(w);
 
         w = new GameOptionsButton();

@@ -36,6 +36,7 @@ class MatchLoading extends GLScreen {
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
         for (int t = HOME; t <= AWAY; t++) {
+            team[t].loadImage();
             int len = team[t].lineup.size();
             for (int i = 0; i < len; i++) {
                 Player player = team[t].lineup.get(i);

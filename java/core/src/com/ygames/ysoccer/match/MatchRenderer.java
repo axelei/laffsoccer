@@ -586,11 +586,53 @@ public class MatchRenderer {
     }
 
     private void drawScore() {
+        // default values
+        int h0 = 0;
+        int w0 = 0;
+        int w1 = 0;
+        int h1 = 0;
+        float imageScale0 = 1f;
+        float imageScale1 = 1f;
 
         // max rows of rows
         int rows = Math.max(match.scorers.rows[HOME].size(), match.scorers.rows[AWAY].size());
 
-        int y0 = guiHeight - 16 - 14 * rows;
+        // size of club logos / national flags
+        if (match.team[HOME].image != null) {
+            w0 = match.team[HOME].image.getRegionWidth();
+            h0 = match.team[HOME].image.getRegionHeight();
+            if (h0 > 70) {
+                imageScale0 = 70f / h0;
+            }
+        }
+        if (match.team[AWAY].image != null) {
+            w1 = match.team[AWAY].image.getRegionWidth();
+            h1 = match.team[AWAY].image.getRegionHeight();
+            if (h1 > 70) {
+                imageScale1 = 70f / h1;
+            }
+        }
+
+        int hMax = Math.max((int) (imageScale0 * h0), (int) (imageScale1 * h1));
+        int y0 = guiHeight - 16 - Math.max(hMax, 14 * rows);
+
+        // club logos / national flags
+        if (match.team[HOME].image != null) {
+            int x = 10;
+            int y = y0 + 8 + (hMax - (int) (imageScale0 * h0)) / 2;
+            batch.setColor(0x242424, guiAlpha);
+            batch.draw(match.team[HOME].image, x + 2, y + 2, 0, 0, w0, h0, imageScale0, imageScale0, 0);
+            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.draw(match.team[HOME].image, x, y, 0, 0, w0, h0, imageScale0, imageScale0, 0);
+        }
+        if (match.team[AWAY].image != null) {
+            int x = guiWidth - (int) (imageScale1 * w1) - 10;
+            int y = y0 + 8 + (hMax - (int) (imageScale1 * h1)) / 2;
+            batch.setColor(0x242424, guiAlpha);
+            batch.draw(match.team[AWAY].image, x + 2, y + 2, 0, 0, w1, h1, imageScale1, imageScale1, 0);
+            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.draw(match.team[AWAY].image, x, y, 0, 0, w1, h1, imageScale1, imageScale1, 0);
+        }
 
         // teams
         Assets.font14.draw(batch, match.team[HOME].name, +10, y0 - 22, Font.Align.LEFT);

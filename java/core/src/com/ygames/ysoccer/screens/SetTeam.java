@@ -11,15 +11,13 @@ import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
-import com.ygames.ysoccer.gui.LogoPicture;
+import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
-import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,7 +43,6 @@ class SetTeam extends GLScreen {
     private boolean compareTactics;
     private Font font10yellow;
 
-    private LogoPicture logoWidget;
     private List<Widget> playerButtons = new ArrayList<Widget>();
     private TacticsBoard tacticsBoard;
     private Widget[] tacticsButtons = new Widget[18];
@@ -84,6 +81,9 @@ class SetTeam extends GLScreen {
 
         font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();
+
+        ownTeam.loadImage();
+        opponentTeam.loadImage();
 
         Widget w;
 
@@ -165,8 +165,8 @@ class SetTeam extends GLScreen {
         teamInputDeviceButton = w;
         widgets.add(w);
 
-        logoWidget = new LogoPicture(shownTeam, 135, 60);
-        widgets.add(logoWidget);
+        w = new TeamPicture();
+        widgets.add(w);
 
         w = new TeamNameButton();
         widgets.add(w);
@@ -533,10 +533,7 @@ class SetTeam extends GLScreen {
                 shownTeam = ownTeam;
                 tacticsBoard.setViewOpponent(false);
             }
-            logoWidget.setTeam(shownTeam);
-            for (Widget w : widgets) {
-                w.setDirty(true);
-            }
+            updateAllWidgets();
         }
     }
 
@@ -654,7 +651,7 @@ class SetTeam extends GLScreen {
     private class TeamNameButton extends Button {
 
         TeamNameButton() {
-            setGeometry(194, 40, 601, 41);
+            setGeometry((game.gui.WIDTH - 780) / 2, 40, 780, 41);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -667,6 +664,20 @@ class SetTeam extends GLScreen {
             } else {
                 setColors(0xAC1A1A);
             }
+        }
+    }
+
+    private class TeamPicture extends Picture {
+
+        TeamPicture() {
+            setPosition(135, 60);
+            setAddShadow(true);
+        }
+
+        @Override
+        public void refresh() {
+            textureRegion = shownTeam.image;
+            limitToSize(100, 70);
         }
     }
 
