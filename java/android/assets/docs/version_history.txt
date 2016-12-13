@@ -1,0 +1,247 @@
+- version 16 (Dec 2016):
+preset competitions, saving competitions, JSON database, porting in java+libgdx, import/export in SWOS 96/97 team file format
+
+- version 14 (31 May 2014):
+tackles, headers, new AI, fixed player(s) control mode, zoom and rotation, training mode
+
+- beta_v_077 (5 June 2012):
+tactics editor, playback modes for menu music
+
+- beta_v_076 (1 January 2011):
+custom cups, extra time, gettext language files, audio driver selection
+
+- beta_v_075 (17 January 2010):
+improved goalkeeper, better performance on old hardware
+
+- beta_v_074 (9 May 2009):
+bug fixing release
+
+- beta_v0_73 (1 November 2006):
+bench with substitutions, players positions and tactics switch, coach mode, input device selector, template database
+
+- beta_v0_72 (5 March 2006):
+custom leagues, new stadium, weather effects, new national flags, custom teams
+
+- beta_v0_71 (15 October 2005):
+porting to BlitxMax, Linux & OS X versions, new hair system 
+
+- beta_v0_70 (9 December 2004):
+team editor, new generic kits, custom kits, fullscreen/windowed option
+
+- beta_v0_69 (29 July 2004):
+new prematch screen, new keeper animations
+
+- beta_v0_68 (25 October 2003):
+3D menu buttons, new hair and skin colors, new hair cuts,
+new kit colors, kick off
+
+- beta_v0_67 (21 September 2003):
+mouse support, new benches
+
+- beta_v0_66 (14 September 2003):
+game released under GNU GPL, various bugs fixed
+
+- beta_v0_65 (30 July 2003):
+Unicode menu files, new database, new team file format,
+resolution 640x400 added, statistics page renewed
+
+- beta_v0_64 (04 May 2003):
+scorer's name, new score screen with scorers' list and logos, goal celebrations
+
+- beta_v0_63 (16 March 2003):
+national team friendly, players' nationality flags
+keyboard setup, polish language, new goals
+
+- beta_v0_62 (17 February 2003):
+new menu, submenu options, submenu friendly (club teams only)
+
+- beta_v0_61 (16 January 2003):
+action recording, match highlights, 
+modify sound settings during the match
+
+- beta_v0_60 (08 January 2003):
+different grass types, greek language, raw goalkeeper diving
+
+- beta_v0_59 (02 January 2003):
+players best skills, style of wind vane changed
+
+- beta_v0_58 (28 December 2002):
+team file selection, shots on goal improved, 
+statistics page and player types translated.
+
+- beta_v0_57 (23 December 2002):
+menus in five languages, national flags added in the team menu,
+secondary kits enabled with automatic selection.
+
+- beta_v0_56 (16 December 2002):
+opponent-team and tactics-comparison buttons added to the team menu,
+faster ball kicking, player speed proportional to the 'speed' parameter.
+
+- beta_v0_55 (09 December 2002):
+swos prices and skills reading (not applied still), player's price displayed by stars,
+new colors for players, substitution bug fixed.
+
+- beta_v0_54 (20 November 2002):
+players and tactics selection
+
+- beta_v0_53 (11 November 2002):
+first prototype of team menu, skin/hair color loaded
+
+- beta_v0_52 (29 October 2002):
+match presentation screen, correct players positions loaded
+
+- beta_v0_51 (21 October 2002):
+bounce on crossbar and posts fixed, teams presentation at beginning of the match, 
+sound-fx and music volume, goalie can keep the ball in hands for a limited time.
+
+- beta_v0_50 (13 October 2002):
+high quality slow-motion, advanced replay, shots on goal statistics
+
+- beta_v0_49 (10 October 2002):
+menu music, opponent AI improved
+
+- beta_v0_48 (05 October 2002):
+new team kits, load/save settings, variable spin effect, new controlled player numbers
+
+- beta_v0_47 (30 September 2002):
+new goalkeeper by Daniele, load predefined tactics (players positions not loaded still), new timer look
+
+- beta_v0_46 (25 September 2002):
+rendered team kits
+
+- beta_v0_45 (23 September 2002):
+swos team file reading
+
+- beta_v0_44 (22 September 2002):
+goalkeeper improved, sound fx option, corner commentary
+
+- beta_v0_43 (19 September 2002):
+new camera functions, computer slightly improved
+
+- beta_v0_42 (18 September 2002):
+big changes in ball physics in order to improve playability (I hope so!),
+facing player moves to receive passing, pitch drawing optimization, players soft turn
+
+- beta_v0_41 (16 September 2002):
+camera flickering problem solved, player soft start
+
+- beta_v0_40 (15 September 2002):
+computer option, basic opponent AI, new passing angle correction function
+
+- beta_v0_39 (12 September 2002):
+passing angle correction, one frame added in players animation
+
+- beta_v0_38 (11 September 2002):
+fade_rect function, menu works with both keys and joysticks
+
+- beta_v0_37 (10 September 2002):
+match statistics
+
+- beta_v0_36 (9 September 2002):
+goal-kick sequence, own goal commentary
+
+- beta_v0_35 (8 September 2002):
+very simple goalkeeper, spin formula changed
+
+- beta_v0_34 (7 September 2002):
+animated goal posts
+
+- beta_v0_33 (6 September 2002):
+commentary (goal only)
+  
+- beta_v0_32 (5 September 2002):
+corner sequence added, players input selection
+
+- beta_v0_31 (4 September 2002):
+goalkeeper plays the ball, goalkeeper_position function
+
+- beta_v0_30 (3 September 2002):
+code tidy up, minor changes
+
+- beta_v0_29 (2 September 2002):
+throw-in sequence added, various bugs fixed, autoreplay option
+
+- beta_v0_28 (1 September 2002):
+menu improved
+
+- beta_v0_27 (31 August 2002):
+player replay function, ball control changed
+
+- beta_v0_26 (30 August 2002):
+second player control, passing/shooting function rewritten
+
+- beta_v0_25 (29 August 2002):
+goalkick function
+
+- beta_v0_24 (28 August 2002):
+player passing & shooting improved
+
+- beta_v0_23 (27 August 2002):
+player control (team_a only), ball control
+
+- beta_v0_22 (26 August 2002):
+find nearest players, ball attract them, speeds values changed, goal posts & crossbar detection changed 
+
+- beta_v0_21 (25 August 2002):
+score, teams reset position after goal, restart after end of the match
+
+- beta_v0_20 (24 August 2002):
+simple menu, wind
+
+- beta_v0_19 (07 August 2002):
+coin_toss, teams starting positions
+
+- beta_v0_18 (06 August 2002):
+camera functions rewritten, game periods added
+
+- beta_v0_17 (05 August 2002):
+throw-in function
+
+- beta_v0_16 (04 August 2002):
+function update_tactics added (previously contained in the update_players function )
+
+- beta_v0_15 (03 August 2002):
+ball zone coordinates changed for easier side swap (checked)
+
+- beta_v0_14 (02 August 2002):
+player positions proportional to ball position in the zone (smoother tactic movements)
+
+- beta_v0_13 (01 August 2002):
+players movement changed, function strn$ improved, joydir problem fixed
+
+- beta_v0_12 (31 July 2002):
+load tactic file, players with tactics (team_a&b)
+
+- beta_v0_11 (30 July 2002):
+exact rebound formula for goal posts & crossbar, back-top of the net detection changed 
+
+- beta_v0_10 (29 July 2002):
+players (team_a), z-order, optimization: one function for drawing ball & players
+
+- beta_v0_9 (10 July 2002):
+after touch, back of the net detection in corner fixed
+
+- beta_v0_8 (8 July 2002):
+accelerated fadeout, net collision improved, hi-res grass, posts, goal & corner detection (down-side goal)
+
+- beta_v0_7 (5 July 2002):
+realistic bounce on post and crossbar & corner sequence(top-side goal only), ball spin
+
+- beta_v0_6 (3 July 2002):
+completely rewritten: internal cycle in each frame in order to have bug-free collision detection
+of goal, posts, crossbar etc.
+
+- beta_v0_5 (1 July 2002):
+coloured grass(normal type only for now!)
+
+- beta_v0_4 (30 June 2002):
+intelligent camera (works very well!)
+
+- beta_v0_3 (29 June 2002):
+goal sequence with replay
+
+- beta_v0_2 (28 June 2002):
+goal, post, cross-bar and corner detection (top-side goal only), to be improved
+
+- beta_v0_1 (27 June 2002):
+joy and keyb reading, replay, ball pass low & high and shot, match clock 
