@@ -19,6 +19,7 @@ public class Settings {
     public final String VERSION = "16";
 
     // game
+    public boolean debug;
     public int logLevel;
     public String locale;
     public boolean fullScreen;
@@ -52,6 +53,7 @@ public class Settings {
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
         // game
+        debug = preferences.getBoolean("debug", false);
         logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
         locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
@@ -80,6 +82,7 @@ public class Settings {
 
     public void save() {
         // game
+        preferences.putBoolean("debug", debug);
         preferences.putInteger("logLevel", logLevel);
         preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
