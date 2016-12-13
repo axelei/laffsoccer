@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -7,6 +8,7 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Color2;
 import com.ygames.ysoccer.framework.Color3;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
@@ -286,13 +288,11 @@ public class Player implements Json.Serializable {
                     break;
 
                 case 0x0000C0:
-                    if (ball.v > 180) {
-                        collisionType = CT_DEFLECT;
-                    } else {
-                        collisionType = CT_CATCH;
-                    }
+                    collisionType = CT_DEFLECT;
                     break;
             }
+
+            Gdx.app.debug("Keeper collision", GLColor.toHexString(rgb) + " at " + det_x + ", " + det_y);
 
             switch (collisionType) {
                 case CT_REBOUND:
