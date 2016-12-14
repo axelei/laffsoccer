@@ -281,7 +281,7 @@ class SetupControls extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
+        public void onFire1Up() {
             entryMode = true;
             game.inputDevices.clear();
             updateAllWidgets();
