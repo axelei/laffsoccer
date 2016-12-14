@@ -19,7 +19,7 @@ public class League extends Competition implements Json.Serializable {
 
     public int rounds;
     public int pointsForAWin;
-    private ArrayList<Match> calendar;
+    public ArrayList<Match> calendar;
     public List<TableRow> table;
     private Comparator<League.TableRow> tableRowComparator;
 
@@ -63,7 +63,13 @@ public class League extends Competition implements Json.Serializable {
     @Override
     public void start(ArrayList<Team> teams) {
         super.start(teams);
-        generateCalendar();
+
+        // if the calendar is not preset, generate it
+        if (calendar.size() == 0) {
+            generateCalendar();
+        }
+
+        updateMonth();
         populateTable();
     }
 
@@ -136,10 +142,6 @@ public class League extends Competition implements Json.Serializable {
             match.teams[HOME] = randomIndexes.get(match.teams[HOME]);
             match.teams[AWAY] = randomIndexes.get(match.teams[AWAY]);
         }
-
-        currentMatch = 0;
-        currentRound = 0;
-        updateMonth();
     }
 
     private void resetCalendar() {

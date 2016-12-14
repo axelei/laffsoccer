@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -28,6 +29,7 @@ class SelectTeams extends GLScreen {
     private Widget titleButton;
     private Widget viewSelectedTeamsButton;
     private Widget playButton;
+    private Widget calendarButton;
 
     SelectTeams(GLGame game, FileHandle folder, String league, Competition competition) {
         super(game);
@@ -115,6 +117,10 @@ class SelectTeams extends GLScreen {
             w = new PlayButton();
             widgets.add(w);
             playButton = w;
+
+            w = new CalendarButton();
+            widgets.add(w);
+            calendarButton = w;
         }
 
         // Breadcrumb
@@ -306,6 +312,7 @@ class SelectTeams extends GLScreen {
             updateColors();
             viewSelectedTeamsButton.setDirty(true);
             playButton.setDirty(true);
+            calendarButton.setDirty(true);
             titleButton.setDirty(true);
         }
 
@@ -446,6 +453,28 @@ class SelectTeams extends GLScreen {
                     game.setScreen(new PlayCup(game));
                     break;
             }
+        }
+    }
+
+    private class CalendarButton extends Button {
+
+        CalendarButton() {
+            setGeometry(game.gui.WIDTH / 2 + 490, 660, 40, 36);
+            setText("" + (char) 21, Font.Align.CENTER, Assets.font14);
+            setColors(0x138B21);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(game.settings.development
+                    && competition.type == Competition.Type.LEAGUE
+                    && competition.category == Competition.Category.DIY_COMPETITION
+                    && competition.numberOfTeams == game.teamList.size());
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DiyLeagueCalendar(game, (League) competition));
         }
     }
 }
