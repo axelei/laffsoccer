@@ -33,7 +33,7 @@ class EditTeam extends GLScreen {
     private Widget[] tacticsButtons = new Widget[18];
 
     private Widget[] kitSelectionButtons = new Widget[5];
-    private Widget[] kitEditButtons = new Widget[17];
+    private Widget[] kitEditButtons = new Widget[9];
 
     private Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     private Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
@@ -135,13 +135,11 @@ class EditTeam extends GLScreen {
 
             w = new HashButton(Kit.Field.values()[f], 528, 418 + 54 * f + 23);
             widgets.add(w);
-            kitEditButtons[1 + 4 * f] = w;
+            kitEditButtons[1 + 2 * f] = w;
 
-            for (int c = 1; c < 4; c++) {
-                w = new ColorComponentButton(Kit.Field.values()[f], GLColor.Component.values()[c], 525 + c * 45, 418 + 54 * f + 23);
-                kitEditButtons[1 + 4 * f + c] = w;
-                widgets.add(w);
-            }
+            w = new KitColorButton(Kit.Field.values()[f], 525 + 45, 418 + 54 * f + 23);
+            widgets.add(w);
+            kitEditButtons[1 + 2 * f + 1] = w;
         }
 
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
@@ -532,7 +530,7 @@ class EditTeam extends GLScreen {
         StyleButton() {
             kitIndex = Assets.kits.indexOf(team.kits.get(selectedKit).style);
             setGeometry(528, 364 + 25, 175, 24);
-            setColors(0x530DB3, 0x6F12EE, 0x380977);
+            setColors(0x881845);
         }
 
         @Override
@@ -662,75 +660,28 @@ class EditTeam extends GLScreen {
         }
     }
 
-    private class ColorComponentButton extends Button {
+    private class KitColorButton extends InputButton {
 
         Kit.Field field;
-        GLColor.Component component;
-        int value;
 
-        ColorComponentButton(Kit.Field field, GLColor.Component component, int x, int y) {
+        KitColorButton(Kit.Field field, int x, int y) {
             this.field = field;
-            this.component = component;
-            setGeometry(x, y, 43, 24);
-            switch (component) {
-                case RED:
-                    setColors(0xDC2020);
-                    break;
-
-                case GREEN:
-                    setColors(0x3DBD3D);
-                    break;
-
-                case BLUE:
-                    setColors(0x2352F2);
-                    break;
-            }
-
-            setText("", Font.Align.CENTER, Assets.font10);
+            setGeometry(x, y, 129, 24);
+            int color = getColor();
+            setText(GLColor.toHexString(color).substring(1).toUpperCase(), Font.Align.CENTER, Assets.font10);
+            setEntryLimit(6);
+            setInputFilter("[A-F0-9]");
         }
 
         @Override
         public void refresh() {
-            this.value = GLColor.getComponentValue(getColor(), component);
-            setText(String.format("%02X", value));
-        }
-
-        @Override
-        public void onFire1Down() {
-            updateValue(1);
-        }
-
-        @Override
-        public void onFire1Hold() {
-            updateValue(1);
-        }
-
-        @Override
-        public void onFire2Down() {
-            updateValue(-1);
-        }
-
-        @Override
-        public void onFire2Hold() {
-            updateValue(-1);
-        }
-
-        private void updateValue(int n) {
-            value = Emath.rotate(value, 0, 255, n);
             int color = getColor();
-            switch (component) {
-                case RED:
-                    color = GLColor.rgb(value, GLColor.green(color), GLColor.blue(color));
-                    break;
+            setColors(color);
+        }
 
-                case GREEN:
-                    color = GLColor.rgb(GLColor.red(color), value, GLColor.blue(color));
-                    break;
-
-                case BLUE:
-                    color = GLColor.rgb(GLColor.red(color), GLColor.green(color), value);
-                    break;
-            }
+        @Override
+        public void onChanged() {
+            int color = GLColor.valueOf("#" + text);
             switch (field) {
                 case SHIRT1:
                     team.kits.get(selectedKit).shirt1 = color;

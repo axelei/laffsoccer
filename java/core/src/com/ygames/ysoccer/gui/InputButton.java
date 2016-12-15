@@ -11,6 +11,7 @@ public class InputButton extends Button {
 
     private String entryString;
     private int entryLimit;
+    private String inputFilter;
     private InputProcessor inputProcessor;
 
     protected InputButton() {
@@ -36,6 +37,10 @@ public class InputButton extends Button {
 
     protected void setEntryLimit(int entryLimit) {
         this.entryLimit = entryLimit;
+    }
+
+    protected void setInputFilter(String inputFilter) {
+        this.inputFilter = inputFilter;
     }
 
     @Override
@@ -77,7 +82,7 @@ public class InputButton extends Button {
 
         public boolean keyTyped(char character) {
             if (isPrintableChar(character) && entryString.length() < entryLimit) {
-                entryString = (entryString + character).toUpperCase();
+                entryString += charToString(character);
             } else {
                 switch (character) {
                     case 8: // BACKSPACE
@@ -87,6 +92,14 @@ public class InputButton extends Button {
             }
             return true;
         }
+    }
+
+    private String charToString(char character) {
+        String s = ("" + character).toUpperCase();
+        if (inputFilter != null && !s.matches(inputFilter)) {
+            return "";
+        }
+        return s;
     }
 
     private boolean isPrintableChar(char c) {
