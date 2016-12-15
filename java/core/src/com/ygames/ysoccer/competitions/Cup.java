@@ -253,7 +253,7 @@ public class Cup extends Competition implements Json.Serializable {
         } else {
             match.setResult(homeGoals, awayGoals);
             if (resultType == Match.ResultType.AFTER_EXTRA_TIME) {
-                match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_EXTRA_TIME);
+                match.setResultAfterExtraTime(homeGoals, awayGoals);
             } else {
                 match.setResultAfter90(homeGoals, awayGoals);
             }

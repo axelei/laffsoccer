@@ -123,12 +123,8 @@ public class Match implements Json.Serializable {
         resultAfter90 = new int[]{homeGoals, awayGoals};
     }
 
-    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
-        switch (resultType) {
-            case AFTER_EXTRA_TIME:
-                resultAfterExtraTime = new int[]{homeGoals, awayGoals};
-                break;
-        }
+    public void setResultAfterExtraTime(int homeGoals, int awayGoals) {
+        resultAfterExtraTime = new int[]{homeGoals, awayGoals};
     }
 
     public void setResultAfterPenalties(int homeGoals, int awayGoals) {
