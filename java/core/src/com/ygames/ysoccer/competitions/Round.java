@@ -100,7 +100,7 @@ public class Round implements Json.Serializable {
         return cup.rounds.indexOf(this);
     }
 
-    void newLeg() {
+    public void newLeg() {
         Leg leg = new Leg(this);
         legs.add(leg);
     }

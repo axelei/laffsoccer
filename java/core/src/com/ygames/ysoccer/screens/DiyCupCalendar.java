@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.competitions.Cup;
+import com.ygames.ysoccer.competitions.Round;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -17,24 +18,26 @@ import java.util.List;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
-class DiyLeagueCalendar extends GLScreen {
+class DiyCupCalendar extends GLScreen {
 
-    private League league;
+    private Cup cup;
+    private ArrayList<Match> matches;
     private int currentMatch;
     private int matchSide;
     private List<Widget> teamButtons;
 
-    DiyLeagueCalendar(GLGame game, League league) {
+    DiyCupCalendar(GLGame game, Cup cup) {
         super(game);
-        this.league = league;
+        this.cup = cup;
         currentMatch = 0;
         matchSide = HOME;
+        matches = new ArrayList<Match>();
 
         background = game.stateBackground;
 
         Widget w;
 
-        w = new TitleBar("DIY LEAGUE CALENDAR", game.stateColor.body);
+        w = new TitleBar("DIY CUP CALENDAR", game.stateColor.body);
         widgets.add(w);
 
         w = new MatchesLabel();
@@ -80,10 +83,7 @@ class DiyLeagueCalendar extends GLScreen {
 
     private class MatchesLabel extends Button {
 
-        int matches;
-
         MatchesLabel() {
-            matches = league.numberOfTeams * (league.numberOfTeams - 1) / 2;
             setGeometry((game.gui.WIDTH - 180) / 2, 80, 180, 36);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -91,8 +91,7 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(league.calendar.size() > 0);
-            setText("MATCHES:" + " " + league.calendar.size() + " / " + matches);
+            setText("MATCHES:" + " " + currentMatch + " / " + cup.numberOfTeams / 2);
         }
     }
 
@@ -106,8 +105,8 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            if (league.calendar.size() > 0) {
-                Match match = league.calendar.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+            if (matches.size() > 0) {
+                Match match = matches.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
                 setText(game.teamList.get(match.teams[HOME]).name);
             } else {
                 setText("");
@@ -124,7 +123,7 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(league.calendar.size() > 0);
+            setVisible(matches.size() > 0);
         }
     }
 
@@ -138,8 +137,8 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            if (league.calendar.size() > 0 && matchSide == HOME) {
-                Match match = league.calendar.get(currentMatch - 1);
+            if (matches.size() > 0 && matchSide == HOME) {
+                Match match = matches.get(currentMatch - 1);
                 setText(game.teamList.get(match.teams[AWAY]).name);
             } else {
                 setText("");
@@ -157,26 +156,26 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(league.calendar.size() > 0);
+            setVisible(matches.size() > 0);
             if (!visible) setSelectedWidget(teamButtons.get(0));
         }
 
         @Override
         public void onFire1Down() {
-            Match match = league.calendar.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+            Match match = matches.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
             int teamIndex;
             if (matchSide == HOME) {
                 matchSide = AWAY;
                 currentMatch--;
             } else {
                 matchSide = HOME;
-                league.calendar.remove(match);
+                matches.remove(match);
             }
             teamIndex = match.teams[matchSide];
             for (Widget w : teamButtons) {
                 TeamButton teamButton = (TeamButton) w;
                 if (teamButton.teamIndex == teamIndex) {
-                    teamButton.matches--;
+                    teamButton.done = false;
                     break;
                 }
             }
@@ -188,7 +187,7 @@ class DiyLeagueCalendar extends GLScreen {
 
         private Team team;
         int teamIndex;
-        private int matches;
+        boolean done;
 
         TeamButton(Team team, int teamIndex) {
             this.team = team;
@@ -199,23 +198,28 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(team.name + " " + matches);
-            switch (team.controlMode) {
-                case UNDEFINED:
-                    setColors(0x98691E);
-                    break;
+            if (done) {
+                setColors(0x666666);
+                setActive(false);
+            } else {
+                switch (team.controlMode) {
+                    case UNDEFINED:
+                        setColors(0x98691E);
+                        break;
 
-                case COMPUTER:
-                    setColors(0x981E1E);
-                    break;
+                    case COMPUTER:
+                        setColors(0x981E1E);
+                        break;
 
-                case PLAYER:
-                    setColors(0x0000C8);
-                    break;
+                    case PLAYER:
+                        setColors(0x0000C8);
+                        break;
 
-                case COACH:
-                    setColors(0x009BDC);
-                    break;
+                    case COACH:
+                        setColors(0x009BDC);
+                        break;
+                }
+                setActive(true);
             }
         }
 
@@ -224,15 +228,15 @@ class DiyLeagueCalendar extends GLScreen {
             if (matchSide == HOME) {
                 Match match = new Match();
                 match.teams[HOME] = teamIndex;
-                league.calendar.add(match);
+                matches.add(match);
                 matchSide = AWAY;
             } else {
-                Match match = league.calendar.get(currentMatch);
+                Match match = matches.get(currentMatch);
                 match.teams[AWAY] = teamIndex;
                 matchSide = HOME;
                 currentMatch += 1;
             }
-            matches++;
+            done = true;
             updateAllWidgets();
         }
     }
@@ -255,13 +259,17 @@ class DiyLeagueCalendar extends GLScreen {
 
         PlayButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 660, 360, 36);
-            setText("PLAY LEAGUE", Font.Align.CENTER, Assets.font14);
+            setText("PLAY CUP", Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void refresh() {
-            int diff = currentMatch - league.numberOfTeams * (league.numberOfTeams - 1) / 2;
-            if (diff == 0) {
+            int teams = 0;
+            for (Match match : matches) {
+                if (match.teams[HOME] != -1) teams++;
+                if (match.teams[AWAY] != -1) teams++;
+            }
+            if (teams == cup.numberOfTeams) {
                 setColors(0x138B21);
                 setActive(true);
             } else {
@@ -272,24 +280,13 @@ class DiyLeagueCalendar extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            // add other rounds
-            for (int r = 1; r < league.rounds; r++) {
-                for (int i = 0; i < (league.numberOfTeams * (league.numberOfTeams - 1) / 2); i++) {
-                    Match firstRoundMatch = league.calendar.get(i);
-                    Match match = new Match();
-                    if (r % 2 == 0) {
-                        match.teams[HOME] = firstRoundMatch.teams[HOME];
-                        match.teams[AWAY] = firstRoundMatch.teams[AWAY];
-                    } else {
-                        match.teams[HOME] = firstRoundMatch.teams[AWAY];
-                        match.teams[AWAY] = firstRoundMatch.teams[HOME];
-                    }
-                    league.calendar.add(match);
-                }
-            }
-            league.start(game.teamList);
-            game.setCompetition(league);
-            game.setScreen(new PlayLeague(game));
+            Round round = cup.rounds.get(0);
+            round.newLeg();
+            round.legs.get(0).matches = matches;
+
+            cup.start(game.teamList);
+            game.setCompetition(cup);
+            game.setScreen(new PlayCup(game));
         }
     }
 }

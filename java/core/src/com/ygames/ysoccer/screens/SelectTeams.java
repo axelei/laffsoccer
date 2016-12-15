@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -467,14 +468,21 @@ class SelectTeams extends GLScreen {
         @Override
         public void refresh() {
             setVisible(game.settings.development
-                    && competition.type == Competition.Type.LEAGUE
+                    && competition.type != Competition.Type.FRIENDLY
                     && competition.category == Competition.Category.DIY_COMPETITION
                     && competition.numberOfTeams == game.teamList.size());
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new DiyLeagueCalendar(game, (League) competition));
+            switch (competition.type) {
+                case CUP:
+                    game.setScreen(new DiyCupCalendar(game, (Cup) competition));
+                    break;
+                case LEAGUE:
+                    game.setScreen(new DiyLeagueCalendar(game, (League) competition));
+                    break;
+            }
         }
     }
 }
