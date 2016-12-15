@@ -21,8 +21,6 @@ public class Cup extends Competition implements Json.Serializable {
     public ArrayList<Round> rounds;
     public int currentLeg;
 
-    public enum ResultType {AFTER_90_MINUTES, AFTER_EXTRA_TIME, AFTER_PENALTIES}
-
     public enum AwayGoals {
         OFF,
         AFTER_90_MINUTES,
@@ -228,12 +226,12 @@ public class Cup extends Competition implements Json.Serializable {
 
         int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
         int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
-        setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_90_MINUTES);
+        setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
 
         if (playExtraTime()) {
             homeGoals += Match.generateGoals(homeTeam, awayTeam, true);
             awayGoals += Match.generateGoals(awayTeam, homeTeam, true);
-            setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_EXTRA_TIME);
+            setResult(homeGoals, awayGoals, Match.ResultType.AFTER_EXTRA_TIME);
         }
 
         generateScorers(homeTeam, homeGoals);
@@ -244,18 +242,18 @@ public class Cup extends Competition implements Json.Serializable {
                 homeGoals = Emath.floor(6 * Math.random());
                 awayGoals = Emath.floor(6 * Math.random());
             } while (homeGoals == awayGoals);
-            setResult(homeGoals, awayGoals, Cup.ResultType.AFTER_PENALTIES);
+            setResult(homeGoals, awayGoals, Match.ResultType.AFTER_PENALTIES);
         }
     }
 
-    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
+    public void setResult(int homeGoals, int awayGoals, Match.ResultType resultType) {
         Match match = getMatch();
-        if (resultType == ResultType.AFTER_PENALTIES) {
+        if (resultType == Match.ResultType.AFTER_PENALTIES) {
             match.setResultAfterPenalties(homeGoals, awayGoals);
         } else {
             match.setResult(homeGoals, awayGoals);
-            if (resultType == ResultType.AFTER_EXTRA_TIME) {
-                match.setResult(homeGoals, awayGoals, ResultType.AFTER_EXTRA_TIME);
+            if (resultType == Match.ResultType.AFTER_EXTRA_TIME) {
+                match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_EXTRA_TIME);
             } else {
                 match.setResultAfter90(homeGoals, awayGoals);
             }

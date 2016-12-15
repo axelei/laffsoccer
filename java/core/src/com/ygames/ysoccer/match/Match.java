@@ -3,7 +3,6 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
@@ -12,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Match implements Json.Serializable {
+
+    public enum ResultType {AFTER_90_MINUTES, AFTER_EXTRA_TIME, AFTER_PENALTIES}
 
     public interface MatchListener {
         void quitMatch(boolean matchCompleted);
@@ -122,7 +123,7 @@ public class Match implements Json.Serializable {
         resultAfter90 = new int[]{homeGoals, awayGoals};
     }
 
-    public void setResult(int homeGoals, int awayGoals, Cup.ResultType resultType) {
+    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
         switch (resultType) {
             case AFTER_EXTRA_TIME:
                 resultAfterExtraTime = new int[]{homeGoals, awayGoals};
