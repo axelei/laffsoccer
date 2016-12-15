@@ -484,7 +484,7 @@ class EditPlayers extends GLScreen {
         }
     }
 
-    private class PlayerNationalityButton extends Button {
+    private class PlayerNationalityButton extends InputButton {
 
         private int pos;
 
@@ -492,6 +492,8 @@ class EditPlayers extends GLScreen {
             this.pos = pos;
             setGeometry(808, 95 + 21 * pos, 56, 19);
             setText("", Font.Align.CENTER, Assets.font10);
+            setEntryLimit(3);
+            setInputFilter("[A-Z]");
         }
 
         @Override
@@ -501,42 +503,14 @@ class EditPlayers extends GLScreen {
                 setText("");
                 setActive(false);
             } else {
-                setText("(" + player.nationality + ")");
+                setText(player.nationality);
                 setActive(team.type == Team.Type.CLUB);
             }
         }
 
         @Override
-        public void onFire1Down() {
-            updateNationality(1);
-        }
-
-        @Override
-        public void onFire1Hold() {
-            updateNationality(1);
-        }
-
-        @Override
-        public void onFire2Down() {
-            updateNationality(-1);
-        }
-
-        @Override
-        public void onFire2Hold() {
-            updateNationality(-1);
-        }
-
-        private void updateNationality(int n) {
-            Player player = team.playerAtPosition(pos);
-            int i = Assets.associations.indexOf(player.nationality);
-            if (i == -1) {
-                i = 0; // not found, start from 0
-            } else {
-                i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
-            }
-            player.nationality = Assets.associations.get(i);
-
-            setDirty(true);
+        public void onChanged() {
+            team.playerAtPosition(pos).nationality = text;
             setModifiedFlag();
         }
     }

@@ -292,6 +292,7 @@ class EditTeam extends GLScreen {
             setColors(0x10A000, 0x15E000, 0x096000);
             setText(team.coach.nationality, Font.Align.CENTER, Assets.font10);
             setEntryLimit(3);
+            setInputFilter("[A-Z]");
         }
 
         @Override
