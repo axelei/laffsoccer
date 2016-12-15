@@ -255,7 +255,7 @@ public class Cup extends Competition implements Json.Serializable {
         } else {
             match.setResult(homeGoals, awayGoals);
             if (resultType == ResultType.AFTER_EXTRA_TIME) {
-                match.includesExtraTime = true;
+                match.setResult(homeGoals, awayGoals, ResultType.AFTER_EXTRA_TIME);
             } else {
                 match.setResultAfter90(homeGoals, awayGoals);
             }
@@ -443,7 +443,7 @@ public class Cup extends Competition implements Json.Serializable {
                             + "-"
                             + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
                             + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
-                    if (match.includesExtraTime) {
+                    if (match.resultAfterExtraTime != null) {
                         s += " " + Assets.strings.get("AFTER EXTRA TIME");
                         if ((match.result[HOME] != match.resultAfter90[HOME])
                                 || (match.result[AWAY] != match.resultAfter90[AWAY])) {
@@ -451,7 +451,7 @@ public class Cup extends Competition implements Json.Serializable {
                                     + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
                         }
                     }
-                } else if (match.includesExtraTime) {
+                } else if (match.resultAfterExtraTime != null) {
                     s = Assets.strings.get("AFTER EXTRA TIME")
                             + " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
                             + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
@@ -469,7 +469,7 @@ public class Cup extends Competition implements Json.Serializable {
                             + "-"
                             + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
                             + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
-                    if (match.includesExtraTime) {
+                    if (match.resultAfterExtraTime != null) {
                         s += " " + Assets.strings.get("AFTER EXTRA TIME");
                         if ((match.result[HOME] != match.resultAfter90[HOME])
                                 || (match.result[AWAY] != match.resultAfter90[AWAY])) {
@@ -494,7 +494,7 @@ public class Cup extends Competition implements Json.Serializable {
                                 + Math.min(agg_score_a, agg_score_b)
                                 + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE");
                     }
-                    if (match.includesExtraTime) {
+                    if (match.resultAfterExtraTime != null) {
                         s += " " + Assets.strings.get("AFTER EXTRA TIME");
                     }
                 }
@@ -512,10 +512,10 @@ public class Cup extends Competition implements Json.Serializable {
                             + "-"
                             + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
                             + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
-                    if (match.includesExtraTime) {
+                    if (match.resultAfterExtraTime != null) {
                         s += " " + Assets.strings.get("AFTER EXTRA TIME");
                     }
-                } else if (match.includesExtraTime) {
+                } else if (match.resultAfterExtraTime != null) {
                     s = Assets.strings.get("AFTER EXTRA TIME") + " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
                             + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
                 }

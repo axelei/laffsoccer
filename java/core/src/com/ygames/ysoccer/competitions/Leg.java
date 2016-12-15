@@ -64,7 +64,7 @@ public class Leg {
                 return match.teams[AWAY];
             } else {
                 if ((round.cup.awayGoals == Cup.AwayGoals.AFTER_90_MINUTES) ||
-                        (round.cup.awayGoals == Cup.AwayGoals.AFTER_EXTRA_TIME && match.includesExtraTime)) {
+                        (round.cup.awayGoals == Cup.AwayGoals.AFTER_EXTRA_TIME && match.resultAfterExtraTime != null)) {
                     if (match.oldResult[AWAY] > match.result[AWAY]) {
                         return match.teams[HOME];
                     } else if (match.oldResult[AWAY] < match.result[AWAY]) {

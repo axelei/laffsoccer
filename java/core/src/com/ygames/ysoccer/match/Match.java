@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
@@ -22,8 +23,8 @@ public class Match implements Json.Serializable {
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
     public Scorers scorers;
     public int[] result;
-    public boolean includesExtraTime;
     public int[] resultAfter90;
+    public int[] resultAfterExtraTime;
     public int[] resultAfterPenalties;
     public int[] oldResult;
 
@@ -102,11 +103,11 @@ public class Match implements Json.Serializable {
         if (result != null) {
             json.writeValue("result", result);
         }
-        if (includesExtraTime) {
-            json.writeValue("includesExtraTime", includesExtraTime);
-        }
         if (resultAfter90 != null) {
             json.writeValue("resultAfter90", resultAfter90);
+        }
+        if (resultAfterExtraTime != null) {
+            json.writeValue("resultAfterExtraTime", resultAfterExtraTime);
         }
         if (resultAfterPenalties != null) {
             json.writeValue("resultAfterPenalties", resultAfterPenalties);
@@ -119,6 +120,14 @@ public class Match implements Json.Serializable {
 
     public void setResultAfter90(int homeGoals, int awayGoals) {
         resultAfter90 = new int[]{homeGoals, awayGoals};
+    }
+
+    public void setResult(int homeGoals, int awayGoals, Cup.ResultType resultType) {
+        switch (resultType) {
+            case AFTER_EXTRA_TIME:
+                resultAfterExtraTime = new int[]{homeGoals, awayGoals};
+                break;
+        }
     }
 
     public void setResultAfterPenalties(int homeGoals, int awayGoals) {
