@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -105,6 +106,17 @@ class MatchStateKickOff extends MatchState {
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
             fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
             return;
+        }
+
+        InputDevice inputDevice;
+        for (int t = HOME; t <= AWAY; t++) {
+            inputDevice = match.team[t].fire2Down();
+            if (inputDevice != null) {
+                fsm.benchStatus.team = match.team[t];
+                fsm.benchStatus.inputDevice = inputDevice;
+                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                return;
+            }
         }
     }
 }

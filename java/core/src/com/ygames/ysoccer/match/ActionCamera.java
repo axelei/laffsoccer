@@ -31,7 +31,7 @@ public class ActionCamera {
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
     // speed: CS_NORMAL, CS_FAST, CS_WARP
-    public int updateX(int follow, int speed, int target_x, boolean limit) {
+    public int updateX(int follow, int speed, float target_x, boolean limit) {
 
         switch (follow) {
 
@@ -95,7 +95,7 @@ public class ActionCamera {
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
     // speed: CS_NORMAL, CS_FAST, CS_WARP
-    public int updateY(int follow, int speed, int target_y, boolean limit) {
+    public int updateY(int follow, int speed, float target_y, boolean limit) {
 
         switch (follow) {
 

@@ -409,6 +409,21 @@ public class Team implements Json.Serializable {
         return null;
     }
 
+    InputDevice fire2Down() {
+        if (usesAutomaticInputDevice()) {
+            if (inputDevice.fire2Down()) {
+                return inputDevice;
+            }
+        } else {
+            for (Player player : lineup) {
+                if ((player.inputDevice != player.ai) && player.inputDevice.fire2Down()) {
+                    return player.inputDevice;
+                }
+            }
+        }
+        return null;
+    }
+
     public Player playerAtPosition(int pos) {
         return playerAtPosition(pos, null);
     }

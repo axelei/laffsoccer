@@ -844,11 +844,11 @@ public class MatchRenderer {
         updateCameraX(follow, speed, 0, true);
     }
 
-    void updateCameraX(int follow, int speed, int targetX) {
+    void updateCameraX(int follow, int speed, float targetX) {
         updateCameraX(follow, speed, targetX, true);
     }
 
-    void updateCameraX(int follow, int speed, int targetX, boolean limit) {
+    void updateCameraX(int follow, int speed, float targetX, boolean limit) {
         vcameraX[match.subframe] = actionCamera.updateX(follow, speed, targetX, limit);
     }
 
@@ -856,11 +856,11 @@ public class MatchRenderer {
         updateCameraY(follow, speed, 0);
     }
 
-    void updateCameraY(int follow, int speed, int targetY) {
+    void updateCameraY(int follow, int speed, float targetY) {
         updateCameraY(follow, speed, targetY, true);
     }
 
-    void updateCameraY(int follow, int speed, int targetY, boolean limit) {
+    void updateCameraY(int follow, int speed, float targetY, boolean limit) {
         vcameraY[match.subframe] = actionCamera.updateY(follow, speed, targetY, limit);
     }
 

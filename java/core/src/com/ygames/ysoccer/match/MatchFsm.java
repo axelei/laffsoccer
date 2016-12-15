@@ -1,10 +1,13 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.ygames.ysoccer.framework.InputDevice;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
 
 public class MatchFsm {
 
@@ -42,6 +45,7 @@ public class MatchFsm {
     private List<MatchState> states;
     private MatchState currentState;
     private MatchState holdState;
+    BenchStatus benchStatus;
 
     private ArrayDeque<Action> actions;
     private Action currentAction;
@@ -71,11 +75,16 @@ public class MatchFsm {
     static final int STATE_REPLAY = 23;
     static final int STATE_PAUSE = 24;
     static final int STATE_HIGHLIGHTS = 25;
+    static final int STATE_BENCH_ENTER = 26;
 
     MatchFsm(Match match) {
         this.match = match;
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
         states = new ArrayList<MatchState>();
+        benchStatus = new BenchStatus();
+        benchStatus.targetX = -TOUCH_LINE - 140 + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
+        benchStatus.targetY = -20;
+
         actions = new ArrayDeque<Action>();
 
         states.add(new MatchStateIntro(this));
@@ -103,6 +112,7 @@ public class MatchFsm {
         states.add(new MatchStateReplay(this));
         states.add(new MatchStatePause(this));
         states.add(new MatchStateHighlights(this));
+        states.add(new MatchStateBenchEnter(this));
     }
 
     public MatchState getState() {
@@ -187,6 +197,7 @@ public class MatchFsm {
                 holdState = currentState;
                 savedSubframe = match.subframe;
                 currentState = searchState(currentAction.stateId);
+                Gdx.app.debug("HOLD_FOREGROUND", currentState.getClass().getSimpleName());
                 break;
 
             case RESTORE_FOREGROUND:
@@ -215,5 +226,16 @@ public class MatchFsm {
 
     public void pushAction(ActionType type, int state) {
         actions.offer(new Action(type, state));
+    }
+
+    public class BenchStatus {
+        public Team team;
+        public InputDevice inputDevice;
+        public float targetX;
+        public float targetY;
+        public float oldTargetX;
+        public float oldTargetY;
+        public int selectedPos;
+        public int forSubs;
     }
 }
