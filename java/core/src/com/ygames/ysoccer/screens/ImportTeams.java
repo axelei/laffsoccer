@@ -375,10 +375,10 @@ class ImportTeams extends GLScreen {
                         skippedFiles++;
                     }
                 }
-                updateAllWidgets();
+                refreshAllWidgets();
                 break;
             case FINISHED:
-                updateAllWidgets();
+                refreshAllWidgets();
                 break;
         }
     }

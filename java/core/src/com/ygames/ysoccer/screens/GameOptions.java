@@ -148,7 +148,7 @@ class GameOptions extends GLScreen {
             int index = Assets.locales.indexOf(game.settings.locale);
             game.settings.locale = Assets.locales.get(Emath.rotate(index, 0, Assets.locales.size() - 1, direction));
             Assets.loadStrings(game.settings);
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 

@@ -121,7 +121,7 @@ class ExportTeams extends GLScreen {
         public void onFire1Down() {
             exportConfig = json.fromJson(Config.class, configFile.readString("UTF-8"));
             state = State.EXPORTING;
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 
@@ -195,11 +195,11 @@ class ExportTeams extends GLScreen {
                 } else {
                     state = State.FINISHED;
                 }
-                updateAllWidgets();
+                refreshAllWidgets();
                 break;
             case FINISHED:
                 setSelectedWidget(exitButton);
-                updateAllWidgets();
+                refreshAllWidgets();
                 break;
         }
     }

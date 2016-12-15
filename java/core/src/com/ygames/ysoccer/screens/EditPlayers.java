@@ -368,7 +368,7 @@ class EditPlayers extends GLScreen {
                 setModifiedFlag();
             }
 
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 
@@ -559,7 +559,7 @@ class EditPlayers extends GLScreen {
         private void updateRole(int n) {
             Player player = team.playerAtPosition(pos);
             player.role = Player.Role.values()[Emath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
-            updateAllWidgets();
+            refreshAllWidgets();
             setModifiedFlag();
         }
     }
@@ -754,7 +754,7 @@ class EditPlayers extends GLScreen {
                     pastePlayer(player);
                     selectedPos = -1;
                 }
-                updateAllWidgets();
+                refreshAllWidgets();
                 setModifiedFlag();
             }
         }
@@ -793,7 +793,7 @@ class EditPlayers extends GLScreen {
                 Player player = team.playerAtPosition(team.players.size() - 1);
                 team.deletePlayer(player);
 
-                updateAllWidgets();
+                refreshAllWidgets();
                 setModifiedFlag();
             }
         }

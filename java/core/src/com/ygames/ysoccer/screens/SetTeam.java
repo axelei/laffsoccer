@@ -533,7 +533,7 @@ class SetTeam extends GLScreen {
                 shownTeam = ownTeam;
                 tacticsBoard.setViewOpponent(false);
             }
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 

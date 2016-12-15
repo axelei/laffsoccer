@@ -179,7 +179,7 @@ class DiyCupCalendar extends GLScreen {
                     break;
                 }
             }
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 
@@ -237,7 +237,7 @@ class DiyCupCalendar extends GLScreen {
                 currentMatch += 1;
             }
             done = true;
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 

@@ -349,7 +349,7 @@ public abstract class GLScreen implements Screen {
         }
     }
 
-    protected void updateAllWidgets() {
+    protected void refreshAllWidgets() {
         for (Widget widget : widgets) {
             widget.setDirty(true);
         }

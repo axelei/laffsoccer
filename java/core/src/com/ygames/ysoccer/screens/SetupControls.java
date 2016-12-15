@@ -241,7 +241,7 @@ class SetupControls extends GLScreen {
             Gdx.input.setInputProcessor(null);
             setKeyboardConfigs();
             game.reloadInputDevices();
-            updateAllWidgets();
+            refreshAllWidgets();
         }
 
         void setConfigParamIndex(int axisIndex, int buttonIndex) {
@@ -277,14 +277,14 @@ class SetupControls extends GLScreen {
             Controllers.removeListener(joystickListener);
             setJoystickConfigs();
             game.reloadInputDevices();
-            updateAllWidgets();
+            refreshAllWidgets();
         }
 
         @Override
         public void onFire1Up() {
             entryMode = true;
             game.inputDevices.clear();
-            updateAllWidgets();
+            refreshAllWidgets();
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     Gdx.input.setInputProcessor(inputProcessor);
@@ -598,7 +598,7 @@ class SetupControls extends GLScreen {
         public void onFire1Up() {
             entryMode = true;
             game.inputDevices.clear();
-            updateAllWidgets();
+            refreshAllWidgets();
             switch (selectedInputDeviceButton.config.type) {
                 case KEYBOARD:
                     Gdx.input.setInputProcessor(inputProcessor);

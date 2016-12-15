@@ -180,7 +180,7 @@ class DiyLeagueCalendar extends GLScreen {
                     break;
                 }
             }
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 
@@ -233,7 +233,7 @@ class DiyLeagueCalendar extends GLScreen {
                 currentMatch += 1;
             }
             matches++;
-            updateAllWidgets();
+            refreshAllWidgets();
         }
     }
 
