@@ -285,48 +285,18 @@ class EditTeam extends GLScreen {
         }
     }
 
-    private class CoachNationalityButton extends Button {
+    private class CoachNationalityButton extends InputButton {
 
         CoachNationalityButton() {
             setGeometry(652, 290, 60, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText(team.coach.nationality, Font.Align.CENTER, Assets.font10);
+            setEntryLimit(3);
         }
 
         @Override
-        public void refresh() {
-            setText(team.coach.nationality);
-        }
-
-        @Override
-        public void onFire1Down() {
-            updateNationality(1);
-        }
-
-        @Override
-        public void onFire1Hold() {
-            updateNationality(1);
-        }
-
-        @Override
-        public void onFire2Down() {
-            updateNationality(-1);
-        }
-
-        @Override
-        public void onFire2Hold() {
-            updateNationality(-1);
-        }
-
-        private void updateNationality(int n) {
-            int i = Assets.associations.indexOf(team.coach.nationality);
-            if (i == -1) {
-                i = 0; // not found, start from 0
-            } else {
-                i = Emath.rotate(i, 0, Assets.associations.size() - 1, n);
-            }
-            team.coach.nationality = Assets.associations.get(i);
-            setDirty(true);
+        public void onChanged() {
+            team.coach.nationality = text;
             setModifiedFlag();
         }
     }
@@ -667,8 +637,7 @@ class EditTeam extends GLScreen {
         KitColorButton(Kit.Field field, int x, int y) {
             this.field = field;
             setGeometry(x, y, 129, 24);
-            int color = getColor();
-            setText(GLColor.toHexString(color).substring(1).toUpperCase(), Font.Align.CENTER, Assets.font10);
+            setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(6);
             setInputFilter("[A-F0-9]");
         }
@@ -676,12 +645,13 @@ class EditTeam extends GLScreen {
         @Override
         public void refresh() {
             int color = getColor();
+            setText(GLColor.toHexString(color).substring(1).toUpperCase());
             setColors(color);
         }
 
         @Override
         public void onChanged() {
-            int color = GLColor.valueOf("#" + text);
+            int color = text.length() == 0 ? 0 : GLColor.valueOf("#" + text);
             switch (field) {
                 case SHIRT1:
                     team.kits.get(selectedKit).shirt1 = color;
