@@ -10,7 +10,7 @@ public class YSoccer extends GLGame {
     public void create() {
         super.create();
 
-        if(settings.showIntro) {
+        if (settings.showIntro) {
             this.setScreen(new Intro(this));
         } else {
             menuMusic.setMode(settings.musicMode);

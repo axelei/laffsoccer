@@ -10,6 +10,7 @@ import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.screens.ShowException;
 
 import java.util.ArrayList;
 
@@ -110,16 +111,19 @@ public class GLGame extends Game {
 
     @Override
     public void render() {
+        try {
+            deltaTime += Gdx.graphics.getDeltaTime();
 
-        deltaTime += Gdx.graphics.getDeltaTime();
+            int subFrames = (int) (deltaTime / SUBFRAME_DURATION);
 
-        int subFrames = (int) (deltaTime / SUBFRAME_DURATION);
+            if (screen != null) {
+                screen.render(subFrames * SUBFRAME_DURATION);
+            }
 
-        if (screen != null) {
-            screen.render(subFrames * SUBFRAME_DURATION);
+            deltaTime -= subFrames * SUBFRAME_DURATION;
+        } catch (Exception e) {
+            this.setScreen(new ShowException(this, e));
         }
-
-        deltaTime -= subFrames * SUBFRAME_DURATION;
     }
 
     @Override

@@ -12,6 +12,10 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.GLColor.blue;
+import static com.ygames.ysoccer.framework.GLColor.green;
+import static com.ygames.ysoccer.framework.GLColor.red;
+
 public abstract class GLScreen implements Screen {
 
     protected GLGame game;
@@ -20,6 +24,7 @@ public abstract class GLScreen implements Screen {
     private GLShapeRenderer shapeRenderer;
 
     protected Texture background;
+    public int clearColor;
     protected List<Widget> widgets;
     protected Widget selectedWidget;
     protected boolean playMenuMusic;
@@ -102,7 +107,7 @@ public abstract class GLScreen implements Screen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.setColor(0xFFFFFF, 1f);
 
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(red(clearColor) / 255f, green(clearColor) / 255f, blue(clearColor) / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // background
