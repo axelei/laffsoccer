@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -73,9 +74,9 @@ class MatchStateBenchEnter extends MatchState {
         float dy = cameraY - matchRenderer.actionCamera.y;
 
         if (dx <= 1 && dy <= 1) {
-            // TODO
-//            coach[bench_status.team.index].status = CS_STAND
-//            coach[bench_status.team.index].x = BENCH_X + 8
+            Coach coach = match.team[fsm.benchStatus.team.index].coach;
+            coach.status = Coach.Status.STAND;
+            coach.x = BENCH_X + 8;
 //            game_action_queue.push(AT_NEW_FOREGROUND, GM.MATCH_BENCH_SUBSTITUTIONS)
 //            Return
         }
@@ -83,11 +84,9 @@ class MatchStateBenchEnter extends MatchState {
         cameraX = matchRenderer.actionCamera.x;
         cameraY = matchRenderer.actionCamera.y;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            // TODO
-//            game_action_queue.push(AT_NEW_FOREGROUND, GM.MATCH_BENCH_EXIT)
-//            return;
+        if (fsm.benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_BENCH_EXIT);
+            return;
         }
-
     }
 }

@@ -67,4 +67,8 @@ public abstract class InputDevice {
     public boolean fire2Down() {
         return fire20 && !fire21;
     }
+
+    public boolean xReleased() {
+        return (x1 == 0) && (x0 != 0);
+    }
 }

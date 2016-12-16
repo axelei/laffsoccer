@@ -76,6 +76,7 @@ public class MatchFsm {
     static final int STATE_PAUSE = 24;
     static final int STATE_HIGHLIGHTS = 25;
     static final int STATE_BENCH_ENTER = 26;
+    static final int STATE_BENCH_EXIT = 27;
 
     MatchFsm(Match match) {
         this.match = match;
@@ -113,6 +114,7 @@ public class MatchFsm {
         states.add(new MatchStatePause(this));
         states.add(new MatchStateHighlights(this));
         states.add(new MatchStateBenchEnter(this));
+        states.add(new MatchStateBenchExit(this));
     }
 
     public MatchState getState() {
