@@ -142,6 +142,9 @@ public class League extends Competition implements Json.Serializable {
             match.teams[HOME] = randomIndexes.get(match.teams[HOME]);
             match.teams[AWAY] = randomIndexes.get(match.teams[AWAY]);
         }
+
+        currentMatch = 0;
+        currentRound = 0;
     }
 
     private void resetCalendar() {
@@ -177,28 +180,28 @@ public class League extends Competition implements Json.Serializable {
     }
 
     public void generateResult() {
+        Match match = getMatch();
         Team homeTeam = getTeam(HOME);
         Team awayTeam = getTeam(AWAY);
 
         int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
         int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
 
-        setResult(homeGoals, awayGoals);
+        match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
+        addMatchToTable(match);
 
         generateScorers(homeTeam, homeGoals);
         generateScorers(awayTeam, awayGoals);
     }
 
-    public void setResult(int homeGoals, int awayGoals) {
-        Match match = getMatch();
-        match.setResultAfter90(homeGoals, awayGoals);
-
+    public void addMatchToTable(Match match) {
+        int[] result = match.getResult();
         for (TableRow row : table) {
             if (row.team == getTeamIndex(HOME)) {
-                row.update(homeGoals, awayGoals, pointsForAWin);
+                row.update(result[HOME], result[AWAY], pointsForAWin);
             }
             if (row.team == getTeamIndex(AWAY)) {
-                row.update(awayGoals, homeGoals, pointsForAWin);
+                row.update(result[AWAY], result[HOME], pointsForAWin);
             }
         }
         sortTable();

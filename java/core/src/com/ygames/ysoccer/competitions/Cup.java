@@ -221,17 +221,18 @@ public class Cup extends Competition implements Json.Serializable {
     }
 
     public void generateResult() {
+        Match match = getMatch();
         Team homeTeam = getTeam(HOME);
         Team awayTeam = getTeam(AWAY);
 
         int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
         int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
-        setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
+        match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
 
         if (playExtraTime()) {
             homeGoals += Match.generateGoals(homeTeam, awayTeam, true);
             awayGoals += Match.generateGoals(awayTeam, homeTeam, true);
-            setResult(homeGoals, awayGoals, Match.ResultType.AFTER_EXTRA_TIME);
+            match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_EXTRA_TIME);
         }
 
         generateScorers(homeTeam, homeGoals);
@@ -242,22 +243,7 @@ public class Cup extends Competition implements Json.Serializable {
                 homeGoals = Emath.floor(6 * Math.random());
                 awayGoals = Emath.floor(6 * Math.random());
             } while (homeGoals == awayGoals);
-            setResult(homeGoals, awayGoals, Match.ResultType.AFTER_PENALTIES);
-        }
-    }
-
-    public void setResult(int homeGoals, int awayGoals, Match.ResultType resultType) {
-        Match match = getMatch();
-        switch (resultType) {
-            case AFTER_90_MINUTES:
-                match.setResultAfter90(homeGoals, awayGoals);
-                break;
-            case AFTER_EXTRA_TIME:
-                match.setResultAfterExtraTime(homeGoals, awayGoals);
-                break;
-            case AFTER_PENALTIES:
-                match.setResultAfterPenalties(homeGoals, awayGoals);
-                break;
+            match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_PENALTIES);
         }
     }
 

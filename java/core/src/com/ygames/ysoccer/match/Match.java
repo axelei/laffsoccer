@@ -115,16 +115,18 @@ public class Match implements Json.Serializable {
         return resultAfterExtraTime != null ? resultAfterExtraTime : resultAfter90;
     }
 
-    public void setResultAfter90(int homeGoals, int awayGoals) {
-        resultAfter90 = new int[]{homeGoals, awayGoals};
-    }
-
-    public void setResultAfterExtraTime(int homeGoals, int awayGoals) {
-        resultAfterExtraTime = new int[]{homeGoals, awayGoals};
-    }
-
-    public void setResultAfterPenalties(int homeGoals, int awayGoals) {
-        resultAfterPenalties = new int[]{homeGoals, awayGoals};
+    public void setResult(int homeGoals, int awayGoals, ResultType resultType) {
+        switch (resultType) {
+            case AFTER_90_MINUTES:
+                resultAfter90 = new int[]{homeGoals, awayGoals};
+                break;
+            case AFTER_EXTRA_TIME:
+                resultAfterExtraTime = new int[]{homeGoals, awayGoals};
+                break;
+            case AFTER_PENALTIES:
+                resultAfterPenalties = new int[]{homeGoals, awayGoals};
+                break;
+        }
     }
 
     public boolean isEnded() {

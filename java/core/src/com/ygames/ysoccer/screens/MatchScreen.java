@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -82,6 +83,7 @@ class MatchScreen extends GLScreen {
                 break;
 
             case LEAGUE:
+                ((League) match.competition).addMatchToTable(match);
                 game.setScreen(new PlayLeague(game));
                 break;
 

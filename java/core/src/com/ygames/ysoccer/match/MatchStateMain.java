@@ -3,7 +3,6 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.competitions.Cup;
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
@@ -178,21 +177,17 @@ class MatchStateMain extends MatchState {
 
             case SECOND_HALF:
                 if ((match.clock > match.length) && match.periodIsTerminable()) {
+
+                    match.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_90_MINUTES);
+
                     switch (match.competition.type) {
                         case FRIENDLY:
-                            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
-                            return;
-
                         case LEAGUE:
-                            League league = (League) match.competition;
-                            league.setResult(match.stats[HOME].goals, match.stats[AWAY].goals);
                             fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
                             return;
 
                         case CUP:
                             Cup cup = (Cup) match.competition;
-                            cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_90_MINUTES);
-
                             if (cup.playExtraTime()) {
                                 fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_EXTRA_TIME_STOP);
                                 return;
@@ -213,9 +208,9 @@ class MatchStateMain extends MatchState {
 
             case SECOND_EXTRA_TIME:
                 if ((match.clock > (match.length * 120 / 90)) && match.periodIsTerminable()) {
-                    // at present an extra time is only possible in cups...
-                    Cup cup = (Cup) match.competition;
-                    cup.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_EXTRA_TIME);
+
+                    match.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_EXTRA_TIME);
+
                     fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_EXTRA_TIME_STOP);
                     return;
                 }
