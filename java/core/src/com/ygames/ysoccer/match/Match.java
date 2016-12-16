@@ -23,7 +23,6 @@ public class Match implements Json.Serializable {
     public int teams[] = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
     public Scorers scorers;
-    public int[] result;
     public int[] resultAfter90;
     public int[] resultAfterExtraTime;
     public int[] resultAfterPenalties;
@@ -101,9 +100,6 @@ public class Match implements Json.Serializable {
     @Override
     public void write(Json json) {
         json.writeValue("teams", teams);
-        if (result != null) {
-            json.writeValue("result", result);
-        }
         if (resultAfter90 != null) {
             json.writeValue("resultAfter90", resultAfter90);
         }
@@ -115,8 +111,8 @@ public class Match implements Json.Serializable {
         }
     }
 
-    public void setResult(int homeGoals, int awayGoals) {
-        result = new int[]{homeGoals, awayGoals};
+    public int[] getResult() {
+        return resultAfterExtraTime != null ? resultAfterExtraTime : resultAfter90;
     }
 
     public void setResultAfter90(int homeGoals, int awayGoals) {
@@ -132,7 +128,7 @@ public class Match implements Json.Serializable {
     }
 
     public boolean isEnded() {
-        return result != null;
+        return getResult() != null;
     }
 
     public static int generateGoals(Team teamFor, Team teamAgainst, boolean extraTimeResult) {

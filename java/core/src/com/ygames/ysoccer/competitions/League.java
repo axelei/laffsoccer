@@ -173,9 +173,7 @@ public class League extends Competition implements Json.Serializable {
     }
 
     private void resetMatch(Match match) {
-        match.result = null;
         match.resultAfter90 = null;
-        match.resultAfterPenalties = null;
     }
 
     public void generateResult() {
@@ -193,7 +191,7 @@ public class League extends Competition implements Json.Serializable {
 
     public void setResult(int homeGoals, int awayGoals) {
         Match match = getMatch();
-        match.setResult(homeGoals, awayGoals);
+        match.setResultAfter90(homeGoals, awayGoals);
 
         for (TableRow row : table) {
             if (row.team == getTeamIndex(HOME)) {

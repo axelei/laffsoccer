@@ -24,7 +24,7 @@ public class Leg {
 
     public int getQualifiedTeam(Match match) {
 
-        if (match.result == null) {
+        if (match.getResult() == null) {
             return -1;
         }
 
@@ -41,9 +41,9 @@ public class Leg {
         // first leg
         if (getIndex() == 0) {
             if (round.numberOfLegs == 1) {
-                if (match.result[HOME] > match.result[AWAY]) {
+                if (match.getResult()[HOME] > match.getResult()[AWAY]) {
                     return match.teams[HOME];
-                } else if (match.result[HOME] < match.result[AWAY]) {
+                } else if (match.getResult()[HOME] < match.getResult()[AWAY]) {
                     return match.teams[AWAY];
                 } else {
                     return -1;
@@ -56,8 +56,8 @@ public class Leg {
         // second leg
         else if ((getIndex() == 1) && (round.numberOfLegs == 2)) {
 
-            int aggregate1 = match.result[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.result[AWAY] + match.oldResult[HOME];
+            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
             if (aggregate1 > aggregate2) {
                 return match.teams[HOME];
             } else if (aggregate1 < aggregate2) {
@@ -65,9 +65,9 @@ public class Leg {
             } else {
                 if ((round.cup.awayGoals == Cup.AwayGoals.AFTER_90_MINUTES) ||
                         (round.cup.awayGoals == Cup.AwayGoals.AFTER_EXTRA_TIME && match.resultAfterExtraTime != null)) {
-                    if (match.oldResult[AWAY] > match.result[AWAY]) {
+                    if (match.oldResult[AWAY] > match.getResult()[AWAY]) {
                         return match.teams[HOME];
-                    } else if (match.oldResult[AWAY] < match.result[AWAY]) {
+                    } else if (match.oldResult[AWAY] < match.getResult()[AWAY]) {
                         return match.teams[AWAY];
                     } else {
                         return -1;
@@ -80,9 +80,9 @@ public class Leg {
 
         // replays
         else {
-            if (match.result[HOME] > match.result[AWAY]) {
+            if (match.getResult()[HOME] > match.getResult()[AWAY]) {
                 return match.teams[HOME];
-            } else if (match.result[HOME] < match.result[AWAY]) {
+            } else if (match.getResult()[HOME] < match.getResult()[AWAY]) {
                 return match.teams[AWAY];
             } else {
                 return -1;

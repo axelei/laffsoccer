@@ -201,7 +201,7 @@ public class Cup extends Competition implements Json.Serializable {
                 Match match = new Match();
                 match.teams[HOME] = oldMatch.teams[AWAY];
                 match.teams[AWAY] = oldMatch.teams[HOME];
-                match.oldResult = oldMatch.result;
+                match.oldResult = oldMatch.getResult();
                 getLeg().matches.add(match);
             }
         }
@@ -248,15 +248,16 @@ public class Cup extends Competition implements Json.Serializable {
 
     public void setResult(int homeGoals, int awayGoals, Match.ResultType resultType) {
         Match match = getMatch();
-        if (resultType == Match.ResultType.AFTER_PENALTIES) {
-            match.setResultAfterPenalties(homeGoals, awayGoals);
-        } else {
-            match.setResult(homeGoals, awayGoals);
-            if (resultType == Match.ResultType.AFTER_EXTRA_TIME) {
-                match.setResultAfterExtraTime(homeGoals, awayGoals);
-            } else {
+        switch (resultType) {
+            case AFTER_90_MINUTES:
                 match.setResultAfter90(homeGoals, awayGoals);
-            }
+                break;
+            case AFTER_EXTRA_TIME:
+                match.setResultAfterExtraTime(homeGoals, awayGoals);
+                break;
+            case AFTER_PENALTIES:
+                match.setResultAfterPenalties(homeGoals, awayGoals);
+                break;
         }
     }
 
@@ -274,7 +275,7 @@ public class Cup extends Competition implements Json.Serializable {
             }
 
             // result
-            if (match.result[HOME] != match.result[AWAY]) {
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
                 return false;
             }
 
@@ -295,14 +296,14 @@ public class Cup extends Competition implements Json.Serializable {
         else if (currentLeg == 1 && round.numberOfLegs == 2) {
 
             // aggregate goals
-            int aggregate1 = match.result[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.result[AWAY] + match.oldResult[HOME];
+            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
             if (aggregate1 != aggregate2) {
                 return false;
             }
 
             // away goals
-            if ((match.oldResult[AWAY] != match.result[AWAY]) && (awayGoals == AwayGoals.AFTER_90_MINUTES)) {
+            if ((match.oldResult[AWAY] != match.getResult()[AWAY]) && (awayGoals == AwayGoals.AFTER_90_MINUTES)) {
                 return false;
             }
 
@@ -323,7 +324,7 @@ public class Cup extends Competition implements Json.Serializable {
         // replays
         else {
             // result
-            if (match.result[HOME] != match.result[AWAY]) {
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
                 return false;
             }
 
@@ -358,7 +359,7 @@ public class Cup extends Competition implements Json.Serializable {
             }
 
             // result
-            if (match.result[HOME] != match.result[AWAY]) {
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
                 return false;
             }
 
@@ -379,14 +380,14 @@ public class Cup extends Competition implements Json.Serializable {
         else if ((currentLeg == 1) && (round.numberOfLegs == 2)) {
 
             // aggregate goals
-            int aggregate1 = match.result[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.result[AWAY] + match.oldResult[HOME];
+            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
             if (aggregate1 != aggregate2) {
                 return false;
             }
 
             // away goals
-            if ((match.oldResult[AWAY] != match.result[AWAY]) && (awayGoals != AwayGoals.OFF)) {
+            if ((match.oldResult[AWAY] != match.getResult()[AWAY]) && (awayGoals != AwayGoals.OFF)) {
                 return false;
             }
 
@@ -406,7 +407,7 @@ public class Cup extends Competition implements Json.Serializable {
         // replays
         else {
             // result
-            if (match.result[HOME] != match.result[AWAY]) {
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
                 return false;
             }
 
@@ -443,8 +444,8 @@ public class Cup extends Competition implements Json.Serializable {
                             + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
                     if (match.resultAfterExtraTime != null) {
                         s += " " + Assets.strings.get("AFTER EXTRA TIME");
-                        if ((match.result[HOME] != match.resultAfter90[HOME])
-                                || (match.result[AWAY] != match.resultAfter90[AWAY])) {
+                        if ((match.getResult()[HOME] != match.resultAfter90[HOME])
+                                || (match.getResult()[AWAY] != match.resultAfter90[AWAY])) {
                             s += " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
                                     + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
                         }
@@ -469,15 +470,15 @@ public class Cup extends Competition implements Json.Serializable {
                             + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
                     if (match.resultAfterExtraTime != null) {
                         s += " " + Assets.strings.get("AFTER EXTRA TIME");
-                        if ((match.result[HOME] != match.resultAfter90[HOME])
-                                || (match.result[AWAY] != match.resultAfter90[AWAY])) {
+                        if ((match.getResult()[HOME] != match.resultAfter90[HOME])
+                                || (match.getResult()[AWAY] != match.resultAfter90[AWAY])) {
                             s += " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
                                     + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
                         }
                     }
                 } else {
-                    int agg_score_a = match.result[HOME] + match.oldResult[AWAY];
-                    int agg_score_b = match.result[AWAY] + match.oldResult[HOME];
+                    int agg_score_a = match.getResult()[HOME] + match.oldResult[AWAY];
+                    int agg_score_b = match.getResult()[AWAY] + match.oldResult[HOME];
 
                     // away goals
                     if (agg_score_a == agg_score_b) {
