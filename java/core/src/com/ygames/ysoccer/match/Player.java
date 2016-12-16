@@ -797,7 +797,7 @@ public class Player implements Json.Serializable {
         addSkinColors(rgbPairs);
         addHairColors(rgbPairs);
 
-        String filename = "images/player/menu/" + hairStyle + ".PNG";
+        String filename = "images/player/menu/" + hairStyle + ".png";
         return Assets.loadTextureRegion(filename, rgbPairs);
     }
 
