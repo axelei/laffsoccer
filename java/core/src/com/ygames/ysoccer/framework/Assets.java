@@ -91,6 +91,7 @@ public class Assets {
     public static TextureRegion[] snow = new TextureRegion[3];
     public static Texture fog;
     public static TextureRegion[][] wind = new TextureRegion[8][2];
+    public static TextureRegion[] bench = new TextureRegion[2];
 
     public static class Sounds {
 
@@ -185,6 +186,7 @@ public class Assets {
         loadSnow();
         fog = new Texture("images/fog.png");
         loadWind();
+        loadBench();
         Sounds.load();
     }
 
@@ -451,6 +453,14 @@ public class Assets {
                 wind[i][j] = new TextureRegion(texture, 30 * i, 30 * j, 30, 30);
                 wind[i][j].flip(false, true);
             }
+        }
+    }
+
+    private static void loadBench() {
+        Texture texture = new Texture("images/bench.png");
+        for (int i = 0; i < 2; i++) {
+            bench[i] = new TextureRegion(texture, 82 * i, 0, 82, 66);
+            bench[i].flip(false, true);
         }
     }
 

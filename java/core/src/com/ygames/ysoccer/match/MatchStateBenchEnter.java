@@ -4,12 +4,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
+import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
+import static com.ygames.ysoccer.match.ActionCamera.CS_WARP;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_EXIT;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_REACH_TARGET;
 
 class MatchStateBenchEnter extends MatchState {
 
@@ -36,7 +43,7 @@ class MatchStateBenchEnter extends MatchState {
                 if (match.team[t].usesAutomaticInputDevice()) {
                     player.setInputDevice(player.ai);
                 }
-                player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                player.fsm.setState(STATE_REACH_TARGET);
             }
         }
 
@@ -60,8 +67,8 @@ class MatchStateBenchEnter extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, fsm.benchStatus.targetX, false);
-            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_WARP, fsm.benchStatus.targetY);
+            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX, false);
+            matchRenderer.updateCameraY(CF_TARGET, CS_WARP, fsm.benchStatus.targetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -77,15 +84,15 @@ class MatchStateBenchEnter extends MatchState {
             Coach coach = match.team[fsm.benchStatus.team.index].coach;
             coach.status = Coach.Status.STAND;
             coach.x = BENCH_X + 8;
-//            game_action_queue.push(AT_NEW_FOREGROUND, GM.MATCH_BENCH_SUBSTITUTIONS)
-//            Return
+            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
+            return;
         }
 
         cameraX = matchRenderer.actionCamera.x;
         cameraY = matchRenderer.actionCamera.y;
 
         if (fsm.benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_BENCH_EXIT);
+            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
             return;
         }
     }

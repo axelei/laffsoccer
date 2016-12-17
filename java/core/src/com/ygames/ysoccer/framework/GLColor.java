@@ -278,4 +278,22 @@ public class GLColor {
         hsv[2] = 100 * (0.21f * red(c) / 255.0f + 0.72f * green(c) / 255.0f + 0.07f * blue(c) / 255.0f);
         return hsvToRgb(hsv);
     }
+
+    public static int sweepColor(int color1, int color2) {
+        int r1 = red(color1);
+        int g1 = green(color1);
+        int b1 = blue(color1);
+        int r2 = red(color2);
+        int g2 = green(color2);
+        int b2 = blue(color2);
+
+        // 20-80%
+        float p = (20 + Math.abs((int) ((0.2 * Math.abs(System.currentTimeMillis())) % 120) - 60)) / 100f;
+
+        int r = r1 + (int) (p * (r2 - r1));
+        int g = g1 + (int) (p * (g2 - g1));
+        int b = b1 + (int) (p * (b2 - b1));
+
+        return rgb(r, g, b);
+    }
 }

@@ -71,4 +71,8 @@ public abstract class InputDevice {
     public boolean xReleased() {
         return (x1 == 0) && (x0 != 0);
     }
+
+    public boolean yMoved() {
+        return (y1 != 0) && (y0 == 0);
+    }
 }

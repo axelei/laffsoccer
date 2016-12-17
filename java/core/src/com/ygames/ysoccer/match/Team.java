@@ -42,6 +42,7 @@ public class Team implements Json.Serializable {
 
     public List<Player> players;
     public List<Player> lineup;
+    public int substitutionsCount;
 
     public ControlMode controlMode;
     public InputDevice inputDevice;
@@ -123,6 +124,7 @@ public class Team implements Json.Serializable {
             player.index = i;
             lineup.add(player);
         }
+        substitutionsCount = 0;
     }
 
     void save(int subframe) {
