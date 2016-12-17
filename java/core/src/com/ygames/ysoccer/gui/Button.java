@@ -28,14 +28,14 @@ public class Button extends Widget {
         Gdx.gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 
-        // body (0x000000 = invisible)
-        if (color.body != 0x000000) {
+        // body (null = invisible)
+        if (color.body != null) {
             shapeRenderer.setColor(color.body, alpha);
             shapeRenderer.rect(x + 2, y + 2, w - 4, h - 4);
         }
 
-        // border ($000000 = invisible)
-        if (color.lightBorder != 0x000000) {
+        // border (null = invisible)
+        if (color.lightBorder != null) {
             drawBorder(shapeRenderer, x, y, w, h, color.lightBorder, color.darkBorder);
         }
 

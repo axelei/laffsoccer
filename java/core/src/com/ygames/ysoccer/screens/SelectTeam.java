@@ -192,9 +192,13 @@ class SelectTeam extends GLScreen {
             this.team = team;
             setSize(270, 28);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
-            int v = 0;
-            for (int i = 0; i < 11; i++) v += team.playerAtPosition(i).getValue();
-            setText(team.name + " " + v, Font.Align.CENTER, Assets.font14);
+            if (game.settings.development) {
+                int v = 0;
+                for (int i = 0; i < 11; i++) v += team.playerAtPosition(i).getValue();
+                setText(team.name + " " + v, Font.Align.CENTER, Assets.font14);
+            } else {
+                setText(team.name, Font.Align.CENTER, Assets.font14);
+            }
         }
 
         @Override

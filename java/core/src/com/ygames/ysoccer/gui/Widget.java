@@ -75,12 +75,16 @@ public abstract class Widget {
         this.h = h;
     }
 
-    public void setColors(int body, int lightBorder, int darkBorder) {
+    public void setColors(Integer body, Integer lightBorder, Integer darkBorder) {
         this.color.set(body, lightBorder, darkBorder);
     }
 
     public void setColors(WidgetColor color) {
-        this.color.set(color.body, color.lightBorder, color.darkBorder);
+        if(color == null) {
+            this.color.set(null, null, null);
+        } else {
+            this.color.set(color.body, color.lightBorder, color.darkBorder);
+        }
     }
 
     public void setColors(int color) {

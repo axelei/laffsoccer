@@ -269,7 +269,7 @@ class AllSelectedTeams extends GLScreen {
                 } else {
                     setText(Assets.strings.get("SELECT %n LESS TEAMS").replace("%n", "" + (-diff)));
                 }
-                setColors(0x000000, 0x000000, 0x000000);
+                setColors(null);
                 setActive(false);
             }
         }

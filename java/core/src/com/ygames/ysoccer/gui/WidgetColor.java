@@ -4,9 +4,9 @@ import com.ygames.ysoccer.framework.GLColor;
 
 public class WidgetColor {
 
-    public int body;
-    int lightBorder;
-    int darkBorder;
+    public Integer body;
+    Integer lightBorder;
+    Integer darkBorder;
 
     public WidgetColor() {
     }
@@ -17,7 +17,7 @@ public class WidgetColor {
         this.darkBorder = darkBorder;
     }
 
-    public void set(int body, int lightBorder, int darkBorder) {
+    public void set(Integer body, Integer lightBorder, Integer darkBorder) {
         this.body = body;
         this.lightBorder = lightBorder;
         this.darkBorder = darkBorder;
