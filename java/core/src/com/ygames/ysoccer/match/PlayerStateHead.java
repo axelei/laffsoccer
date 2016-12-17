@@ -40,10 +40,21 @@ class PlayerStateHead extends PlayerState {
 
         // animation
         player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;
-        if (Math.abs(player.vz) < 0.1f) {
-            player.fmy = 6;
+
+        if (player.z > 0) {
+            if (player.vz > 80) {
+                player.fmy = 3;
+            } else if (player.vz > 40) {
+                player.fmy = 5;
+            } else if (player.vz > -30) {
+                player.fmy = 6;
+            } else if (player.vz > -70) {
+                player.fmy = 5;
+            } else {
+                player.fmy = 3;
+            }
         } else {
-            player.fmy = 5;
+            player.fmy = 1;
         }
     }
 
