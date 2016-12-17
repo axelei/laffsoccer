@@ -11,6 +11,7 @@ import static com.ygames.ysoccer.match.Coach.Status.DOWN;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_EXIT;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_OUT;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
 
@@ -97,8 +98,8 @@ class MatchStateBenchSubstitutions extends MatchState {
                     Player ply = fsm.benchStatus.team.lineup.get(TEAM_SIZE + fsm.benchStatus.selectedPos);
 
                     if (!ply.fsm.getState().checkId(STATE_OUTSIDE)) {
-                        // TODO
-//                        ply.fsm.setState(STATE_BENCH_OUT);
+
+                        ply.fsm.setState(STATE_BENCH_OUT);
 
                         fsm.benchStatus.forSubs = TEAM_SIZE + fsm.benchStatus.selectedPos;
 
