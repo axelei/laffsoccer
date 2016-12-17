@@ -187,12 +187,12 @@ class PngEditor {
         int i2 = bytes[2] & 0xFF;
         int i3 = bytes[3] & 0xFF;
 
-        boolean palettepaletteFoundfound = false;
+        boolean paletteFound = false;
         int paletteOffset;
         for (paletteOffset = 4; paletteOffset < bytes.length; paletteOffset++) {
 
             if (i0 == 'P' && i1 == 'L' && i2 == 'T' && i3 == 'E') {
-                palettepaletteFoundfound = true;
+                paletteFound = true;
                 break;
             }
             i0 = i1;
@@ -201,7 +201,7 @@ class PngEditor {
             i3 = bytes[paletteOffset] & 0xFF;
         }
 
-        if (!palettepaletteFoundfound) {
+        if (!paletteFound) {
             throw new IOException("Palette not found inside image!");
         }
 

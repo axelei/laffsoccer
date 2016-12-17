@@ -74,6 +74,7 @@ public class Assets {
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static Texture goalTopA;
     public static Texture goalBottom;
+    public static TextureRegion[][] coach = new TextureRegion[2][6];
     public static TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
@@ -575,6 +576,16 @@ public class Assets {
                     Assets.keeper[p.team.index][p.skinColor.ordinal()][frameX][frameY] = null;
                 }
             }
+        }
+    }
+
+    public static void loadCoach(Team team) {
+        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        team.kits.get(0).addKitColors(rgbPairs);
+        Texture texture = loadTexture("images/coach.png", rgbPairs);
+        for (int i = 0; i < 6; i++) {
+            Assets.coach[team.index][i] = new TextureRegion(texture, 29 * i, 0, 29, 29);
+            Assets.coach[team.index][i].flip(false, true);
         }
     }
 

@@ -553,7 +553,7 @@ class SetTeam extends GLScreen {
                     break;
 
                 case PLAYER:
-                    setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH") + ":");
+                    setText(Assets.strings.get("CONTROL MODE.PLAYER") + ":");
                     setColors(0x0000C8, 0x1919FF, 0x000078);
                     break;
 

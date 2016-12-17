@@ -83,7 +83,6 @@ class MatchStateBenchEnter extends MatchState {
         if (dx <= 1 && dy <= 1) {
             Coach coach = match.team[fsm.benchStatus.team.index].coach;
             coach.status = Coach.Status.STAND;
-            coach.x = BENCH_X + 8;
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
             return;
         }

@@ -3,6 +3,8 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 
+import static com.ygames.ysoccer.match.Const.BENCH_X;
+
 public class Coach implements Json.Serializable {
 
     enum Status {BENCH, STAND, DOWN, SPEAK, CALL}
@@ -10,10 +12,11 @@ public class Coach implements Json.Serializable {
     public String name;
     public String nationality;
     public Status status;
+    public Team team;
     public int timer;
     public float x;
+    public float y;
     public int fmx;
-    public int fmy;
 
     public Coach() {
         this.status = Status.BENCH;
@@ -37,14 +40,17 @@ public class Coach implements Json.Serializable {
 
         switch (status) {
             case BENCH:
-            case STAND:
+                x = BENCH_X;
                 fmx = 0;
-                fmy = 0;
+                break;
+
+            case STAND:
+                x = BENCH_X + 8;
+                fmx = 0;
                 break;
 
             case DOWN:
                 fmx = 3;
-                fmy = 0;
                 if (timer == 0) {
                     status = Status.STAND;
                 }
@@ -52,7 +58,6 @@ public class Coach implements Json.Serializable {
 
             case SPEAK:
                 fmx = (System.currentTimeMillis() % 400 > 200) ? 2 : 1;
-                fmy = 0;
                 if (timer == 0) {
                     status = Status.STAND;
                 }
@@ -60,7 +65,6 @@ public class Coach implements Json.Serializable {
 
             case CALL:
                 fmx = (System.currentTimeMillis() % 400 > 200) ? 5 : 4;
-                fmy = 0;
                 if (timer == 0) {
                     status = Status.STAND;
                 }

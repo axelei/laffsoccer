@@ -3,12 +3,9 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
-import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
-import static com.ygames.ysoccer.match.Match.AWAY;
-import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchStateBenchExit extends MatchState {
 
@@ -21,9 +18,7 @@ class MatchStateBenchExit extends MatchState {
     void entryActions() {
 
         Coach coach = match.team[fsm.benchStatus.team.index].coach;
-
         coach.status = Coach.Status.BENCH;
-        coach.x = BENCH_X;
 
         // reset positions
         for (int i = 0; i < match.settings.benchSize; i++) {
@@ -46,8 +41,7 @@ class MatchStateBenchExit extends MatchState {
 
             match.updatePlayers(true);
 
-            match.team[HOME].coach.update();
-            match.team[AWAY].coach.update();
+            match.updateCoaches();
 
             match.nextSubframe();
 

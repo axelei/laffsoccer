@@ -75,6 +75,8 @@ public class MatchRenderer {
         radarPlayers = new ArrayList<PlayerSprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
         for (int t = HOME; t <= AWAY; t++) {
+            CoachSprite coachSprite = new CoachSprite(glGraphics, match.team[t].coach);
+            allSprites.add(coachSprite);
             int len = match.team[t].lineup.size();
             for (int i = 0; i < len; i++) {
                 PlayerSprite playerSprite = new PlayerSprite(glGraphics, match.team[t].lineup.get(i));
@@ -851,8 +853,8 @@ public class MatchRenderer {
         int w = 250;
         int h = 18;
 
-        int x = screenWidth / 3 + 2;
-        int y = screenHeight / 2 - 100 + 2;
+        int x = guiWidth / 3 + 2;
+        int y = guiHeight / 2 - 100 + 2;
 
         // frame shadow
         batch.end();

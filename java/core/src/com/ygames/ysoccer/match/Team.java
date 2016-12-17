@@ -64,6 +64,7 @@ public class Team implements Json.Serializable {
         for (Player player : players) {
             player.team = this;
         }
+        coach.team = this;
     }
 
     @Override

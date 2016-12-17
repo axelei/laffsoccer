@@ -10,6 +10,10 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Const.BENCH_X;
+import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
+import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
+
 public class Match implements Json.Serializable {
 
     public enum ResultType {AFTER_90_MINUTES, AFTER_EXTRA_TIME, AFTER_PENALTIES}
@@ -200,6 +204,11 @@ public class Match implements Json.Serializable {
         return move;
     }
 
+    void updateCoaches() {
+        team[HOME].coach.update();
+        team[AWAY].coach.update();
+    }
+
     void save() {
         ball.save(subframe);
         team[HOME].save(subframe);
@@ -234,14 +243,21 @@ public class Match implements Json.Serializable {
                 player.tx = player.x;
                 player.ty = player.y;
             } else {
-                player.x = Const.BENCH_X;
+                player.x = BENCH_X;
                 if ((1 - 2 * team.index) == benchSide) {
-                    player.y = Const.BENCH_Y_UP + 14 * (i - Const.TEAM_SIZE) + 46;
+                    player.y = BENCH_Y_UP + 14 * (i - Const.TEAM_SIZE) + 46;
                 } else {
-                    player.y = Const.BENCH_Y_DOWN + 14 * (i - Const.TEAM_SIZE) + 46;
+                    player.y = BENCH_Y_DOWN + 14 * (i - Const.TEAM_SIZE) + 46;
                 }
                 player.fsm.setState(PlayerFsm.STATE_BENCH_SITTING);
             }
+        }
+
+        team.coach.x = BENCH_X;
+        if ((1 - 2 * team.index) == team.match.benchSide) {
+            team.coach.y = BENCH_Y_UP + 32;
+        } else {
+            team.coach.y = BENCH_Y_DOWN + 32;
         }
     }
 
