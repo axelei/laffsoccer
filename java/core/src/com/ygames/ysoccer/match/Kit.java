@@ -12,11 +12,12 @@ import java.util.List;
 
 public class Kit implements Json.Serializable {
 
-    public enum Field {SHIRT1, SHIRT2, SHORTS, SOCKS}
+    public enum Field {SHIRT1, SHIRT2, SHIRT3, SHORTS, SOCKS}
 
     public String style;
     public int shirt1;
     public int shirt2;
+    public int shirt3;
     public int shorts;
     public int socks;
 
@@ -46,18 +47,22 @@ public class Kit implements Json.Serializable {
             0xCAC47D, // gold
     };
 
+    @Override
     public void write(Json json) {
         json.writeValue("style", style);
         json.writeValue("shirt1", GLColor.toHexString(shirt1));
         json.writeValue("shirt2", GLColor.toHexString(shirt2));
+        json.writeValue("shirt3", GLColor.toHexString(shirt3));
         json.writeValue("shorts", GLColor.toHexString(shorts));
         json.writeValue("socks", GLColor.toHexString(socks));
     }
 
+    @Override
     public void read(Json json, JsonValue jsonMap) {
         style = jsonMap.getString("style");
         shirt1 = GLColor.valueOf(jsonMap.getString("shirt1"));
         shirt2 = GLColor.valueOf(jsonMap.getString("shirt2"));
+        shirt3 = GLColor.valueOf(jsonMap.getString("shirt3", "#000000"));
         shorts = GLColor.valueOf(jsonMap.getString("shorts"));
         socks = GLColor.valueOf(jsonMap.getString("socks"));
     }
@@ -87,6 +92,12 @@ public class Kit implements Json.Serializable {
         rgbPairs.add(new RgbPair(0x00C79B, GLColor.darker(shirt2, 0.9)));
         rgbPairs.add(new RgbPair(0x008B6C, GLColor.darker(shirt2, 0.8)));
         rgbPairs.add(new RgbPair(0x006A52, GLColor.darker(shirt2, 0.7)));
+
+        // shirt3
+        rgbPairs.add(new RgbPair(0xCC00FF, shirt3));
+        rgbPairs.add(new RgbPair(0x8600A7, GLColor.darker(shirt3, 0.9)));
+        rgbPairs.add(new RgbPair(0x610079, GLColor.darker(shirt3, 0.8)));
+        rgbPairs.add(new RgbPair(0x420052, GLColor.darker(shirt3, 0.7)));
 
         // shorts
         rgbPairs.add(new RgbPair(0xF6FF00, shorts));

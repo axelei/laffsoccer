@@ -33,7 +33,7 @@ class EditTeam extends GLScreen {
     private Widget[] tacticsButtons = new Widget[18];
 
     private Widget[] kitSelectionButtons = new Widget[5];
-    private Widget[] kitEditButtons = new Widget[9];
+    private Widget[] kitEditButtons = new Widget[11];
 
     private Widget[] numberButtons = new Widget[Const.TEAM_SIZE];
     private Widget[] faceButtons = new Widget[Const.TEAM_SIZE];
@@ -129,17 +129,48 @@ class EditTeam extends GLScreen {
         kitEditButtons[0] = w;
         widgets.add(w);
 
-        for (int f = 0; f < 4; f++) {
-            w = new KitFieldLabel(Kit.Field.values()[f], 528, 416 + 54 * f);
-            widgets.add(w);
+        int y = 418;
+        w = new KitFieldLabel("KITS.SHIRT", 528, y);
+        widgets.add(w);
 
-            w = new HashButton(Kit.Field.values()[f], 528, 418 + 54 * f + 23);
+        y += 25;
+        for (int f = 0; f < 3; f++) {
+            w = new HashButton(Kit.Field.values()[f], 528, y);
             widgets.add(w);
             kitEditButtons[1 + 2 * f] = w;
 
-            w = new KitColorButton(Kit.Field.values()[f], 525 + 45, 418 + 54 * f + 23);
+            w = new KitColorButton(Kit.Field.values()[f], 525 + 45, y);
             widgets.add(w);
             kitEditButtons[1 + 2 * f + 1] = w;
+
+            y += 26;
+        }
+
+        y += 3;
+        for (int f = 3; f < 5; f++) {
+            String label = "";
+            switch (Kit.Field.values()[f]) {
+                case SHORTS:
+                    label = "KITS.SHORTS";
+                    break;
+                case SOCKS:
+                    label = "KITS.SOCKS";
+                    break;
+            }
+            w = new KitFieldLabel(label, 528, y);
+            widgets.add(w);
+
+            y += 25;
+
+            w = new HashButton(Kit.Field.values()[f], 528, y);
+            widgets.add(w);
+            kitEditButtons[1 + 2 * f] = w;
+
+            w = new KitColorButton(Kit.Field.values()[f], 525 + 45, y);
+            widgets.add(w);
+            kitEditButtons[1 + 2 * f + 1] = w;
+
+            y += 29;
         }
 
         for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
@@ -541,10 +572,10 @@ class EditTeam extends GLScreen {
 
     private class KitFieldLabel extends Button {
 
-        KitFieldLabel(Kit.Field field, int x, int y) {
+        KitFieldLabel(String label, int x, int y) {
             setGeometry(x, y, 175, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("KITS." + field.name()), Font.Align.CENTER, Assets.font10);
+            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
     }
@@ -593,6 +624,10 @@ class EditTeam extends GLScreen {
                     team.kits.get(selectedKit).shirt2 = color;
                     break;
 
+                case SHIRT3:
+                    team.kits.get(selectedKit).shirt3 = color;
+                    break;
+
                 case SHORTS:
                     team.kits.get(selectedKit).shorts = color;
                     break;
@@ -619,6 +654,10 @@ class EditTeam extends GLScreen {
                     color = team.kits.get(selectedKit).shirt2;
                     break;
 
+                case SHIRT3:
+                    color = team.kits.get(selectedKit).shirt3;
+                    break;
+
                 case SHORTS:
                     color = team.kits.get(selectedKit).shorts;
                     break;
@@ -637,7 +676,7 @@ class EditTeam extends GLScreen {
 
         KitColorButton(Kit.Field field, int x, int y) {
             this.field = field;
-            setGeometry(x, y, 129, 24);
+            setGeometry(x, y, 133, 24);
             setText("", Font.Align.CENTER, Assets.font10);
             setEntryLimit(6);
             setInputFilter("[A-F0-9]");
@@ -662,6 +701,10 @@ class EditTeam extends GLScreen {
                     team.kits.get(selectedKit).shirt2 = color;
                     break;
 
+                case SHIRT3:
+                    team.kits.get(selectedKit).shirt3 = color;
+                    break;
+
                 case SHORTS:
                     team.kits.get(selectedKit).shorts = color;
                     break;
@@ -684,6 +727,9 @@ class EditTeam extends GLScreen {
 
                 case SHIRT2:
                     return kit.shirt2;
+
+                case SHIRT3:
+                    return kit.shirt3;
 
                 case SHORTS:
                     return kit.shorts;
