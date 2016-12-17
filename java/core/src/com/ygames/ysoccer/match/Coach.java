@@ -7,7 +7,7 @@ import static com.ygames.ysoccer.match.Const.BENCH_X;
 
 public class Coach implements Json.Serializable {
 
-    enum Status {BENCH, STAND, DOWN, SPEAK, CALL}
+    enum Status {BENCH, STAND, CALL, LOOK_BENCH, SWAP}
 
     public String name;
     public String nationality;
@@ -49,21 +49,21 @@ public class Coach implements Json.Serializable {
                 fmx = 0;
                 break;
 
-            case DOWN:
-                fmx = 3;
-                if (timer == 0) {
-                    status = Status.STAND;
-                }
-                break;
-
-            case SPEAK:
+            case CALL:
                 fmx = (System.currentTimeMillis() % 400 > 200) ? 2 : 1;
                 if (timer == 0) {
                     status = Status.STAND;
                 }
                 break;
 
-            case CALL:
+            case LOOK_BENCH:
+                fmx = 3;
+                if (timer == 0) {
+                    status = Status.STAND;
+                }
+                break;
+
+            case SWAP:
                 fmx = (System.currentTimeMillis() % 400 > 200) ? 5 : 4;
                 if (timer == 0) {
                     status = Status.STAND;

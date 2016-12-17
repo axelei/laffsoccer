@@ -3,9 +3,15 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
+import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
+import static com.ygames.ysoccer.match.ActionCamera.CS_WARP;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_SITTING;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
 
 class MatchStateBenchExit extends MatchState {
 
@@ -17,14 +23,14 @@ class MatchStateBenchExit extends MatchState {
     @Override
     void entryActions() {
 
-        Coach coach = match.team[fsm.benchStatus.team.index].coach;
+        Coach coach = fsm.benchStatus.team.coach;
         coach.status = Coach.Status.BENCH;
 
         // reset positions
         for (int i = 0; i < match.settings.benchSize; i++) {
-            Player ply = fsm.benchStatus.team.lineup.get(TEAM_SIZE + i);
-            if (!ply.fsm.getState().checkId(PlayerFsm.STATE_OUTSIDE)) {
-                ply.fsm.setState(PlayerFsm.STATE_BENCH_SITTING);
+            Player player = fsm.benchStatus.team.lineup.get(TEAM_SIZE + i);
+            if (!player.fsm.getState().checkId(STATE_OUTSIDE)) {
+                player.fsm.setState(STATE_BENCH_SITTING);
             }
         }
     }
@@ -47,8 +53,8 @@ class MatchStateBenchExit extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, fsm.benchStatus.oldTargetX, false);
-            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_WARP, fsm.benchStatus.oldTargetY);
+            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.oldTargetX, false);
+            matchRenderer.updateCameraY(CF_TARGET, CS_WARP, fsm.benchStatus.oldTargetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -61,7 +67,7 @@ class MatchStateBenchExit extends MatchState {
         float dy = matchRenderer.actionCamera.y - fsm.benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
         if (Emath.hypo(dx, dy) <= 1) {
-            fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+            fsm.pushAction(RESTORE_FOREGROUND);
             return;
         }
     }

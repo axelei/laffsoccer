@@ -11,7 +11,20 @@ import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
+import static com.ygames.ysoccer.match.Player.Role.DEFENDER;
+import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
+import static com.ygames.ysoccer.match.Player.Role.LEFT_BACK;
+import static com.ygames.ysoccer.match.Player.Role.LEFT_WINGER;
+import static com.ygames.ysoccer.match.Player.Role.MIDFIELDER;
+import static com.ygames.ysoccer.match.Player.Role.RIGHT_BACK;
+import static com.ygames.ysoccer.match.Player.Role.RIGHT_WINGER;
 
 public class Team implements Json.Serializable {
 
@@ -43,6 +56,21 @@ public class Team implements Json.Serializable {
     public List<Player> players;
     public List<Player> lineup;
     public int substitutionsCount;
+
+    private static Map<Player.Role, Player.Role[]> substitutionRules;
+
+    static {
+        Map<Player.Role, Player.Role[]> aMap = new HashMap<Player.Role, Player.Role[]>();
+        aMap.put(GOALKEEPER, new Player.Role[]{GOALKEEPER, GOALKEEPER});
+        aMap.put(RIGHT_BACK, new Player.Role[]{LEFT_BACK, DEFENDER});
+        aMap.put(LEFT_BACK, new Player.Role[]{RIGHT_BACK, DEFENDER});
+        aMap.put(DEFENDER, new Player.Role[]{RIGHT_BACK, LEFT_BACK});
+        aMap.put(RIGHT_WINGER, new Player.Role[]{LEFT_WINGER, MIDFIELDER});
+        aMap.put(LEFT_WINGER, new Player.Role[]{RIGHT_WINGER, MIDFIELDER});
+        aMap.put(MIDFIELDER, new Player.Role[]{RIGHT_WINGER, LEFT_WINGER});
+        aMap.put(ATTACKER, new Player.Role[]{RIGHT_WINGER, LEFT_WINGER});
+        substitutionRules = Collections.unmodifiableMap(aMap);
+    }
 
     public ControlMode controlMode;
     public InputDevice inputDevice;
@@ -105,7 +133,7 @@ public class Team implements Json.Serializable {
         player.name = "";
         player.shirtName = "";
         player.nationality = country;
-        player.role = Player.Role.GOALKEEPER;
+        player.role = GOALKEEPER;
         rotatePlayerNumber(player, 1);
         player.skinColor = Skin.Color.PINK;
         player.hairColor = Hair.Color.BLACK;
@@ -118,7 +146,7 @@ public class Team implements Json.Serializable {
     void beforeMatch(Match match) {
         this.match = match;
         lineup = new ArrayList<Player>();
-        int lineupSize = Math.min(players.size(), Const.TEAM_SIZE + match.settings.benchSize);
+        int lineupSize = Math.min(players.size(), TEAM_SIZE + match.settings.benchSize);
         for (int i = 0; i < lineupSize; i++) {
             Player player = players.get(i);
             player.beforeMatch(match);
@@ -140,7 +168,7 @@ public class Team implements Json.Serializable {
         // which takes into account both the speed of the player and the speed
         // and direction of the ball
         near1 = null;
-        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+        for (int i = 0; i < TEAM_SIZE; i++) {
             Player player = lineup.get(i);
 
             // discard those players which cannot reach the ball in less than
@@ -156,7 +184,7 @@ public class Team implements Json.Serializable {
         // step 2: if not found, repeat using pixel distance
         if (near1 == null) {
             near1 = lineup.get(0);
-            for (int i = 1; i < Const.TEAM_SIZE; i++) {
+            for (int i = 1; i < TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
 
                 if (player.ballDistance < near1.ballDistance) {
@@ -173,7 +201,7 @@ public class Team implements Json.Serializable {
             float attackerGoalDistance = Emath.dist(match.ball.owner.x, match.ball.owner.y, 0, -Const.GOAL_LINE * match.ball.owner.team.side);
 
             float bestDistance = 2 * Const.GOAL_LINE;
-            for (int i = 1; i < Const.TEAM_SIZE; i++) {
+            for (int i = 1; i < TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
                 player.defendDistance = Emath.dist(player.x, player.y, match.ball.owner.x, match.ball.owner.y);
 
@@ -195,7 +223,7 @@ public class Team implements Json.Serializable {
             ball_zone = 17;
         }
 
-        for (int i = 1; i < Const.TEAM_SIZE; i++) {
+        for (int i = 1; i < TEAM_SIZE; i++) {
 
             Player player = lineup.get(i);
 
@@ -211,7 +239,7 @@ public class Team implements Json.Serializable {
     }
 
     void updateFrameDistance() {
-        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+        for (int i = 0; i < TEAM_SIZE; i++) {
             lineup.get(i).updateFrameDistance();
         }
     }
@@ -306,7 +334,7 @@ public class Team implements Json.Serializable {
     }
 
     void setPlayersState(int stateId, Player excluded) {
-        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+        for (int i = 0; i < TEAM_SIZE; i++) {
             Player player = lineup.get(i);
             if (player != excluded) {
                 player.fsm.setState(stateId);
@@ -316,7 +344,7 @@ public class Team implements Json.Serializable {
 
     void assignAutomaticInputDevices(Player receiver) {
         if (usesAutomaticInputDevice()) {
-            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            for (int i = 0; i < TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
                 if (player == receiver) {
                     player.inputDevice = player.team.inputDevice;
@@ -436,7 +464,7 @@ public class Team implements Json.Serializable {
             tcs = Assets.tactics[getTacticsIndex()];
         }
         if (pos < players.size()) {
-            int ply = (pos < Const.TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
+            int ply = (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
             return players.get(ply);
         } else {
             return null;
@@ -446,9 +474,34 @@ public class Team implements Json.Serializable {
     public int playerIndexAtPosition(int pos) {
         if (pos < players.size()) {
             int baseTactics = Assets.tactics[getTacticsIndex()].basedOn;
-            return (pos < Const.TEAM_SIZE) ? Tactics.order[baseTactics][pos] : pos;
+            return (pos < TEAM_SIZE) ? Tactics.order[baseTactics][pos] : pos;
         } else {
             return -1;
+        }
+    }
+
+    int nearestBenchPlayerByRole(Player.Role role) {
+
+        int level = -1;
+
+        // in the first pass, search for the same role
+        Player.Role target = role;
+
+        while (true) {
+            for (int pos = 0; pos < TEAM_SIZE; pos++) {
+                if (lineup.get(pos).role == target) {
+                    return pos;
+                }
+            }
+
+            level = level + 1;
+
+            // no match found
+            if (level == 2) {
+                return 0;
+            }
+
+            target = substitutionRules.get(role)[level];
         }
     }
 
@@ -496,11 +549,11 @@ public class Team implements Json.Serializable {
     float getRank() {
         // absolute ranking from 0 to 10
         float r = 0;
-        for (int i = 0; i < Const.TEAM_SIZE; i++) {
+        for (int i = 0; i < TEAM_SIZE; i++) {
             Player player = lineup.get(i);
             r += player.getValue() / 5.0f;
         }
-        return r / Const.TEAM_SIZE;
+        return r / TEAM_SIZE;
     }
 
     public void rotatePlayerNumber(Player player, int direction) {

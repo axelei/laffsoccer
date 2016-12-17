@@ -78,6 +78,7 @@ public class MatchFsm {
     static final int STATE_BENCH_ENTER = 26;
     static final int STATE_BENCH_EXIT = 27;
     static final int STATE_BENCH_SUBSTITUTIONS = 28;
+    static final int STATE_BENCH_FORMATION = 29;
 
     MatchFsm(Match match) {
         this.match = match;
@@ -117,6 +118,7 @@ public class MatchFsm {
         states.add(new MatchStateBenchEnter(this));
         states.add(new MatchStateBenchExit(this));
         states.add(new MatchStateBenchSubstitutions(this));
+        states.add(new MatchStateBenchFormation(this));
     }
 
     public MatchState getState() {
@@ -232,14 +234,15 @@ public class MatchFsm {
         actions.offer(new Action(type, state));
     }
 
-    public class BenchStatus {
-        public Team team;
-        public InputDevice inputDevice;
-        public float targetX;
-        public float targetY;
-        public float oldTargetX;
-        public float oldTargetY;
-        public int selectedPos;
-        public int forSubs;
+    class BenchStatus {
+        Team team;
+        InputDevice inputDevice;
+        float targetX;
+        float targetY;
+        float oldTargetX;
+        float oldTargetY;
+        int selectedPosition;
+        int substPosition = -1;
+        int swapPosition = -1;
     }
 }

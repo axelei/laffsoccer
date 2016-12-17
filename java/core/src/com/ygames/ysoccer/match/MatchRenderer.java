@@ -202,6 +202,10 @@ public class MatchRenderer {
             drawBenchPlayers();
         }
 
+        if (matchState.displayBenchFormation) {
+            drawBenchFormation();
+        }
+
         // additional state-specific render
         MatchState matchState = match.fsm.getState();
         if (matchState != null) {
@@ -856,17 +860,17 @@ public class MatchRenderer {
         int x = guiWidth / 3 + 2;
         int y = guiHeight / 2 - 100 + 2;
 
-        // frame shadow
+        // objects' shadows //
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0x002400, guiAlpha);
+        shapeRenderer.setColor(0x242424, guiAlpha);
 
         // title
         drawFrame(x, y, w, h + 2);
 
         // image
-        shapeRenderer.rect(x + w / 2 - 41, y + 40, 82, 66);
+        shapeRenderer.rect(x + w / 2 - 41, y + 41, 82, 66);
 
         // list
         drawFrame(x, y + 125, w, match.settings.benchSize * h + 6);
@@ -874,8 +878,8 @@ public class MatchRenderer {
         // slots
         int color = 0x242424;
 
-        if (match.fsm.benchStatus.selectedPos == -1) {
-            color = GLColor.sweepColor(color, 0x5555FF);
+        if (match.fsm.benchStatus.selectedPosition == -1) {
+            color = GLColor.sweepColor(color, 0xFFDD33);
         }
 
         fadeRect(x, y + 2, x + w - 2, y + h, 0.6f, color);
@@ -883,8 +887,8 @@ public class MatchRenderer {
         for (int pos = 0; pos < match.settings.benchSize; pos++) {
             color = 0x242424;
 
-            if (match.fsm.benchStatus.selectedPos == pos) {
-                color = GLColor.sweepColor(color, 0x5555FF);
+            if (match.fsm.benchStatus.selectedPosition == pos) {
+                color = GLColor.sweepColor(color, 0xFFDD33);
             }
             fadeRect(x, y + 125 + 4 + pos * h, x + w - 2, y + 125 + 2 + (pos + 1) * h, 0.6f, color);
         }
@@ -892,7 +896,7 @@ public class MatchRenderer {
         x = x - 2;
         y = y - 2;
 
-        // objects
+        // objects //
         shapeRenderer.setColor(0xFFFFFF, guiAlpha);
 
         // title
@@ -918,6 +922,92 @@ public class MatchRenderer {
                 Assets.font10.draw(batch, player.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
                 Assets.font10.draw(batch, Assets.strings.get(player.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
             }
+        }
+    }
+
+    private void drawBenchFormation() {
+        int w = 250;
+        int h = 18;
+
+        int x = guiWidth / 3 + 2;
+        int y = guiHeight / 2 - 150 + 2;
+
+        // objects' shadows //
+        batch.end();
+        gl.glEnable(GL20.GL_BLEND);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(0x242424, guiAlpha);
+
+        // title
+        drawFrame(x, y, w, h + 2);
+
+        // image
+        shapeRenderer.rect(x + w / 2 - 41, y + 41, 82, 66);
+
+        // list
+        drawFrame(x, y + 125, w, TEAM_SIZE * h + 6);
+
+        // slots
+        int color = 0x242424;
+        if (match.fsm.benchStatus.selectedPosition == -1) {
+            // substitution - yellow
+            if (match.fsm.benchStatus.substPosition != -1) {
+                color = GLColor.sweepColor(color, 0xFFFF33);
+            }
+            // swap - blue
+            else {
+                color = GLColor.sweepColor(color, 0x33DDFF);
+            }
+        }
+        fadeRect(x, y + 2, x + w - 2, y + h, 0.6f, color);
+
+        for (int pos = 0; pos < TEAM_SIZE; pos++) {
+            color = 0x242424;
+            if (pos == match.fsm.benchStatus.swapPosition) {
+                color = 0x33DDFF;
+            }
+
+            if (pos == match.fsm.benchStatus.selectedPosition) {
+                // substitution - yellow
+                if (match.fsm.benchStatus.substPosition != -1) {
+                    color = GLColor.sweepColor(0x242424, 0xFFFF33);
+                }
+                // swap - blue
+                else {
+                    color = GLColor.sweepColor(color, 0x33DDFF);
+                }
+            }
+            fadeRect(x, y + 125 + 4 + pos * h, x + w - 2, y + 125 + 2 + (pos + 1) * h, 0.6f, color);
+        }
+
+        x = x - 2;
+        y = y - 2;
+
+        // objects //
+        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+
+        // title
+        drawFrame(x, y, w, h + 2);
+
+        // list
+        drawFrame(x, y + 125, w, TEAM_SIZE * h + 6);
+
+        shapeRenderer.end();
+        batch.begin();
+        batch.setColor(0xFFFFFF, guiAlpha);
+
+        // image
+        batch.draw(Assets.bench[1], x + w / 2 - 41, y + 41);
+
+        Assets.font10.draw(batch, Assets.strings.get("FORMATION"), x + w / 2, y + 3, Font.Align.CENTER);
+
+        for (int pos = 0; pos < TEAM_SIZE; pos++) {
+
+            Player ply = match.fsm.benchStatus.team.lineup.get(pos);
+
+            Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
+            Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
+            Assets.font10.draw(batch, Assets.strings.get(ply.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
         }
     }
 

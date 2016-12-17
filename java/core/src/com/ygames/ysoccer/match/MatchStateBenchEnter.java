@@ -7,7 +7,6 @@ import com.ygames.ysoccer.framework.GLGame;
 import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
 import static com.ygames.ysoccer.match.ActionCamera.CS_WARP;
-import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -34,8 +33,8 @@ class MatchStateBenchEnter extends MatchState {
         fsm.benchStatus.oldTargetX = matchRenderer.vcameraX[match.subframe] - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
         fsm.benchStatus.oldTargetY = matchRenderer.vcameraY[match.subframe] - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
-        fsm.benchStatus.selectedPos = -1;
-        fsm.benchStatus.forSubs = -1;
+        fsm.benchStatus.selectedPosition = -1;
+        fsm.benchStatus.substPosition = -1;
 
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < TEAM_SIZE; i++) {
@@ -81,7 +80,7 @@ class MatchStateBenchEnter extends MatchState {
         float dy = cameraY - matchRenderer.actionCamera.y;
 
         if (dx <= 1 && dy <= 1) {
-            Coach coach = match.team[fsm.benchStatus.team.index].coach;
+            Coach coach = fsm.benchStatus.team.coach;
             coach.status = Coach.Status.STAND;
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
             return;
