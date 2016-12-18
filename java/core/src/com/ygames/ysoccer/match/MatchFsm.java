@@ -40,7 +40,6 @@ public class MatchFsm {
     private Match match;
     protected boolean matchCompleted;
     private MatchRenderer matchRenderer;
-    private int savedSubframe;
 
     private List<MatchState> states;
     private MatchState currentState;
@@ -203,13 +202,11 @@ public class MatchFsm {
 
             case HOLD_FOREGROUND:
                 holdState = currentState;
-                savedSubframe = match.subframe;
                 currentState = searchState(currentAction.stateId);
                 Gdx.app.debug("HOLD_FOREGROUND", currentState.getClass().getSimpleName());
                 break;
 
             case RESTORE_FOREGROUND:
-                match.subframe = savedSubframe;
                 currentState = holdState;
                 holdState = null;
                 break;
