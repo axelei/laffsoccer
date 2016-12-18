@@ -471,6 +471,23 @@ public class Team implements Json.Serializable {
         }
     }
 
+    public Player lineupAtPosition(int pos) {
+        return lineupAtPosition(pos, null);
+    }
+
+    public Player lineupAtPosition(int pos, Tactics tcs) {
+        if (tcs == null) {
+            tcs = Assets.tactics[getTacticsIndex()];
+        }
+        if (pos < lineup.size()) {
+            int ply = (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
+            return lineup.get(ply);
+        } else {
+            return null;
+        }
+    }
+
+
     public int playerIndexAtPosition(int pos) {
         if (pos < players.size()) {
             int baseTactics = Assets.tactics[getTacticsIndex()].basedOn;
@@ -489,7 +506,7 @@ public class Team implements Json.Serializable {
 
         while (true) {
             for (int pos = 0; pos < TEAM_SIZE; pos++) {
-                if (lineup.get(pos).role == target) {
+                if (lineupAtPosition(pos).role == target) {
                     return pos;
                 }
             }

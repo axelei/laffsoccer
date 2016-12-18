@@ -919,7 +919,7 @@ public class MatchRenderer {
         Assets.font10.draw(batch, Assets.strings.get("BENCH"), x + w / 2, y + 3, Font.Align.CENTER);
 
         for (int pos = 0; pos < match.settings.benchSize; pos++) {
-            Player player = match.fsm.benchStatus.team.lineup.get(TEAM_SIZE + pos);
+            Player player = match.fsm.benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
 
             if (!player.fsm.getState().checkId(STATE_OUTSIDE)) {
                 Assets.font10.draw(batch, player.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
@@ -1007,7 +1007,7 @@ public class MatchRenderer {
 
         for (int pos = 0; pos < TEAM_SIZE; pos++) {
 
-            Player ply = match.fsm.benchStatus.team.lineup.get(pos);
+            Player ply = match.fsm.benchStatus.team.lineupAtPosition(pos);
 
             Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
             Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);

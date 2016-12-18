@@ -98,6 +98,7 @@ class MatchStateMain extends MatchState {
                     // corner/goal-kick
                     if (match.ball.ownerLast.team == match.team[defendingTeam]) {
                         event = Event.CORNER;
+                        fsm.cornerKickTeam = match.team[1 - match.ball.ownerLast.team.index];
                         return;
                     } else {
                         event = Event.GOAL_KICK;
@@ -108,8 +109,8 @@ class MatchStateMain extends MatchState {
 
             // Throw-in
             if (Math.abs(match.ball.x) > (Const.TOUCH_LINE + Const.BALL_R)) {
-                fsm.throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
                 event = Event.THROW_IN;
+                fsm.throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
                 return;
             }
 

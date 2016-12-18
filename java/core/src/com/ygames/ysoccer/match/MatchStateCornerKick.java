@@ -1,17 +1,28 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.badlogic.gdx.Input.Keys.ESCAPE;
+import static com.badlogic.gdx.Input.Keys.P;
+import static com.badlogic.gdx.Input.Keys.R;
+import static com.ygames.ysoccer.match.ActionCamera.CF_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_CORNER_KICK_ANGLE;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_STAND_RUN;
 
 class MatchStateCornerKick extends MatchState {
 
-    private Team cornerKickTeam;
     private Player cornerKickPlayer;
     private boolean isKicking;
 
@@ -28,22 +39,26 @@ class MatchStateCornerKick extends MatchState {
     }
 
     @Override
-    void entryActions() {
-        super.entryActions();
-
-        cornerKickTeam = match.team[1 - match.ball.ownerLast.team.index];
+    void onResume() {
+        super.onResume();
 
         matchRenderer.actionCamera.offx = -30 * match.ball.xSide;
         matchRenderer.actionCamera.offy = -30 * match.ball.ySide;
 
         isKicking = false;
 
-        cornerKickTeam.updateFrameDistance();
-        cornerKickTeam.findNearest();
-        cornerKickPlayer = cornerKickTeam.near1;
+        fsm.cornerKickTeam.updateFrameDistance();
+        fsm.cornerKickTeam.findNearest();
+        cornerKickPlayer = fsm.cornerKickTeam.near1;
 
         cornerKickPlayer.setTarget(match.ball.x + 7 * match.ball.xSide, match.ball.y);
-        cornerKickPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+        cornerKickPlayer.fsm.setState(STATE_REACH_TARGET);
+    }
+
+    @Override
+    void onPause() {
+        super.onPause();
+        match.updateTeamTactics();
     }
 
     @Override
@@ -67,8 +82,8 @@ class MatchStateCornerKick extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_FAST);
+            matchRenderer.updateCameraX(CF_BALL, CS_FAST);
+            matchRenderer.updateCameraY(CF_BALL, CS_FAST);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -76,7 +91,7 @@ class MatchStateCornerKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
 
-            cornerKickPlayer.fsm.setState(PlayerFsm.STATE_CORNER_KICK_ANGLE);
+            cornerKickPlayer.fsm.setState(STATE_CORNER_KICK_ANGLE);
             if (cornerKickPlayer.team.usesAutomaticInputDevice()) {
                 cornerKickPlayer.inputDevice = cornerKickPlayer.team.inputDevice;
             }
@@ -87,23 +102,23 @@ class MatchStateCornerKick extends MatchState {
     @Override
     void checkConditions() {
         if (match.ball.v > 0) {
-            match.setPlayersState(PlayerFsm.STATE_STAND_RUN, cornerKickPlayer);
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            match.setPlayersState(STATE_STAND_RUN, cornerKickPlayer);
+            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
             return;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (Gdx.input.isKeyPressed(ESCAPE)) {
             quitMatch();
             return;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+        if (Gdx.input.isKeyPressed(R)) {
             replay();
             return;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+        if (Gdx.input.isKeyPressed(P)) {
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -113,7 +128,7 @@ class MatchStateCornerKick extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }

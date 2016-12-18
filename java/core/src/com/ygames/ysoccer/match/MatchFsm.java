@@ -46,6 +46,7 @@ public class MatchFsm {
     private MatchState holdState;
     BenchStatus benchStatus;
     Team throwInTeam;
+    Team cornerKickTeam;
 
     private ArrayDeque<Action> actions;
     private Action currentAction;
