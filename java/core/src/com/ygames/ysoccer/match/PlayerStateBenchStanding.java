@@ -1,14 +1,15 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 
-class PlayerStateBenchSitting extends PlayerState {
+class PlayerStateBenchStanding extends PlayerState {
 
-    PlayerStateBenchSitting(Player player) {
+    PlayerStateBenchStanding(Player player) {
         super(player);
-        id = PlayerFsm.STATE_BENCH_SITTING;
+        id = PlayerFsm.STATE_BENCH_STANDING;
     }
 
     @Override
@@ -30,14 +31,11 @@ class PlayerStateBenchSitting extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        player.tx = Const.BENCH_X;
+        player.tx = BENCH_X + 12;
         if ((1 - 2 * player.team.index) == player.match.benchSide) {
             player.ty = BENCH_Y_UP + 14 * (player.index - TEAM_SIZE) + 46;
         } else {
             player.ty = BENCH_Y_DOWN + 14 * (player.index - TEAM_SIZE) + 46;
         }
-        player.v = 0;
-        player.a = 0;
-        player.animationStandRun();
     }
 }

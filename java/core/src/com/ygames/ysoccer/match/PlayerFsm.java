@@ -5,7 +5,8 @@ class PlayerFsm extends Fsm {
     static final int STATE_IDLE = 1;
     static final int STATE_OUTSIDE = 2;
     static final int STATE_BENCH_SITTING = 3;
-    static final int STATE_BENCH_OUT = 4;
+    static final int STATE_BENCH_STANDING = 4;
+    static final int STATE_BENCH_OUT = 5;
 
     static final int STATE_PHOTO = 6;
     static final int STATE_STAND_RUN = 7;
@@ -36,6 +37,7 @@ class PlayerFsm extends Fsm {
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
     PlayerStateBenchSitting stateBenchSitting;
+    PlayerStateBenchStanding stateBenchStanding;
     PlayerStateBenchOut stateBenchOut;
 
     PlayerStatePhoto statePhoto;
@@ -68,6 +70,7 @@ class PlayerFsm extends Fsm {
         addState(stateIdle = new PlayerStateIdle(player));
         addState(stateOutSide = new PlayerStateOutside(player));
         addState(stateBenchSitting = new PlayerStateBenchSitting(player));
+        addState(stateBenchStanding = new PlayerStateBenchStanding(player));
         addState(stateBenchOut = new PlayerStateBenchOut(player));
 
         addState(statePhoto = new PlayerStatePhoto(player));

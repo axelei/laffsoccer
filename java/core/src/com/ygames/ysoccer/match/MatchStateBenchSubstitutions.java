@@ -14,6 +14,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_EXIT;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_FORMATION;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_OUT;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_SITTING;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_STANDING;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
 
 class MatchStateBenchSubstitutions extends MatchState {
@@ -78,8 +79,7 @@ class MatchStateBenchSubstitutions extends MatchState {
                     coach.status = LOOK_BENCH;
                     coach.timer = 250;
 
-                    // TODO
-                    //player.fsm.setState(STATE_BENCH_STANDING);
+                    player.fsm.setState(STATE_BENCH_STANDING);
                 }
             }
         }

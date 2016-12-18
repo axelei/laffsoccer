@@ -12,6 +12,7 @@ import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_STANDING;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_REACH_TARGET;
 
@@ -70,8 +71,7 @@ class MatchStateBenchFormation extends MatchState {
                 fsm.benchStatus.swapPosition = -1;
                 if (fsm.benchStatus.substPosition != -1) {
                     Player player = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
-                    // TODO
-//                    player.fsm.setState("state_bench_standing");
+                    player.fsm.setState(STATE_BENCH_STANDING);
 
                     fsm.benchStatus.selectedPosition = fsm.benchStatus.substPosition - TEAM_SIZE;
                     fsm.benchStatus.substPosition = -1;
@@ -149,9 +149,8 @@ class MatchStateBenchFormation extends MatchState {
             // reset eventually pending swap or substitution
             fsm.benchStatus.swapPosition = -1;
             if (fsm.benchStatus.substPosition != -1) {
-                Player ply = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
-                // TODO
-                // ply.fsm.setState("state_bench_standing")
+                Player player = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
+                player.fsm.setState(STATE_BENCH_STANDING);
 
                 fsm.benchStatus.selectedPosition = fsm.benchStatus.substPosition - TEAM_SIZE;
                 fsm.benchStatus.substPosition = -1;
