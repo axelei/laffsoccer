@@ -76,7 +76,7 @@ public class Kit implements Json.Serializable {
     public TextureRegion loadLogo() {
         List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
         addKitColors(rgbPairs);
-        return Assets.loadTextureRegion("images/logo/" + style + ".PNG", rgbPairs);
+        return Assets.loadTextureRegion("images/logo/" + style + ".png", rgbPairs);
     }
 
     public void addKitColors(List<RgbPair> rgbPairs) {
