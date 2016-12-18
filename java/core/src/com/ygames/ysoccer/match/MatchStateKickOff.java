@@ -9,6 +9,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_REACH_TARGET;
 
 class MatchStateKickOff extends MatchState {
 
@@ -28,8 +29,8 @@ class MatchStateKickOff extends MatchState {
     }
 
     @Override
-    void entryActions() {
-        super.entryActions();
+    void onResume() {
+        super.onResume();
 
         isKickingOff = false;
 
@@ -45,6 +46,13 @@ class MatchStateKickOff extends MatchState {
         if (kickOffTeam.usesAutomaticInputDevice()) {
             kickOffPlayer.inputDevice = kickOffTeam.inputDevice;
         }
+    }
+
+    @Override
+    void onPause() {
+        super.onPause();
+        match.setStartingPositions();
+        kickOffPlayer.fsm.setState(STATE_REACH_TARGET);
     }
 
     @Override
