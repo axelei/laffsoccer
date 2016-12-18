@@ -11,7 +11,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchStateThrowIn extends MatchState {
 
-    private Team throwInTeam;
     private Player throwInPlayer;
     private boolean isThrowingIn;
 
@@ -28,18 +27,27 @@ class MatchStateThrowIn extends MatchState {
     }
 
     @Override
-    void entryActions() {
-        super.entryActions();
+    void onResume() {
+        super.onResume();
 
-        throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
         isThrowingIn = false;
 
-        throwInTeam.updateFrameDistance();
-        throwInTeam.findNearest();
-        throwInPlayer = throwInTeam.near1;
+        fsm.throwInTeam.updateFrameDistance();
+        fsm.throwInTeam.findNearest();
+        throwInPlayer = fsm.throwInTeam.near1;
 
         throwInPlayer.setTarget(match.ball.x, match.ball.y);
         throwInPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+    }
+
+    @Override
+    void onPause() {
+        super.onPause();
+
+        match.updateTeamTactics();
+
+        match.ball.setPosition(match.throwInX, match.throwInY, 0);
+        match.ball.updatePrediction();
     }
 
     @Override

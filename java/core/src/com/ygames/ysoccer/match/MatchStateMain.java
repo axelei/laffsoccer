@@ -108,6 +108,7 @@ class MatchStateMain extends MatchState {
 
             // Throw-in
             if (Math.abs(match.ball.x) > (Const.TOUCH_LINE + Const.BALL_R)) {
+                fsm.throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
                 event = Event.THROW_IN;
                 return;
             }
