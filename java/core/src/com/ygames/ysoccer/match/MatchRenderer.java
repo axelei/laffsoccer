@@ -115,7 +115,7 @@ public class MatchRenderer {
 
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.setToOrtho(true, Gdx.graphics.getWidth() * 100.0f / zoom, Gdx.graphics.getHeight() * 100.0f / zoom);
+        camera.setToOrtho(true, Gdx.graphics.getWidth() * 100f / zoom, Gdx.graphics.getHeight() * 100f / zoom);
         camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
@@ -204,6 +204,10 @@ public class MatchRenderer {
 
         if (matchState.displayBenchFormation) {
             drawBenchFormation();
+        }
+
+        if (matchState.displayTacticsSwitch) {
+            drawTacticsSwitch();
         }
 
         // additional state-specific render
@@ -1008,6 +1012,56 @@ public class MatchRenderer {
             Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
             Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
             Assets.font10.draw(batch, Assets.strings.get(ply.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
+        }
+    }
+
+    private void drawTacticsSwitch() {
+        int w = 180;
+        int h = 18;
+
+        int x = guiWidth / 3 + 35 + 2;
+        int y = guiHeight / 2 - 186 + 2;
+
+        // objects' shadows //
+        batch.end();
+        gl.glEnable(GL20.GL_BLEND);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(0x242424, guiAlpha);
+
+        // image
+        shapeRenderer.rect(x + w / 2 - 41, y, 82, 66);
+
+        // frame
+        drawFrame(x, y + 80, w, 18 * h + 6);
+
+        // slots
+        for (int i = 0; i < 18; i++) {
+            int color = 0x242424;
+            if (i == match.fsm.benchStatus.team.getTacticsIndex()) {
+                color = 0xFFAA33;
+            }
+            if (i == match.fsm.benchStatus.selectedTactics) {
+                color = GLColor.sweepColor(color, 0xFFAA33);
+            }
+            fadeRect(x, y + 84 + h * i, x + w - 2, y + 82 + h * (i + 1), 0.6f, color);
+        }
+
+        x = x - 2;
+        y = y - 2;
+
+        // objects //
+        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+
+        drawFrame(x, y + 80, w, 18 * h + 6);
+
+        shapeRenderer.end();
+        batch.begin();
+        batch.setColor(0xFFFFFF, guiAlpha);
+
+        batch.draw(Assets.bench[1], x + w / 2 - 41, y);
+
+        for (int i = 0; i < 18; i++) {
+            Assets.font10.draw(batch, Tactics.codes[i], x + w / 2, y + 85 + h * i, Font.Align.CENTER);
         }
     }
 

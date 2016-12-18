@@ -1,0 +1,78 @@
+package com.ygames.ysoccer.match;
+
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.math.Emath;
+
+import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
+import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
+
+class MatchStateBenchTactics extends MatchState {
+
+    MatchStateBenchTactics(MatchFsm fsm) {
+        super(fsm);
+        id = MatchFsm.STATE_BENCH_TACTICS;
+    }
+
+    @Override
+    void entryActions() {
+        super.entryActions();
+        displayTacticsSwitch = true;
+        fsm.benchStatus.selectedTactics = fsm.benchStatus.team.getTacticsIndex();
+    }
+
+    @Override
+    void doActions(float deltaTime) {
+        super.doActions(deltaTime);
+
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+
+            match.updateBall();
+            match.ball.inFieldKeep();
+
+            match.updatePlayers(true);
+
+            match.updateCoaches();
+
+            match.nextSubframe();
+
+            match.save();
+
+            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX, false);
+            matchRenderer.updateCameraY(CF_TARGET, CS_FAST, fsm.benchStatus.targetY);
+
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+
+        // change selected tactics
+        if (fsm.benchStatus.inputDevice.yMoved()) {
+            fsm.benchStatus.selectedTactics = Emath.rotate(fsm.benchStatus.selectedTactics, 0, 17, fsm.benchStatus.inputDevice.y1);
+        }
+    }
+
+    @Override
+    void checkConditions() {
+
+        // set selected tactics and go back to bench
+        if (fsm.benchStatus.inputDevice.fire1Down()) {
+            if (fsm.benchStatus.selectedTactics != fsm.benchStatus.team.getTacticsIndex()) {
+                Coach coach = fsm.benchStatus.team.coach;
+                coach.status = Coach.Status.CALL;
+                coach.timer = 500;
+                fsm.benchStatus.team.tactics = Tactics.codes[fsm.benchStatus.selectedTactics];
+            }
+            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
+            return;
+        }
+
+        // go back to bench
+        if (fsm.benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
+        return;
+    }
+}

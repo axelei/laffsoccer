@@ -16,6 +16,7 @@ class MatchState {
     boolean displayRadar;
     boolean displayBenchPlayers;
     boolean displayBenchFormation;
+    boolean displayTacticsSwitch;
 
     // convenience references
     protected Match match;
