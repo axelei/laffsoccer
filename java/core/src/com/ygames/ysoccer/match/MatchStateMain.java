@@ -102,6 +102,7 @@ class MatchStateMain extends MatchState {
                         return;
                     } else {
                         event = Event.GOAL_KICK;
+                        fsm.goalKickTeam = match.team[1 - match.ball.ownerLast.team.index];
                         return;
                     }
                 }

@@ -6,12 +6,12 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchStateGoalKick extends MatchState {
 
-    private Team goalKickTeam;
     private Player goalKickPlayer;
     private boolean isKicking;
 
@@ -28,19 +28,26 @@ class MatchStateGoalKick extends MatchState {
     }
 
     @Override
-    void entryActions() {
-        super.entryActions();
-
-        goalKickTeam = match.team[1 - match.ball.ownerLast.team.index];
+    void onResume() {
+        super.onResume();
 
         matchRenderer.actionCamera.offx = -30 * match.ball.xSide;
         matchRenderer.actionCamera.offy = -30 * match.ball.ySide;
 
         isKicking = false;
 
-        goalKickPlayer = goalKickTeam.lineup.get(0);
+        goalKickPlayer = fsm.goalKickTeam.lineupAtPosition(0);
         goalKickPlayer.setTarget(match.ball.x, match.ball.y + 6 * match.ball.ySide);
         goalKickPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+    }
+
+    @Override
+    void onPause() {
+        super.onPause();
+
+        goalKickPlayer.setTarget(match.ball.x / 4, fsm.goalKickTeam.side * (GOAL_LINE -8));
+        match.team[HOME].updateTactics(true);
+        match.team[AWAY].updateTactics(true);
     }
 
     @Override
