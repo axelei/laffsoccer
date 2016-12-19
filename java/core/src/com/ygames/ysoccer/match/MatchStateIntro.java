@@ -25,9 +25,9 @@ class MatchStateIntro extends MatchState {
         match.setIntroPositions();
         match.resetData();
 
-        Assets.Sounds.intro.play(match.settings.soundVolume / 100f);
-        long crowdId = Assets.Sounds.crowd.play(match.settings.soundVolume / 100f);
-        Assets.Sounds.crowd.setLooping(crowdId, true);
+        Assets.Sounds.introId = Assets.Sounds.intro.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.crowdId = Assets.Sounds.crowd.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.crowd.setLooping(Assets.Sounds.crowdId, true);
     }
 
     @Override

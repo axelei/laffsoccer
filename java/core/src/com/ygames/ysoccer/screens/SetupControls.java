@@ -333,7 +333,7 @@ class SetupControls extends GLScreen {
 
     private boolean isKeyCodeReserved(int keyCode) {
         Integer[] reservedKeyCodes = {
-                Input.Keys.ESCAPE, Input.Keys.R, Input.Keys.P, Input.Keys.H,
+                Input.Keys.ESCAPE, Input.Keys.SPACE, Input.Keys.R, Input.Keys.P, Input.Keys.H,
                 Input.Keys.F1, Input.Keys.F2, Input.Keys.F3, Input.Keys.F4,
                 Input.Keys.F5, Input.Keys.F6, Input.Keys.F7, Input.Keys.F8,
                 Input.Keys.F9, Input.Keys.F10, Input.Keys.F11, Input.Keys.F12

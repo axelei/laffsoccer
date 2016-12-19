@@ -174,7 +174,7 @@ public class MatchRenderer {
         }
 
         // radar
-        if (matchState.displayRadar && match.game.settings.radar) {
+        if (matchState.displayRadar && match.settings.radar) {
             drawRadar(match.subframe);
         }
 
@@ -186,6 +186,12 @@ public class MatchRenderer {
         // score
         if (matchState.displayScore) {
             drawScore();
+        }
+
+        // messages
+        if (match.fsm.matchKeys.messageTimer > 0) {
+            batch.setColor(0xFFFFFF, guiAlpha);
+            Assets.font10.draw(batch, match.fsm.matchKeys.message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 
         // statistics

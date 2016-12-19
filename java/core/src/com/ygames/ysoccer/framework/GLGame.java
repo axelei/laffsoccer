@@ -48,7 +48,7 @@ public class GLGame extends Game {
         Gdx.app.setLogLevel(settings.logLevel);
         glGraphics = new GLGraphics();
         gui = new Gui();
-        setScreenMode();
+        setScreenMode(settings.fullScreen);
         Assets.load(settings);
 
         inputDevices = new InputDeviceList();
@@ -84,8 +84,8 @@ public class GLGame extends Game {
         }
     }
 
-    public void setScreenMode() {
-        if (settings.fullScreen) {
+    public void setScreenMode(boolean fullScreen) {
+        if (fullScreen) {
             if (!Gdx.graphics.isFullscreen()) {
                 Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
             }

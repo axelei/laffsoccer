@@ -99,10 +99,12 @@ public class Assets {
         public static Sound bounce;
         public static Sound chant;
         public static Sound crowd;
+        public static Long crowdId;
         public static Sound deflect;
         public static Sound hold;
         public static Sound homeGoal;
         public static Sound intro;
+        public static Long introId;
         public static Sound kick;
         public static Sound net;
         public static Sound post;

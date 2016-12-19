@@ -40,6 +40,7 @@ public class Settings {
     public boolean radar;
     public boolean autoReplays;
     public int soundVolume;
+    public boolean commentary;
 
     // controls
     private String keyboardConfigs;
@@ -74,6 +75,7 @@ public class Settings {
         radar = preferences.getBoolean("radar", true);
         autoReplays = preferences.getBoolean("autoReplays", true);
         soundVolume = preferences.getInteger("soundVolume", 40);
+        commentary = preferences.getBoolean("commentary", true);
 
         // controls
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
@@ -105,6 +107,7 @@ public class Settings {
         preferences.putBoolean("radar", radar);
         preferences.putBoolean("autoReplays", autoReplays);
         preferences.putInteger("soundVolume", soundVolume);
+        preferences.putBoolean("commentary", commentary);
 
         // controls
         preferences.putString("keyboardConfigs", keyboardConfigs);

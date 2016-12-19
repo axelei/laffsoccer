@@ -52,6 +52,8 @@ public class MatchFsm {
     private ArrayDeque<Action> actions;
     private Action currentAction;
 
+    MatchKeys matchKeys;
+
     static final int STATE_INTRO = 1;
     static final int STATE_STARTING_POSITIONS = 2;
     static final int STATE_KICK_OFF = 3;
@@ -85,6 +87,7 @@ public class MatchFsm {
 
     MatchFsm(Match match) {
         this.match = match;
+        this.matchKeys = new MatchKeys(match);
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
         states = new ArrayList<MatchState>();
         benchStatus = new BenchStatus();

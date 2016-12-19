@@ -40,6 +40,7 @@ class MatchState {
 
     void doActions(float deltaTime) {
         timer += 1;
+        fsm.matchKeys.update();
     }
 
     void checkConditions() {

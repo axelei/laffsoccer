@@ -192,7 +192,7 @@ class GameOptions extends GLScreen {
 
         private void toggleFullScreen() {
             game.settings.fullScreen = !game.settings.fullScreen;
-            game.setScreenMode();
+            game.setScreenMode(game.settings.fullScreen);
             setDirty(true);
         }
     }

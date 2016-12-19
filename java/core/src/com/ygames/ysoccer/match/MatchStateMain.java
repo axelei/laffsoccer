@@ -52,7 +52,7 @@ class MatchStateMain extends MatchState {
                         match.chantSwitch = false;
                         match.nextChant = match.clock + (6 + Assets.random.nextInt(6)) * 1000;
                     } else {
-                        Assets.Sounds.chant.play(match.settings.soundVolume / 100f);
+                        Assets.Sounds.chant.play(match.settings.crowdChants ? match.settings.soundVolume / 100f : 0);
                         match.chantSwitch = true;
                         match.nextChant = match.clock + 8000;
                     }
