@@ -291,13 +291,13 @@ public abstract class Competition {
                 return o2.goals - o1.goals;
             }
 
-            // by team name
-            if (o1.player.team != o2.player.team) {
-                return o1.player.team.name.compareTo(o2.player.team.name);
+            // by shirt names
+            if (!o1.player.shirtName.equals(o2.player.shirtName)) {
+                return o1.player.shirtName.compareTo(o2.player.shirtName);
             }
 
-            // by names
-            return o1.player.name.compareTo(o2.player.name);
+            // by team name
+            return o1.player.team.name.compareTo(o2.player.team.name);
         }
     }
 
