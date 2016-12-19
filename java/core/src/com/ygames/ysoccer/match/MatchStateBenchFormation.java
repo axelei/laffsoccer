@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -111,6 +112,13 @@ class MatchStateBenchFormation extends MatchState {
                         fsm.benchStatus.team.lineup.get(i1).fsm.setState(STATE_OUTSIDE);
                         fsm.benchStatus.team.lineup.get(i2).fsm.setState(STATE_REACH_TARGET);
                         fsm.benchStatus.substPosition = -1;
+
+                        if (match.settings.commentary) {
+                            int size = Assets.Commentary.playerSubstitution.size();
+                            if (size > 0) {
+                                Assets.Commentary.playerSubstitution.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                            }
+                        }
                     }
 
                     // if swap
@@ -122,6 +130,13 @@ class MatchStateBenchFormation extends MatchState {
                         fsm.benchStatus.team.lineup.get(i1).fsm.setState(STATE_REACH_TARGET);
                         fsm.benchStatus.team.lineup.get(i2).fsm.setState(STATE_REACH_TARGET);
                         fsm.benchStatus.swapPosition = -1;
+
+                        if (match.settings.commentary) {
+                            int size = Assets.Commentary.playerSwap.size();
+                            if (size > 0) {
+                                Assets.Commentary.playerSwap.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                            }
+                        }
                     }
 
                     // swap players

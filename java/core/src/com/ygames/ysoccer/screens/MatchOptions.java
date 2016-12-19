@@ -68,6 +68,12 @@ class MatchOptions extends GLScreen {
         w = new SfxVolumeButton();
         widgets.add(w);
 
+        w = new CommentaryLabel();
+        widgets.add(w);
+
+        w = new CommentaryButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -342,6 +348,45 @@ class MatchOptions extends GLScreen {
 
         private void updateSfxVolume(int n) {
             game.settings.soundVolume = Emath.slide(game.settings.soundVolume, 0, 100, 10 * n);
+            setDirty(true);
+        }
+    }
+
+    private class CommentaryLabel extends Button {
+
+        CommentaryLabel() {
+            setColors(0x76683C);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 490, 440, 40);
+            setText(Assets.strings.get("MATCH OPTIONS.COMMENTARY"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class CommentaryButton extends Button {
+
+        CommentaryButton() {
+            setColors(0x2B4A61);
+            setGeometry(game.gui.WIDTH / 2 + 10, 490, 440, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(game.settings.commentary ? "MATCH OPTIONS.COMMENTARY.ON" : "MATCH OPTIONS.COMMENTARY.OFF"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleCommentary();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleCommentary();
+        }
+
+        private void toggleCommentary() {
+            game.settings.commentary = !game.settings.commentary;
             setDirty(true);
         }
     }

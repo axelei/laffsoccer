@@ -131,6 +131,43 @@ public class Assets {
         }
     }
 
+    public static class Commentary {
+
+        public static List<Sound> cornerKick = new ArrayList<Sound>();
+        public static List<Sound> goal = new ArrayList<Sound>();
+        public static List<Sound> keeperSave = new ArrayList<Sound>();
+        public static List<Sound> ownGoal = new ArrayList<Sound>();
+        public static List<Sound> playerSubstitution = new ArrayList<Sound>();
+        public static List<Sound> playerSwap = new ArrayList<Sound>();
+
+        public static void load() {
+            FileHandle commentaryFolder = Gdx.files.local("sounds/commentary");
+            for (FileHandle fileHandle : commentaryFolder.list()) {
+                List<String> extensions = Arrays.asList("ogg", "wav", "mp3");
+                if (extensions.contains(fileHandle.extension().toLowerCase())) {
+                    if (fileHandle.nameWithoutExtension().startsWith("corner_kick")) {
+                        cornerKick.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (fileHandle.nameWithoutExtension().startsWith("goal")) {
+                        goal.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (fileHandle.nameWithoutExtension().startsWith("keeper_save")) {
+                        keeperSave.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (fileHandle.nameWithoutExtension().startsWith("own_goal")) {
+                        ownGoal.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (fileHandle.nameWithoutExtension().startsWith("player_substitution")) {
+                        playerSubstitution.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (fileHandle.nameWithoutExtension().startsWith("player_swap")) {
+                        playerSwap.add(Gdx.audio.newSound(fileHandle));
+                    }
+                }
+            }
+        }
+    }
+
     public static void load(Settings settings) {
         random = new Random(System.currentTimeMillis());
         customCursor = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("images/arrow.png")), 0, 0);
@@ -191,6 +228,7 @@ public class Assets {
         loadWind();
         loadBench();
         Sounds.load();
+        Commentary.load();
     }
 
     private static void loadLocales() {

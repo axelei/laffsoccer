@@ -39,6 +39,17 @@ class MatchStateCornerKick extends MatchState {
     }
 
     @Override
+    void entryActions() {
+        super.entryActions();
+        if (match.settings.commentary) {
+            int size = Assets.Commentary.cornerKick.size();
+            if (size > 0) {
+                Assets.Commentary.cornerKick.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+            }
+        }
+    }
+
+    @Override
     void onResume() {
         super.onResume();
 

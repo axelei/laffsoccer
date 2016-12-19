@@ -342,6 +342,15 @@ public class Player implements Json.Serializable {
             }
         }
 
+        if (collisionType == CT_CATCH) {
+            if (match.settings.commentary) {
+                int size = Assets.Commentary.keeperSave.size();
+                if (size > 0) {
+                    Assets.Commentary.keeperSave.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                }
+            }
+        }
+
         return (collisionType == CT_CATCH);
     }
 

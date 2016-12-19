@@ -33,6 +33,20 @@ class MatchStateGoal extends MatchState {
 
         goal = match.goals.get(match.goals.size() - 1);
 
+        if (match.settings.commentary) {
+            if (goal.type == Goal.Type.OWN_GOAL) {
+                int size = Assets.Commentary.ownGoal.size();
+                if (size > 0) {
+                    Assets.Commentary.ownGoal.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                }
+            } else {
+                int size = Assets.Commentary.goal.size();
+                if (size > 0) {
+                    Assets.Commentary.goal.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                }
+            }
+        }
+
         if (match.team[HOME].side == match.ball.ySide) {
             match.kickOffTeam = HOME;
         } else if (match.team[AWAY].side == match.ball.ySide) {

@@ -250,17 +250,30 @@ Add the file in the same directory as the team and rename the file as:<br/>
 - flag.[team name].png (national teams)<br/>
 <br/>
 Examples:<br/>
-- for club "team.inter_milan.json", the custom logo will be logo.inter_milan.png<br/>
-- for national team "team.italy.json", the custom flag will be flag.italy.png<br/>
+- for club team <em>team.inter_milan.json</em>, the file should be named <em>logo.inter_milan.png</em><br/>
+- for national team <em>team.italy.json</em>, the file should be named <em>flag.italy.png</em><br/>
 <br/>
 
 <h4>COMMENTARY</h4>
-<p>Copy commentary
-from the SWOS CD into the directory <em>sounds/commentary</em>,
-then convert to ogg and rename them to hear the original SWOS
-commentary! You can also use different commentary available in some
-swos websites. 
-</p>
+<p>It's possible to add custom commentary audio files.</p>
+<p>Supported extension are ogg, mp3 or wav.</p>
+The filenames should begin with any of the following:
+<ul>
+<li>corner_kick</li>
+<li>goal</li>
+<li>keeper_save</li>
+<li>own_goal</li>
+<li>player_substitution</li>
+<li>player_swap</li>
+</ul>
+
+As an example, to use the original SWOS commentary:
+<ul>
+<li>copy the files from the original SWOS CD into the directory <em>sounds/commentary</em></li>
+<li>convert them to ogg/wav/mp3</li>
+<li>rename them as above</li>
+</ul>
+<p>Commentary in various languages are also available from many swos fan websites.</p> 
 <table border="1" cellpadding="2" cellspacing="2" width="90%">
 	<tr>
 		<td style="width:14%">&nbsp;</td>
@@ -278,32 +291,32 @@ swos websites.
 		<td rowspan="6">1) goal</td>
 		<td>M158_1_.raw</td>
 		<td>ic01-fc01-gc01.raw</td>
-		<td>101.ogg</td>
+		<td>goal1.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_2_.raw</td>
 		<td>ic02-fc02-gc02.raw</td>
-		<td>102.ogg</td>
+		<td>goal2.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_3_.raw</td>
 		<td>ic03-fc03-gc03.raw</td>
-		<td>103.ogg</td>
+		<td>goal3.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_4_.raw</td>
 		<td>ic04-fc04-gc04.raw</td>
-		<td>104.ogg</td>
+		<td>goal4.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_5_.raw</td>
 		<td>ic05-fc05-gc05.raw</td>
-		<td>105.ogg</td>
+		<td>goal5.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_7_.raw</td>
 		<td>ic06-fc06-gc06.raw</td>
-		<td>106.ogg</td>
+		<td>goal6.ogg</td>
 	</tr>
 	<tr>
 		<td colspan="4">&nbsp;</td>
@@ -312,66 +325,66 @@ swos websites.
 		<td rowspan="6">2) own-goal</td>
 		<td>M158_p_.raw</td>
 		<td>ic15-fc15-gc15.raw</td>
-		<td>201.ogg</td>
+		<td>own_goal1.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_q_.raw</td>
 		<td>ic16-fc16-gc16.raw</td>
-		<td>202.ogg</td>
+		<td>own_goal2.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_s_.raw</td>
 		<td>ic17-fc17-gc17.raw</td>
-		<td>203.ogg</td>
+		<td>own_goal3.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_t_.raw</td>
 		<td>ic18-fc18-gc18.raw</td>
-		<td>204.ogg</td>
+		<td>own_goal4.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_x_.raw</td>
 		<td>ic19-fc19-gc19.raw</td>
-		<td>205.ogg</td>
+		<td>own_goal5.ogg</td>
 	</tr>
 	<tr>
 		<td>M158_y_.raw</td>
 		<td>ic20-fc20-gc20.raw</td>
-		<td>206.ogg</td>
+		<td>own_goal6.ogg</td>
 	</tr>
 	<tr>
 		<td colspan="4">&nbsp;</td>
 	</tr>
 	<tr>
-		<td rowspan="6">2) corner</td>
+		<td rowspan="6">2) corner kick</td>
 		<td>M10_v_.raw</td>
 		<td>ic62-fc62-gc62.raw</td>
-		<td>301.ogg</td>
+		<td>corner_kick1.ogg</td>
 	</tr>
 	<tr>
 		<td>M10_w_.raw</td>
 		<td>ic63-fc63-gc63.raw</td>
-		<td>302.ogg</td>
+		<td>corner_kick2.ogg</td>
 	</tr>
 	<tr>
 		<td>M10_y_.raw</td>
 		<td>ic64-fc64-gc64.raw</td>
-		<td>303.ogg</td>
+		<td>corner_kick3.ogg</td>
 	</tr>
 	<tr>
 		<td>M313_1_.raw</td>
 		<td>ic65-fc65-gc65.raw</td>
-		<td>304.ogg</td>
+		<td>corner_kick4.ogg</td>
 	</tr>
 	<tr>
 		<td>M313_2_.raw</td>
 		<td>ic66-fc66-gc66.raw</td>
-		<td>305.ogg</td>
+		<td>corner_kick5.ogg</td>
 	</tr>
 	<tr>
 		<td>M313_3_.raw</td>
 		<td>ic67-fc67-gc67.raw</td>
-		<td>306.ogg</td>
+		<td>corner_kick6.ogg</td>
 	</tr>
 </table>
 
