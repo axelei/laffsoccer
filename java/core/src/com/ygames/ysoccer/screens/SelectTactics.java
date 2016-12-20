@@ -9,6 +9,8 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Tactics;
 
+import java.util.Stack;
+
 class SelectTactics extends GLScreen {
 
     SelectTactics(GLGame game) {
@@ -46,8 +48,12 @@ class SelectTactics extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
-            // game.setScreen(new EditTactics(game, tactics, tacticsIndex, tacticsStack));
+            game.tacticsToEdit = tacticsIndex;
+            game.editedTactics = new Tactics();
+            game.editedTactics.copy(Assets.tactics[game.tacticsToEdit]);
+            game.tacticsUndo = new Stack<Tactics>();
+
+            game.setScreen(new EditTactics(game));
         }
     }
 

@@ -9,9 +9,11 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.WidgetColor;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class GLGame extends Game {
 
@@ -28,6 +30,10 @@ public class GLGame extends Game {
     Mouse mouse;
     MenuInput menuInput;
     public Player tmpPlayer;
+
+    public int tacticsToEdit;
+    public Tactics editedTactics;
+    public Stack<Tactics> tacticsUndo;
 
     public enum State {
         NONE, FRIENDLY, COMPETITION, EDIT, TRAINING

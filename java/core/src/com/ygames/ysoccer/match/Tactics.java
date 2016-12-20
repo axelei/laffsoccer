@@ -4,6 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import static com.ygames.ysoccer.match.Const.BALL_ZONES;
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+
 public class Tactics {
 
     public static String[] codes = new String[]{
@@ -46,8 +49,8 @@ public class Tactics {
     };
 
     String name;
-    int[][][] target = new int[Const.TEAM_SIZE][Const.BALL_ZONES][2];
-    int[] pairs = new int[Const.TEAM_SIZE];
+    int[][][] target = new int[TEAM_SIZE][BALL_ZONES][2];
+    int[] pairs = new int[TEAM_SIZE];
     public int basedOn;
 
     public void loadFile(InputStream in) throws IOException {
@@ -81,8 +84,8 @@ public class Tactics {
         }
 
         // targets
-        for (int player = 1; player < Const.TEAM_SIZE; player++) {
-            for (int ball_zone = 0; ball_zone < Const.BALL_ZONES; ball_zone++) {
+        for (int player = 1; player < TEAM_SIZE; player++) {
+            for (int ball_zone = 0; ball_zone < BALL_ZONES; ball_zone++) {
                 int i = bytes[index++] & 0xFF;
 
                 // read unsigned values
@@ -100,7 +103,7 @@ public class Tactics {
         }
 
         // pairs
-        for (int i = 1; i < Const.TEAM_SIZE; i++) {
+        for (int i = 1; i < TEAM_SIZE; i++) {
             pairs[i] = bytes[index++] & 0xFF;
         }
 
@@ -114,9 +117,9 @@ public class Tactics {
         String s = name + "\n";
 
         // target positions
-        for (int ball_zone = 0; ball_zone < Const.BALL_ZONES; ball_zone++) {
+        for (int ball_zone = 0; ball_zone < BALL_ZONES; ball_zone++) {
             s += String.format("%02d", ball_zone) + ":";
-            for (int player = 1; player < Const.TEAM_SIZE; player++) {
+            for (int player = 1; player < TEAM_SIZE; player++) {
                 // convert from coordinates
                 int x = target[player][ball_zone][0] / Const.TACT_DX;
                 int y = target[player][ball_zone][1] / Const.TACT_DY;
@@ -133,7 +136,7 @@ public class Tactics {
 
         // editor pairs
         s += "Pairs:";
-        for (int player = 1; player < Const.TEAM_SIZE; player++) {
+        for (int player = 1; player < TEAM_SIZE; player++) {
             int i = pairs[player];
             if (i == 255) {
                 i = 0;
@@ -148,5 +151,25 @@ public class Tactics {
         s += "Based on: " + basedOn + "\n";
 
         return s;
+    }
+
+    public void copy(Tactics t) {
+        name = t.name;
+
+        // targets
+        for (int player = 1; player < TEAM_SIZE; player++) {
+            for (int zone = 0; zone < BALL_ZONES; zone++) {
+                target[player][zone][0] = t.target[player][zone][0];
+                target[player][zone][1] = t.target[player][zone][1];
+            }
+        }
+
+        // pairs
+        for (int i = 1; i < TEAM_SIZE; i++) {
+            pairs[i] = t.pairs[i];
+        }
+
+        // base tactics
+        basedOn = t.basedOn;
     }
 }
