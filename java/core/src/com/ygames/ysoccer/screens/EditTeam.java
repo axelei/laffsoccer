@@ -284,7 +284,7 @@ class EditTeam extends GLScreen {
                 team.image = null;
                 team.loadImage();
             }
-            textureRegion = team.image;
+            setTextureRegion(team.image);
             limitToSize(100, 70);
             setPosition(125, 52);
         }

@@ -676,7 +676,7 @@ class SetTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = shownTeam.image;
+            setTextureRegion(shownTeam.image);
             limitToSize(100, 70);
         }
     }
