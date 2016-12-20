@@ -467,7 +467,7 @@ class SetTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            if (shownTeam.getTacticsIndex() == t) {
+            if (shownTeam.tactics == t) {
                 setColors(0x9D7B03, 0xE2B004, 0x675103);
             } else {
                 setColors(0xE2B004, 0xFCCE30, 0x9D7B03);
@@ -477,8 +477,8 @@ class SetTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            if (shownTeam.getTacticsIndex() != t) {
-                shownTeam.tactics = Tactics.codes[t];
+            if (shownTeam.tactics != t) {
+                shownTeam.tactics = t;
                 updateTacticsButtons();
                 updatePlayerButtons();
             }

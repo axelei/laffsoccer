@@ -232,7 +232,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            if (team.getTacticsIndex() == t) {
+            if (team.tactics == t) {
                 setColors(0x9D7B03, 0xE2B004, 0x675103);
             } else {
                 setColors(0xE2B004, 0xFCCE30, 0x9D7B03);
@@ -241,8 +241,8 @@ class EditTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            if (team.getTacticsIndex() != t) {
-                team.tactics = Tactics.codes[t];
+            if (team.tactics != t) {
+                team.tactics = t;
                 for (Widget w : tacticsButtons) {
                     w.setDirty(true);
                 }

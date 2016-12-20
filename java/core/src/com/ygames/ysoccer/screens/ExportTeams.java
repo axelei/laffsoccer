@@ -10,9 +10,9 @@ import com.ygames.ysoccer.export.FileConfig;
 import com.ygames.ysoccer.export.TeamConfig;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -20,7 +20,6 @@ import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
-import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
@@ -247,7 +246,7 @@ class ExportTeams extends GLScreen {
             file.writeBytes(getByte(0), true);
             file.writeBytes(getByte(0), true);
 
-            file.writeBytes(getByte(getTacticsIndex(team.tactics)), true);
+            file.writeBytes(getByte(team.tactics), true);
 
             file.writeBytes(getByte(teamConfig.division), true);
 
@@ -393,13 +392,6 @@ class ExportTeams extends GLScreen {
             if (ImportTeams.countryCodes[i].equals(team.country)) {
                 return i;
             }
-        }
-        return 0;
-    }
-
-    private int getTacticsIndex(String tactics) {
-        for (int i = 0; i < Tactics.codes.length; i++) {
-            if (Tactics.codes[i].equals(tactics)) return i;
         }
         return 0;
     }

@@ -20,7 +20,6 @@ import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
-import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
@@ -644,7 +643,7 @@ class ImportTeams extends GLScreen {
         }
 
         // tactics
-        team.tactics = Tactics.codes[bytes[pos++] & 0xFF];
+        team.tactics = bytes[pos++] & 0xFF;
 
         // league
         int division = bytes[pos++] & 0xFF;

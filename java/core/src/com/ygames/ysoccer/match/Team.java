@@ -44,7 +44,7 @@ public class Team implements Json.Serializable {
     public String stadium;
     public Coach coach;
 
-    public String tactics;
+    public int tactics;
 
     public int kitIndex;
     public List<Kit> kits;
@@ -103,7 +103,13 @@ public class Team implements Json.Serializable {
         coach = json.readValue("coach", Coach.class, jsonData);
         coach.team = this;
 
-        tactics = jsonData.getString("tactics");
+        String tacticsCode = jsonData.getString("tactics");
+        tactics = 0;
+        for (int i = 0; i < Tactics.codes.length; i++) {
+            if (Tactics.codes[i].equals(tacticsCode)) {
+                tactics = i;
+            }
+        }
 
         Kit[] kitsArray = json.readValue("kits", Kit[].class, jsonData);
         Collections.addAll(kits, kitsArray);
@@ -135,7 +141,7 @@ public class Team implements Json.Serializable {
         json.writeValue("city", city);
         json.writeValue("stadium", stadium);
         json.writeValue("coach", coach);
-        json.writeValue("tactics", tactics);
+        json.writeValue("tactics", Tactics.codes[tactics]);
         json.writeValue("kits", kits, Kit[].class, Kit.class);
         json.writeValue("players", players, Player[].class, Player.class);
     }
@@ -247,8 +253,8 @@ public class Team implements Json.Serializable {
 
             Player player = lineup.get(i);
 
-            int tx = Assets.tactics[getTacticsIndex()].target[i][ball_zone][0];
-            int ty = Assets.tactics[getTacticsIndex()].target[i][ball_zone][1];
+            int tx = Assets.tactics[tactics].target[i][ball_zone][0];
+            int ty = Assets.tactics[tactics].target[i][ball_zone][1];
 
             player.tx = (1 - Math.abs(match.ball.mx)) * tx + Math.abs(match.ball.mx) * tx;
             player.ty = (1 - Math.abs(match.ball.my)) * ty + Math.abs(match.ball.my) * ty;
@@ -481,7 +487,7 @@ public class Team implements Json.Serializable {
 
     public Player playerAtPosition(int pos, Tactics tcs) {
         if (tcs == null) {
-            tcs = Assets.tactics[getTacticsIndex()];
+            tcs = Assets.tactics[tactics];
         }
         if (pos < players.size()) {
             int ply = (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
@@ -497,7 +503,7 @@ public class Team implements Json.Serializable {
 
     public Player lineupAtPosition(int pos, Tactics tcs) {
         if (tcs == null) {
-            tcs = Assets.tactics[getTacticsIndex()];
+            tcs = Assets.tactics[tactics];
         }
         if (pos < lineup.size()) {
             int ply = (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
@@ -510,7 +516,7 @@ public class Team implements Json.Serializable {
 
     public int playerIndexAtPosition(int pos) {
         if (pos < players.size()) {
-            int baseTactics = Assets.tactics[getTacticsIndex()].basedOn;
+            int baseTactics = Assets.tactics[tactics].basedOn;
             return (pos < TEAM_SIZE) ? Tactics.order[baseTactics][pos] : pos;
         } else {
             return -1;
@@ -556,16 +562,6 @@ public class Team implements Json.Serializable {
             offense += playerAtPosition(p).getOffenseRating();
         }
         return offense;
-    }
-
-    // TODO: replace with custom serialization
-    public int getTacticsIndex() {
-        for (int i = 0; i < Tactics.codes.length; i++) {
-            if (Tactics.codes[i].equals(tactics)) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     public static void kitAutoSelection(Team homeTeam, Team awayTeam) {

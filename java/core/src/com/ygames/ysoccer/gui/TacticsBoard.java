@@ -71,7 +71,7 @@ public class TacticsBoard extends Widget {
 
             Team team = viewOpponent ? teamB : teamA;
 
-            int baseTactics = Assets.tactics[team.getTacticsIndex()].basedOn;
+            int baseTactics = Assets.tactics[team.tactics].basedOn;
 
             for (int ply = 0; ply < Const.TEAM_SIZE; ply++) {
 
@@ -134,7 +134,7 @@ public class TacticsBoard extends Widget {
                     teamToShow = teamB;
                 }
 
-                int baseTactics = Assets.tactics[teamToShow.getTacticsIndex()].basedOn;
+                int baseTactics = Assets.tactics[teamToShow.tactics].basedOn;
 
                 for (int ply = 0; ply < Const.TEAM_SIZE; ply++) {
                     int tx = 0;

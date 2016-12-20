@@ -22,7 +22,7 @@ class MatchStateBenchTactics extends MatchState {
     void entryActions() {
         super.entryActions();
         displayTacticsSwitch = true;
-        fsm.benchStatus.selectedTactics = fsm.benchStatus.team.getTacticsIndex();
+        fsm.benchStatus.selectedTactics = fsm.benchStatus.team.tactics;
     }
 
     @Override
@@ -60,11 +60,11 @@ class MatchStateBenchTactics extends MatchState {
 
         // set selected tactics and go back to bench
         if (fsm.benchStatus.inputDevice.fire1Down()) {
-            if (fsm.benchStatus.selectedTactics != fsm.benchStatus.team.getTacticsIndex()) {
+            if (fsm.benchStatus.selectedTactics != fsm.benchStatus.team.tactics) {
                 Coach coach = fsm.benchStatus.team.coach;
                 coach.status = Coach.Status.CALL;
                 coach.timer = 500;
-                fsm.benchStatus.team.tactics = Tactics.codes[fsm.benchStatus.selectedTactics];
+                fsm.benchStatus.team.tactics = fsm.benchStatus.selectedTactics;
             }
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
             return;
