@@ -84,15 +84,35 @@ public class Team implements Json.Serializable {
 
     public Team() {
         controlMode = ControlMode.UNDEFINED;
+        kits = new ArrayList<Kit>();
+        players = new ArrayList<Player>();
     }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        json.readFields(this, jsonData);
-        for (Player player : players) {
-            player.team = this;
-        }
+        name = jsonData.getString("name");
+        path = jsonData.getString("path", null);
+        controlMode = json.readValue("controlMode", ControlMode.class, ControlMode.UNDEFINED, jsonData);
+        type = json.readValue("type", Team.Type.class, jsonData);
+        country = jsonData.getString("country");
+        confederation = jsonData.getString("confederation", null);
+        league = jsonData.getString("league", null);
+        city = jsonData.getString("city");
+        stadium = jsonData.getString("stadium");
+
+        coach = json.readValue("coach", Coach.class, jsonData);
         coach.team = this;
+
+        tactics = jsonData.getString("tactics");
+
+        Kit[] kitsArray = json.readValue("kits", Kit[].class, jsonData);
+        Collections.addAll(kits, kitsArray);
+
+        Player[] playersArray = json.readValue("players", Player[].class, jsonData);
+        for (Player player : playersArray) {
+            player.team = this;
+            players.add(player);
+        }
     }
 
     @Override
