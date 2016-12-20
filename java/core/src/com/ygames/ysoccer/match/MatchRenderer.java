@@ -449,7 +449,31 @@ public class MatchRenderer {
             Assets.font14.draw(batch, match.team[HOME].stadium + ", " + match.team[HOME].city, guiWidth / 2, y, Font.Align.CENTER);
         }
 
-        // TODO: club logos/national flags
+        // club logos / national flags
+        y = t + 13 * h / 100;
+
+        if (match.team[HOME].image != null) {
+            int w0 = match.team[HOME].image.getRegionWidth();
+            int h0 = match.team[HOME].image.getRegionHeight();
+            float imageScale0 = (h0 > 70) ? 70f / h0 : 1f;
+            int x0 = l + w / 23;
+            int y0 = y - (int) (imageScale0 * h0) / 2;
+            batch.setColor(0x242424, guiAlpha);
+            batch.draw(match.team[HOME].image, x0 + 2, y0 + 2, 0, 0, w0, h0, imageScale0, imageScale0, 0);
+            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.draw(match.team[HOME].image, x0, y0, 0, 0, w0, h0, imageScale0, imageScale0, 0);
+        }
+        if (match.team[AWAY].image != null) {
+            int w1 = match.team[AWAY].image.getRegionWidth();
+            int h1 = match.team[AWAY].image.getRegionHeight();
+            float imageScale1 = (h1 > 70) ? 70f / h1 : 1f;
+            int x1 = r - w / 23 - (int) (imageScale1 * w1);
+            int y1 = y - (int) (imageScale1 * h1) / 2;
+            batch.setColor(0x242424, guiAlpha);
+            batch.draw(match.team[AWAY].image, x1 + 2, y1 + 2, 0, 0, w1, h1, imageScale1, imageScale1, 0);
+            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.draw(match.team[AWAY].image, x1, y1, 0, 0, w1, h1, imageScale1, imageScale1, 0);
+        }
 
         // team name
         y = t + h / 4;
