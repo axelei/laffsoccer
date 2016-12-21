@@ -53,18 +53,21 @@ class EditTactics extends GLScreen {
             w = new PlayerNameButton(pos);
             widgets.add(w);
 
-            int x = 396;
+            int x = 394;
             if (team.type != Team.Type.NATIONAL) {
                 if (game.settings.useFlags) {
                     w = new PlayerNationalityFlagButton(pos);
                     widgets.add(w);
-                    x += 28;
+                    x += 30;
                 } else {
                     w = new PlayerNationalityCodeButton(pos);
                     widgets.add(w);
                     x += 58;
                 }
             }
+
+            w = new PlayerRoleButton(x, pos);
+            widgets.add(w);
         }
     }
 
@@ -223,8 +226,8 @@ class EditTactics extends GLScreen {
 
         PlayerNationalityFlagButton(int position) {
             this.position = position;
-            setGeometry(396, 114 + 22 * position, 26, 20);
-            setImagePosition(1, 3);
+            setGeometry(396, 114 + 22 * position, 30, 20);
+            setImagePosition(2, 3);
             setActive(false);
             setAddShadow(true);
         }
@@ -247,7 +250,7 @@ class EditTactics extends GLScreen {
 
         PlayerNationalityCodeButton(int position) {
             this.position = position;
-            setGeometry(396, 114 + 22 * position, 54, 20);
+            setGeometry(396, 114 + 22 * position, 58, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -259,6 +262,28 @@ class EditTactics extends GLScreen {
                 setText("");
             } else {
                 setText("(" + player.nationality + ")");
+            }
+        }
+    }
+
+    private class PlayerRoleButton extends Button {
+
+        int position;
+
+        PlayerRoleButton(int x, int position) {
+            this.position = position;
+            setGeometry(x, 114 + 22 * position, 30, 20);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(position);
+            if (player == null) {
+                setText("");
+            } else {
+                setText(Assets.strings.get(player.getRoleLabel()));
             }
         }
     }
