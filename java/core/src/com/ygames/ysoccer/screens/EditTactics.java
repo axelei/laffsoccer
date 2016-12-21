@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
@@ -25,6 +26,8 @@ class EditTactics extends GLScreen {
     private int selectedForSwap;
     private int selectedForPair;
 
+    private Font font10yellow;
+
     EditTactics(GLGame game) {
         super(game);
         team = game.tacticsTeam;
@@ -33,12 +36,12 @@ class EditTactics extends GLScreen {
 
         background = new Texture("images/backgrounds/menu_set_team.jpg");
 
+        font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
+        font10yellow.load();
+
         Widget w;
 
         w = new TitleBar(Assets.strings.get("EDIT TACTICS") + " (" + Tactics.codes[game.tacticsToEdit] + ")", 0xBA9206);
-        widgets.add(w);
-
-        w = new TacticsBoard();
         widgets.add(w);
 
         // players
@@ -68,7 +71,18 @@ class EditTactics extends GLScreen {
 
             w = new PlayerRoleButton(x, pos);
             widgets.add(w);
+            x += 34;
+
+            for (int skillIndex = 0; skillIndex < 3; skillIndex++) {
+                w = new PlayerSkillButton(pos, skillIndex, x);
+                widgets.add(w);
+                x += 13;
+            }
+            x += 4;
         }
+
+        w = new TacticsBoard();
+        widgets.add(w);
     }
 
     private class TacticsBoard extends Picture {
@@ -272,7 +286,7 @@ class EditTactics extends GLScreen {
 
         PlayerRoleButton(int x, int position) {
             this.position = position;
-            setGeometry(x, 114 + 22 * position, 30, 20);
+            setGeometry(x, 114 + 22 * position, 34, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -284,6 +298,35 @@ class EditTactics extends GLScreen {
                 setText("");
             } else {
                 setText(Assets.strings.get(player.getRoleLabel()));
+            }
+        }
+    }
+
+    private class PlayerSkillButton extends Button {
+
+        int pos;
+        int skillIndex;
+
+        PlayerSkillButton(int pos, int skillIndex, int x) {
+            this.pos = pos;
+            this.skillIndex = skillIndex;
+            setGeometry(x, 114 + 22 * pos, 13, 20);
+            setText("", Font.Align.CENTER, font10yellow);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(pos);
+            if (player == null) {
+                setText("");
+            } else {
+                Player.Skill[] skills = player.getOrderedSkills();
+                if (skills == null) {
+                    setText("");
+                } else {
+                    setText(Assets.strings.get(Player.getSkillLabel(skills[skillIndex])));
+                }
             }
         }
     }
