@@ -22,17 +22,26 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 
 class EditTactics extends GLScreen {
 
+    boolean copyMode;
     private Team team;
     private int selectedForSwap;
     private int selectedForPair;
+    private int[] ballZone;
+    private int[] ballCopyZone;
 
     private Font font10yellow;
 
+    private Widget copyButton;
+
     EditTactics(GLGame game) {
         super(game);
+
+        copyMode = false;
         team = game.tacticsTeam;
         selectedForSwap = -1;
         selectedForPair = -1;
+        ballZone = new int[]{0, 0};
+        ballCopyZone = new int[]{0, 0};
 
         background = new Texture("images/backgrounds/menu_set_team.jpg");
 
@@ -83,6 +92,9 @@ class EditTactics extends GLScreen {
 
         w = new TacticsBoard();
         widgets.add(w);
+
+        copyButton = new CopyButton();
+        widgets.add(copyButton);
     }
 
     private class TacticsBoard extends Picture {
@@ -328,6 +340,38 @@ class EditTactics extends GLScreen {
                     setText(Assets.strings.get(Player.getSkillLabel(skills[skillIndex])));
                 }
             }
+        }
+    }
+
+    private class CopyButton extends Button {
+
+        CopyButton() {
+            setGeometry(1134 - 140 / 2, 175, 140, 36);
+            setText(Assets.strings.get("TACTICS.COPY"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (copyMode) {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            } else {
+                setColors(0x1769BD, 0x3A90E8, 0x10447A);
+                setActive(true);
+            }
+        }
+
+        @Override
+        protected void onFire1Down() {
+            copyMode = true;
+            // TODO
+            // selectedWidget = ballCopy;
+            // ballCopy.setEntryMode(true);
+            ballCopyZone[0] = ballZone[0];
+            ballCopyZone[1] = ballZone[1];
+            setDirty(true);
+            // TODO
+            //updateBallCopyPiece();
         }
     }
 
