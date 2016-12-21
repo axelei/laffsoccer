@@ -23,8 +23,6 @@ class EditTactics extends GLScreen {
     private int selectedForSwap;
     private int selectedForPair;
 
-    private Widget[] faceButtons = new Widget[FULL_TEAM];
-
     EditTactics(GLGame game) {
         super(game);
         team = game.tacticsTeam;
@@ -42,13 +40,15 @@ class EditTactics extends GLScreen {
         widgets.add(w);
 
         // players
-        for (int p = 0; p < FULL_TEAM; p++) {
+        for (int pos = 0; pos < FULL_TEAM; pos++) {
 
-            w = new PlayerFaceButton(p);
-            faceButtons[p] = w;
+            w = new PlayerFaceButton(pos);
             widgets.add(w);
 
-            w = new PlayerNumberButton(p);
+            w = new PlayerNumberButton(pos);
+            widgets.add(w);
+
+            w = new PlayerNameButton(pos);
             widgets.add(w);
         }
     }
@@ -59,7 +59,7 @@ class EditTactics extends GLScreen {
             Texture texture = new Texture("images/tactics_board.png");
             textureRegion = new TextureRegion(texture);
             textureRegion.flip(false, true);
-            setGeometry(40, 110, 396, 576);
+            setGeometry(580, 110, 396, 576);
             hAlign = HAlign.LEFT;
             vAlign = VAlign.TOP;
         }
@@ -71,7 +71,7 @@ class EditTactics extends GLScreen {
 
         PlayerFaceButton(int position) {
             this.position = position;
-            setGeometry(460, 110 + 18 * position, 24, 18);
+            setGeometry(60, 114 + 22 * position, 24, 20);
             setImagePosition(2, -2);
             setActive(false);
             setAddShadow(true);
@@ -106,7 +106,7 @@ class EditTactics extends GLScreen {
 
         PlayerNumberButton(int position) {
             this.position = position;
-            setGeometry(484, 110 + 18 * position, 30, 18);
+            setGeometry(84, 114 + 22 * position, 30, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -119,6 +119,30 @@ class EditTactics extends GLScreen {
             } else {
                 setText(player.number);
             }
+        }
+    }
+
+    private class PlayerNameButton extends Button {
+
+        int position;
+
+        PlayerNameButton(int position) {
+            this.position = position;
+            setGeometry(114, 114 + 22 * position, 276, 20);
+            setText("", Font.Align.LEFT, Assets.font10);
+        }
+
+        @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(position);
+            if (player == null) {
+                setText("");
+                setActive(false);
+            } else {
+                setText(player.name);
+                setActive(true);
+            }
+            setPlayerWidgetColor(this, position);
         }
     }
 
