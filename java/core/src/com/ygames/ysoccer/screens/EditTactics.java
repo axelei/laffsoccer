@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -46,6 +47,9 @@ class EditTactics extends GLScreen {
             w = new PlayerFaceButton(p);
             faceButtons[p] = w;
             widgets.add(w);
+
+            w = new PlayerNumberButton(p);
+            widgets.add(w);
         }
     }
 
@@ -75,7 +79,6 @@ class EditTactics extends GLScreen {
 
         @Override
         public void refresh() {
-            super.refresh();
             if (game.tacticsFlip) {
                 setActive((position > 0) && (position < TEAM_SIZE));
                 setPlayerFlipColor(this, position);
@@ -94,6 +97,28 @@ class EditTactics extends GLScreen {
         @Override
         public void onFire1Down() {
             pairPlayer(position);
+        }
+    }
+
+    private class PlayerNumberButton extends Button {
+
+        int position;
+
+        PlayerNumberButton(int position) {
+            this.position = position;
+            setGeometry(484, 110 + 18 * position, 30, 18);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(position);
+            if (player == null) {
+                setText("");
+            } else {
+                setText(player.number);
+            }
         }
     }
 
