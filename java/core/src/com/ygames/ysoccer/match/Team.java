@@ -515,9 +515,15 @@ public class Team implements Json.Serializable {
 
 
     public int playerIndexAtPosition(int pos) {
+        return playerIndexAtPosition(pos, null);
+    }
+
+    public int playerIndexAtPosition(int pos, Tactics tcs) {
+        if (tcs == null) {
+            tcs = Assets.tactics[tactics];
+        }
         if (pos < players.size()) {
-            int baseTactics = Assets.tactics[tactics].basedOn;
-            return (pos < TEAM_SIZE) ? Tactics.order[baseTactics][pos] : pos;
+            return (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
         } else {
             return -1;
         }

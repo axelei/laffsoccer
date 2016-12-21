@@ -14,6 +14,8 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
+import java.util.Collections;
+
 import static com.ygames.ysoccer.match.Const.FULL_TEAM;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 
@@ -50,6 +52,13 @@ class EditTactics extends GLScreen {
 
             w = new PlayerNameButton(pos);
             widgets.add(w);
+
+            int x = 396;
+            if (team.type != Team.Type.NATIONAL) {
+                w = new PlayerNationalityFlagButton(pos);
+                widgets.add(w);
+                x += 28;
+            }
         }
     }
 
@@ -106,7 +115,7 @@ class EditTactics extends GLScreen {
 
         PlayerNumberButton(int position) {
             this.position = position;
-            setGeometry(84, 114 + 22 * position, 30, 20);
+            setGeometry(86, 114 + 22 * position, 30, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -128,7 +137,7 @@ class EditTactics extends GLScreen {
 
         PlayerNameButton(int position) {
             this.position = position;
-            setGeometry(114, 114 + 22 * position, 276, 20);
+            setGeometry(118, 114 + 22 * position, 276, 20);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -143,6 +152,60 @@ class EditTactics extends GLScreen {
                 setActive(true);
             }
             setPlayerWidgetColor(this, position);
+        }
+
+        @Override
+        protected void onFire1Down() {
+
+            // swap and pair are mutually exclusive
+            if (selectedForPair != -1) {
+                return;
+            }
+
+            // select
+            if (selectedForSwap == -1) {
+                selectedForSwap = position;
+            }
+
+            // deselect
+            else if (selectedForSwap == position) {
+                selectedForSwap = -1;
+            }
+
+            // swap
+            else {
+                int ply1 = team.playerIndexAtPosition(selectedForSwap, game.editedTactics);
+                int ply2 = team.playerIndexAtPosition(position, game.editedTactics);
+
+                Collections.swap(team.players, ply1, ply2);
+
+                selectedForSwap = -1;
+            }
+            refreshAllWidgets();
+        }
+    }
+
+    private class PlayerNationalityFlagButton extends Button {
+
+        int position;
+
+        PlayerNationalityFlagButton(int position) {
+            this.position = position;
+            setGeometry(396, 114 + 22 * position, 26, 20);
+            setImagePosition(1, 3);
+            setActive(false);
+            setAddShadow(true);
+        }
+
+        @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(position);
+            if (player == null) {
+                textureRegion = null;
+            } else {
+                textureRegion = Assets.getNationalityFlag(player.nationality);
+            }
+            setVisible(team.type != Team.Type.NATIONAL);
         }
     }
 
@@ -165,9 +228,10 @@ class EditTactics extends GLScreen {
         // add / delete pair
         else {
             pushUndoStack();
-            int baseTactics = game.editedTactics.basedOn;
-            int ply1 = Tactics.order[baseTactics][selectedForPair];
-            int ply2 = Tactics.order[baseTactics][n];
+
+            int ply1 = team.playerIndexAtPosition(selectedForSwap, game.editedTactics);
+            int ply2 = team.playerIndexAtPosition(n, game.editedTactics);
+
             game.editedTactics.addDeletePair(ply1, ply2);
             selectedForPair = -1;
         }
