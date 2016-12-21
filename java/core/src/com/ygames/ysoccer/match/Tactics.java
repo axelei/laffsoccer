@@ -50,7 +50,7 @@ public class Tactics {
 
     String name;
     int[][][] target = new int[TEAM_SIZE][BALL_ZONES][2];
-    int[] pairs = new int[TEAM_SIZE];
+    public int[] pairs = new int[TEAM_SIZE];
     public int basedOn;
 
     public void loadFile(InputStream in) throws IOException {
@@ -153,7 +153,7 @@ public class Tactics {
         return s;
     }
 
-    public void copy(Tactics t) {
+    public void copyFrom(Tactics t) {
         name = t.name;
 
         // targets
@@ -171,5 +171,47 @@ public class Tactics {
 
         // base tactics
         basedOn = t.basedOn;
+    }
+
+    public void addDeletePair(int p1, int p2) {
+
+        // old pairs
+        int oldPair1 = pairs[p1];
+        int oldPair2 = pairs[p2];
+
+        // delete pair
+        if ((oldPair1 == oldPair2) && (oldPair1 != 255)) {
+            pairs[p1] = 255;
+            pairs[p2] = 255;
+            return;
+        }
+
+        // delete pairs
+        for (int i = 1; i < TEAM_SIZE; i++) {
+            if (pairs[i] == oldPair1) {
+                pairs[i] = 255;
+            }
+            if (pairs[i] == oldPair2) {
+                pairs[i] = 255;
+            }
+        }
+
+        // add pair
+        int newPairValue = 0;
+        boolean found;
+        do {
+            found = true;
+            for (int i = 1; i < TEAM_SIZE; i++) {
+                if (pairs[i] == newPairValue) {
+                    found = false;
+                }
+            }
+            if (!found) {
+                newPairValue = newPairValue + 1;
+            }
+        } while (!found);
+
+        pairs[p1] = newPairValue;
+        pairs[p2] = newPairValue;
     }
 }

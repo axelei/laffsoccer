@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -8,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Tactics;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.Stack;
 
@@ -50,8 +52,10 @@ class SelectTactics extends GLScreen {
         public void onFire1Down() {
             game.tacticsToEdit = tacticsIndex;
             game.editedTactics = new Tactics();
-            game.editedTactics.copy(Assets.tactics[game.tacticsToEdit]);
+            game.editedTactics.copyFrom(Assets.tactics[game.tacticsToEdit]);
             game.tacticsUndo = new Stack<Tactics>();
+            FileHandle teamFileHandle = Assets.teamsRootFolder.child("CUSTOM/team.electronics.json");
+            game.tacticsTeam = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
 
             game.setScreen(new EditTactics(game));
         }

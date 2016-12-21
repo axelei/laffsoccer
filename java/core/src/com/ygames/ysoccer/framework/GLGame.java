@@ -34,6 +34,8 @@ public class GLGame extends Game {
     public int tacticsToEdit;
     public Tactics editedTactics;
     public Stack<Tactics> tacticsUndo;
+    public boolean tacticsFlip = true;
+    public Team tacticsTeam;
 
     public enum State {
         NONE, FRIENDLY, COMPETITION, EDIT, TRAINING
