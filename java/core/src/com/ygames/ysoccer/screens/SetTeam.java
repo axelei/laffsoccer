@@ -107,7 +107,7 @@ class SetTeam extends GLScreen {
             widgets.add(w);
 
             int x = 550;
-            if (shownTeam.type == Team.Type.CLUB) {
+            if (shownTeam.type != Team.Type.NATIONAL) {
                 if (game.settings.useFlags) {
                     w = new PlayerNationalityFlagButton(pos);
                     playerButtons.add(w);
@@ -155,14 +155,17 @@ class SetTeam extends GLScreen {
         w = new OpponentTeamButton();
         widgets.add(w);
 
+        w = new TeamInputDeviceButton();
+        teamInputDeviceButton = w;
+        widgets.add(w);
+
         w = new ControlModeButton();
         widgets.add(w);
 
-        w = new CoachNameLabel();
+        w = new EditTacticsButton();
         widgets.add(w);
 
-        w = new TeamInputDeviceButton();
-        teamInputDeviceButton = w;
+        w = new CoachNameLabel();
         widgets.add(w);
 
         w = new TeamPicture();
@@ -461,7 +464,7 @@ class SetTeam extends GLScreen {
 
         TacticsButton(int t) {
             this.t = t;
-            setGeometry(game.gui.WIDTH - 90 - 110, 120 + 22 * t, 110, 21);
+            setGeometry(game.gui.WIDTH - 90 - 110, 120 + 23 * t, 110, 21);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -537,10 +540,79 @@ class SetTeam extends GLScreen {
         }
     }
 
+    private class TeamInputDeviceButton extends Button {
+
+        TeamInputDeviceButton() {
+            setGeometry(game.gui.WIDTH / 2 + 140, 536, 202, 42);
+            setText("", Font.Align.LEFT, Assets.font10);
+            textOffsetX = 50;
+            setImagePosition(8, 1);
+            setAddShadow(true);
+        }
+
+        @Override
+        public void refresh() {
+            if (shownTeam.inputDevice != null) {
+                setVisible(shownTeam == ownTeam);
+                switch (shownTeam.inputDevice.type) {
+                    case COMPUTER:
+                        setText("");
+                        break;
+
+                    case KEYBOARD:
+                        setText(Assets.strings.get("KEYBOARD") + " " + (shownTeam.inputDevice.port + 1));
+                        break;
+
+                    case JOYSTICK:
+                        setText(Assets.strings.get("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
+                        break;
+                }
+                textureRegion = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
+            } else {
+                setVisible(false);
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateTeamInputDevice(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateTeamInputDevice(-1);
+        }
+
+        private void updateTeamInputDevice(int n) {
+            shownTeam.inputDevice = game.inputDevices.rotateAvailable(shownTeam.inputDevice, n);
+            setDirty(true);
+        }
+    }
+
+    private class EditTacticsButton extends Button {
+
+        EditTacticsButton() {
+            setGeometry(game.gui.WIDTH - 90 - 170, 540, 170, 34);
+            setColors(0xBA9206, 0xE9B607, 0x6A5304);
+            setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(shownTeam == ownTeam);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.tacticsTeam = ownTeam;
+            game.setScreen(new SelectTactics(game));
+        }
+    }
+
     private class ControlModeButton extends Button {
 
         ControlModeButton() {
-            setGeometry(game.gui.WIDTH / 2 + 140, 536, 175, 40);
+            setGeometry(game.gui.WIDTH / 2 + 140, 586, 155, 40);
             setText("", Font.Align.CENTER, Assets.font10);
         }
 
@@ -589,62 +661,13 @@ class SetTeam extends GLScreen {
     private class CoachNameLabel extends Label {
 
         CoachNameLabel() {
-            setPosition(game.gui.WIDTH / 2 + 140 + 175 + 10, 536 + 20);
+            setPosition(game.gui.WIDTH / 2 + 140 + 155 + 10, 586 + 20);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
         @Override
         public void refresh() {
             setText(shownTeam.coach.name);
-        }
-    }
-
-    private class TeamInputDeviceButton extends Button {
-
-        TeamInputDeviceButton() {
-            setGeometry(game.gui.WIDTH / 2 + 140, 586, 202, 44);
-            setText("", Font.Align.LEFT, Assets.font10);
-            textOffsetX = 50;
-            setImagePosition(8, 1);
-            setAddShadow(true);
-        }
-
-        @Override
-        public void refresh() {
-            if (shownTeam.inputDevice != null) {
-                setVisible(shownTeam == ownTeam);
-                switch (shownTeam.inputDevice.type) {
-                    case COMPUTER:
-                        setText("");
-                        break;
-
-                    case KEYBOARD:
-                        setText(Assets.strings.get("KEYBOARD") + " " + (shownTeam.inputDevice.port + 1));
-                        break;
-
-                    case JOYSTICK:
-                        setText(Assets.strings.get("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
-                        break;
-                }
-                textureRegion = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
-            } else {
-                setVisible(false);
-            }
-        }
-
-        @Override
-        public void onFire1Down() {
-            updateTeamInputDevice(1);
-        }
-
-        @Override
-        public void onFire2Down() {
-            updateTeamInputDevice(-1);
-        }
-
-        private void updateTeamInputDevice(int n) {
-            shownTeam.inputDevice = game.inputDevices.rotateAvailable(shownTeam.inputDevice, n);
-            setDirty(true);
         }
     }
 

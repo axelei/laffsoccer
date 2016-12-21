@@ -55,9 +55,15 @@ class EditTactics extends GLScreen {
 
             int x = 396;
             if (team.type != Team.Type.NATIONAL) {
-                w = new PlayerNationalityFlagButton(pos);
-                widgets.add(w);
-                x += 28;
+                if (game.settings.useFlags) {
+                    w = new PlayerNationalityFlagButton(pos);
+                    widgets.add(w);
+                    x += 28;
+                } else {
+                    w = new PlayerNationalityCodeButton(pos);
+                    widgets.add(w);
+                    x += 58;
+                }
             }
         }
     }
@@ -105,7 +111,33 @@ class EditTactics extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            pairPlayer(position);
+            // swap and pair are mutually exclusive
+            if (selectedForSwap != -1) {
+                return;
+            }
+
+            // select
+            if (selectedForPair == -1) {
+                selectedForPair = position;
+            }
+
+            // deselect
+            else if (selectedForPair == position) {
+                selectedForPair = -1;
+            }
+
+            // add / delete pair
+            else {
+                pushUndoStack();
+
+                int ply1 = team.playerIndexAtPosition(selectedForPair, game.editedTactics);
+                int ply2 = team.playerIndexAtPosition(position, game.editedTactics);
+
+                game.editedTactics.addDeletePair(ply1, ply2);
+                selectedForPair = -1;
+            }
+
+            refreshAllWidgets();
         }
     }
 
@@ -209,34 +241,26 @@ class EditTactics extends GLScreen {
         }
     }
 
-    private void pairPlayer(int n) {
-        // swap and pair are mutually exclusive
-        if (selectedForSwap != -1) {
-            return;
+    private class PlayerNationalityCodeButton extends Button {
+
+        int position;
+
+        PlayerNationalityCodeButton(int position) {
+            this.position = position;
+            setGeometry(396, 114 + 22 * position, 54, 20);
+            setText("", Font.Align.CENTER, Assets.font10);
+            setActive(false);
         }
 
-        // select
-        if (selectedForPair == -1) {
-            selectedForPair = n;
+        @Override
+        public void refresh() {
+            Player player = team.playerAtPosition(position);
+            if (player == null) {
+                setText("");
+            } else {
+                setText("(" + player.nationality + ")");
+            }
         }
-
-        // deselect
-        else if (selectedForPair == n) {
-            selectedForPair = -1;
-        }
-
-        // add / delete pair
-        else {
-            pushUndoStack();
-
-            int ply1 = team.playerIndexAtPosition(selectedForSwap, game.editedTactics);
-            int ply2 = team.playerIndexAtPosition(n, game.editedTactics);
-
-            game.editedTactics.addDeletePair(ply1, ply2);
-            selectedForPair = -1;
-        }
-
-        refreshAllWidgets();
     }
 
     private void pushUndoStack() {
@@ -251,31 +275,40 @@ class EditTactics extends GLScreen {
     private void setPlayerWidgetColor(Widget w, int pos) {
         // selected for swap
         if (selectedForSwap == pos) {
-            w.setColors(0x993333, 0xC24242, 0x5A1E1E);
+            w.setColors(0x993333);
         }
         // selected for pair
         else if (selectedForPair == pos) {
-            w.setColors(0x339999, 0x42C2C2, 0x1E5A5A);
+            w.setColors(0x339999);
         }
         // goalkeeper
         else if (pos == 0) {
-            w.setColors(0x00A7DE, 0x33CCFF, 0x005F7E);
+            w.setColors(0x0094DE);
         }
         // other player
         else if (pos < TEAM_SIZE) {
-            w.setColors(0x003FDE, 0x255EFF, 0x00247E);
+            w.setColors(0x005DDE);
         }
-        // bench
-        else if (pos < TEAM_SIZE + game.settings.benchSize) {
-            w.setColors(0x111188, 0x2D2DB3, 0x001140);
-        }
-        // reserve
+        // bench / out
         else if (pos < team.players.size()) {
-            w.setColors(0x404040, 0x606060, 0x202020);
+            int benchSize;
+            if (team.match != null && team.match.competition != null) {
+                benchSize = team.match.competition.benchSize;
+            } else {
+                benchSize = game.settings.benchSize;
+            }
+            // bench
+            if (pos < TEAM_SIZE + benchSize) {
+                w.setColors(0x0046A6);
+            }
+            // out
+            else if (pos < team.players.size()) {
+                w.setColors(0x303030);
+            }
         }
         // void
         else {
-            w.setColors(0x202020, 0x404040, 0x101010);
+            w.setColors(0x101010);
         }
     }
 
@@ -285,23 +318,23 @@ class EditTactics extends GLScreen {
             int ply = Tactics.order[baseTactics][pos];
             switch (game.editedTactics.pairs[ply]) {
                 case 0:
-                    w.setColors(0x5FC24A, 0x78F55D, 0x468F36);
+                    w.setColors(0x5FC24A);
                     break;
 
                 case 1:
-                    w.setColors(0xCC3E4C, 0xFF4E5F, 0x992F39);
+                    w.setColors(0xCC3E4C);
                     break;
 
                 case 2:
-                    w.setColors(0x9D9A98, 0xD1CDCA, 0x6B6968);
+                    w.setColors(0x9D9A98);
                     break;
 
                 case 3:
-                    w.setColors(0xBE8445, 0xF2A858, 0x8C6133);
+                    w.setColors(0xBE8445);
                     break;
 
                 case 4:
-                    w.setColors(0xBD4DB8, 0xF062E9, 0x8A3886);
+                    w.setColors(0xBD4DB8);
                     break;
 
                 case 255:

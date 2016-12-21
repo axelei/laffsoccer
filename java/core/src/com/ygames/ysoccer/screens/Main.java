@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.competitions.Competition;
@@ -11,6 +12,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Team;
 
 public class Main extends GLScreen {
 
@@ -134,6 +136,8 @@ public class Main extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            FileHandle teamFileHandle = Assets.teamsRootFolder.child("CUSTOM/team.electronics.json");
+            game.tacticsTeam = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
             game.setScreen(new SelectTactics(game));
         }
     }
