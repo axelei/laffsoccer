@@ -95,6 +95,9 @@ class EditTactics extends GLScreen {
 
         copyButton = new CopyButton();
         widgets.add(copyButton);
+
+        w = new FlipButton();
+        widgets.add(w);
     }
 
     private class TacticsBoard extends Picture {
@@ -372,6 +375,30 @@ class EditTactics extends GLScreen {
             setDirty(true);
             // TODO
             //updateBallCopyPiece();
+        }
+    }
+
+    private class FlipButton extends Button {
+
+        FlipButton() {
+            setGeometry(1134 - 150 / 2, 240, 150, 36);
+            setColors(0x536B90, 0x7090C2, 0x263142);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (game.tacticsFlip) {
+                setText(Assets.strings.get("TACTICS.FLIP ON"));
+            } else {
+                setText(Assets.strings.get("TACTICS.FLIP OFF"));
+            }
+        }
+
+        @Override
+        protected void onFire1Down() {
+            game.tacticsFlip = !game.tacticsFlip;
+            refreshAllWidgets();
         }
     }
 
