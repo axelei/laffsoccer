@@ -98,6 +98,9 @@ class EditTactics extends GLScreen {
 
         w = new FlipButton();
         widgets.add(w);
+
+        w = new UndoButton();
+        widgets.add(w);
     }
 
     private class TacticsBoard extends Picture {
@@ -349,7 +352,7 @@ class EditTactics extends GLScreen {
     private class CopyButton extends Button {
 
         CopyButton() {
-            setGeometry(1134 - 140 / 2, 175, 140, 36);
+            setGeometry(1134 - 140 / 2, 175, 140, 40);
             setText(Assets.strings.get("TACTICS.COPY"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -381,7 +384,7 @@ class EditTactics extends GLScreen {
     private class FlipButton extends Button {
 
         FlipButton() {
-            setGeometry(1134 - 150 / 2, 240, 150, 36);
+            setGeometry(1134 - 150 / 2, 240, 150, 40);
             setColors(0x536B90, 0x7090C2, 0x263142);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -402,13 +405,40 @@ class EditTactics extends GLScreen {
         }
     }
 
+    private class UndoButton extends Button {
+
+        UndoButton() {
+            setGeometry(1134 - 144 / 2, 305, 144, 40);
+            setText(Assets.strings.get("TACTICS.UNDO"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (game.tacticsUndo.isEmpty()) {
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
+            } else {
+                setColors(0xBDBF2F, 0xF0F23C, 0x8B8C23);
+                setActive(true);
+            }
+        }
+
+        @Override
+        protected void onFire1Down() {
+            if (game.tacticsUndo.isEmpty()) {
+                return;
+            }
+            game.editedTactics = game.tacticsUndo.pop();
+            // TODO
+//            updatePlayerPieces();
+            refreshAllWidgets();
+        }
+    }
+
     private void pushUndoStack() {
         Tactics tactics = new Tactics();
         tactics.copyFrom(game.editedTactics);
         game.tacticsUndo.push(tactics);
-
-        // TODO
-        // updateUndoButton();
     }
 
     private void setPlayerWidgetColor(Widget w, int pos) {
