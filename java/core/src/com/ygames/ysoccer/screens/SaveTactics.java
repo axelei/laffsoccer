@@ -69,6 +69,9 @@ class SaveTactics extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
+
+        w = new AbortButton();
+        widgets.add(w);
     }
 
     private class TacticsButton extends Button {
@@ -122,6 +125,20 @@ class SaveTactics extends GLScreen {
         @Override
         protected void onFire1Up() {
             save(null);
+        }
+    }
+
+    private class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xDC0000, 0xFF4141, 0x8C0000);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Up() {
+            game.setScreen(new EditTactics(game));
         }
     }
 

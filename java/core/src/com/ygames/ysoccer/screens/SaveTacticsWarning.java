@@ -53,7 +53,7 @@ class SaveTacticsWarning extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
+        public void onFire1Up() {
             game.setScreen(new SaveTactics(game));
         }
     }

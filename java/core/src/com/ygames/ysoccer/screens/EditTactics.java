@@ -735,7 +735,7 @@ class EditTactics extends GLScreen {
         }
 
         @Override
-        protected void onFire1Down() {
+        protected void onFire1Up() {
             if (game.tacticsUndo.isEmpty()) {
                 // exit
                 if (game.getState() == NONE) {
