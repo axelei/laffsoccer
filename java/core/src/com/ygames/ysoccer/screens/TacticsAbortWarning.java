@@ -30,6 +30,8 @@ class TacticsAbortWarning extends GLScreen {
 
         setSelectedWidget(w);
 
+        w = new AbortButton();
+        widgets.add(w);
     }
 
     private class WarningButton extends Button {
@@ -58,6 +60,20 @@ class TacticsAbortWarning extends GLScreen {
                 // TODO
 //                game.setScreen(new SetTeam(game));
             }
+        }
+    }
+
+    private class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            game.setScreen(new EditTactics(game));
         }
     }
 }
