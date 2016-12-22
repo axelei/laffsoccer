@@ -35,6 +35,9 @@ class ImportTactics extends GLScreen {
 
         w = new LoadTacticsButton();
         widgets.add(w);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
 
@@ -76,7 +79,7 @@ class ImportTactics extends GLScreen {
     private class LoadTacticsButton extends Button {
 
         LoadTacticsButton() {
-            setGeometry(640 -183 -3, 234 +7*(34 +6), 372, 36);
+            setGeometry(640 - 183 - 3, 234 + 7 * (34 + 6), 372, 36);
             setColors(0xAB148D, 0xDE1AB7, 0x780E63);
             setText(Assets.strings.get("TACTICS.LOAD"), Font.Align.CENTER, Assets.font14);
         }
@@ -85,6 +88,20 @@ class ImportTactics extends GLScreen {
         protected void onFire1Down() {
             // TODO
 //            game.setScreen(new LoadTactics(game));
+        }
+    }
+
+    private class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry(640 - 90, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            game.setScreen(new EditTactics(game));
         }
     }
 }

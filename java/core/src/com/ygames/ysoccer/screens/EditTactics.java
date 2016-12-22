@@ -47,6 +47,7 @@ class EditTactics extends GLScreen {
     private Widget copyButton;
     private Widget undoButton;
     private Widget saveButton;
+    private Widget exitButton;
 
     EditTactics(GLGame game) {
         super(game);
@@ -154,8 +155,8 @@ class EditTactics extends GLScreen {
 
         setSelectedWidget(w);
 
-        w = new AbortButton();
-        widgets.add(w);
+        exitButton = new ExitButton();
+        widgets.add(exitButton);
     }
 
     private class TacticsBoard extends Picture {
@@ -728,7 +729,6 @@ class EditTactics extends GLScreen {
 
         SaveButton() {
             setGeometry(1120 - 170 / 2, 525, 170, 40);
-            setColors(0x10A000, 0x15E000, 0x096000);
             setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -750,12 +750,21 @@ class EditTactics extends GLScreen {
         }
     }
 
-    private class AbortButton extends Button {
+    private class ExitButton extends Button {
 
-        public AbortButton() {
+        public ExitButton() {
             setGeometry(1120 - 170 / 2, 590, 170, 40);
-            setColors(0xC84200, 0xFF6519, 0x803300);
-            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            setColors(0xC84200);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (game.tacticsUndo.isEmpty()) {
+                setText(Assets.strings.get("EXIT"));
+            } else {
+                setText(Assets.strings.get("ABORT"));
+            }
         }
 
         @Override
@@ -782,6 +791,7 @@ class EditTactics extends GLScreen {
         game.tacticsUndo.push(tactics);
         undoButton.setDirty(true);
         saveButton.setDirty(true);
+        exitButton.setDirty(true);
     }
 
     private void setPlayerWidgetColor(Widget w, int pos) {
