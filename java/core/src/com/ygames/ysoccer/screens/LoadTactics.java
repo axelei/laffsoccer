@@ -42,6 +42,10 @@ class LoadTactics extends GLScreen {
 
         Widget.arrange(game.gui.WIDTH, 280, 42, list);
 
+        if (list.size() > 0) {
+            setSelectedWidget(list.get(0));
+        }
+
         for (Widget widget : list) {
             widget.w = 160;
             w = new Button();
@@ -51,6 +55,13 @@ class LoadTactics extends GLScreen {
             w.setText("TACT", Font.Align.CENTER, Assets.font14);
             w.setActive(false);
             widgets.add(w);
+        }
+
+        w = new AbortButton();
+        widgets.add(w);
+
+        if (selectedWidget == null) {
+            setSelectedWidget(w);
         }
     }
 
@@ -79,6 +90,20 @@ class LoadTactics extends GLScreen {
             }
             Tactics.codes[game.tacticsToEdit] = name;
 
+            game.setScreen(new EditTactics(game));
+        }
+    }
+
+    private class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xDC0000, 0xFF4141, 0x8C0000);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
             game.setScreen(new EditTactics(game));
         }
     }
