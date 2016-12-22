@@ -777,8 +777,7 @@ class EditTactics extends GLScreen {
 //                    game.setScreen(new SetTeam(game));
 //                }
             } else {
-                // TODO
-//                game.setScreen(new TacticsAbortWarning(game));
+                game.setScreen(new TacticsAbortWarning(game));
             }
         }
 
