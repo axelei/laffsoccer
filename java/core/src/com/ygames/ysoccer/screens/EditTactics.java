@@ -46,6 +46,7 @@ class EditTactics extends GLScreen {
 
     private Widget copyButton;
     private Widget undoButton;
+    private Widget saveButton;
 
     EditTactics(GLGame game) {
         super(game);
@@ -147,6 +148,11 @@ class EditTactics extends GLScreen {
 
         w = new ImportButton();
         widgets.add(w);
+
+        saveButton = new SaveExitButton();
+        widgets.add(saveButton);
+
+        setSelectedWidget(w);
     }
 
     private class TacticsBoard extends Picture {
@@ -221,7 +227,6 @@ class EditTactics extends GLScreen {
         private void ballCopy() {
             // copy tactics
             pushUndoStack();
-            undoButton.setDirty(true);
 
             int toZone = 17 + ballCopyZone[0] + 5 * ballCopyZone[1];
             int fromZone = 17 + ballZone[0] + 5 * ballZone[1];
@@ -311,7 +316,6 @@ class EditTactics extends GLScreen {
         @Override
         public void onChanged() {
             pushUndoStack();
-            undoButton.setDirty(true);
 
             int[] target = new int[2];
             target[0] = (7 - square[0]) * TACT_DX;
@@ -718,10 +722,47 @@ class EditTactics extends GLScreen {
         }
     }
 
+    private class SaveExitButton extends Button {
+
+        SaveExitButton() {
+            setGeometry(1120 - 170 / 2, 535, 170, 36);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (game.tacticsUndo.isEmpty()) {
+                setText(Assets.strings.get("EXIT"));
+                setColors(0xC84200);
+            } else {
+                setText(Assets.strings.get("SAVE"));
+                setColors(0xDC0000);
+            }
+        }
+
+        @Override
+        protected void onFire1Down() {
+            if (game.tacticsUndo.isEmpty()) {
+                // TODO
+                //if (menu.status = MS_NONE) {
+                game.setScreen(new Main(game));
+                //} else {
+                //game.setScreen(new SetTeam(game));
+                //}
+            } else {
+                // TODO
+                //game.setScreen(new TacticsSaveWarning(game));
+            }
+        }
+    }
+
     private void pushUndoStack() {
         Tactics tactics = new Tactics();
         tactics.copyFrom(game.editedTactics);
         game.tacticsUndo.push(tactics);
+        undoButton.setDirty(true);
+        saveButton.setDirty(true);
     }
 
     private void setPlayerWidgetColor(Widget w, int pos) {
