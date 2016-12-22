@@ -98,7 +98,7 @@ class EditTactics extends GLScreen {
             w = new PlayerNameButton(pos);
             widgets.add(w);
 
-            int x = 394;
+            int x = 404;
             if (team.type != Team.Type.NATIONAL) {
                 if (game.settings.useFlags) {
                     w = new PlayerNationalityFlagButton(pos);
@@ -144,6 +144,9 @@ class EditTactics extends GLScreen {
 
         undoButton = new UndoButton();
         widgets.add(undoButton);
+
+        w = new ImportButton();
+        widgets.add(w);
     }
 
     private class TacticsBoard extends Picture {
@@ -152,7 +155,7 @@ class EditTactics extends GLScreen {
             Texture texture = new Texture("images/tactics_board.png");
             textureRegion = new TextureRegion(texture);
             textureRegion.flip(false, true);
-            setGeometry(580, 110, 396, 576);
+            setGeometry(590, 110, 396, 576);
             hAlign = HAlign.LEFT;
             vAlign = VAlign.TOP;
         }
@@ -165,7 +168,7 @@ class EditTactics extends GLScreen {
             textureRegion = ballTextureRegion;
             setImagePosition(6, -2);
             setRanges(0, 4, 0, 6);
-            setGridGeometry(604, 155, 324, 472);
+            setGridGeometry(614, 155, 324, 472);
             setActive(true);
         }
 
@@ -195,7 +198,7 @@ class EditTactics extends GLScreen {
             textureRegion = ballCopyTextureRegion;
             setImagePosition(6, -2);
             setRanges(0, 4, 0, 6);
-            setGridGeometry(604, 155, 324, 472);
+            setGridGeometry(614, 155, 324, 472);
         }
 
         @Override
@@ -284,10 +287,10 @@ class EditTactics extends GLScreen {
             setSize(24, 14);
             setRanges(0, 14, 0, 15);
             if (ply == 0) {
-                setGridGeometry(580, 110, 372, 562);
+                setGridGeometry(590, 110, 372, 562);
                 setActive(false);
             } else {
-                setGridGeometry(584, 130, 364, 522);
+                setGridGeometry(594, 130, 364, 522);
                 setActive(true);
             }
         }
@@ -388,7 +391,7 @@ class EditTactics extends GLScreen {
 
         PlayerFaceButton(int position) {
             this.position = position;
-            setGeometry(60, 114 + 22 * position, 24, 20);
+            setGeometry(70, 114 + 22 * position, 24, 20);
             setImagePosition(2, -2);
             setActive(false);
             setAddShadow(true);
@@ -449,7 +452,7 @@ class EditTactics extends GLScreen {
 
         PlayerNumberButton(int position) {
             this.position = position;
-            setGeometry(86, 114 + 22 * position, 30, 20);
+            setGeometry(96, 114 + 22 * position, 30, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -471,7 +474,7 @@ class EditTactics extends GLScreen {
 
         PlayerNameButton(int position) {
             this.position = position;
-            setGeometry(118, 114 + 22 * position, 276, 20);
+            setGeometry(128, 114 + 22 * position, 276, 20);
             setText("", Font.Align.LEFT, Assets.font10);
         }
 
@@ -525,7 +528,7 @@ class EditTactics extends GLScreen {
 
         PlayerNationalityFlagButton(int position) {
             this.position = position;
-            setGeometry(396, 114 + 22 * position, 30, 20);
+            setGeometry(406, 114 + 22 * position, 30, 20);
             setImagePosition(2, 3);
             setActive(false);
             setAddShadow(true);
@@ -549,7 +552,7 @@ class EditTactics extends GLScreen {
 
         PlayerNationalityCodeButton(int position) {
             this.position = position;
-            setGeometry(396, 114 + 22 * position, 58, 20);
+            setGeometry(406, 114 + 22 * position, 58, 20);
             setText("", Font.Align.CENTER, Assets.font10);
             setActive(false);
         }
@@ -619,7 +622,7 @@ class EditTactics extends GLScreen {
     private class CopyButton extends Button {
 
         CopyButton() {
-            setGeometry(1134 - 140 / 2, 175, 140, 40);
+            setGeometry(1120 - 170 / 2, 175, 170, 40);
             setText(Assets.strings.get("TACTICS.COPY"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -651,7 +654,7 @@ class EditTactics extends GLScreen {
     private class FlipButton extends Button {
 
         FlipButton() {
-            setGeometry(1134 - 150 / 2, 240, 150, 40);
+            setGeometry(1120 - 170 / 2, 240, 170, 40);
             setColors(0x536B90, 0x7090C2, 0x263142);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -675,7 +678,7 @@ class EditTactics extends GLScreen {
     private class UndoButton extends Button {
 
         UndoButton() {
-            setGeometry(1134 - 144 / 2, 305, 144, 40);
+            setGeometry(1120 - 170 / 2, 305, 170, 40);
             setText(Assets.strings.get("TACTICS.UNDO"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -697,6 +700,21 @@ class EditTactics extends GLScreen {
             }
             game.editedTactics = game.tacticsUndo.pop();
             refreshAllWidgets();
+        }
+    }
+
+    private class ImportButton extends Button {
+
+        ImportButton() {
+            setGeometry(1120 - 170 / 2, 480, 170, 36);
+            setColors(0xAB148D, 0xDE1AB7, 0x780E63);
+            setText(Assets.strings.get("TACTICS.IMPORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            // TODO
+            //game.setScreen(new TacticsImport(game));
         }
     }
 
