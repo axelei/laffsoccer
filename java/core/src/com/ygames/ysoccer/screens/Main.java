@@ -14,6 +14,8 @@ import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
 
+import static com.ygames.ysoccer.framework.GLGame.State.NONE;
+
 public class Main extends GLScreen {
 
     public Main(GLGame game) {
@@ -22,6 +24,7 @@ public class Main extends GLScreen {
         TextureRegion logo = Assets.loadTextureRegion("images/logo.png");
 
         game.teamList.clear();
+        game.setState(NONE, null);
 
         Widget w;
 

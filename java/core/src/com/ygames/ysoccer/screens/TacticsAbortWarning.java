@@ -8,6 +8,8 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
+import static com.ygames.ysoccer.framework.GLGame.State.NONE;
+
 class TacticsAbortWarning extends GLScreen {
 
     TacticsAbortWarning(GLGame game) {
@@ -22,6 +24,12 @@ class TacticsAbortWarning extends GLScreen {
 
         w = new WarningButton();
         widgets.add(w);
+
+        w = new ContinueButton();
+        widgets.add(w);
+
+        setSelectedWidget(w);
+
     }
 
     private class WarningButton extends Button {
@@ -31,6 +39,25 @@ class TacticsAbortWarning extends GLScreen {
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("TACTICS.EDITED TACTICS WILL BE LOST"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class ContinueButton extends Button {
+
+        ContinueButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(Assets.strings.get("CONTINUE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            if (game.getState() == NONE) {
+                game.setScreen(new Main(game));
+            } else {
+                // TODO
+//                game.setScreen(new SetTeam(game));
+            }
         }
     }
 }
