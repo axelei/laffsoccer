@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Tactics;
@@ -27,7 +28,7 @@ class SaveTactics extends GLScreen {
 
         background = new Texture("images/backgrounds/menu_set_team.jpg");
 
-        filename = Tactics.fileNames[game.tacticsToEdit];
+        filename = Tactics.codes[game.tacticsToEdit];
 
         Widget w;
 
@@ -60,6 +61,9 @@ class SaveTactics extends GLScreen {
 
         w = new FilenameLabel();
         widgets.add(w);
+
+        w = new FilenameButton();
+        widgets.add(w);
     }
 
     private class TacticsButton extends Button {
@@ -84,6 +88,21 @@ class SaveTactics extends GLScreen {
         FilenameLabel() {
             setGeometry(game.gui.WIDTH / 2 - 180, 500, 180, 36);
             setText(Assets.strings.get("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
+        }
+    }
+
+    private class FilenameButton extends InputButton {
+
+        FilenameButton() {
+            setGeometry(game.gui.WIDTH / 2, 500, 160, 36);
+            setColors(0x1769BD, 0x3A90E8, 0x10447A);
+            setText(filename, Font.Align.CENTER, Assets.font14);
+            setEntryLimit(8);
+        }
+
+        @Override
+        public void onChanged() {
+            filename = text;
         }
     }
 
