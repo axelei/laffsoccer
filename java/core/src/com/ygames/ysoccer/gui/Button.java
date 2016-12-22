@@ -82,7 +82,7 @@ public class Button extends Widget {
         batch.end();
     }
 
-    private void drawBorder(GLShapeRenderer shapeRenderer, int bx, int by, int bw,
+    protected void drawBorder(GLShapeRenderer shapeRenderer, int bx, int by, int bw,
                             int bh, int topLeftColor, int bottomRightColor) {
 
         // top left border
@@ -100,7 +100,7 @@ public class Button extends Widget {
         shapeRenderer.triangle(bx + bw - 1, by + bh, bx + 1, by + bh, bx + 2, by + bh - 2);
     }
 
-    private void drawAnimatedBorder(GLShapeRenderer shapeRenderer) {
+    protected void drawAnimatedBorder(GLShapeRenderer shapeRenderer) {
         // gray level
         int gl = (int) Math.abs(((sweepSpeed * Math.abs(System.currentTimeMillis())) % 200) - 100) + 100;
 
