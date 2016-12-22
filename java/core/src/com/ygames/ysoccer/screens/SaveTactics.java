@@ -64,6 +64,11 @@ class SaveTactics extends GLScreen {
 
         w = new FilenameButton();
         widgets.add(w);
+
+        w = new SaveButton();
+        widgets.add(w);
+
+        setSelectedWidget(w);
     }
 
     private class TacticsButton extends Button {
@@ -106,8 +111,22 @@ class SaveTactics extends GLScreen {
         }
     }
 
+    private class SaveButton extends Button {
+
+        SaveButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Up() {
+            save(null);
+        }
+    }
+
     private void save(String name) {
-        if (name.isEmpty()) {
+        if (name == null) {
             name = filename;
         }
 
