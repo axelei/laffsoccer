@@ -32,6 +32,9 @@ class ImportTactics extends GLScreen {
                 setSelectedWidget(w);
             }
         }
+
+        w = new LoadTacticsButton();
+        widgets.add(w);
     }
 
 
@@ -44,11 +47,11 @@ class ImportTactics extends GLScreen {
             if (tacticsIndex < 12) {
                 int dx = -3 * 120 / 2 - 6 + (tacticsIndex % 3) * (120 + 6);
                 int dy = (tacticsIndex / 3) * (36 + 6);
-                setGeometry(512 + dx, 220 + dy, 120, 36);
+                setGeometry(640 + dx, 220 + dy, 120, 36);
             } else {
                 int dx = -183 - 3 + ((tacticsIndex - 12) % 2) * (183 + 6);
                 int dy = ((tacticsIndex - 12) / 2) * (36 + 6);
-                setGeometry(512 + dx, 228 + 4 * (34 + 6) + dy, 183, 36);
+                setGeometry(640 + dx, 228 + 4 * (34 + 6) + dy, 183, 36);
             }
             setColors(0x98691E, 0xC88B28, 0x3E2600);
             setText(Tactics.codes[tacticsIndex], Font.Align.CENTER, Assets.font14);
@@ -67,6 +70,21 @@ class ImportTactics extends GLScreen {
             }
 
             game.setScreen(new EditTactics(game));
+        }
+    }
+
+    private class LoadTacticsButton extends Button {
+
+        LoadTacticsButton() {
+            setGeometry(640 -183 -3, 234 +7*(34 +6), 372, 36);
+            setColors(0xAB148D, 0xDE1AB7, 0x780E63);
+            setText(Assets.strings.get("TACTICS.LOAD"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            // TODO
+//            game.setScreen(new LoadTactics(game));
         }
     }
 }
