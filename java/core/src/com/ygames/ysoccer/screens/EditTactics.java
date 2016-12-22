@@ -745,8 +745,7 @@ class EditTactics extends GLScreen {
 
         @Override
         protected void onFire1Down() {
-            // TODO
-            //game.setScreen(new TacticsSaveWarning(game));
+            game.setScreen(new SaveTacticsWarning(game));
         }
     }
 
