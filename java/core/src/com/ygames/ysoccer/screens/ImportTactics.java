@@ -86,8 +86,7 @@ class ImportTactics extends GLScreen {
 
         @Override
         protected void onFire1Down() {
-            // TODO
-//            game.setScreen(new LoadTactics(game));
+            game.setScreen(new LoadTactics(game));
         }
     }
 
