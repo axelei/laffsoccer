@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Picture;
+import com.ygames.ysoccer.gui.Piece;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
@@ -30,7 +31,9 @@ class EditTactics extends GLScreen {
     private int[] ballCopyZone;
 
     private Font font10yellow;
+    private TextureRegion ball;
 
+    private Widget ballPiece;
     private Widget copyButton;
 
     EditTactics(GLGame game) {
@@ -44,6 +47,8 @@ class EditTactics extends GLScreen {
         ballCopyZone = new int[]{0, 0};
 
         background = new Texture("images/backgrounds/menu_set_team.jpg");
+        ball = new TextureRegion(new Texture("images/ball.png"), 0, 0, 8, 8);
+        ball.flip(false, true);
 
         font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();
@@ -93,6 +98,9 @@ class EditTactics extends GLScreen {
         w = new TacticsBoard();
         widgets.add(w);
 
+        ballPiece = new BallPiece();
+        widgets.add(ballPiece);
+
         copyButton = new CopyButton();
         widgets.add(copyButton);
 
@@ -112,6 +120,36 @@ class EditTactics extends GLScreen {
             setGeometry(580, 110, 396, 576);
             hAlign = HAlign.LEFT;
             vAlign = VAlign.TOP;
+        }
+    }
+
+    private class BallPiece extends Piece {
+
+        BallPiece() {
+            setSize(24, 14);
+            textureRegion = ball;
+            setImagePosition(6, -2);
+            setRanges(0, 4, 0, 6);
+            setGridGeometry(604, 155, 324, 472);
+            setActive(true);
+        }
+
+        @Override
+        public void refresh() {
+            setSquare(2 - ballZone[0], 3 - ballZone[1]);
+        }
+
+        @Override
+        public void onChanged() {
+            ballZone[0] = 2 - square[0];
+            ballZone[1] = 3 - square[1];
+            // TODO
+            // update_player_pieces();
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleEntryMode();
         }
     }
 
