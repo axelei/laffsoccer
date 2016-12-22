@@ -22,6 +22,11 @@ class SaveTacticsWarning extends GLScreen {
 
         w = new WarningButton();
         widgets.add(w);
+
+        w = new SaveButton();
+        widgets.add(w);
+
+        setSelectedWidget(w);
     }
 
     private class WarningButton extends Button {
@@ -31,6 +36,21 @@ class SaveTacticsWarning extends GLScreen {
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setText(Assets.strings.get("TACTICS.TACTICS HAVE BEEN CHANGED"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class SaveButton extends Button {
+
+        SaveButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
+            //game.setScreen(new SaveTactics(game));
         }
     }
 }
