@@ -31,9 +31,11 @@ class EditTactics extends GLScreen {
     private int[] ballCopyZone;
 
     private Font font10yellow;
-    private TextureRegion ball;
+    private TextureRegion ballTextureRegion;
+    private TextureRegion ballCopyTextureRegion;
 
-    private Widget ballPiece;
+    private Piece ballPiece;
+    private Piece ballCopy;
     private Widget copyButton;
 
     EditTactics(GLGame game) {
@@ -47,8 +49,10 @@ class EditTactics extends GLScreen {
         ballCopyZone = new int[]{0, 0};
 
         background = new Texture("images/backgrounds/menu_set_team.jpg");
-        ball = new TextureRegion(new Texture("images/ball.png"), 0, 0, 8, 8);
-        ball.flip(false, true);
+        ballTextureRegion = new TextureRegion(new Texture("images/ball.png"), 0, 0, 8, 8);
+        ballTextureRegion.flip(false, true);
+        ballCopyTextureRegion = new TextureRegion(new Texture("images/ballsnow.png"), 0, 0, 8, 8);
+        ballCopyTextureRegion.flip(false, true);
 
         font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();
@@ -101,6 +105,9 @@ class EditTactics extends GLScreen {
         ballPiece = new BallPiece();
         widgets.add(ballPiece);
 
+        ballCopy = new BallCopyPiece();
+        widgets.add(ballCopy);
+
         copyButton = new CopyButton();
         widgets.add(copyButton);
 
@@ -127,7 +134,7 @@ class EditTactics extends GLScreen {
 
         BallPiece() {
             setSize(24, 14);
-            textureRegion = ball;
+            textureRegion = ballTextureRegion;
             setImagePosition(6, -2);
             setRanges(0, 4, 0, 6);
             setGridGeometry(604, 155, 324, 472);
@@ -150,6 +157,100 @@ class EditTactics extends GLScreen {
         @Override
         public void onFire1Down() {
             toggleEntryMode();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleEntryMode();
+        }
+    }
+
+    private class BallCopyPiece extends Piece {
+
+        BallCopyPiece() {
+            setSize(24, 14);
+            textureRegion = ballCopyTextureRegion;
+            setImagePosition(6, -2);
+            setRanges(0, 4, 0, 6);
+            setGridGeometry(604, 155, 324, 472);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(copyMode);
+            setSquare(2 - ballCopyZone[0], 3 - ballCopyZone[1]);
+        }
+
+        @Override
+        public void onChanged() {
+            ballCopyZone[0] = 2 - square[0];
+            ballCopyZone[1] = 3 - square[1];
+        }
+
+        @Override
+        public void onFire1Down() {
+            ballCopy();
+        }
+
+        @Override
+        public void onFire2Down() {
+            ballCopy();
+        }
+
+        private void ballCopy() {
+            // copy tactics
+            pushUndoStack();
+            int toZone = 17 + ballCopyZone[0] + 5 * ballCopyZone[1];
+            int fromZone = 17 + ballZone[0] + 5 * ballZone[1];
+            for (int p1 = 1; p1 < TEAM_SIZE; p1++) {
+
+                // flip mode on
+                if (game.tacticsFlip && Math.signum(ballZone[0] * ballCopyZone[0]) == -1) {
+                    // paired players
+                    if (game.editedTactics.isPaired(p1)) {
+                        int p2 = game.editedTactics.getPaired(p1);
+                        game.editedTactics.target[p1][toZone][0] = -game.editedTactics.target[p2][fromZone][0];
+                        game.editedTactics.target[p1][toZone][1] = +game.editedTactics.target[p2][fromZone][1];
+                    } else {
+                        game.editedTactics.target[p1][toZone][0] = -game.editedTactics.target[p1][fromZone][0];
+                        game.editedTactics.target[p1][toZone][1] = +game.editedTactics.target[p1][fromZone][1];
+                    }
+                } else {
+                    game.editedTactics.target[p1][toZone][0] = game.editedTactics.target[p1][fromZone][0];
+                    game.editedTactics.target[p1][toZone][1] = game.editedTactics.target[p1][fromZone][1];
+                }
+            }
+
+            // copy flipped zone
+            if (game.tacticsFlip && (Math.signum(ballZone[0] * ballCopyZone[0]) != 0)) {
+                int flippedToZone = 17 - ballCopyZone[0] + 5 * ballCopyZone[1];
+                for (int p1 = 1; p1 < TEAM_SIZE; p1++) {
+
+                    // paired players
+                    if (game.editedTactics.isPaired(p1)) {
+                        int p2 = game.editedTactics.getPaired(p1);
+                        game.editedTactics.target[p1][flippedToZone][0] = -game.editedTactics.target[p2][toZone][0];
+                        game.editedTactics.target[p1][flippedToZone][1] = +game.editedTactics.target[p2][toZone][1];
+                    } else {
+                        game.editedTactics.target[p1][flippedToZone][0] = -game.editedTactics.target[p1][toZone][0];
+                        game.editedTactics.target[p1][flippedToZone][1] = +game.editedTactics.target[p1][toZone][1];
+                    }
+                }
+            }
+
+            // disable copy mode
+            copyMode = false;
+            setSelectedWidget(ballPiece);
+            setEntryMode(false);
+            copyButton.setDirty(true);
+            setDirty(true);
+
+            // update ball zone
+            ballZone[0] = ballCopyZone[0];
+            ballZone[1] = ballCopyZone[1];
+            ballPiece.setDirty(true);
+            // TODO
+            //updatePlayerPieces();
         }
     }
 
@@ -408,14 +509,14 @@ class EditTactics extends GLScreen {
         @Override
         protected void onFire1Down() {
             copyMode = true;
-            // TODO
-            // selectedWidget = ballCopy;
-            // ballCopy.setEntryMode(true);
+            setActive(false);
+            ballCopy.setVisible(true);
+            ballCopy.setEntryMode(true);
+            setSelectedWidget(ballCopy);
             ballCopyZone[0] = ballZone[0];
             ballCopyZone[1] = ballZone[1];
             setDirty(true);
-            // TODO
-            //updateBallCopyPiece();
+            ballCopy.setDirty(true);
         }
     }
 

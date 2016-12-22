@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +51,7 @@ public class Tactics {
     };
 
     String name;
-    int[][][] target = new int[TEAM_SIZE][BALL_ZONES][2];
+    public int[][][] target = new int[TEAM_SIZE][BALL_ZONES][2];
     public int[] pairs = new int[TEAM_SIZE];
     public int basedOn;
 
@@ -213,5 +215,22 @@ public class Tactics {
 
         pairs[p1] = newPairValue;
         pairs[p2] = newPairValue;
+    }
+
+    public boolean isPaired(int p) {
+        return pairs[p] != 255;
+    }
+
+    public int getPaired(int p) {
+        int pairValue = pairs[p];
+        if (pairValue == 255) {
+            throw new GdxRuntimeException("This player is not paired");
+        }
+        for (int i = 1; i < TEAM_SIZE; i++) {
+            if ((i != p) && (pairs[i] == pairValue)) {
+                return i;
+            }
+        }
+        throw new GdxRuntimeException("Paired player not found");
     }
 }

@@ -37,13 +37,18 @@ public class Piece extends Button {
     }
 
     protected void toggleEntryMode() {
-        if (!entryMode) {
+        setEntryMode(!entryMode);
+    }
+
+    public void setEntryMode(boolean entryMode) {
+        if(!this.entryMode && entryMode) {
+            this.entryMode = true;
             Gdx.input.setInputProcessor(inputProcessor);
         }
-        if (entryMode) {
+        if(this.entryMode && !entryMode) {
+            this.entryMode = false;
             Gdx.input.setInputProcessor(null);
         }
-        entryMode = !entryMode;
     }
 
     protected void setSquare(int x, int y) {
@@ -103,11 +108,6 @@ public class Piece extends Button {
                     updatePosition();
                     onChanged();
                     setDirty(true);
-                    break;
-
-                case ESCAPE:
-                case ENTER:
-                    toggleEntryMode();
                     break;
             }
             return true;
