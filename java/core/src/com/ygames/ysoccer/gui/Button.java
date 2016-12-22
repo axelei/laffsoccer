@@ -51,9 +51,7 @@ public class Button extends Widget {
 
         batch.setColor(0xFFFFFF, alpha);
 
-        if (textureRegion != null) {
-            drawImage(batch);
-        }
+        drawImage(batch);
 
         if (font != null) {
             batch.begin();
@@ -69,7 +67,11 @@ public class Button extends Widget {
         this.imageY = imageY;
     }
 
-    private void drawImage(GLSpriteBatch batch) {
+    protected void drawImage(GLSpriteBatch batch) {
+        if (textureRegion == null) {
+            return;
+        }
+
         if (addShadow) {
             batch.setColor(0x242424, alpha);
             batch.begin();
@@ -83,7 +85,7 @@ public class Button extends Widget {
     }
 
     protected void drawBorder(GLShapeRenderer shapeRenderer, int bx, int by, int bw,
-                            int bh, int topLeftColor, int bottomRightColor) {
+                              int bh, int topLeftColor, int bottomRightColor) {
 
         // top left border
         shapeRenderer.setColor(topLeftColor, alpha);

@@ -7,18 +7,23 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Piece;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Data;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.PlayerSprite;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.Collections;
 
 import static com.ygames.ysoccer.match.Const.FULL_TEAM;
+import static com.ygames.ysoccer.match.Const.TACT_DX;
+import static com.ygames.ysoccer.match.Const.TACT_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 
 class EditTactics extends GLScreen {
@@ -34,9 +39,13 @@ class EditTactics extends GLScreen {
     private TextureRegion ballTextureRegion;
     private TextureRegion ballCopyTextureRegion;
 
-    private Piece ballPiece;
+    private Piece ball;
     private Piece ballCopy;
+    private Piece[] players = new Piece[TEAM_SIZE];
+    private PlayerSprite[] playerSprite = new PlayerSprite[FULL_TEAM];
+
     private Widget copyButton;
+    private Widget undoButton;
 
     EditTactics(GLGame game) {
         super(game);
@@ -53,6 +62,21 @@ class EditTactics extends GLScreen {
         ballTextureRegion.flip(false, true);
         ballCopyTextureRegion = new TextureRegion(new Texture("images/ballsnow.png"), 0, 0, 8, 8);
         ballCopyTextureRegion.flip(false, true);
+
+        for (int ply = 0; ply < team.players.size(); ply++) {
+            Player player = team.players.get(ply);
+            player.data[0] = new Data();
+            player.isVisible = true;
+            if (player.role == Player.Role.GOALKEEPER) {
+                Assets.loadKeeper(player);
+            } else {
+                Assets.loadPlayer(player);
+            }
+            Assets.loadHair(player);
+            player.fmx = 2;
+            player.fmy = 1;
+            playerSprite[ply] = new PlayerSprite(game.glGraphics, player);
+        }
 
         font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();
@@ -96,17 +120,21 @@ class EditTactics extends GLScreen {
                 widgets.add(w);
                 x += 13;
             }
-            x += 4;
         }
 
         w = new TacticsBoard();
         widgets.add(w);
 
-        ballPiece = new BallPiece();
-        widgets.add(ballPiece);
+        ball = new BallPiece();
+        widgets.add(ball);
 
         ballCopy = new BallCopyPiece();
         widgets.add(ballCopy);
+
+        for (int ply = 0; ply < TEAM_SIZE; ply++) {
+            players[ply] = new PlayerPiece(ply);
+            widgets.add(players[ply]);
+        }
 
         copyButton = new CopyButton();
         widgets.add(copyButton);
@@ -114,8 +142,8 @@ class EditTactics extends GLScreen {
         w = new FlipButton();
         widgets.add(w);
 
-        w = new UndoButton();
-        widgets.add(w);
+        undoButton = new UndoButton();
+        widgets.add(undoButton);
     }
 
     private class TacticsBoard extends Picture {
@@ -150,17 +178,12 @@ class EditTactics extends GLScreen {
         public void onChanged() {
             ballZone[0] = 2 - square[0];
             ballZone[1] = 3 - square[1];
-            // TODO
-            // update_player_pieces();
+
+            updatePlayerPieces();
         }
 
         @Override
         public void onFire1Down() {
-            toggleEntryMode();
-        }
-
-        @Override
-        public void onFire2Down() {
             toggleEntryMode();
         }
     }
@@ -192,14 +215,11 @@ class EditTactics extends GLScreen {
             ballCopy();
         }
 
-        @Override
-        public void onFire2Down() {
-            ballCopy();
-        }
-
         private void ballCopy() {
             // copy tactics
             pushUndoStack();
+            undoButton.setDirty(true);
+
             int toZone = 17 + ballCopyZone[0] + 5 * ballCopyZone[1];
             int fromZone = 17 + ballZone[0] + 5 * ballZone[1];
             for (int p1 = 1; p1 < TEAM_SIZE; p1++) {
@@ -240,7 +260,7 @@ class EditTactics extends GLScreen {
 
             // disable copy mode
             copyMode = false;
-            setSelectedWidget(ballPiece);
+            setSelectedWidget(ball);
             setEntryMode(false);
             copyButton.setDirty(true);
             setDirty(true);
@@ -248,9 +268,117 @@ class EditTactics extends GLScreen {
             // update ball zone
             ballZone[0] = ballCopyZone[0];
             ballZone[1] = ballCopyZone[1];
-            ballPiece.setDirty(true);
-            // TODO
-            //updatePlayerPieces();
+            ball.setDirty(true);
+
+            updatePlayerPieces();
+        }
+    }
+
+    private class PlayerPiece extends Piece {
+
+        int ply;
+        Player player;
+
+        PlayerPiece(int ply) {
+            this.ply = ply;
+            setSize(24, 14);
+            setRanges(0, 14, 0, 15);
+            if (ply == 0) {
+                setGridGeometry(580, 110, 372, 562);
+                setActive(false);
+            } else {
+                setGridGeometry(584, 130, 364, 522);
+                setActive(true);
+            }
+        }
+
+        @Override
+        public void refresh() {
+            player = team.players.get(ply);
+
+            // update position
+            if (ply == 0) {
+                setSquare(7, 15);
+            } else {
+                int[] target = game.editedTactics.target[ply][17 + ballZone[0] + 5 * ballZone[1]];
+                setSquare(14 - (target[0] / TACT_DX + 7), 15 - ((target[1] / TACT_DY + 15) / 2));
+            }
+        }
+
+        @Override
+        public void onChanged() {
+            pushUndoStack();
+            undoButton.setDirty(true);
+
+            int[] target = new int[2];
+            target[0] = (7 - square[0]) * TACT_DX;
+            target[1] = (15 - 2 * square[1]) * TACT_DY;
+            int currentZone = 17 + ballZone[0] + 5 * ballZone[1];
+            game.editedTactics.target[ply][currentZone] = target;
+
+            // flip mode on
+            if (game.tacticsFlip && (ballZone[0] != 0)) {
+                int flippedZone = 17 - ballZone[0] + 5 * ballZone[1];
+                for (int p1 = 1; p1 < TEAM_SIZE; p1++) {
+
+                    // paired players
+                    if (game.editedTactics.isPaired(p1)) {
+                        int p2 = game.editedTactics.getPaired(p1);
+                        game.editedTactics.target[p1][flippedZone][0] = -game.editedTactics.target[p2][currentZone][0];
+                        game.editedTactics.target[p1][flippedZone][1] = +game.editedTactics.target[p2][currentZone][1];
+                    } else {
+                        game.editedTactics.target[p1][flippedZone][0] = -game.editedTactics.target[p1][currentZone][0];
+                        game.editedTactics.target[p1][flippedZone][1] = +game.editedTactics.target[p1][currentZone][1];
+                    }
+                }
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleEntryMode();
+        }
+
+        @Override
+        protected void drawImage(GLSpriteBatch batch) {
+            Player player = team.players.get(ply);
+            if (player != null) {
+                player.x = x + w / 2 - 1;
+                player.y = y + h / 2;
+
+                batch.begin();
+
+                player.save(0);
+
+                Data d = player.data[0];
+                float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
+                float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
+                float mX = 0.65f;
+                float mY = 0.46f;
+                batch.draw(Assets.playerShadow[d.fmx][d.fmy][0], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+
+                playerSprite[ply].draw(0);
+
+                // number
+                int f0 = player.number % 10;
+                int f1 = (player.number - f0) / 10 % 10;
+
+                int dx = x + w / 2;
+                int dy = y - 32;
+
+                int w0 = 6 - (f0 == 1 ? 2 : 0);
+                int w1 = 6 - (f1 == 1 ? 2 : 0);
+
+                if (f1 > 0) {
+                    dx = dx - (w0 + 2 + w1) / 2;
+                    batch.draw(Assets.playerNumbers[f1][0], dx, dy);
+                    dx = dx + w1 + 2;
+                    batch.draw(Assets.playerNumbers[f0][0], dx, dy);
+                } else {
+                    batch.draw(Assets.playerNumbers[f0][0], dx - w0 / 2, dy);
+                }
+                batch.end();
+            }
         }
     }
 
@@ -568,8 +696,6 @@ class EditTactics extends GLScreen {
                 return;
             }
             game.editedTactics = game.tacticsUndo.pop();
-            // TODO
-//            updatePlayerPieces();
             refreshAllWidgets();
         }
     }
@@ -654,6 +780,12 @@ class EditTactics extends GLScreen {
             }
         } else {
             w.setColors(null);
+        }
+    }
+
+    private void updatePlayerPieces() {
+        for (Piece player : players) {
+            player.setDirty(true);
         }
     }
 }

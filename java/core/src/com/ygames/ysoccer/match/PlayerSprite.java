@@ -3,10 +3,10 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGraphics;
 
-class PlayerSprite extends Sprite {
+public class PlayerSprite extends Sprite {
 
     Player player;
-    static int[][][] offsets = {
+    public static int[][][] offsets = {
             {{15, 25}, {16, 25}, {15, 24}, {15, 25}, {14, 25}, {15, 25}, {14, 24}, {15, 25}},   // 0
             {{15, 25}, {16, 25}, {15, 24}, {15, 25}, {14, 25}, {15, 25}, {14, 24}, {15, 25}},   // 1
             {{15, 25}, {16, 25}, {15, 24}, {15, 25}, {14, 25}, {15, 25}, {14, 24}, {15, 25}},   // 2
@@ -29,7 +29,7 @@ class PlayerSprite extends Sprite {
             {{15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}, {15, 25}}    // 19
     };
 
-    PlayerSprite(GLGraphics glGraphics, Player player) {
+    public PlayerSprite(GLGraphics glGraphics, Player player) {
         super(glGraphics);
         this.player = player;
     }

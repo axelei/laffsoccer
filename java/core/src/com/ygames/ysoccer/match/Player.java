@@ -90,9 +90,9 @@ public class Player implements Json.Serializable {
 
     float speed;
 
-    boolean isVisible;
+    public boolean isVisible;
 
-    Data[] data = new Data[Const.REPLAY_SUBFRAMES];
+    public Data[] data = new Data[Const.REPLAY_SUBFRAMES];
 
     public float x;
     public float y;
@@ -109,8 +109,8 @@ public class Player implements Json.Serializable {
     float tx; // x position (target)
     float ty; // y position (target)
 
-    float fmx; // 0..7 direction
-    float fmy; // 1 = standing, 0 and 2 = running
+    public float fmx; // 0..7 direction
+    public float fmy; // 1 = standing, 0 and 2 = running
     float fmySweep;
 
     float ballDistance;

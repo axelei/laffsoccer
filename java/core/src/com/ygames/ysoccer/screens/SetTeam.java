@@ -491,7 +491,7 @@ class SetTeam extends GLScreen {
     private class TacticsComparisonButton extends Button {
 
         TacticsComparisonButton() {
-            setGeometry(game.gui.WIDTH / 2 + 140, 439, 264, 34);
+            setGeometry(game.gui.WIDTH / 2 + 140, 439, 264, 36);
             setColors(0x824200, 0xB46A00, 0x4C2600);
             setText("", Font.Align.CENTER, Assets.font10);
         }
@@ -517,7 +517,7 @@ class SetTeam extends GLScreen {
     private class OpponentTeamButton extends Button {
 
         OpponentTeamButton() {
-            setGeometry(game.gui.WIDTH / 2 + 140, 481, 264, 34);
+            setGeometry(game.gui.WIDTH / 2 + 140, 483, 264, 36);
             setColors(0x8B2323, 0xBF4531, 0x571717);
             setText("", Font.Align.CENTER, Assets.font10);
         }
@@ -592,9 +592,9 @@ class SetTeam extends GLScreen {
     private class EditTacticsButton extends Button {
 
         EditTacticsButton() {
-            setGeometry(game.gui.WIDTH - 90 - 170, 540, 170, 34);
+            setGeometry(game.gui.WIDTH - 90 - 110, 534, 110, 34);
             setColors(0xBA9206, 0xE9B607, 0x6A5304);
-            setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font10);
+            setText(Assets.strings.get("TACTICS.EDIT"), Font.Align.CENTER, Assets.font10);
         }
 
         @Override
@@ -707,7 +707,7 @@ class SetTeam extends GLScreen {
     private class PlayMatchButton extends Button {
 
         PlayMatchButton() {
-            setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT - 30 - 42, 226, 42);
+            setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT - 30 - 42, 240, 42);
             setColors(0xDC0000);
             setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
         }
@@ -730,7 +730,7 @@ class SetTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 42, 150, 42);
+            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 38 -2, 150, 38);
             setColors(0xC84200);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

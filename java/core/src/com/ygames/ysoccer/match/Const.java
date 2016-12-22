@@ -106,8 +106,8 @@ public class Const {
     static final int CROSSBAR_H = 33;
 
     // tactics
-    static final int TACT_DX = 68;
-    static final int TACT_DY = 40;
+    public static final int TACT_DX = 68;
+    public static final int TACT_DY = 40;
     static final int BALL_ZONES = 35;
 
     // width and height of each ball zone
