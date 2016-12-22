@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Tactics;
 
@@ -56,6 +57,9 @@ class SaveTactics extends GLScreen {
             w.setActive(false);
             widgets.add(w);
         }
+
+        w = new FilenameLabel();
+        widgets.add(w);
     }
 
     private class TacticsButton extends Button {
@@ -72,6 +76,14 @@ class SaveTactics extends GLScreen {
         @Override
         protected void onFire1Down() {
             save(name);
+        }
+    }
+
+    private class FilenameLabel extends Label {
+
+        FilenameLabel() {
+            setGeometry(game.gui.WIDTH / 2 - 180, 500, 180, 36);
+            setText(Assets.strings.get("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
         }
     }
 
