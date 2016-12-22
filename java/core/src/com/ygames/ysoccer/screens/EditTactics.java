@@ -720,8 +720,7 @@ class EditTactics extends GLScreen {
 
         @Override
         protected void onFire1Down() {
-            // TODO
-            //game.setScreen(new TacticsImport(game));
+            game.setScreen(new ImportTactics(game));
         }
     }
 
