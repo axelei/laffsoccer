@@ -149,10 +149,13 @@ class EditTactics extends GLScreen {
         w = new ImportButton();
         widgets.add(w);
 
-        saveButton = new SaveExitButton();
+        saveButton = new SaveButton();
         widgets.add(saveButton);
 
         setSelectedWidget(w);
+
+        w = new AbortButton();
+        widgets.add(w);
     }
 
     private class TacticsBoard extends Picture {
@@ -710,7 +713,7 @@ class EditTactics extends GLScreen {
     private class ImportButton extends Button {
 
         ImportButton() {
-            setGeometry(1120 - 170 / 2, 480, 170, 36);
+            setGeometry(1120 - 170 / 2, 460, 170, 40);
             setColors(0xAB148D, 0xDE1AB7, 0x780E63);
             setText(Assets.strings.get("TACTICS.IMPORT"), Font.Align.CENTER, Assets.font14);
         }
@@ -722,40 +725,57 @@ class EditTactics extends GLScreen {
         }
     }
 
-    private class SaveExitButton extends Button {
+    private class SaveButton extends Button {
 
-        SaveExitButton() {
-            setGeometry(1120 - 170 / 2, 535, 170, 36);
+        SaveButton() {
+            setGeometry(1120 - 170 / 2, 525, 170, 40);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void refresh() {
             if (game.tacticsUndo.isEmpty()) {
-                setText(Assets.strings.get("EXIT"));
-                setColors(0xC84200);
+                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setActive(false);
             } else {
-                setText(Assets.strings.get("SAVE"));
-                setColors(0xDC0000);
+                setColors(0xDC0000, 0xFF4141, 0x8C0000);
+                setActive(true);
             }
+        }
+
+        @Override
+        protected void onFire1Down() {
+            // TODO
+            //game.setScreen(new TacticsSaveWarning(game));
+        }
+    }
+
+    private class AbortButton extends Button {
+
+        public AbortButton() {
+            setGeometry(1120 - 170 / 2, 590, 170, 40);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         protected void onFire1Down() {
             if (game.tacticsUndo.isEmpty()) {
                 // TODO
-                //if (menu.status = MS_NONE) {
+//                if (menu.status = MS_NONE) {
                 game.setScreen(new Main(game));
-                //} else {
-                //game.setScreen(new SetTeam(game));
-                //}
+//                } else {
+//                    game.setScreen(new SetTeam(game));
+//                }
             } else {
                 // TODO
-                //game.setScreen(new TacticsSaveWarning(game));
+//                game.setScreen(new TacticsAbortWarning(game));
             }
         }
+
     }
+
 
     private void pushUndoStack() {
         Tactics tactics = new Tactics();

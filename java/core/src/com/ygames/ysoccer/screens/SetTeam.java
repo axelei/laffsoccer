@@ -592,7 +592,7 @@ class SetTeam extends GLScreen {
     private class EditTacticsButton extends Button {
 
         EditTacticsButton() {
-            setGeometry(game.gui.WIDTH - 90 - 110, 534, 110, 34);
+            setGeometry(game.gui.WIDTH - 90 - 110, 540, 110, 34);
             setColors(0xBA9206, 0xE9B607, 0x6A5304);
             setText(Assets.strings.get("TACTICS.EDIT"), Font.Align.CENTER, Assets.font10);
         }
@@ -730,7 +730,7 @@ class SetTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 38 -2, 150, 38);
+            setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 38 - 2, 150, 38);
             setColors(0xC84200);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
