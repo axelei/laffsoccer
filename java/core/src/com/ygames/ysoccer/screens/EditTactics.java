@@ -21,6 +21,7 @@ import com.ygames.ysoccer.match.Team;
 
 import java.util.Collections;
 
+import static com.ygames.ysoccer.framework.GLGame.State.NONE;
 import static com.ygames.ysoccer.match.Const.FULL_TEAM;
 import static com.ygames.ysoccer.match.Const.TACT_DX;
 import static com.ygames.ysoccer.match.Const.TACT_DY;
@@ -150,12 +151,12 @@ class EditTactics extends GLScreen {
         w = new ImportButton();
         widgets.add(w);
 
-        saveButton = new SaveButton();
+        saveButton = new SaveExitButton();
         widgets.add(saveButton);
 
         setSelectedWidget(w);
 
-        exitButton = new ExitButton();
+        exitButton = new AbortButton();
         widgets.add(exitButton);
     }
 
@@ -165,7 +166,7 @@ class EditTactics extends GLScreen {
             Texture texture = new Texture("images/tactics_board.png");
             textureRegion = new TextureRegion(texture);
             textureRegion.flip(false, true);
-            setGeometry(590, 110, 396, 576);
+            setGeometry(580, 110, 396, 576);
             hAlign = HAlign.LEFT;
             vAlign = VAlign.TOP;
         }
@@ -178,7 +179,7 @@ class EditTactics extends GLScreen {
             textureRegion = ballTextureRegion;
             setImagePosition(6, -2);
             setRanges(0, 4, 0, 6);
-            setGridGeometry(614, 155, 324, 472);
+            setGridGeometry(604, 155, 324, 472);
             setActive(true);
         }
 
@@ -208,7 +209,7 @@ class EditTactics extends GLScreen {
             textureRegion = ballCopyTextureRegion;
             setImagePosition(6, -2);
             setRanges(0, 4, 0, 6);
-            setGridGeometry(614, 155, 324, 472);
+            setGridGeometry(604, 155, 324, 472);
         }
 
         @Override
@@ -296,10 +297,10 @@ class EditTactics extends GLScreen {
             setSize(24, 14);
             setRanges(0, 14, 0, 15);
             if (ply == 0) {
-                setGridGeometry(590, 110, 372, 562);
+                setGridGeometry(580, 110, 372, 562);
                 setActive(false);
             } else {
-                setGridGeometry(594, 130, 364, 522);
+                setGridGeometry(584, 130, 364, 522);
                 setActive(true);
             }
         }
@@ -725,56 +726,48 @@ class EditTactics extends GLScreen {
         }
     }
 
-    private class SaveButton extends Button {
+    private class SaveExitButton extends Button {
 
-        SaveButton() {
-            setGeometry(1120 - 170 / 2, 525, 170, 40);
-            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
-        }
-
-        @Override
-        public void refresh() {
-            if (game.tacticsUndo.isEmpty()) {
-                setColors(0x666666, 0x8F8D8D, 0x404040);
-                setActive(false);
-            } else {
-                setColors(0xDC0000, 0xFF4141, 0x8C0000);
-                setActive(true);
-            }
+        SaveExitButton() {
+            setGeometry(1120 - 240 / 2, 525, 240, 40);
+            setColors(0x10A000, 0x15E000, 0x096000);
+            setText(Assets.strings.get("SAVE") + "/" + Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         protected void onFire1Down() {
-            game.setScreen(new SaveTacticsWarning(game));
+            if (game.tacticsUndo.isEmpty()) {
+                // exit
+                if (game.getState() == NONE) {
+                    game.setScreen(new Main(game));
+                } else {
+                    // TODO
+//                    game.setScreen(new SetTeam);
+                }
+            } else {
+                // save warning
+                game.setScreen(new SaveTacticsWarning(game));
+            }
         }
     }
 
-    private class ExitButton extends Button {
+    private class AbortButton extends Button {
 
-        public ExitButton() {
+        public AbortButton() {
             setGeometry(1120 - 170 / 2, 590, 170, 40);
             setColors(0xC84200);
-            setText("", Font.Align.CENTER, Assets.font14);
-        }
-
-        @Override
-        public void refresh() {
-            if (game.tacticsUndo.isEmpty()) {
-                setText(Assets.strings.get("EXIT"));
-            } else {
-                setText(Assets.strings.get("ABORT"));
-            }
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         protected void onFire1Down() {
             if (game.tacticsUndo.isEmpty()) {
-                // TODO
-//                if (menu.status = MS_NONE) {
-                game.setScreen(new Main(game));
-//                } else {
+                if (game.getState() == NONE) {
+                    game.setScreen(new Main(game));
+                } else {
+                    // TODO
 //                    game.setScreen(new SetTeam(game));
-//                }
+                }
             } else {
                 game.setScreen(new TacticsAbortWarning(game));
             }

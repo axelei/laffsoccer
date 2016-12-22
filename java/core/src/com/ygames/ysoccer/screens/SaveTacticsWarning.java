@@ -8,6 +8,8 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
+import static com.ygames.ysoccer.framework.GLGame.State.NONE;
+
 class SaveTacticsWarning extends GLScreen {
 
     SaveTacticsWarning(GLGame game) {
@@ -27,6 +29,9 @@ class SaveTacticsWarning extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     private class WarningButton extends Button {
@@ -51,6 +56,28 @@ class SaveTacticsWarning extends GLScreen {
         public void onFire1Down() {
             // TODO
             //game.setScreen(new SaveTactics(game));
+        }
+    }
+
+    private class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // copy edited tactics back
+            Assets.tactics[game.tacticsToEdit].copyFrom(game.editedTactics);
+
+            if (game.getState() == NONE) {
+                game.setScreen(new Main(game));
+            } else {
+                // TODO
+                // game.setScreen(new SetTeam(game));
+            }
         }
     }
 }
