@@ -1,12 +1,17 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.ygames.ysoccer.framework.Assets;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import static com.ygames.ysoccer.match.Const.BALL_ZONES;
+import static com.ygames.ysoccer.match.Const.TACT_DX;
+import static com.ygames.ysoccer.match.Const.TACT_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 
 public class Tactics {
@@ -50,7 +55,7 @@ public class Tactics {
             {0, 5, 1, 2, 3, 4, 8, 6, 7, 9, 10}  // defend
     };
 
-    String name;
+    public String name;
     public int[][][] target = new int[TEAM_SIZE][BALL_ZONES][2];
     public int[] pairs = new int[TEAM_SIZE];
     public int basedOn;
@@ -99,8 +104,8 @@ public class Tactics {
                 y = 2 * y - 15; // -15 to +15
 
                 // convert to pitch coordinates
-                target[player][ball_zone][0] = x * Const.TACT_DX;
-                target[player][ball_zone][1] = y * Const.TACT_DY;
+                target[player][ball_zone][0] = x * TACT_DX;
+                target[player][ball_zone][1] = y * TACT_DY;
             }
         }
 
@@ -113,6 +118,50 @@ public class Tactics {
         basedOn = bytes[index++] & 0xFF;
     }
 
+    public void saveFile(String filename) {
+        FileHandle file = Assets.tacticsFolder.child(filename);
+        OutputStream file_tactics = file.write(false);
+
+        try {
+            // name
+            for (int i = 0; i < 9; i++) {
+                if (i < name.length()) {
+                    file_tactics.write(name.charAt(i));
+                } else {
+                    file_tactics.write(0);
+                }
+            }
+
+            // targets
+            for (int player = 1; player < TEAM_SIZE; player++) {
+                for (int ball_zone = 0; ball_zone < BALL_ZONES; ball_zone++) {
+
+                    // convert from coordinates
+                    int x = target[player][ball_zone][0] / TACT_DX;
+                    int y = target[player][ball_zone][1] / TACT_DY;
+
+                    // convert to unsigned values
+                    x = x + 7;
+                    y = (y + 15) / 2;
+
+                    file_tactics.write((x << 4) + y);
+                }
+            }
+
+            // pairs
+            for (int i = 1; i < TEAM_SIZE; i++) {
+                file_tactics.write(pairs[i]);
+            }
+
+            // base tactics
+            file_tactics.write(basedOn);
+
+            file_tactics.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public String toString() {
 
@@ -123,8 +172,8 @@ public class Tactics {
             s += String.format("%02d", ball_zone) + ":";
             for (int player = 1; player < TEAM_SIZE; player++) {
                 // convert from coordinates
-                int x = target[player][ball_zone][0] / Const.TACT_DX;
-                int y = target[player][ball_zone][1] / Const.TACT_DY;
+                int x = target[player][ball_zone][0] / TACT_DX;
+                int y = target[player][ball_zone][1] / TACT_DY;
 
                 // convert to unsigned values
                 x = x + 7;

@@ -50,6 +50,7 @@ public class Assets {
     public static Font font10;
     public static FileHandle teamsRootFolder;
     public static FileHandle competitionsRootFolder;
+    public static FileHandle tacticsFolder;
     public static FileHandle savesFolder;
     public static FileHandle saveGame;
     public static Json json;
@@ -189,6 +190,7 @@ public class Assets {
 
         teamsRootFolder = Gdx.files.local("data/teams/");
         competitionsRootFolder = Gdx.files.local("data/competitions/");
+        tacticsFolder = Gdx.files.local("data/tactics");
         savesFolder = Gdx.files.local("data/saves/competitions/");
         saveGame = savesFolder.child("savegame.json");
         json = new Json();
