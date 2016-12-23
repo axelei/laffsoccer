@@ -13,6 +13,7 @@ class SetupTraining extends GLScreen {
 
     private MatchSettings matchSettings;
     private TimePicture timePicture;
+    private PitchTypePicture pitchTypePicture;
 
     SetupTraining(GLGame game) {
         super(game);
@@ -37,6 +38,9 @@ class SetupTraining extends GLScreen {
 
         w = new PitchTypeLabel();
         widgets.add(w);
+
+        pitchTypePicture = new PitchTypePicture();
+        widgets.add(pitchTypePicture);
     }
 
     private class TimeLabel extends Button {
@@ -100,6 +104,20 @@ class SetupTraining extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 200 - 40 / 2, 300, 40);
             setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class PitchTypePicture extends Button {
+
+        PitchTypePicture() {
+            setColors(0x666666);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 200 - 50 / 2, 50, 50);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            textureRegion = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
         }
     }
 }
