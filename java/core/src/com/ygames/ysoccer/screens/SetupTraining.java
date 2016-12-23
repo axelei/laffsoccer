@@ -64,6 +64,9 @@ class SetupTraining extends GLScreen {
 
         w = new FreeKicksButton();
         widgets.add(w);
+
+        w = new PenaltyKicksButton();
+        widgets.add(w);
     }
 
     private class TimeLabel extends Button {
@@ -249,6 +252,16 @@ class SetupTraining extends GLScreen {
             setGeometry((game.gui.WIDTH - 340) / 2, 460, 340, 40);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("TRAINING.FREE KICKS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class PenaltyKicksButton extends Button {
+
+        PenaltyKicksButton() {
+            setGeometry((game.gui.WIDTH - 340) / 2, 520, 340, 40);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get("TRAINING.PENALTY KICKS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
