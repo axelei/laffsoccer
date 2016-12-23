@@ -128,6 +128,12 @@ public abstract class GLScreen implements Screen {
             Assets.font10.draw(batch, s, 8, game.gui.HEIGHT - 20, Font.Align.LEFT);
             batch.end();
         }
+
+        if (game.settings.development) {
+            batch.begin();
+            Assets.font10.draw(batch, String.format("%,d", Gdx.app.getJavaHeap()), game.gui.WIDTH / 2, game.gui.HEIGHT - 20, Font.Align.CENTER);
+            batch.end();
+        }
     }
 
     private void readMenuInput() {

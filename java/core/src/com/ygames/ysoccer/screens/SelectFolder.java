@@ -90,7 +90,7 @@ class SelectFolder extends GLScreen {
                 break;
 
             case TRAINING:
-                // TODO
+                title = Assets.strings.get("TRAINING");
                 break;
         }
         return title;
@@ -141,11 +141,8 @@ class SelectFolder extends GLScreen {
                         break;
 
                     case EDIT:
-                        game.setScreen(new SelectTeam(game, fileHandle, null));
-                        break;
-
                     case TRAINING:
-                        // TODO
+                        game.setScreen(new SelectTeam(game, fileHandle, null));
                         break;
                 }
             } else {
@@ -157,7 +154,7 @@ class SelectFolder extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            if (game.getState() == GLGame.State.EDIT) {
+            if (game.getState() == GLGame.State.EDIT || game.getState() == GLGame.State.TRAINING) {
                 setColors(0xC84200);
                 setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
             } else {

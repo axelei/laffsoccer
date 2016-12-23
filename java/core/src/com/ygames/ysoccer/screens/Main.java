@@ -15,6 +15,7 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
 
 import static com.ygames.ysoccer.framework.GLGame.State.NONE;
+import static com.ygames.ysoccer.framework.GLGame.State.TRAINING;
 
 public class Main extends GLScreen {
 
@@ -217,6 +218,12 @@ public class Main extends GLScreen {
             setColors(0x1B8A7F, 0x25BDAE, 0x115750);
             setGeometry(game.gui.WIDTH / 2 + 45, 405, 350, 36);
             setText(Assets.strings.get("TRAINING"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            game.setState(TRAINING, null);
+            game.setScreen(new SelectFolder(game, Assets.teamsRootFolder, null));
         }
     }
 

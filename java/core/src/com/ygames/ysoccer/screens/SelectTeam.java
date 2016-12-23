@@ -118,7 +118,7 @@ class SelectTeam extends GLScreen {
                 break;
 
             case TRAINING:
-                // TODO
+                title = Assets.strings.get("TRAINING");
                 break;
         }
         return title;
@@ -172,15 +172,7 @@ class SelectTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (game.getState()) {
-                case EDIT:
-                    game.setScreen(new SelectTeam(game, currentFolder, text));
-                    break;
-
-                case TRAINING:
-                    // TODO
-                    break;
-            }
+            game.setScreen(new SelectTeam(game, currentFolder, text));
         }
     }
 
@@ -209,7 +201,7 @@ class SelectTeam extends GLScreen {
                     break;
 
                 case TRAINING:
-                    // TODO
+                    game.setScreen(new SetupTraining(game));
                     break;
             }
         }
