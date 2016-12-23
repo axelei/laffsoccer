@@ -56,6 +56,11 @@ class SetupTraining extends GLScreen {
 
         weatherButton = new WeatherButton();
         widgets.add(weatherButton);
+
+        w = new FreeTrainingButton();
+        widgets.add(w);
+
+        setSelectedWidget(w);
     }
 
     private class TimeLabel extends Button {
@@ -217,6 +222,21 @@ class SetupTraining extends GLScreen {
             matchSettings.rotateWeather(true);
             setDirty(true);
             weatherPicture.setDirty(true);
+        }
+    }
+
+    private class FreeTrainingButton extends Button {
+
+        FreeTrainingButton() {
+            setGeometry((game.gui.WIDTH - 340) / 2, 400, 340, 40);
+            setColors(0x568200, 0x77B400, 0x243E00);
+            setText(Assets.strings.get("FREE TRAINING"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            // TODO
+//            game.setScreen(new TrainingLoading(game));
         }
     }
 }
