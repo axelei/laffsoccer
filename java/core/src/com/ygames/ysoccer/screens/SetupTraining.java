@@ -34,6 +34,9 @@ class SetupTraining extends GLScreen {
 
         w = new TimeButton();
         widgets.add(w);
+
+        w = new PitchTypeLabel();
+        widgets.add(w);
     }
 
     private class TimeLabel extends Button {
@@ -87,6 +90,16 @@ class SetupTraining extends GLScreen {
             matchSettings.rotateTime(n);
             setDirty(true);
             timePicture.setDirty(true);
+        }
+    }
+
+    private class PitchTypeLabel extends Button {
+
+        PitchTypeLabel() {
+            setColors(0x800000);
+            setGeometry(game.gui.WIDTH / 2 - 300 + 25, 200 - 40 / 2, 300, 40);
+            setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
