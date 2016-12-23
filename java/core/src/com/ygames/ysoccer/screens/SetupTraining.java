@@ -61,6 +61,9 @@ class SetupTraining extends GLScreen {
         widgets.add(w);
 
         setSelectedWidget(w);
+
+        w = new FreeKicksButton();
+        widgets.add(w);
     }
 
     private class TimeLabel extends Button {
@@ -230,13 +233,23 @@ class SetupTraining extends GLScreen {
         FreeTrainingButton() {
             setGeometry((game.gui.WIDTH - 340) / 2, 400, 340, 40);
             setColors(0x568200, 0x77B400, 0x243E00);
-            setText(Assets.strings.get("FREE TRAINING"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("TRAINING.FREE TRAINING"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
             // TODO
 //            game.setScreen(new TrainingLoading(game));
+        }
+    }
+
+    private class FreeKicksButton extends Button {
+
+        FreeKicksButton() {
+            setGeometry((game.gui.WIDTH - 340) / 2, 460, 340, 40);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText(Assets.strings.get("TRAINING.FREE KICKS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
