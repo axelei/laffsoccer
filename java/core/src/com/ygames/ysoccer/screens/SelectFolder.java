@@ -16,12 +16,10 @@ import java.util.List;
 
 class SelectFolder extends GLScreen {
 
-    private FileHandle currentFolder;
     private Competition competition;
 
-    SelectFolder(GLGame game, FileHandle folder, Competition competition) {
+    SelectFolder(GLGame game, Competition competition) {
         super(game);
-        this.currentFolder = folder;
         this.competition = competition;
 
         background = game.stateBackground;
@@ -34,7 +32,7 @@ class SelectFolder extends GLScreen {
         // Breadcrumb
         List<Widget> breadcrumb = new ArrayList<Widget>();
 
-        FileHandle fh = currentFolder;
+        FileHandle fh = navigation.folder;
         boolean isDataRoot;
         do {
             isDataRoot = fh.equals(Assets.teamsRootFolder);
@@ -53,7 +51,7 @@ class SelectFolder extends GLScreen {
 
         // Folders buttons
         List<Widget> list = new ArrayList<Widget>();
-        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(currentFolder.list()));
+        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(navigation.folder.list()));
         Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
@@ -103,7 +101,7 @@ class SelectFolder extends GLScreen {
         BreadCrumbButton(FileHandle folder, boolean isDataRoot) {
             this.folder = folder;
             setSize(0, 32);
-            if (folder == currentFolder) {
+            if (folder == navigation.folder) {
                 setColors(game.stateColor.darker());
                 setActive(false);
             } else {
@@ -115,7 +113,8 @@ class SelectFolder extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectFolder(game, folder, competition));
+            navigation.folder = folder;
+            game.setScreen(new SelectFolder(game, competition));
         }
     }
 
@@ -148,7 +147,8 @@ class SelectFolder extends GLScreen {
                         break;
                 }
             } else {
-                game.setScreen(new SelectFolder(game, fileHandle, competition));
+                navigation.folder = fileHandle;
+                game.setScreen(new SelectFolder(game, competition));
             }
         }
     }

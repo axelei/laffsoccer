@@ -157,7 +157,8 @@ public class Main extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setState(GLGame.State.EDIT, null);
-            game.setScreen(new SelectFolder(game, Assets.teamsRootFolder, null));
+            navigation.folder = Assets.teamsRootFolder;
+            game.setScreen(new SelectFolder(game, null));
         }
     }
 
@@ -223,7 +224,8 @@ public class Main extends GLScreen {
         @Override
         protected void onFire1Down() {
             game.setState(TRAINING, null);
-            game.setScreen(new SelectFolder(game, Assets.teamsRootFolder, null));
+            navigation.folder = Assets.teamsRootFolder;
+            game.setScreen(new SelectFolder(game, null));
         }
     }
 

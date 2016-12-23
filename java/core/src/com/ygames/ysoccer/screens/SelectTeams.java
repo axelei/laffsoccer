@@ -205,7 +205,8 @@ class SelectTeams extends GLScreen {
             if (fh == currentFolder && league != null) {
                 game.setScreen(new SelectTeams(game, fh, null, competition));
             } else {
-                game.setScreen(new SelectFolder(game, fh, competition));
+                navigation.folder = fh;
+                game.setScreen(new SelectFolder(game, competition));
             }
         }
     }
