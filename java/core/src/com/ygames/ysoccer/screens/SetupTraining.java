@@ -244,8 +244,8 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            // TODO
-//            game.setScreen(new TrainingLoading(game));
+            navigation.matchSettings = matchSettings;
+            game.setScreen(new TrainingLoading(game));
         }
     }
 

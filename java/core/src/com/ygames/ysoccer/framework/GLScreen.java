@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
@@ -29,6 +31,8 @@ public abstract class GLScreen implements Screen {
     protected static class Navigation {
         public FileHandle folder;
         public String league;
+        public Team team;
+        public MatchSettings matchSettings;
     }
 
     protected static final Navigation navigation = new Navigation();

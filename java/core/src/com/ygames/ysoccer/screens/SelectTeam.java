@@ -198,6 +198,7 @@ class SelectTeam extends GLScreen {
                     break;
 
                 case TRAINING:
+                    navigation.team = team;
                     game.setScreen(new SetupTraining(game));
                     break;
             }
