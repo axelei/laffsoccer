@@ -1,8 +1,6 @@
 package com.ygames.ysoccer.screens;
 
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -28,9 +26,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class SetTeam extends GLScreen {
 
-    private FileHandle fileHandle;
-    private String league;
-    private Competition competition;
     private Team homeTeam;
     private Team awayTeam;
     private int teamToSet;
@@ -48,13 +43,10 @@ class SetTeam extends GLScreen {
     private Widget[] tacticsButtons = new Widget[18];
     private Widget teamInputDeviceButton;
 
-    SetTeam(GLGame game, FileHandle fileHandle, String league, Competition competition, Team homeTeam, Team awayTeam, int teamToSet) {
+    SetTeam(GLGame game, Team homeTeam, Team awayTeam, int teamToSet) {
         super(game);
         playMenuMusic = false;
 
-        this.fileHandle = fileHandle;
-        this.league = league;
-        this.competition = competition;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.teamToSet = teamToSet;
@@ -197,7 +189,7 @@ class SetTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            if (pos < Math.min(Const.TEAM_SIZE + competition.benchSize, shownTeam.players.size())) {
+            if (pos < Math.min(Const.TEAM_SIZE + navigation.competition.benchSize, shownTeam.players.size())) {
                 Player player = shownTeam.playerAtPosition(pos);
                 if (player.inputDevice.type == InputDevice.Type.COMPUTER) {
                     setText("");
@@ -720,9 +712,9 @@ class SetTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             if (teamToSet == HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, fileHandle, league, competition, homeTeam, awayTeam, AWAY));
+                game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
             } else {
-                game.setScreen(new MatchSetup(game, fileHandle, league, competition, homeTeam, awayTeam));
+                game.setScreen(new MatchSetup(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam));
             }
         }
     }
@@ -742,7 +734,7 @@ class SetTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.type) {
+            switch (navigation.competition.type) {
                 case FRIENDLY:
                     game.setScreen(new SelectTeams(game));
                     break;
@@ -783,7 +775,7 @@ class SetTeam extends GLScreen {
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
-                if (pos < Const.TEAM_SIZE + competition.benchSize) {
+                if (pos < Const.TEAM_SIZE + navigation.competition.benchSize) {
                     w.setColors(0x0046A6);
                 }
                 // out
@@ -814,7 +806,7 @@ class SetTeam extends GLScreen {
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
-                if (pos < Const.TEAM_SIZE + competition.benchSize) {
+                if (pos < Const.TEAM_SIZE + navigation.competition.benchSize) {
                     w.setColors(0x851F1F);
                 }
                 // out

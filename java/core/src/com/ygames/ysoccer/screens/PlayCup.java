@@ -279,12 +279,14 @@ class PlayCup extends GLScreen {
                 if (lastFireInputDevice != null) {
                     homeTeam.setInputDevice(lastFireInputDevice);
                 }
-                game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, HOME));
+                navigation.competition = cup;
+                game.setScreen(new SetTeam(game, homeTeam, awayTeam, HOME));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                 if (lastFireInputDevice != null) {
                     awayTeam.setInputDevice(lastFireInputDevice);
                 }
-                game.setScreen(new SetTeam(game, null, null, cup, homeTeam, awayTeam, AWAY));
+                navigation.competition = cup;
+                game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
             } else {
                 game.setScreen(new MatchSetup(game, null, null, cup, homeTeam, awayTeam));
             }

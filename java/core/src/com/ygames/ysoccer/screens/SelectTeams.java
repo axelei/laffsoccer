@@ -428,12 +428,12 @@ class SelectTeams extends GLScreen {
                         if (lastFireInputDevice != null) {
                             homeTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam, HOME));
+                        game.setScreen(new SetTeam(game, homeTeam, awayTeam, HOME));
                     } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                         if (lastFireInputDevice != null) {
                             awayTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam, AWAY));
+                        game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
                     } else {
                         game.setScreen(new MatchSetup(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam));
                     }
