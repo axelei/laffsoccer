@@ -160,7 +160,8 @@ class DesignFriendly extends GLScreen {
         @Override
         public void onFire1Down() {
             navigation.folder = Assets.teamsRootFolder;
-            game.setScreen(new SelectFolder(game, friendly));
+            navigation.competition = friendly;
+            game.setScreen(new SelectFolder(game));
         }
     }
 

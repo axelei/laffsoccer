@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -16,11 +15,8 @@ import java.util.List;
 
 class SelectFolder extends GLScreen {
 
-    private Competition competition;
-
-    SelectFolder(GLGame game, Competition competition) {
+    SelectFolder(GLGame game) {
         super(game);
-        this.competition = competition;
 
         background = game.stateBackground;
 
@@ -78,9 +74,9 @@ class SelectFolder extends GLScreen {
         switch (game.getState()) {
             case COMPETITION:
             case FRIENDLY:
-                int diff = competition.numberOfTeams - game.teamList.size();
+                int diff = navigation.competition.numberOfTeams - game.teamList.size();
                 title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
-                        + " " + competition.name;
+                        + " " + navigation.competition.name;
                 break;
 
             case EDIT:
@@ -114,7 +110,7 @@ class SelectFolder extends GLScreen {
         @Override
         public void onFire1Down() {
             navigation.folder = folder;
-            game.setScreen(new SelectFolder(game, competition));
+            game.setScreen(new SelectFolder(game));
         }
     }
 
@@ -138,7 +134,7 @@ class SelectFolder extends GLScreen {
                     case FRIENDLY:
                         navigation.folder = fileHandle;
                         navigation.league = null;
-                        game.setScreen(new SelectTeams(game, competition));
+                        game.setScreen(new SelectTeams(game, navigation.competition));
                         break;
 
                     case EDIT:
@@ -150,7 +146,7 @@ class SelectFolder extends GLScreen {
                 }
             } else {
                 navigation.folder = fileHandle;
-                game.setScreen(new SelectFolder(game, competition));
+                game.setScreen(new SelectFolder(game));
             }
         }
     }

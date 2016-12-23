@@ -214,7 +214,7 @@ class AllSelectedTeams extends GLScreen {
             if (teamFileHandles.length > 0) {
                 game.setScreen(new SelectTeams(game, competition));
             } else {
-                game.setScreen(new SelectFolder(game, competition));
+                game.setScreen(new SelectFolder(game));
             }
         }
     }

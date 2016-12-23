@@ -732,7 +732,8 @@ class DiyCup extends GLScreen {
         @Override
         public void onFire1Down() {
             navigation.folder = Assets.teamsRootFolder;
-            game.setScreen(new SelectFolder(game, cup));
+            navigation.competition = cup;
+            game.setScreen(new SelectFolder(game));
         }
     }
 

@@ -204,7 +204,7 @@ class SelectTeams extends GLScreen {
                 game.setScreen(new SelectTeams(game, competition));
             } else {
                 navigation.folder = fh;
-                game.setScreen(new SelectFolder(game, competition));
+                game.setScreen(new SelectFolder(game));
             }
         }
     }

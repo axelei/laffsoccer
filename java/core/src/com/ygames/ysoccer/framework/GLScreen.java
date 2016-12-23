@@ -6,6 +6,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
@@ -33,6 +34,7 @@ public abstract class GLScreen implements Screen {
         public String league;
         public Team team;
         public MatchSettings matchSettings;
+        public Competition competition;
     }
 
     protected static final Navigation navigation = new Navigation();
