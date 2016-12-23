@@ -134,7 +134,7 @@ class SelectFolder extends GLScreen {
                     case FRIENDLY:
                         navigation.folder = fileHandle;
                         navigation.league = null;
-                        game.setScreen(new SelectTeams(game, navigation.competition));
+                        game.setScreen(new SelectTeams(game));
                         break;
 
                     case EDIT:

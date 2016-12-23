@@ -744,7 +744,7 @@ class SetTeam extends GLScreen {
         public void onFire1Down() {
             switch (competition.type) {
                 case FRIENDLY:
-                    game.setScreen(new SelectTeams(game, competition));
+                    game.setScreen(new SelectTeams(game));
                     break;
 
                 case LEAGUE:

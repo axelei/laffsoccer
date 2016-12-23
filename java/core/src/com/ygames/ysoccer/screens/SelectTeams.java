@@ -23,16 +23,13 @@ import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
 class SelectTeams extends GLScreen {
 
-    private Competition competition;
-
     private Widget titleButton;
     private Widget viewSelectedTeamsButton;
     private Widget playButton;
     private Widget calendarButton;
 
-    SelectTeams(GLGame game, Competition competition) {
+    SelectTeams(GLGame game) {
         super(game);
-        this.competition = competition;
 
         background = game.stateBackground;
 
@@ -162,8 +159,8 @@ class SelectTeams extends GLScreen {
         public void refresh() {
             setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
             setColors(game.stateColor);
-            int diff = competition.numberOfTeams - game.teamList.size();
-            String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR") + " " + competition.name;
+            int diff = navigation.competition.numberOfTeams - game.teamList.size();
+            String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR") + " " + navigation.competition.name;
             setText(title, Font.Align.CENTER, Assets.font14);
         }
     }
@@ -201,7 +198,7 @@ class SelectTeams extends GLScreen {
             if (fh == navigation.folder && navigation.league != null) {
                 navigation.folder = fh;
                 navigation.league = null;
-                game.setScreen(new SelectTeams(game, competition));
+                game.setScreen(new SelectTeams(game));
             } else {
                 navigation.folder = fh;
                 game.setScreen(new SelectFolder(game));
@@ -220,7 +217,7 @@ class SelectTeams extends GLScreen {
         @Override
         public void onFire1Down() {
             navigation.league = text;
-            game.setScreen(new SelectTeams(game, competition));
+            game.setScreen(new SelectTeams(game));
         }
     }
 
@@ -348,7 +345,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new AllSelectedTeams(game, navigation.folder, navigation.league, competition));
+            game.setScreen(new AllSelectedTeams(game, navigation.folder, navigation.league, navigation.competition));
         }
 
         @Override
@@ -380,9 +377,9 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            int diff = competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
-                switch (competition.type) {
+                switch (navigation.competition.type) {
                     case FRIENDLY:
                         setText(Assets.strings.get("PLAY FRIENDLY"));
                         break;
@@ -414,7 +411,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.type) {
+            switch (navigation.competition.type) {
                 case FRIENDLY:
                     Team homeTeam = game.teamList.get(HOME);
                     Team awayTeam = game.teamList.get(AWAY);
@@ -431,26 +428,26 @@ class SelectTeams extends GLScreen {
                         if (lastFireInputDevice != null) {
                             homeTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, competition, homeTeam, awayTeam, HOME));
+                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam, HOME));
                     } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                         if (lastFireInputDevice != null) {
                             awayTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, competition, homeTeam, awayTeam, AWAY));
+                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam, AWAY));
                     } else {
-                        game.setScreen(new MatchSetup(game, navigation.folder, navigation.league, competition, homeTeam, awayTeam));
+                        game.setScreen(new MatchSetup(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam));
                     }
                     break;
 
                 case LEAGUE:
-                    competition.start(game.teamList);
-                    game.setCompetition(competition);
+                    navigation.competition.start(game.teamList);
+                    game.setCompetition(navigation.competition);
                     game.setScreen(new PlayLeague(game));
                     break;
 
                 case CUP:
-                    competition.start(game.teamList);
-                    game.setCompetition(competition);
+                    navigation.competition.start(game.teamList);
+                    game.setCompetition(navigation.competition);
                     game.setScreen(new PlayCup(game));
                     break;
             }
@@ -468,19 +465,19 @@ class SelectTeams extends GLScreen {
         @Override
         public void refresh() {
             setVisible(game.settings.development
-                    && competition.type != Competition.Type.FRIENDLY
-                    && competition.category == Competition.Category.DIY_COMPETITION
-                    && competition.numberOfTeams == game.teamList.size());
+                    && navigation.competition.type != Competition.Type.FRIENDLY
+                    && navigation.competition.category == Competition.Category.DIY_COMPETITION
+                    && navigation.competition.numberOfTeams == game.teamList.size());
         }
 
         @Override
         public void onFire1Down() {
-            switch (competition.type) {
+            switch (navigation.competition.type) {
                 case CUP:
-                    game.setScreen(new DiyCupCalendar(game, (Cup) competition));
+                    game.setScreen(new DiyCupCalendar(game, (Cup) navigation.competition));
                     break;
                 case LEAGUE:
-                    game.setScreen(new DiyLeagueCalendar(game, (League) competition));
+                    game.setScreen(new DiyLeagueCalendar(game, (League) navigation.competition));
                     break;
             }
         }
