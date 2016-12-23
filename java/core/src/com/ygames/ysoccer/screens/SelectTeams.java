@@ -345,7 +345,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new AllSelectedTeams(game, navigation.folder, navigation.league, navigation.competition));
+            game.setScreen(new AllSelectedTeams(game));
         }
 
         @Override

@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -19,24 +18,17 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class AllSelectedTeams extends GLScreen {
 
-    private FileHandle currentFolder;
-    private String league;
-    private Competition competition;
-
     private Widget playButton;
     private Widget changeTeamsButton;
 
-    AllSelectedTeams(GLGame game, FileHandle folder, String league, Competition competition) {
+    AllSelectedTeams(GLGame game) {
         super(game);
-        this.currentFolder = folder;
-        this.league = league;
-        this.competition = competition;
 
         background = game.stateBackground;
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + competition.name, game.stateColor.body);
+        w = new TitleBar(Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + navigation.competition.name, game.stateColor.body);
         widgets.add(w);
 
         w = new ComputerButton();
@@ -77,7 +69,7 @@ class AllSelectedTeams extends GLScreen {
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
-        int diff = competition.numberOfTeams - game.teamList.size();
+        int diff = navigation.competition.numberOfTeams - game.teamList.size();
         if (diff == 0) {
             setSelectedWidget(w);
         }
@@ -204,13 +196,13 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            int diff = competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.size();
             setText(Assets.strings.get((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            FileHandle[] teamFileHandles = currentFolder.list(Assets.teamFilenameFilter);
+            FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
             if (teamFileHandles.length > 0) {
                 game.setScreen(new SelectTeams(game));
             } else {
@@ -242,9 +234,9 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            int diff = competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.size();
             if (diff == 0) {
-                switch (competition.type) {
+                switch (navigation.competition.type) {
                     case FRIENDLY:
                         setText(Assets.strings.get("PLAY FRIENDLY"));
                         break;
@@ -276,7 +268,7 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.type) {
+            switch (navigation.competition.type) {
                 case FRIENDLY:
                     Team homeTeam = game.teamList.get(HOME);
                     Team awayTeam = game.teamList.get(AWAY);
@@ -300,19 +292,19 @@ class AllSelectedTeams extends GLScreen {
                         }
                         game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
                     } else {
-                        game.setScreen(new MatchSetup(game, currentFolder, league, competition, homeTeam, awayTeam));
+                        game.setScreen(new MatchSetup(game, navigation.folder, navigation.league, navigation.competition, homeTeam, awayTeam));
                     }
                     break;
 
                 case LEAGUE:
-                    competition.start(game.teamList);
-                    game.setCompetition(competition);
+                    navigation.competition.start(game.teamList);
+                    game.setCompetition(navigation.competition);
                     game.setScreen(new PlayLeague(game));
                     break;
 
                 case CUP:
-                    competition.start(game.teamList);
-                    game.setCompetition(competition);
+                    navigation.competition.start(game.teamList);
+                    game.setCompetition(navigation.competition);
                     game.setScreen(new PlayCup(game));
                     break;
             }
