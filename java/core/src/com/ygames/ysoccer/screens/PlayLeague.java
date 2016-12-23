@@ -255,7 +255,8 @@ class PlayLeague extends GLScreen {
                 navigation.competition = league;
                 game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
             } else {
-                game.setScreen(new MatchSetup(game, null, null, league, homeTeam, awayTeam));
+                navigation.competition = league;
+                game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
             }
         }
     }

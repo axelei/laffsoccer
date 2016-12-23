@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
@@ -21,9 +20,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchSetup extends GLScreen {
 
-    private FileHandle fileHandle;
-    private String league;
-    private Competition competition;
     private Team homeTeam;
     private Team awayTeam;
     private MatchSettings matchSettings;
@@ -35,25 +31,22 @@ class MatchSetup extends GLScreen {
     private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
     private Widget playMatchButton;
 
-    MatchSetup(GLGame game, FileHandle fileHandle, String league, Competition competition, Team homeTeam, Team awayTeam) {
+    MatchSetup(GLGame game, Team homeTeam, Team awayTeam) {
         super(game);
         playMenuMusic = false;
 
-        this.fileHandle = fileHandle;
-        this.league = league;
-        this.competition = competition;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
 
         Team.kitAutoSelection(homeTeam, awayTeam);
 
-        matchSettings = new MatchSettings(competition, game.settings);
+        matchSettings = new MatchSettings(navigation.competition, game.settings);
 
         background = new Texture("images/backgrounds/menu_match_presentation.jpg");
 
         Widget w;
 
-        w = new TitleBar(competition.name, game.stateColor.body);
+        w = new TitleBar(navigation.competition.name, game.stateColor.body);
         widgets.add(w);
 
         w = new TimeLabel();
@@ -136,7 +129,7 @@ class MatchSetup extends GLScreen {
     private class TimeButton extends Button {
 
         TimeButton() {
-            if (competition.type == Competition.Type.FRIENDLY) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
@@ -195,7 +188,7 @@ class MatchSetup extends GLScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            if (competition.type == Competition.Type.FRIENDLY) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
@@ -263,7 +256,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            if (competition.type == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
                 setColors(0x1F1F95);
                 setActive(true);
             } else {
@@ -361,7 +354,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings, competition));
+            game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings, navigation.competition));
         }
     }
 
@@ -375,7 +368,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            switch (competition.type) {
+            switch (navigation.competition.type) {
                 case FRIENDLY:
                     game.setScreen(new SelectTeams(game));
                     break;

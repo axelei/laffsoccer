@@ -288,7 +288,8 @@ class PlayCup extends GLScreen {
                 navigation.competition = cup;
                 game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
             } else {
-                game.setScreen(new MatchSetup(game, null, null, cup, homeTeam, awayTeam));
+                navigation.competition = cup;
+                game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
             }
         }
     }
