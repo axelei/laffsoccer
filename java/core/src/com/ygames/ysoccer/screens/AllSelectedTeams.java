@@ -212,7 +212,7 @@ class AllSelectedTeams extends GLScreen {
         public void onFire1Down() {
             FileHandle[] teamFileHandles = currentFolder.list(Assets.teamFilenameFilter);
             if (teamFileHandles.length > 0) {
-                game.setScreen(new SelectTeams(game, currentFolder, league, competition));
+                game.setScreen(new SelectTeams(game, competition));
             } else {
                 game.setScreen(new SelectFolder(game, competition));
             }

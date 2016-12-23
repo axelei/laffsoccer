@@ -23,8 +23,6 @@ import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
 class SelectTeams extends GLScreen {
 
-    private FileHandle currentFolder;
-    private String league;
     private Competition competition;
 
     private Widget titleButton;
@@ -32,10 +30,8 @@ class SelectTeams extends GLScreen {
     private Widget playButton;
     private Widget calendarButton;
 
-    SelectTeams(GLGame game, FileHandle folder, String league, Competition competition) {
+    SelectTeams(GLGame game, Competition competition) {
         super(game);
-        this.currentFolder = folder;
-        this.league = league;
         this.competition = competition;
 
         background = game.stateBackground;
@@ -51,11 +47,11 @@ class SelectTeams extends GLScreen {
         HashSet<String> leagues = new HashSet<String>();
 
         List<Team> teamList = new ArrayList<Team>();
-        FileHandle[] teamFileHandles = currentFolder.list(Assets.teamFilenameFilter);
+        FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
         for (FileHandle teamFileHandle : teamFileHandles) {
             Team team = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
             team.path = Assets.getRelativeTeamPath(teamFileHandle);
-            if ((league == null) || ((team.type == CLUB) && team.league.equals(league))) {
+            if ((navigation.league == null) || ((team.type == CLUB) && team.league.equals(navigation.league))) {
                 teamList.add(team);
                 if (team.type == CLUB) {
                     leagues.add(team.league);
@@ -126,15 +122,15 @@ class SelectTeams extends GLScreen {
 
         // Breadcrumb
         List<Widget> breadcrumb = new ArrayList<Widget>();
-        if (league != null) {
+        if (navigation.league != null) {
             w = new BreadCrumbLeagueLabel();
             breadcrumb.add(w);
         }
-        FileHandle fh = currentFolder;
+        FileHandle fh = navigation.folder;
         boolean isDataRoot;
         do {
             isDataRoot = fh.equals(Assets.teamsRootFolder);
-            boolean disabled = (league == null && fh == currentFolder);
+            boolean disabled = (navigation.league == null && fh == navigation.folder);
             w = new BreadCrumbButton(fh, isDataRoot, disabled);
             breadcrumb.add(w);
             fh = fh.parent();
@@ -178,7 +174,7 @@ class SelectTeams extends GLScreen {
             setSize(0, 32);
             setColors(game.stateColor.darker());
             setActive(false);
-            setText(league, Font.Align.CENTER, Assets.font10);
+            setText(navigation.league, Font.Align.CENTER, Assets.font10);
             autoWidth();
         }
     }
@@ -202,8 +198,10 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            if (fh == currentFolder && league != null) {
-                game.setScreen(new SelectTeams(game, fh, null, competition));
+            if (fh == navigation.folder && navigation.league != null) {
+                navigation.folder = fh;
+                navigation.league = null;
+                game.setScreen(new SelectTeams(game, competition));
             } else {
                 navigation.folder = fh;
                 game.setScreen(new SelectFolder(game, competition));
@@ -221,7 +219,8 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeams(game, currentFolder, text, competition));
+            navigation.league = text;
+            game.setScreen(new SelectTeams(game, competition));
         }
     }
 
@@ -349,7 +348,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new AllSelectedTeams(game, currentFolder, league, competition));
+            game.setScreen(new AllSelectedTeams(game, navigation.folder, navigation.league, competition));
         }
 
         @Override
@@ -432,14 +431,14 @@ class SelectTeams extends GLScreen {
                         if (lastFireInputDevice != null) {
                             homeTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, currentFolder, league, competition, homeTeam, awayTeam, HOME));
+                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, competition, homeTeam, awayTeam, HOME));
                     } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                         if (lastFireInputDevice != null) {
                             awayTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, currentFolder, league, competition, homeTeam, awayTeam, AWAY));
+                        game.setScreen(new SetTeam(game, navigation.folder, navigation.league, competition, homeTeam, awayTeam, AWAY));
                     } else {
-                        game.setScreen(new MatchSetup(game, currentFolder, league, competition, homeTeam, awayTeam));
+                        game.setScreen(new MatchSetup(game, navigation.folder, navigation.league, competition, homeTeam, awayTeam));
                     }
                     break;
 
