@@ -31,6 +31,24 @@ public class MatchSettings {
     public boolean crowdChants;
     public boolean commentary;
 
+    public MatchSettings(Settings gameSettings) {
+        matchLength = gameSettings.matchLength;
+        matchLength = Settings.matchLengths[0];
+        this.time = Time.RANDOM;
+        this.pitchType = Pitch.Type.RANDOM;
+        this.grass = new Grass();
+        this.wind = new Wind();
+        this.weatherMaxStrength = gameSettings.weatherMaxStrength;
+        weatherEffect = Weather.RANDOM;
+        benchSize = gameSettings.benchSize;
+        fullScreen = gameSettings.fullScreen;
+        autoReplays = gameSettings.autoReplays;
+        radar = gameSettings.radar;
+        soundVolume = gameSettings.soundVolume;
+        crowdChants = true;
+        commentary = gameSettings.commentary;
+    }
+
     public MatchSettings(Competition competition, Settings gameSettings) {
         if (competition.type == Competition.Type.FRIENDLY || competition.category == Competition.Category.DIY_COMPETITION) {
             matchLength = gameSettings.matchLength;
