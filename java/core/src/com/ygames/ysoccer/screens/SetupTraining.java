@@ -15,6 +15,7 @@ class SetupTraining extends GLScreen {
     private MatchSettings matchSettings;
     private TimePicture timePicture;
     private PitchTypePicture pitchTypePicture;
+    private WeatherPicture weatherPicture;
 
     SetupTraining(GLGame game) {
         super(game);
@@ -48,6 +49,9 @@ class SetupTraining extends GLScreen {
 
         w = new WeatherLabel();
         widgets.add(w);
+
+        weatherPicture = new WeatherPicture();
+        widgets.add(weatherPicture);
     }
 
     private class TimeLabel extends Button {
@@ -155,8 +159,8 @@ class SetupTraining extends GLScreen {
             matchSettings.rotatePitchType(n);
             setDirty(true);
             pitchTypePicture.setDirty(true);
+            weatherPicture.setDirty(true);
             // TODO
-//            weatherPicture.setDirty(true);
 //            weatherButton.setDirty(true);
         }
     }
@@ -168,6 +172,20 @@ class SetupTraining extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 270 - 40 / 2, 300, 40);
             setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class WeatherPicture extends Button {
+
+        WeatherPicture() {
+            setColors(0x666666);
+            setGeometry(game.gui.WIDTH / 2 - 300 - 65, 270 - 50 / 2, 50, 50);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            textureRegion = Assets.weatherIcons[matchSettings.weatherOffset()];
         }
     }
 }
