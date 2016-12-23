@@ -45,6 +45,9 @@ class SetupTraining extends GLScreen {
 
         w = new PitchTypeButton();
         widgets.add(w);
+
+        w = new WeatherLabel();
+        widgets.add(w);
     }
 
     private class TimeLabel extends Button {
@@ -155,6 +158,16 @@ class SetupTraining extends GLScreen {
             // TODO
 //            weatherPicture.setDirty(true);
 //            weatherButton.setDirty(true);
+        }
+    }
+
+    private class WeatherLabel extends Button {
+
+        WeatherLabel() {
+            setColors(0x800000);
+            setGeometry(game.gui.WIDTH / 2 - 300 + 25, 270 - 40 / 2, 300, 40);
+            setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 }
