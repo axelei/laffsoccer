@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Pitch;
 
 class SetupTraining extends GLScreen {
 
@@ -41,6 +42,9 @@ class SetupTraining extends GLScreen {
 
         pitchTypePicture = new PitchTypePicture();
         widgets.add(pitchTypePicture);
+
+        w = new PitchTypeButton();
+        widgets.add(w);
     }
 
     private class TimeLabel extends Button {
@@ -118,6 +122,39 @@ class SetupTraining extends GLScreen {
         @Override
         public void refresh() {
             textureRegion = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
+        }
+    }
+
+    private class PitchTypeButton extends Button {
+
+        PitchTypeButton() {
+            setColors(0x1F1F95);
+            setGeometry(game.gui.WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(Pitch.names[matchSettings.pitchType.ordinal()]));
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotatePitchType(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            rotatePitchType(-1);
+        }
+
+        private void rotatePitchType(int n) {
+            matchSettings.rotatePitchType(n);
+            setDirty(true);
+            pitchTypePicture.setDirty(true);
+            // TODO
+//            weatherPicture.setDirty(true);
+//            weatherButton.setDirty(true);
         }
     }
 }
