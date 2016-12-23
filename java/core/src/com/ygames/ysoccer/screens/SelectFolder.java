@@ -142,7 +142,9 @@ class SelectFolder extends GLScreen {
 
                     case EDIT:
                     case TRAINING:
-                        game.setScreen(new SelectTeam(game, fileHandle, null));
+                        navigation.folder = fileHandle;
+                        navigation.league = null;
+                        game.setScreen(new SelectTeam(game));
                         break;
                 }
             } else {

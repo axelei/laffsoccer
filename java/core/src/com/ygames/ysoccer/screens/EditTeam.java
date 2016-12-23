@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -23,8 +22,6 @@ import java.util.Collections;
 
 class EditTeam extends GLScreen {
 
-    private FileHandle fileHandle;
-    String league;
     Team team;
     private int selectedKit;
     private int selectedPos;
@@ -46,10 +43,8 @@ class EditTeam extends GLScreen {
     private Widget deleteKitButton;
     private Widget saveButton;
 
-    EditTeam(GLGame game, FileHandle fileHandle, String league, Team team, Boolean modified) {
+    EditTeam(GLGame game, Team team, Boolean modified) {
         super(game);
-        this.fileHandle = fileHandle;
-        this.league = league;
         this.team = team;
         this.modified = modified;
 
@@ -883,7 +878,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new EditPlayers(game, fileHandle, league, team, modified));
+            game.setScreen(new EditPlayers(game, team, modified));
         }
     }
 
@@ -992,7 +987,7 @@ class EditTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             team.persist();
-            game.setScreen(new SelectTeam(game, fileHandle, league));
+            game.setScreen(new SelectTeam(game));
         }
     }
 
@@ -1006,7 +1001,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeam(game, fileHandle, league));
+            game.setScreen(new SelectTeam(game));
         }
     }
 }

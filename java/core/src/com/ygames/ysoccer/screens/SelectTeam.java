@@ -18,13 +18,8 @@ import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
 class SelectTeam extends GLScreen {
 
-    private FileHandle currentFolder;
-    private String league;
-
-    SelectTeam(GLGame game, FileHandle folder, String league) {
+    SelectTeam(GLGame game) {
         super(game);
-        this.currentFolder = folder;
-        this.league = league;
 
         background = game.stateBackground;
 
@@ -38,11 +33,11 @@ class SelectTeam extends GLScreen {
         HashSet<String> leagues = new HashSet<String>();
 
         List<Team> teamList = new ArrayList<Team>();
-        FileHandle[] teamFileHandles = currentFolder.list(Assets.teamFilenameFilter);
+        FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
         for (FileHandle teamFileHandle : teamFileHandles) {
             Team team = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
             team.path = Assets.getRelativeTeamPath(teamFileHandle);
-            if ((league == null) || ((team.type == CLUB) && team.league.equals(league))) {
+            if ((navigation.league == null) || ((team.type == CLUB) && team.league.equals(navigation.league))) {
                 teamList.add(team);
                 if (team.type == CLUB) {
                     leagues.add(team.league);
@@ -81,15 +76,15 @@ class SelectTeam extends GLScreen {
 
         // Breadcrumb
         List<Widget> breadcrumb = new ArrayList<Widget>();
-        if (league != null) {
+        if (navigation.league != null) {
             w = new BreadCrumbLeagueLabel();
             breadcrumb.add(w);
         }
-        FileHandle fh = currentFolder;
+        FileHandle fh = navigation.folder;
         boolean isDataRoot;
         do {
             isDataRoot = fh.equals(Assets.teamsRootFolder);
-            boolean disabled = (league == null && fh == currentFolder);
+            boolean disabled = (navigation.league == null && fh == navigation.folder);
             w = new BreadCrumbButton(fh, isDataRoot, disabled);
             breadcrumb.add(w);
             fh = fh.parent();
@@ -130,7 +125,7 @@ class SelectTeam extends GLScreen {
             setSize(0, 32);
             setColors(game.stateColor.darker());
             setActive(false);
-            setText(league, Font.Align.CENTER, Assets.font10);
+            setText(navigation.league, Font.Align.CENTER, Assets.font10);
             autoWidth();
         }
     }
@@ -154,8 +149,9 @@ class SelectTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            if (folder == currentFolder && league != null) {
-                game.setScreen(new SelectTeam(game, folder, null));
+            if (folder == navigation.folder && navigation.league != null) {
+                navigation.league = null;
+                game.setScreen(new SelectTeam(game));
             } else {
                 game.setScreen(new SelectFolder(game, folder, null));
             }
@@ -172,7 +168,8 @@ class SelectTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeam(game, currentFolder, text));
+            navigation.league = text;
+            game.setScreen(new SelectTeam(game));
         }
     }
 
@@ -197,7 +194,7 @@ class SelectTeam extends GLScreen {
         public void onFire1Down() {
             switch (game.getState()) {
                 case EDIT:
-                    game.setScreen(new EditPlayers(game, currentFolder, league, team, false));
+                    game.setScreen(new EditPlayers(game, team, false));
                     break;
 
                 case TRAINING:

@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -24,6 +25,13 @@ public abstract class GLScreen implements Screen {
     protected Widget selectedWidget;
     protected boolean playMenuMusic;
     protected InputDevice lastFireInputDevice;
+
+    protected static class Navigation {
+        public FileHandle folder;
+        public String league;
+    }
+
+    protected static final Navigation navigation = new Navigation();
 
     public GLScreen(GLGame game) {
         this.game = game;
