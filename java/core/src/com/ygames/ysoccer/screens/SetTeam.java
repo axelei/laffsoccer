@@ -13,6 +13,7 @@ import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.TacticsBoard;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
@@ -43,12 +44,13 @@ class SetTeam extends GLScreen {
     private Widget[] tacticsButtons = new Widget[18];
     private Widget teamInputDeviceButton;
 
-    SetTeam(GLGame game, Team homeTeam, Team awayTeam, int teamToSet) {
+    SetTeam(GLGame game, int teamToSet) {
         super(game);
         playMenuMusic = false;
 
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
+        Match match = navigation.competition.getMatch();
+        this.homeTeam = match.team[HOME];
+        this.awayTeam = match.team[AWAY];
         this.teamToSet = teamToSet;
         if (teamToSet == HOME) {
             ownTeam = homeTeam;
@@ -712,7 +714,7 @@ class SetTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             if (teamToSet == HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
+                game.setScreen(new SetTeam(game, AWAY));
             } else {
                 game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
             }

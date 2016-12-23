@@ -247,13 +247,13 @@ class PlayLeague extends GLScreen {
                     homeTeam.setInputDevice(lastFireInputDevice);
                 }
                 navigation.competition = league;
-                game.setScreen(new SetTeam(game, homeTeam, awayTeam, HOME));
+                game.setScreen(new SetTeam(game, HOME));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                 if (lastFireInputDevice != null) {
                     awayTeam.setInputDevice(lastFireInputDevice);
                 }
                 navigation.competition = league;
-                game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
+                game.setScreen(new SetTeam(game, AWAY));
             } else {
                 navigation.competition = league;
                 game.setScreen(new MatchSetup(game, homeTeam, awayTeam));

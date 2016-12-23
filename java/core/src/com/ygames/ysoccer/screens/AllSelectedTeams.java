@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
@@ -273,6 +274,9 @@ class AllSelectedTeams extends GLScreen {
                     Team homeTeam = game.teamList.get(HOME);
                     Team awayTeam = game.teamList.get(AWAY);
 
+                    Match match = navigation.competition.getMatch();
+                    match.team = new Team[]{homeTeam, awayTeam};
+
                     // reset input devices
                     game.inputDevices.setAvailability(true);
                     homeTeam.setInputDevice(null);
@@ -285,12 +289,12 @@ class AllSelectedTeams extends GLScreen {
                         if (lastFireInputDevice != null) {
                             homeTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, homeTeam, awayTeam, HOME));
+                        game.setScreen(new SetTeam(game, HOME));
                     } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                         if (lastFireInputDevice != null) {
                             awayTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, homeTeam, awayTeam, AWAY));
+                        game.setScreen(new SetTeam(game, AWAY));
                     } else {
                         game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
                     }
