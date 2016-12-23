@@ -67,6 +67,9 @@ class SetupTraining extends GLScreen {
 
         w = new PenaltyKicksButton();
         widgets.add(w);
+
+        w = new ExitButton();
+        widgets.add(w);
     }
 
     private class TimeLabel extends Button {
@@ -263,6 +266,20 @@ class SetupTraining extends GLScreen {
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText(Assets.strings.get("TRAINING.PENALTY KICKS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class ExitButton extends Button {
+
+        public ExitButton() {
+            setGeometry((game.gui.WIDTH - 196) / 2, 660, 196, 36);
+            setColors(0xC84200, 0xFF6519, 0x803300);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SelectTeam(game));
         }
     }
 }
