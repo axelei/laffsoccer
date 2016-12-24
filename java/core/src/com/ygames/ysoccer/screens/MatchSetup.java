@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
@@ -20,8 +21,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchSetup extends GLScreen {
 
-    private Team homeTeam;
-    private Team awayTeam;
     private MatchSettings matchSettings;
     private TimePicture timePicture;
     private PitchTypePicture pitchTypePicture;
@@ -31,12 +30,13 @@ class MatchSetup extends GLScreen {
     private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
     private Widget playMatchButton;
 
-    MatchSetup(GLGame game, Team homeTeam, Team awayTeam) {
+    MatchSetup(GLGame game) {
         super(game);
         playMenuMusic = false;
 
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
+        Match match = navigation.competition.getMatch();
+        Team homeTeam = match.team[HOME];
+        Team awayTeam = match.team[AWAY];
 
         Team.kitAutoSelection(homeTeam, awayTeam);
 
@@ -354,7 +354,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new MatchLoading(game, homeTeam, awayTeam, matchSettings, navigation.competition));
+            game.setScreen(new MatchLoading(game, matchSettings, navigation.competition));
         }
     }
 

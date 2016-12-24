@@ -275,7 +275,8 @@ class AllSelectedTeams extends GLScreen {
                     Team awayTeam = game.teamList.get(AWAY);
 
                     Match match = navigation.competition.getMatch();
-                    match.team = new Team[]{homeTeam, awayTeam};
+                    match.setTeam(HOME, homeTeam);
+                    match.setTeam(AWAY, awayTeam);
 
                     // reset input devices
                     game.inputDevices.setAvailability(true);
@@ -289,14 +290,16 @@ class AllSelectedTeams extends GLScreen {
                         if (lastFireInputDevice != null) {
                             homeTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, HOME));
+                        navigation.team = homeTeam;
+                        game.setScreen(new SetTeam(game));
                     } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                         if (lastFireInputDevice != null) {
                             awayTeam.setInputDevice(lastFireInputDevice);
                         }
-                        game.setScreen(new SetTeam(game, AWAY));
+                        navigation.team = awayTeam;
+                        game.setScreen(new SetTeam(game));
                     } else {
-                        game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
+                        game.setScreen(new MatchSetup(game));
                     }
                     break;
 

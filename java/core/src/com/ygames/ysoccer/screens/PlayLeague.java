@@ -234,6 +234,10 @@ class PlayLeague extends GLScreen {
             Team homeTeam = league.getTeam(HOME);
             Team awayTeam = league.getTeam(AWAY);
 
+            Match match = league.getMatch();
+            match.setTeam(HOME, homeTeam);
+            match.setTeam(AWAY, awayTeam);
+
             // reset input devices
             game.inputDevices.setAvailability(true);
             homeTeam.setInputDevice(null);
@@ -247,16 +251,18 @@ class PlayLeague extends GLScreen {
                     homeTeam.setInputDevice(lastFireInputDevice);
                 }
                 navigation.competition = league;
-                game.setScreen(new SetTeam(game, HOME));
+                navigation.team = homeTeam;
+                game.setScreen(new SetTeam(game));
             } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
                 if (lastFireInputDevice != null) {
                     awayTeam.setInputDevice(lastFireInputDevice);
                 }
                 navigation.competition = league;
-                game.setScreen(new SetTeam(game, AWAY));
+                navigation.team = awayTeam;
+                game.setScreen(new SetTeam(game));
             } else {
                 navigation.competition = league;
-                game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
+                game.setScreen(new MatchSetup(game));
             }
         }
     }

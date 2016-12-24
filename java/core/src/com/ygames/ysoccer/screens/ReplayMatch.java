@@ -47,7 +47,11 @@ class ReplayMatch extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new MatchLoading(game, match.team[HOME], match.team[AWAY], match.settings, new Friendly()));
+            Friendly friendly = new Friendly();
+            friendly.getMatch().setTeam(HOME, match.team[HOME]);
+            friendly.getMatch().setTeam(AWAY, match.team[AWAY]);
+
+            game.setScreen(new MatchLoading(game, match.settings, friendly));
         }
     }
 

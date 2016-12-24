@@ -27,10 +27,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class SetTeam extends GLScreen {
 
-    private Team homeTeam;
-    private Team awayTeam;
-    private int teamToSet;
-
     private Team ownTeam;
     private Team opponentTeam;
     private Team shownTeam;
@@ -44,21 +40,19 @@ class SetTeam extends GLScreen {
     private Widget[] tacticsButtons = new Widget[18];
     private Widget teamInputDeviceButton;
 
-    SetTeam(GLGame game, int teamToSet) {
+    SetTeam(GLGame game) {
         super(game);
         playMenuMusic = false;
 
         Match match = navigation.competition.getMatch();
-        this.homeTeam = match.team[HOME];
-        this.awayTeam = match.team[AWAY];
-        this.teamToSet = teamToSet;
-        if (teamToSet == HOME) {
-            ownTeam = homeTeam;
-            opponentTeam = awayTeam;
+
+        if (navigation.team.index == HOME) {
+            ownTeam = match.team[HOME];
+            opponentTeam = match.team[AWAY];
             reservedInputDevices = (ownTeam.controlMode != Team.ControlMode.COMPUTER) && (opponentTeam.controlMode != Team.ControlMode.COMPUTER) ? 1 : 0;
         } else {
-            ownTeam = awayTeam;
-            opponentTeam = homeTeam;
+            ownTeam = match.team[AWAY];
+            opponentTeam = match.team[HOME];
             reservedInputDevices = 0;
         }
 
@@ -713,10 +707,11 @@ class SetTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            if (teamToSet == HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
-                game.setScreen(new SetTeam(game, AWAY));
+            if (navigation.team.index == HOME && opponentTeam.controlMode != Team.ControlMode.COMPUTER) {
+                navigation.team = navigation.competition.getMatch().team[AWAY];
+                game.setScreen(new SetTeam(game));
             } else {
-                game.setScreen(new MatchSetup(game, homeTeam, awayTeam));
+                game.setScreen(new MatchSetup(game));
             }
         }
     }

@@ -9,7 +9,6 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
-import com.ygames.ysoccer.match.Team;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -18,16 +17,14 @@ class MatchLoading extends GLScreen {
 
     Match match;
 
-    MatchLoading(GLGame game, Team homeTeam, Team awayTeam, MatchSettings matchSettings, Competition competition) {
+    MatchLoading(GLGame game, MatchSettings matchSettings, Competition competition) {
         super(game);
         playMenuMusic = false;
 
         matchSettings.setup();
 
-        Team[] team = {homeTeam, awayTeam};
-
         match = competition.getMatch();
-        match.init(game, team, matchSettings, competition);
+        match.init(game, matchSettings, competition);
 
         game.unsetMouse();
 
@@ -36,11 +33,11 @@ class MatchLoading extends GLScreen {
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
         for (int t = HOME; t <= AWAY; t++) {
-            team[t].loadImage();
-            Assets.loadCoach(team[t]);
-            int len = team[t].lineup.size();
+            match.team[t].loadImage();
+            Assets.loadCoach(match.team[t]);
+            int len = match.team[t].lineup.size();
             for (int i = 0; i < len; i++) {
-                Player player = team[t].lineup.get(i);
+                Player player = match.team[t].lineup.get(i);
                 if (player.role == Player.Role.GOALKEEPER) {
                     Assets.loadKeeper(player);
                 } else {

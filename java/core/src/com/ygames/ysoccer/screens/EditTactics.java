@@ -741,8 +741,7 @@ class EditTactics extends GLScreen {
                 if (game.getState() == NONE) {
                     game.setScreen(new Main(game));
                 } else {
-                    // TODO
-//                    game.setScreen(new SetTeam);
+                    game.setScreen(new SetTeam(game));
                 }
             } else {
                 // save warning
@@ -765,16 +764,13 @@ class EditTactics extends GLScreen {
                 if (game.getState() == NONE) {
                     game.setScreen(new Main(game));
                 } else {
-                    // TODO
-//                    game.setScreen(new SetTeam(game));
+                    game.setScreen(new SetTeam(game));
                 }
             } else {
                 game.setScreen(new TacticsAbortWarning(game));
             }
         }
-
     }
-
 
     private void pushUndoStack() {
         Tactics tactics = new Tactics();

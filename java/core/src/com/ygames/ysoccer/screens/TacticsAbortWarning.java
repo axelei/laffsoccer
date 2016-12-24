@@ -57,8 +57,7 @@ class TacticsAbortWarning extends GLScreen {
             if (game.getState() == NONE) {
                 game.setScreen(new Main(game));
             } else {
-                // TODO
-//                game.setScreen(new SetTeam(game));
+                game.setScreen(new SetTeam(game));
             }
         }
     }
