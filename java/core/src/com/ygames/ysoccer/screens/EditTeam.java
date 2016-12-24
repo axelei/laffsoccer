@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -18,7 +19,9 @@ import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 class EditTeam extends GLScreen {
 
@@ -410,18 +413,43 @@ class EditTeam extends GLScreen {
         }
     }
 
-    private class LeagueButton extends InputButton {
+    private class LeagueButton extends Button {
+
+        List<String> leagues;
 
         LeagueButton() {
+            FileHandle leaguesFile = navigation.folder.child("leagues.json");
+            this.leagues = Arrays.asList(Assets.json.fromJson(String[].class, leaguesFile.readString("UTF-8")));
             setGeometry(280, 155, 364, 32);
             setColors(0x10A000);
-            setText(team.league, Font.Align.CENTER, Assets.font10);
-            setEntryLimit(24);
+            setText("", Font.Align.CENTER, Assets.font10);
         }
 
         @Override
-        public void onChanged() {
-            team.league = text;
+        public void refresh() {
+            setText(team.league);
+        }
+
+        @Override
+        public void onFire1Down() {
+            changeLeague(+1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            changeLeague(-1);
+        }
+
+        private void changeLeague(int n) {
+            int i = leagues.indexOf(team.league);
+            if (i == -1) {
+                i = 0; // not found, start from 0
+            } else {
+                i = Emath.rotate(i, 0, leagues.size() - 1, n);
+            }
+            team.league = leagues.get(i);
+            navigation.league = team.league;
+            setDirty(true);
             setModifiedFlag();
         }
     }

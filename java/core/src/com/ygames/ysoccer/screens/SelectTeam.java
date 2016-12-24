@@ -11,7 +11,6 @@ import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 import static com.ygames.ysoccer.match.Team.Type.CLUB;
@@ -30,7 +29,11 @@ class SelectTeam extends GLScreen {
 
         List<Widget> list = new ArrayList<Widget>();
 
-        HashSet<String> leagues = new HashSet<String>();
+        List<String> leagues = new ArrayList<String>();
+        FileHandle leaguesFile = navigation.folder.child("leagues.json");
+        if (navigation.league == null && leaguesFile.exists()) {
+            leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
+        }
 
         List<Team> teamList = new ArrayList<Team>();
         FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
@@ -39,7 +42,7 @@ class SelectTeam extends GLScreen {
             team.path = Assets.getRelativeTeamPath(teamFileHandle);
             if ((navigation.league == null) || ((team.type == CLUB) && team.league.equals(navigation.league))) {
                 teamList.add(team);
-                if (team.type == CLUB) {
+                if (team.type == CLUB && !leagues.contains(team.league)) {
                     leagues.add(team.league);
                 }
             }
@@ -53,7 +56,6 @@ class SelectTeam extends GLScreen {
                 widgets.add(leagueButton);
             }
             if (list.size() > 0) {
-                Collections.sort(list, Widget.widgetComparatorByText);
                 Widget.arrange(game.gui.WIDTH, 380, 34, list);
                 setSelectedWidget(list.get(0));
             }

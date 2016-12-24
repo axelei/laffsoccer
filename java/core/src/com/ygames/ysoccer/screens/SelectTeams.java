@@ -42,7 +42,11 @@ class SelectTeams extends GLScreen {
 
         List<Widget> list = new ArrayList<Widget>();
 
-        HashSet<String> leagues = new HashSet<String>();
+        List<String> leagues = new ArrayList<String>();
+        FileHandle leaguesFile = navigation.folder.child("leagues.json");
+        if (navigation.league == null && leaguesFile.exists()) {
+            leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
+        }
 
         List<Team> teamList = new ArrayList<Team>();
         FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
@@ -51,7 +55,7 @@ class SelectTeams extends GLScreen {
             team.path = Assets.getRelativeTeamPath(teamFileHandle);
             if ((navigation.league == null) || ((team.type == CLUB) && team.league.equals(navigation.league))) {
                 teamList.add(team);
-                if (team.type == CLUB) {
+                if (team.type == CLUB && !leagues.contains(team.league)) {
                     leagues.add(team.league);
                 }
             }
@@ -64,7 +68,6 @@ class SelectTeams extends GLScreen {
                 list.add(leagueButton);
                 widgets.add(leagueButton);
             }
-            Collections.sort(list, Widget.widgetComparatorByText);
             Widget.arrange(game.gui.WIDTH, 392, 34, list);
             setSelectedWidget(list.get(0));
         }

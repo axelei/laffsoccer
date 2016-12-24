@@ -26,7 +26,11 @@ import com.ygames.ysoccer.math.Emath;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 class ImportTeams extends GLScreen {
 
@@ -303,6 +307,8 @@ class ImportTeams extends GLScreen {
 
     private Config exportConfigs;
 
+    private Map<String, HashSet<String>> leagues = new HashMap<String, HashSet<String>>();
+
     ImportTeams(GLGame game) {
         super(game);
 
@@ -373,6 +379,12 @@ class ImportTeams extends GLScreen {
                     if (!importFile(fileHandle)) {
                         skippedFiles++;
                     }
+                }
+                for (String folder : leagues.keySet()) {
+                    FileHandle fileHandle = Assets.teamsRootFolder.child(folder).child("leagues.json");
+                    List<String> names = new ArrayList<String>(leagues.get(folder));
+                    Collections.sort(names);
+                    fileHandle.writeString(Assets.json.toJson(names, String[].class, String.class), false, "UTF-8");
                 }
                 refreshAllWidgets();
                 break;
@@ -853,6 +865,18 @@ class ImportTeams extends GLScreen {
         team.persist();
 
         exportConfig.teams.add(new TeamConfig(team.path, gtn, division));
+
+        if (team.type == Team.Type.CLUB) {
+            if (leagues.get(folder) == null) {
+                HashSet<String> l = new HashSet<String>();
+                l.add(team.league);
+                leagues.put(folder, l);
+            } else {
+                HashSet<String> l = leagues.get(folder);
+                l.add(team.league);
+                leagues.put(folder, l);
+            }
+        }
 
         importedTeams++;
 

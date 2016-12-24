@@ -15,6 +15,7 @@
 		"style": "VERTICAL",
 		"shirt1": "#1e1e1e",
 		"shirt2": "#dfe8eb",
+		"shirt3": "#000000",
 		"shorts": "#dfe8eb",
 		"socks": "#dfe8eb"
 	},
@@ -22,6 +23,7 @@
 		"style": "PLAIN",
 		"shirt1": "#dfe8eb",
 		"shirt2": "#1e1e1e",
+		"shirt3": "#000000",
 		"shorts": "#1e1e1e",
 		"socks": "#dfe8eb"
 	},
@@ -29,6 +31,7 @@
 		"style": "PLAIN",
 		"shirt1": "#dfe8eb",
 		"shirt2": "#1e1e1e",
+		"shirt3": "#000000",
 		"shorts": "#dfe8eb",
 		"socks": "#dfe8eb"
 	}
@@ -43,7 +46,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 40
 	},
 	{
@@ -295,7 +297,6 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"skills": {},
 		"value": 33
 	},
 	{
