@@ -303,7 +303,7 @@ public class Assets {
     private static void loadKits() {
         kits = new ArrayList<String>();
         FileHandle fileHandle = Gdx.files.internal("images/kit");
-        for (FileHandle kitFile : fileHandle.list(".PNG")) {
+        for (FileHandle kitFile : fileHandle.list(".png")) {
             kits.add(kitFile.nameWithoutExtension());
         }
         Collections.sort(kits);
