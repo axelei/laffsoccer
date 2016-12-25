@@ -15,7 +15,6 @@ import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -108,10 +107,6 @@ class SelectTeams extends GLScreen {
                 setSelectedWidget(list.get(0));
             }
 
-            w = new ViewSelectedTeamsButton();
-            widgets.add(w);
-            viewSelectedTeamsButton = w;
-
             w = new PlayButton();
             widgets.add(w);
             playButton = w;
@@ -144,6 +139,10 @@ class SelectTeams extends GLScreen {
             x += b.w + 2;
         }
         widgets.addAll(breadcrumb);
+
+        w = new ViewSelectedTeamsButton();
+        widgets.add(w);
+        viewSelectedTeamsButton = w;
 
         w = new AbortButton();
         widgets.add(w);

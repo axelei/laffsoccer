@@ -62,6 +62,9 @@ class SelectFolder extends GLScreen {
             setSelectedWidget(list.get(0));
         }
 
+        w = new ViewSelectedTeamsButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
         if (selectedWidget == null) {
@@ -148,6 +151,25 @@ class SelectFolder extends GLScreen {
                 navigation.folder = fileHandle;
                 game.setScreen(new SelectFolder(game));
             }
+        }
+    }
+
+    private class ViewSelectedTeamsButton extends Button {
+
+        ViewSelectedTeamsButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
+            setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
+            setText(Assets.strings.get("VIEW SELECTED TEAMS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new AllSelectedTeams(game));
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(game.teamList.size() > 0);
         }
     }
 
