@@ -37,7 +37,7 @@ public class Pitch {
             new Grass(0x486C00, 0x3C5800, 6, 65), // dry
             new Grass(0x684C00, 0x463C00, 6, 70), // hard
             new Grass(0x58584C, 0x3C3C34, 4, 70), // snowed
-            new Grass(0x3C5800, 0x2C4400, 10, 60) // white
+            new Grass(0x58584C, 0x3C3C34, 10, 60) // white
     };
 
     static final int[][][] startingPositions = {
