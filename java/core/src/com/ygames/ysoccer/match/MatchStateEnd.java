@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -44,6 +43,14 @@ class MatchStateEnd extends MatchState {
 
     @Override
     void checkConditions() {
+        if (Gdx.input.isKeyPressed(Input.Keys.H) && match.recorder.hasHighlights()) {
+            match.recorder.restart();
+            fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
+            fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+            return;
+        }
+
         if (match.team[HOME].fire1Up() != null
                 || match.team[AWAY].fire1Up() != null
                 || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)
