@@ -44,7 +44,7 @@ class TrainingScreen extends GLScreen {
         }
 
         if (!ended) {
-            training.fsm.getTrainingRenderer().render(game);
+            training.fsm.getTrainingRenderer().render();
         }
     }
 

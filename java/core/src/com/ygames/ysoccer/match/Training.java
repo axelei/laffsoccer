@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
@@ -82,8 +83,8 @@ public class Training {
             Player player = team.lineup.get(i);
             player.fsm.setState(PlayerFsm.STATE_OUTSIDE);
 
-            player.x = 18 * (-team.lineup.size() + 2 * i) + 8 * (float) Math.cos(70 * (player.number));
-            player.y = team.side * (15 + 5 * (i % 2)) + 8 * (float) Math.sin(70 * (player.number));
+            player.x = 18 * (-team.lineup.size() + 2 * i) + 8 * Emath.cos(70 * (player.number));
+            player.y = team.side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));
             player.z = 0;
 
             player.tx = player.x;
@@ -104,6 +105,14 @@ public class Training {
     public void start() {
         fsm.pushAction(NEW_FOREGROUND, STATE_FREE);
         fsm.pushAction(FADE_IN);
+    }
+
+    void findNearest() {
+        team.findNearest();
+    }
+
+    void updateFrameDistance() {
+        team.updateFrameDistance();
     }
 
     void quit() {

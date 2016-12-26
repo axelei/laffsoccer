@@ -48,7 +48,7 @@ class MatchScreen extends GLScreen {
         }
 
         if (!matchEnded) {
-            match.fsm.getMatchRenderer().render(game);
+            match.fsm.getMatchRenderer().render();
         }
     }
 

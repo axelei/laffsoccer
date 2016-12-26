@@ -6,10 +6,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -79,7 +77,7 @@ public class MatchRenderer extends Renderer {
         guiHeight = guiWidth * height / width;
     }
 
-    public void render(GLGame game) {
+    public void render() {
         matchState = match.fsm.getState();
 
         gl.glEnable(GL20.GL_BLEND);
@@ -292,70 +290,6 @@ public class MatchRenderer extends Renderer {
         } else {
             batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2, dy, 6, 10);
         }
-    }
-
-    private void drawRain(MatchSettings matchSettings, int subframe) {
-        batch.setColor(0xFFFFFF, 0.6f);
-        Assets.random.setSeed(1);
-        for (int i = 1; i <= 40 * matchSettings.weatherStrength; i++) {
-            int x = Assets.random.nextInt(modW);
-            int y = Assets.random.nextInt(modH);
-            int h = (Assets.random.nextInt(modH) + subframe) % modH;
-            if (h > 0.3f * modH) {
-                for (int fx = 0; fx <= modX; fx++) {
-                    for (int fy = 0; fy <= modY; fy++) {
-                        int px = ((x + modW - Math.round(subframe / ((float) GLGame.SUBFRAMES))) % modW) + modW * (fx - 1);
-                        int py = ((y + 4 * Math.round(subframe / GLGame.SUBFRAMES)) % modH) + modH * (fy - 1);
-                        int f = 3 * h / modH;
-                        if (h > 0.9f * modH) {
-                            f = 3;
-                        }
-                        batch.draw(Assets.rain[f], -Const.CENTER_X + px, -Const.CENTER_Y + py);
-                    }
-                }
-            }
-        }
-        batch.setColor(0xFFFFFF, 1f);
-    }
-
-    private void drawSnow(MatchSettings matchSettings, int subframe) {
-        batch.setColor(0xFFFFFF, 0.7f);
-
-        Assets.random.setSeed(1);
-        for (int i = 1; i <= 30 * matchSettings.weatherStrength; i++) {
-            int x = Assets.random.nextInt(modW);
-            int y = Assets.random.nextInt(modH);
-            int s = i % 3;
-            int a = Assets.random.nextInt(360);
-            for (int fx = 0; fx <= modX; fx++) {
-                for (int fy = 0; fy <= modY; fy++) {
-                    int px = (int) (((x + modW + 30 * Emath.sin(360 * subframe / ((float) Const.REPLAY_SUBFRAMES) + a)) % modW) + modW * (fx - 1));
-                    int py = ((y + 2 * Math.round(subframe / GLGame.SUBFRAMES)) % modH) + modH * (fy - 1);
-                    batch.draw(Assets.snow[s], -Const.CENTER_X + px, -Const.CENTER_Y + py);
-                }
-            }
-        }
-        batch.setColor(0xFFFFFF, 1f);
-    }
-
-    private void drawFog(MatchSettings matchSettings, int subframe) {
-        batch.setColor(0xFFFFFF, 0.25f * matchSettings.weatherStrength);
-
-        int TILE_WIDTH = 256;
-        int fogX = -Const.CENTER_X + vcameraX[subframe] - 2 * TILE_WIDTH
-                + ((Const.CENTER_X - vcameraX[subframe]) % TILE_WIDTH + 2 * TILE_WIDTH) % TILE_WIDTH;
-        int fogY = -Const.CENTER_Y + vcameraY[subframe] - 2 * TILE_WIDTH
-                + ((Const.CENTER_Y - vcameraY[subframe]) % TILE_WIDTH + 2 * TILE_WIDTH) % TILE_WIDTH;
-        int x = fogX;
-        while (x < (fogX + screenWidth + 2 * TILE_WIDTH)) {
-            int y = fogY;
-            while (y < (fogY + screenHeight + 2 * TILE_WIDTH)) {
-                batch.draw(Assets.fog, x + ((subframe / GLGame.SUBFRAMES) % TILE_WIDTH), y + ((2 * subframe / GLGame.SUBFRAMES) % TILE_WIDTH), 256, 256, 0, 0, 256, 256, false, true);
-                y = y + TILE_WIDTH;
-            }
-            x = x + TILE_WIDTH;
-        }
-        batch.setColor(0xFFFFFF, 1f);
     }
 
     void drawRosters() {

@@ -87,6 +87,7 @@ public class Player implements Json.Serializable {
     float facingAngle;
     Match match;
     Training training;
+    MatchSettings matchSettings;
     Ball ball;
     PlayerFsm fsm;
 
@@ -159,6 +160,7 @@ public class Player implements Json.Serializable {
         fsm = new PlayerFsm(this);
         isVisible = true;
         this.match = match;
+        this.matchSettings = match.settings;
     }
 
     void beforeTraining(Training training) {
@@ -166,6 +168,7 @@ public class Player implements Json.Serializable {
         fsm = new PlayerFsm(this);
         isVisible = true;
         this.training = training;
+        this.matchSettings = training.settings;
     }
 
     void setTarget(float tx, float ty) {
@@ -224,7 +227,7 @@ public class Player implements Json.Serializable {
     void updateFrameDistance() {
         frameDistance = Const.BALL_PREDICTION;
         for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
-            float dist = Emath.dist(x, y, match.ball.prediction[f].x, match.ball.prediction[f].y);
+            float dist = Emath.dist(x, y, ball.prediction[f].x, ball.prediction[f].y);
             if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistance = f;
             }
@@ -351,7 +354,7 @@ public class Player implements Json.Serializable {
         }
 
         if (collisionType == CT_CATCH) {
-            if (match.settings.commentary) {
+            if (matchSettings.commentary) {
                 int size = Assets.Commentary.keeperSave.size();
                 if (size > 0) {
                     Assets.Commentary.keeperSave.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);

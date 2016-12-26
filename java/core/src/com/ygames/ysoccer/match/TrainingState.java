@@ -7,11 +7,15 @@ class TrainingState {
     protected TrainingFsm fsm;
 
     protected Training training;
+    protected final Team team;
+    protected final Ball ball;
     TrainingRenderer trainingRenderer;
 
     TrainingState(TrainingFsm fsm) {
         this.fsm = fsm;
         this.training = fsm.getTraining();
+        this.team = training.team;
+        this.ball = training.ball;
         this.trainingRenderer = fsm.getTrainingRenderer();
     }
 

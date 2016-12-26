@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
 
@@ -14,7 +13,7 @@ public class TrainingRenderer extends Renderer {
 
     public Training training;
 
-    public TrainingRenderer(GLGraphics glGraphics, Training training) {
+    TrainingRenderer(GLGraphics glGraphics, Training training) {
         super();
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
@@ -45,6 +44,7 @@ public class TrainingRenderer extends Renderer {
             cornerFlagSprites[i] = new CornerFlagSprite(glGraphics, training.settings, i / 2 * 2 - 1, i % 2 * 2 - 1);
             allSprites.add(cornerFlagSprites[i]);
         }
+        allSprites.add(new GoalTopA(glGraphics));
     }
 
     public void resize(int width, int height, Settings settings) {
@@ -58,7 +58,7 @@ public class TrainingRenderer extends Renderer {
         guiHeight = guiWidth * height / width;
     }
 
-    public void render(GLGame game) {
+    public void render() {
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(true, Gdx.graphics.getWidth() * 100f / zoom, Gdx.graphics.getHeight() * 100f / zoom);
@@ -70,6 +70,25 @@ public class TrainingRenderer extends Renderer {
         renderBackground();
 
         renderSprites(training.subframe);
+
+        // redraw bottom goal
+        batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
+
+        if (training.settings.weatherStrength != Weather.Strength.NONE) {
+            switch (training.settings.weatherEffect) {
+                case Weather.RAIN:
+                    drawRain(training.settings, training.subframe);
+                    break;
+
+                case Weather.SNOW:
+                    drawSnow(training.settings, training.subframe);
+                    break;
+
+                case Weather.FOG:
+                    drawFog(training.settings, training.subframe);
+                    break;
+            }
+        }
 
         drawControlledPlayersNumbers();
 
@@ -89,6 +108,11 @@ public class TrainingRenderer extends Renderer {
         // ball owner
         if (training.ball.owner != null) {
             drawPlayerNumberAndName(training.ball.owner);
+        }
+
+        // wind vane
+        if (training.settings.wind.speed > 0) {
+            batch.draw(Assets.wind[training.settings.wind.direction][training.settings.wind.speed - 1], guiWidth - 50, 20);
         }
 
         // messages

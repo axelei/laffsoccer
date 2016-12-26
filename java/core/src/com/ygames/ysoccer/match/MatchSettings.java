@@ -44,7 +44,7 @@ public class MatchSettings {
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
         crowdChants = true;
-        commentary = gameSettings.commentary;
+        commentary = false;
     }
 
     public MatchSettings(Competition competition, Settings gameSettings) {
