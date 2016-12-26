@@ -77,7 +77,7 @@ public class Match implements Json.Serializable {
         this.competition = competition;
 
         scorers = new Scorers();
-        ball = new Ball(this);
+        ball = new Ball(matchSettings);
 
         for (int t = HOME; t <= AWAY; t++) {
             team[t].index = t;

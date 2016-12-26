@@ -203,6 +203,6 @@ class PlayerStateKeeperPositioning extends PlayerState {
     void entryActions() {
         super.entryActions();
         dangerTime = 0;
-        ball = player.match.ball;
+        ball = player.ball;
     }
 }

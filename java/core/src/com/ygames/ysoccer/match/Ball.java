@@ -39,10 +39,10 @@ class Ball {
     Player goalOwner;
     Player holder;
 
-    Match match;
+    MatchSettings matchSettings;
 
-    Ball(Match match) {
-        this.match = match;
+    Ball(MatchSettings matchSettings) {
+        this.matchSettings = matchSettings;
 
         for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
             prediction[frm] = new Vector3();
@@ -97,7 +97,7 @@ class Ball {
 
         if (z < 1) {
             // grass friction
-            v -= match.settings.grass.friction / Const.SECOND * Math.sqrt(Math.abs(v));
+            v -= matchSettings.grass.friction / Const.SECOND * Math.sqrt(Math.abs(v));
         } else {
             // air friction
             v *= 1 - 0.3 / Const.SECOND;
@@ -108,8 +108,8 @@ class Ball {
             float vx = v * Emath.cos(a);
             float vy = v * Emath.sin(a);
 
-            float windV = 0.025f * (float) Math.log10(1 + z) * match.settings.wind.speed;
-            float windA = 45.0f * match.settings.wind.direction;
+            float windV = 0.025f * (float) Math.log10(1 + z) * matchSettings.wind.speed;
+            float windA = 45.0f * matchSettings.wind.direction;
 
             float windVx = windV * Emath.cos(windA);
             float windVy = windV * Emath.sin(windA);
@@ -147,7 +147,7 @@ class Ball {
             } else {
                 // bounce
                 v *= (1 + vz / 1400.0f);
-                vz *= -0.01f * match.settings.grass.bounce;
+                vz *= -0.01f * matchSettings.grass.bounce;
             }
             bouncing_speed = vz;
         }
@@ -329,7 +329,7 @@ class Ball {
 
         // sound
         if (hit) {
-            Assets.Sounds.post.play(match.settings.soundVolume / 100f);
+            Assets.Sounds.post.play(matchSettings.soundVolume / 100f);
         }
 
         return hit;
@@ -352,7 +352,7 @@ class Ball {
             x = x0;
             y = y0;
 
-            Assets.Sounds.post.play(0.5f * match.settings.soundVolume / 100f);
+            Assets.Sounds.post.play(0.5f * matchSettings.soundVolume / 100f);
         }
     }
 
@@ -385,7 +385,7 @@ class Ball {
             }
 
             if (sfx) {
-                Assets.Sounds.net.play(0.5f * match.settings.soundVolume / 100f);
+                Assets.Sounds.net.play(0.5f * matchSettings.soundVolume / 100f);
             }
         }
     }
@@ -441,7 +441,7 @@ class Ball {
             x = x0;
             y = y0;
 
-            Assets.Sounds.bounce.play(0.5f * match.settings.soundVolume / 100f);
+            Assets.Sounds.bounce.play(0.5f * matchSettings.soundVolume / 100f);
         }
     }
 

@@ -89,7 +89,7 @@ class PlayerStateKick extends PlayerState {
     void entryActions() {
         super.entryActions();
         isPassing = IP_UNKNOWN;
-        ball = player.match.ball;
+        ball = player.ball;
 
         ball.v = 190.0f;
         ball.a = player.kickAngle;

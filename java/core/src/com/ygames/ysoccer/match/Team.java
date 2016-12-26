@@ -33,6 +33,7 @@ public class Team implements Json.Serializable {
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 
     public Match match;
+    public Training training;
 
     public String name;
     public Type type;
@@ -182,6 +183,18 @@ public class Team implements Json.Serializable {
         substitutionsCount = 0;
     }
 
+    void beforeTraining(Training training) {
+        this.training = training;
+        lineup = new ArrayList<Player>();
+        int lineupSize = players.size();
+        for (int i = 0; i < lineupSize; i++) {
+            Player player = players.get(i);
+            player.beforeTraining(training);
+            player.index = i;
+            lineup.add(player);
+        }
+    }
+
     void save(int subframe) {
         int len = lineup.size();
         for (int i = 0; i < len; i++) {
@@ -280,13 +293,13 @@ public class Team implements Json.Serializable {
         return move;
     }
 
-    private boolean updateLineup(boolean limit) {
+    boolean updateLineup(boolean limit) {
         boolean move = false;
 
         int len = lineup.size();
         for (int i = 0; i < len; i++) {
             Player player = lineup.get(i);
-            if (player.update(match, limit)) {
+            if (player.update(limit)) {
                 move = true;
             }
             player.think();

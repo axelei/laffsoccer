@@ -92,6 +92,6 @@ class PlayerStateStandRun extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball = player.match.ball;
+        ball = player.ball;
     }
 }

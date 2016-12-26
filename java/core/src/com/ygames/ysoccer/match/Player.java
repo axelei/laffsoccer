@@ -86,6 +86,8 @@ public class Player implements Json.Serializable {
     Player facingPlayer;
     float facingAngle;
     Match match;
+    Training training;
+    Ball ball;
     PlayerFsm fsm;
 
     float speed;
@@ -124,6 +126,9 @@ public class Player implements Json.Serializable {
         skills = new Skills();
         setAi(new Ai(this));
         setInputDevice(ai);
+        for (int i = 0; i < data.length; i++) {
+            data[i] = new Data();
+        }
     }
 
     @Override
@@ -150,12 +155,17 @@ public class Player implements Json.Serializable {
     }
 
     void beforeMatch(Match match) {
-        for (int i = 0; i < data.length; i++) {
-            data[i] = new Data();
-        }
         fsm = new PlayerFsm(this);
         isVisible = true;
         this.match = match;
+        this.ball = match.ball;
+    }
+
+    void beforeTraining(Training training) {
+        fsm = new PlayerFsm(this);
+        isVisible = true;
+        this.training = training;
+        this.ball = training.ball;
     }
 
     void setTarget(float tx, float ty) {
@@ -223,34 +233,32 @@ public class Player implements Json.Serializable {
 
     public void getPossession() {
         if ((ballDistance <= 8)
-                && Emath.dist(x0, y0, match.ball.x0, match.ball.y0) > 8
-                && (match.ball.z < (Const.PLAYER_H + Const.BALL_R))) {
+                && Emath.dist(x0, y0, ball.x0, ball.y0) > 8
+                && (ball.z < (Const.PLAYER_H + Const.BALL_R))) {
 
-            float smoothedBallV = match.ball.v * 0.5f;
-            Vector2 ballVec = new Vector2(smoothedBallV, match.ball.a, true);
+            float smoothedBallV = ball.v * 0.5f;
+            Vector2 ballVec = new Vector2(smoothedBallV, ball.a, true);
             Vector2 playerVec = new Vector2(v, a, true);
 
             Vector2 differenceVec = playerVec.sub(ballVec);
 
             if (differenceVec.v < 220 + 7 * skills.control) {
-                match.ball.setOwner(this);
-                match.ball.x = x + (Const.BALL_R - 1) * Emath.cos(a);
-                match.ball.y = y + (Const.BALL_R - 1) * Emath.sin(a);
-                match.ball.v = v;
-                match.ball.a = a;
+                ball.setOwner(this);
+                ball.x = x + (Const.BALL_R - 1) * Emath.cos(a);
+                ball.y = y + (Const.BALL_R - 1) * Emath.sin(a);
+                ball.v = v;
+                ball.a = a;
             } else {
-                match.ball.setOwner(this);
-                match.ball.setOwner(null);
-                match.ball.collisionPlayer(this, 0.5f * differenceVec.v);
+                ball.setOwner(this);
+                ball.setOwner(null);
+                ball.collisionPlayer(this, 0.5f * differenceVec.v);
             }
 
-            match.ball.vz = match.ball.vz / (2 + skills.control);
+            ball.vz = ball.vz / (2 + skills.control);
         }
     }
 
     boolean keeperCollision() {
-        Ball ball = match.ball;
-
         int collisionType = CT_NONE;
 
         if (Math.abs(ball.y0 - y) >= 1 && Math.abs(ball.y - y) < 1) {
@@ -383,7 +391,7 @@ public class Player implements Json.Serializable {
     }
 
     void watchBall() {
-        a = Math.round((Emath.aTan2(y - match.ball.y, x - match.ball.x) + 180) / 45.0f) * 45.0f;
+        a = Math.round((Emath.aTan2(y - ball.y, x - ball.x) + 180) / 45.0f) * 45.0f;
     }
 
     public String getRoleLabel() {
@@ -503,7 +511,7 @@ public class Player implements Json.Serializable {
         return orderedSkills;
     }
 
-    public boolean update(Match match, boolean limit) {
+    public boolean update(boolean limit) {
 
         // physical parameters
         // speeds are in pixel/s
@@ -535,7 +543,7 @@ public class Player implements Json.Serializable {
             limitInsideField();
         }
 
-        ballDistance = Emath.dist(x, y, match.ball.x, match.ball.y);
+        ballDistance = Emath.dist(x, y, ball.x, ball.y);
 
         return ((v > 0) || (vz != 0));
     }

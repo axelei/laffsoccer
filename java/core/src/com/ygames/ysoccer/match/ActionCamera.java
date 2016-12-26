@@ -21,9 +21,9 @@ public class ActionCamera {
     float offx; // offset
     float offy;
 
-    MatchRenderer renderer;
+    Renderer renderer;
 
-    public ActionCamera(MatchRenderer renderer) {
+    public ActionCamera(Renderer renderer) {
         this.renderer = renderer;
         x = 0.5f * (Const.PITCH_W - renderer.screenWidth / (renderer.zoom / 100.0f));
         y = 0;
@@ -40,7 +40,7 @@ public class ActionCamera {
                 break;
 
             case CF_BALL:
-                Ball ball = renderer.match.ball;
+                Ball ball = renderer.ball;
 
                 if (ball.v * Emath.cos(ball.a) != 0) {
                     // "remember" last direction of movement
@@ -104,7 +104,7 @@ public class ActionCamera {
                 break;
 
             case CF_BALL:
-                Ball ball = renderer.match.ball;
+                Ball ball = renderer.ball;
 
                 if (ball.v * Emath.cos(ball.a) != 0) {
                     // "remember" last direction of movement

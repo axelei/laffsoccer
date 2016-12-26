@@ -2,15 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.GLShapeRenderer;
-import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
@@ -24,44 +21,19 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
 
-public class MatchRenderer {
-
-    public static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
-    public static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
-    public static final float VISIBLE_FIELD_WIDTH_MIN = 0.65f;
-
-    private static final float guiAlpha = 0.9f;
-
-    GLSpriteBatch batch;
-    private GLShapeRenderer shapeRenderer;
-    private OrthographicCamera camera;
-    int screenWidth;
-    int screenHeight;
-    int zoom;
-    final int guiWidth = 1280;
-    int guiHeight;
-
-    public ActionCamera actionCamera;
-    public int[] vcameraX = new int[Const.REPLAY_SUBFRAMES];
-    public int[] vcameraY = new int[Const.REPLAY_SUBFRAMES];
+public class MatchRenderer extends Renderer {
 
     public Match match;
     private MatchState matchState;
-    private List<Sprite> allSprites;
     private List<PlayerSprite> radarPlayers;
-    private Sprite.SpriteComparator spriteComparator;
-    private CornerFlagSprite[] cornerFlagSprites;
-
-    private final int modW = Const.REPLAY_FRAMES;
-    private final int modH = 2 * Const.REPLAY_FRAMES;
-    private final int modX = (int) Math.ceil(Const.PITCH_W / ((float) modW));
-    private final int modY = (int) Math.ceil(Const.PITCH_H / ((float) modH));
 
     public MatchRenderer(GLGraphics glGraphics, Match match) {
+        super();
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
         this.camera = glGraphics.camera;
         this.match = match;
+        this.ball = match.ball;
 
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.game.settings);
 
@@ -71,7 +43,6 @@ public class MatchRenderer {
             vcameraY[i] = Math.round(actionCamera.y);
         }
 
-        allSprites = new ArrayList<Sprite>();
         radarPlayers = new ArrayList<PlayerSprite>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
         for (int t = HOME; t <= AWAY; t++) {
@@ -93,8 +64,6 @@ public class MatchRenderer {
             allSprites.add(cornerFlagSprites[i]);
         }
         allSprites.add(new GoalTopA(glGraphics));
-
-        spriteComparator = new Sprite.SpriteComparator();
 
         Assets.crowdRenderer.setMaxRank(match.getRank());
     }
@@ -234,19 +203,8 @@ public class MatchRenderer {
         batch.enableBlending();
     }
 
-    private void renderSprites(int subframe) {
-
-        drawShadows(subframe);
-
-        spriteComparator.subframe = subframe;
-        Collections.sort(allSprites, spriteComparator);
-
-        for (Sprite sprite : allSprites) {
-            sprite.draw(subframe);
-        }
-    }
-
-    private void drawShadows(int subframe) {
+    @Override
+    protected void drawShadows(int subframe) {
         batch.setColor(0xFFFFFF, match.settings.shadowAlpha);
 
         Data d = match.ball.data[subframe];
