@@ -111,6 +111,7 @@ public class Assets {
         public static Sound post;
         public static Sound end;
         public static Sound whistle;
+        public static int volume;
 
         public static void load() {
             bounce = newSound("bounce.ogg");

@@ -34,7 +34,7 @@ class MatchStateKickOff extends MatchState {
 
         isKickingOff = false;
 
-        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         Team kickOffTeam = match.team[match.kickOffTeam];
         kickOffTeam.updateFrameDistance();

@@ -78,7 +78,7 @@ class MatchStateGoalKick extends MatchState {
         }
 
         if (!move && !isKicking) {
-            Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
+            Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
             goalKickPlayer.fsm.setState(PlayerFsm.STATE_GOAL_KICK);
             if (goalKickPlayer.team.usesAutomaticInputDevice()) {

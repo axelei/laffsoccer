@@ -28,7 +28,7 @@ class MatchStateThrowInStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         match.throwInX = match.ball.xSide * Const.TOUCH_LINE;
         match.throwInY = match.ball.y;

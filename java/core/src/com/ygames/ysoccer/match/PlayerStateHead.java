@@ -27,7 +27,7 @@ class PlayerStateHead extends PlayerState {
                     ball.vz = 100 - 8 * player.skills.heading + player.vz;
                     hit = true;
 
-                    Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * player.match.settings.soundVolume / 100f);
+                    Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * Assets.Sounds.volume / 100f);
 
                     if (player.inputDevice.value) {
                         ball.a = player.inputDevice.angle;

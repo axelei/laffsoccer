@@ -23,7 +23,7 @@ class MatchStateExtraTimeStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        Assets.Sounds.end.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.end.play(Assets.Sounds.volume / 100f);
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(PlayerFsm.STATE_IDLE, null);

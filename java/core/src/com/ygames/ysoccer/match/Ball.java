@@ -329,7 +329,7 @@ class Ball {
 
         // sound
         if (hit) {
-            Assets.Sounds.post.play(matchSettings.soundVolume / 100f);
+            Assets.Sounds.post.play(Assets.Sounds.volume / 100f);
         }
 
         return hit;
@@ -352,7 +352,7 @@ class Ball {
             x = x0;
             y = y0;
 
-            Assets.Sounds.post.play(0.5f * matchSettings.soundVolume / 100f);
+            Assets.Sounds.post.play(0.5f * Assets.Sounds.volume / 100f);
         }
     }
 
@@ -385,7 +385,7 @@ class Ball {
             }
 
             if (sfx) {
-                Assets.Sounds.net.play(0.5f * matchSettings.soundVolume / 100f);
+                Assets.Sounds.net.play(0.5f * Assets.Sounds.volume / 100f);
             }
         }
     }
@@ -441,7 +441,7 @@ class Ball {
             x = x0;
             y = y0;
 
-            Assets.Sounds.bounce.play(0.5f * matchSettings.soundVolume / 100f);
+            Assets.Sounds.bounce.play(0.5f * Assets.Sounds.volume / 100f);
         }
     }
 

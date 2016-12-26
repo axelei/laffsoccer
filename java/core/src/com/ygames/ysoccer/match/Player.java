@@ -305,7 +305,7 @@ public class Player implements Json.Serializable {
             switch (collisionType) {
                 case CT_REBOUND:
                     if (ball.v > 180) {
-                        Assets.Sounds.deflect.play(0.5f * match.settings.soundVolume / 100f);
+                        Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
                     }
                     ball.v = ball.v / 4;
                     ball.a = (-ball.a) % 360;
@@ -316,7 +316,7 @@ public class Player implements Json.Serializable {
 
                 case CT_CATCH:
                     if (ball.v > 180) {
-                        Assets.Sounds.hold.play(0.5f * match.settings.soundVolume / 100f);
+                        Assets.Sounds.hold.play(0.5f * Assets.Sounds.volume / 100f);
                     }
                     ball.v = 0;
                     ball.vz = 0;
@@ -327,7 +327,7 @@ public class Player implements Json.Serializable {
 
                 case CT_DEFLECT:
                     if (ball.v > 180) {
-                        Assets.Sounds.deflect.play(0.5f * match.settings.soundVolume / 100f);
+                        Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
                     }
                     // real ball x-y angle (when spinned, it is different from ball.a)
                     float ballAxy = Emath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
@@ -354,7 +354,7 @@ public class Player implements Json.Serializable {
             if (match.settings.commentary) {
                 int size = Assets.Commentary.keeperSave.size();
                 if (size > 0) {
-                    Assets.Commentary.keeperSave.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                    Assets.Commentary.keeperSave.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
                 }
             }
         }

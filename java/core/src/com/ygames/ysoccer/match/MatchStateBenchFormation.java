@@ -116,7 +116,7 @@ class MatchStateBenchFormation extends MatchState {
                         if (match.settings.commentary) {
                             int size = Assets.Commentary.playerSubstitution.size();
                             if (size > 0) {
-                                Assets.Commentary.playerSubstitution.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                                Assets.Commentary.playerSubstitution.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
                             }
                         }
                     }
@@ -134,7 +134,7 @@ class MatchStateBenchFormation extends MatchState {
                         if (match.settings.commentary) {
                             int size = Assets.Commentary.playerSwap.size();
                             if (size > 0) {
-                                Assets.Commentary.playerSwap.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                                Assets.Commentary.playerSwap.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
                             }
                         }
                     }

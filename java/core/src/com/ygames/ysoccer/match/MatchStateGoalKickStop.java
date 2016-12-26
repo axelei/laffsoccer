@@ -27,7 +27,7 @@ class MatchStateGoalKickStop extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         xSide = match.ball.xSide;
         ySide = match.ball.ySide;

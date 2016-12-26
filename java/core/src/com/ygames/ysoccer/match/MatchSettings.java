@@ -27,7 +27,6 @@ public class MatchSettings {
     public boolean fullScreen;
     public boolean autoReplays;
     public boolean radar;
-    public int soundVolume;
     public boolean crowdChants;
     public boolean commentary;
 
@@ -44,7 +43,6 @@ public class MatchSettings {
         fullScreen = gameSettings.fullScreen;
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
-        soundVolume = gameSettings.soundVolume;
         crowdChants = true;
         commentary = gameSettings.commentary;
     }
@@ -72,7 +70,6 @@ public class MatchSettings {
         fullScreen = gameSettings.fullScreen;
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
-        soundVolume = gameSettings.soundVolume;
         crowdChants = true;
         commentary = gameSettings.commentary;
     }

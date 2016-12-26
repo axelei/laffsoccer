@@ -44,7 +44,7 @@ class MatchStateCornerKick extends MatchState {
         if (match.settings.commentary) {
             int size = Assets.Commentary.cornerKick.size();
             if (size > 0) {
-                Assets.Commentary.cornerKick.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                Assets.Commentary.cornerKick.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
             }
         }
     }
@@ -100,7 +100,7 @@ class MatchStateCornerKick extends MatchState {
         }
 
         if (!move && !isKicking) {
-            Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
+            Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
             cornerKickPlayer.fsm.setState(STATE_CORNER_KICK_ANGLE);
             if (cornerKickPlayer.team.usesAutomaticInputDevice()) {

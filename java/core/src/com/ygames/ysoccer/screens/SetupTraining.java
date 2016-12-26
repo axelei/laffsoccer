@@ -23,6 +23,8 @@ class SetupTraining extends GLScreen {
 
         matchSettings = new MatchSettings(game.settings);
 
+        Assets.Sounds.volume = game.settings.soundVolume;
+
         background = new Texture("images/backgrounds/menu_training.jpg");
 
         Widget w;

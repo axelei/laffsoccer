@@ -29,7 +29,7 @@ class MatchStateGoal extends MatchState {
 
         replayDone = false;
 
-        Assets.Sounds.homeGoal.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.homeGoal.play(Assets.Sounds.volume / 100f);
 
         goal = match.goals.get(match.goals.size() - 1);
 
@@ -37,12 +37,12 @@ class MatchStateGoal extends MatchState {
             if (goal.type == Goal.Type.OWN_GOAL) {
                 int size = Assets.Commentary.ownGoal.size();
                 if (size > 0) {
-                    Assets.Commentary.ownGoal.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                    Assets.Commentary.ownGoal.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
                 }
             } else {
                 int size = Assets.Commentary.goal.size();
                 if (size > 0) {
-                    Assets.Commentary.goal.get(Assets.random.nextInt(size)).play(match.settings.soundVolume / 100f);
+                    Assets.Commentary.goal.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
                 }
             }
         }

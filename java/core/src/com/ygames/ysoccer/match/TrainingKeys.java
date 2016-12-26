@@ -24,18 +24,14 @@ class TrainingKeys {
         if (messageTimer > 0) messageTimer--;
 
         if (Gdx.input.isKeyPressed(Input.Keys.F2) && !keySoundDown) {
-            training.settings.soundVolume = Math.max(0, training.settings.soundVolume - 10);
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, training.settings.soundVolume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, training.settings.soundVolume / 100f);
+            Assets.Sounds.volume = Math.max(0, Assets.Sounds.volume - 10);
 
             setMessageSoundEffects();
             messageTimer = 60;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F3) && !keySoundUp) {
-            training.settings.soundVolume = Math.min(100, training.settings.soundVolume + 10);
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, training.settings.soundVolume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, training.settings.soundVolume / 100f);
+            Assets.Sounds.volume = Math.min(100, Assets.Sounds.volume + 10);
 
             setMessageSoundEffects();
             messageTimer = 60;
@@ -62,7 +58,7 @@ class TrainingKeys {
     private void setMessageSoundEffects() {
         message = Assets.strings.get("MATCH OPTIONS.SOUND VOLUME") + " <";
         for (int i = 10; i <= 100; i += 10) {
-            message += (i <= training.settings.soundVolume) ? "|" : " ";
+            message += (i <= Assets.Sounds.volume) ? "|" : " ";
         }
         message += ">";
     }

@@ -37,18 +37,18 @@ class MatchKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F2) && !keySoundDown) {
-            match.settings.soundVolume = Math.max(0, match.settings.soundVolume - 10);
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, match.settings.soundVolume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, match.settings.soundVolume / 100f);
+            Assets.Sounds.volume = Math.max(0, Assets.Sounds.volume - 10);
+            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
+            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
 
             setMessageSoundEffects();
             messageTimer = 60;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F3) && !keySoundUp) {
-            match.settings.soundVolume = Math.min(100, match.settings.soundVolume + 10);
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, match.settings.soundVolume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, match.settings.soundVolume / 100f);
+            Assets.Sounds.volume = Math.min(100, Assets.Sounds.volume + 10);
+            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
+            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
 
             setMessageSoundEffects();
             messageTimer = 60;
@@ -68,8 +68,8 @@ class MatchKeys {
 
         if (Gdx.input.isKeyPressed(Input.Keys.F5) && !keyCrowdChants) {
             match.settings.crowdChants = !match.settings.crowdChants;
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, match.settings.soundVolume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, match.settings.soundVolume / 100f);
+            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
+            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
 
             message = Assets.strings.get("MATCH OPTIONS.CROWD CHANTS") + " ";
             if (match.settings.crowdChants) {
@@ -133,7 +133,7 @@ class MatchKeys {
     private void setMessageSoundEffects() {
         message = Assets.strings.get("MATCH OPTIONS.SOUND VOLUME") + " <";
         for (int i = 10; i <= 100; i += 10) {
-            message += (i <= match.settings.soundVolume) ? "|" : " ";
+            message += (i <= Assets.Sounds.volume) ? "|" : " ";
         }
         message += ">";
     }

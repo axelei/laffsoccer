@@ -193,7 +193,7 @@ public class Match implements Json.Serializable {
     void updateBall() {
         float bouncing_speed = ball.update();
         if (bouncing_speed > 0) {
-            Assets.Sounds.bounce.play(Math.min(2 * bouncing_speed / Const.SECOND, 1) * settings.soundVolume / 100f);
+            Assets.Sounds.bounce.play(Math.min(2 * bouncing_speed / Const.SECOND, 1) * Assets.Sounds.volume / 100f);
         }
         ball.inFieldKeep();
     }

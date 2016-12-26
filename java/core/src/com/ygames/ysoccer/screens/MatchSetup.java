@@ -42,6 +42,8 @@ class MatchSetup extends GLScreen {
 
         matchSettings = new MatchSettings(navigation.competition, game.settings);
 
+        Assets.Sounds.volume = game.settings.soundVolume;
+
         background = new Texture("images/backgrounds/menu_match_presentation.jpg");
 
         Widget w;

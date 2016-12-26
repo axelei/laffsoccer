@@ -34,7 +34,7 @@ class MatchStateCornerStop extends MatchState {
             match.stats[AWAY].cornersWon += 1;
         }
 
-        Assets.Sounds.whistle.play(match.settings.soundVolume / 100f);
+        Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         cornerX = (Const.TOUCH_LINE - 12) * match.ball.xSide;
         cornerY = (Const.GOAL_LINE - 12) * match.ball.ySide;

@@ -94,7 +94,7 @@ class PlayerStateKick extends PlayerState {
         ball.v = 190.0f;
         ball.a = player.kickAngle;
 
-        Assets.Sounds.kick.play(player.match.settings.soundVolume / 100f);
+        Assets.Sounds.kick.play(Assets.Sounds.volume / 100f);
     }
 
     @Override
