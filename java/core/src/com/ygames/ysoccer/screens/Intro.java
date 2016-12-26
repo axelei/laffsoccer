@@ -51,9 +51,11 @@ public class Intro extends GLScreen {
                 case Input.Keys.W:
                     game.setScreen(new Warranty(game));
                     break;
+
                 case Input.Keys.C:
-                    // TODO: show details
+                    game.setScreen(new Copying(game));
                     break;
+
                 default:
                     setMainMenu();
                     break;

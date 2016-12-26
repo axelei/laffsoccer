@@ -10,7 +10,7 @@ import java.util.List;
 public class TextBox extends Widget {
 
     private BitmapFont font;
-    private List<String> lines;
+    public List<String> lines;
     private int top;
     private int centerX;
 
