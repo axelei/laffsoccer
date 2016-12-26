@@ -49,7 +49,7 @@ public class Intro extends GLScreen {
         public boolean keyUp(int keycode) {
             switch (keycode) {
                 case Input.Keys.W:
-                    // TODO: show warranty
+                    game.setScreen(new Warranty(game));
                     break;
                 case Input.Keys.C:
                     // TODO: show details
