@@ -75,6 +75,7 @@ public class Assets {
     public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
     public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static Texture goalTopA;
+    public static Texture goalTopB;
     public static Texture goalBottom;
     public static TextureRegion[][] coach = new TextureRegion[2][6];
     public static TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
@@ -215,6 +216,7 @@ public class Assets {
         loadWeatherIcons();
         crowdRenderer = new CrowdRenderer(Gdx.files.local("images/stadium/crowd.json"));
         goalTopA = new Texture("images/stadium/goal_top_a.png");
+        goalTopB = new Texture("images/stadium/goal_top_b.png");
         goalBottom = new Texture("images/stadium/goal_bottom.png");
         loadKeeperShadow();
         loadPlayerShadow();

@@ -62,6 +62,7 @@ public class MatchRenderer extends Renderer {
             allSprites.add(cornerFlagSprites[i]);
         }
         allSprites.add(new GoalTopA(glGraphics));
+        allSprites.add(new GoalTopB(glGraphics));
 
         Assets.crowdRenderer.setMaxRank(match.getRank());
     }

@@ -45,6 +45,7 @@ public class TrainingRenderer extends Renderer {
             allSprites.add(cornerFlagSprites[i]);
         }
         allSprites.add(new GoalTopA(glGraphics));
+        allSprites.add(new GoalTopB(glGraphics));
     }
 
     public void resize(int width, int height, Settings settings) {
