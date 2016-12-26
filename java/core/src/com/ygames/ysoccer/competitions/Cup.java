@@ -513,7 +513,7 @@ public class Cup extends Competition implements Json.Serializable {
     @Override
     public String getMenuTitle() {
 
-        String title = name + " " + Assets.strings.get(getRoundName(currentRound));
+        String title = name + " " + Assets.gettext(getRound().name);
         int matches = getLeg().matches.size();
         switch (rounds.get(currentRound).numberOfLegs) {
             case 1:
@@ -576,6 +576,7 @@ public class Cup extends Competition implements Json.Serializable {
             rounds.add(round);
         }
         numberOfTeams = getRoundTeams(0);
+        updateRoundNames();
     }
 
     public void removeRound() {
@@ -583,9 +584,16 @@ public class Cup extends Competition implements Json.Serializable {
             rounds.remove(rounds.size() - 1);
         }
         numberOfTeams = getRoundTeams(0);
+        updateRoundNames();
     }
 
-    public String getRoundName(int round) {
+    private void updateRoundNames() {
+        for (int i = 0; i < rounds.size(); i++) {
+            rounds.get(i).name = getRoundLabel(i);
+        }
+    }
+
+    private String getRoundLabel(int round) {
         if (round == rounds.size() - 1) {
             return "FINAL";
         } else if (round == rounds.size() - 2) {

@@ -284,11 +284,11 @@ class InfoCup extends GLScreen {
             } else {
                 setColors(0x666666);
             }
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.LEFT, Assets.font14);
             setActive(false);
             setVisible(round < cup.rounds.size());
             if (visible) {
-                setText(Assets.strings.get(cup.getRoundName(round)));
+                setText(Assets.gettext(cup.rounds.get(round).name));
             }
         }
     }

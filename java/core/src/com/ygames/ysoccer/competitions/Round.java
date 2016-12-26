@@ -15,6 +15,7 @@ public class Round implements Json.Serializable {
     public enum Penalties {OFF, ON, IF_REPLAY}
 
     Cup cup;
+    public String name;
     public int numberOfLegs;
     public ExtraTime extraTime;
     public Penalties penalties;
@@ -29,6 +30,7 @@ public class Round implements Json.Serializable {
 
     @Override
     public void read(Json json, JsonValue jsonData) {
+        name = jsonData.getString("name");
         numberOfLegs = jsonData.getInt("numberOfLegs");
         extraTime = json.readValue("extraTime", ExtraTime.class, jsonData);
         penalties = json.readValue("penalties", Penalties.class, jsonData);
@@ -45,6 +47,7 @@ public class Round implements Json.Serializable {
 
     @Override
     public void write(Json json) {
+        json.writeValue("name", name);
         json.writeValue("numberOfLegs", numberOfLegs);
         json.writeValue("extraTime", extraTime);
         json.writeValue("penalties", penalties);

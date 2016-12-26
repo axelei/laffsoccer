@@ -578,7 +578,7 @@ class DiyCup extends GLScreen {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 470, 344 + 34 * round, 248, 32);
             setColors(0x800000, 0xB40000, 0x400000);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.LEFT, Assets.font14);
             setActive(false);
         }
 
@@ -586,7 +586,7 @@ class DiyCup extends GLScreen {
         public void refresh() {
             setVisible(round < cup.rounds.size());
             if (visible) {
-                setText(Assets.strings.get(cup.getRoundName(round)));
+                setText(Assets.strings.get(cup.rounds.get(round).name));
             }
         }
     }

@@ -4,6 +4,7 @@
     "numberOfTeams": 32,
     "rounds": [
       {
+        "name": "SECOND ROUND",
         "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF",
@@ -109,21 +110,25 @@
         ]
       },
       {
+        "name": "THIRD ROUND",
         "numberOfLegs": 1,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
+        "name": "QUARTER-FINAL",
         "numberOfLegs": 2,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
+        "name": "SEMI-FINAL",
         "numberOfLegs": 2,
         "extraTime": "ON",
         "penalties": "OFF"
       },
       {
+        "name": "FINAL",
         "numberOfLegs": 2,
         "extraTime": "ON",
         "penalties": "OFF"

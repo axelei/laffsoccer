@@ -37,6 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.Random;
 
 public class Assets {
@@ -250,6 +251,14 @@ public class Assets {
 
     public static void loadStrings(Settings settings) {
         strings = I18NBundle.createBundle(Gdx.files.internal("i18n/strings"), new Locale(settings.locale));
+    }
+
+    public static String gettext(String label) {
+        try {
+            return strings.get(label);
+        } catch (MissingResourceException e) {
+            return label;
+        }
     }
 
     private static void loadCalendars() {
