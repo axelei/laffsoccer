@@ -155,17 +155,17 @@ public class Player implements Json.Serializable {
     }
 
     void beforeMatch(Match match) {
+        this.ball = match.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
         this.match = match;
-        this.ball = match.ball;
     }
 
     void beforeTraining(Training training) {
+        this.ball = training.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
         this.training = training;
-        this.ball = training.ball;
     }
 
     void setTarget(float tx, float ty) {
@@ -363,7 +363,6 @@ public class Player implements Json.Serializable {
     }
 
     void holdBall(int offX, int offZ) {
-        Ball ball = match.ball;
         if ((ball.holder == this)) {
             ball.x = x + offX;
             ball.y = y;

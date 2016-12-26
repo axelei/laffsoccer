@@ -5,7 +5,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateKick extends PlayerState {
 
-    private Ball ball;
     private int isPassing;
 
     private static int IP_UNKNOWN = -1;
@@ -89,7 +88,6 @@ class PlayerStateKick extends PlayerState {
     void entryActions() {
         super.entryActions();
         isPassing = IP_UNKNOWN;
-        ball = player.ball;
 
         ball.v = 190.0f;
         ball.a = player.kickAngle;

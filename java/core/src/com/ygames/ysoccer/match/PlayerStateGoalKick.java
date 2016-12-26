@@ -4,17 +4,9 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateGoalKick extends PlayerState {
 
-    private Ball ball;
-
     PlayerStateGoalKick(Player player) {
         super(player);
         id = PlayerFsm.STATE_GOAL_KICK;
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-        ball = player.match.ball;
     }
 
     @Override

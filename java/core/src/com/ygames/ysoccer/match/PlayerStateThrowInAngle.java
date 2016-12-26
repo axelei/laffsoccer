@@ -5,7 +5,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateThrowInAngle extends PlayerState {
 
-    private Ball ball;
     private int animationCountdown;
 
     PlayerStateThrowInAngle(Player player) {
@@ -16,7 +15,6 @@ class PlayerStateThrowInAngle extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball = player.match.ball;
 
         player.a = 45 * (2 * ball.xSide + 2);
         player.x = ball.xSide * (Const.TOUCH_LINE + 6);

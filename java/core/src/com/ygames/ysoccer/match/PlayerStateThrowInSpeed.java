@@ -5,7 +5,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateThrowInSpeed extends PlayerState {
 
-    Ball ball;
     private boolean thrown;
 
     PlayerStateThrowInSpeed(Player player) {
@@ -16,7 +15,6 @@ class PlayerStateThrowInSpeed extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball = player.match.ball;
         thrown = false;
     }
 

@@ -4,7 +4,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateCornerKickSpeed extends PlayerState {
 
-    private Ball ball;
     private float kickAngle;
     private float kickSpin;
     private boolean thrown;
@@ -17,7 +16,6 @@ class PlayerStateCornerKickSpeed extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball = player.match.ball;
         kickAngle = 45 * player.fmx;
         kickSpin = 0;
         thrown = false;

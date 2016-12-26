@@ -5,7 +5,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateKeeperPositioning extends PlayerState {
 
-    private Ball ball;
     private int dangerTime;
 
     PlayerStateKeeperPositioning(Player player) {
@@ -203,6 +202,5 @@ class PlayerStateKeeperPositioning extends PlayerState {
     void entryActions() {
         super.entryActions();
         dangerTime = 0;
-        ball = player.ball;
     }
 }

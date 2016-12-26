@@ -37,6 +37,10 @@ class TrainingStateFree extends TrainingState {
                 }
             }
 
+            if ((training.subframe % GLGame.VIRTUAL_REFRESH_RATE) == 0) {
+                training.ball.updatePrediction();
+            }
+
             training.nextSubframe();
 
             training.save();

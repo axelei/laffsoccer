@@ -5,7 +5,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateHead extends PlayerState {
 
-    private Ball ball;
     private boolean hit;
 
     PlayerStateHead(Player player) {
@@ -70,7 +69,6 @@ class PlayerStateHead extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        ball = player.match.ball;
         hit = false;
 
         if (player.v > 0) {

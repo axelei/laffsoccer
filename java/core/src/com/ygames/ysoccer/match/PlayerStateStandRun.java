@@ -4,8 +4,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateStandRun extends PlayerState {
 
-    private Ball ball;
-
     PlayerStateStandRun(Player player) {
         super(player);
         id = PlayerFsm.STATE_STAND_RUN;
@@ -87,11 +85,5 @@ class PlayerStateStandRun extends PlayerState {
             }
         }
         return null;
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-        ball = player.ball;
     }
 }

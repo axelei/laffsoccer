@@ -5,7 +5,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateTackle extends PlayerState {
 
-    private Ball ball;
     private boolean hit;
 
     PlayerStateTackle(Player player) {
@@ -59,7 +58,6 @@ class PlayerStateTackle extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        ball = player.match.ball;
         hit = false;
 
         player.v = 1.4f * (player.speed) * (1 + 0.02f * player.skills.tackling);

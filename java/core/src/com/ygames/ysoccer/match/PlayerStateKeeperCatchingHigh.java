@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 class PlayerStateKeeperCatchingHigh extends PlayerState {
 
-    private Ball ball;
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[4];
 
@@ -83,11 +82,5 @@ class PlayerStateKeeperCatchingHigh extends PlayerState {
     @Override
     void exitActions() {
         ball.setHolder(null);
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-        ball = player.match.ball;
     }
 }

@@ -4,8 +4,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateCornerKickAngle extends PlayerState {
 
-    private Ball ball;
-
     PlayerStateCornerKickAngle(Player player) {
         super(player);
         id = PlayerFsm.STATE_CORNER_KICK_ANGLE;
@@ -14,7 +12,6 @@ class PlayerStateCornerKickAngle extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball = player.match.ball;
         ball.setOwner(player);
         player.a = 90 * (1 + ball.xSide);
     }

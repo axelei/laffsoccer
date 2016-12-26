@@ -4,8 +4,6 @@ import com.ygames.ysoccer.math.Emath;
 
 class PlayerStateKickOff extends PlayerState {
 
-    private Ball ball;
-
     PlayerStateKickOff(Player player) {
         super(player);
         id = PlayerFsm.STATE_KICK_OFF;
@@ -41,7 +39,6 @@ class PlayerStateKickOff extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball = player.match.ball;
         player.x = ball.x - 7 * player.team.side + 1;
         player.y = ball.y + 1;
         player.v = 0;

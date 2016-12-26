@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 class PlayerStateKeeperDivingMiddleOne extends PlayerState {
 
-    private Ball ball;
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[5];
 
@@ -93,11 +92,5 @@ class PlayerStateKeeperDivingMiddleOne extends PlayerState {
     @Override
     void exitActions() {
         ball.setHolder(null);
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-        ball = player.match.ball;
     }
 }
