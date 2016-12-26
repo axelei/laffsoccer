@@ -77,6 +77,7 @@ public class Assets {
     public static Texture goalTopA;
     public static Texture goalTopB;
     public static Texture goalBottom;
+    public static Texture jumper;
     public static TextureRegion[][] coach = new TextureRegion[2][6];
     public static TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
@@ -218,6 +219,7 @@ public class Assets {
         goalTopA = new Texture("images/stadium/goal_top_a.png");
         goalTopB = new Texture("images/stadium/goal_top_b.png");
         goalBottom = new Texture("images/stadium/goal_bottom.png");
+        jumper = new Texture("images/stadium/jumper.png");
         loadKeeperShadow();
         loadPlayerShadow();
         keeperCollisionDetection = new Pixmap(Gdx.files.internal("images/keeper_cd.png"));

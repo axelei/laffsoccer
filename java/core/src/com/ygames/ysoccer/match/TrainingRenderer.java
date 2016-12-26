@@ -75,6 +75,18 @@ public class TrainingRenderer extends Renderer {
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
+        // redraw jumpers
+        // top
+        if (training.ball.data[training.subframe].y < -Const.JUMPER_Y) {
+            batch.draw(Assets.jumper, -Const.JUMPER_X, -Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
+            batch.draw(Assets.jumper, +Const.JUMPER_X, -Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
+        }
+        // bottom
+        if (training.ball.data[training.subframe].y < +Const.JUMPER_Y) {
+            batch.draw(Assets.jumper, -Const.JUMPER_X, +Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
+            batch.draw(Assets.jumper, +Const.JUMPER_X, +Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
+        }
+
         if (training.settings.weatherStrength != Weather.Strength.NONE) {
             switch (training.settings.weatherEffect) {
                 case Weather.RAIN:
