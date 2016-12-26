@@ -301,7 +301,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = team.kits.get(team.kitIndex).loadImage();
+            textureRegion = team.loadKit(team.kitIndex);
         }
     }
 
@@ -322,7 +322,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = team.kits.get(kitIndex).loadImage();
+            textureRegion = team.loadKit(kitIndex);
             if (team.kitIndex == kitIndex) {
                 setVisible(false);
             } else {

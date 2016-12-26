@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.InputDevice;
+import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
@@ -680,5 +681,29 @@ public class Team implements Json.Serializable {
                 }
                 break;
         }
+    }
+
+    public TextureRegion loadKit(int index) {
+        // custom kit - all indexes
+        String kitPath = path.replaceFirst("/team.", "/kit.").replaceFirst(".json", ".png");
+        FileHandle file = Assets.teamsRootFolder.child(kitPath);
+        if (file.exists()) {
+            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            kits.get(index).addKitColors(rgbPairs);
+            return Assets.loadTextureRegion(file.path(), rgbPairs);
+        }
+
+        // custom kit - single index
+        String[] names = {"home", "away", "third", "change1", "change2"};
+        kitPath = path.replaceFirst("/team.", "/kit_" + names[index] + ".").replaceFirst(".json", ".png");
+        file = Assets.teamsRootFolder.child(kitPath);
+        if (file.exists()) {
+            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            kits.get(index).addKitColors(rgbPairs);
+            return Assets.loadTextureRegion(file.path(), rgbPairs);
+        }
+
+        // standard kit
+        return kits.get(index).loadImage();
     }
 }

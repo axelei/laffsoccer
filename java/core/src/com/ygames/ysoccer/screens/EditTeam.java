@@ -534,7 +534,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = team.kits.get(selectedKit).loadImage();
+            textureRegion = team.loadKit(selectedKit);
         }
     }
 
