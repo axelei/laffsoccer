@@ -127,9 +127,6 @@ public class Player implements Json.Serializable {
         skills = new Skills();
         setAi(new Ai(this));
         setInputDevice(ai);
-        for (int i = 0; i < data.length; i++) {
-            data[i] = new Data();
-        }
     }
 
     @Override
@@ -161,6 +158,9 @@ public class Player implements Json.Serializable {
         isVisible = true;
         this.match = match;
         this.matchSettings = match.settings;
+        for (int i = 0; i < data.length; i++) {
+            data[i] = new Data();
+        }
     }
 
     void beforeTraining(Training training) {
@@ -169,6 +169,9 @@ public class Player implements Json.Serializable {
         isVisible = true;
         this.training = training;
         this.matchSettings = training.settings;
+        for (int i = 0; i < data.length; i++) {
+            data[i] = new Data();
+        }
     }
 
     void setTarget(float tx, float ty) {
