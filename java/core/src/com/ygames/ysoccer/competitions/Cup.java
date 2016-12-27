@@ -15,6 +15,9 @@ import java.util.List;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Match.ResultType.AFTER_90_MINUTES;
+import static com.ygames.ysoccer.match.Match.ResultType.AFTER_PENALTIES;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 public class Cup extends Competition implements Json.Serializable {
 
@@ -243,7 +246,7 @@ public class Cup extends Competition implements Json.Serializable {
                 homeGoals = Emath.floor(6 * Math.random());
                 awayGoals = Emath.floor(6 * Math.random());
             } while (homeGoals == awayGoals);
-            match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_PENALTIES);
+            match.setResult(homeGoals, awayGoals, AFTER_PENALTIES);
         }
     }
 
@@ -633,5 +636,51 @@ public class Cup extends Competition implements Json.Serializable {
             }
         }
         return false;
+    }
+
+    @Override
+    public void matchInterrupted() {
+        Match match = getMatch();
+        if (match.team[HOME].controlMode == COMPUTER && match.team[AWAY].controlMode != COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfterPenalties != null) {
+                goals += match.resultAfterPenalties[AWAY];
+                match.resultAfterPenalties[HOME] += goals;
+            } else if (match.resultAfterExtraTime != null) {
+                goals += match.resultAfterExtraTime[AWAY];
+                match.resultAfterExtraTime[HOME] += goals;
+                generateScorers(match.team[HOME], goals);
+            } else if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[AWAY];
+                match.resultAfter90[HOME] += goals;
+                generateScorers(match.team[HOME], goals);
+            } else {
+                match.setResult(goals, 0, AFTER_90_MINUTES);
+                generateScorers(match.team[HOME], goals);
+            }
+            matchCompleted();
+        } else if (match.team[HOME].controlMode != COMPUTER && match.team[AWAY].controlMode == COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfterPenalties != null) {
+                goals += match.resultAfterPenalties[HOME];
+                match.resultAfterPenalties[AWAY] += goals;
+            } else if (match.resultAfterExtraTime != null) {
+                goals += match.resultAfterExtraTime[HOME];
+                match.resultAfterExtraTime[AWAY] += goals;
+                generateScorers(match.team[HOME], goals);
+            } else if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[HOME];
+                match.resultAfter90[AWAY] += goals;
+                generateScorers(match.team[HOME], goals);
+            } else {
+                match.setResult(0, 6, AFTER_90_MINUTES);
+                generateScorers(match.team[HOME], goals);
+            }
+            matchCompleted();
+        } else {
+            match.resultAfter90 = null;
+            match.resultAfterExtraTime = null;
+            match.resultAfterPenalties = null;
+        }
     }
 }

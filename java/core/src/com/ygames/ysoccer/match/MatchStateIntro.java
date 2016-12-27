@@ -21,6 +21,7 @@ class MatchStateIntro extends MatchState {
     void entryActions() {
         super.entryActions();
 
+        match.clock = 0;
         fsm.matchCompleted = false;
         match.setIntroPositions();
         match.resetData();

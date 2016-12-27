@@ -46,7 +46,7 @@ public class Match implements Json.Serializable {
 
     enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
 
-    float clock;
+    public float clock;
     int length;
     Period period;
     int coinToss;

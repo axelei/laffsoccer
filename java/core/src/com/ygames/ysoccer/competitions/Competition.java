@@ -21,6 +21,7 @@ import java.util.List;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 public abstract class Competition {
 
@@ -160,8 +161,8 @@ public abstract class Competition {
     }
 
     public boolean bothComputers() {
-        return getTeam(HOME).controlMode == Team.ControlMode.COMPUTER
-                && getTeam(AWAY).controlMode == Team.ControlMode.COMPUTER;
+        return getTeam(HOME).controlMode == COMPUTER
+                && getTeam(AWAY).controlMode == COMPUTER;
     }
 
     public boolean isEnded() {
@@ -351,5 +352,11 @@ public abstract class Competition {
     public int getScorerGoals(Player player) {
         Scorer scorer = searchScorer(player);
         return scorer == null ? 0 : scorer.goals;
+    }
+
+    public void matchInterrupted() {
+    }
+
+    public void matchCompleted() {
     }
 }

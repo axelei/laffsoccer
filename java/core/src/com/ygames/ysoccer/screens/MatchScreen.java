@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -77,13 +76,18 @@ class MatchScreen extends GLScreen {
             match.team[t].lineup.clear();
         }
 
+        if (matchCompleted) {
+            match.competition.matchCompleted();
+        } else if (match.clock > 0) {
+            match.competition.matchInterrupted();
+        }
+
         switch (match.competition.type) {
             case FRIENDLY:
                 game.setScreen(new ReplayMatch(game, match));
                 break;
 
             case LEAGUE:
-                ((League) match.competition).addMatchToTable(match);
                 game.setScreen(new PlayLeague(game));
                 break;
 

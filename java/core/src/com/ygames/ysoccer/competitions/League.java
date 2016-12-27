@@ -14,6 +14,8 @@ import java.util.List;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Match.ResultType.AFTER_90_MINUTES;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 public class League extends Competition implements Json.Serializable {
 
@@ -276,5 +278,38 @@ public class League extends Competition implements Json.Serializable {
             // by names
             return teams.get(o1.team).name.compareTo(teams.get(o2.team).name);
         }
+    }
+
+    @Override
+    public void matchInterrupted() {
+        Match match = getMatch();
+        if (match.team[HOME].controlMode == COMPUTER && match.team[AWAY].controlMode != COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[AWAY];
+                match.resultAfter90[HOME] += goals;
+            } else {
+                match.setResult(goals, 0, AFTER_90_MINUTES);
+            }
+            generateScorers(match.team[HOME], goals);
+            matchCompleted();
+        } else if (match.team[HOME].controlMode != COMPUTER && match.team[AWAY].controlMode == COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[AWAY];
+                match.resultAfter90[HOME] += goals;
+            } else {
+                match.setResult(0, goals, AFTER_90_MINUTES);
+            }
+            generateScorers(match.team[AWAY], goals);
+            matchCompleted();
+        } else {
+            match.resultAfter90 = null;
+        }
+    }
+
+    @Override
+    public void matchCompleted() {
+        addMatchToTable(getMatch());
     }
 }
