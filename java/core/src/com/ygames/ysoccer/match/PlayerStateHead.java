@@ -6,6 +6,8 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStateHead extends PlayerState {
 
     private boolean hit;
+    private boolean jumped;
+    private float v;
 
     PlayerStateHead(Player player) {
         super(player);
@@ -37,29 +39,35 @@ class PlayerStateHead extends PlayerState {
             }
         }
 
+        if (!jumped && timer > 0.05f * Const.SECOND) {
+            if (v > 0) {
+                player.v = 0.5f * (player.speed) * (1 + 0.1f * player.skills.heading);
+            }
+            player.vz = 90 + 5 * player.skills.heading;
+            jumped = true;
+        }
+
         // animation
         player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;
 
-        if (player.z > 0) {
-            if (player.vz > 80) {
-                player.fmy = 3;
-            } else if (player.vz > 40) {
-                player.fmy = 5;
-            } else if (player.vz > -30) {
-                player.fmy = 6;
-            } else if (player.vz > -70) {
-                player.fmy = 5;
+        if (jumped) {
+            if (player.z > 0) {
+                if (player.vz > 40) {
+                    player.fmy = 5;
+                } else if (player.vz > -30) {
+                    player.fmy = 6;
+                } else {
+                    player.fmy = 5;
+                }
             } else {
-                player.fmy = 3;
+                player.fmy = 1;
             }
-        } else {
-            player.fmy = 1;
         }
     }
 
     @Override
     State checkConditions() {
-        if (player.vz == 0) {
+        if (jumped && player.vz == 0) {
             return player.fsm.stateStandRun;
         }
         return null;
@@ -70,11 +78,10 @@ class PlayerStateHead extends PlayerState {
         super.entryActions();
 
         hit = false;
+        jumped = false;
+        v = player.v;
+        player.v = 0;
 
-        if (player.v > 0) {
-            player.v = 0.5f * (player.speed) * (1 + 0.1f * player.skills.heading);
-        }
-
-        player.vz = 90 + 5 * player.skills.heading;
+        player.fmy = 3;
     }
 }
