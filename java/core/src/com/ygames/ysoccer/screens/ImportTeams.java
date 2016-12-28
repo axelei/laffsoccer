@@ -620,7 +620,7 @@ class ImportTeams extends GLScreen {
 
         team.persist();
 
-        exportConfig.teams.add(new TeamConfig(team.path, gtn, division));
+        exportConfig.teams.add(new TeamConfig(team.path, countryIndex, gtn, division));
 
         if (team.type == Team.Type.CLUB) {
             if (importConfig.leagues != null) {
