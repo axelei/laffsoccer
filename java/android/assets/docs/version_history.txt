@@ -1,5 +1,5 @@
-- version 16 (Dec 2016):
-preset competitions, saving competitions, JSON database, porting in java+libgdx, import/export in SWOS 96/97 team file format
+- version 16 (28 Dec 2016):
+preset competitions, saving competitions, JSON database, porting in java+libgdx, import/export in SWOS 96/97 team file format, kit/logo restyling
 
 - version 14 (31 May 2014):
 tackles, headers, new AI, fixed player(s) control mode, zoom and rotation, training mode
