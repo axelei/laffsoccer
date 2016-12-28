@@ -4,257 +4,308 @@
       "filename": "TEAM.020",
       "teams": [
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json",
+          "country": 20,
           "gtn": 884,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catania.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catania.json",
+          "country": 20,
           "gtn": 885,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.arezzo.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.arezzo.json",
+          "country": 20,
           "gtn": 886,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ascoli.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ascoli.json",
+          "country": 20,
           "gtn": 887,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.atalanta.json",
+          "country": 20,
           "gtn": 888,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.biellese.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.biellese.json",
+          "country": 20,
           "gtn": 889,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bari.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bari.json",
+          "country": 20,
           "gtn": 890,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bologna.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.bologna.json",
+          "country": 20,
           "gtn": 891,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.brescia.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.brescia.json",
+          "country": 20,
           "gtn": 892,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cagliari.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cagliari.json",
+          "country": 20,
           "gtn": 893,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.mantova.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.mantova.json",
+          "country": 20,
           "gtn": 894,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.casertana.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.casertana.json",
+          "country": 20,
           "gtn": 895,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.novara.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.novara.json",
+          "country": 20,
           "gtn": 896,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.savona.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.savona.json",
+          "country": 20,
           "gtn": 897,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cosenza.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.cosenza.json",
+          "country": 20,
           "gtn": 898,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.alessandria.json",
+          "country": 20,
           "gtn": 899,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catanzaro.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.catanzaro.json",
+          "country": 20,
           "gtn": 900,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.solbiatese.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.solbiatese.json",
+          "country": 20,
           "gtn": 901,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json",
+          "country": 20,
           "gtn": 902,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.foggia.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.foggia.json",
+          "country": 20,
           "gtn": 903,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.genoa.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.genoa.json",
+          "country": 20,
           "gtn": 904,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json",
+          "country": 20,
           "gtn": 905,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.juventus.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.juventus.json",
+          "country": 20,
           "gtn": 906,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lazio.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lazio.json",
+          "country": 20,
           "gtn": 907,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lecco.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.lecco.json",
+          "country": 20,
           "gtn": 908,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.livorno.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.livorno.json",
+          "country": 20,
           "gtn": 909,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.modena.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.modena.json",
+          "country": 20,
           "gtn": 910,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.monza.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.monza.json",
+          "country": 20,
           "gtn": 911,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.napoli.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.napoli.json",
+          "country": 20,
           "gtn": 912,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.padova.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.padova.json",
+          "country": 20,
           "gtn": 913,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.palermo.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.palermo.json",
+          "country": 20,
           "gtn": 914,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.parma.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.parma.json",
+          "country": 20,
           "gtn": 915,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.perugia.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.perugia.json",
+          "country": 20,
           "gtn": 916,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.propatria.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.propatria.json",
+          "country": 20,
           "gtn": 917,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.messina.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.messina.json",
+          "country": 20,
           "gtn": 918,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.pisa.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.pisa.json",
+          "country": 20,
           "gtn": 919,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.trani.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.trani.json",
+          "country": 20,
           "gtn": 920,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.potenza.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.potenza.json",
+          "country": 20,
           "gtn": 921,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggiana.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggiana.json",
+          "country": 20,
           "gtn": 922,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggina.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.reggina.json",
+          "country": 20,
           "gtn": 923,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.roma.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.roma.json",
+          "country": 20,
           "gtn": 924,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.triestina.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.triestina.json",
+          "country": 20,
           "gtn": 925,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.sampdoria.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.sampdoria.json",
+          "country": 20,
           "gtn": 926,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.spal.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.spal.json",
+          "country": 20,
           "gtn": 927,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.taranto.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.taranto.json",
+          "country": 20,
           "gtn": 928,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ternana.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ternana.json",
+          "country": 20,
           "gtn": 929,
           "division": 4
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.torino.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.torino.json",
+          "country": 20,
           "gtn": 930,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.varese.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.varese.json",
+          "country": 20,
           "gtn": 931,
           "division": 0
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.venezia.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.venezia.json",
+          "country": 20,
           "gtn": 932,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.verona.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.verona.json",
+          "country": 20,
           "gtn": 933,
           "division": 1
         },
         {
-          "path": "/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.vicenza.json",
+          "path": "1964-65/CLUB_TEAMS/EUROPE/ITALY/team.vicenza.json",
+          "country": 20,
           "gtn": 934,
           "division": 0
         }
