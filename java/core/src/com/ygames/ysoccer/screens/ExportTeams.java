@@ -37,6 +37,18 @@ import static com.ygames.ysoccer.match.Player.Skill.TACKLING;
 
 class ExportTeams extends GLScreen {
 
+    static String[] countryCodes = {
+            "ALB", "AUT", "BEL", "BUL", "CRO", "CYP", "CZE", "DEN", "ENG", "009",
+            "EST", "FRO", "FIN", "FRA", "GER", "GRE", "HUN", "ISL", "IRL", "ISR",
+            "ITA", "LVA", "LTU", "LUX", "MLT", "NED", "NIR", "NOR", "POL", "POR",
+            "ROM", "RUS", "SMR", "SCO", "SVN", "ESP", "SWE", "SUI", "TUR", "UKR",
+            "WAL", "SBM", "ALG", "ARG", "AUS", "BOL", "BRA", "CRC", "CHI", "COL",
+            "ECU", "SLV", "052", "053", "054", "JPN", "056", "KOR", "058", "MAS",
+            "MEX", "061", "NZL", "063", "PAR", "PER", "SUR", "TPE", "XXX", "RSA",
+            "TAN", "URU", "XXX", "USA", "XXX", "IND", "BLR", "VEN", "SVK", "GHA",
+            "EUROPE", "AFRICA", "SOUTH AMERICA", "NORTH AMERICA", "ASIA", "OCEANIA"
+    };
+
     private enum State {NO_FOLDERS, READY, EXPORTING, FINISHED}
 
     private State state = State.NO_FOLDERS;
@@ -388,8 +400,8 @@ class ExportTeams extends GLScreen {
     }
 
     private int getCountryCode(Team team) {
-        for (int i = 0; i < ImportTeams.countryCodes.length; i++) {
-            if (ImportTeams.countryCodes[i].equals(team.country)) {
+        for (int i = 0; i < countryCodes.length; i++) {
+            if (countryCodes[i].equals(team.country)) {
                 return i;
             }
         }

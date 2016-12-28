@@ -1,0 +1,650 @@
+{
+  "files": [
+    {
+      "filename": "TEAM.000",
+      "type": "CLUB",
+      "country": "ALBANIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "SUPERLIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.001",
+      "type": "CLUB",
+      "country": "AUSTRIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "BUNDESLIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.002",
+      "type": "CLUB",
+      "country": "BELGIUM",
+      "continent": "EUROPE",
+      "leagues": [
+        "FIRST DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.003",
+      "type": "CLUB",
+      "country": "BULGARIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "A GROUP"
+      ]
+    },
+    {
+      "filename": "TEAM.004",
+      "type": "CLUB",
+      "country": "CROATIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "FIRST FOOTBALL LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.005",
+      "type": "CLUB",
+      "country": "CYPRUS",
+      "continent": "EUROPE",
+      "leagues": [
+        "FIRST DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.006",
+      "type": "CLUB",
+      "country": "CZECH REPUBLIC",
+      "continent": "EUROPE",
+      "leagues": [
+        "FIRST LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.007",
+      "type": "CLUB",
+      "country": "DENMARK",
+      "continent": "EUROPE",
+      "leagues": [
+        "SUPERLIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.008",
+      "type": "CLUB",
+      "country": "ENGLAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIER LEAGUE",
+        "DIVISION ONE",
+        "DIVISION TWO",
+        "DIVISION THREE"
+      ]
+    },
+    {
+      "filename": "TEAM.010",
+      "type": "CLUB",
+      "country": "ESTONIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "MEISTRILIIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.011",
+      "type": "CLUB",
+      "country": "FAROE ISLANDS",
+      "continent": "EUROPE",
+      "leagues": [
+        "1. DEILD"
+      ]
+    },
+    {
+      "filename": "TEAM.012",
+      "type": "CLUB",
+      "country": "FINLAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "VEIKKAUSLIIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.013",
+      "type": "CLUB",
+      "country": "FRANCE",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIÈRE DIVISION",
+        "DEUXIÈME DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.014",
+      "type": "CLUB",
+      "country": "GERMANY",
+      "continent": "EUROPE",
+      "leagues": [
+        "1. LIGA",
+        "2. LIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.015",
+      "type": "CLUB",
+      "country": "GREECE",
+      "continent": "EUROPE",
+      "leagues": [
+        "ALPHA ETHNIKI"
+      ]
+    },
+    {
+      "filename": "TEAM.016",
+      "type": "CLUB",
+      "country": "HUNGARY",
+      "continent": "EUROPE",
+      "leagues": [
+        "NEMZETI BAJNOKSÁG I"
+      ]
+    },
+    {
+      "filename": "TEAM.017",
+      "type": "CLUB",
+      "country": "ICELAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "ÚRVALSDEILD"
+      ]
+    },
+    {
+      "filename": "TEAM.018",
+      "type": "CLUB",
+      "country": "REPUBLIC OF IRELAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIER DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.019",
+      "type": "CLUB",
+      "country": "ISRAEL",
+      "continent": "EUROPE",
+      "leagues": [
+        "LIGA LEUMIT"
+      ]
+    },
+    {
+      "filename": "TEAM.020",
+      "type": "CLUB",
+      "country": "ITALY",
+      "continent": "EUROPE",
+      "leagues": [
+        "SERIE A",
+        "SERIE B"
+      ]
+    },
+    {
+      "filename": "TEAM.021",
+      "type": "CLUB",
+      "country": "LATVIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "VIRSLĪGA"
+      ]
+    },
+    {
+      "filename": "TEAM.022",
+      "type": "CLUB",
+      "country": "LITHUANIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "A LYGA"
+      ]
+    },
+    {
+      "filename": "TEAM.023",
+      "type": "CLUB",
+      "country": "LUXEMBOURG",
+      "continent": "EUROPE",
+      "leagues": [
+        "NATIONAL DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.024",
+      "type": "CLUB",
+      "country": "MALTA",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIER LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.025",
+      "type": "CLUB",
+      "country": "NETHERLANDS",
+      "continent": "EUROPE",
+      "leagues": [
+        "EREDIVISIE",
+        "EERSTE DIVISIE"
+      ]
+    },
+    {
+      "filename": "TEAM.026",
+      "type": "CLUB",
+      "country": "NORTHERN IRELAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIER DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.027",
+      "type": "CLUB",
+      "country": "NORWAY",
+      "continent": "EUROPE",
+      "leagues": [
+        "TIPPELIGAEN"
+      ]
+    },
+    {
+      "filename": "TEAM.028",
+      "type": "CLUB",
+      "country": "POLAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "EKSTRAKLASA"
+      ]
+    },
+    {
+      "filename": "TEAM.029",
+      "type": "CLUB",
+      "country": "PORTUGAL",
+      "continent": "EUROPE",
+      "leagues": [
+        "PRIMEIRA DIVISÃO"
+      ]
+    },
+    {
+      "filename": "TEAM.030",
+      "type": "CLUB",
+      "country": "ROMANIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "DIVIZIA A"
+      ]
+    },
+    {
+      "filename": "TEAM.031",
+      "type": "CLUB",
+      "country": "RUSSIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "TOP LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.032",
+      "type": "CLUB",
+      "country": "SAN MARINO",
+      "continent": "EUROPE",
+      "leagues": [
+        "CAMPIONATO"
+      ]
+    },
+    {
+      "filename": "TEAM.033",
+      "type": "CLUB",
+      "country": "SCOTLAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIER DIVISION",
+        "DIVISION 1",
+        "DIVISION 2",
+        "DIVISION 3"
+      ]
+    },
+    {
+      "filename": "TEAM.034",
+      "type": "CLUB",
+      "country": "SLOVENIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "PRVALIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.035",
+      "type": "CLUB",
+      "country": "SPAIN",
+      "continent": "EUROPE",
+      "leagues": [
+        "PRIMERA DIVISIÓN",
+        "SEGUNDA DIVISIÓN"
+      ]
+    },
+    {
+      "filename": "TEAM.036",
+      "type": "CLUB",
+      "country": "SWEDEN",
+      "continent": "EUROPE",
+      "leagues": [
+        "ALLSVENSKAN"
+      ]
+    },
+    {
+      "filename": "TEAM.037",
+      "type": "CLUB",
+      "country": "SWITZERLAND",
+      "continent": "EUROPE",
+      "leagues": [
+        "NATIONALLIGA A"
+      ]
+    },
+    {
+      "filename": "TEAM.038",
+      "type": "CLUB",
+      "country": "TURKEY",
+      "continent": "EUROPE",
+      "leagues": [
+        "1. LIG"
+      ]
+    },
+    {
+      "filename": "TEAM.039",
+      "type": "CLUB",
+      "country": "UKRAINE",
+      "continent": "EUROPE",
+      "leagues": [
+        "VYSHCHA LIHA"
+      ]
+    },
+    {
+      "filename": "TEAM.040",
+      "type": "CLUB",
+      "country": "WALES",
+      "continent": "EUROPE",
+      "leagues": [
+        "LEAGUE OF WALES"
+      ]
+    },
+    {
+      "filename": "TEAM.041",
+      "type": "CLUB",
+      "country": "YUGOSLAVIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "FIRST LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.042",
+      "type": "CLUB",
+      "country": "ALGERIA",
+      "continent": "AFRICA",
+      "leagues": [
+        "CHAMPIONNAT NATIONAL"
+      ]
+    },
+    {
+      "filename": "TEAM.043",
+      "type": "CLUB",
+      "country": "ARGENTINA",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN",
+        "PRIMERA B NACIONAL"
+      ]
+    },
+    {
+      "filename": "TEAM.044",
+      "type": "CLUB",
+      "country": "AUSTRALIA",
+      "continent": "OCEANIA",
+      "leagues": [
+        "1ST DIVISION",
+        "SOUTH DIVISION",
+        "NSW DIVISION",
+        "QUEENSLAND DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.045",
+      "type": "CLUB",
+      "country": "BOLIVIA",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "LIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.046",
+      "type": "CLUB",
+      "country": "BRAZIL",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "SÉRIE A"
+      ]
+    },
+    {
+      "filename": "TEAM.047",
+      "type": "CLUB",
+      "country": "COSTA RICA",
+      "continent": "NORTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN"
+      ]
+    },
+    {
+      "filename": "TEAM.048",
+      "type": "CLUB",
+      "country": "CHILE",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN"
+      ]
+    },
+    {
+      "filename": "TEAM.049",
+      "type": "CLUB",
+      "country": "COLOMBIA",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "PRIMERA A"
+      ]
+    },
+    {
+      "filename": "TEAM.050",
+      "type": "CLUB",
+      "country": "ECUADOR",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "SERIE A"
+      ]
+    },
+    {
+      "filename": "TEAM.051",
+      "type": "CLUB",
+      "country": "EL SALVADOR",
+      "continent": "NORTH_AMERICA",
+      "leagues": [
+        "PREMIER DIVISION",
+        "DIVISION 1",
+        "DIVISION 2",
+        "DIVISION 3"
+      ]
+    },
+    {
+      "filename": "TEAM.055",
+      "type": "CLUB",
+      "country": "JAPAN",
+      "continent": "ASIA",
+      "leagues": [
+        "J. LEAGUE",
+        "LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.060",
+      "type": "CLUB",
+      "country": "MEXICO",
+      "continent": "NORTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN",
+        "PRIMERA DIVISIÓN A"
+      ]
+    },
+    {
+      "filename": "TEAM.062",
+      "type": "CLUB",
+      "country": "NEW ZEALAND",
+      "continent": "OCEANIA",
+      "leagues": [
+        "NORTHERN REGION",
+        "CENTRAL REGION",
+        "SOUTHERN REGION"
+      ]
+    },
+    {
+      "filename": "TEAM.064",
+      "type": "CLUB",
+      "country": "PARAGUAY",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN"
+      ]
+    },
+    {
+      "filename": "TEAM.065",
+      "type": "CLUB",
+      "country": "PERU",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "DESCENTRALIZADO"
+      ]
+    },
+    {
+      "filename": "TEAM.066",
+      "type": "CLUB",
+      "country": "SURINAM",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "SVB TOPKLASSE"
+      ]
+    },
+    {
+      "filename": "TEAM.067",
+      "type": "CLUB",
+      "country": "TAIWAN",
+      "continent": "ASIA",
+      "leagues": [
+        "NATIONAL LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.069",
+      "type": "CLUB",
+      "country": "SOUTH AFRICA",
+      "continent": "AFRICA",
+      "leagues": [
+        "PREMIER DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.071",
+      "type": "CLUB",
+      "country": "URUGUAY",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN"
+      ]
+    },
+    {
+      "filename": "TEAM.073",
+      "type": "CLUB",
+      "country": "U.S.A.",
+      "continent": "NORTH_AMERICA",
+      "leagues": [
+        "MAJOR LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.075",
+      "type": "CLUB",
+      "country": "INDIA",
+      "continent": "ASIA",
+      "leagues": [
+        "PREMIER DIVISION"
+      ]
+    },
+    {
+      "filename": "TEAM.076",
+      "type": "CLUB",
+      "country": "BELARUS",
+      "continent": "EUROPE",
+      "leagues": [
+        "PREMIER LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.077",
+      "type": "CLUB",
+      "country": "VENEZUELA",
+      "continent": "SOUTH_AMERICA",
+      "leagues": [
+        "PRIMERA DIVISIÓN"
+      ]
+    },
+    {
+      "filename": "TEAM.078",
+      "type": "CLUB",
+      "country": "SLOVAKIA",
+      "continent": "EUROPE",
+      "leagues": [
+        "SUPERLIGA"
+      ]
+    },
+    {
+      "filename": "TEAM.079",
+      "type": "CLUB",
+      "country": "GHANA",
+      "continent": "AFRICA",
+      "leagues": [
+        "PREMIER LEAGUE"
+      ]
+    },
+    {
+      "filename": "TEAM.080",
+      "type": "NATIONAL",
+      "continent": "EUROPE"
+    },
+    {
+      "filename": "TEAM.081",
+      "type": "NATIONAL",
+      "continent": "AFRICA"
+    },
+    {
+      "filename": "TEAM.082",
+      "type": "NATIONAL",
+      "continent": "SOUTH AMERICA"
+    },
+    {
+      "filename": "TEAM.083",
+      "type": "NATIONAL",
+      "continent": "NORTH AMERICA"
+    },
+    {
+      "filename": "TEAM.084",
+      "type": "NATIONAL",
+      "continent": "ASIA"
+    },
+    {
+      "filename": "TEAM.085",
+      "type": "NATIONAL",
+      "continent": "OCEANIA"
+    }
+  ]
+}

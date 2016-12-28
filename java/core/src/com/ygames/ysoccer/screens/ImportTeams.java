@@ -5,6 +5,8 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
+import com.ygames.ysoccer.database.ImportConfig;
+import com.ygames.ysoccer.database.ImportFileConfig;
 import com.ygames.ysoccer.export.Config;
 import com.ygames.ysoccer.export.FileConfig;
 import com.ygames.ysoccer.export.TeamConfig;
@@ -26,9 +28,8 @@ import com.ygames.ysoccer.math.Emath;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -40,237 +41,12 @@ class ImportTeams extends GLScreen {
 
     private int year = 2016;
 
-    static String[] countryCodes = {
-            "ALB", "AUT", "BEL", "BUL", "CRO", "CYP", "CZE", "DEN", "ENG", "009",
-            "EST", "FRO", "FIN", "FRA", "GER", "GRE", "HUN", "ISL", "IRL", "ISR",
-            "ITA", "LVA", "LTU", "LUX", "MLT", "NED", "NIR", "NOR", "POL", "POR",
-            "ROM", "RUS", "SMR", "SCO", "SVN", "ESP", "SWE", "SUI", "TUR", "UKR",
-            "WAL", "SBM", "ALG", "ARG", "AUS", "BOL", "BRA", "CRC", "CHI", "COL",
-            "ECU", "SLV", "052", "053", "054", "JPN", "056", "KOR", "058", "MAS",
-            "MEX", "061", "NZL", "063", "PAR", "PER", "SUR", "TPE", "XXX", "RSA",
-            "TAN", "URU", "XXX", "USA", "XXX", "IND", "BLR", "VEN", "SVK", "GHA",
-            "EUROPE", "AFRICA", "SOUTH AMERICA", "NORTH AMERICA", "ASIA", "OCEANIA"
-    };
-
-    private static String[][] countries = {
-            {"ALB", "EUROPE", "ALBANIA"},
-            {"AND", "EUROPE", "ANDORRA"},
-            {"ARM", "EUROPE", "ARMENIA"},
-            {"AUT", "EUROPE", "AUSTRIA"},
-            {"AZE", "EUROPE", "AZERBAIJAN"},
-            {"BLR", "EUROPE", "BELARUS"},
-            {"BEL", "EUROPE", "BELGIUM"},
-            {"BIH", "EUROPE", "BOSNIA HERZEGOVINA"},
-            {"BUL", "EUROPE", "BULGARIA"},
-            {"CRO", "EUROPE", "CROATIA"},
-            {"CYP", "EUROPE", "CYPRUS"},
-            {"CZE", "EUROPE", "CZECH REPUBLIC"},
-            {"DEN", "EUROPE", "DENMARK"},
-            {"ENG", "EUROPE", "ENGLAND"},
-            {"EST", "EUROPE", "ESTONIA"},
-            {"FRO", "EUROPE", "FAROE ISLANDS"},
-            {"FIN", "EUROPE", "FINLAND"},
-            {"FRA", "EUROPE", "FRANCE"},
-            {"GEO", "EUROPE", "GEORGIA"},
-            {"GER", "EUROPE", "GERMANY"},
-            {"GRE", "EUROPE", "GREECE"},
-            {"HUN", "EUROPE", "HUNGARY"},
-            {"ISL", "EUROPE", "ICELAND"},
-            {"IRL", "EUROPE", "IRELAND REPUBLIC"},
-            {"ISR", "EUROPE", "ISRAEL"},
-            {"ITA", "EUROPE", "ITALY"},
-            {"KAZ", "EUROPE", "KAZAKHSTAN"},
-            {"LVA", "EUROPE", "LATVIA"},
-            {"LIE", "EUROPE", "LIECHTENSTEIN"},
-            {"LTU", "EUROPE", "LITHUANIA"},
-            {"LUX", "EUROPE", "LUXEMBOURG"},
-            {"MKD", "EUROPE", "MACEDONIA FYR"},
-            {"MLT", "EUROPE", "MALTA"},
-            {"MDA", "EUROPE", "MOLDOVA"},
-            {"MNE", "EUROPE", "MONTENEGRO"},
-            {"NED", "EUROPE", "NETHERLANDS"},
-            {"NIR", "EUROPE", "NORTHERN IRELAND"},
-            {"NOR", "EUROPE", "NORWAY"},
-            {"POL", "EUROPE", "POLAND"},
-            {"POR", "EUROPE", "PORTUGAL"},
-            {"ROM", "EUROPE", "ROMANIA"},
-            {"ROU", "EUROPE", "ROMANIA"},
-            {"RUS", "EUROPE", "RUSSIA"},
-            {"SMR", "EUROPE", "SAN MARINO"},
-            {"SCO", "EUROPE", "SCOTLAND"},
-            {"SBM", "EUROPE", "SERBIA & MONTENEGRO"},
-            {"SRB", "EUROPE", "SERBIA"},
-            {"SVK", "EUROPE", "SLOVAKIA"},
-            {"SVN", "EUROPE", "SLOVENIA"},
-            {"ESP", "EUROPE", "SPAIN"},
-            {"SWE", "EUROPE", "SWEDEN"},
-            {"SUI", "EUROPE", "SWITZERLAND"},
-            {"TUR", "EUROPE", "TURKEY"},
-            {"UKR", "EUROPE", "UKRAINE"},
-            {"WAL", "EUROPE", "WALES"},
-
-            {"AIA", "NORTH_AMERICA", "ANGUILLA"},
-            {"ATG", "NORTH_AMERICA", "ANTIGUA & BARBUDA"},
-            {"ARU", "NORTH_AMERICA", "ARUBA"},
-            {"BAH", "NORTH_AMERICA", "BAHAMAS"},
-            {"BRB", "NORTH_AMERICA", "BARBADOS"},
-            {"BER", "NORTH_AMERICA", "BERMUDA"},
-            {"VGB", "NORTH_AMERICA", "BR.VIRGIN ISLANDS"},
-            {"CAN", "NORTH_AMERICA", "CANADA"},
-            {"CAY", "NORTH_AMERICA", "CAYMAN ISLANDS"},
-            {"CUB", "NORTH_AMERICA", "CUBA"},
-            {"CUW", "NORTH_AMERICA", "CURAÇAO"},
-            {"DMA", "NORTH_AMERICA", "DOMINICA"},
-            {"DOM", "NORTH_AMERICA", "DOMINICAN REPUBLIC"},
-            {"GRN", "NORTH_AMERICA", "GRENADA"},
-            {"GUY", "NORTH_AMERICA", "GUYANA"},
-            {"HAI", "NORTH_AMERICA", "HAITI"},
-            {"JAM", "NORTH_AMERICA", "JAMAICA"},
-            {"MEX", "NORTH_AMERICA", "MEXICO"},
-            {"MSR", "NORTH_AMERICA", "MONTSERRAT"},
-            {"PUR", "NORTH_AMERICA", "PUERTO RICO"},
-            {"SKN", "NORTH_AMERICA", "ST.KITTS & NEVIS"},
-            {"LCA", "NORTH_AMERICA", "SAINT LUCIA"},
-            {"VIN", "NORTH_AMERICA", "ST.VINCENT & GREN."},
-            {"TRI", "NORTH_AMERICA", "TRINIDAD & TOBAGO"},
-            {"TCA", "NORTH_AMERICA", "TURKS & CAICOS IS."},
-            {"VIR", "NORTH_AMERICA", "US VIRGIN ISLANDS"},
-            {"USA", "NORTH_AMERICA", "UNITED STATES"},
-
-            {"BLZ", "CENTRAL_AMERICA", "BELIZE"},
-            {"CRC", "CENTRAL_AMERICA", "COSTA RICA"},
-            {"SLV", "CENTRAL_AMERICA", "EL SALVADOR"},
-            {"GUA", "CENTRAL_AMERICA", "GUATEMALA"},
-            {"HON", "CENTRAL_AMERICA", "HONDURAS"},
-            {"NCA", "CENTRAL_AMERICA", "NICARAGUA"},
-            {"PAN", "CENTRAL_AMERICA", "PANAMA"},
-
-            {"ARG", "SOUTH_AMERICA", "ARGENTINA"},
-            {"BOL", "SOUTH_AMERICA", "BOLIVIA"},
-            {"BRA", "SOUTH_AMERICA", "BRAZIL"},
-            {"CHI", "SOUTH_AMERICA", "CHILE"},
-            {"COL", "SOUTH_AMERICA", "COLOMBIA"},
-            {"ECU", "SOUTH_AMERICA", "ECUADOR"},
-            {"PAR", "SOUTH_AMERICA", "PARAGUAY"},
-            {"PER", "SOUTH_AMERICA", "PERU"},
-            {"SUR", "SOUTH_AMERICA", "SURINAM"},
-            {"URU", "SOUTH_AMERICA", "URUGUAY"},
-            {"VEN", "SOUTH_AMERICA", "VENEZUELA"},
-
-            {"ALG", "AFRICA", "ALGERIA"},
-            {"ANG", "AFRICA", "ANGOLA"},
-            {"BEN", "AFRICA", "BENIN"},
-            {"BOT", "AFRICA", "BOTSWANA"},
-            {"BFA", "AFRICA", "BURKINA FASO"},
-            {"BDI", "AFRICA", "BURUNDI"},
-            {"CMR", "AFRICA", "CAMEROON"},
-            {"CPV", "AFRICA", "CAPE VERDE ISLANDS"},
-            {"CTA", "AFRICA", "CENTR.AFRICAN REP."},
-            {"CHA", "AFRICA", "CHAD"},
-            {"COM", "AFRICA", "COMOROS"},
-            {"CGO", "AFRICA", "CONGO"},
-            {"COD", "AFRICA", "CONGO DR"},
-            {"CIV", "AFRICA", "CÔTE D'IVOIRE"},
-            {"DJI", "AFRICA", "DJIBOUTI"},
-            {"EGY", "AFRICA", "EGYPT"},
-            {"EQG", "AFRICA", "EQUATORIAL GUINEA"},
-            {"ERI", "AFRICA", "ERITREA"},
-            {"ETH", "AFRICA", "ETHIOPIA"},
-            {"GAB", "AFRICA", "GABON"},
-            {"GAM", "AFRICA", "GAMBIA"},
-            {"GHA", "AFRICA", "GHANA"},
-            {"GUI", "AFRICA", "GUINEA"},
-            {"GNB", "AFRICA", "GUINEA-BISSAU"},
-            {"KEN", "AFRICA", "KENYA"},
-            {"LES", "AFRICA", "LESOTHO"},
-            {"LBR", "AFRICA", "LIBERIA"},
-            {"LBY", "AFRICA", "LIBYA"},
-            {"MAD", "AFRICA", "MADAGASCAR"},
-            {"MWI", "AFRICA", "MALAWI"},
-            {"MLI", "AFRICA", "MALI"},
-            {"MTN", "AFRICA", "MAURITANIA"},
-            {"MRI", "AFRICA", "MAURITIUS"},
-            {"MAR", "AFRICA", "MOROCCO"},
-            {"MOZ", "AFRICA", "MOZAMBIQUE"},
-            {"NAM", "AFRICA", "NAMIBIA"},
-            {"NIG", "AFRICA", "NIGER"},
-            {"NGA", "AFRICA", "NIGERIA"},
-            {"RWA", "AFRICA", "RWANDA"},
-            {"STP", "AFRICA", "SÃO TOMÉ PRÍNCIPE"},
-            {"SEN", "AFRICA", "SENEGAL"},
-            {"SEY", "AFRICA", "SEYCHELLES"},
-            {"SLE", "AFRICA", "SIERRA LEONE"},
-            {"SOM", "AFRICA", "SOMALIA"},
-            {"RSA", "AFRICA", "SOUTH AFRICA"},
-            {"SSD", "AFRICA", "SOUTH SUDAN"},
-            {"SDN", "AFRICA", "SUDAN"},
-            {"SWZ", "AFRICA", "SWAZILAND"},
-            {"TAN", "AFRICA", "TANZANIA"},
-            {"TOG", "AFRICA", "TOGO"},
-            {"TUN", "AFRICA", "TUNISIA"},
-            {"UGA", "AFRICA", "UGANDA"},
-            {"ZAM", "AFRICA", "ZAMBIA"},
-            {"ZIM", "AFRICA", "ZIMBABWE"},
-
-            {"AFG", "ASIA", "AFGHANISTAN"},
-            {"BHR", "ASIA", "BAHRAIN"},
-            {"BAN", "ASIA", "BANGLADESH"},
-            {"BHU", "ASIA", "BHUTAN"},
-            {"BRU", "ASIA", "BRUNEI DARUSSALAM"},
-            {"CAM", "ASIA", "CAMBODIA"},
-            {"CHN", "ASIA", "CHINA PR"},
-            {"TPE", "ASIA", "TAIWAN"},
-            {"GUM", "ASIA", "GUAM"},
-            {"HKG", "ASIA", "HONG KONG"},
-            {"IND", "ASIA", "INDIA"},
-            {"IDN", "ASIA", "INDONESIA"},
-            {"IRN", "ASIA", "IRAN"},
-            {"IRQ", "ASIA", "IRAQ"},
-            {"JPN", "ASIA", "JAPAN"},
-            {"JOR", "ASIA", "JORDAN"},
-            {"PRK", "ASIA", "KOREA DPR"},
-            {"KOR", "ASIA", "KOREA REPUBLIC"},
-            {"KUW", "ASIA", "KUWAIT"},
-            {"KGZ", "ASIA", "KYRGYZSTAN"},
-            {"LAO", "ASIA", "LAOS"},
-            {"LIB", "ASIA", "LEBANON"},
-            {"MAC", "ASIA", "MACAO"},
-            {"MAS", "ASIA", "MALAYSIA"},
-            {"MDV", "ASIA", "MALDIVES"},
-            {"MGL", "ASIA", "MONGOLIA"},
-            {"MYA", "ASIA", "MYANMAR"},
-            {"NEP", "ASIA", "NEPAL"},
-            {"OMA", "ASIA", "OMAN"},
-            {"PAK", "ASIA", "PAKISTAN"},
-            {"PLE", "ASIA", "PALESTINE"},
-            {"PHI", "ASIA", "PHILIPPINES"},
-            {"QAT", "ASIA", "QATAR"},
-            {"KSA", "ASIA", "SAUDI ARABIA"},
-            {"SIN", "ASIA", "SINGAPORE"},
-            {"SRI", "ASIA", "SRI LANKA"},
-            {"SYR", "ASIA", "SYRIA"},
-            {"TJK", "ASIA", "TAJIKISTAN"},
-            {"THA", "ASIA", "THAILAND"},
-            {"TLS", "ASIA", "TIMOR-LESTE"},
-            {"TKM", "ASIA", "TURKMENISTAN"},
-            {"UAE", "ASIA", "UN. ARAB EMIRATES"},
-            {"UZB", "ASIA", "UZBEKISTAN"},
-            {"VIE", "ASIA", "VIETNAM SR"},
-            {"YEM", "ASIA", "YEMEN"},
-
-            {"ASA", "OCEANIA", "AMERICAN SAMOA"},
-            {"AUS", "OCEANIA", "AUSTRALIA"},
-            {"COK", "OCEANIA", "COOK ISLANDS"},
-            {"FIJ", "OCEANIA", "FIJI"},
-            {"NCL", "OCEANIA", "NEW CALEDONIA"},
-            {"NZL", "OCEANIA", "NEW ZEALAND"},
-            {"PNG", "OCEANIA", "PAPUA NEW GUINEA"},
-            {"SAM", "OCEANIA", "SAMOA"},
-            {"SOL", "OCEANIA", "SOLOMON ISLANDS"},
-            {"TAH", "OCEANIA", "TAHITI"},
-            {"TGA", "OCEANIA", "TONGA"},
-            {"VAN", "OCEANIA", "VANUATU"},
-
+    private final String[] divisions = {
+            "PREMIER DIVISION",
+            "DIVISION ONE",
+            "DIVISION TWO",
+            "DIVISION THREE",
+            "NO LEAGUE"
     };
 
     static String[] playerCountryCodes = {
@@ -305,9 +81,11 @@ class ImportTeams extends GLScreen {
     private int importedTeams, failedTeams, skippedFiles;
     private Widget exitButton;
 
+    private Json json;
+    private FileHandle configFile;
     private Config exportConfigs;
 
-    private Map<String, HashSet<String>> leagues = new HashMap<String, HashSet<String>>();
+    private Map<String, List<String>> leagues = new HashMap<String, List<String>>();
 
     ImportTeams(GLGame game) {
         super(game);
@@ -316,8 +94,10 @@ class ImportTeams extends GLScreen {
 
         FileHandle importFolder = Gdx.files.local("data/import");
 
-        Json json = new Json();
+        json = new Json();
         json.setOutputType(JsonWriter.OutputType.json);
+
+        updateConfigFile();
 
         exportConfigs = new Config();
 
@@ -375,15 +155,20 @@ class ImportTeams extends GLScreen {
                     FileHandle fh = Assets.teamsRootFolder.child(getYearFolder() + "/export_" + getYearFolder() + ".json");
                     fh.writeString(Assets.json.prettyPrint(exportConfigs), false, "UTF-8");
                 } else {
+                    ImportConfig importConfig = json.fromJson(ImportConfig.class, configFile.readString("UTF-8"));
                     FileHandle fileHandle = files[fileIndex++];
-                    if (!importFile(fileHandle)) {
-                        skippedFiles++;
+                    for (ImportFileConfig importFileConfig : importConfig.files) {
+                        if (fileHandle.name().equals(importFileConfig.filename)) {
+                            if (!importFile(fileHandle, importFileConfig)) {
+                                skippedFiles++;
+                            }
+                            break;
+                        }
                     }
                 }
                 for (String folder : leagues.keySet()) {
                     FileHandle fileHandle = Assets.teamsRootFolder.child(folder).child("leagues.json");
                     List<String> names = new ArrayList<String>(leagues.get(folder));
-                    Collections.sort(names);
                     fileHandle.writeString(Assets.json.toJson(names, String[].class, String.class), false, "UTF-8");
                 }
                 refreshAllWidgets();
@@ -476,12 +261,20 @@ class ImportTeams extends GLScreen {
 
         private void updateYear(int n) {
             year = Emath.slide(year, 1863, 2100, n);
+            updateConfigFile();
             setDirty(true);
         }
     }
 
     private String getYearFolder() {
         return year + "-" + ("" + (year + 1)).substring(2);
+    }
+
+    private void updateConfigFile() {
+        configFile = Gdx.files.local("data/config/import_" + getYearFolder() + ".json");
+        if (!configFile.exists()) {
+            configFile = Gdx.files.local("data/config/import.json");
+        }
     }
 
     private String getTeamTypeFolder(Team team) {
@@ -560,32 +353,10 @@ class ImportTeams extends GLScreen {
         }
     }
 
-    private boolean importFile(FileHandle fileHandle) {
-
-        String extension = fileHandle.extension();
-        Team.Type teamType;
+    private boolean importFile(FileHandle fileHandle, ImportFileConfig importConfig) {
 
         // prepare an export config for easy exporting back
         FileConfig exportConfig = new FileConfig(fileHandle.name());
-
-        if (extension.equals("CUS")) {
-            Gdx.app.log("Skipped", fileHandle.name());
-            return false;
-        } else {
-            int countryIndex = Integer.parseInt(extension);
-            if (countryIndex < 80) {
-                teamType = Team.Type.CLUB;
-            } else if (countryIndex < 86) {
-                teamType = Team.Type.NATIONAL;
-            } else {
-                Gdx.app.log("Skipped", fileHandle.name());
-                return false;
-            }
-            if (countryCodes[countryIndex].equals("XXX")) {
-                Gdx.app.log("Skipped", fileHandle.name());
-                return false;
-            }
-        }
 
         byte[] bytes = fileHandle.readBytes();
 
@@ -596,7 +367,7 @@ class ImportTeams extends GLScreen {
 
         // read teamList
         for (int tm = 0; tm < teams; tm++) {
-            pos = importTeam(fileHandle, teamType, bytes, pos, exportConfig);
+            pos = importTeam(fileHandle, importConfig, bytes, pos, exportConfig);
         }
 
         exportConfigs.files.add(exportConfig);
@@ -604,35 +375,26 @@ class ImportTeams extends GLScreen {
         return true;
     }
 
-    private int importTeam(FileHandle fileHandle, Team.Type teamType, byte[] bytes, int pos, FileConfig exportConfig) {
+    private int importTeam(FileHandle fileHandle, ImportFileConfig importConfig, byte[] bytes, int pos, FileConfig exportConfig) {
 
         int startingPosition = pos;
 
         Team team = new Team();
 
-        team.type = teamType;
+        team.type = importConfig.type;
 
         int countryIndex = (bytes[pos++] & 0xFF);
 
         String continent = "";
-        String teamCountry = "";
-        if (team.type == Team.Type.CLUB) {
-            team.country = "";
-            if (countryIndex < countryCodes.length) {
-                String countryCode = countryCodes[countryIndex];
-                team.country = countryCode;
-                for (String[] country : countries) {
-                    if (country[0].equals(countryCode)) {
-                        continent = country[1];
-                        teamCountry = country[2];
-                    }
-                }
-            }
-        }
-        if (team.type == Team.Type.NATIONAL) {
-            if (countryIndex < countryCodes.length) {
-                continent = countryCodes[countryIndex];
-            }
+        switch (team.type) {
+            case CLUB:
+                team.country = importConfig.country;
+                continent = importConfig.continent;
+                break;
+
+            case NATIONAL:
+                continent = importConfig.continent;
+                break;
         }
         team.city = "";
         team.stadium = "";
@@ -660,18 +422,12 @@ class ImportTeams extends GLScreen {
         // league
         int division = bytes[pos++] & 0xFF;
 
-        switch (team.type) {
-            case CLUB:
-                if (division == 4) {
-                    team.league = "NO LEAGUE";
-                } else {
-                    team.league = "LEAGUE " + (char) ('A' + division);
-                }
-                break;
-
-            case NATIONAL:
-                team.confederation = countryCodes[countryIndex];
-                break;
+        if (team.type == Team.Type.CLUB) {
+            if (importConfig.leagues != null && importConfig.leagues.length > division) {
+                team.league = importConfig.leagues[division];
+            } else {
+                team.league = divisions[division];
+            }
         }
 
         // main kit
@@ -852,7 +608,7 @@ class ImportTeams extends GLScreen {
         String folder = getYearFolder() + "/" + getTeamTypeFolder(team) + "/";
         switch (team.type) {
             case CLUB:
-                folder += continent + "/" + teamCountry + "/";
+                folder += continent + "/" + team.country + "/";
                 break;
             case NATIONAL:
                 folder += continent + "/";
@@ -867,13 +623,17 @@ class ImportTeams extends GLScreen {
         exportConfig.teams.add(new TeamConfig(team.path, gtn, division));
 
         if (team.type == Team.Type.CLUB) {
-            if (leagues.get(folder) == null) {
-                HashSet<String> l = new HashSet<String>();
+            if (importConfig.leagues != null) {
+                leagues.put(folder, Arrays.asList(importConfig.leagues));
+            } else if (leagues.get(folder) == null) {
+                List<String> l = new ArrayList<String>();
                 l.add(team.league);
                 leagues.put(folder, l);
             } else {
-                HashSet<String> l = leagues.get(folder);
-                l.add(team.league);
+                List<String> l = leagues.get(folder);
+                if (!l.contains(team.league)) {
+                    l.add(team.league);
+                }
                 leagues.put(folder, l);
             }
         }
