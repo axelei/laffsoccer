@@ -46,6 +46,7 @@ public abstract class Widget {
     public boolean entryMode;
     boolean hasChanged;
     protected boolean addShadow;
+    private boolean dirty;
 
     public Widget() {
         isVisible = true;
@@ -55,6 +56,7 @@ public abstract class Widget {
         entryMode = false;
         hasChanged = false;
         addShadow = false;
+        dirty = true;
     }
 
     public void setGeometry(int x, int y, int w, int h) {
@@ -182,5 +184,16 @@ public abstract class Widget {
     }
 
     public void onFire1Up() {
+    }
+
+    public void refresh() {
+    }
+
+    public boolean getDirty() {
+        return dirty;
+    }
+
+    public void setDirty(boolean dirty) {
+        this.dirty = dirty;
     }
 }

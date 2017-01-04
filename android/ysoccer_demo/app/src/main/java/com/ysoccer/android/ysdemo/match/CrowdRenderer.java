@@ -61,7 +61,7 @@ public class CrowdRenderer {
 
     }
 
-    public void setMaxRank(int l) {
+    void setMaxRank(int l) {
         maxRank = Math.max(0, l);
     }
 

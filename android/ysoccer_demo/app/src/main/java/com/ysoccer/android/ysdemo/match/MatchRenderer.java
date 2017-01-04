@@ -36,9 +36,9 @@ public class MatchRenderer {
 
     public Match match;
     SpriteBatcher batcher;
-    List<Sprite> allSprites;
-    List<PlayerSprite> radarPlayers;
-    SpriteComparator spriteComparator;
+    private List<Sprite> allSprites;
+    private List<PlayerSprite> radarPlayers;
+    private SpriteComparator spriteComparator;
     TextureDrawer spriteDrawer;
     FlagpostSprite[] flagpostSprite = new FlagpostSprite[4];
 
@@ -917,13 +917,11 @@ public class MatchRenderer {
 
         // fading
         // glGraphics.setColor(0xFFFFFF);
-        glGraphics.fadeRect(l + 2, t + 2, r - 2, t + h / 10 + 1, 0.35f,
-                0x000000);
+        glGraphics.fadeRect(l + 2, t + 2, r - 2, t + h / 10 + 1, 0.35f, 0x000000);
 
         int i = t + h / 10 + 2;
         for (int j = 1; j < 9; j++) {
-            glGraphics.fadeRect(l + 2, i + 1, r - 2, i + h / 10 - 1, 0.35f,
-                    0x000000);
+            glGraphics.fadeRect(l + 2, i + 1, r - 2, i + h / 10 - 1, 0.35f, 0x000000);
             i = i + h / 10;
         }
         glGraphics.fadeRect(l + 2, i + 1, r - 2, b - 2, 0.35f, 0x000000);

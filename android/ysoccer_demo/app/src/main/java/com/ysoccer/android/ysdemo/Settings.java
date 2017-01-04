@@ -23,6 +23,7 @@ public class Settings {
     public int weatherMaxStrength;
     public boolean displayRadar;
     public boolean autoReplay;
+    public boolean invertedControls;
 
     Editor editor;
     public static final int[] gameLengths = {3, 5, 7, 10};
@@ -38,6 +39,7 @@ public class Settings {
         weatherMaxStrength = preferences.getInt("weatherMaxStrength", Weather.Strength.LIGHT);
         displayRadar = preferences.getBoolean("displayRadar", false);
         autoReplay = preferences.getBoolean("autoReplay", true);
+        invertedControls = preferences.getBoolean("invertedControls", true);
     }
 
     public void save() {
@@ -47,6 +49,7 @@ public class Settings {
         editor.putInt("weatherMaxStrength", weatherMaxStrength);
         editor.putBoolean("displayRadar", displayRadar);
         editor.putBoolean("autoReplay", autoReplay);
+        editor.putBoolean("invertedControls", invertedControls);
 
         editor.commit();
     }

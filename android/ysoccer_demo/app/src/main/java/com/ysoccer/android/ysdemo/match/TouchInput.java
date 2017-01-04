@@ -13,6 +13,7 @@ public class TouchInput extends InputDevice {
     Camera2D guiCam;
     Vector2 touchPoint;
     Vector2 oldTouchPoint;
+    private boolean inverted;
     public List<TouchEvent> touchEvents;
 
     private boolean f1;
@@ -25,6 +26,7 @@ public class TouchInput extends InputDevice {
         guiCam = new Camera2D(glGraphics, 1280, 800);
         touchPoint = new Vector2();
         oldTouchPoint = new Vector2();
+        this.inverted = false;
     }
 
     public void _read() {
@@ -41,7 +43,7 @@ public class TouchInput extends InputDevice {
 
             guiCam.touchToWorld(touchPoint);
 
-            if (touchPoint.x < 640) {
+            if (inverted ? (touchPoint.x > 640) : (touchPoint.x < 640)) {
                 if (touchPoint.y > 80) {
                     f1 = (event.type != TouchEvent.TOUCH_UP);
                 } else {
@@ -65,4 +67,7 @@ public class TouchInput extends InputDevice {
         fire20 = f2;
     }
 
+    public void setInverted(boolean inverted) {
+        this.inverted = inverted;
+    }
 }

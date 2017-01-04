@@ -114,6 +114,13 @@ public abstract class GLScreen extends Screen {
 
         readMenuInput();
 
+        for (Widget widget : widgets) {
+            if (widget.getDirty()) {
+                widget.refresh();
+            }
+            widget.setDirty(false);
+        }
+
         int ws = widgets.size();
         for (int i = 0; i < ws; i++) {
             Widget widget = widgets.get(i);

@@ -129,6 +129,7 @@ public class MatchLoading extends GLScreen {
         Assets.crowdSound.setLooping(true);
         Assets.crowdSound.setVolume(glGame.settings.sfxVolume);
 
+        glGame.touchInput.setInverted(glGame.settings.invertedControls);
 
         match = new Match(glGame, teams, matchListener, matchSettings);
         match.renderer = new MatchRenderer(glGraphics, batcher, match);

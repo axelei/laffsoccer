@@ -31,8 +31,6 @@ public class Assets {
         static Texture menuMatch;
     }
 
-    ;
-
     public static Texture mainMenuBackground;
     public static Texture helpMenuBackground;
     public static Texture settingsMenuBackground;
