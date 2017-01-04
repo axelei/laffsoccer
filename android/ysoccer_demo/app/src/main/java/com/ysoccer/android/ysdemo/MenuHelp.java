@@ -140,7 +140,7 @@ class MenuHelp extends GLScreen {
         BackButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 180) / 2, Settings.GUI_HEIGHT - 40 - 20, 180, 40);
-            setText(_(R.string.BACK), 0, 14);
+            setText(gettext(R.string.BACK), 0, 14);
         }
 
         public void onFire1Down() {

@@ -16,7 +16,7 @@ public class MenuMain extends GLScreen {
         public GameSettingsButton() {
             setColors(0x536B90, 0x7090C2, 0x263142);
             setGeometry(Settings.GUI_WIDTH / 2 - 30 - 320, 290, 320, 36);
-            setText(_(R.string.SETTINGS), 0, 14);
+            setText(gettext(R.string.SETTINGS), 0, 14);
         }
 
         @Override
@@ -29,7 +29,7 @@ public class MenuMain extends GLScreen {
         public HelpButton() {
             setColors(0x6101D7, 0x7D1DFF, 0x3A0181);
             setGeometry(Settings.GUI_WIDTH / 2 - 30 - 320, 340, 320, 36);
-            setText(_(R.string.CONTROLS), 0, 14);
+            setText(gettext(R.string.CONTROLS), 0, 14);
         }
 
         @Override
@@ -42,7 +42,7 @@ public class MenuMain extends GLScreen {
         public PlayButton() {
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 290, 320, 36);
-            setText(_(R.string.PLAY_MATCH), 0, 14);
+            setText(gettext(R.string.PLAY_MATCH), 0, 14);
         }
 
         @Override
@@ -55,7 +55,7 @@ public class MenuMain extends GLScreen {
         public FullVersionButton() {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setGeometry(Settings.GUI_WIDTH / 2 + 30, 340, 320, 36);
-            setText(_(R.string.PC_VERSION), 0, 14);
+            setText(gettext(R.string.PC_VERSION), 0, 14);
         }
 
         @Override

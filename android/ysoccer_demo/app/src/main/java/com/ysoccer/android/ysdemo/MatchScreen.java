@@ -25,7 +25,7 @@ public class MatchScreen extends GLScreen {
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setGeometry((Settings.GUI_WIDTH - 240) / 2,
                     (Settings.GUI_HEIGHT) / 2 - 50 - 10, 240, 50);
-            setText(_(R.string.CONTINUE), 0, 14);
+            setText(gettext(R.string.CONTINUE), 0, 14);
         }
 
         @Override
@@ -39,7 +39,7 @@ public class MatchScreen extends GLScreen {
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
             setGeometry((Settings.GUI_WIDTH - 240) / 2,
                     Settings.GUI_HEIGHT / 2 + 10, 240, 50);
-            setText(_(R.string.EXIT), 0, 14);
+            setText(gettext(R.string.EXIT), 0, 14);
         }
 
         @Override

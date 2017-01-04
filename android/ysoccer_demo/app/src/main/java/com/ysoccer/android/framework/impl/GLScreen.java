@@ -414,7 +414,7 @@ public abstract class GLScreen extends Screen {
         return true;
     }
 
-    public String _(int id) {
+    public String gettext(int id) {
         return glGame.getResources().getString(id);
     }
 

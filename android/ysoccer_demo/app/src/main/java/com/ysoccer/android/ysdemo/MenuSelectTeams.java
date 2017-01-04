@@ -91,7 +91,7 @@ public class MenuSelectTeams extends GLScreen {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH) / 2 - 300 - 30,
                     Settings.GUI_HEIGHT - 40 - 20, 300, 40);
-            setText(_(R.string.BACK), 0, 14);
+            setText(gettext(R.string.BACK), 0, 14);
         }
 
         @Override
@@ -104,7 +104,7 @@ public class MenuSelectTeams extends GLScreen {
         public ContinueButton() {
             setGeometry(Settings.GUI_WIDTH / 2 + 30,
                     Settings.GUI_HEIGHT - 40 - 20, 340, 40);
-            setText(_(R.string.PLAY_MATCH), 0, 14);
+            setText(gettext(R.string.PLAY_MATCH), 0, 14);
             isActive = false;
             updateStatus();
         }
@@ -148,7 +148,7 @@ public class MenuSelectTeams extends GLScreen {
         w = new Button();
         w.setColors(0x536B90, 0x7090C2, 0x263142);
         w.setGeometry((Settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
-        w.setText(_(R.string.SELECT_TEAMS), 0, 14);
+        w.setText(gettext(R.string.SELECT_TEAMS), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -156,7 +156,7 @@ public class MenuSelectTeams extends GLScreen {
         w = new Button();
         w.setColors(0x0000C8, 0x1919FF, 0x000078);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 20, 80, 300, 32);
-        w.setText(_(R.string.PLAYER), 0, 14);
+        w.setText(gettext(R.string.PLAYER), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -164,7 +164,7 @@ public class MenuSelectTeams extends GLScreen {
         w = new Button();
         w.setColors(0x981E1E, 0xC72929, 0x640000);
         w.setGeometry(Settings.GUI_WIDTH / 2 + 20, 80, 300, 32);
-        w.setText(_(R.string.COMPUTER), 0, 14);
+        w.setText(gettext(R.string.COMPUTER), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 

@@ -51,7 +51,7 @@ public class MenuOptions extends GLScreen {
         }
 
         public void updateText() {
-            setText(_(matchSettings.timeStringId()));
+            setText(gettext(matchSettings.timeStringId()));
         }
 
         @Override
@@ -85,7 +85,7 @@ public class MenuOptions extends GLScreen {
         }
 
         public void updateText() {
-            setText(_(matchSettings.pitchStringId()));
+            setText(gettext(matchSettings.pitchStringId()));
         }
 
         @Override
@@ -121,7 +121,7 @@ public class MenuOptions extends GLScreen {
         }
 
         public void updateText() {
-            setText(_(matchSettings.weatherStringId()));
+            setText(gettext(matchSettings.weatherStringId()));
         }
 
         @Override
@@ -187,7 +187,7 @@ public class MenuOptions extends GLScreen {
         public PlayButton() {
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setGeometry((Settings.GUI_WIDTH - 340) / 2, 375, 340, 40);
-            setText(_(R.string.PLAY_MATCH), 0, 14);
+            setText(gettext(R.string.PLAY_MATCH), 0, 14);
         }
 
         @Override
@@ -201,7 +201,7 @@ public class MenuOptions extends GLScreen {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 180) / 2,
                     Settings.GUI_HEIGHT - 40 - 20, 180, 40);
-            setText(_(R.string.BACK), 0, 14);
+            setText(gettext(R.string.BACK), 0, 14);
         }
 
         @Override
@@ -250,7 +250,7 @@ public class MenuOptions extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
-        w.setText(_(R.string.TIME), 0, 14);
+        w.setText(gettext(R.string.TIME), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -264,7 +264,7 @@ public class MenuOptions extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
-        w.setText(_(R.string.PITCH), 0, 14);
+        w.setText(gettext(R.string.PITCH), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -278,7 +278,7 @@ public class MenuOptions extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
-        w.setText(_(R.string.WEATHER), 0, 14);
+        w.setText(gettext(R.string.WEATHER), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 

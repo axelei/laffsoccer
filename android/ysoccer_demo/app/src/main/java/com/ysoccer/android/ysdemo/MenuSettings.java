@@ -136,7 +136,7 @@ class MenuSettings extends GLScreen {
         }
 
         void updateText() {
-            setText(_(R.string.$N_MINUTES).replaceFirst("\\$N",
+            setText(gettext(R.string.$N_MINUTES).replaceFirst("\\$N",
                     "" + Settings.gameLengths[glGame.settings.gameLengthIndex]));
         }
     }
@@ -186,7 +186,7 @@ class MenuSettings extends GLScreen {
         }
 
         void updateText() {
-            setText(_(Weather.Strength.stringIds[glGame.settings.weatherMaxStrength]));
+            setText(gettext(Weather.Strength.stringIds[glGame.settings.weatherMaxStrength]));
         }
     }
 
@@ -224,9 +224,9 @@ class MenuSettings extends GLScreen {
 
         void updateText() {
             if (glGame.settings.displayRadar) {
-                setText(_(R.string.YES));
+                setText(gettext(R.string.YES));
             } else {
-                setText(_(R.string.NO));
+                setText(gettext(R.string.NO));
             }
         }
     }
@@ -248,9 +248,9 @@ class MenuSettings extends GLScreen {
 
         void updateText() {
             if (glGame.settings.autoReplay) {
-                setText(_(R.string.YES));
+                setText(gettext(R.string.YES));
             } else {
-                setText(_(R.string.NO));
+                setText(gettext(R.string.NO));
             }
         }
     }
@@ -261,7 +261,7 @@ class MenuSettings extends GLScreen {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 180) / 2,
                     Settings.GUI_HEIGHT - 40 - 20, 180, 40);
-            setText(_(R.string.BACK), 0, 14);
+            setText(gettext(R.string.BACK), 0, 14);
         }
 
         @Override
@@ -280,7 +280,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x536B90, 0x7090C2, 0x263142);
         w.setGeometry((Settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
-        w.setText(_(R.string.SETTINGS), 0, 14);
+        w.setText(gettext(R.string.SETTINGS), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -288,7 +288,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 100, 400, 40);
-        w.setText(_(R.string.MUSIC_VOLUME), 0, 14);
+        w.setText(gettext(R.string.MUSIC_VOLUME), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -305,7 +305,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 160, 400, 40);
-        w.setText(_(R.string.SFX_VOLUME), 0, 14);
+        w.setText(gettext(R.string.SFX_VOLUME), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -322,7 +322,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 220, 400, 40);
-        w.setText(_(R.string.GAME_LENGTH), 0, 14);
+        w.setText(gettext(R.string.GAME_LENGTH), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -339,7 +339,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 280, 400, 40);
-        w.setText(_(R.string.WEATHER_EFFECTS), 0, 14);
+        w.setText(gettext(R.string.WEATHER_EFFECTS), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -356,7 +356,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 340, 400, 40);
-        w.setText(_(R.string.RADAR), 0, 14);
+        w.setText(gettext(R.string.RADAR), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
@@ -367,7 +367,7 @@ class MenuSettings extends GLScreen {
         w = new Button();
         w.setColors(0x800000, 0xB40000, 0x400000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 400, 400, 40);
-        w.setText(_(R.string.AUTO_REPLAY), 0, 14);
+        w.setText(gettext(R.string.AUTO_REPLAY), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 

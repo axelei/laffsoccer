@@ -16,7 +16,7 @@ public class MenuReplayMatch extends GLScreen {
         public ReplayButton() {
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setGeometry((Settings.GUI_WIDTH - 300) / 2, 250, 300, 40);
-            setText(_(R.string.REPLAY_MATCH), 0, 14);
+            setText(gettext(R.string.REPLAY_MATCH), 0, 14);
         }
 
         @Override
@@ -38,7 +38,7 @@ public class MenuReplayMatch extends GLScreen {
         public BackButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 300) / 2, 310, 300, 40);
-            setText(_(R.string.EXIT), 0, 14);
+            setText(gettext(R.string.EXIT), 0, 14);
         }
 
         @Override

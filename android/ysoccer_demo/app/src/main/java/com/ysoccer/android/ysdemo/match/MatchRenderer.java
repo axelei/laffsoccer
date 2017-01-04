@@ -951,7 +951,7 @@ public class MatchRenderer {
         int lc = l + w / 5;
         int rc = r - w / 5;
         i = t + h / 20 - 8;
-        glGraphics.text14u(_(R.string.MATCH_STATS), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.MATCH_STATS), hw, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u(match.team[Match.HOME].name, lc, i, Assets.ucode14,
@@ -961,43 +961,43 @@ public class MatchRenderer {
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.goals, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.GOALS), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.GOALS), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.goals, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + possHome, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.POSSESSION), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.POSSESSION), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + possAway, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.overallShots, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.GOAL_ATTEMPTS), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.GOAL_ATTEMPTS), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.overallShots, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.centeredShots, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.ON_TARGET), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.ON_TARGET), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.centeredShots, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.cornersWon, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.CORNERS_WON), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.CORNERS_WON), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.cornersWon, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.foulsConceded, lc, i, Assets.ucode14, 0);
         glGraphics
-                .text14u(_(R.string.FOULS_CONCEDED), hw, i, Assets.ucode14, 0);
+                .text14u(gettext(R.string.FOULS_CONCEDED), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.foulsConceded, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.yellowCards, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.BOOKINGS), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.BOOKINGS), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.yellowCards, rc, i, Assets.ucode14, 0);
 
         i = i + h / 10;
         glGraphics.text14u("" + homeStats.redCards, lc, i, Assets.ucode14, 0);
-        glGraphics.text14u(_(R.string.SENDINGS_OFF), hw, i, Assets.ucode14, 0);
+        glGraphics.text14u(gettext(R.string.SENDINGS_OFF), hw, i, Assets.ucode14, 0);
         glGraphics.text14u("" + awayStats.redCards, rc, i, Assets.ucode14, 0);
 
     }
@@ -1030,7 +1030,7 @@ public class MatchRenderer {
         vcameraY[match.subframe] = actionCamera.updateY(follow, speed, targetY, limit);
     }
 
-    String _(int id) {
+    String gettext(int id) {
         return match.glGame.getResources().getString(id);
     }
 
