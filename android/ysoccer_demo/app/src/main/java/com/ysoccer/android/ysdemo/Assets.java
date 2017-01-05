@@ -40,8 +40,8 @@ public class Assets {
     public static CrowdRenderer crowdRenderer;
 
     public static Texture ucode14;
-    public static int[] ucode14w = new int[1024];
-    public static int[] ucode10w = new int[1024];
+    public static int[] ucode14w = new int[1088];
+    public static int[] ucode10w = new int[1088];
     public static Texture[][] player = new Texture[2][10];
     public static List<Texture> hairs = new ArrayList<Texture>();
     public static Texture[] playerShadows = new Texture[4];
@@ -363,7 +363,7 @@ public class Assets {
             int s = 0;
 
             // row
-            for (int r = 0; r < 16; r++) {
+            for (int r = 0; r < 17; r++) {
 
                 // block
                 for (int b = 0; b < 8; b++) {
