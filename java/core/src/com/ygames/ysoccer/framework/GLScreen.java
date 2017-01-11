@@ -57,9 +57,11 @@ public abstract class GLScreen implements Screen {
         if (game.settings.mouseEnabled) {
             game.mouse.read(camera);
 
-            for (Widget w : widgets) {
-                if (w.contains(game.mouse.position.x, game.mouse.position.y)) {
-                    setSelectedWidget(w);
+            int len = widgets.size();
+            for (int i = 0; i < len; i++) {
+                Widget widget = widgets.get(i);
+                if (widget.contains(game.mouse.position.x, game.mouse.position.y)) {
+                    setSelectedWidget(widget);
                 }
             }
         }
@@ -70,7 +72,9 @@ public abstract class GLScreen implements Screen {
 
         readMenuInput();
 
-        for (Widget widget : widgets) {
+        int len = widgets.size();
+        for (int i = 0; i < len; i++) {
+            Widget widget = widgets.get(i);
             if (widget.getDirty()) {
                 widget.refresh();
             }
@@ -128,9 +132,9 @@ public abstract class GLScreen implements Screen {
             batch.enableBlending();
         }
 
-        // widgets
-        for (Widget widget : widgets) {
-            widget.render(game.glGraphics.batch, game.glGraphics.shapeRenderer);
+        len = widgets.size();
+        for (int i = 0; i < len; i++) {
+            widgets.get(i).render(game.glGraphics.batch, game.glGraphics.shapeRenderer);
         }
 
         if (game.menuMusic.isPlaying()) {
@@ -198,7 +202,9 @@ public abstract class GLScreen implements Screen {
         menuInput.fire1 = false;
         menuInput.fire2 = false;
 
-        for (InputDevice inputDevice : game.inputDevices) {
+        int len = game.inputDevices.size();
+        for (int i = 0; i < len; i++) {
+            InputDevice inputDevice = game.inputDevices.get(i);
 
             // x movement
             int x = inputDevice.x1;
