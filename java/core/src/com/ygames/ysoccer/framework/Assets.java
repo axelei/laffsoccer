@@ -215,7 +215,7 @@ public class Assets {
         loadLightIcons();
         loadPitchIcons();
         loadWeatherIcons();
-        crowdRenderer = new CrowdRenderer(Gdx.files.local("images/stadium/crowd.json"));
+        crowdRenderer = new CrowdRenderer(Gdx.files.internal("images/stadium/crowd.json"));
         goalTopA = new Texture("images/stadium/goal_top_a.png");
         goalTopB = new Texture("images/stadium/goal_top_b.png");
         goalBottom = new Texture("images/stadium/goal_bottom.png");
