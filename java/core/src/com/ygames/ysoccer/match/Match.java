@@ -275,7 +275,7 @@ public class Match implements Json.Serializable {
                         if (player.fsm.getState().checkId(PlayerFsm.STATE_OUTSIDE)) {
                             player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
                             player.tx = Const.TOUCH_LINE - 300 + 7 * i;
-                            player.ty = (60 + 2 * i) * team[t].side - ((i % 2 == 0) ? 20 : 0);
+                            player.ty = 60 * team[t].side - ((i % 2 == 0) ? 20 : 0);
                         }
                     }
                 }
