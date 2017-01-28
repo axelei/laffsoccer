@@ -86,6 +86,11 @@ public class Main extends GLScreen {
         w.setText("YSOCCER.SF.NET", Font.Align.RIGHT, Assets.font10);
         w.setGeometry(game.gui.WIDTH - 300, game.gui.HEIGHT - 20, 300, 20);
         widgets.add(w);
+
+        if (game.settings.development) {
+            w = new DevToolsButton();
+            widgets.add(w);
+        }
     }
 
     private class GameOptionsButton extends Button {
@@ -294,6 +299,20 @@ public class Main extends GLScreen {
             } else {
                 game.setScreen(new LoadCompetition(game));
             }
+        }
+    }
+
+    private class DevToolsButton extends Button {
+
+        DevToolsButton() {
+            setColors(0x191FB0);
+            setGeometry((game.gui.WIDTH - 300) / 2, 675, 300, 32);
+            setText("DEVELOPMENT TOOLS", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DevTools(game));
         }
     }
 }
