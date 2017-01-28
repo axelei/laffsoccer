@@ -24,10 +24,32 @@ class DevTools extends GLScreen {
 
         Widget w;
 
+        w = new TitleBar("DEVELOPMENT TOOLS", 0x191FB0);
+        widgets.add(w);
+
+        w = new PlayerTestButton();
+        widgets.add(w);
+
+        setSelectedWidget(w);
+
         w = new ExitButton();
         widgets.add(w);
 
         //convert("arrow.png", "arrow2.png");
+    }
+
+    private class PlayerTestButton extends Button {
+
+        PlayerTestButton() {
+            setColors(0x427AA1);
+            setGeometry((game.gui.WIDTH - 260) / 2, 360, 260, 36);
+            setText("PLAYER TEST", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            //game.setScreen(new PlayerTest(game));
+        }
     }
 
     private class ExitButton extends Button {
