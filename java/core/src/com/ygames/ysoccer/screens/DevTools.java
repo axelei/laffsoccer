@@ -48,7 +48,7 @@ class DevTools extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            //game.setScreen(new PlayerTest(game));
+            game.setScreen(new TestPlayer(game));
         }
     }
 
