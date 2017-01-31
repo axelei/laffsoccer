@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
@@ -22,9 +23,11 @@ import com.ygames.ysoccer.math.Emath;
 
 class TestPlayer extends GLScreen {
 
-    private enum Animation {OFF, HORIZONTAL, VERTICAL}
+    private enum Animation {ANIMATION_OFF, HORIZONTAL, VERTICAL}
 
-    private Animation animation = Animation.OFF;
+    private Animation animation;
+    private int animationLength;
+    private int animationSpeed;
 
     private final int displayedRows = 7;
 
@@ -34,11 +37,17 @@ class TestPlayer extends GLScreen {
     private PlayerSprite playerSprite;
     private int offset;
     private int fmx, fmy;
+    private int fmx2 = 0;
+    private int fmy2 = 0;
     private int cursorY;
 
     TestPlayer(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_edit_team.jpg");
+
+        animation = Animation.ANIMATION_OFF;
+        animationLength = 8;
+        animationSpeed = 3;
 
         Widget w;
 
@@ -132,6 +141,18 @@ class TestPlayer extends GLScreen {
         w = new RowButton(x, y);
         widgets.add(w);
 
+        y += 40;
+        w = new AnimationTypeButton(x, y);
+        widgets.add(w);
+
+        y += 25;
+        w = new AnimationLengthButton(x, y);
+        widgets.add(w);
+
+        y += 25;
+        w = new AnimationSpeedButton(x, y);
+        widgets.add(w);
+
         w = new ExitButton(x);
         widgets.add(w);
 
@@ -160,11 +181,29 @@ class TestPlayer extends GLScreen {
         shapeRenderer.rect(x0 - 18, y0 + 50f * displayedRows * (fmy - cursorY) / getPlayerRows(), 4, 50f * displayedRows * displayedRows / getPlayerRows());
         shapeRenderer.setColor(0xFCFC00, 1f);
         switch (animation) {
-            case OFF:
+            case ANIMATION_OFF:
                 shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY);
                 shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY + 50, x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY + 50);
                 shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY, x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY + 50);
                 shapeRenderer.line(x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY + 50);
+                break;
+            case HORIZONTAL:
+                for (int i = 0; i < animationLength; i++) {
+                    int x = (fmx + i) % 8;
+                    shapeRenderer.line(x0 - 1 + 50 * (x), y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (x + 1), y0 - 1 + 50 * cursorY);
+                    shapeRenderer.line(x0 - 1 + 50 * (x), y0 - 1 + 50 * cursorY + 50, x0 - 1 + 50 * (x + 1), y0 - 1 + 50 * cursorY + 50);
+                    shapeRenderer.line(x0 - 1 + 50 * (x), y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (x), y0 - 1 + 50 * cursorY + 50);
+                    shapeRenderer.line(x0 - 1 + 50 * (x + 1), y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (x + 1), y0 - 1 + 50 * cursorY + 50);
+                }
+                break;
+            case VERTICAL:
+                for (int i = 0; i < animationLength; i++) {
+                    int y = (cursorY + i) % (getPlayerRows());
+                    shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * (y), x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * (y));
+                    shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * (y + 1), x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * (y + 1));
+                    shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * (y), x0 - 1 + 50 * fmx, y0 - 1 + 50 * (y + 1));
+                    shapeRenderer.line(x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * (y), x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * (y + 1));
+                }
                 break;
         }
         shapeRenderer.end();
@@ -181,11 +220,32 @@ class TestPlayer extends GLScreen {
             }
         }
 
+        switch (animation) {
+            case ANIMATION_OFF:
+                fmx2 = 0;
+                fmy2 = 0;
+                break;
+
+            case HORIZONTAL:
+                if (Gdx.graphics.getFrameId() % (6 - animationSpeed) == 0) {
+                    fmx2 = Emath.rotate(fmx2, 0, 5 * animationLength - 1, 1);
+                }
+                fmy2 = 0;
+                break;
+
+            case VERTICAL:
+                fmx2 = 0;
+                if (Gdx.graphics.getFrameId() % (6 - animationSpeed) == 0) {
+                    fmy2 = Emath.rotate(fmy2, 0, 5 * animationLength - 1, 1);
+                }
+                break;
+        }
+
         // selected player (x2)
         player.x = 570;
         player.y = 60;
-        player.fmx = fmx;
-        player.fmy = fmy;
+        player.fmx = (fmx + Emath.floor(fmx2 / 5f)) % 8;
+        player.fmy = (fmy + Emath.floor(fmy2 / 5f)) % getPlayerRows();
         player.save(0);
         playerSprite.draw(0);
 
@@ -587,7 +647,7 @@ class TestPlayer extends GLScreen {
 
         @Override
         public void refresh() {
-            setText("COLUMN " + fmx, Font.Align.CENTER, Assets.font10);
+            setText("COLUMN: " + fmx, Font.Align.CENTER, Assets.font10);
         }
 
         @Override
@@ -625,7 +685,7 @@ class TestPlayer extends GLScreen {
 
         @Override
         public void refresh() {
-            setText("ROW " + fmy, Font.Align.CENTER, Assets.font10);
+            setText("ROW: " + fmy, Font.Align.CENTER, Assets.font10);
         }
 
         @Override
@@ -651,6 +711,120 @@ class TestPlayer extends GLScreen {
         private void updateRow(int n) {
             cursorY = Emath.slide(cursorY, 0, displayedRows - 1, n);
             fmy = Emath.slide(fmy, 0, getPlayerRows() - 1, n);
+            setDirty(true);
+        }
+    }
+
+    private class AnimationTypeButton extends Button {
+
+        AnimationTypeButton(int x, int y) {
+            setGeometry(x, y, 175, 23);
+            setColors(0x2B4A61);
+        }
+
+        @Override
+        public void refresh() {
+            setText(animation.toString().replace('_', ' '), Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRow(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateRow(-1);
+        }
+
+        private void updateRow(int n) {
+            animation = Animation.values()[Emath.rotate(animation, Animation.ANIMATION_OFF, Animation.VERTICAL, n)];
+            setDirty(true);
+        }
+    }
+
+    private class AnimationLengthButton extends Button {
+
+        AnimationLengthButton(int x, int y) {
+            setGeometry(x, y, 175, 23);
+            setColors(0x2B4A61);
+        }
+
+        @Override
+        public void refresh() {
+            setText("LENGTH: " + animationLength, Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRow(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateRow(-1);
+        }
+
+        private void updateRow(int n) {
+            animationLength = Emath.slide(animationLength, 2, 8, n);
+            setDirty(true);
+        }
+    }
+
+    private class AnimationSpeedButton extends Button {
+
+        AnimationSpeedButton(int x, int y) {
+            setGeometry(x, y, 175, 23);
+            setColors(0x2B4A61);
+        }
+
+        @Override
+        public void refresh() {
+            setText("SPEED: " + animationSpeed, Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRow(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateRow(-1);
+        }
+
+        private void updateRow(int n) {
+            animationSpeed = Emath.slide(animationSpeed, 1, 5, n);
             setDirty(true);
         }
     }
