@@ -3,6 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Color3;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
@@ -49,7 +50,7 @@ class TestPlayer extends GLScreen {
         player.hairColor = Hair.Color.BLACK;
         player.hairStyle = "SMOOTH_A";
         reloadPlayer();
-        Assets.loadHair(player);
+        reloadHair();
         playerSprite = new PlayerSprite(game.glGraphics, player);
 
         w = new StyleLabel();
@@ -98,6 +99,16 @@ class TestPlayer extends GLScreen {
 
             y += 29;
         }
+
+        y += 20;
+        w = new SkinColorButton(x, y);
+        widgets.add(w);
+
+        w = new HairColorButton(x + 30, y);
+        widgets.add(w);
+
+        w = new HairStyleButton(x + 60, y);
+        widgets.add(w);
 
         w = new ExitButton();
         widgets.add(w);
@@ -403,6 +414,138 @@ class TestPlayer extends GLScreen {
         }
     }
 
+    private class SkinColorButton extends Button {
+
+        SkinColorButton(int x, int y) {
+            setGeometry(x, y, 28, 23);
+        }
+
+        @Override
+        public void refresh() {
+            Color3 skinColor = Skin.colors[player.skinColor.ordinal()];
+            setColors(skinColor.color2, skinColor.color1, skinColor.color3);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSkinColor(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSkinColor(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSkinColor(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSkinColor(-1);
+        }
+
+        private void updateSkinColor(int n) {
+            player.skinColor = Skin.Color.values()[Emath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
+
+            setDirty(true);
+
+            reloadPlayer();
+        }
+    }
+
+    private class HairColorButton extends Button {
+
+        HairColorButton(int x, int y) {
+            setGeometry(x, y, 28, 23);
+        }
+
+        @Override
+        public void refresh() {
+            Color3 hairColor = Hair.colors[player.hairColor.ordinal()];
+            setColors(hairColor.color2, hairColor.color1, hairColor.color3);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateHairColor(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateHairColor(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateHairColor(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateHairColor(-1);
+        }
+
+        private void updateHairColor(int n) {
+            int color = player.hairColor.ordinal();
+            color = Emath.rotate(color, Hair.Color.BLACK.ordinal(), Hair.Color.PUNK_BLOND.ordinal(), n);
+            player.hairColor = Hair.Color.values()[color];
+
+            setDirty(true);
+
+            reloadHair();
+        }
+    }
+
+    private class HairStyleButton extends Button {
+
+        HairStyleButton(int x, int y) {
+            setGeometry(x, y, 115, 23);
+            setColors(0x308C3B, 0x4AC058, 0x1F5926);
+            setText("", Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void refresh() {
+            setText(player.hairStyle.replace('_', ' '));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateHairStyle(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateHairStyle(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateHairStyle(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateHairStyle(-1);
+        }
+
+        private void updateHairStyle(int n) {
+            int i = Assets.hairStyles.indexOf(player.hairStyle);
+            if (i == -1) {
+                i = 0; // not found, start from 0
+            } else {
+                i = Emath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
+            }
+            player.hairStyle = Assets.hairStyles.get(i);
+
+            setDirty(true);
+
+            reloadHair();
+        }
+    }
+
     private class ExitButton extends Button {
 
         ExitButton() {
@@ -420,5 +563,10 @@ class TestPlayer extends GLScreen {
     private void reloadPlayer() {
         Assets.unloadPlayer(player);
         Assets.loadPlayer(player);
+    }
+
+    private void reloadHair() {
+        Assets.unloadHair(player);
+        Assets.loadHair(player);
     }
 }
