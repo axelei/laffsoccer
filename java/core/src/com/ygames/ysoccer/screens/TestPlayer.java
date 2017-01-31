@@ -22,11 +22,19 @@ import com.ygames.ysoccer.math.Emath;
 
 class TestPlayer extends GLScreen {
 
+    private enum Animation {OFF, HORIZONTAL, VERTICAL}
+
+    private Animation animation = Animation.OFF;
+
+    private final int displayedRows = 7;
+
     private Team team;
     private int selectedKit = 0;
     private Player player;
     private PlayerSprite playerSprite;
     private int offset;
+    private int fmx, fmy;
+    private int cursorY;
 
     TestPlayer(GLGame game) {
         super(game);
@@ -42,6 +50,9 @@ class TestPlayer extends GLScreen {
         kit.shirt3 = Kit.colors[1];
         team.kits.add(kit);
         player = new Player();
+        fmx = 2;
+        fmy = 2;
+        cursorY = fmy;
         player.team = team;
         player.isVisible = true;
         player.data[0] = new Data();
@@ -53,14 +64,17 @@ class TestPlayer extends GLScreen {
         reloadHair();
         playerSprite = new PlayerSprite(game.glGraphics, player);
 
-        w = new StyleLabel();
+        int x = 12;
+        int y = 50;
+
+        w = new StyleLabel(x, y);
         widgets.add(w);
 
-        w = new StyleButton();
+        y += 25;
+        w = new StyleButton(x, y);
         widgets.add(w);
 
-        int x = 110;
-        int y = 118;
+        y += 25;
         w = new KitFieldLabel("KITS.SHIRT", x, y);
         widgets.add(w);
 
@@ -110,7 +124,15 @@ class TestPlayer extends GLScreen {
         w = new HairStyleButton(x + 60, y);
         widgets.add(w);
 
-        w = new ExitButton();
+        y += 40;
+        w = new ColumnButton(x, y);
+        widgets.add(w);
+
+        y += 25;
+        w = new RowButton(x, y);
+        widgets.add(w);
+
+        w = new ExitButton(x);
         widgets.add(w);
 
         setSelectedWidget(w);
@@ -129,27 +151,41 @@ class TestPlayer extends GLScreen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.setColor(0x2AA748, 1f);
 
+        int x0 = 120;
+        int y0 = 5;
+
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.rect(200, 0, 440, 360);
+        shapeRenderer.rect(100, 0, 540, 360);
+        shapeRenderer.setColor(0x444444, 1f);
+        shapeRenderer.rect(x0 - 18, y0 + 50f * displayedRows * (fmy - cursorY) / getPlayerRows(), 4, 50f * displayedRows * displayedRows / getPlayerRows());
+        shapeRenderer.setColor(0xFCFC00, 1f);
+        switch (animation) {
+            case OFF:
+                shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY);
+                shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY + 50, x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY + 50);
+                shapeRenderer.line(x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY, x0 - 1 + 50 * fmx, y0 - 1 + 50 * cursorY + 50);
+                shapeRenderer.line(x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY, x0 - 1 + 50 * (fmx + 1), y0 - 1 + 50 * cursorY + 50);
+                break;
+        }
         shapeRenderer.end();
 
         batch.begin();
-        for (int j = offset; j < offset + 10; j++) {
+        for (int j = offset; j < offset + displayedRows; j++) {
             for (int i = 0; i < 8; i++) {
-                player.x = 240 + 32 * i;
-                player.y = 40 + 36 * j;
+                player.x = x0 + 24 + 50 * i;
+                player.y = y0 + 36 + 50 * j;
                 player.fmx = i;
-                player.fmy = j;
+                player.fmy = j + fmy - cursorY;
                 player.save(0);
                 playerSprite.draw(0);
             }
         }
 
         // selected player (x2)
-        player.x = 560;
-        player.y = 80;
-        player.fmx = 2;
-        player.fmy = 2;
+        player.x = 570;
+        player.y = 60;
+        player.fmx = fmx;
+        player.fmy = fmy;
         player.save(0);
         playerSprite.draw(0);
 
@@ -163,10 +199,8 @@ class TestPlayer extends GLScreen {
         batch.setProjectionMatrix(camera.combined);
         batch.setColor(0xFFFFFF, 1f);
 
-        player.x = 280;
-        player.y = 80;
-        player.fmx = 2;
-        player.fmy = 2;
+        player.x = 285;
+        player.y = 70;
         player.save(0);
         batch.begin();
         playerSprite.draw(0);
@@ -180,10 +214,8 @@ class TestPlayer extends GLScreen {
         batch.setProjectionMatrix(camera.combined);
         batch.setColor(0xFFFFFF, 1f);
 
-        player.x = 140;
-        player.y = 80;
-        player.fmx = 2;
-        player.fmy = 2;
+        player.x = 142;
+        player.y = 70;
         player.save(0);
         batch.begin();
         playerSprite.draw(0);
@@ -192,8 +224,8 @@ class TestPlayer extends GLScreen {
 
     private class StyleLabel extends Button {
 
-        StyleLabel() {
-            setGeometry(110, 64, 175, 23);
+        StyleLabel(int x, int y) {
+            setGeometry(x, y, 175, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
             setText(Assets.strings.get("KITS.STYLE"), Font.Align.CENTER, Assets.font10);
             setActive(false);
@@ -204,9 +236,9 @@ class TestPlayer extends GLScreen {
 
         int kitIndex;
 
-        StyleButton() {
+        StyleButton(int x, int y) {
             kitIndex = Assets.kits.indexOf(team.kits.get(0).style);
-            setGeometry(110, 64 + 25, 175, 24);
+            setGeometry(x, y, 175, 24);
             setColors(0x881845);
         }
 
@@ -546,10 +578,87 @@ class TestPlayer extends GLScreen {
         }
     }
 
+    private class ColumnButton extends Button {
+
+        ColumnButton(int x, int y) {
+            setGeometry(x, y, 175, 23);
+            setColors(0x308C3B, 0x4AC058, 0x1F5926);
+        }
+
+        @Override
+        public void refresh() {
+            setText("COLUMN " + fmx, Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateColumn(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateColumn(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateColumn(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateColumn(-1);
+        }
+
+        private void updateColumn(int n) {
+            fmx = Emath.rotate(fmx, 0, 7, n);
+            setDirty(true);
+        }
+    }
+
+    private class RowButton extends Button {
+
+        RowButton(int x, int y) {
+            setGeometry(x, y, 175, 23);
+            setColors(0x308C3B, 0x4AC058, 0x1F5926);
+        }
+
+        @Override
+        public void refresh() {
+            setText("ROW " + fmy, Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRow(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateRow(-1);
+        }
+
+        private void updateRow(int n) {
+            cursorY = Emath.slide(cursorY, 0, displayedRows - 1, n);
+            fmy = Emath.slide(fmy, 0, getPlayerRows() - 1, n);
+            setDirty(true);
+        }
+    }
+
     private class ExitButton extends Button {
 
-        ExitButton() {
-            setGeometry(110, 660, 175, 32);
+        ExitButton(int x) {
+            setGeometry(x, 660, 175, 32);
             setColors(0xC84200);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font10);
         }
@@ -568,5 +677,9 @@ class TestPlayer extends GLScreen {
     private void reloadHair() {
         Assets.unloadHair(player);
         Assets.loadHair(player);
+    }
+
+    private int getPlayerRows() {
+        return player.role == Player.Role.GOALKEEPER ? 19 : 16;
     }
 }
