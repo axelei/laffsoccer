@@ -19,9 +19,9 @@ import java.util.List;
 public abstract class GLScreen implements Screen {
 
     protected GLGame game;
-    private OrthographicCamera camera;
-    private GLSpriteBatch batch;
-    private GLShapeRenderer shapeRenderer;
+    protected OrthographicCamera camera;
+    protected GLSpriteBatch batch;
+    protected GLShapeRenderer shapeRenderer;
 
     protected Texture background;
     protected List<Widget> widgets;
@@ -53,6 +53,10 @@ public abstract class GLScreen implements Screen {
     public void render(float delta) {
 
         game.menuMusic.update(playMenuMusic ? game.settings.musicVolume : 0);
+
+        camera.setToOrtho(true, game.gui.screenWidth, game.gui.screenHeight);
+        camera.translate(-game.gui.originX, -game.gui.originY);
+        camera.update();
 
         if (game.settings.mouseEnabled) {
             game.mouse.read(camera);
@@ -109,10 +113,6 @@ public abstract class GLScreen implements Screen {
         if (selectedWidget != null) {
             selectedWidget.fireEvent(widgetEvent);
         }
-
-        camera.setToOrtho(true, game.gui.screenWidth, game.gui.screenHeight);
-        camera.translate(-game.gui.originX, -game.gui.originY);
-        camera.update();
 
         batch.setProjectionMatrix(camera.combined);
         batch.setColor(0xFFFFFF, 1f);
