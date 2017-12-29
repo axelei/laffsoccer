@@ -3,6 +3,8 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+
 class PlayerStateTackle extends PlayerState {
 
     private boolean hit;
@@ -36,6 +38,13 @@ class PlayerStateTackle extends PlayerState {
 
                     Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * Assets.Sounds.volume / 100f);
                 }
+            }
+        }
+
+        for (int i = 1; i < TEAM_SIZE; i++) {
+            Player opponent = player.team.match.team[1 - player.team.index].lineup.get(i);
+            if (Emath.dist(player.x, player.y, opponent.x, opponent.y) < 8) {
+                opponent.setState(opponent.fsm.STATE_DOWN);
             }
         }
 
