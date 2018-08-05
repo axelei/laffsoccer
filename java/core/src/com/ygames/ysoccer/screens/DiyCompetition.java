@@ -68,9 +68,13 @@ class DiyCompetition extends GLScreen {
 
         TournamentButton() {
             setGeometry((game.gui.WIDTH - 340) / 2, 420, 340, 44);
-            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setColors(0x568200, 0x77B400, 0x243E00);
             setText(Assets.strings.get("TOURNAMENT"), Font.Align.CENTER, Assets.font14);
-            setActive(false);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DesignDiyTournament(game));
         }
     }
 
