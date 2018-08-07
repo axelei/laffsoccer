@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.math.Emath;
 
 class DesignDiyTournament extends GLScreen {
 
@@ -31,6 +32,9 @@ class DesignDiyTournament extends GLScreen {
         w = new TournamentNameButton();
         widgets.add(w);
 
+        w = new WeatherButton();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -38,7 +42,7 @@ class DesignDiyTournament extends GLScreen {
     private class TournamentNameButton extends InputButton {
 
         TournamentNameButton() {
-            setGeometry((game.gui.WIDTH - 700) / 2, 120, 700, 38);
+            setGeometry((game.gui.WIDTH - 940) / 2, 120, 940, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText(tournament.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(24);
@@ -47,6 +51,30 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void onChanged() {
             tournament.name = text;
+        }
+    }
+
+    private class WeatherButton extends Button {
+
+        WeatherButton() {
+            setGeometry(game.gui.WIDTH / 2 - 470, 165, 236, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            tournament.weather = Competition.Weather.values()[Emath.rotate(tournament.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
+            setDirty(true);
+            // TODO seasonStartButton.setDirty(true);
+            // TODO seasonSeparatorButton.setDirty(true);
+            // TODO seasonEndButton.setDirty(true);
+            // TODO pitchTypeButton.setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(tournament.getWeatherLabel()));
         }
     }
 
