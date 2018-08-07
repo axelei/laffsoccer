@@ -60,7 +60,7 @@ class DiyCompetition extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new DiyCup(game));
+            game.setScreen(new DesignDiyCup(game));
         }
     }
 

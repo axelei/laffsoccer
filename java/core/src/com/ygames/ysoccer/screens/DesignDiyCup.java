@@ -16,7 +16,7 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.math.Emath;
 
-class DiyCup extends GLScreen {
+class DesignDiyCup extends GLScreen {
 
     Cup cup;
     private Widget seasonStartButton;
@@ -31,7 +31,7 @@ class DiyCup extends GLScreen {
     private Widget[] roundExtraTimeButtons = new Widget[6];
     private Widget[] roundPenaltiesButtons = new Widget[6];
 
-    DiyCup(GLGame game) {
+    DesignDiyCup(GLGame game) {
         super(game);
 
         background = game.stateBackground;
