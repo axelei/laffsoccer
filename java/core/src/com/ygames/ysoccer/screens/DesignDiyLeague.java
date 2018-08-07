@@ -14,7 +14,7 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.math.Emath;
 
-class DiyLeague extends GLScreen {
+class DesignDiyLeague extends GLScreen {
 
     League league;
     private Widget seasonStartButton;
@@ -23,7 +23,7 @@ class DiyLeague extends GLScreen {
     private Widget pitchTypeButton;
     private Widget substitutesButton;
 
-    DiyLeague(GLGame game) {
+    DesignDiyLeague(GLGame game) {
         super(game);
 
         background = game.stateBackground;
