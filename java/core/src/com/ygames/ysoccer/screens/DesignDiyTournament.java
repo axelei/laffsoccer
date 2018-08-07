@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
@@ -14,6 +15,7 @@ import com.ygames.ysoccer.math.Emath;
 class DesignDiyTournament extends GLScreen {
 
     Tournament tournament;
+    private Widget seasonStartButton;
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -34,6 +36,10 @@ class DesignDiyTournament extends GLScreen {
 
         w = new WeatherButton();
         widgets.add(w);
+
+        w = new SeasonStartButton();
+        widgets.add(w);
+        seasonStartButton = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -66,7 +72,7 @@ class DesignDiyTournament extends GLScreen {
         public void onFire1Down() {
             tournament.weather = Competition.Weather.values()[Emath.rotate(tournament.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
-            // TODO seasonStartButton.setDirty(true);
+            seasonStartButton.setDirty(true);
             // TODO seasonSeparatorButton.setDirty(true);
             // TODO seasonEndButton.setDirty(true);
             // TODO pitchTypeButton.setDirty(true);
@@ -75,6 +81,46 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(tournament.getWeatherLabel()));
+        }
+    }
+
+    private class SeasonStartButton extends Button {
+
+        SeasonStartButton() {
+            setGeometry(game.gui.WIDTH / 2 - 232, 165, 176, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSeasonStart(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSeasonStart(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSeasonStart(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSeasonStart(-1);
+        }
+
+        private void updateSeasonStart(int n) {
+            tournament.seasonStart = Month.values()[Emath.rotate(tournament.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(Month.getLabel(tournament.seasonStart)));
+            setVisible(tournament.weather == Competition.Weather.BY_SEASON);
         }
     }
 
