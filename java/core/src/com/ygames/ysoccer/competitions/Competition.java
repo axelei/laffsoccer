@@ -25,7 +25,7 @@ import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 public abstract class Competition {
 
-    public enum Type {FRIENDLY, LEAGUE, CUP}
+    public enum Type {FRIENDLY, LEAGUE, CUP, TOURNAMENT}
 
     public enum Category {DIY_COMPETITION, PRESET_COMPETITION}
 
