@@ -17,6 +17,7 @@ class DesignDiyTournament extends GLScreen {
     Tournament tournament;
     private Widget seasonStartButton;
     private Widget seasonSeparatorButton;
+    private Widget seasonEndButton;
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -45,6 +46,10 @@ class DesignDiyTournament extends GLScreen {
         w = new SeasonSeparatorButton();
         widgets.add(w);
         seasonSeparatorButton = w;
+
+        w = new SeasonEndButton();
+        widgets.add(w);
+        seasonEndButton = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -79,7 +84,7 @@ class DesignDiyTournament extends GLScreen {
             setDirty(true);
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
-            // TODO seasonEndButton.setDirty(true);
+            seasonEndButton.setDirty(true);
             // TODO pitchTypeButton.setDirty(true);
         }
 
@@ -140,6 +145,46 @@ class DesignDiyTournament extends GLScreen {
 
         @Override
         public void refresh() {
+            setVisible(tournament.weather == Competition.Weather.BY_SEASON);
+        }
+    }
+
+    private class SeasonEndButton extends Button {
+
+        SeasonEndButton() {
+            setGeometry(game.gui.WIDTH / 2 - 16, 165, 176, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSeasonEnd(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSeasonEnd(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSeasonEnd(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSeasonEnd(-1);
+        }
+
+        private void updateSeasonEnd(int n) {
+            tournament.seasonEnd = Month.values()[Emath.rotate(tournament.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(Month.getLabel(tournament.seasonEnd)));
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
         }
     }
