@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.math.Emath;
 
@@ -58,6 +59,9 @@ class DesignDiyTournament extends GLScreen {
         pitchTypeButton = w;
 
         w = new TimeLabel();
+        widgets.add(w);
+
+        w = new TimeButton();
         widgets.add(w);
 
         w = new AbortButton();
@@ -245,6 +249,35 @@ class DesignDiyTournament extends GLScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class TimeButton extends Button {
+
+        TimeButton() {
+            setGeometry(game.gui.WIDTH / 2 + 312, 165, 158, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateTime(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateTime(-1);
+        }
+
+        private void updateTime(int n) {
+            tournament.time = MatchSettings.Time.values()[Emath.rotate(tournament.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(MatchSettings.getTimeLabel(tournament.time)));
         }
     }
 
