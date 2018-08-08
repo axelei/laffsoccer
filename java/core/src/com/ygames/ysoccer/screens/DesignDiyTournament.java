@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.math.Emath;
 
 class DesignDiyTournament extends GLScreen {
@@ -18,6 +19,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget seasonStartButton;
     private Widget seasonSeparatorButton;
     private Widget seasonEndButton;
+    private Widget pitchTypeButton;
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -50,6 +52,10 @@ class DesignDiyTournament extends GLScreen {
         w = new SeasonEndButton();
         widgets.add(w);
         seasonEndButton = w;
+
+        w = new PitchTypeButton();
+        widgets.add(w);
+        pitchTypeButton = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -85,7 +91,7 @@ class DesignDiyTournament extends GLScreen {
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
             seasonEndButton.setDirty(true);
-            // TODO pitchTypeButton.setDirty(true);
+            pitchTypeButton.setDirty(true);
         }
 
         @Override
@@ -186,6 +192,46 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setText(Assets.strings.get(Month.getLabel(tournament.seasonEnd)));
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
+        }
+    }
+
+    private class PitchTypeButton extends Button {
+
+        PitchTypeButton() {
+            setGeometry(game.gui.WIDTH / 2 - 232, 165, 392, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updatePitchType(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updatePitchType(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updatePitchType(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updatePitchType(-1);
+        }
+
+        private void updatePitchType(int n) {
+            tournament.pitchType = Pitch.Type.values()[Emath.rotate(tournament.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(Pitch.names[tournament.pitchType.ordinal()]));
+            setVisible(tournament.weather == Competition.Weather.BY_PITCH_TYPE);
         }
     }
 
