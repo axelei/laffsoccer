@@ -21,6 +21,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget seasonSeparatorButton;
     private Widget seasonEndButton;
     private Widget pitchTypeButton;
+    private Widget substitutesButton;
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -66,6 +67,10 @@ class DesignDiyTournament extends GLScreen {
 
         w = new SubstitutesLabel();
         widgets.add(w);
+
+        w = new SubstitutesButton();
+        widgets.add(w);
+        substitutesButton = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -291,6 +296,45 @@ class DesignDiyTournament extends GLScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class SubstitutesButton extends Button {
+
+        SubstitutesButton() {
+            setGeometry(game.gui.WIDTH / 2 - 213, 210, 58, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateSubstitutes(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateSubstitutes(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateSubstitutes(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateSubstitutes(-1);
+        }
+
+        private void updateSubstitutes(int n) {
+            tournament.substitutions = Emath.slide(tournament.substitutions, 2, tournament.benchSize, n);
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(tournament.substitutions);
         }
     }
 
