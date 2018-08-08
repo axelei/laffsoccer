@@ -57,6 +57,9 @@ class DesignDiyTournament extends GLScreen {
         widgets.add(w);
         pitchTypeButton = w;
 
+        w = new TimeLabel();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -232,6 +235,16 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setText(Assets.strings.get(Pitch.names[tournament.pitchType.ordinal()]));
             setVisible(tournament.weather == Competition.Weather.BY_PITCH_TYPE);
+        }
+    }
+
+    private class TimeLabel extends Button {
+
+        TimeLabel() {
+            setGeometry(game.gui.WIDTH / 2 + 170, 165, 140, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
