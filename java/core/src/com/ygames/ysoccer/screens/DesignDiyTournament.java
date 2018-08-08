@@ -75,6 +75,9 @@ class DesignDiyTournament extends GLScreen {
         w = new BenchSizeLabel();
         widgets.add(w);
 
+        w = new BenchSizeButton();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -348,6 +351,47 @@ class DesignDiyTournament extends GLScreen {
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class BenchSizeButton extends Button {
+
+        BenchSizeButton() {
+            setGeometry(game.gui.WIDTH / 2 + 312, 210, 158, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateBenchSize(1);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateBenchSize(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateBenchSize(-1);
+        }
+
+        @Override
+        public void onFire2Hold() {
+            updateBenchSize(-1);
+        }
+
+        private void updateBenchSize(int n) {
+            tournament.benchSize = Emath.slide(tournament.benchSize, 2, 12, n);
+            tournament.substitutions = Math.min(tournament.substitutions, tournament.benchSize);
+            setDirty(true);
+            substitutesButton.setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(tournament.benchSize);
         }
     }
 
