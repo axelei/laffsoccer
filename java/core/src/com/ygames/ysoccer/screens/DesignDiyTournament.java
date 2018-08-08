@@ -16,6 +16,7 @@ class DesignDiyTournament extends GLScreen {
 
     Tournament tournament;
     private Widget seasonStartButton;
+    private Widget seasonSeparatorButton;
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -40,6 +41,10 @@ class DesignDiyTournament extends GLScreen {
         w = new SeasonStartButton();
         widgets.add(w);
         seasonStartButton = w;
+
+        w = new SeasonSeparatorButton();
+        widgets.add(w);
+        seasonSeparatorButton = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -73,7 +78,7 @@ class DesignDiyTournament extends GLScreen {
             tournament.weather = Competition.Weather.values()[Emath.rotate(tournament.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
             seasonStartButton.setDirty(true);
-            // TODO seasonSeparatorButton.setDirty(true);
+            seasonSeparatorButton.setDirty(true);
             // TODO seasonEndButton.setDirty(true);
             // TODO pitchTypeButton.setDirty(true);
         }
@@ -120,6 +125,21 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(Month.getLabel(tournament.seasonStart)));
+            setVisible(tournament.weather == Competition.Weather.BY_SEASON);
+        }
+    }
+
+    private class SeasonSeparatorButton extends Button {
+
+        SeasonSeparatorButton() {
+            setGeometry(game.gui.WIDTH / 2 - 54, 165, 36, 36);
+            setColors(0x666666, 0x8F8D8D, 0x404040);
+            setText("-", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
         }
     }
