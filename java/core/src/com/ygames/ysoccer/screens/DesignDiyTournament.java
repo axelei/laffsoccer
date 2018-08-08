@@ -64,6 +64,9 @@ class DesignDiyTournament extends GLScreen {
         w = new TimeButton();
         widgets.add(w);
 
+        w = new SubstitutesLabel();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -278,6 +281,16 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(MatchSettings.getTimeLabel(tournament.time)));
+        }
+    }
+
+    private class SubstitutesLabel extends Button {
+
+        SubstitutesLabel() {
+            setGeometry(game.gui.WIDTH / 2 - 470, 210, 255, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
