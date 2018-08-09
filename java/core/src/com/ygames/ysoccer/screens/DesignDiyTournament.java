@@ -25,6 +25,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget substitutesButton;
     private Widget awayGoalsButton;
     private Widget[] roundNumberLabels = new Widget[6];
+    private Widget[] roundTeamsButtons = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -95,10 +96,15 @@ class DesignDiyTournament extends GLScreen {
         widgets.add(w);
 
         // rounds
+        int[] defaultTeams = {24, 16, 8, 4, 2, 0};
         for (int i = 0; i < 6; i++) {
             w = new RoundNumberLabel(i);
             widgets.add(w);
             roundNumberLabels[i] = w;
+
+            w = new RoundTeamsButton(i, defaultTeams[i]);
+            widgets.add(w);
+            roundTeamsButtons[i] = w;
         }
 
         w = new OkButton();
@@ -483,13 +489,32 @@ class DesignDiyTournament extends GLScreen {
 
         RoundNumberLabel(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 470, 299 + 54 * round, 42, 32);
+            setGeometry(game.gui.WIDTH / 2 - 470, 299 + 54 * round, 36, 32);
             setText(round + 1, Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void refresh() {
             // TODO setVisible(...);
+        }
+    }
+
+    private class RoundTeamsButton extends Button {
+
+        private int round;
+        private int teams;
+
+        RoundTeamsButton(int round, int teams) {
+            this.round = round;
+            this.teams = teams;
+            setGeometry(game.gui.WIDTH / 2 - 432, 299 + 54 * round, 48, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText(teams, Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(teams > 0);
         }
     }
 
