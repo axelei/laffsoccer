@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.Tournament;
+import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
