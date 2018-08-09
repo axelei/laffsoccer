@@ -86,6 +86,9 @@ class DesignDiyTournament extends GLScreen {
         widgets.add(w);
         awayGoalsButton = w;
 
+        w = new OkButton();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -440,6 +443,22 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)));
             setVisible(tournament.hasTwoLegsRound());
+        }
+    }
+
+    private class OkButton extends Button {
+
+        OkButton() {
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setGeometry((game.gui.WIDTH - 180) / 2, 605, 180, 38);
+            setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            navigation.folder = Assets.teamsRootFolder;
+            navigation.competition = tournament;
+            game.setScreen(new SelectFolder(game));
         }
     }
 
