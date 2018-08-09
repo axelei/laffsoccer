@@ -63,8 +63,8 @@ public class Leg {
             } else if (aggregate1 < aggregate2) {
                 return match.teams[AWAY];
             } else {
-                if ((round.cup.awayGoals == Cup.AwayGoals.AFTER_90_MINUTES) ||
-                        (round.cup.awayGoals == Cup.AwayGoals.AFTER_EXTRA_TIME && match.resultAfterExtraTime != null)) {
+                if ((round.cup.awayGoals == Competition.AwayGoals.AFTER_90_MINUTES) ||
+                        (round.cup.awayGoals == Competition.AwayGoals.AFTER_EXTRA_TIME && match.resultAfterExtraTime != null)) {
                     if (match.oldResult[AWAY] > match.getResult()[AWAY]) {
                         return match.teams[HOME];
                     } else if (match.oldResult[AWAY] < match.getResult()[AWAY]) {

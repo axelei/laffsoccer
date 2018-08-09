@@ -253,7 +253,7 @@ class InfoCup extends GLScreen {
         AwayGoalsButton() {
             setGeometry(game.gui.WIDTH / 2 + 166, 255, 304, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(Assets.strings.get(cup.getAwayGoalsLabel()), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(cup.getAwayGoalsLabel(cup.awayGoals)), Font.Align.CENTER, Assets.font14);
             setVisible(cup.hasTwoLegsRound());
             setActive(false);
         }

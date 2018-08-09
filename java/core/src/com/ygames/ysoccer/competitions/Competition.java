@@ -31,6 +31,8 @@ public abstract class Competition {
 
     public enum Weather {BY_SEASON, BY_PITCH_TYPE}
 
+    public enum AwayGoals {OFF, AFTER_90_MINUTES, AFTER_EXTRA_TIME}
+
     public String name;
     public String filename;
     public final Type type;
@@ -204,6 +206,19 @@ public abstract class Competition {
 
     public String getWeatherLabel() {
         return weather == Weather.BY_SEASON ? "SEASON" : "PITCH TYPE";
+    }
+
+    public String getAwayGoalsLabel(AwayGoals awayGoals) {
+        switch (awayGoals) {
+            case OFF:
+                return "OFF";
+            case AFTER_90_MINUTES:
+                return "AFTER 90 MINS";
+            case AFTER_EXTRA_TIME:
+                return "AFTER EXTRA TIME";
+            default:
+                throw new GdxRuntimeException("Unknown AwayGoals value");
+        }
     }
 
     public Pitch.Type resolvePitchType() {

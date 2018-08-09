@@ -6,8 +6,11 @@ import com.ygames.ysoccer.match.Match;
 
 public class Tournament extends Competition implements Json.Serializable {
 
+    public AwayGoals awayGoals;
+
     public Tournament() {
         super(Type.TOURNAMENT);
+        awayGoals = AwayGoals.OFF;
     }
 
     @Override
@@ -23,5 +26,10 @@ public class Tournament extends Competition implements Json.Serializable {
     @Override
     public Match getMatch() {
         return null;
+    }
+
+    public boolean hasTwoLegsRound() {
+        // TODO
+        return true;
     }
 }

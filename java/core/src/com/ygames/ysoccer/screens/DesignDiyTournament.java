@@ -22,6 +22,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget seasonEndButton;
     private Widget pitchTypeButton;
     private Widget substitutesButton;
+    private Widget awayGoalsButton;
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -80,6 +81,10 @@ class DesignDiyTournament extends GLScreen {
 
         w = new AwayGoalsLabel();
         widgets.add(w);
+
+        w = new AwayGoalsButton();
+        widgets.add(w);
+        awayGoalsButton = w;
 
         w = new AbortButton();
         widgets.add(w);
@@ -401,10 +406,40 @@ class DesignDiyTournament extends GLScreen {
     private class AwayGoalsLabel extends Button {
 
         AwayGoalsLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 12, 210, 208, 36);
+            setGeometry(game.gui.WIDTH / 2 - 12, 210, 206, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class AwayGoalsButton extends Button {
+
+        AwayGoalsButton() {
+            setGeometry(game.gui.WIDTH / 2 + 196, 210, 274, 36);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateAwayGoals(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateAwayGoals(-1);
+        }
+
+        private void updateAwayGoals(int n) {
+            tournament.awayGoals = Competition.AwayGoals.values()[Emath.rotate(tournament.awayGoals.ordinal(), 0, 2, n)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)));
+            setVisible(tournament.hasTwoLegsRound());
         }
     }
 

@@ -24,12 +24,6 @@ public class Cup extends Competition implements Json.Serializable {
     public ArrayList<Round> rounds;
     public int currentLeg;
 
-    public enum AwayGoals {
-        OFF,
-        AFTER_90_MINUTES,
-        AFTER_EXTRA_TIME
-    }
-
     public AwayGoals awayGoals;
 
     public Cup() {
@@ -614,19 +608,6 @@ public class Cup extends Competition implements Json.Serializable {
 
     public int getRoundTeams(int round) {
         return (int) Math.pow(2, (rounds.size() - round));
-    }
-
-    public String getAwayGoalsLabel() {
-        switch (awayGoals) {
-            case OFF:
-                return "OFF";
-            case AFTER_90_MINUTES:
-                return "AFTER 90 MINS";
-            case AFTER_EXTRA_TIME:
-                return "AFTER EXTRA TIME";
-            default:
-                throw new GdxRuntimeException("Unknown AwayGoals value");
-        }
     }
 
     public boolean hasTwoLegsRound() {

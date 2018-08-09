@@ -543,13 +543,13 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateAwayGoals(int n) {
-            cup.awayGoals = Cup.AwayGoals.values()[Emath.rotate(cup.awayGoals.ordinal(), 0, 2, n)];
+            cup.awayGoals = Competition.AwayGoals.values()[Emath.rotate(cup.awayGoals.ordinal(), 0, 2, n)];
             setDirty(true);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(cup.getAwayGoalsLabel()));
+            setText(Assets.strings.get(cup.getAwayGoalsLabel(cup.awayGoals)));
             setVisible(cup.hasTwoLegsRound());
         }
     }
