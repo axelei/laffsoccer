@@ -78,6 +78,9 @@ class DesignDiyTournament extends GLScreen {
         w = new BenchSizeButton();
         widgets.add(w);
 
+        w = new AwayGoalsLabel();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
     }
@@ -298,7 +301,7 @@ class DesignDiyTournament extends GLScreen {
     private class SubstitutesLabel extends Button {
 
         SubstitutesLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 470, 210, 305, 36);
+            setGeometry(game.gui.WIDTH / 2 - 470, 210, 244, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -308,7 +311,7 @@ class DesignDiyTournament extends GLScreen {
     private class SubstitutesButton extends Button {
 
         SubstitutesButton() {
-            setGeometry(game.gui.WIDTH / 2 - 163, 210, 158, 36);
+            setGeometry(game.gui.WIDTH / 2 - 224, 210, 52, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -347,9 +350,9 @@ class DesignDiyTournament extends GLScreen {
     private class BenchSizeLabel extends Button {
 
         BenchSizeLabel() {
-            setGeometry(game.gui.WIDTH / 2 + 5, 210, 305, 36);
+            setGeometry(game.gui.WIDTH / 2 - 170, 210, 94, 36);
             setColors(0x800000, 0xB40000, 0x400000);
-            setText(Assets.strings.get("BENCH SIZE"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("SUBSTITUTES.FROM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
@@ -357,7 +360,7 @@ class DesignDiyTournament extends GLScreen {
     private class BenchSizeButton extends Button {
 
         BenchSizeButton() {
-            setGeometry(game.gui.WIDTH / 2 + 312, 210, 158, 36);
+            setGeometry(game.gui.WIDTH / 2 - 74, 210, 52, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -392,6 +395,16 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void refresh() {
             setText(tournament.benchSize);
+        }
+    }
+
+    private class AwayGoalsLabel extends Button {
+
+        AwayGoalsLabel() {
+            setGeometry(game.gui.WIDTH / 2 - 12, 210, 208, 36);
+            setColors(0x800000, 0xB40000, 0x400000);
+            setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
