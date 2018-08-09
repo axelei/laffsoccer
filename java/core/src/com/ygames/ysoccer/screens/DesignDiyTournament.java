@@ -90,6 +90,9 @@ class DesignDiyTournament extends GLScreen {
         w = new TeamsLabel();
         widgets.add(w);
 
+        w = new DescriptionLabel();
+        widgets.add(w);
+
         w = new OkButton();
         widgets.add(w);
 
@@ -455,6 +458,14 @@ class DesignDiyTournament extends GLScreen {
         TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
             setPosition(game.gui.WIDTH / 2 - 406, 280);
+        }
+    }
+
+    private class DescriptionLabel extends Label {
+
+        DescriptionLabel() {
+            setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.gui.WIDTH / 2 + 115, 280);
         }
     }
 
