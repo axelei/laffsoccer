@@ -24,6 +24,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget pitchTypeButton;
     private Widget substitutesButton;
     private Widget awayGoalsButton;
+    private Widget[] roundNumberLabels = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -92,6 +93,13 @@ class DesignDiyTournament extends GLScreen {
 
         w = new DescriptionLabel();
         widgets.add(w);
+
+        // rounds
+        for (int i = 0; i < 6; i++) {
+            w = new RoundNumberLabel(i);
+            widgets.add(w);
+            roundNumberLabels[i] = w;
+        }
 
         w = new OkButton();
         widgets.add(w);
@@ -456,8 +464,8 @@ class DesignDiyTournament extends GLScreen {
     private class TeamsLabel extends Label {
 
         TeamsLabel() {
-            setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 - 406, 280);
+            setText(Assets.strings.get("TEAMS"), Font.Align.LEFT, Assets.font14);
+            setPosition(game.gui.WIDTH / 2 - 470, 280);
         }
     }
 
@@ -469,11 +477,27 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
+    private class RoundNumberLabel extends Label {
+
+        private int round;
+
+        RoundNumberLabel(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 - 470, 299 + 54 * round, 42, 32);
+            setText(round + 1, Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            // TODO setVisible(...);
+        }
+    }
+
     private class OkButton extends Button {
 
         OkButton() {
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setGeometry((game.gui.WIDTH - 180) / 2, 605, 180, 38);
+            setGeometry(game.gui.WIDTH / 2 - 180 - 2, 660, 180, 38);
             setText(Assets.strings.get("OK"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -489,7 +513,7 @@ class DesignDiyTournament extends GLScreen {
 
         AbortButton() {
             setColors(0xC8000E);
-            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setGeometry(game.gui.WIDTH / 2 + 2, 660, 180, 36);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
