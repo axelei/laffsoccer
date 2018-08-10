@@ -24,6 +24,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget pitchTypeButton;
     private Widget substitutesButton;
     private Widget awayGoalsButton;
+    private int[] roundTeams = {24, 16, 8, 4, 2, 0};
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
 
@@ -96,13 +97,12 @@ class DesignDiyTournament extends GLScreen {
         widgets.add(w);
 
         // rounds
-        int[] defaultTeams = {24, 16, 8, 4, 2, 0};
         for (int i = 0; i < 6; i++) {
             w = new RoundNumberLabel(i);
             widgets.add(w);
             roundNumberLabels[i] = w;
 
-            w = new RoundTeamsButton(i, defaultTeams[i]);
+            w = new RoundTeamsButton(i);
             widgets.add(w);
             roundTeamsButtons[i] = w;
         }
@@ -495,26 +495,111 @@ class DesignDiyTournament extends GLScreen {
 
         @Override
         public void refresh() {
-            // TODO setVisible(...);
+            setVisible(roundTeams[round] > 1);
         }
     }
 
     private class RoundTeamsButton extends Button {
 
         private int round;
-        private int teams;
 
-        RoundTeamsButton(int round, int teams) {
+        RoundTeamsButton(int round) {
             this.round = round;
-            this.teams = teams;
             setGeometry(game.gui.WIDTH / 2 - 432, 299 + 54 * round, 48, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
-            setText(teams, Font.Align.CENTER, Assets.font14);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            incrementTeams();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            incrementTeams();
+        }
+
+        private void incrementTeams() {
+            int t = roundTeams[round];
+            boolean found = false;
+            while (!found) {
+                t++;
+                // up to 64 teams
+                if (t > 64) return;
+
+                // should be smaller than previous round
+                if (round > 0 && t >= roundTeams[round - 1]) return;
+
+                // should be divisible in groups, each up to 24 teams
+                for (int d = 1; d <= 8; d++) {
+                    if (t % d == 0 && t / d <= 24) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            // set new value
+            roundTeams[round] = t;
+            setDirty(true);
+            roundNumberLabels[round].setDirty(true);
+
+            // possibly activate next round
+            if (t > 1 && round < 5 && roundTeams[round + 1] == 0) {
+                roundTeams[round + 1] = 1;
+                roundNumberLabels[round + 1].setDirty(true);
+                roundTeamsButtons[round + 1].setDirty(true);
+            }
+        }
+
+        @Override
+        public void onFire2Down() {
+            decrementTeams();
+        }
+
+        @Override
+        public void onFire2Hold() {
+            decrementTeams();
+        }
+
+        private void decrementTeams() {
+            int t = roundTeams[round];
+            boolean found = false;
+            while (!found) {
+                t--;
+                // at least 1 team
+                if (t == 0) return;
+
+                // should be greater than next round
+                if (round < 5 && t <= roundTeams[round + 1]) return;
+
+                // should be divisible in groups, each up to 24 teams
+                for (int d = 1; d <= 8; d++) {
+                    if (t % d == 0 && t / d <= 24) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            // set new value
+            roundTeams[round] = t;
+            setDirty(true);
+            roundNumberLabels[round].setDirty(true);
+
+            // possibly deactivate next round
+            if (t == 2 && round < 5 && roundTeams[round + 1] == 1) {
+                roundTeams[round + 1] = 0;
+                roundNumberLabels[round + 1].setDirty(true);
+                roundTeamsButtons[round + 1].setDirty(true);
+            }
         }
 
         @Override
         public void refresh() {
-            setVisible(teams > 0);
+            setText(roundTeams[round]);
+            setVisible(roundTeams[round] > 0);
         }
     }
 
