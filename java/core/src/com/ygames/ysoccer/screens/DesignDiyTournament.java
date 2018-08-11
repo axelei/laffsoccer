@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -24,18 +25,21 @@ class DesignDiyTournament extends GLScreen {
     private Widget seasonEndButton;
     private Widget pitchTypeButton;
     private Widget substitutesButton;
+    private Widget awayGoalsLabel;
     private Widget awayGoalsButton;
 
     private int[] roundTeams = {24, 16, 8, 4, 2, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
     private int[] roundLegs = {1, 1, 1, 1, 1, 1};
+    private Round.ExtraTime[] roundsExtraTime = {Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON};
 
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
     private Widget[] roundGroupsButtons = new Widget[6];
     private Widget[] roundSeededButtons = new Widget[6];
     private Widget[] roundLegsButtons = new Widget[6];
+    private Widget[] roundExtraTimeButtons = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -94,6 +98,7 @@ class DesignDiyTournament extends GLScreen {
 
         w = new AwayGoalsLabel();
         widgets.add(w);
+        awayGoalsLabel = w;
 
         w = new AwayGoalsButton();
         widgets.add(w);
@@ -129,6 +134,10 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundLegsButton(i);
             widgets.add(w);
             roundLegsButtons[i] = w;
+
+            w = new RoundExtraTimeButton(i);
+            widgets.add(w);
+            roundExtraTimeButtons[i] = w;
         }
 
         w = new OkButton();
@@ -459,6 +468,17 @@ class DesignDiyTournament extends GLScreen {
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
+
+        @Override
+        public void refresh() {
+            setVisible(false);
+            for (int i = 0; i < 6; i++) {
+                if (roundLegs[i] == 2) {
+                    setVisible(true);
+                    break;
+                }
+            }
+        }
     }
 
     private class AwayGoalsButton extends Button {
@@ -517,7 +537,7 @@ class DesignDiyTournament extends GLScreen {
 
         DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 + 185, 280);
+            setPosition(game.gui.WIDTH / 2 + 172, 280);
         }
     }
 
@@ -806,6 +826,7 @@ class DesignDiyTournament extends GLScreen {
         private void rotateLegs() {
             roundLegs[round] = Emath.rotate(roundLegs[round], 1, 2, 1);
             setDirty(true);
+            awayGoalsLabel.setDirty(true);
             awayGoalsButton.setDirty(true);
         }
 
@@ -814,6 +835,41 @@ class DesignDiyTournament extends GLScreen {
             setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
             if (visible) {
                 setText(Assets.strings.get(roundLegs[round] == 1 ? "ONE LEG" : "TWO LEGS"));
+            }
+        }
+    }
+
+    private class RoundExtraTimeButton extends Button {
+
+        private int round;
+
+        RoundExtraTimeButton(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 + 52, 299 + 58 * round, 240, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotateExtraTime();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            rotateExtraTime();
+        }
+
+        private void rotateExtraTime() {
+            roundsExtraTime[round] = Round.ExtraTime.values()[Emath.rotate(roundsExtraTime[round].ordinal(), 0, 2, 1)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
+            if (visible) {
+                setText(Assets.strings.get(Round.getExtraTimeLabel(roundsExtraTime[round])));
             }
         }
     }
@@ -848,6 +904,7 @@ class DesignDiyTournament extends GLScreen {
         roundGroupsButtons[round].setDirty(true);
         roundSeededButtons[round].setDirty(true);
         roundLegsButtons[round].setDirty(true);
+        roundExtraTimeButtons[round].setDirty(true);
     }
 
     private class OkButton extends Button {
