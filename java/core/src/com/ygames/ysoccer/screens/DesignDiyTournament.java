@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
@@ -476,8 +477,8 @@ class DesignDiyTournament extends GLScreen {
     private class TeamsLabel extends Label {
 
         TeamsLabel() {
-            setText(Assets.strings.get("TEAMS"), Font.Align.LEFT, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 - 470, 280);
+            setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.gui.WIDTH / 2 - 408, 280);
         }
     }
 
@@ -548,7 +549,14 @@ class DesignDiyTournament extends GLScreen {
 
             // set new value
             roundTeams[round] = t;
+            resetRoundGroups(round);
             setButtonsDirty(round);
+
+            // possibily reset previous round
+            if (round > 0 && 2 * roundTeams[round] != roundTeams[round - 1]) {
+                resetRoundGroups(round - 1);
+                setButtonsDirty(round - 1);
+            }
 
             // possibly activate next round
             if (t > 1 && round < 5 && roundTeams[round + 1] == 0) {
@@ -578,6 +586,9 @@ class DesignDiyTournament extends GLScreen {
                 // should be greater than next round
                 if (round < 5 && t <= roundTeams[round + 1]) return;
 
+                // should be greater then groups of previous round
+                if (round > 0 && t < roundGroups[round - 1]) return;
+
                 // should be divisible in groups, each up to 24 teams
                 for (int d = 1; d <= 8; d++) {
                     if (t % d == 0 && t / d <= 24) {
@@ -589,7 +600,14 @@ class DesignDiyTournament extends GLScreen {
 
             // set new value
             roundTeams[round] = t;
+            resetRoundGroups(round);
             setButtonsDirty(round);
+
+            // possibily reset previous round
+            if (round > 0 && 2 * roundTeams[round] != roundTeams[round - 1]) {
+                resetRoundGroups(round - 1);
+                setButtonsDirty(round - 1);
+            }
 
             // possibly deactivate next round
             if (t == 2 && round < 5 && roundTeams[round + 1] == 1) {
@@ -614,6 +632,55 @@ class DesignDiyTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 382, 299 + 54 * round, 248, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotateGroups();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            rotateGroups();
+        }
+
+        private void rotateGroups() {
+            int groups = roundGroups[round];
+
+            // search next value
+            boolean found = false;
+            do {
+                groups = Emath.rotate(groups, 0, 8, 1);
+
+                if (groups == 0) {
+                    // final
+                    if (roundTeams[round] == 2) {
+                        found = true;
+                        break;
+                    }
+                    // knockout
+                    if (round < 5) {
+                        if (roundTeams[round] == 2 * roundTeams[round + 1]) {
+                            found = true;
+                            break;
+                        }
+                    }
+                } else {
+                    // round teams are divisible in groups from 2 to 24 teams
+                    if (roundTeams[round] % groups == 0
+                            && Emath.isIn(roundTeams[round] / groups, 2, 24)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+            } while (groups != roundGroups[round]);
+
+            if (!found) return;
+
+            // set new value
+            roundGroups[round] = groups;
+            setButtonsDirty(round);
         }
 
         @Override
@@ -649,6 +716,30 @@ class DesignDiyTournament extends GLScreen {
             }
             setVisible(roundTeams[round] > 1);
         }
+    }
+
+    private void resetRoundGroups(int round) {
+
+        // final
+        if (roundTeams[round] == 2) {
+            roundGroups[round] = 0;
+            return;
+        }
+
+        // knockout
+        if (round < 5 && roundTeams[round] == 2 * roundTeams[round + 1]) {
+            roundGroups[round] = 0;
+            return;
+        }
+
+        for (int groups = 1; groups <= 8; groups++) {
+            // round teams are divisible in groups up to 24 teams
+            if (roundTeams[round] % groups == 0 && roundTeams[round] / groups <= 24) {
+                roundGroups[round] = groups;
+                return;
+            }
+        }
+        throw new GdxRuntimeException("Failed to reset groups");
     }
 
     private void setButtonsDirty(int round) {
