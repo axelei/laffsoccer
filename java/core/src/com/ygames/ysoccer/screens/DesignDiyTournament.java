@@ -29,11 +29,13 @@ class DesignDiyTournament extends GLScreen {
     private int[] roundTeams = {24, 16, 8, 4, 2, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
+    private int[] roundLegs = {1, 1, 1, 1, 1, 1};
 
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
     private Widget[] roundGroupsButtons = new Widget[6];
     private Widget[] roundSeededButtons = new Widget[6];
+    private Widget[] roundLegsButtons = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -123,6 +125,10 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundSeededButton(i);
             widgets.add(w);
             roundSeededButtons[i] = w;
+
+            w = new RoundLegsButton(i);
+            widgets.add(w);
+            roundLegsButtons[i] = w;
         }
 
         w = new OkButton();
@@ -481,7 +487,13 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void refresh() {
             setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)));
-            setVisible(tournament.hasTwoLegsRound());
+            setVisible(false);
+            for (int i = 0; i < 6; i++) {
+                if (roundLegs[i] == 2) {
+                    setVisible(true);
+                    break;
+                }
+            }
         }
     }
 
@@ -770,6 +782,42 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
+    private class RoundLegsButton extends Button {
+
+        private int round;
+
+        RoundLegsButton(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 - 88, 299 + 58 * round, 138, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotateLegs();
+        }
+
+        @Override
+        public void onFire2Down() {
+            rotateLegs();
+        }
+
+        private void rotateLegs() {
+            roundLegs[round] = Emath.rotate(roundLegs[round], 1, 2, 1);
+            setDirty(true);
+            awayGoalsButton.setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
+            if (visible) {
+                setText(Assets.strings.get(roundLegs[round] == 1 ? "ONE LEG" : "TWO LEGS"));
+            }
+        }
+    }
+
     private void resetRoundGroups(int round) {
 
         // final
@@ -799,6 +847,7 @@ class DesignDiyTournament extends GLScreen {
         roundTeamsButtons[round].setDirty(true);
         roundGroupsButtons[round].setDirty(true);
         roundSeededButtons[round].setDirty(true);
+        roundLegsButtons[round].setDirty(true);
     }
 
     private class OkButton extends Button {
