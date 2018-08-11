@@ -25,11 +25,15 @@ class DesignDiyTournament extends GLScreen {
     private Widget pitchTypeButton;
     private Widget substitutesButton;
     private Widget awayGoalsButton;
+
     private int[] roundTeams = {24, 16, 8, 4, 2, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
+    private boolean[] roundSeeded = {false, false, false, false, false, false};
+
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
     private Widget[] roundGroupsButtons = new Widget[6];
+    private Widget[] roundSeededButtons = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -112,6 +116,10 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundGroupsButton(i);
             widgets.add(w);
             roundGroupsButtons[i] = w;
+
+            w = new RoundSeededButton(i);
+            widgets.add(w);
+            roundSeededButtons[i] = w;
         }
 
         w = new OkButton();
@@ -496,7 +504,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundNumberLabel(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 470, 299 + 54 * round, 36, 32);
+            setGeometry(game.gui.WIDTH / 2 - 470, 299 + 58 * round, 36, 32);
             setText(round + 1, Font.Align.CENTER, Assets.font14);
         }
 
@@ -512,7 +520,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundTeamsButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 432, 299 + 54 * round, 48, 32);
+            setGeometry(game.gui.WIDTH / 2 - 432, 299 + 58 * round, 48, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -629,7 +637,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundGroupsButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 382, 299 + 54 * round, 248, 32);
+            setGeometry(game.gui.WIDTH / 2 - 382, 299 + 58 * round, 248, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -718,6 +726,39 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
+    private class RoundSeededButton extends Button {
+
+        private int round;
+
+        RoundSeededButton(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 - 132, 299 + 58 * round, 42, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleSeeded();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            toggleSeeded();
+        }
+
+        private void toggleSeeded() {
+            roundSeeded[round] = !roundSeeded[round];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setText(roundSeeded[round] ? "*" : "-");
+            setVisible(roundTeams[round] > 1);
+        }
+    }
+
     private void resetRoundGroups(int round) {
 
         // final
@@ -746,6 +787,7 @@ class DesignDiyTournament extends GLScreen {
         roundNumberLabels[round].setDirty(true);
         roundTeamsButtons[round].setDirty(true);
         roundGroupsButtons[round].setDirty(true);
+        roundSeededButtons[round].setDirty(true);
     }
 
     private class OkButton extends Button {
