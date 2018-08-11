@@ -25,8 +25,10 @@ class DesignDiyTournament extends GLScreen {
     private Widget substitutesButton;
     private Widget awayGoalsButton;
     private int[] roundTeams = {24, 16, 8, 4, 2, 0};
+    private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
+    private Widget[] roundGroupsButtons = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -105,6 +107,10 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundTeamsButton(i);
             widgets.add(w);
             roundTeamsButtons[i] = w;
+
+            w = new RoundGroupsButton(i);
+            widgets.add(w);
+            roundGroupsButtons[i] = w;
         }
 
         w = new OkButton();
@@ -542,14 +548,12 @@ class DesignDiyTournament extends GLScreen {
 
             // set new value
             roundTeams[round] = t;
-            setDirty(true);
-            roundNumberLabels[round].setDirty(true);
+            setButtonsDirty(round);
 
             // possibly activate next round
             if (t > 1 && round < 5 && roundTeams[round + 1] == 0) {
                 roundTeams[round + 1] = 1;
-                roundNumberLabels[round + 1].setDirty(true);
-                roundTeamsButtons[round + 1].setDirty(true);
+                setButtonsDirty(round + 1);
             }
         }
 
@@ -585,14 +589,12 @@ class DesignDiyTournament extends GLScreen {
 
             // set new value
             roundTeams[round] = t;
-            setDirty(true);
-            roundNumberLabels[round].setDirty(true);
+            setButtonsDirty(round);
 
             // possibly deactivate next round
             if (t == 2 && round < 5 && roundTeams[round + 1] == 1) {
                 roundTeams[round + 1] = 0;
-                roundNumberLabels[round + 1].setDirty(true);
-                roundTeamsButtons[round + 1].setDirty(true);
+                setButtonsDirty(round + 1);
             }
         }
 
@@ -601,6 +603,58 @@ class DesignDiyTournament extends GLScreen {
             setText(roundTeams[round]);
             setVisible(roundTeams[round] > 0);
         }
+    }
+
+    private class RoundGroupsButton extends Button {
+
+        private int round;
+
+        RoundGroupsButton(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 - 382, 299 + 54 * round, 248, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            String key;
+            if (roundGroups[round] == 0) {
+                switch (roundTeams[round]) {
+                    case 2:
+                        key = "FINAL";
+                        break;
+                    case 4:
+                        key = "SEMI-FINAL";
+                        break;
+                    case 8:
+                        key = "QUARTER-FINAL";
+                        break;
+                    default:
+                        key = "KNOCKOUT";
+                }
+            } else if (roundGroups[round] == 1) {
+                key = "%n GROUP OF %m";
+            } else {
+                key = "%n GROUPS OF %m";
+            }
+            String label = Assets.strings.get(key);
+            if (roundGroups[round] == 0) {
+                setText(label);
+            } else {
+                setText(label
+                        .replaceFirst("%n", "" + roundGroups[round])
+                        .replaceFirst("%m", "" + (roundTeams[round] / roundGroups[round]))
+                );
+            }
+            setVisible(roundTeams[round] > 1);
+        }
+    }
+
+    private void setButtonsDirty(int round) {
+        roundNumberLabels[round].setDirty(true);
+        roundTeamsButtons[round].setDirty(true);
+        roundGroupsButtons[round].setDirty(true);
     }
 
     private class OkButton extends Button {
