@@ -18,6 +18,8 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.math.Emath;
 
+import static java.lang.Math.min;
+
 class DesignDiyTournament extends GLScreen {
 
     Tournament tournament;
@@ -475,7 +477,7 @@ class DesignDiyTournament extends GLScreen {
 
         private void updateBenchSize(int n) {
             tournament.benchSize = Emath.slide(tournament.benchSize, 2, 12, n);
-            tournament.substitutions = Math.min(tournament.substitutions, tournament.benchSize);
+            tournament.substitutions = min(tournament.substitutions, tournament.benchSize);
             setDirty(true);
             substitutesButton.setDirty(true);
         }
@@ -609,8 +611,16 @@ class DesignDiyTournament extends GLScreen {
             boolean found = false;
             while (!found) {
                 t++;
-                // up to 64 teams
-                if (t > 64) return;
+
+                int maxTeams = 64;
+                if (round == 5) {
+                    maxTeams = 24;
+                } else {
+                    if (roundTeams[round + 1] > 0) {
+                        maxTeams = min(maxTeams, 24 * roundTeams[round + 1]);
+                    }
+                }
+                if (t > maxTeams) return;
 
                 // should be smaller than previous round
                 if (round > 0 && t >= roundTeams[round - 1]) return;
@@ -636,7 +646,7 @@ class DesignDiyTournament extends GLScreen {
             }
 
             // possibly activate next round
-            if (t > 1 && round < 5 && roundTeams[round + 1] == 0) {
+            if (t > 2 && round < 5 && roundTeams[round + 1] == 0) {
                 roundTeams[round + 1] = 1;
                 setRoundButtonsDirty(round + 1);
             }
@@ -727,7 +737,13 @@ class DesignDiyTournament extends GLScreen {
             // search next value
             boolean found = false;
             do {
-                groups = Emath.rotate(groups, 0, 8, 1);
+                int maxGroups;
+                if (round == 5) {
+                    maxGroups = 1;
+                } else {
+                    maxGroups = min(8, roundTeams[round + 1]);
+                }
+                groups = Emath.rotate(groups, 0, maxGroups, 1);
 
                 if (groups == 0) {
                     // final
