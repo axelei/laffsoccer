@@ -24,6 +24,7 @@ public class Round implements Json.Serializable {
     Round() {
         numberOfLegs = 1;
         extraTime = ExtraTime.ON;
+        // TODO: change to ON after penalties will be implemented
         penalties = Penalties.OFF;
         legs = new ArrayList<Leg>();
     }

@@ -6,6 +6,8 @@ public abstract class Round {
 
     public enum ExtraTime {OFF, ON, IF_REPLAY}
 
+    public enum Penalties {OFF, ON, IF_REPLAY}
+
     public int numberOfTeams;
 
     public static String getExtraTimeLabel(ExtraTime extraTime) {
@@ -17,7 +19,20 @@ public abstract class Round {
             case IF_REPLAY:
                 return "EXTRA TIME.IF REPLAY";
             default:
-                throw new GdxRuntimeException("Wrong extraTime value");
+                throw new GdxRuntimeException("Wrong ExtraTime value");
+        }
+    }
+
+    public static String getPenaltiesLabel(Penalties penalties) {
+        switch (penalties) {
+            case OFF:
+                return "PENALTIES.OFF";
+            case ON:
+                return "PENALTIES.ON";
+            case IF_REPLAY:
+                return "PENALTIES.IF REPLAY";
+            default:
+                throw new GdxRuntimeException("Wrong Penalties value");
         }
     }
 }
