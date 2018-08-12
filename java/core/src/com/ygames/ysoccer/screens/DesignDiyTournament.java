@@ -644,7 +644,7 @@ class DesignDiyTournament extends GLScreen {
             setRoundButtonsDirty(round);
 
             // possibily reset previous round
-            if (round > 0 && 2 * roundTeams[round] != roundTeams[round - 1]) {
+            if (invalidRoundGroups(round)) {
                 resetRoundGroups(round - 1);
                 setRoundButtonsDirty(round - 1);
             }
@@ -699,7 +699,7 @@ class DesignDiyTournament extends GLScreen {
             setRoundButtonsDirty(round);
 
             // possibily reset previous round
-            if (round > 0 && 2 * roundTeams[round] != roundTeams[round - 1]) {
+            if (invalidRoundGroups(round)) {
                 resetRoundGroups(round - 1);
                 setRoundButtonsDirty(round - 1);
             }
@@ -1043,6 +1043,16 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(roundTeams[round] > 2);
         }
+    }
+
+    private boolean invalidRoundGroups(int round) {
+        // knockouts
+        if (round > 0 && roundGroups[round - 1] == 0
+                && 2 * roundTeams[round] != roundTeams[round - 1]) {
+            return true;
+        }
+
+        return false;
     }
 
     private void resetRoundGroups(int round) {
