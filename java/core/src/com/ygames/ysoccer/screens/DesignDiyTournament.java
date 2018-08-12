@@ -33,6 +33,8 @@ class DesignDiyTournament extends GLScreen {
     private boolean[] roundSeeded = {false, false, false, false, false, false};
     private int[] roundLegs = {1, 1, 1, 1, 1, 1};
     private Round.ExtraTime[] roundsExtraTime = {Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON};
+    private Round.Penalties[] roundsPenalties = {Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON};
+    private int[] roundsPointsFaw = {2, 2, 2, 2, 2, 2};
 
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
@@ -40,6 +42,8 @@ class DesignDiyTournament extends GLScreen {
     private Widget[] roundSeededButtons = new Widget[6];
     private Widget[] roundLegsButtons = new Widget[6];
     private Widget[] roundExtraTimeButtons = new Widget[6];
+    private Widget[] roundPenaltiesButtons = new Widget[6];
+    private Widget[] roundPointsFawButtons = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -138,6 +142,14 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundExtraTimeButton(i);
             widgets.add(w);
             roundExtraTimeButtons[i] = w;
+
+            w = new RoundPenaltiesButton(i);
+            widgets.add(w);
+            roundPenaltiesButtons[i] = w;
+
+            w = new RoundPointsFawButton(i);
+            widgets.add(w);
+            roundPointsFawButtons[i] = w;
         }
 
         w = new OkButton();
@@ -564,7 +576,7 @@ class DesignDiyTournament extends GLScreen {
         RoundTeamsButton(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 432, 299 + 58 * round, 48, 32);
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setColors(0x90217a);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -601,18 +613,18 @@ class DesignDiyTournament extends GLScreen {
             // set new value
             roundTeams[round] = t;
             resetRoundGroups(round);
-            setButtonsDirty(round);
+            setRoundButtonsDirty(round);
 
             // possibily reset previous round
             if (round > 0 && 2 * roundTeams[round] != roundTeams[round - 1]) {
                 resetRoundGroups(round - 1);
-                setButtonsDirty(round - 1);
+                setRoundButtonsDirty(round - 1);
             }
 
             // possibly activate next round
             if (t > 1 && round < 5 && roundTeams[round + 1] == 0) {
                 roundTeams[round + 1] = 1;
-                setButtonsDirty(round + 1);
+                setRoundButtonsDirty(round + 1);
             }
         }
 
@@ -652,18 +664,18 @@ class DesignDiyTournament extends GLScreen {
             // set new value
             roundTeams[round] = t;
             resetRoundGroups(round);
-            setButtonsDirty(round);
+            setRoundButtonsDirty(round);
 
             // possibily reset previous round
             if (round > 0 && 2 * roundTeams[round] != roundTeams[round - 1]) {
                 resetRoundGroups(round - 1);
-                setButtonsDirty(round - 1);
+                setRoundButtonsDirty(round - 1);
             }
 
             // possibly deactivate next round
             if (t == 2 && round < 5 && roundTeams[round + 1] == 1) {
                 roundTeams[round + 1] = 0;
-                setButtonsDirty(round + 1);
+                setRoundButtonsDirty(round + 1);
             }
         }
 
@@ -731,7 +743,7 @@ class DesignDiyTournament extends GLScreen {
 
             // set new value
             roundGroups[round] = groups;
-            setButtonsDirty(round);
+            setRoundButtonsDirty(round);
         }
 
         @Override
@@ -874,6 +886,75 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
+    private class RoundPenaltiesButton extends Button {
+
+        private int round;
+
+        RoundPenaltiesButton(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 + 294, 299 + 58 * round, 240, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotatePenalties();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            rotatePenalties();
+        }
+
+        private void rotatePenalties() {
+            roundsPenalties[round] = Round.Penalties.values()[Emath.rotate(roundsPenalties[round].ordinal(), 0, 2, 1)];
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
+            if (visible) {
+                setText(Assets.strings.get(Round.getPenaltiesLabel(roundsPenalties[round])));
+            }
+        }
+    }
+
+    private class RoundPointsFawButton extends Button {
+        private int round;
+
+        RoundPointsFawButton(int round) {
+            this.round = round;
+            setGeometry(game.gui.WIDTH / 2 - 88, 299 + 58 * round, 340, 32);
+            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            rotatePointsFaw();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            rotatePointsFaw();
+        }
+
+        private void rotatePointsFaw() {
+            roundsPointsFaw[round] = Emath.rotate(roundsPointsFaw[round], 2, 3, 1);
+            setDirty(true);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(roundTeams[round] > 1 && roundGroups[round] > 0);
+            if (visible) {
+                setText(Assets.strings.get("%n POINTS FOR A WIN").replaceFirst("%n", "" + roundsPointsFaw[round]));
+            }
+        }
+    }
+
     private void resetRoundGroups(int round) {
 
         // final
@@ -898,13 +979,15 @@ class DesignDiyTournament extends GLScreen {
         throw new GdxRuntimeException("Failed to reset groups");
     }
 
-    private void setButtonsDirty(int round) {
+    private void setRoundButtonsDirty(int round) {
         roundNumberLabels[round].setDirty(true);
         roundTeamsButtons[round].setDirty(true);
         roundGroupsButtons[round].setDirty(true);
         roundSeededButtons[round].setDirty(true);
         roundLegsButtons[round].setDirty(true);
         roundExtraTimeButtons[round].setDirty(true);
+        roundPenaltiesButtons[round].setDirty(true);
+        roundPointsFawButtons[round].setDirty(true);
     }
 
     private class OkButton extends Button {
