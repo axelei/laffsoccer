@@ -626,7 +626,11 @@ class DesignDiyTournament extends GLScreen {
                 if (round > 0 && t >= roundTeams[round - 1]) return;
 
                 // should be divisible in groups, each up to 24 teams
-                for (int d = 1; d <= 8; d++) {
+                int maxGroups = 8;
+                if (round < 5 && roundTeams[round + 1] > 0) {
+                    maxGroups = min(maxGroups, roundTeams[round + 1]);
+                }
+                for (int d = 1; d <= maxGroups; d++) {
                     if (t % d == 0 && t / d <= 24) {
                         found = true;
                         break;
@@ -677,7 +681,11 @@ class DesignDiyTournament extends GLScreen {
                 if (round > 0 && t < roundGroups[round - 1]) return;
 
                 // should be divisible in groups, each up to 24 teams
-                for (int d = 1; d <= 8; d++) {
+                int maxGroups = 8;
+                if (round < 5 && roundTeams[round + 1] > 0) {
+                    maxGroups = min(maxGroups, roundTeams[round + 1]);
+                }
+                for (int d = 1; d <= maxGroups; d++) {
                     if (t % d == 0 && t / d <= 24) {
                         found = true;
                         break;
