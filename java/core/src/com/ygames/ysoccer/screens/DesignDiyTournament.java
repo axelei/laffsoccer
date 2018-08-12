@@ -12,6 +12,7 @@ import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
+import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
@@ -46,6 +47,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget[] roundPenaltiesButtons = new Widget[6];
     private Widget[] roundPointsFawButtons = new Widget[6];
     private Widget[] roundPlayEachTeamButtons = new Widget[6];
+    private Widget[] roundShortArrowPictures = new Widget[5];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -156,6 +158,12 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundPlayEachTeamButton(i);
             widgets.add(w);
             roundPlayEachTeamButtons[i] = w;
+
+            if (i < 5) {
+                w = new ShortArrowPicture(i);
+                widgets.add(w);
+                roundShortArrowPictures[i] = w;
+            }
         }
 
         w = new OkButton();
@@ -555,7 +563,7 @@ class DesignDiyTournament extends GLScreen {
 
         DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 + 172, 280);
+            setPosition(game.gui.WIDTH / 2 + 182, 280);
         }
     }
 
@@ -997,6 +1005,22 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
+    private class ShortArrowPicture extends Picture {
+
+        private int round;
+
+        ShortArrowPicture(int round) {
+            this.round = round;
+            setTextureRegion(Assets.shortArrow);
+            setPosition(game.gui.WIDTH / 2 - 446, 343 + 58 * round);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(roundTeams[round] > 2);
+        }
+    }
+
     private void resetRoundGroups(int round) {
 
         // final
@@ -1031,6 +1055,9 @@ class DesignDiyTournament extends GLScreen {
         roundPenaltiesButtons[round].setDirty(true);
         roundPointsFawButtons[round].setDirty(true);
         roundPlayEachTeamButtons[round].setDirty(true);
+        if (round < 5) {
+            roundShortArrowPictures[round].setDirty(true);
+        }
     }
 
     private class OkButton extends Button {

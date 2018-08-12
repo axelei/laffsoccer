@@ -62,6 +62,7 @@ public class Assets {
     public static List<String> hairStyles;
     public static List<String> currencies;
     public static TextureRegion[] scroll = new TextureRegion[2];
+    public static TextureRegion shortArrow;
     public static TextureRegion[] stars = new TextureRegion[10];
     public static TextureRegion[][] controls = new TextureRegion[2][3];
     public static TextureRegion[][] pieces = new TextureRegion[2][2];
@@ -209,6 +210,7 @@ public class Assets {
         hairStyles = loadHairStyles();
         currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
         loadScroll();
+        shortArrow = loadTextureRegion("images/short_arrow.png");
         loadStars();
         loadControls();
         loadPieces();
