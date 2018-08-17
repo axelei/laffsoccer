@@ -133,6 +133,7 @@ class DesignDiyTournament extends GLScreen {
             w = new RoundTeamsButton(i);
             widgets.add(w);
             roundTeamsButtons[i] = w;
+            if (i == 0) setSelectedWidget(w);
 
             w = new RoundGroupsButton(i);
             widgets.add(w);
