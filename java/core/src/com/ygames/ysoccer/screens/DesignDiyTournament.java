@@ -31,7 +31,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget awayGoalsLabel;
     private Widget awayGoalsButton;
 
-    private int[] roundTeams = {24, 16, 8, 4, 2, 0};
+    private int[] roundTeams = {24, 16, 8, 4, 2, 1, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
     private int[] roundLegs = {1, 1, 1, 1, 1, 1};
@@ -50,6 +50,7 @@ class DesignDiyTournament extends GLScreen {
     private Widget[] roundPointsFawButtons = new Widget[6];
     private Widget[] roundPlayEachTeamButtons = new Widget[6];
     private Widget[] roundShortArrowPictures = new Widget[5];
+    private Widget[] roundQualificationLabels = new Widget[6];
 
     DesignDiyTournament(GLGame game) {
         super(game);
@@ -166,6 +167,10 @@ class DesignDiyTournament extends GLScreen {
                 widgets.add(w);
                 roundShortArrowPictures[i] = w;
             }
+
+            w = new RoundQualificationLabel(i);
+            widgets.add(w);
+            roundQualificationLabels[i] = w;
         }
 
         w = new OkButton();
@@ -178,7 +183,7 @@ class DesignDiyTournament extends GLScreen {
     private class TournamentNameButton extends InputButton {
 
         TournamentNameButton() {
-            setGeometry((game.gui.WIDTH - 940) / 2, 120, 940, 36);
+            setGeometry((game.gui.WIDTH - 940) / 2, 100, 940, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText(tournament.name, Font.Align.CENTER, Assets.font14);
             setEntryLimit(24);
@@ -193,7 +198,7 @@ class DesignDiyTournament extends GLScreen {
     private class WeatherButton extends Button {
 
         WeatherButton() {
-            setGeometry(game.gui.WIDTH / 2 - 470, 165, 236, 36);
+            setGeometry(game.gui.WIDTH / 2 - 470, 145, 236, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -217,7 +222,7 @@ class DesignDiyTournament extends GLScreen {
     private class SeasonStartButton extends Button {
 
         SeasonStartButton() {
-            setGeometry(game.gui.WIDTH / 2 - 232, 165, 176, 36);
+            setGeometry(game.gui.WIDTH / 2 - 232, 145, 176, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -257,7 +262,7 @@ class DesignDiyTournament extends GLScreen {
     private class SeasonSeparatorButton extends Button {
 
         SeasonSeparatorButton() {
-            setGeometry(game.gui.WIDTH / 2 - 54, 165, 36, 36);
+            setGeometry(game.gui.WIDTH / 2 - 54, 145, 36, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -272,7 +277,7 @@ class DesignDiyTournament extends GLScreen {
     private class SeasonEndButton extends Button {
 
         SeasonEndButton() {
-            setGeometry(game.gui.WIDTH / 2 - 16, 165, 176, 36);
+            setGeometry(game.gui.WIDTH / 2 - 16, 145, 176, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -312,7 +317,7 @@ class DesignDiyTournament extends GLScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            setGeometry(game.gui.WIDTH / 2 - 232, 165, 392, 36);
+            setGeometry(game.gui.WIDTH / 2 - 232, 145, 392, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -352,7 +357,7 @@ class DesignDiyTournament extends GLScreen {
     private class TimeLabel extends Button {
 
         TimeLabel() {
-            setGeometry(game.gui.WIDTH / 2 + 170, 165, 140, 36);
+            setGeometry(game.gui.WIDTH / 2 + 170, 145, 140, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -362,7 +367,7 @@ class DesignDiyTournament extends GLScreen {
     private class TimeButton extends Button {
 
         TimeButton() {
-            setGeometry(game.gui.WIDTH / 2 + 312, 165, 158, 36);
+            setGeometry(game.gui.WIDTH / 2 + 312, 145, 158, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -391,7 +396,7 @@ class DesignDiyTournament extends GLScreen {
     private class SubstitutesLabel extends Button {
 
         SubstitutesLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 470, 210, 244, 36);
+            setGeometry(game.gui.WIDTH / 2 - 470, 190, 244, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -401,7 +406,7 @@ class DesignDiyTournament extends GLScreen {
     private class SubstitutesButton extends Button {
 
         SubstitutesButton() {
-            setGeometry(game.gui.WIDTH / 2 - 224, 210, 52, 36);
+            setGeometry(game.gui.WIDTH / 2 - 224, 190, 52, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -440,7 +445,7 @@ class DesignDiyTournament extends GLScreen {
     private class BenchSizeLabel extends Button {
 
         BenchSizeLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 170, 210, 94, 36);
+            setGeometry(game.gui.WIDTH / 2 - 170, 190, 94, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("SUBSTITUTES.FROM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -450,7 +455,7 @@ class DesignDiyTournament extends GLScreen {
     private class BenchSizeButton extends Button {
 
         BenchSizeButton() {
-            setGeometry(game.gui.WIDTH / 2 - 74, 210, 52, 36);
+            setGeometry(game.gui.WIDTH / 2 - 74, 190, 52, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -491,7 +496,7 @@ class DesignDiyTournament extends GLScreen {
     private class AwayGoalsLabel extends Button {
 
         AwayGoalsLabel() {
-            setGeometry(game.gui.WIDTH / 2 - 12, 210, 206, 36);
+            setGeometry(game.gui.WIDTH / 2 - 12, 190, 206, 36);
             setColors(0x800000, 0xB40000, 0x400000);
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -512,7 +517,7 @@ class DesignDiyTournament extends GLScreen {
     private class AwayGoalsButton extends Button {
 
         AwayGoalsButton() {
-            setGeometry(game.gui.WIDTH / 2 + 196, 210, 274, 36);
+            setGeometry(game.gui.WIDTH / 2 + 196, 190, 274, 36);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -549,7 +554,7 @@ class DesignDiyTournament extends GLScreen {
 
         TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 - 446, 280);
+            setPosition(game.gui.WIDTH / 2 - 446, 260);
         }
     }
 
@@ -557,7 +562,7 @@ class DesignDiyTournament extends GLScreen {
 
         SeededLabel() {
             setText(Assets.strings.get("SEEDED"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 - 149, 280);
+            setPosition(game.gui.WIDTH / 2 - 149, 260);
         }
     }
 
@@ -565,17 +570,17 @@ class DesignDiyTournament extends GLScreen {
 
         DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
-            setPosition(game.gui.WIDTH / 2 + 182, 280);
+            setPosition(game.gui.WIDTH / 2 + 182, 260);
         }
     }
 
-    private class RoundNumberLabel extends Button {
+    private class RoundNumberLabel extends Label {
 
         private int round;
 
         RoundNumberLabel(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 512, 299 + 58 * round, 40, 32);
+            setGeometry(game.gui.WIDTH / 2 - 512, 280 + 62 * round, 40, 32);
             setText(round + 1, Font.Align.CENTER, Assets.font14);
         }
 
@@ -591,7 +596,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundTeamsButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 470, 299 + 58 * round, 48, 32);
+            setGeometry(game.gui.WIDTH / 2 - 470, 280 + 62 * round, 48, 32);
             setColors(0x90217a);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -607,10 +612,10 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void incrementTeams() {
-            int t = roundTeams[round];
+            int teams = roundTeams[round];
             boolean found = false;
             while (!found) {
-                t++;
+                teams++;
 
                 int maxTeams = 64;
                 if (round == 5) {
@@ -620,18 +625,18 @@ class DesignDiyTournament extends GLScreen {
                         maxTeams = min(maxTeams, 24 * roundTeams[round + 1]);
                     }
                 }
-                if (t > maxTeams) return;
+                if (teams > maxTeams) return;
 
                 // should be smaller than previous round
-                if (round > 0 && t >= roundTeams[round - 1]) return;
+                if (round > 0 && teams >= roundTeams[round - 1]) return;
 
                 // should be divisible in groups, each up to 24 teams
                 int maxGroups = 8;
-                if (round < 5 && roundTeams[round + 1] > 0) {
+                if (roundTeams[round + 1] > 0) {
                     maxGroups = min(maxGroups, roundTeams[round + 1]);
                 }
                 for (int d = 1; d <= maxGroups; d++) {
-                    if (t % d == 0 && t / d <= 24) {
+                    if (teams % d == 0 && teams / d <= 24) {
                         found = true;
                         break;
                     }
@@ -639,19 +644,25 @@ class DesignDiyTournament extends GLScreen {
             }
 
             // set new value
-            roundTeams[round] = t;
-            resetRoundGroups(round);
-            setRoundButtonsDirty(round);
-
-            // possibily reset previous round
-            if (invalidRoundGroups(round)) {
-                resetRoundGroups(round - 1);
-                setRoundButtonsDirty(round - 1);
-            }
+            roundTeams[round] = teams;
 
             // possibly activate next round
-            if (t > 2 && round < 5 && roundTeams[round + 1] == 0) {
+            if (teams > 1 && roundTeams[round + 1] == 0) {
                 roundTeams[round + 1] = 1;
+            }
+
+            resetRoundGroups(round);
+
+            // possibly reset previous round
+            if (invalidKnockout(round)) {
+                resetRoundGroups(round - 1);
+            }
+
+            setRoundButtonsDirty(round);
+            if (round > 0) {
+                setRoundButtonsDirty(round - 1);
+            }
+            if (round < 5) {
                 setRoundButtonsDirty(round + 1);
             }
         }
@@ -667,26 +678,29 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void decrementTeams() {
-            int t = roundTeams[round];
+            int teams = roundTeams[round];
             boolean found = false;
             while (!found) {
-                t--;
-                // at least 1 team
-                if (t == 0) return;
+                teams--;
+                // min 2 teams in the first round
+                if (round == 0 && teams < 2) return;
+
+                // min 1 team
+                if (teams == 0) return;
 
                 // should be greater than next round
-                if (round < 5 && t <= roundTeams[round + 1]) return;
+                if (teams > 1 && teams <= roundTeams[round + 1]) return;
 
                 // should be greater then groups of previous round
-                if (round > 0 && t < roundGroups[round - 1]) return;
+                if (round > 0 && teams < roundGroups[round - 1]) return;
 
                 // should be divisible in groups, each up to 24 teams
                 int maxGroups = 8;
-                if (round < 5 && roundTeams[round + 1] > 0) {
+                if (roundTeams[round + 1] > 0) {
                     maxGroups = min(maxGroups, roundTeams[round + 1]);
                 }
                 for (int d = 1; d <= maxGroups; d++) {
-                    if (t % d == 0 && t / d <= 24) {
+                    if (teams % d == 0 && teams / d <= 24) {
                         found = true;
                         break;
                     }
@@ -694,19 +708,25 @@ class DesignDiyTournament extends GLScreen {
             }
 
             // set new value
-            roundTeams[round] = t;
-            resetRoundGroups(round);
-            setRoundButtonsDirty(round);
+            roundTeams[round] = teams;
 
-            // possibily reset previous round
-            if (invalidRoundGroups(round)) {
+            // possibly reset previous round
+            if (invalidKnockout(round)) {
                 resetRoundGroups(round - 1);
-                setRoundButtonsDirty(round - 1);
             }
 
+            resetRoundGroups(round);
+
             // possibly deactivate next round
-            if (t == 2 && round < 5 && roundTeams[round + 1] == 1) {
+            if (teams == 1 && roundTeams[round + 1] == 1) {
                 roundTeams[round + 1] = 0;
+            }
+
+            setRoundButtonsDirty(round);
+            if (round > 0) {
+                setRoundButtonsDirty(round - 1);
+            }
+            if (round < 5) {
                 setRoundButtonsDirty(round + 1);
             }
         }
@@ -714,7 +734,7 @@ class DesignDiyTournament extends GLScreen {
         @Override
         public void refresh() {
             setText(roundTeams[round]);
-            setVisible(roundTeams[round] > 0);
+            setVisible(round == 0 || roundTeams[round - 1] > 2);
         }
     }
 
@@ -724,7 +744,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundGroupsButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 420, 299 + 58 * round, 248, 32);
+            setGeometry(game.gui.WIDTH / 2 - 420, 280 + 62 * round, 248, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -741,30 +761,18 @@ class DesignDiyTournament extends GLScreen {
 
         private void rotateGroups() {
             int groups = roundGroups[round];
+            int maxGroups = min(roundTeams[round + 1], 8);
 
             // search next value
             boolean found = false;
             do {
-                int maxGroups;
-                if (round == 5) {
-                    maxGroups = 1;
-                } else {
-                    maxGroups = min(8, roundTeams[round + 1]);
-                }
                 groups = Emath.rotate(groups, 0, maxGroups, 1);
 
                 if (groups == 0) {
-                    // final
-                    if (roundTeams[round] == 2) {
+                    // knockouts
+                    if (roundTeams[round] == 2 * roundTeams[round + 1]) {
                         found = true;
                         break;
-                    }
-                    // knockout
-                    if (round < 5) {
-                        if (roundTeams[round] == 2 * roundTeams[round + 1]) {
-                            found = true;
-                            break;
-                        }
                     }
                 } else {
                     // round teams are divisible in groups from 2 to 24 teams
@@ -825,7 +833,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundSeededButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 170, 299 + 58 * round, 42, 32);
+            setGeometry(game.gui.WIDTH / 2 - 170, 280 + 62 * round, 42, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -858,7 +866,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundLegsButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 126, 299 + 58 * round, 138, 32);
+            setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 138, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -878,6 +886,7 @@ class DesignDiyTournament extends GLScreen {
             setDirty(true);
             awayGoalsLabel.setDirty(true);
             awayGoalsButton.setDirty(true);
+            roundQualificationLabels[round].setDirty(true);
         }
 
         @Override
@@ -895,7 +904,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundExtraTimeButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 + 14, 299 + 58 * round, 240, 32);
+            setGeometry(game.gui.WIDTH / 2 + 14, 280 + 62 * round, 240, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -930,7 +939,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundPenaltiesButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 + 256, 299 + 58 * round, 240, 32);
+            setGeometry(game.gui.WIDTH / 2 + 256, 280 + 62 * round, 240, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -965,7 +974,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundPointsFawButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 - 126, 299 + 58 * round, 320, 32);
+            setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 310, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -1000,7 +1009,7 @@ class DesignDiyTournament extends GLScreen {
 
         RoundPlayEachTeamButton(int round) {
             this.round = round;
-            setGeometry(game.gui.WIDTH / 2 + 196, 299 + 58 * round, 300, 32);
+            setGeometry(game.gui.WIDTH / 2 + 186, 280 + 62 * round, 310, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -1036,7 +1045,7 @@ class DesignDiyTournament extends GLScreen {
         ShortArrowPicture(int round) {
             this.round = round;
             setTextureRegion(Assets.shortArrow);
-            setPosition(game.gui.WIDTH / 2 - 446, 343 + 58 * round);
+            setPosition(game.gui.WIDTH / 2 - 446, 326 + 62 * round);
         }
 
         @Override
@@ -1045,26 +1054,98 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
-    private boolean invalidRoundGroups(int round) {
-        // knockouts
-        if (round > 0 && roundGroups[round - 1] == 0
-                && 2 * roundTeams[round] != roundTeams[round - 1]) {
-            return true;
+    private class RoundQualificationLabel extends Label {
+
+        private int round;
+
+        RoundQualificationLabel(int round) {
+            this.round = round;
+            setPosition(game.gui.WIDTH / 2, 326 + 62 * round);
+            setText("", Font.Align.CENTER, Assets.font10);
         }
 
-        return false;
+        @Override
+        public void refresh() {
+            int teams = roundTeams[round];
+            setVisible(teams > 1);
+
+            String label;
+            int groups = roundGroups[round];
+            switch (groups) {
+                case 0:
+                    if (teams == 2) {
+                        if (roundLegs[round] == 1) {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNER WINS TOURNAMENT");
+                        } else {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNER ON AGGREGATE WINS TOURNAMENT");
+                        }
+                    } else {
+                        if (roundLegs[round] == 1) {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNERS QUALIFY");
+                        } else {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNERS ON AGGREGATE QUALIFY");
+                        }
+                    }
+                    break;
+
+                case 1:
+                    if (roundTeams[round + 1] == 1) {
+                        label = Assets.strings.get("TOURNAMENT.GROUP WINNER WINS TOURNAMENT");
+                    } else {
+                        label = Assets.strings.get("TOURNAMENT.TOP %n IN GROUP QUALIFY")
+                                .replaceFirst("%n", "" + roundTeams[round + 1]);
+                    }
+                    break;
+
+                default:
+                    int nextRoundTeams = roundTeams[round + 1];
+                    int runnersUp = nextRoundTeams % groups;
+                    switch (runnersUp) {
+                        case 0:
+                            if (nextRoundTeams / groups == 1) {
+                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP QUALIFY");
+                            } else {
+                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP QUALIFY")
+                                        .replaceFirst("%n", "" + nextRoundTeams / groups);
+                            }
+                            break;
+
+                        case 1:
+                            if (nextRoundTeams / groups == 1) {
+                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST RUNNER-UP QUALIFIES");
+                            } else {
+                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST RUNNER-UP QUALIFY")
+                                        .replaceFirst("%n", "" + nextRoundTeams / groups);
+                            }
+                            break;
+
+                        default:
+                            if (nextRoundTeams / groups == 1) {
+                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST %n RUNNERS-UP QUALIFY")
+                                        .replaceFirst("%n", "" + runnersUp);
+                            } else {
+                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST %m RUNNERS-UP QUALIFY")
+                                        .replaceFirst("%n", "" + nextRoundTeams / groups)
+                                        .replaceFirst("%m", "" + runnersUp);
+                            }
+                            break;
+                    }
+                    break;
+            }
+            setText("(" + label + ")");
+        }
+    }
+
+    private boolean invalidKnockout(int round) {
+        return round > 0
+                && roundGroups[round - 1] == 0
+                && 2 * roundTeams[round] != roundTeams[round - 1];
     }
 
     private void resetRoundGroups(int round) {
 
-        // final
-        if (roundTeams[round] == 2) {
-            roundGroups[round] = 0;
-            return;
-        }
-
-        // knockout
-        if (round < 5 && roundTeams[round] == 2 * roundTeams[round + 1]) {
+        // knockouts
+        if (roundTeams[round] == 2 * roundTeams[round + 1]) {
             roundGroups[round] = 0;
             return;
         }
@@ -1076,6 +1157,7 @@ class DesignDiyTournament extends GLScreen {
                 return;
             }
         }
+
         throw new GdxRuntimeException("Failed to reset groups");
     }
 
@@ -1092,6 +1174,7 @@ class DesignDiyTournament extends GLScreen {
         if (round < 5) {
             roundShortArrowPictures[round].setDirty(true);
         }
+        roundQualificationLabels[round].setDirty(true);
     }
 
     private class OkButton extends Button {
