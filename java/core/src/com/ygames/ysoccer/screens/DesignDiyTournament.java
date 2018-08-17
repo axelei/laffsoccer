@@ -1187,6 +1187,7 @@ class DesignDiyTournament extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            tournament.numberOfTeams = roundTeams[0];
             navigation.folder = Assets.teamsRootFolder;
             navigation.competition = tournament;
             game.setScreen(new SelectFolder(game));

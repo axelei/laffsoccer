@@ -394,6 +394,10 @@ class SelectTeams extends GLScreen {
                     case CUP:
                         setText(Assets.strings.get("PLAY CUP"));
                         break;
+
+                    case TOURNAMENT:
+                        setText(Assets.strings.get("PLAY TOURNAMENT"));
+                        break;
                 }
                 setColors(0x138B21, 0x1BC12F, 0x004814);
                 setActive(true);
@@ -458,6 +462,12 @@ class SelectTeams extends GLScreen {
                     navigation.competition.start(game.teamList);
                     game.setCompetition(navigation.competition);
                     game.setScreen(new PlayCup(game));
+                    break;
+
+                case TOURNAMENT:
+                    navigation.competition.start(game.teamList);
+                    game.setCompetition(navigation.competition);
+                    game.setScreen(new PlayTournament(game));
                     break;
             }
         }
