@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.competitions.tournament.Groups;
 import com.ygames.ysoccer.competitions.tournament.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.match.Const;
@@ -204,6 +205,7 @@ public class Assets {
         json.addClassTag("CUP", Cup.class);
         json.addClassTag("LEAGUE", League.class);
         json.addClassTag("TOURNAMENT", Tournament.class);
+        json.addClassTag("GROUPS", Groups.class);
         json.addClassTag("KNOCKOUT", Knockout.class);
         json.setOutputType(JsonWriter.OutputType.json);
         json.setUsePrototypes(false);
