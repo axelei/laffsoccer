@@ -21,16 +21,29 @@ public class Tournament extends Competition implements Json.Serializable {
     @Override
     public void read(Json json, JsonValue jsonData) {
         super.read(json, jsonData);
+        Round[] roundsArray = json.readValue("rounds", Round[].class, jsonData);
+        if (roundsArray != null) {
+            for (Round round : roundsArray) {
+                round.setTournament(this);
+                rounds.add(round);
+            }
+        }
     }
 
     @Override
     public void write(Json json) {
         super.write(json);
+        json.writeValue("rounds", rounds, Round[].class, Round.class);
     }
 
     @Override
     public Match getMatch() {
         return null;
+    }
+
+    @Override
+    public boolean isEnded() {
+        return currentRound == rounds.size() - 1; // TODO && currentRound.isEnded()
     }
 
     public boolean hasTwoLegsRound() {

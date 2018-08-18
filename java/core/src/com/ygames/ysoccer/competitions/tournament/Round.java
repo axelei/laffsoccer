@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.competitions.tournament;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 
 public abstract class Round {
 
@@ -8,7 +10,18 @@ public abstract class Round {
 
     public enum Penalties {OFF, ON, IF_REPLAY}
 
+    public Tournament tournament;
     public int numberOfTeams;
+
+    public void read(Json json, JsonValue jsonData) {
+    }
+
+    public void write(Json json) {
+    }
+
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
 
     public static String getExtraTimeLabel(ExtraTime extraTime) {
         switch (extraTime) {
