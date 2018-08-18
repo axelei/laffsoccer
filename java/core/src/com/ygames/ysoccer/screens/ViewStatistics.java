@@ -66,6 +66,10 @@ class ViewStatistics extends GLScreen {
                 case CUP:
                     game.setScreen(new InfoCup(game));
                     break;
+
+                case TOURNAMENT:
+                    game.setScreen(new InfoTournament(game));
+                    break;
             }
         }
     }

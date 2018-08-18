@@ -14,7 +14,7 @@ import com.ygames.ysoccer.match.Pitch;
 
 class InfoLeague extends GLScreen {
 
-    League league;
+    private League league;
 
     InfoLeague(GLGame game) {
         super(game);

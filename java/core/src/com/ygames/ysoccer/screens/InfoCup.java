@@ -15,7 +15,7 @@ import com.ygames.ysoccer.match.Pitch;
 
 class InfoCup extends GLScreen {
 
-    Cup cup;
+    private Cup cup;
 
     InfoCup(GLGame game) {
         super(game);
