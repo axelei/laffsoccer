@@ -23,10 +23,23 @@ class InfoTournament extends GLScreen {
         w = new TitleBar(tournament.name, game.stateColor.body);
         widgets.add(w);
 
+        w = new WeatherButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
         setSelectedWidget(w);
+    }
+
+    private class WeatherButton extends Button {
+
+        WeatherButton() {
+            setGeometry(game.gui.WIDTH / 2 - 470, 145, 236, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get(tournament.getWeatherLabel()), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
     }
 
     private class ExitButton extends Button {
