@@ -1,10 +1,12 @@
 package com.ygames.ysoccer.screens;
 
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -26,6 +28,9 @@ class InfoTournament extends GLScreen {
         w = new WeatherButton();
         widgets.add(w);
 
+        w = new SeasonStartButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -38,6 +43,17 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 470, 145, 236, 36);
             setColors(0x666666);
             setText(Assets.strings.get(tournament.getWeatherLabel()), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class SeasonStartButton extends Button {
+
+        SeasonStartButton() {
+            setGeometry(game.gui.WIDTH / 2 - 232, 145, 176, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get(Month.getLabel(tournament.seasonStart)), Font.Align.CENTER, Assets.font14);
+            setVisible(tournament.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }
     }
