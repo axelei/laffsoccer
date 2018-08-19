@@ -63,6 +63,9 @@ class InfoTournament extends GLScreen {
         w = new AwayGoalsLabel();
         widgets.add(w);
 
+        w = new AwayGoalsButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -189,6 +192,17 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 12, 190, 206, 36);
             setColors(0x666666);
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
+            setVisible(tournament.hasTwoLegsRound());
+            setActive(false);
+        }
+    }
+
+    private class AwayGoalsButton extends Button {
+
+        AwayGoalsButton() {
+            setGeometry(game.gui.WIDTH / 2 + 196, 190, 274, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.hasTwoLegsRound());
             setActive(false);
         }

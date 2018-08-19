@@ -21,6 +21,7 @@ public class Tournament extends Competition implements Json.Serializable {
     @Override
     public void read(Json json, JsonValue jsonData) {
         super.read(json, jsonData);
+
         Round[] roundsArray = json.readValue("rounds", Round[].class, jsonData);
         if (roundsArray != null) {
             for (Round round : roundsArray) {
@@ -28,12 +29,19 @@ public class Tournament extends Competition implements Json.Serializable {
                 rounds.add(round);
             }
         }
+        if (hasTwoLegsRound()) {
+            awayGoals = json.readValue("awayGoals", AwayGoals.class, AwayGoals.AFTER_90_MINUTES, jsonData);
+        }
     }
 
     @Override
     public void write(Json json) {
         super.write(json);
+
         json.writeValue("rounds", rounds, Round[].class, Round.class);
+        if (hasTwoLegsRound()) {
+            json.writeValue("awayGoals", awayGoals);
+        }
     }
 
     @Override
