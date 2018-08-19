@@ -47,7 +47,13 @@ public class Tournament extends Competition implements Json.Serializable {
     }
 
     public boolean hasTwoLegsRound() {
-        // TODO
-        return true;
+        for (Round round : rounds) {
+            if (Knockout.class.isInstance(round)) {
+                if (((Knockout) round).numberOfLegs == 2) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
