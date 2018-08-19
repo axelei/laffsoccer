@@ -34,6 +34,9 @@ class InfoTournament extends GLScreen {
         w = new SeasonSeparatorButton();
         widgets.add(w);
 
+        w = new SeasonEndButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -67,6 +70,17 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 54, 145, 36, 36);
             setColors(0x666666, 0x8F8D8D, 0x404040);
             setText("-", Font.Align.CENTER, Assets.font14);
+            setVisible(tournament.weather == Competition.Weather.BY_SEASON);
+            setActive(false);
+        }
+    }
+
+    private class SeasonEndButton extends Button {
+
+        SeasonEndButton() {
+            setGeometry(game.gui.WIDTH / 2 - 16, 145, 176, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get(Month.getLabel(tournament.seasonEnd)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
             setActive(false);
         }
