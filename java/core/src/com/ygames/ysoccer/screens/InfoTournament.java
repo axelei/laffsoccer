@@ -60,6 +60,9 @@ class InfoTournament extends GLScreen {
         w = new BenchSizeButton();
         widgets.add(w);
 
+        w = new AwayGoalsLabel();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -176,6 +179,17 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 74, 190, 52, 36);
             setColors(0x666666);
             setText(tournament.benchSize, Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class AwayGoalsLabel extends Button {
+
+        AwayGoalsLabel() {
+            setGeometry(game.gui.WIDTH / 2 - 12, 190, 206, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
+            setVisible(tournament.hasTwoLegsRound());
             setActive(false);
         }
     }
