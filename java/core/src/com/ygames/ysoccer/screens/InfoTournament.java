@@ -70,6 +70,9 @@ class InfoTournament extends GLScreen {
         w = new TeamsLabel();
         widgets.add(w);
 
+        w = new SeededLabel();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -217,6 +220,14 @@ class InfoTournament extends GLScreen {
         TeamsLabel() {
             setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
             setPosition(game.gui.WIDTH / 2 - 446, 260);
+        }
+    }
+
+    private class SeededLabel extends Label {
+
+        SeededLabel() {
+            setText(Assets.strings.get("SEEDED"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.gui.WIDTH / 2 - 149, 260);
         }
     }
 
