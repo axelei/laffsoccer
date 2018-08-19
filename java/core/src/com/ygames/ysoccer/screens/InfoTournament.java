@@ -51,6 +51,9 @@ class InfoTournament extends GLScreen {
         w = new SubstitutesLabel();
         widgets.add(w);
 
+        w = new SubstitutesButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -137,6 +140,16 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 470, 190, 244, 36);
             setColors(0x666666);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class SubstitutesButton extends Button {
+
+        SubstitutesButton() {
+            setGeometry(game.gui.WIDTH / 2 - 224, 190, 52, 36);
+            setColors(0x666666);
+            setText(tournament.substitutions, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
