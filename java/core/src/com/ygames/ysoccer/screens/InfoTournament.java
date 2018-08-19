@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Pitch;
 
 class InfoTournament extends GLScreen {
 
@@ -35,6 +36,9 @@ class InfoTournament extends GLScreen {
         widgets.add(w);
 
         w = new SeasonEndButton();
+        widgets.add(w);
+
+        w = new PitchTypeButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -82,6 +86,17 @@ class InfoTournament extends GLScreen {
             setColors(0x666666);
             setText(Assets.strings.get(Month.getLabel(tournament.seasonEnd)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
+            setActive(false);
+        }
+    }
+
+    private class PitchTypeButton extends Button {
+
+        PitchTypeButton() {
+            setGeometry(game.gui.WIDTH / 2 - 232, 145, 392, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get(Pitch.names[tournament.pitchType.ordinal()]), Font.Align.CENTER, Assets.font14);
+            setVisible(tournament.weather == Competition.Weather.BY_PITCH_TYPE);
             setActive(false);
         }
     }
