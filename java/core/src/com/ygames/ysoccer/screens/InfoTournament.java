@@ -76,6 +76,12 @@ class InfoTournament extends GLScreen {
         w = new DescriptionLabel();
         widgets.add(w);
 
+        // rounds
+        for (int i = 0; i < tournament.rounds.size(); i++) {
+            w = new RoundNumberLabel(i);
+            widgets.add(w);
+        }
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -239,6 +245,14 @@ class InfoTournament extends GLScreen {
         DescriptionLabel() {
             setText(Assets.strings.get("DESCRIPTION"), Font.Align.CENTER, Assets.font14);
             setPosition(game.gui.WIDTH / 2 + 182, 260);
+        }
+    }
+
+    private class RoundNumberLabel extends Label {
+
+        RoundNumberLabel(int round) {
+            setGeometry(game.gui.WIDTH / 2 - 512, 280 + 62 * round, 40, 32);
+            setText(round + 1, Font.Align.CENTER, Assets.font14);
         }
     }
 
