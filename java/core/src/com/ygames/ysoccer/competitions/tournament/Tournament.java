@@ -48,6 +48,11 @@ public class Tournament extends Competition implements Json.Serializable {
     @Override
     public void start(ArrayList<Team> teams) {
         super.start(teams);
+
+    }
+
+    public Round getRound() {
+        return rounds.get(currentRound);
     }
 
     @Override
