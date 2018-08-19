@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 
 class InfoTournament extends GLScreen {
@@ -42,6 +43,9 @@ class InfoTournament extends GLScreen {
         widgets.add(w);
 
         w = new TimeLabel();
+        widgets.add(w);
+
+        w = new TimeButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -110,6 +114,16 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 + 170, 145, 140, 36);
             setColors(0x666666);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class TimeButton extends Button {
+
+        TimeButton() {
+            setGeometry(game.gui.WIDTH / 2 + 312, 145, 158, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get(MatchSettings.getTimeLabel(tournament.time)), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
