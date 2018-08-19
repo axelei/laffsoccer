@@ -12,11 +12,13 @@ public class Label extends Widget {
             return;
         }
 
+        batch.setColor(0xFFFFFF, alpha);
         batch.begin();
 
         drawText(batch);
 
         batch.end();
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     private void drawText(SpriteBatch batch) {
