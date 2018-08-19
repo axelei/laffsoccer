@@ -49,6 +49,8 @@ public class Tournament extends Competition implements Json.Serializable {
     public void start(ArrayList<Team> teams) {
         super.start(teams);
 
+        if (!getRound().isPreset()) {
+        }
     }
 
     public Round getRound() {

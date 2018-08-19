@@ -25,4 +25,9 @@ public class Knockout extends Round implements Json.Serializable {
         super.write(json);
         json.writeValue("numberOfLegs", numberOfLegs);
     }
+
+    boolean isPreset() {
+        // TODO
+        return false;
+    }
 }
