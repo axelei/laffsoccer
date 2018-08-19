@@ -57,6 +57,13 @@ public class Tournament extends Competition implements Json.Serializable {
         return rounds.get(currentRound);
     }
 
+    public void addKnockout(int numberOfTeams, int numberOfLegs) {
+        Knockout knockout = new Knockout();
+        knockout.numberOfTeams = numberOfTeams;
+        knockout.numberOfLegs = numberOfLegs;
+        rounds.add(knockout);
+    }
+
     @Override
     public Match getMatch() {
         return null;

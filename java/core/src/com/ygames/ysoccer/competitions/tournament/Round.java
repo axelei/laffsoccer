@@ -14,9 +14,11 @@ public abstract class Round {
     public int numberOfTeams;
 
     public void read(Json json, JsonValue jsonData) {
+        numberOfTeams = jsonData.getInt("numberOfTeams");
     }
 
     public void write(Json json) {
+        json.writeValue("numberOfTeams", numberOfTeams);
     }
 
     public void setTournament(Tournament tournament) {

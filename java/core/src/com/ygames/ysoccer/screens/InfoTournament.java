@@ -80,6 +80,9 @@ class InfoTournament extends GLScreen {
         for (int i = 0; i < tournament.rounds.size(); i++) {
             w = new RoundNumberLabel(i);
             widgets.add(w);
+
+            w = new RoundTeamsButton(i);
+            widgets.add(w);
         }
 
         w = new ExitButton();
@@ -253,6 +256,20 @@ class InfoTournament extends GLScreen {
         RoundNumberLabel(int round) {
             setGeometry(game.gui.WIDTH / 2 - 512, 280 + 62 * round, 40, 32);
             setText(round + 1, Font.Align.CENTER, Assets.font14);
+        }
+    }
+
+    private class RoundTeamsButton extends Button {
+
+        RoundTeamsButton(int round) {
+            setGeometry(game.gui.WIDTH / 2 - 470, 280 + 62 * round, 48, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(tournament.rounds.get(round).numberOfTeams, Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 

@@ -1194,11 +1194,14 @@ class DesignDiyTournament extends GLScreen {
             int round = 0;
             while (roundTeams[round] > 1) {
                 if (roundGroups[round] == 0) {
-                    Knockout knockout = new Knockout(roundLegs[round]);
-                    tournament.rounds.add(knockout);
+                    tournament.rounds.add(new Knockout(
+                            roundTeams[round],
+                            roundLegs[round])
+                    );
                 } else {
-                    Groups groups = new Groups();
-                    tournament.rounds.add(groups);
+                    tournament.rounds.add(new Groups(
+                            roundTeams[round]
+                    ));
                 }
                 round++;
             }
