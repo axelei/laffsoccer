@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
@@ -64,6 +65,9 @@ class InfoTournament extends GLScreen {
         widgets.add(w);
 
         w = new AwayGoalsButton();
+        widgets.add(w);
+
+        w = new TeamsLabel();
         widgets.add(w);
 
         w = new ExitButton();
@@ -205,6 +209,14 @@ class InfoTournament extends GLScreen {
             setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.hasTwoLegsRound());
             setActive(false);
+        }
+    }
+
+    private class TeamsLabel extends Label {
+
+        TeamsLabel() {
+            setText(Assets.strings.get("TEAMS"), Font.Align.CENTER, Assets.font14);
+            setPosition(game.gui.WIDTH / 2 - 446, 260);
         }
     }
 
