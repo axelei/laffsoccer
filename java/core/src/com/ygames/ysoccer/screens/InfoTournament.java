@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.tournament.Groups;
+import com.ygames.ysoccer.competitions.tournament.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -82,6 +84,9 @@ class InfoTournament extends GLScreen {
             widgets.add(w);
 
             w = new RoundTeamsButton(i);
+            widgets.add(w);
+
+            w = new RoundGroupsButton(i);
             widgets.add(w);
         }
 
@@ -270,6 +275,48 @@ class InfoTournament extends GLScreen {
             }
             setText(tournament.rounds.get(round).numberOfTeams, Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class RoundGroupsButton extends Button {
+
+        RoundGroupsButton(int round) {
+            setGeometry(game.gui.WIDTH / 2 - 420, 280 + 62 * round, 248, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText("", Font.Align.CENTER, Assets.font14);
+            int teams = tournament.rounds.get(round).numberOfTeams;
+            String key;
+            if (Knockout.class.isInstance(tournament.rounds.get(round))) {
+                switch (teams) {
+                    case 2:
+                        key = "FINAL";
+                        break;
+                    case 4:
+                        key = "SEMI-FINAL";
+                        break;
+                    case 8:
+                        key = "QUARTER-FINAL";
+                        break;
+                    default:
+                        key = "KNOCKOUT";
+                }
+                setText(Assets.strings.get(key));
+            } else {
+                int groups = 1; // TODO (Groups)tournament.rounds.get(round).numberOfGroups;
+                if (groups == 1) {
+                    key = "%n GROUP OF %m";
+                } else {
+                    key = "%n GROUPS OF %m";
+                }
+                setText(Assets.strings.get(key)
+                        .replaceFirst("%n", "" + groups)
+                        .replaceFirst("%m", "" + (teams / groups))
+                );
+            }
         }
     }
 
