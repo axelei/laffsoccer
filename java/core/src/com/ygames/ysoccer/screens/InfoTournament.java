@@ -48,6 +48,9 @@ class InfoTournament extends GLScreen {
         w = new TimeButton();
         widgets.add(w);
 
+        w = new SubstitutesLabel();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -124,6 +127,16 @@ class InfoTournament extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 + 312, 145, 158, 36);
             setColors(0x666666);
             setText(Assets.strings.get(MatchSettings.getTimeLabel(tournament.time)), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class SubstitutesLabel extends Button {
+
+        SubstitutesLabel() {
+            setGeometry(game.gui.WIDTH / 2 - 470, 190, 244, 36);
+            setColors(0x666666);
+            setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
