@@ -11,13 +11,16 @@ public abstract class Round {
     public enum Penalties {OFF, ON, IF_REPLAY}
 
     public Tournament tournament;
+    public String name;
     public int numberOfTeams;
 
     public void read(Json json, JsonValue jsonData) {
+        name = jsonData.getString("name");
         numberOfTeams = jsonData.getInt("numberOfTeams");
     }
 
     public void write(Json json) {
+        json.writeValue("name", name);
         json.writeValue("numberOfTeams", numberOfTeams);
     }
 

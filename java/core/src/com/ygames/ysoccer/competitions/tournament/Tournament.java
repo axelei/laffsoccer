@@ -62,12 +62,56 @@ public class Tournament extends Competition implements Json.Serializable {
         knockout.numberOfTeams = numberOfTeams;
         knockout.numberOfLegs = numberOfLegs;
         rounds.add(knockout);
+        updateRoundNames();
     }
 
     public void addGroups(int numberOfTeams) {
         Groups groups = new Groups();
         groups.numberOfTeams = numberOfTeams;
         rounds.add(groups);
+        updateRoundNames();
+    }
+
+    private void updateRoundNames() {
+        for (int i = 0; i < rounds.size(); i++) {
+            if(Knockout.class.isInstance(rounds.get(i))) {
+                rounds.get(i).name = getKnockoutLabel(i);
+            } else {
+                rounds.get(i).name = getGroupsLabel(i);
+            }
+        }
+    }
+
+    private String getKnockoutLabel(int round) {
+        if (round == rounds.size() - 1) {
+            return "FINAL";
+        } else if (round == rounds.size() - 2) {
+            return "SEMI-FINAL";
+        } else if (round == rounds.size() - 3) {
+            return "QUARTER-FINAL";
+        } else if (round == 0) {
+            return "FIRST ROUND";
+        } else if (round == 1) {
+            return "SECOND ROUND";
+        } else {
+            return "THIRD ROUND";
+        }
+    }
+
+    private String getGroupsLabel(int round) {
+        if (round == rounds.size() - 1) {
+            return "FINAL ROUND";
+        } else if (round == 0) {
+            return "FIRST ROUND";
+        } else if (round == 1) {
+            return "SECOND ROUND";
+        } else if (round == 2) {
+            return "THIRD ROUND";
+        } else if (round == 3) {
+            return "FOURTH ROUND";
+        } else {
+            return "FIFTH ROUND";
+        }
     }
 
     @Override
