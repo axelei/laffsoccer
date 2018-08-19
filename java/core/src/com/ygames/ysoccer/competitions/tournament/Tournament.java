@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,11 @@ public class Tournament extends Competition implements Json.Serializable {
         if (hasTwoLegsRound()) {
             json.writeValue("awayGoals", awayGoals);
         }
+    }
+
+    @Override
+    public void start(ArrayList<Team> teams) {
+        super.start(teams);
     }
 
     @Override
