@@ -7,14 +7,6 @@ public class Knockout extends Round implements Json.Serializable {
 
     int numberOfLegs;
 
-    Knockout() {
-    }
-
-    public Knockout(int numberOfTeams, int numberOfLegs) {
-        this.numberOfTeams = numberOfTeams;
-        this.numberOfLegs = numberOfLegs;
-    }
-
     @Override
     public void read(Json json, JsonValue jsonData) {
         super.read(json, jsonData);

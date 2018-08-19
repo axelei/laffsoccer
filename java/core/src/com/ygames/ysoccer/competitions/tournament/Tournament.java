@@ -64,6 +64,12 @@ public class Tournament extends Competition implements Json.Serializable {
         rounds.add(knockout);
     }
 
+    public void addGroups(int numberOfTeams) {
+        Groups groups = new Groups();
+        groups.numberOfTeams = numberOfTeams;
+        rounds.add(groups);
+    }
+
     @Override
     public Match getMatch() {
         return null;
