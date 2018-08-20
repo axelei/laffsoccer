@@ -1195,7 +1195,8 @@ class DesignDiyTournament extends GLScreen {
                     tournament.addKnockout(
                             roundTeams[round],
                             roundLegs[round],
-                            roundSeeded[round]
+                            roundSeeded[round],
+                            roundsExtraTime[round]
                     );
                 } else {
                     tournament.addGroups(
