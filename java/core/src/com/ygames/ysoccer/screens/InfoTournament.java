@@ -101,6 +101,9 @@ class InfoTournament extends GLScreen {
 
                 w = new RoundExtraTimeButton(i, knockout);
                 widgets.add(w);
+
+                w = new RoundPenaltiesButton(i, knockout);
+                widgets.add(w);
             }
         }
 
@@ -373,6 +376,20 @@ class InfoTournament extends GLScreen {
                 setColors(0x666666);
             }
             setText(Assets.strings.get(Round.getExtraTimeLabel(knockout.extraTime)), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class RoundPenaltiesButton extends Button {
+
+        RoundPenaltiesButton(int round, Knockout knockout) {
+            setGeometry(game.gui.WIDTH / 2 + 256, 280 + 62 * round, 240, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(Assets.strings.get(Round.getPenaltiesLabel(knockout.penalties)), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
