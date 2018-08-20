@@ -98,6 +98,9 @@ class InfoTournament extends GLScreen {
 
                 w = new RoundLegsButton(i, knockout);
                 widgets.add(w);
+
+                w = new RoundExtraTimeButton(i, knockout);
+                widgets.add(w);
             }
         }
 
@@ -356,6 +359,20 @@ class InfoTournament extends GLScreen {
                 setColors(0x666666);
             }
             setText(Assets.strings.get(knockout.numberOfLegs == 1 ? "ONE LEG" : "TWO LEGS"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class RoundExtraTimeButton extends Button {
+
+        RoundExtraTimeButton(int round, Knockout knockout) {
+            setGeometry(game.gui.WIDTH / 2 + 14, 280 + 62 * round, 240, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(Assets.strings.get(Round.getExtraTimeLabel(knockout.extraTime)), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
