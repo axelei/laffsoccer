@@ -108,7 +108,7 @@ class InfoTournament extends GLScreen {
             } else {
                 Groups groups = (Groups) round;
 
-                w = new RoundPointsFawButton(i, groups);
+                w = new RoundPointsForAWinButton(i, groups);
                 widgets.add(w);
             }
         }
@@ -400,9 +400,9 @@ class InfoTournament extends GLScreen {
         }
     }
 
-    private class RoundPointsFawButton extends Button {
+    private class RoundPointsForAWinButton extends Button {
 
-        RoundPointsFawButton(int round, Groups groups) {
+        RoundPointsForAWinButton(int round, Groups groups) {
             setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 310, 32);
             if (round == tournament.currentRound) {
                 setColors(0x444444);
