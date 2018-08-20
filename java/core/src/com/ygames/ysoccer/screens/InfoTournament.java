@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Knockout;
+import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -90,6 +91,14 @@ class InfoTournament extends GLScreen {
 
             w = new RoundSeededButton(i);
             widgets.add(w);
+
+            Round round = tournament.rounds.get(i);
+            if (Knockout.class.isInstance(round)) {
+                Knockout knockout = (Knockout) round;
+
+                w = new RoundLegsButton(i, knockout);
+                widgets.add(w);
+            }
         }
 
         w = new ExitButton();
@@ -333,6 +342,20 @@ class InfoTournament extends GLScreen {
                 setColors(0x666666);
             }
             setText(tournament.rounds.get(round).seeded ? "*" : "-", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class RoundLegsButton extends Button {
+
+        RoundLegsButton(int round, Knockout knockout) {
+            setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 138, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(Assets.strings.get(knockout.numberOfLegs == 1 ? "ONE LEG" : "TWO LEGS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }

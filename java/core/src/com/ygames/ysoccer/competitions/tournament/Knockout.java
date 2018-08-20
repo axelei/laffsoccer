@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public class Knockout extends Round implements Json.Serializable {
 
-    int numberOfLegs;
+    public int numberOfLegs;
 
     @Override
     public void read(Json json, JsonValue jsonData) {
