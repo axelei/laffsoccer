@@ -36,11 +36,11 @@ class DesignDiyTournament extends GLScreen {
     private int[] roundTeams = {24, 16, 8, 4, 2, 1, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
-    private int[] roundLegs = {1, 1, 1, 1, 1, 1};
-    private Round.ExtraTime[] roundsExtraTime = {Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON, Round.ExtraTime.ON};
     private Round.Penalties[] roundsPenalties = {Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON};
     private int[] roundsPointsFaw = {2, 2, 2, 2, 2, 2};
     private int[] roundsPlayEachTeam = {1, 1, 1, 1, 1, 1};
+
+    private Knockout[] knockouts = {new Knockout(), new Knockout(), new Knockout(), new Knockout(), new Knockout(), new Knockout()};
 
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
@@ -509,7 +509,7 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(false);
             for (int i = 0; i < 6; i++) {
-                if (roundLegs[i] == 2) {
+                if (roundGroups[i] == 0 && knockouts[i].numberOfLegs == 2) {
                     setVisible(true);
                     break;
                 }
@@ -545,7 +545,7 @@ class DesignDiyTournament extends GLScreen {
             setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)));
             setVisible(false);
             for (int i = 0; i < 6; i++) {
-                if (roundLegs[i] == 2) {
+                if (roundGroups[i] == 0 && knockouts[i].numberOfLegs == 2) {
                     setVisible(true);
                     break;
                 }
@@ -885,7 +885,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotateLegs() {
-            roundLegs[round] = Emath.rotate(roundLegs[round], 1, 2, 1);
+            knockouts[round].numberOfLegs = Emath.rotate(knockouts[round].numberOfLegs, 1, 2, 1);
             setDirty(true);
             awayGoalsLabel.setDirty(true);
             awayGoalsButton.setDirty(true);
@@ -896,7 +896,7 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
             if (visible) {
-                setText(Assets.strings.get(roundLegs[round] == 1 ? "ONE LEG" : "TWO LEGS"));
+                setText(Assets.strings.get(knockouts[round].numberOfLegs == 1 ? "ONE LEG" : "TWO LEGS"));
             }
         }
     }
@@ -923,7 +923,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotateExtraTime() {
-            roundsExtraTime[round] = Round.ExtraTime.values()[Emath.rotate(roundsExtraTime[round].ordinal(), 0, 2, 1)];
+            knockouts[round].extraTime = Round.ExtraTime.values()[Emath.rotate(knockouts[round].extraTime.ordinal(), 0, 2, 1)];
             setDirty(true);
         }
 
@@ -931,7 +931,7 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
             if (visible) {
-                setText(Assets.strings.get(Round.getExtraTimeLabel(roundsExtraTime[round])));
+                setText(Assets.strings.get(Round.getExtraTimeLabel(knockouts[round].extraTime)));
             }
         }
     }
@@ -1077,13 +1077,13 @@ class DesignDiyTournament extends GLScreen {
             switch (groups) {
                 case 0:
                     if (teams == 2) {
-                        if (roundLegs[round] == 1) {
+                        if (knockouts[round].numberOfLegs == 1) {
                             label = Assets.strings.get("TOURNAMENT.MATCH WINNER WINS TOURNAMENT");
                         } else {
                             label = Assets.strings.get("TOURNAMENT.MATCH WINNER ON AGGREGATE WINS TOURNAMENT");
                         }
                     } else {
-                        if (roundLegs[round] == 1) {
+                        if (knockouts[round].numberOfLegs == 1) {
                             label = Assets.strings.get("TOURNAMENT.MATCH WINNERS QUALIFY");
                         } else {
                             label = Assets.strings.get("TOURNAMENT.MATCH WINNERS ON AGGREGATE QUALIFY");
@@ -1178,6 +1178,8 @@ class DesignDiyTournament extends GLScreen {
             roundShortArrowPictures[round].setDirty(true);
         }
         roundQualificationLabels[round].setDirty(true);
+        awayGoalsLabel.setDirty(true);
+        awayGoalsButton.setDirty(true);
     }
 
     private class OkButton extends Button {
@@ -1193,12 +1195,9 @@ class DesignDiyTournament extends GLScreen {
             int round = 0;
             while (roundTeams[round] > 1) {
                 if (roundGroups[round] == 0) {
-                    Knockout knockout = new Knockout();
-                    knockout.numberOfTeams = roundTeams[round];
-                    knockout.numberOfLegs = roundLegs[round];
-                    knockout.seeded = roundSeeded[round];
-                    knockout.extraTime = roundsExtraTime[round];
-                    tournament.addRound(knockout);
+                    knockouts[round].numberOfTeams = roundTeams[round];
+                    knockouts[round].seeded = roundSeeded[round];
+                    tournament.addRound(knockouts[round]);
                 } else {
                     Groups groups = new Groups();
                     groups.numberOfTeams = roundTeams[round];

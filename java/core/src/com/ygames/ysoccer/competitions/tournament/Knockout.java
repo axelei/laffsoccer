@@ -8,6 +8,12 @@ public class Knockout extends Round implements Json.Serializable {
     public int numberOfLegs;
     public ExtraTime extraTime;
 
+    public Knockout() {
+        super();
+        this.numberOfLegs = 1;
+        this.extraTime = ExtraTime.ON;
+    }
+
     @Override
     public void read(Json json, JsonValue jsonData) {
         super.read(json, jsonData);
