@@ -36,10 +36,10 @@ class DesignDiyTournament extends GLScreen {
     private int[] roundTeams = {24, 16, 8, 4, 2, 1, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
-    private int[] roundsPointsFaw = {2, 2, 2, 2, 2, 2};
     private int[] roundsPlayEachTeam = {1, 1, 1, 1, 1, 1};
 
     private Knockout[] knockouts = {new Knockout(), new Knockout(), new Knockout(), new Knockout(), new Knockout(), new Knockout()};
+    private Groups[] groups = {new Groups(), new Groups(), new Groups(), new Groups(), new Groups(), new Groups()};
 
     private Widget[] roundNumberLabels = new Widget[6];
     private Widget[] roundTeamsButtons = new Widget[6];
@@ -992,7 +992,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotatePointsFaw() {
-            roundsPointsFaw[round] = Emath.rotate(roundsPointsFaw[round], 2, 3, 1);
+            groups[round].pointsForAWin = Emath.rotate(groups[round].pointsForAWin, 2, 3, 1);
             setDirty(true);
         }
 
@@ -1000,7 +1000,7 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(roundTeams[round] > 1 && roundGroups[round] > 0);
             if (visible) {
-                setText(Assets.strings.get("%n POINTS FOR A WIN").replaceFirst("%n", "" + roundsPointsFaw[round]));
+                setText(Assets.strings.get("%n POINTS FOR A WIN").replaceFirst("%n", "" + groups[round].pointsForAWin));
             }
         }
     }
@@ -1198,10 +1198,9 @@ class DesignDiyTournament extends GLScreen {
                     knockouts[round].seeded = roundSeeded[round];
                     tournament.addRound(knockouts[round]);
                 } else {
-                    Groups groups = new Groups();
-                    groups.numberOfTeams = roundTeams[round];
-                    groups.seeded = roundSeeded[round];
-                    tournament.addRound(groups);
+                    groups[round].numberOfTeams = roundTeams[round];
+                    groups[round].seeded = roundSeeded[round];
+                    tournament.addRound(groups[round]);
                 }
                 round++;
             }
