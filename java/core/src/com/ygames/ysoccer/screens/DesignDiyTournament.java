@@ -36,7 +36,6 @@ class DesignDiyTournament extends GLScreen {
     private int[] roundTeams = {24, 16, 8, 4, 2, 1, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
-    private int[] roundsPlayEachTeam = {1, 1, 1, 1, 1, 1};
 
     private Knockout[] knockouts = {new Knockout(), new Knockout(), new Knockout(), new Knockout(), new Knockout(), new Knockout()};
     private Groups[] groups = {new Groups(), new Groups(), new Groups(), new Groups(), new Groups(), new Groups()};
@@ -156,7 +155,7 @@ class DesignDiyTournament extends GLScreen {
             widgets.add(w);
             roundPenaltiesButtons[i] = w;
 
-            w = new RoundPointsFawButton(i);
+            w = new RoundPointsForAWinButton(i);
             widgets.add(w);
             roundPointsFawButtons[i] = w;
 
@@ -970,11 +969,11 @@ class DesignDiyTournament extends GLScreen {
         }
     }
 
-    private class RoundPointsFawButton extends Button {
+    private class RoundPointsForAWinButton extends Button {
 
         private int round;
 
-        RoundPointsFawButton(int round) {
+        RoundPointsForAWinButton(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 310, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
@@ -983,15 +982,15 @@ class DesignDiyTournament extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            rotatePointsFaw();
+            rotatePointsForAWin();
         }
 
         @Override
         public void onFire1Hold() {
-            rotatePointsFaw();
+            rotatePointsForAWin();
         }
 
-        private void rotatePointsFaw() {
+        private void rotatePointsForAWin() {
             groups[round].pointsForAWin = Emath.rotate(groups[round].pointsForAWin, 2, 3, 1);
             setDirty(true);
         }
@@ -1027,7 +1026,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotatePlayEachTeam() {
-            roundsPlayEachTeam[round] = Emath.rotate(roundsPlayEachTeam[round], 1, 4, 1);
+            groups[round].rounds = Emath.rotate(groups[round].rounds, 1, 4, 1);
             setDirty(true);
         }
 
@@ -1035,7 +1034,7 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(roundTeams[round] > 1 && roundGroups[round] > 0);
             if (visible) {
-                setText(Assets.strings.get("PLAY EACH TEAM ×%n").replaceFirst("%n", "" + roundsPlayEachTeam[round]));
+                setText(Assets.strings.get("PLAY EACH TEAM ×%n").replaceFirst("%n", "" + groups[round].rounds));
             }
         }
     }
