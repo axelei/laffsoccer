@@ -7,11 +7,13 @@ public class Knockout extends Round implements Json.Serializable {
 
     public int numberOfLegs;
     public ExtraTime extraTime;
+    public Penalties penalties;
 
     public Knockout() {
         super();
-        this.numberOfLegs = 1;
-        this.extraTime = ExtraTime.ON;
+        numberOfLegs = 1;
+        extraTime = ExtraTime.ON;
+        penalties = Penalties.ON;
     }
 
     @Override
@@ -19,6 +21,7 @@ public class Knockout extends Round implements Json.Serializable {
         super.read(json, jsonData);
         numberOfLegs = jsonData.getInt("numberOfLegs");
         extraTime = json.readValue("extraTime", ExtraTime.class, jsonData);
+        penalties = json.readValue("penalties", Penalties.class, jsonData);
     }
 
     @Override
@@ -26,6 +29,7 @@ public class Knockout extends Round implements Json.Serializable {
         super.write(json);
         json.writeValue("numberOfLegs", numberOfLegs);
         json.writeValue("extraTime", extraTime);
+        json.writeValue("penalties", penalties);
     }
 
     boolean isPreset() {

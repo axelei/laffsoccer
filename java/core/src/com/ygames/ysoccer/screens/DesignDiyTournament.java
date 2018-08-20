@@ -36,7 +36,6 @@ class DesignDiyTournament extends GLScreen {
     private int[] roundTeams = {24, 16, 8, 4, 2, 1, 0};
     private int[] roundGroups = {6, 0, 0, 0, 0, 0};
     private boolean[] roundSeeded = {false, false, false, false, false, false};
-    private Round.Penalties[] roundsPenalties = {Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON, Round.Penalties.ON};
     private int[] roundsPointsFaw = {2, 2, 2, 2, 2, 2};
     private int[] roundsPlayEachTeam = {1, 1, 1, 1, 1, 1};
 
@@ -958,7 +957,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotatePenalties() {
-            roundsPenalties[round] = Round.Penalties.values()[Emath.rotate(roundsPenalties[round].ordinal(), 0, 2, 1)];
+            knockouts[round].penalties = Round.Penalties.values()[Emath.rotate(knockouts[round].penalties.ordinal(), 0, 2, 1)];
             setDirty(true);
         }
 
@@ -966,7 +965,7 @@ class DesignDiyTournament extends GLScreen {
         public void refresh() {
             setVisible(roundTeams[round] > 1 && roundGroups[round] == 0);
             if (visible) {
-                setText(Assets.strings.get(Round.getPenaltiesLabel(roundsPenalties[round])));
+                setText(Assets.strings.get(Round.getPenaltiesLabel(knockouts[round].penalties)));
             }
         }
     }
