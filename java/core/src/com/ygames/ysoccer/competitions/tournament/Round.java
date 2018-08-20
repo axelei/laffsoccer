@@ -13,7 +13,7 @@ public abstract class Round {
     public Tournament tournament;
     public String name;
     public int numberOfTeams;
-    boolean seeded;
+    public boolean seeded;
 
     public void read(Json json, JsonValue jsonData) {
         name = jsonData.getString("name");

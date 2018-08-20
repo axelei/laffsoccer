@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.tournament.Groups;
 import com.ygames.ysoccer.competitions.tournament.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
@@ -87,6 +86,9 @@ class InfoTournament extends GLScreen {
             widgets.add(w);
 
             w = new RoundGroupsButton(i);
+            widgets.add(w);
+
+            w = new RoundSeededButton(i);
             widgets.add(w);
         }
 
@@ -317,6 +319,21 @@ class InfoTournament extends GLScreen {
                         .replaceFirst("%m", "" + (teams / groups))
                 );
             }
+            setActive(false);
+        }
+    }
+
+    private class RoundSeededButton extends Button {
+
+        RoundSeededButton(int round) {
+            setGeometry(game.gui.WIDTH / 2 - 170, 280 + 62 * round, 42, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(tournament.rounds.get(round).seeded ? "*" : "-", Font.Align.CENTER, Assets.font14);
+            setActive(false);
         }
     }
 
