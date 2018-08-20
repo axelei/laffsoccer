@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.tournament.Groups;
 import com.ygames.ysoccer.competitions.tournament.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
@@ -103,6 +104,11 @@ class InfoTournament extends GLScreen {
                 widgets.add(w);
 
                 w = new RoundPenaltiesButton(i, knockout);
+                widgets.add(w);
+            } else {
+                Groups groups = (Groups) round;
+
+                w = new RoundPointsFawButton(i, groups);
                 widgets.add(w);
             }
         }
@@ -390,6 +396,20 @@ class InfoTournament extends GLScreen {
                 setColors(0x666666);
             }
             setText(Assets.strings.get(Round.getPenaltiesLabel(knockout.penalties)), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class RoundPointsFawButton extends Button {
+
+        RoundPointsFawButton(int round, Groups groups) {
+            setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 310, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(Assets.strings.get("%n POINTS FOR A WIN").replaceFirst("%n", "" + groups.pointsForAWin), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
