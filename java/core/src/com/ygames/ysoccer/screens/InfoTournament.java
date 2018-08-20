@@ -110,6 +110,9 @@ class InfoTournament extends GLScreen {
 
                 w = new RoundPointsForAWinButton(i, groups);
                 widgets.add(w);
+
+                w = new RoundPlayEachTeamButton(i, groups);
+                widgets.add(w);
             }
         }
 
@@ -410,6 +413,20 @@ class InfoTournament extends GLScreen {
                 setColors(0x666666);
             }
             setText(Assets.strings.get("%n POINTS FOR A WIN").replaceFirst("%n", "" + groups.pointsForAWin), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class RoundPlayEachTeamButton extends Button {
+
+        RoundPlayEachTeamButton(int round, Groups groups) {
+            setGeometry(game.gui.WIDTH / 2 + 186, 280 + 62 * round, 310, 32);
+            if (round == tournament.currentRound) {
+                setColors(0x444444);
+            } else {
+                setColors(0x666666);
+            }
+            setText(Assets.strings.get("PLAY EACH TEAM ×%n").replaceFirst("%n", "" + groups.rounds), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
     }
