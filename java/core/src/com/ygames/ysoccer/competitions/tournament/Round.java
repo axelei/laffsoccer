@@ -13,15 +13,18 @@ public abstract class Round {
     public Tournament tournament;
     public String name;
     public int numberOfTeams;
+    boolean seeded;
 
     public void read(Json json, JsonValue jsonData) {
         name = jsonData.getString("name");
         numberOfTeams = jsonData.getInt("numberOfTeams");
+        seeded = jsonData.getBoolean("seeded");
     }
 
     public void write(Json json) {
         json.writeValue("name", name);
         json.writeValue("numberOfTeams", numberOfTeams);
+        json.writeValue("seeded", seeded);
     }
 
     public void setTournament(Tournament tournament) {
