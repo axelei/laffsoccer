@@ -2,6 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.tournament.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
@@ -1188,16 +1189,15 @@ class DesignDiyTournament extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            tournament.numberOfTeams = roundTeams[0];
             int round = 0;
             while (roundTeams[round] > 1) {
                 if (roundGroups[round] == 0) {
-                    tournament.addKnockout(
-                            roundTeams[round],
-                            roundLegs[round],
-                            roundSeeded[round],
-                            roundsExtraTime[round]
-                    );
+                    Knockout knockout = new Knockout();
+                    knockout.numberOfTeams = roundTeams[round];
+                    knockout.numberOfLegs = roundLegs[round];
+                    knockout.seeded = roundSeeded[round];
+                    knockout.extraTime = roundsExtraTime[round];
+                    tournament.addRound(knockout);
                 } else {
                     tournament.addGroups(
                             roundTeams[round],

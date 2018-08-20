@@ -59,16 +59,8 @@ public class Tournament extends Competition implements Json.Serializable {
 
     public void addRound(Round round) {
         rounds.add(round);
+        numberOfTeams = rounds.get(0).numberOfTeams;
         updateRoundNames();
-    }
-
-    public void addKnockout(int numberOfTeams, int numberOfLegs, boolean seeded, Round.ExtraTime extraTime) {
-        Knockout knockout = new Knockout();
-        knockout.numberOfTeams = numberOfTeams;
-        knockout.numberOfLegs = numberOfLegs;
-        knockout.seeded = seeded;
-        knockout.extraTime = extraTime;
-        addRound(knockout);
     }
 
     public void addGroups(int numberOfTeams, boolean seeded) {
