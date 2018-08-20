@@ -12,6 +12,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
+import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
@@ -112,6 +113,11 @@ class InfoTournament extends GLScreen {
                 widgets.add(w);
 
                 w = new RoundPlayEachTeamButton(i, groups);
+                widgets.add(w);
+            }
+
+            if (i < tournament.rounds.size() - 1) {
+                w = new ShortArrowPicture(i);
                 widgets.add(w);
             }
         }
@@ -428,6 +434,14 @@ class InfoTournament extends GLScreen {
             }
             setText(Assets.strings.get("PLAY EACH TEAM ×%n").replaceFirst("%n", "" + groups.rounds), Font.Align.CENTER, Assets.font14);
             setActive(false);
+        }
+    }
+
+    private class ShortArrowPicture extends Picture {
+
+        ShortArrowPicture(int round) {
+            setTextureRegion(Assets.shortArrow);
+            setPosition(game.gui.WIDTH / 2 - 446, 326 + 62 * round);
         }
     }
 
