@@ -3,6 +3,7 @@ package com.ygames.ysoccer.competitions.tournament;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 

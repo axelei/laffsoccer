@@ -1,7 +1,8 @@
-package com.ygames.ysoccer.competitions.tournament;
+package com.ygames.ysoccer.competitions.tournament.knockout;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.competitions.tournament.Round;
 
 public class Knockout extends Round implements Json.Serializable {
 
@@ -32,7 +33,7 @@ public class Knockout extends Round implements Json.Serializable {
         json.writeValue("penalties", penalties);
     }
 
-    boolean isPreset() {
+    public boolean isPreset() {
         // TODO
         return false;
     }

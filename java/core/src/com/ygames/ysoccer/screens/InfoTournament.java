@@ -2,7 +2,7 @@ package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Groups;
-import com.ygames.ysoccer.competitions.tournament.Knockout;
+import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
