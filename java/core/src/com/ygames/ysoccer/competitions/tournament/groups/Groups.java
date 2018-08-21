@@ -41,4 +41,8 @@ public class Groups extends Round implements Json.Serializable {
         return null;
     }
 
+    public void generateResult() {
+        // TODO
+    }
+
 }

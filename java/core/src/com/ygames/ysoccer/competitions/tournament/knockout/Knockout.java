@@ -1,15 +1,23 @@
 package com.ygames.ysoccer.competitions.tournament.knockout;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.IF_REPLAY;
+import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.OFF;
+import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.ON;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Match.ResultType.AFTER_PENALTIES;
 
 public class Knockout extends Round implements Json.Serializable {
 
@@ -22,7 +30,7 @@ public class Knockout extends Round implements Json.Serializable {
     public Knockout() {
         super(Type.KNOCKOUT);
         numberOfLegs = 1;
-        extraTime = ExtraTime.ON;
+        extraTime = ON;
         penalties = Penalties.ON;
         currentLeg = 0;
         legs = new ArrayList<Leg>();
@@ -136,6 +144,197 @@ public class Knockout extends Round implements Json.Serializable {
 //                }
             }
         }
+    }
+
+    public void generateResult() {
+        Match match = getMatch();
+        Team homeTeam = tournament.getTeam(HOME);
+        Team awayTeam = tournament.getTeam(AWAY);
+
+        int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
+        int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
+        match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
+
+        if (playExtraTime()) {
+            homeGoals += Match.generateGoals(homeTeam, awayTeam, true);
+            awayGoals += Match.generateGoals(awayTeam, homeTeam, true);
+            match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_EXTRA_TIME);
+        }
+
+        tournament.generateScorers(homeTeam, homeGoals);
+        tournament.generateScorers(awayTeam, awayGoals);
+
+        if (playPenalties()) {
+            do {
+                homeGoals = Emath.floor(6 * Math.random());
+                awayGoals = Emath.floor(6 * Math.random());
+            } while (homeGoals == awayGoals);
+            match.setResult(homeGoals, awayGoals, AFTER_PENALTIES);
+        }
+    }
+
+    // decide if extra time have to be played depending on current result, leg's type and settings
+    public boolean playExtraTime() {
+        Match match = getMatch();
+
+        // first leg
+        if (currentLeg == 0) {
+
+            // two legs round
+            if (numberOfLegs == 2) {
+                return false;
+            }
+
+            // result
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
+                return false;
+            }
+
+            // settings
+            switch (extraTime) {
+                case OFF:
+                    return false;
+
+                case ON:
+                    return true;
+
+                case IF_REPLAY:
+                    return false;
+            }
+        }
+
+        // second leg
+        else if (currentLeg == 1 && numberOfLegs == 2) {
+
+            // aggregate goals
+            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
+            if (aggregate1 != aggregate2) {
+                return false;
+            }
+
+            // away goals
+            if ((match.oldResult[AWAY] != match.getResult()[AWAY]) && (tournament.awayGoals == Competition.AwayGoals.AFTER_90_MINUTES)) {
+                return false;
+            }
+
+            // settings
+            switch (extraTime) {
+                case OFF:
+                    return false;
+
+                case ON:
+                    return true;
+
+                case IF_REPLAY:
+                    return false;
+            }
+
+        }
+
+        // replays
+        else {
+            // result
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
+                return false;
+            }
+
+            // settings
+            switch (extraTime) {
+                case OFF:
+                    return false;
+
+                case ON:
+                    return true;
+
+                case IF_REPLAY:
+                    return true;
+            }
+        }
+
+        // should never get here
+        return false;
+    }
+
+    // decide if penalties have to be played depending on current result, leg's type and settings
+    private boolean playPenalties() {
+        Match match = getMatch();
+
+        // first leg
+        if (currentLeg == 0) {
+
+            // two legs round
+            if (numberOfLegs == 2) {
+                return false;
+            }
+
+            // result
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
+                return false;
+            }
+
+            // settings
+            switch (penalties) {
+                case OFF:
+                    return false;
+
+                case ON:
+                    return true;
+
+                case IF_REPLAY:
+                    return false;
+            }
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (numberOfLegs == 2)) {
+
+            // aggregate goals
+            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
+            if (aggregate1 != aggregate2) {
+                return false;
+            }
+
+            // away goals
+            if ((match.oldResult[AWAY] != match.getResult()[AWAY]) && (tournament.awayGoals != Competition.AwayGoals.OFF)) {
+                return false;
+            }
+
+            // settings
+            switch (penalties) {
+                case OFF:
+                    return false;
+
+                case ON:
+                    return true;
+
+                case IF_REPLAY:
+                    return false;
+            }
+        }
+
+        // replays
+        else {
+            // result
+            if (match.getResult()[HOME] != match.getResult()[AWAY]) {
+                return false;
+            }
+
+            // settings
+            switch (penalties) {
+                case OFF:
+                    return false;
+                case ON:
+                    // this should never happen
+                    throw new GdxRuntimeException("Invalid state in cup");
+                case IF_REPLAY:
+                    return true;
+            }
+        }
+
+        // should never get here
+        return false;
     }
 
     public String getMatchStatus(Match match) {

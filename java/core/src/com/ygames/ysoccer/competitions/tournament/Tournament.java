@@ -124,6 +124,10 @@ public class Tournament extends Competition implements Json.Serializable {
         return getRound().getMatch();
     }
 
+    public void generateResult() {
+        getRound().generateResult();
+    }
+
     @Override
     public boolean isEnded() {
         return currentRound == rounds.size() - 1; // TODO && currentRound.isEnded()

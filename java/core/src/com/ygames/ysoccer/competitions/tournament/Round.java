@@ -43,6 +43,8 @@ public abstract class Round {
 
     public abstract Match getMatch();
 
+    public abstract void generateResult();
+
     public static String getExtraTimeLabel(ExtraTime extraTime) {
         switch (extraTime) {
             case OFF:

@@ -322,7 +322,7 @@ public abstract class Competition {
     }
 
 
-    void generateScorers(Team team, int goals) {
+    public void generateScorers(Team team, int goals) {
         int teamWeight = 0;
         for (int playerIndex = 0; playerIndex < Const.TEAM_SIZE + benchSize; playerIndex++) {
             Player player = team.players.get(playerIndex);
