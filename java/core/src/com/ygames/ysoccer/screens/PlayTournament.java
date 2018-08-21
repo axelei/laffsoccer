@@ -1,16 +1,23 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.tournament.Tournament;
+import com.ygames.ysoccer.competitions.tournament.groups.Groups;
+import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Match;
+
+import java.util.ArrayList;
 
 class PlayTournament extends GLScreen {
 
     private Tournament tournament;
+    private Knockout knockout;
+    private ArrayList<Match> matches;
 
     PlayTournament(GLGame game) {
         super(game);
@@ -23,6 +30,16 @@ class PlayTournament extends GLScreen {
 
         w = new TitleBar(tournament.getMenuTitle(), game.stateColor.body);
         widgets.add(w);
+
+        switch(tournament.getRound().type) {
+            case GROUPS:
+                break;
+
+            case KNOCKOUT:
+                knockout = (Knockout)tournament.getRound();
+                matches = knockout.getMatches();
+                break;
+        }
 
         w = new ViewStatisticsButton();
         widgets.add(w);

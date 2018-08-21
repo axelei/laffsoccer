@@ -38,7 +38,7 @@ public abstract class Round {
         this.tournament = tournament;
     }
 
-    public abstract boolean isPreset();
+    protected abstract void start();
 
     public static String getExtraTimeLabel(ExtraTime extraTime) {
         switch (extraTime) {

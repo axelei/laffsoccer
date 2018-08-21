@@ -29,8 +29,7 @@ public class Groups extends Round implements Json.Serializable {
         json.writeValue("pointsForAWin", pointsForAWin);
     }
 
-    public boolean isPreset() {
+    protected void start() {
         // TODO
-        return false;
     }
 }
