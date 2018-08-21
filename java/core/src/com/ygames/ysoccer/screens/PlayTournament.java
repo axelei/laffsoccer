@@ -174,6 +174,19 @@ class PlayTournament extends GLScreen {
 
             setSelectedWidget(exitButton);
 
+        } else {
+
+            if (match.isEnded()) {
+            } else {
+                Widget playMatchButton = new PlayViewMatchButton();
+                widgets.add(playMatchButton);
+
+                if (tournament.bothComputers() || tournament.userPrefersResult) {
+                    // TODO
+                } else {
+                    setSelectedWidget(playMatchButton);
+                }
+            }
         }
     }
 
@@ -239,6 +252,59 @@ class PlayTournament extends GLScreen {
         private void scroll(int direction) {
             offset = Emath.slide(offset, 0, matches.size() - 8, direction);
             updateResultWidgets();
+        }
+    }
+
+    private class PlayViewMatchButton extends Button {
+
+        PlayViewMatchButton() {
+            setGeometry(game.gui.WIDTH / 2 - 430, 660, 220, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText("", Font.Align.CENTER, Assets.font14);
+            if (tournament.bothComputers()) {
+                setText(Assets.strings.get("VIEW MATCH"));
+            } else {
+                setText("- " + Assets.strings.get("MATCH") + " -");
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            tournament.userPrefersResult = false;
+
+            Team homeTeam = tournament.getTeam(HOME);
+            Team awayTeam = tournament.getTeam(AWAY);
+
+            Match match = tournament.getMatch();
+            match.setTeam(HOME, homeTeam);
+            match.setTeam(AWAY, awayTeam);
+
+            // reset input devices
+            game.inputDevices.setAvailability(true);
+            homeTeam.setInputDevice(null);
+            homeTeam.releaseNonAiInputDevices();
+            awayTeam.setInputDevice(null);
+            awayTeam.releaseNonAiInputDevices();
+
+            // choose the menu to set
+            if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+                if (lastFireInputDevice != null) {
+                    homeTeam.setInputDevice(lastFireInputDevice);
+                }
+                navigation.competition = tournament;
+                navigation.team = homeTeam;
+                game.setScreen(new SetTeam(game));
+            } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+                if (lastFireInputDevice != null) {
+                    awayTeam.setInputDevice(lastFireInputDevice);
+                }
+                navigation.competition = tournament;
+                navigation.team = awayTeam;
+                game.setScreen(new SetTeam(game));
+            } else {
+                navigation.competition = tournament;
+                game.setScreen(new MatchSetup(game));
+            }
         }
     }
 

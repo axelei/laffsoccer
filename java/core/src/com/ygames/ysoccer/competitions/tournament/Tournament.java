@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
+import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 
@@ -51,6 +52,7 @@ public class Tournament extends Competition implements Json.Serializable {
         super.start(teams);
 
         getRound().start();
+        updateMonth();
     }
 
     public Round getRound() {
@@ -62,6 +64,13 @@ public class Tournament extends Competition implements Json.Serializable {
         rounds.add(round);
         numberOfTeams = rounds.get(0).numberOfTeams;
         updateRoundNames();
+    }
+
+    private void updateMonth() {
+        if (weather == Weather.BY_SEASON) {
+            int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
+            currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds.size()) % 12];
+        }
     }
 
     private void updateRoundNames() {
