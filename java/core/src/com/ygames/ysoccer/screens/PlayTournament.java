@@ -9,8 +9,12 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 class PlayTournament extends GLScreen {
 
@@ -55,6 +59,14 @@ class PlayTournament extends GLScreen {
                 for (int m = 0; m < matches.size(); m++) {
                     Match match = matches.get(m);
                     int qualified = knockout.getLeg().getQualifiedTeam(match);
+
+                    w = new TeamButton(335, dy + 64 * m, tournament.teams.get(match.teams[HOME]), Font.Align.RIGHT, qualified == match.teams[HOME]);
+                    resultWidgets.add(w);
+                    widgets.add(w);
+
+                    w = new TeamButton(705, dy + 64 * m, tournament.teams.get(match.teams[AWAY]), Font.Align.LEFT, qualified == match.teams[AWAY]);
+                    resultWidgets.add(w);
+                    widgets.add(w);
                 }
                 break;
         }
@@ -64,6 +76,31 @@ class PlayTournament extends GLScreen {
 
         Widget exitButton = new ExitButton();
         widgets.add(exitButton);
+    }
+
+    private class TeamButton extends Button {
+
+        TeamButton(int x, int y, Team team, Font.Align align, boolean qualified) {
+            setGeometry(x, y, 240, 26);
+            int bodyColor = 0;
+            switch (team.controlMode) {
+                case COMPUTER:
+                    bodyColor = 0x981E1E;
+                    break;
+
+                case PLAYER:
+                    bodyColor = 0x0000C8;
+                    break;
+
+                case COACH:
+                    bodyColor = 0x009BDC;
+                    break;
+            }
+            int borderColor = qualified ? 0x21E337 : 0x1A1A1A;
+            setColors(bodyColor, borderColor, borderColor);
+            setText(team.name, align, Assets.font10);
+            setActive(false);
+        }
     }
 
     private class ViewStatisticsButton extends Button {
