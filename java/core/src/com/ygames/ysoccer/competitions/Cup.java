@@ -98,6 +98,8 @@ public class Cup extends Competition implements Json.Serializable {
                 round.legs.get(0).matches.addAll(firstLegMatches);
             }
         }
+
+        updateMonth();
     }
 
     public Round getRound() {
