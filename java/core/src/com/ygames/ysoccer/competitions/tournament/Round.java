@@ -6,14 +6,21 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public abstract class Round {
 
+    public enum Type {GROUPS, KNOCKOUT}
+
     public enum ExtraTime {OFF, ON, IF_REPLAY}
 
     public enum Penalties {OFF, ON, IF_REPLAY}
 
     public Tournament tournament;
     public String name;
+    public final Type type;
     public int numberOfTeams;
     public boolean seeded;
+
+    public Round(Type type) {
+        this.type = type;
+    }
 
     public void read(Json json, JsonValue jsonData) {
         name = jsonData.getString("name");

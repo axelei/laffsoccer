@@ -11,7 +11,7 @@ public class Knockout extends Round implements Json.Serializable {
     public Penalties penalties;
 
     public Knockout() {
-        super();
+        super(Type.KNOCKOUT);
         numberOfLegs = 1;
         extraTime = ExtraTime.ON;
         penalties = Penalties.ON;

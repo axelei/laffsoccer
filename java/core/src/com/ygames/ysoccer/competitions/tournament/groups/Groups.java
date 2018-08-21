@@ -10,7 +10,7 @@ public class Groups extends Round implements Json.Serializable {
     public int pointsForAWin;
 
     public Groups() {
-        super();
+        super(Type.GROUPS);
         rounds = 1;
         pointsForAWin = 3;
     }

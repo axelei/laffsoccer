@@ -66,10 +66,14 @@ public class Tournament extends Competition implements Json.Serializable {
 
     private void updateRoundNames() {
         for (int i = 0; i < rounds.size(); i++) {
-            if (Knockout.class.isInstance(rounds.get(i))) {
-                rounds.get(i).name = getKnockoutLabel(i);
-            } else {
-                rounds.get(i).name = getGroupsLabel(i);
+            switch (rounds.get(i).type) {
+                case KNOCKOUT:
+                    rounds.get(i).name = getKnockoutLabel(i);
+                    break;
+
+                case GROUPS:
+                    rounds.get(i).name = getGroupsLabel(i);
+                    break;
             }
         }
     }
@@ -118,7 +122,7 @@ public class Tournament extends Competition implements Json.Serializable {
 
     public boolean hasTwoLegsRound() {
         for (Round round : rounds) {
-            if (Knockout.class.isInstance(round)) {
+            if (round.type == Round.Type.KNOCKOUT) {
                 if (((Knockout) round).numberOfLegs == 2) {
                     return true;
                 }

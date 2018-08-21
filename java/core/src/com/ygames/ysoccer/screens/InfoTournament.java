@@ -1,10 +1,10 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.Competition;
-import com.ygames.ysoccer.competitions.tournament.groups.Groups;
-import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
+import com.ygames.ysoccer.competitions.tournament.groups.Groups;
+import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -95,27 +95,30 @@ class InfoTournament extends GLScreen {
             widgets.add(w);
 
             Round round = tournament.rounds.get(i);
-            if (Knockout.class.isInstance(round)) {
-                Knockout knockout = (Knockout) round;
+            switch (round.type) {
+                case KNOCKOUT:
+                    Knockout knockout = (Knockout) round;
 
-                w = new RoundLegsButton(i, knockout);
-                widgets.add(w);
+                    w = new RoundLegsButton(i, knockout);
+                    widgets.add(w);
 
-                w = new RoundExtraTimeButton(i, knockout);
-                widgets.add(w);
+                    w = new RoundExtraTimeButton(i, knockout);
+                    widgets.add(w);
 
-                w = new RoundPenaltiesButton(i, knockout);
-                widgets.add(w);
-            } else {
-                Groups groups = (Groups) round;
+                    w = new RoundPenaltiesButton(i, knockout);
+                    widgets.add(w);
+                    break;
 
-                w = new RoundPointsForAWinButton(i, groups);
-                widgets.add(w);
+                case GROUPS:
+                    Groups groups = (Groups) round;
 
-                w = new RoundPlayEachTeamButton(i, groups);
-                widgets.add(w);
+                    w = new RoundPointsForAWinButton(i, groups);
+                    widgets.add(w);
+
+                    w = new RoundPlayEachTeamButton(i, groups);
+                    widgets.add(w);
+                    break;
             }
-
             if (i < tournament.rounds.size() - 1) {
                 w = new ShortArrowPicture(i);
                 widgets.add(w);
@@ -325,32 +328,36 @@ class InfoTournament extends GLScreen {
             setText("", Font.Align.CENTER, Assets.font14);
             int teams = tournament.rounds.get(round).numberOfTeams;
             String key;
-            if (Knockout.class.isInstance(tournament.rounds.get(round))) {
-                switch (teams) {
-                    case 2:
-                        key = "FINAL";
-                        break;
-                    case 4:
-                        key = "SEMI-FINAL";
-                        break;
-                    case 8:
-                        key = "QUARTER-FINAL";
-                        break;
-                    default:
-                        key = "KNOCKOUT";
-                }
-                setText(Assets.strings.get(key));
-            } else {
-                int groups = 1; // TODO (Groups)tournament.rounds.get(round).numberOfGroups;
-                if (groups == 1) {
-                    key = "%n GROUP OF %m";
-                } else {
-                    key = "%n GROUPS OF %m";
-                }
-                setText(Assets.strings.get(key)
-                        .replaceFirst("%n", "" + groups)
-                        .replaceFirst("%m", "" + (teams / groups))
-                );
+            switch (tournament.rounds.get(round).type) {
+                case KNOCKOUT:
+                    switch (teams) {
+                        case 2:
+                            key = "FINAL";
+                            break;
+                        case 4:
+                            key = "SEMI-FINAL";
+                            break;
+                        case 8:
+                            key = "QUARTER-FINAL";
+                            break;
+                        default:
+                            key = "KNOCKOUT";
+                    }
+                    setText(Assets.strings.get(key));
+                    break;
+
+                case GROUPS:
+                    int groups = 1; // TODO (Groups)tournament.rounds.get(round).numberOfGroups;
+                    if (groups == 1) {
+                        key = "%n GROUP OF %m";
+                    } else {
+                        key = "%n GROUPS OF %m";
+                    }
+                    setText(Assets.strings.get(key)
+                            .replaceFirst("%n", "" + groups)
+                            .replaceFirst("%m", "" + (teams / groups))
+                    );
+                    break;
             }
             setActive(false);
         }
@@ -454,65 +461,69 @@ class InfoTournament extends GLScreen {
             setPosition(game.gui.WIDTH / 2, 326 + 62 * round);
             int teams = tournament.rounds.get(round).numberOfTeams;
 
-            String label;
-            if (Knockout.class.isInstance(tournament.rounds.get(round))) {
-                Knockout knockout = (Knockout) tournament.rounds.get(round);
-                if (teams == 2) {
-                    if (knockout.numberOfLegs == 1) {
-                        label = Assets.strings.get("TOURNAMENT.MATCH WINNER WINS TOURNAMENT");
+            String label = "";
+            switch (tournament.rounds.get(round).type) {
+                case KNOCKOUT:
+                    Knockout knockout = (Knockout) tournament.rounds.get(round);
+                    if (teams == 2) {
+                        if (knockout.numberOfLegs == 1) {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNER WINS TOURNAMENT");
+                        } else {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNER ON AGGREGATE WINS TOURNAMENT");
+                        }
                     } else {
-                        label = Assets.strings.get("TOURNAMENT.MATCH WINNER ON AGGREGATE WINS TOURNAMENT");
+                        if (knockout.numberOfLegs == 1) {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNERS QUALIFY");
+                        } else {
+                            label = Assets.strings.get("TOURNAMENT.MATCH WINNERS ON AGGREGATE QUALIFY");
+                        }
                     }
-                } else {
-                    if (knockout.numberOfLegs == 1) {
-                        label = Assets.strings.get("TOURNAMENT.MATCH WINNERS QUALIFY");
-                    } else {
-                        label = Assets.strings.get("TOURNAMENT.MATCH WINNERS ON AGGREGATE QUALIFY");
-                    }
-                }
-            } else {
-                int groups = 1; // TODO ((Groups) tournament.rounds.get(round)).groups.size();
-                if (groups == 1) {
-                    if (round == tournament.rounds.size() - 1) {
-                        label = Assets.strings.get("TOURNAMENT.GROUP WINNER WINS TOURNAMENT");
-                    } else {
-                        label = Assets.strings.get("TOURNAMENT.TOP %n IN GROUP QUALIFY")
-                                .replaceFirst("%n", "" + tournament.rounds.get(round + 1).numberOfTeams);
-                    }
-                } else {
-                    int nextRoundTeams = tournament.rounds.get(round + 1).numberOfTeams;
-                    int runnersUp = nextRoundTeams % groups;
-                    switch (runnersUp) {
-                        case 0:
-                            if (nextRoundTeams / groups == 1) {
-                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP QUALIFY");
-                            } else {
-                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP QUALIFY")
-                                        .replaceFirst("%n", "" + nextRoundTeams / groups);
-                            }
-                            break;
+                    break;
 
-                        case 1:
-                            if (nextRoundTeams / groups == 1) {
-                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST RUNNER-UP QUALIFIES");
-                            } else {
-                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST RUNNER-UP QUALIFY")
-                                        .replaceFirst("%n", "" + nextRoundTeams / groups);
-                            }
-                            break;
+                case GROUPS:
+                    int groups = 1; // TODO ((Groups) tournament.rounds.get(round)).groups.size();
+                    if (groups == 1) {
+                        if (round == tournament.rounds.size() - 1) {
+                            label = Assets.strings.get("TOURNAMENT.GROUP WINNER WINS TOURNAMENT");
+                        } else {
+                            label = Assets.strings.get("TOURNAMENT.TOP %n IN GROUP QUALIFY")
+                                    .replaceFirst("%n", "" + tournament.rounds.get(round + 1).numberOfTeams);
+                        }
+                    } else {
+                        int nextRoundTeams = tournament.rounds.get(round + 1).numberOfTeams;
+                        int runnersUp = nextRoundTeams % groups;
+                        switch (runnersUp) {
+                            case 0:
+                                if (nextRoundTeams / groups == 1) {
+                                    label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP QUALIFY");
+                                } else {
+                                    label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP QUALIFY")
+                                            .replaceFirst("%n", "" + nextRoundTeams / groups);
+                                }
+                                break;
 
-                        default:
-                            if (nextRoundTeams / groups == 1) {
-                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST %n RUNNERS-UP QUALIFY")
-                                        .replaceFirst("%n", "" + runnersUp);
-                            } else {
-                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST %m RUNNERS-UP QUALIFY")
-                                        .replaceFirst("%n", "" + nextRoundTeams / groups)
-                                        .replaceFirst("%m", "" + runnersUp);
-                            }
-                            break;
+                            case 1:
+                                if (nextRoundTeams / groups == 1) {
+                                    label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST RUNNER-UP QUALIFIES");
+                                } else {
+                                    label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST RUNNER-UP QUALIFY")
+                                            .replaceFirst("%n", "" + nextRoundTeams / groups);
+                                }
+                                break;
+
+                            default:
+                                if (nextRoundTeams / groups == 1) {
+                                    label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST %n RUNNERS-UP QUALIFY")
+                                            .replaceFirst("%n", "" + runnersUp);
+                                } else {
+                                    label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST %m RUNNERS-UP QUALIFY")
+                                            .replaceFirst("%n", "" + nextRoundTeams / groups)
+                                            .replaceFirst("%m", "" + runnersUp);
+                                }
+                                break;
+                        }
                     }
-                }
+                    break;
             }
             setText("(" + label + ")", Font.Align.CENTER, Assets.font10);
         }
