@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.ygames.ysoccer.competitions.tournament.Tournament;
-import com.ygames.ysoccer.competitions.tournament.groups.Groups;
 import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -18,6 +17,8 @@ class PlayTournament extends GLScreen {
     private Tournament tournament;
     private Knockout knockout;
     private ArrayList<Match> matches;
+    private int offset;
+    private ArrayList<Widget> resultWidgets;
 
     PlayTournament(GLGame game) {
         super(game);
@@ -31,13 +32,30 @@ class PlayTournament extends GLScreen {
         w = new TitleBar(tournament.getMenuTitle(), game.stateColor.body);
         widgets.add(w);
 
-        switch(tournament.getRound().type) {
+        switch (tournament.getRound().type) {
             case GROUPS:
                 break;
 
             case KNOCKOUT:
-                knockout = (Knockout)tournament.getRound();
+                knockout = (Knockout) tournament.getRound();
                 matches = knockout.getMatches();
+
+                offset = 0;
+                if ((matches.size() > 8) && (tournament.currentMatch > 4)) {
+                    offset = Math.min(tournament.currentMatch - 4, matches.size() - 8);
+                }
+
+                int dy = 100;
+                if (matches.size() < 8) {
+                    dy = dy + 64 * (8 - matches.size()) / 2;
+                }
+
+                // calendar
+                resultWidgets = new ArrayList<Widget>();
+                for (int m = 0; m < matches.size(); m++) {
+                    Match match = matches.get(m);
+                    int qualified = knockout.getLeg().getQualifiedTeam(match);
+                }
                 break;
         }
 
