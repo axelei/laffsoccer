@@ -6,11 +6,13 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,7 @@ class PlayTournament extends GLScreen {
     private ArrayList<Match> matches;
     private int offset;
     private ArrayList<Widget> resultWidgets;
+    private Font font10green;
 
     PlayTournament(GLGame game) {
         super(game);
@@ -31,6 +34,9 @@ class PlayTournament extends GLScreen {
         tournament = (Tournament) game.competition;
 
         background = game.stateBackground;
+
+        font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
+        font10green.load();
 
         Widget w;
 
@@ -65,13 +71,52 @@ class PlayTournament extends GLScreen {
                     resultWidgets.add(w);
                     widgets.add(w);
 
+                    // result (home goals)
+                    w = new Label();
+                    w.setGeometry(640 - 45, dy + 64 * m, 30, 26);
+                    w.setText("", Font.Align.RIGHT, Assets.font10);
+                    if (match.getResult() != null) {
+                        w.setText(match.getResult()[HOME]);
+                    }
+                    resultWidgets.add(w);
+                    widgets.add(w);
+
                     w = new VersusLabel(dy + 64 * m, match);
+                    resultWidgets.add(w);
+                    widgets.add(w);
+
+                    // result (away goals)
+                    w = new Label();
+                    w.setGeometry(640 + 15, dy + 64 * m, 30, 26);
+                    w.setText("", Font.Align.LEFT, Assets.font10);
+                    if (match.isEnded()) {
+                        w.setText(match.getResult()[AWAY]);
+                    }
                     resultWidgets.add(w);
                     widgets.add(w);
 
                     w = new TeamButton(705, dy + 64 * m, tournament.teams.get(match.teams[AWAY]), Font.Align.LEFT, qualified == match.teams[AWAY]);
                     resultWidgets.add(w);
                     widgets.add(w);
+
+                    // status
+                    w = new Label();
+                    w.setGeometry(game.gui.WIDTH / 2 - 360, dy + 26 + 64 * m, 720, 26);
+                    w.setText(knockout.getMatchStatus(match), Font.Align.CENTER, font10green);
+                    resultWidgets.add(w);
+                    widgets.add(w);
+                }
+                updateResultWidgets();
+
+                if (!tournament.isEnded()) {
+
+                    if (matches.size() > 8) {
+                        w = new ScrollButton(115, -1);
+                        widgets.add(w);
+
+                        w = new ScrollButton(564, +1);
+                        widgets.add(w);
+                    }
                 }
                 break;
         }
@@ -121,6 +166,33 @@ class PlayTournament extends GLScreen {
         }
     }
 
+    private class ScrollButton extends Button {
+
+        int direction;
+
+        ScrollButton(int y, int direction) {
+            this.direction = direction;
+            setGeometry(228, y, 20, 36);
+            textureRegion = Assets.scroll[direction == 1 ? 1 : 0];
+            setAddShadow(true);
+        }
+
+        @Override
+        public void onFire1Down() {
+            scroll(direction);
+        }
+
+        @Override
+        public void onFire1Hold() {
+            scroll(direction);
+        }
+
+        private void scroll(int direction) {
+            offset = Emath.slide(offset, 0, matches.size() - 8, direction);
+            updateResultWidgets();
+        }
+    }
+
     private class ViewStatisticsButton extends Button {
 
         ViewStatisticsButton() {
@@ -146,6 +218,21 @@ class PlayTournament extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new Main(game));
+        }
+    }
+
+    private void updateResultWidgets() {
+        if (matches.size() > 8) {
+            int m = 0;
+            for (Widget w : resultWidgets) {
+                if ((m >= 6 * offset) && (m < 6 * (offset + 8))) {
+                    w.y = 120 + 64 * (m / 6 - offset) + ((m % 6) == 5 ? 26 : 0);
+                    w.setVisible(true);
+                } else {
+                    w.setVisible(false);
+                }
+                m = m + 1;
+            }
         }
     }
 }

@@ -133,6 +133,12 @@ public class Knockout extends Round implements Json.Serializable {
         }
     }
 
+    public String getMatchStatus(Match match) {
+        String s = "";
+        // TODO
+        return s;
+    }
+
     private void newLeg() {
         Leg leg = new Leg(this);
         legs.add(leg);
