@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
-import com.ygames.ysoccer.competitions.tournament.Groups;
+import com.ygames.ysoccer.competitions.tournament.groups.Groups;
 import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.match.Const;

@@ -1,7 +1,8 @@
-package com.ygames.ysoccer.competitions.tournament;
+package com.ygames.ysoccer.competitions.tournament.groups;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.competitions.tournament.Round;
 
 public class Groups extends Round implements Json.Serializable {
 
