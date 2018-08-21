@@ -181,8 +181,11 @@ class PlayTournament extends GLScreen {
                 Widget playMatchButton = new PlayViewMatchButton();
                 widgets.add(playMatchButton);
 
+                Widget viewResultButton = new ViewResultButton();
+                widgets.add(viewResultButton);
+
                 if (tournament.bothComputers() || tournament.userPrefersResult) {
-                    // TODO
+                    setSelectedWidget(viewResultButton);
                 } else {
                     setSelectedWidget(playMatchButton);
                 }
@@ -305,6 +308,42 @@ class PlayTournament extends GLScreen {
                 navigation.competition = tournament;
                 game.setScreen(new MatchSetup(game));
             }
+        }
+    }
+
+    private class ViewResultButton extends Button {
+
+        ViewResultButton() {
+            setGeometry(game.gui.WIDTH / 2 - 190, 660, 220, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText("", Font.Align.CENTER, Assets.font14);
+            if (tournament.bothComputers()) {
+                setText(Assets.strings.get("VIEW RESULT"));
+            } else {
+                setText("- " + Assets.strings.get("RESULT") + " -");
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            viewResult();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            if (tournament.bothComputers()) {
+                viewResult();
+            }
+        }
+
+        private void viewResult() {
+            if (!tournament.bothComputers()) {
+                tournament.userPrefersResult = true;
+            }
+
+            tournament.generateResult();
+
+            game.setScreen(new PlayTournament(game));
         }
     }
 
