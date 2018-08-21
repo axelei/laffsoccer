@@ -3,6 +3,7 @@ package com.ygames.ysoccer.competitions.tournament;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.match.Match;
 
 public abstract class Round {
 
@@ -39,6 +40,8 @@ public abstract class Round {
     }
 
     protected abstract void start();
+
+    public abstract Match getMatch();
 
     public static String getExtraTimeLabel(ExtraTime extraTime) {
         switch (extraTime) {

@@ -81,6 +81,11 @@ public class Knockout extends Round implements Json.Serializable {
         }
     }
 
+    @Override
+    public Match getMatch() {
+        return getLeg().matches.get(tournament.currentMatch);
+    }
+
     private void generateMatches() {
 
         // first leg

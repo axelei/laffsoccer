@@ -121,11 +121,60 @@ class PlayTournament extends GLScreen {
                 break;
         }
 
+        // home team
+        w = new Label();
+        w.setGeometry(240, 618, 322, 36);
+        w.setText(tournament.getTeam(HOME).name, Font.Align.RIGHT, Assets.font14);
+        widgets.add(w);
+
+        Match match = tournament.getMatch();
+
+        // result (home goals)
+        w = new Label();
+        w.setGeometry(game.gui.WIDTH / 2 - 60, 618, 40, 36);
+        w.setText("", Font.Align.RIGHT, Assets.font14);
+        if (match.isEnded()) {
+            w.setText(match.getResult()[HOME]);
+        }
+        widgets.add(w);
+
+        // versus / -
+        w = new Label();
+        w.setGeometry(game.gui.WIDTH / 2 - 20, 618, 40, 36);
+        w.setText("", Font.Align.CENTER, Assets.font14);
+        if (match.isEnded()) {
+            w.setText("-");
+        } else {
+            w.setText(Assets.strings.get("ABBREVIATIONS.VERSUS"));
+        }
+        widgets.add(w);
+
+        // result (away goals)
+        w = new Label();
+        w.setGeometry(game.gui.WIDTH / 2 + 20, 618, 40, 36);
+        w.setText("", Font.Align.LEFT, Assets.font14);
+        if (match.isEnded()) {
+            w.setText(match.getResult()[AWAY]);
+        }
+        widgets.add(w);
+
+        // away team
+        w = new Label();
+        w.setGeometry(720, 618, 322, 36);
+        w.setText(tournament.getTeam(AWAY).name, Font.Align.LEFT, Assets.font14);
+        widgets.add(w);
+
         w = new ViewStatisticsButton();
         widgets.add(w);
 
         Widget exitButton = new ExitButton();
         widgets.add(exitButton);
+
+        if (tournament.isEnded()) {
+
+            setSelectedWidget(exitButton);
+
+        }
     }
 
     private class TeamButton extends Button {
