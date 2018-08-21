@@ -120,6 +120,9 @@ class InfoTournament extends GLScreen {
                 w = new ShortArrowPicture(i);
                 widgets.add(w);
             }
+
+            w = new RoundQualificationLabel(i);
+            widgets.add(w);
         }
 
         w = new ExitButton();
@@ -442,6 +445,76 @@ class InfoTournament extends GLScreen {
         ShortArrowPicture(int round) {
             setTextureRegion(Assets.shortArrow);
             setPosition(game.gui.WIDTH / 2 - 446, 326 + 62 * round);
+        }
+    }
+
+    private class RoundQualificationLabel extends Label {
+
+        RoundQualificationLabel(int round) {
+            setPosition(game.gui.WIDTH / 2, 326 + 62 * round);
+            int teams = tournament.rounds.get(round).numberOfTeams;
+
+            String label;
+            if (Knockout.class.isInstance(tournament.rounds.get(round))) {
+                Knockout knockout = (Knockout) tournament.rounds.get(round);
+                if (teams == 2) {
+                    if (knockout.numberOfLegs == 1) {
+                        label = Assets.strings.get("TOURNAMENT.MATCH WINNER WINS TOURNAMENT");
+                    } else {
+                        label = Assets.strings.get("TOURNAMENT.MATCH WINNER ON AGGREGATE WINS TOURNAMENT");
+                    }
+                } else {
+                    if (knockout.numberOfLegs == 1) {
+                        label = Assets.strings.get("TOURNAMENT.MATCH WINNERS QUALIFY");
+                    } else {
+                        label = Assets.strings.get("TOURNAMENT.MATCH WINNERS ON AGGREGATE QUALIFY");
+                    }
+                }
+            } else {
+                int groups = 1; // TODO ((Groups) tournament.rounds.get(round)).groups.size();
+                if (groups == 1) {
+                    if (round == tournament.rounds.size() - 1) {
+                        label = Assets.strings.get("TOURNAMENT.GROUP WINNER WINS TOURNAMENT");
+                    } else {
+                        label = Assets.strings.get("TOURNAMENT.TOP %n IN GROUP QUALIFY")
+                                .replaceFirst("%n", "" + tournament.rounds.get(round + 1).numberOfTeams);
+                    }
+                } else {
+                    int nextRoundTeams = tournament.rounds.get(round + 1).numberOfTeams;
+                    int runnersUp = nextRoundTeams % groups;
+                    switch (runnersUp) {
+                        case 0:
+                            if (nextRoundTeams / groups == 1) {
+                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP QUALIFY");
+                            } else {
+                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP QUALIFY")
+                                        .replaceFirst("%n", "" + nextRoundTeams / groups);
+                            }
+                            break;
+
+                        case 1:
+                            if (nextRoundTeams / groups == 1) {
+                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST RUNNER-UP QUALIFIES");
+                            } else {
+                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST RUNNER-UP QUALIFY")
+                                        .replaceFirst("%n", "" + nextRoundTeams / groups);
+                            }
+                            break;
+
+                        default:
+                            if (nextRoundTeams / groups == 1) {
+                                label = Assets.strings.get("TOURNAMENT.WINNERS OF EACH GROUP AND BEST %n RUNNERS-UP QUALIFY")
+                                        .replaceFirst("%n", "" + runnersUp);
+                            } else {
+                                label = Assets.strings.get("TOURNAMENT.TOP %n IN EACH GROUP AND BEST %m RUNNERS-UP QUALIFY")
+                                        .replaceFirst("%n", "" + nextRoundTeams / groups)
+                                        .replaceFirst("%m", "" + runnersUp);
+                            }
+                            break;
+                    }
+                }
+            }
+            setText("(" + label + ")", Font.Align.CENTER, Assets.font10);
         }
     }
 
