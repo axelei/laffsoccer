@@ -8,6 +8,9 @@ import com.ygames.ysoccer.match.Match;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 public class Knockout extends Round implements Json.Serializable {
 
     public int numberOfLegs;
@@ -74,7 +77,59 @@ public class Knockout extends Round implements Json.Serializable {
         // if first leg is not preset, create it
         if (legs.size() == 0) {
             newLeg();
-            // TODO generateMatches();
+            generateMatches();
+        }
+    }
+
+    private void generateMatches() {
+
+        // first leg
+        if (currentLeg == 0) {
+            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+            if (tournament.currentRound == 0) {
+                for (int i = 0; i < numberOfTeams; i++) {
+                    qualifiedTeams.add(i);
+                }
+            } else {
+                // TODO
+//                for (Leg leg : rounds.get(currentRound - 1).legs) {
+//                    qualifiedTeams.addAll(leg.getQualifiedTeams());
+//                }
+            }
+
+            Collections.shuffle(qualifiedTeams);
+
+            for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
+                Match match = new Match();
+                match.teams[HOME] = qualifiedTeams.get(2 * i);
+                match.teams[AWAY] = qualifiedTeams.get(2 * i + 1);
+                getLeg().matches.add(match);
+            }
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (numberOfLegs == 2)) {
+            for (Match oldMatch : legs.get(0).matches) {
+                Match match = new Match();
+                match.teams[HOME] = oldMatch.teams[AWAY];
+                match.teams[AWAY] = oldMatch.teams[HOME];
+                match.oldResult = oldMatch.getResult();
+                getLeg().matches.add(match);
+            }
+        }
+
+        // replays
+        else {
+            Leg previousLeg = legs.get(currentLeg - 1);
+            for (Match oldMatch : previousLeg.matches) {
+                // TODO
+//                if (previousLeg.getQualifiedTeam(oldMatch) == -1) {
+//                    Match match = new Match();
+//                    match.teams[HOME] = oldMatch.teams[AWAY];
+//                    match.teams[AWAY] = oldMatch.teams[HOME];
+//                    getLeg().matches.add(match);
+//                }
+            }
         }
     }
 
