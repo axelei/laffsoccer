@@ -30,7 +30,6 @@ public class Match implements Json.Serializable {
     public int[] resultAfter90;
     public int[] resultAfterExtraTime;
     public int[] resultAfterPenalties;
-    public int[] oldResult;
 
     public GLGame game;
 

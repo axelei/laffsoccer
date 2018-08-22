@@ -57,8 +57,9 @@ public class Leg {
         // second leg
         else if ((getIndex() == 1) && (knockout.numberOfLegs == 2)) {
 
-            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
+            int[] oldResult = knockout.legs.get(getIndex() - 1).findResult(match.teams);
+            int aggregate1 = match.getResult()[HOME] + oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + oldResult[HOME];
             if (aggregate1 > aggregate2) {
                 return match.teams[HOME];
             } else if (aggregate1 < aggregate2) {
@@ -66,9 +67,9 @@ public class Leg {
             } else {
                 if ((knockout.tournament.awayGoals == Competition.AwayGoals.AFTER_90_MINUTES) ||
                         (knockout.tournament.awayGoals == Competition.AwayGoals.AFTER_EXTRA_TIME && match.resultAfterExtraTime != null)) {
-                    if (match.oldResult[AWAY] > match.getResult()[AWAY]) {
+                    if (oldResult[AWAY] > match.getResult()[AWAY]) {
                         return match.teams[HOME];
-                    } else if (match.oldResult[AWAY] < match.getResult()[AWAY]) {
+                    } else if (oldResult[AWAY] < match.getResult()[AWAY]) {
                         return match.teams[AWAY];
                     } else {
                         return -1;
@@ -104,5 +105,14 @@ public class Leg {
 
     boolean hasReplays() {
         return getQualifiedTeams().size() < matches.size();
+    }
+
+    protected int[] findResult(int[] teams) {
+        for (Match match : matches) {
+            if (match.teams[HOME] == teams[AWAY] && match.teams[AWAY] == teams[HOME]) {
+                return match.getResult();
+            }
+        }
+        throw new RuntimeException("Cannot find result");
     }
 }

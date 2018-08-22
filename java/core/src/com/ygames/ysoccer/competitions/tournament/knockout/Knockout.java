@@ -168,7 +168,6 @@ public class Knockout extends Round implements Json.Serializable {
                 Match match = new Match();
                 match.teams[HOME] = oldMatch.teams[AWAY];
                 match.teams[AWAY] = oldMatch.teams[HOME];
-                match.oldResult = oldMatch.getResult();
                 getLeg().matches.add(match);
             }
         }
@@ -248,14 +247,15 @@ public class Knockout extends Round implements Json.Serializable {
         else if (currentLeg == 1 && numberOfLegs == 2) {
 
             // aggregate goals
-            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
+            int[] oldResult = legs.get(currentLeg - 1).findResult(match.teams);
+            int aggregate1 = match.getResult()[HOME] + oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + oldResult[HOME];
             if (aggregate1 != aggregate2) {
                 return false;
             }
 
             // away goals
-            if ((match.oldResult[AWAY] != match.getResult()[AWAY]) && (tournament.awayGoals == Competition.AwayGoals.AFTER_90_MINUTES)) {
+            if ((oldResult[AWAY] != match.getResult()[AWAY]) && (tournament.awayGoals == Competition.AwayGoals.AFTER_90_MINUTES)) {
                 return false;
             }
 
@@ -331,14 +331,15 @@ public class Knockout extends Round implements Json.Serializable {
         else if ((currentLeg == 1) && (numberOfLegs == 2)) {
 
             // aggregate goals
-            int aggregate1 = match.getResult()[HOME] + match.oldResult[AWAY];
-            int aggregate2 = match.getResult()[AWAY] + match.oldResult[HOME];
+            int[] oldResult = legs.get(0).findResult(match.teams);
+            int aggregate1 = match.getResult()[HOME] + oldResult[AWAY];
+            int aggregate2 = match.getResult()[AWAY] + oldResult[HOME];
             if (aggregate1 != aggregate2) {
                 return false;
             }
 
             // away goals
-            if ((match.oldResult[AWAY] != match.getResult()[AWAY]) && (tournament.awayGoals != Competition.AwayGoals.OFF)) {
+            if ((oldResult[AWAY] != match.getResult()[AWAY]) && (tournament.awayGoals != Competition.AwayGoals.OFF)) {
                 return false;
             }
 
