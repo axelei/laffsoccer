@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Round;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
@@ -381,7 +382,100 @@ public class Knockout extends Round implements Json.Serializable {
 
     public String getMatchStatus(Match match) {
         String s = "";
-        // TODO
+
+        int qualified = getLeg().getQualifiedTeam(match);
+
+        // first leg
+        if (currentLeg == 0) {
+            if (qualified != -1) {
+                if (match.resultAfterPenalties != null) {
+                    s = tournament.teams.get(qualified).name
+                            + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                            + Math.max(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
+                            + "-"
+                            + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
+                            + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
+                    if (match.resultAfterExtraTime != null) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                        if ((match.getResult()[HOME] != match.resultAfter90[HOME])
+                                || (match.getResult()[AWAY] != match.resultAfter90[AWAY])) {
+                            s += " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                                    + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
+                        }
+                    }
+                } else if (match.resultAfterExtraTime != null) {
+                    s = Assets.strings.get("AFTER EXTRA TIME")
+                            + " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                            + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
+                }
+            }
+        }
+
+        // second leg
+        else if ((currentLeg == 1) && (numberOfLegs == 2)) {
+            if (qualified != -1) {
+                // penalties
+                if (match.resultAfterPenalties != null) {
+                    s = tournament.teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                            + Math.max(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
+                            + "-"
+                            + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
+                            + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
+                    if (match.resultAfterExtraTime != null) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                        if ((match.getResult()[HOME] != match.resultAfter90[HOME])
+                                || (match.getResult()[AWAY] != match.resultAfter90[AWAY])) {
+                            s += " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                                    + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
+                        }
+                    }
+                } else {
+                    int[] oldResult = legs.get(currentLeg - 1).findResult(match.teams);
+                    int agg_score_a = match.getResult()[HOME] + oldResult[AWAY];
+                    int agg_score_b = match.getResult()[AWAY] + oldResult[HOME];
+
+                    // away goals
+                    if (agg_score_a == agg_score_b) {
+                        s += agg_score_a + "-" + agg_score_b + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE") + " "
+                                + tournament.teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " " + Assets.strings.get("MATCH STATUS.ON AWAY GOALS");
+                    }
+                    //on aggregate
+                    else {
+                        s = tournament.teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                                + Math.max(agg_score_a, agg_score_b)
+                                + "-"
+                                + Math.min(agg_score_a, agg_score_b)
+                                + " " + Assets.strings.get("MATCH STATUS.ON AGGREGATE");
+                    }
+                    if (match.resultAfterExtraTime != null) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                    }
+                }
+            } else {
+                int[] oldResult = legs.get(currentLeg - 1).findResult(match.teams);
+                s = Assets.strings.get("MATCH STATUS.1ST LEG") + " " + oldResult[AWAY] + "-" + oldResult[HOME];
+            }
+        }
+
+        // replays
+        else {
+            if (qualified != -1) {
+                if (match.resultAfterPenalties != null) {
+                    s = tournament.teams.get(qualified).name + " " + Assets.strings.get("MATCH STATUS.WIN") + " "
+                            + Math.max(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
+                            + "-"
+                            + Math.min(match.resultAfterPenalties[HOME], match.resultAfterPenalties[AWAY])
+                            + " " + Assets.strings.get("MATCH STATUS.ON PENALTIES");
+                    if (match.resultAfterExtraTime != null) {
+                        s += " " + Assets.strings.get("AFTER EXTRA TIME");
+                    }
+                } else if (match.resultAfterExtraTime != null) {
+                    s = Assets.strings.get("AFTER EXTRA TIME") + " " + Assets.strings.get("MATCH STATUS.90 MINUTES")
+                            + " " + match.resultAfter90[HOME] + "-" + match.resultAfter90[AWAY];
+                }
+            }
+        }
+
         return s;
     }
 
