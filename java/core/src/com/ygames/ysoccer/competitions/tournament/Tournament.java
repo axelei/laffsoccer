@@ -51,7 +51,12 @@ public class Tournament extends Competition implements Json.Serializable {
     public void start(ArrayList<Team> teams) {
         super.start(teams);
 
-        getRound().start();
+        ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+        for (int i = 0; i < numberOfTeams; i++) {
+            qualifiedTeams.add(i);
+        }
+
+        getRound().start(qualifiedTeams);
         updateMonth();
     }
 
@@ -66,7 +71,15 @@ public class Tournament extends Competition implements Json.Serializable {
         updateRoundNames();
     }
 
-    private void updateMonth() {
+    public void nextRound(ArrayList<Integer> qualifiedTeams) {
+        currentRound += 1;
+        currentMatch = 0;
+        updateMonth();
+
+        getRound().start(qualifiedTeams);
+    }
+
+    public void updateMonth() {
         if (weather == Weather.BY_SEASON) {
             int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
             currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds.size()) % 12];
@@ -130,7 +143,7 @@ public class Tournament extends Competition implements Json.Serializable {
 
     @Override
     public boolean isEnded() {
-        return currentRound == rounds.size() - 1; // TODO && currentRound.isEnded()
+        return currentRound == rounds.size() - 1 && getRound().isEnded();
     }
 
     public boolean hasTwoLegsRound() {

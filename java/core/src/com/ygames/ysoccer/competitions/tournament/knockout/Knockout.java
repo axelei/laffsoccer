@@ -12,8 +12,6 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.IF_REPLAY;
-import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.OFF;
 import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.ON;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -81,11 +79,14 @@ public class Knockout extends Round implements Json.Serializable {
         return legs.get(currentLeg);
     }
 
-    protected void start() {
+    @Override
+    public void start(ArrayList<Integer> qualifiedTeams) {
+        currentLeg = 0;
+
         // if first leg is not preset, create it
         if (legs.size() == 0) {
             newLeg();
-            generateMatches();
+            generateCalendar(qualifiedTeams);
         }
     }
 
@@ -94,34 +95,48 @@ public class Knockout extends Round implements Json.Serializable {
         return getLeg().matches.get(tournament.currentMatch);
     }
 
-    private void generateMatches() {
-
-        // first leg
-        if (currentLeg == 0) {
-            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
-            if (tournament.currentRound == 0) {
-                for (int i = 0; i < numberOfTeams; i++) {
-                    qualifiedTeams.add(i);
-                }
-            } else {
-                // TODO
-//                for (Leg leg : rounds.get(currentRound - 1).legs) {
-//                    qualifiedTeams.addAll(leg.getQualifiedTeams());
-//                }
-            }
-
-            Collections.shuffle(qualifiedTeams);
-
-            for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
-                Match match = new Match();
-                match.teams[HOME] = qualifiedTeams.get(2 * i);
-                match.teams[AWAY] = qualifiedTeams.get(2 * i + 1);
-                getLeg().matches.add(match);
-            }
+    @Override
+    public void nextMatch() {
+        tournament.currentMatch += 1;
+        if (tournament.currentMatch == getLeg().matches.size()) {
+            nextLeg();
         }
+    }
 
+    private void nextLeg() {
+        currentLeg += 1;
+        tournament.currentMatch = 0;
+        newLeg();
+        generateNextLegCalendar();
+        if (getLeg().matches.size() == 0) {
+            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+            for (Leg leg : legs) {
+                qualifiedTeams.addAll(leg.getQualifiedTeams());
+            }
+            tournament.nextRound(qualifiedTeams);
+        }
+    }
+
+    @Override
+    public boolean isEnded() {
+        return currentLeg == legs.size() - 1 && !getLeg().hasReplays();
+    }
+
+    private void generateCalendar(ArrayList<Integer> qualifiedTeams) {
+
+        Collections.shuffle(qualifiedTeams);
+
+        for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
+            Match match = new Match();
+            match.teams[HOME] = qualifiedTeams.get(2 * i);
+            match.teams[AWAY] = qualifiedTeams.get(2 * i + 1);
+            getLeg().matches.add(match);
+        }
+    }
+
+    private void generateNextLegCalendar() {
         // second leg
-        else if ((currentLeg == 1) && (numberOfLegs == 2)) {
+        if ((currentLeg == 1) && (numberOfLegs == 2)) {
             for (Match oldMatch : legs.get(0).matches) {
                 Match match = new Match();
                 match.teams[HOME] = oldMatch.teams[AWAY];
@@ -135,13 +150,12 @@ public class Knockout extends Round implements Json.Serializable {
         else {
             Leg previousLeg = legs.get(currentLeg - 1);
             for (Match oldMatch : previousLeg.matches) {
-                // TODO
-//                if (previousLeg.getQualifiedTeam(oldMatch) == -1) {
-//                    Match match = new Match();
-//                    match.teams[HOME] = oldMatch.teams[AWAY];
-//                    match.teams[AWAY] = oldMatch.teams[HOME];
-//                    getLeg().matches.add(match);
-//                }
+                if (previousLeg.getQualifiedTeam(oldMatch) == -1) {
+                    Match match = new Match();
+                    match.teams[HOME] = oldMatch.teams[AWAY];
+                    match.teams[AWAY] = oldMatch.teams[HOME];
+                    getLeg().matches.add(match);
+                }
             }
         }
     }
@@ -174,7 +188,7 @@ public class Knockout extends Round implements Json.Serializable {
     }
 
     // decide if extra time have to be played depending on current result, leg's type and settings
-    public boolean playExtraTime() {
+    private boolean playExtraTime() {
         Match match = getMatch();
 
         // first leg

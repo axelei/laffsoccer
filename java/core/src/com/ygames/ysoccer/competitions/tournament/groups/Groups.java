@@ -5,6 +5,8 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.match.Match;
 
+import java.util.ArrayList;
+
 public class Groups extends Round implements Json.Serializable {
 
     public int rounds;
@@ -30,7 +32,8 @@ public class Groups extends Round implements Json.Serializable {
         json.writeValue("pointsForAWin", pointsForAWin);
     }
 
-    protected void start() {
+    @Override
+    protected void start(ArrayList<Integer> qualifiedTeams) {
         // TODO
     }
 
@@ -41,8 +44,19 @@ public class Groups extends Round implements Json.Serializable {
         return null;
     }
 
-    public void generateResult() {
+    @Override
+    public void nextMatch() {
         // TODO
     }
 
+    @Override
+    public boolean isEnded() {
+        // TODO
+        return false;
+    }
+
+    @Override
+    public void generateResult() {
+        // TODO
+    }
 }

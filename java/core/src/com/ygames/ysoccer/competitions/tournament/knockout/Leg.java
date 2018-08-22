@@ -91,4 +91,18 @@ public class Leg {
         }
     }
 
+    public ArrayList<Integer> getQualifiedTeams() {
+        ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+        for (Match match : matches) {
+            int qualifiedTeam = getQualifiedTeam(match);
+            if (qualifiedTeam != -1) {
+                qualifiedTeams.add(qualifiedTeam);
+            }
+        }
+        return qualifiedTeams;
+    }
+
+    boolean hasReplays() {
+        return getQualifiedTeams().size() < matches.size();
+    }
 }

@@ -5,6 +5,8 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.match.Match;
 
+import java.util.ArrayList;
+
 public abstract class Round {
 
     public enum Type {GROUPS, KNOCKOUT}
@@ -39,9 +41,13 @@ public abstract class Round {
         this.tournament = tournament;
     }
 
-    protected abstract void start();
+    protected abstract void start(ArrayList<Integer> qualifiedTeams);
 
     public abstract Match getMatch();
+
+    public abstract void nextMatch();
+
+    public abstract boolean isEnded();
 
     public abstract void generateResult();
 
