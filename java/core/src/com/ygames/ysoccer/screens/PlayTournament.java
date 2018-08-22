@@ -177,6 +177,9 @@ class PlayTournament extends GLScreen {
         } else {
 
             if (match.isEnded()) {
+                w = new NextMatchButton();
+                widgets.add(w);
+                setSelectedWidget(w);
             } else {
                 Widget playMatchButton = new PlayViewMatchButton();
                 widgets.add(playMatchButton);
@@ -308,6 +311,30 @@ class PlayTournament extends GLScreen {
                 navigation.competition = tournament;
                 game.setScreen(new MatchSetup(game));
             }
+        }
+    }
+
+    private class NextMatchButton extends Button {
+
+        NextMatchButton() {
+            setGeometry(game.gui.WIDTH / 2 - 430, 660, 460, 36);
+            setColors(0x138B21, 0x1BC12F, 0x004814);
+            setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            nextMatch();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            nextMatch();
+        }
+
+        private void nextMatch() {
+            tournament.nextMatch();
+            game.setScreen(new PlayTournament(game));
         }
     }
 

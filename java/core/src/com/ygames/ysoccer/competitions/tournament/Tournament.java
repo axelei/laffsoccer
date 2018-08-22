@@ -71,6 +71,10 @@ public class Tournament extends Competition implements Json.Serializable {
         updateRoundNames();
     }
 
+    public void nextMatch() {
+        getRound().nextMatch();
+    }
+
     public void nextRound(ArrayList<Integer> qualifiedTeams) {
         currentRound += 1;
         currentMatch = 0;
