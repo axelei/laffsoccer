@@ -38,6 +38,16 @@ public class Groups extends Round implements Json.Serializable {
     }
 
     @Override
+    public void restart() {
+        // TODO
+    }
+
+    @Override
+    public void clear() {
+        // TODO
+    }
+
+    @Override
     public Match getMatch() {
         // TODO
         // return calendar.get(currentMatch);

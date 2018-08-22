@@ -60,6 +60,19 @@ public class Tournament extends Competition implements Json.Serializable {
         updateMonth();
     }
 
+    @Override
+    public void restart() {
+        super.restart();
+        currentRound = 0;
+        currentMatch = 0;
+
+        rounds.get(0).restart();
+        for (int i = 1; i < rounds.size(); i++) {
+            rounds.get(i).clear();
+        }
+        updateMonth();
+    }
+
     public Round getRound() {
         return rounds.get(currentRound);
     }

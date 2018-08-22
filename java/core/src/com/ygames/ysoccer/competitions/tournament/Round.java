@@ -43,6 +43,10 @@ public abstract class Round {
 
     protected abstract void start(ArrayList<Integer> qualifiedTeams);
 
+    public abstract void restart();
+
+    public abstract void clear();
+
     public abstract Match getMatch();
 
     public abstract void nextMatch();

@@ -11,6 +11,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.ON;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -88,6 +89,32 @@ public class Knockout extends Round implements Json.Serializable {
             newLeg();
             generateCalendar(qualifiedTeams);
         }
+    }
+
+    @Override
+    public void restart() {
+        currentLeg = 0;
+
+        // copy first round, first leg matches
+        List<Match> firstLegMatches = new ArrayList<Match>();
+        for (Match m : legs.get(0).matches) {
+            Match match = new Match();
+            match.teams[HOME] = m.teams[HOME];
+            match.teams[AWAY] = m.teams[AWAY];
+            firstLegMatches.add(match);
+        }
+
+        legs.clear();
+
+        // restore first leg matches
+        newLeg();
+        legs.get(0).matches.addAll(firstLegMatches);
+    }
+
+    @Override
+    public void clear() {
+        currentLeg = 0;
+        legs.clear();
     }
 
     @Override
