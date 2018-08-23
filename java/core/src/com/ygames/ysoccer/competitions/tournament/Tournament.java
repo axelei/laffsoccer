@@ -88,6 +88,10 @@ public class Tournament extends Competition implements Json.Serializable {
         getRound().nextMatch();
     }
 
+    public String nextMatchLabel() {
+        return getRound().nextMatchLabel();
+    }
+
     public void nextRound(ArrayList<Integer> qualifiedTeams) {
         currentRound += 1;
         currentMatch = 0;

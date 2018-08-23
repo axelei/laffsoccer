@@ -132,6 +132,30 @@ public class Knockout extends Round implements Json.Serializable {
     }
 
     @Override
+    protected String nextMatchLabel() {
+        String label = "NEXT MATCH";
+        if (isLegEnded()) {
+            if (isEnded()) {
+                label = "NEXT ROUND";
+            } else {
+                switch (currentLeg) {
+                    case 0:
+                        if (numberOfLegs == 2) {
+                            label = "CUP.2ND LEG ROUND";
+                        } else {
+                            label = "CUP.PLAY REPLAYS";
+                        }
+                        break;
+                    default:
+                        label = "CUP.PLAY REPLAYS";
+                        break;
+                }
+            }
+        }
+        return label;
+    }
+
+    @Override
     protected boolean nextMatchOnHold() {
         return !isLegEnded();
     }
@@ -155,7 +179,7 @@ public class Knockout extends Round implements Json.Serializable {
         return currentLeg == legs.size() - 1 && !getLeg().hasReplays();
     }
 
-    private boolean isLegEnded() {
+    public boolean isLegEnded() {
         return tournament.currentMatch == getLeg().matches.size() - 1;
     }
 

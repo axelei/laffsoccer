@@ -310,7 +310,7 @@ class PlayCup extends GLScreen {
             String label;
             if (cup.isLegEnded()) {
                 if (cup.isRoundEnded()) {
-                    label = cup.rounds.get(cup.currentRound + 1).name;
+                    label = "NEXT ROUND";
                 } else {
                     switch (cup.currentLeg) {
                         case 0:

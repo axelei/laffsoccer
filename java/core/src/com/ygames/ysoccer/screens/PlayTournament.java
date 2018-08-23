@@ -319,7 +319,7 @@ class PlayTournament extends GLScreen {
         NextMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 460, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setText(Assets.strings.get("NEXT MATCH"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get(tournament.nextMatchLabel()), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
