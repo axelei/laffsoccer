@@ -51,9 +51,24 @@ public class Groups extends Round implements Json.Serializable {
         }
     }
 
+    int groupNumberOfTeams() {
+        return numberOfTeams / groups.size();
+    }
+
     @Override
     protected void start(ArrayList<Integer> qualifiedTeams) {
-        // TODO
+        if (seeded) {
+            // TODO sort qualifiedTeams
+        }
+
+        // start each group
+        for (int g = 0; g < groups.size(); g++) {
+            ArrayList<Integer> groupTeams = new ArrayList<Integer>();
+            for (int t = 0; t < groupNumberOfTeams(); t++) {
+                groupTeams.add(qualifiedTeams.get(t * groups.size() + g));
+            }
+            // TODO groups.get(g).start(groupTeams);
+        }
     }
 
     @Override
