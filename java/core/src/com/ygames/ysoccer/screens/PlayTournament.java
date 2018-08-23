@@ -329,7 +329,9 @@ class PlayTournament extends GLScreen {
 
         @Override
         public void onFire1Hold() {
-            nextMatch();
+            if (tournament.nextMatchOnHold()) {
+                nextMatch();
+            }
         }
 
         private void nextMatch() {

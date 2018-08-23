@@ -60,6 +60,12 @@ public class Groups extends Round implements Json.Serializable {
     }
 
     @Override
+    protected boolean nextMatchOnHold() {
+        // TODO
+        return true;
+    }
+
+    @Override
     public boolean isEnded() {
         // TODO
         return false;

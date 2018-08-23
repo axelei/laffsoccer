@@ -131,6 +131,11 @@ public class Knockout extends Round implements Json.Serializable {
         }
     }
 
+    @Override
+    protected boolean nextMatchOnHold() {
+        return !isLegEnded();
+    }
+
     private void nextLeg() {
         currentLeg += 1;
         tournament.currentMatch = 0;
@@ -148,6 +153,10 @@ public class Knockout extends Round implements Json.Serializable {
     @Override
     public boolean isEnded() {
         return currentLeg == legs.size() - 1 && !getLeg().hasReplays();
+    }
+
+    private boolean isLegEnded() {
+        return tournament.currentMatch == getLeg().matches.size() - 1;
     }
 
     private void generateCalendar(ArrayList<Integer> qualifiedTeams) {

@@ -51,6 +51,8 @@ public abstract class Round {
 
     public abstract void nextMatch();
 
+    protected abstract boolean nextMatchOnHold();
+
     public abstract boolean isEnded();
 
     public abstract void generateResult();

@@ -168,6 +168,10 @@ public class Tournament extends Competition implements Json.Serializable {
         return currentRound == rounds.size() - 1 && getRound().isEnded();
     }
 
+    public boolean nextMatchOnHold() {
+        return getRound().nextMatchOnHold();
+    }
+
     public boolean hasTwoLegsRound() {
         for (Round round : rounds) {
             if (round.type == Round.Type.KNOCKOUT) {
