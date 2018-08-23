@@ -1199,6 +1199,7 @@ class DesignDiyTournament extends GLScreen {
                 } else {
                     groups[round].numberOfTeams = roundTeams[round];
                     groups[round].seeded = roundSeeded[round];
+                    groups[round].createGroups(roundGroups[round]);
                     tournament.addRound(groups[round]);
                 }
                 round++;

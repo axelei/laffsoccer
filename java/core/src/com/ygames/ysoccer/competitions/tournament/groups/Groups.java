@@ -43,6 +43,14 @@ public class Groups extends Round implements Json.Serializable {
         json.writeValue("pointsForAWin", pointsForAWin);
     }
 
+    public void createGroups(int n) {
+        for (int i = 0; i < n; i++) {
+            Group group = new Group();
+            group.setGroups(this);
+            groups.add(group);
+        }
+    }
+
     @Override
     protected void start(ArrayList<Integer> qualifiedTeams) {
         // TODO

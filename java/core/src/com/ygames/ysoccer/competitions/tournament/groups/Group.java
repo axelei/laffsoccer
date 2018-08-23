@@ -1,10 +1,21 @@
 package com.ygames.ysoccer.competitions.tournament.groups;
 
-public class Group {
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 
-    Groups groups;
+public class Group implements Json.Serializable {
+
+    private Groups groups;
 
     public void setGroups(Groups groups) {
         this.groups = groups;
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+    }
+
+    @Override
+    public void write(Json json) {
     }
 }
