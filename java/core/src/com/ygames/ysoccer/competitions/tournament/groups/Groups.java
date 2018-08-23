@@ -69,4 +69,10 @@ public class Groups extends Round implements Json.Serializable {
     public void generateResult() {
         // TODO
     }
+
+    @Override
+    protected String getMenuTitle() {
+        // TODO
+        return name;
+    }
 }

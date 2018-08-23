@@ -55,6 +55,8 @@ public abstract class Round {
 
     public abstract void generateResult();
 
+    protected abstract String getMenuTitle();
+
     public static String getExtraTimeLabel(ExtraTime extraTime) {
         switch (extraTime) {
             case OFF:

@@ -479,6 +479,63 @@ public class Knockout extends Round implements Json.Serializable {
         return s;
     }
 
+    @Override
+    protected String getMenuTitle() {
+        String title = Assets.gettext(name);
+        int matches = getLeg().matches.size();
+        switch (numberOfLegs) {
+            case 1:
+                switch (currentLeg) {
+                    case 0:
+                        break;
+                    case 1:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAYS");
+                        }
+                        break;
+                    case 2:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.2ND REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.2ND REPLAYS");
+                        }
+                        break;
+                    case 3:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.3RD REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.3RD REPLAYS");
+                        }
+                        break;
+                    default:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAYS");
+                        }
+                }
+                break;
+            case 2:
+                switch (currentLeg) {
+                    case 0:
+                        title += " " + Assets.strings.get("MATCH STATUS.1ST LEG");
+                        break;
+                    case 1:
+                        title += " " + Assets.strings.get("MATCH STATUS.2ND LEG");
+                        break;
+                    default:
+                        if (matches == 1) {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAY");
+                        } else {
+                            title += " " + Assets.strings.get("MATCH STATUS.REPLAYS");
+                        }
+                }
+        }
+        return title;
+    }
+
     private void newLeg() {
         Leg leg = new Leg(this);
         legs.add(leg);

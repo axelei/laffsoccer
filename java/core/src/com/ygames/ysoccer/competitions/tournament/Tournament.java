@@ -117,6 +117,11 @@ public class Tournament extends Competition implements Json.Serializable {
         }
     }
 
+    @Override
+    public String getMenuTitle() {
+        return name + " " + getRound().getMenuTitle();
+    }
+
     private String getKnockoutLabel(int round) {
         if (round == rounds.size() - 1) {
             return "FINAL";
