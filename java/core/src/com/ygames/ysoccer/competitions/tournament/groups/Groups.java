@@ -136,14 +136,12 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     protected boolean nextMatchOnHold() {
-        // TODO
-        return true;
+        return !isEnded();
     }
 
     @Override
     public boolean isEnded() {
-        // TODO
-        return false;
+        return (currentGroup == groups.size() - 1) && getGroup().isEnded();
     }
 
     @Override
