@@ -15,7 +15,7 @@ public class Groups extends Round implements Json.Serializable {
 
     public int rounds;
     public int pointsForAWin;
-    private int currentGroup;
+    int currentGroup;
     public ArrayList<Group> groups;
 
     Comparator<TableRow> tableRowComparator;
@@ -115,12 +115,14 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void nextMatch() {
-        nextGroup();
-        getGroup().nextMatch();
-    }
+        currentGroup = currentGroup + 1;
 
-    private void nextGroup() {
-        currentGroup = (currentGroup + 1) % groups.size();
+        if (currentGroup == groups.size()) {
+            for (Group group : groups) {
+                group.nextMatch();
+            }
+            currentGroup = 0;
+        }
     }
 
     @Override
