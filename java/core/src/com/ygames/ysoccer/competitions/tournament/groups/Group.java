@@ -16,10 +16,10 @@ import static com.ygames.ysoccer.match.Match.HOME;
 public class Group implements Json.Serializable {
 
     private Groups groups;
-    ArrayList<Match> calendar;
-    List<TableRow> table;
-    int currentMatch;
-    int currentRound;
+    private ArrayList<Match> calendar;
+    private List<TableRow> table;
+    private int currentMatch;
+    private int currentRound;
 
     Group() {
         calendar = new ArrayList<Match>();
@@ -55,6 +55,10 @@ public class Group implements Json.Serializable {
         if (calendar.size() == 0) {
             generateCalendar(teams);
         }
+    }
+
+    public Match getMatch() {
+        return calendar.get(currentMatch);
     }
 
     public void nextMatch() {
