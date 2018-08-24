@@ -12,6 +12,7 @@ import java.util.List;
 public class Groups extends Round implements Json.Serializable {
 
     public ArrayList<Group> groups;
+    private int currentGroup;
     public int rounds;
     public int pointsForAWin;
 
@@ -32,6 +33,7 @@ public class Groups extends Round implements Json.Serializable {
             groups.add(group);
         }
 
+        currentGroup = jsonData.getInt("currentGroup");
         rounds = jsonData.getInt("rounds");
         pointsForAWin = jsonData.getInt("pointsForAWin");
     }
@@ -41,6 +43,7 @@ public class Groups extends Round implements Json.Serializable {
         super.write(json);
 
         json.writeValue("groups", groups, Group[].class, Group.class);
+        json.writeValue("currentGroup", currentGroup);
         json.writeValue("rounds", rounds);
         json.writeValue("pointsForAWin", pointsForAWin);
     }
@@ -94,6 +97,10 @@ public class Groups extends Round implements Json.Serializable {
     @Override
     public void clear() {
         // TODO
+    }
+
+    private Group getGroup() {
+        return groups.get(currentGroup);
     }
 
     @Override
