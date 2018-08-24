@@ -144,18 +144,7 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void generateResult() {
-        Match match = getMatch();
-        Team homeTeam = tournament.getTeam(HOME);
-        Team awayTeam = tournament.getTeam(AWAY);
-
-        int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
-        int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
-
-        match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
-        // TODO addMatchToTable(match);
-
-        // TODO generateScorers(homeTeam, homeGoals);
-        // TODO generateScorers(awayTeam, awayGoals);
+        getGroup().generateResult();
     }
 
     @Override

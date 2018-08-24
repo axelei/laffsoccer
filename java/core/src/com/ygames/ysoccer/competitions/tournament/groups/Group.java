@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.TableRow;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -119,5 +120,20 @@ public class Group implements Json.Serializable {
 
     private void sortTable() {
         Collections.sort(table, groups.tableRowComparator);
+    }
+
+    void generateResult() {
+        Match match = getMatch();
+        Team homeTeam = groups.tournament.getTeam(HOME);
+        Team awayTeam = groups.tournament.getTeam(AWAY);
+
+        int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
+        int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
+
+        match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
+        // TODO addMatchToTable(match);
+
+        // TODO generateScorers(homeTeam, homeGoals);
+        // TODO generateScorers(awayTeam, awayGoals);
     }
 }
