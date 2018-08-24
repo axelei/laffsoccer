@@ -12,7 +12,11 @@ public class TableRow {
     public int goalsAgainst;
     public int points;
 
-    TableRow(int team) {
+    // needed by json deserializer
+    TableRow() {
+    }
+
+    public TableRow(int team) {
         this.team = team;
     }
 

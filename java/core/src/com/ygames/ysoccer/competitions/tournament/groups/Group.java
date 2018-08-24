@@ -55,6 +55,8 @@ public class Group implements Json.Serializable {
         if (calendar.size() == 0) {
             generateCalendar(teams);
         }
+
+        populateTable(teams);
     }
 
     public Match getMatch() {
@@ -106,5 +108,12 @@ public class Group implements Json.Serializable {
 
         currentMatch = 0;
         currentRound = 0;
+    }
+
+    private void populateTable(ArrayList<Integer> teams) {
+        for (int i = 0; i < teams.size(); i++) {
+            table.add(new TableRow(teams.get(i)));
+        }
+        // TODO sortTable();
     }
 }

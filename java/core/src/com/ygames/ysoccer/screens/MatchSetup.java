@@ -382,6 +382,10 @@ class MatchSetup extends GLScreen {
                 case CUP:
                     game.setScreen(new PlayCup(game));
                     break;
+
+                case TOURNAMENT:
+                    game.setScreen(new PlayTournament(game));
+                    break;
             }
         }
     }
