@@ -64,6 +64,10 @@ public class Group implements Json.Serializable {
         return calendar.get(currentMatch);
     }
 
+    public boolean isEnded() {
+        return currentMatch == calendar.size() - 1;
+    }
+
     public void nextMatch() {
         currentMatch += 1;
         if (2 * currentMatch == (currentRound + 1) * groups.groupNumberOfTeams() * (groups.groupNumberOfTeams() - 1)) {

@@ -179,7 +179,7 @@ public class Knockout extends Round implements Json.Serializable {
         return currentLeg == legs.size() - 1 && !getLeg().hasReplays();
     }
 
-    public boolean isLegEnded() {
+    private boolean isLegEnded() {
         return tournament.currentMatch == getLeg().matches.size() - 1;
     }
 
