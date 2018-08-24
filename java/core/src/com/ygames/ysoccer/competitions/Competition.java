@@ -22,6 +22,7 @@ import java.util.List;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
+import static java.lang.Math.min;
 
 public abstract class Competition {
 
@@ -323,8 +324,9 @@ public abstract class Competition {
 
 
     public void generateScorers(Team team, int goals) {
+        int teamSize = min(team.players.size(), Const.TEAM_SIZE + benchSize);
         int teamWeight = 0;
-        for (int playerIndex = 0; playerIndex < Const.TEAM_SIZE + benchSize; playerIndex++) {
+        for (int playerIndex = 0; playerIndex < teamSize; playerIndex++) {
             Player player = team.players.get(playerIndex);
             teamWeight += player.getScoringWeight();
         }
@@ -332,7 +334,7 @@ public abstract class Competition {
         for (int i = 0; i < goals; i++) {
             int target = 1 + Emath.floor(teamWeight * Math.random());
             int sum = teamWeight;
-            for (int playerIndex = 0; playerIndex < Const.TEAM_SIZE + benchSize; playerIndex++) {
+            for (int playerIndex = 0; playerIndex < teamSize; playerIndex++) {
                 Player player = team.players.get(playerIndex);
 
                 sum -= player.getScoringWeight();
