@@ -347,7 +347,7 @@ class InfoTournament extends GLScreen {
                     break;
 
                 case GROUPS:
-                    int groups = 1; // TODO (Groups)tournament.rounds.get(round).numberOfGroups;
+                    int groups = ((Groups) tournament.rounds.get(round)).groups.size();
                     if (groups == 1) {
                         key = "%n GROUP OF %m";
                     } else {

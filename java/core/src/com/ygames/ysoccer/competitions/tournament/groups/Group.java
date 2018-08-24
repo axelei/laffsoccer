@@ -18,7 +18,7 @@ public class Group implements Json.Serializable {
 
     private Groups groups;
     private ArrayList<Match> calendar;
-    List<TableRow> table;
+    public List<TableRow> table;
     private int currentMatch;
     private int currentRound;
 

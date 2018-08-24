@@ -61,7 +61,7 @@ public class Groups extends Round implements Json.Serializable {
         }
     }
 
-    int groupNumberOfTeams() {
+    public int groupNumberOfTeams() {
         return numberOfTeams / groups.size();
     }
 
@@ -177,7 +177,6 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     protected String getMenuTitle() {
-        // TODO
         return name;
     }
 
