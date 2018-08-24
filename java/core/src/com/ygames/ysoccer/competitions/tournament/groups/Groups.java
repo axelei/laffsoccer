@@ -6,6 +6,8 @@ import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.match.Match;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Groups extends Round implements Json.Serializable {
 
@@ -57,17 +59,30 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     protected void start(ArrayList<Integer> qualifiedTeams) {
-        if (seeded) {
-            // TODO sort qualifiedTeams
+        if (!seeded) {
+            Collections.shuffle(qualifiedTeams);
+        }
+
+        // create random partitioned mapping
+        List<Integer> groupsIndexes = new ArrayList<Integer>();
+        for (int t = 0; t < groups.size(); t++) {
+            groupsIndexes.add(t);
+        }
+        List<Integer> teamsMapping = new ArrayList<Integer>();
+        for (int t = 0; t < groupNumberOfTeams(); t++) {
+            Collections.shuffle(groupsIndexes);
+            for (int g = 0; g < groups.size(); g++) {
+                teamsMapping.add(t * groups.size() + groupsIndexes.get(g));
+            }
         }
 
         // start each group
         for (int g = 0; g < groups.size(); g++) {
             ArrayList<Integer> groupTeams = new ArrayList<Integer>();
             for (int t = 0; t < groupNumberOfTeams(); t++) {
-                groupTeams.add(qualifiedTeams.get(t * groups.size() + g));
+                groupTeams.add(qualifiedTeams.get(teamsMapping.get(t * groups.size() + g)));
             }
-            // TODO groups.get(g).start(groupTeams);
+            groups.get(g).start(groupTeams);
         }
     }
 
