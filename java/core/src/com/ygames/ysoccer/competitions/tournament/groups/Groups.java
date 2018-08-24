@@ -105,9 +105,7 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public Match getMatch() {
-        // TODO
-        // return calendar.get(currentMatch);
-        return null;
+        return getGroup().getMatch();
     }
 
     @Override
