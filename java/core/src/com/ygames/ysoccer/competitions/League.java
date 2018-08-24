@@ -196,7 +196,7 @@ public class League extends Competition implements Json.Serializable {
         generateScorers(awayTeam, awayGoals);
     }
 
-    public void addMatchToTable(Match match) {
+    private void addMatchToTable(Match match) {
         int[] result = match.getResult();
         for (TableRow row : table) {
             if (row.team == getTeamIndex(HOME)) {

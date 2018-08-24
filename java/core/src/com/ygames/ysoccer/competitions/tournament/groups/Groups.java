@@ -5,22 +5,19 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.TableRow;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.match.Match;
-import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static com.ygames.ysoccer.match.Match.AWAY;
-import static com.ygames.ysoccer.match.Match.HOME;
-
 public class Groups extends Round implements Json.Serializable {
 
-    public ArrayList<Group> groups;
-    private int currentGroup;
     public int rounds;
     public int pointsForAWin;
+    private int currentGroup;
+    public ArrayList<Group> groups;
+
     Comparator<TableRow> tableRowComparator;
 
     public Groups() {
@@ -35,25 +32,25 @@ public class Groups extends Round implements Json.Serializable {
     public void read(Json json, JsonValue jsonData) {
         super.read(json, jsonData);
 
+        rounds = jsonData.getInt("rounds");
+        pointsForAWin = jsonData.getInt("pointsForAWin");
+        currentGroup = jsonData.getInt("currentGroup");
+
         Group[] groupsArray = json.readValue("groups", Group[].class, jsonData);
         for (Group group : groupsArray) {
             group.setGroups(this);
             groups.add(group);
         }
-
-        currentGroup = jsonData.getInt("currentGroup");
-        rounds = jsonData.getInt("rounds");
-        pointsForAWin = jsonData.getInt("pointsForAWin");
     }
 
     @Override
     public void write(Json json) {
         super.write(json);
 
-        json.writeValue("groups", groups, Group[].class, Group.class);
-        json.writeValue("currentGroup", currentGroup);
         json.writeValue("rounds", rounds);
         json.writeValue("pointsForAWin", pointsForAWin);
+        json.writeValue("currentGroup", currentGroup);
+        json.writeValue("groups", groups, Group[].class, Group.class);
     }
 
     public void createGroups(int n) {
@@ -118,7 +115,12 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void nextMatch() {
-        // TODO
+        nextGroup();
+        getGroup().nextMatch();
+    }
+
+    private void nextGroup() {
+        currentGroup = (currentGroup + 1) % groups.size();
     }
 
     @Override

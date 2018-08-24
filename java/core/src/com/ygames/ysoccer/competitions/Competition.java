@@ -158,7 +158,7 @@ public abstract class Competition {
         return teams.get(getTeamIndex(side));
     }
 
-    int getTeamIndex(int side) {
+    public int getTeamIndex(int side) {
         return getMatch().teams[side];
     }
 

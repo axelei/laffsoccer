@@ -133,8 +133,8 @@ public class Group implements Json.Serializable {
         match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
         addMatchToTable(match);
 
-        // TODO generateScorers(homeTeam, homeGoals);
-        // TODO generateScorers(awayTeam, awayGoals);
+        groups.tournament.generateScorers(homeTeam, homeGoals);
+        groups.tournament.generateScorers(awayTeam, awayGoals);
     }
 
     private void addMatchToTable(Match match) {
