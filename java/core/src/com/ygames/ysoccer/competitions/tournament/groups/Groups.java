@@ -2,11 +2,13 @@ package com.ygames.ysoccer.competitions.tournament.groups;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.ygames.ysoccer.competitions.TableRow;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.match.Match;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Groups extends Round implements Json.Serializable {
@@ -15,12 +17,14 @@ public class Groups extends Round implements Json.Serializable {
     private int currentGroup;
     public int rounds;
     public int pointsForAWin;
+    Comparator<TableRow> tableRowComparator;
 
     public Groups() {
         super(Type.GROUPS);
         groups = new ArrayList<Group>();
         rounds = 1;
         pointsForAWin = 3;
+        tableRowComparator = new TableRowComparator();
     }
 
     @Override
@@ -143,5 +147,31 @@ public class Groups extends Round implements Json.Serializable {
     protected String getMenuTitle() {
         // TODO
         return name;
+    }
+
+    private class TableRowComparator implements Comparator<TableRow> {
+
+        @Override
+        public int compare(TableRow o1, TableRow o2) {
+            // by points
+            if (o1.points != o2.points) {
+                return o2.points - o1.points;
+            }
+
+            // by goals diff
+            int diff1 = o1.goalsFor - o1.goalsAgainst;
+            int diff2 = o2.goalsFor - o2.goalsAgainst;
+            if (diff1 != diff2) {
+                return diff2 - diff1;
+            }
+
+            // by scored goals
+            if (o1.goalsFor != o2.goalsFor) {
+                return o2.goalsFor - o1.goalsFor;
+            }
+
+            // by names
+            return tournament.teams.get(o1.team).name.compareTo(tournament.teams.get(o2.team).name);
+        }
     }
 }
