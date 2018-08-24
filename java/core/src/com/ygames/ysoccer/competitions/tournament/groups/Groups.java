@@ -5,11 +5,15 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.TableRow;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 public class Groups extends Round implements Json.Serializable {
 
@@ -140,7 +144,18 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void generateResult() {
-        // TODO
+        Match match = getMatch();
+        Team homeTeam = tournament.getTeam(HOME);
+        Team awayTeam = tournament.getTeam(AWAY);
+
+        int homeGoals = Match.generateGoals(homeTeam, awayTeam, false);
+        int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
+
+        match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
+        // TODO addMatchToTable(match);
+
+        // TODO generateScorers(homeTeam, homeGoals);
+        // TODO generateScorers(awayTeam, awayGoals);
     }
 
     @Override
