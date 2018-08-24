@@ -114,6 +114,10 @@ public class Group implements Json.Serializable {
         for (int i = 0; i < teams.size(); i++) {
             table.add(new TableRow(teams.get(i)));
         }
-        // TODO sortTable();
+        sortTable();
+    }
+
+    private void sortTable() {
+        Collections.sort(table, groups.tableRowComparator);
     }
 }
