@@ -131,9 +131,22 @@ public class Group implements Json.Serializable {
         int awayGoals = Match.generateGoals(awayTeam, homeTeam, false);
 
         match.setResult(homeGoals, awayGoals, Match.ResultType.AFTER_90_MINUTES);
-        // TODO addMatchToTable(match);
+        addMatchToTable(match);
 
         // TODO generateScorers(homeTeam, homeGoals);
         // TODO generateScorers(awayTeam, awayGoals);
+    }
+
+    private void addMatchToTable(Match match) {
+        int[] result = match.getResult();
+        for (TableRow row : table) {
+            if (row.team == groups.tournament.getTeamIndex(HOME)) {
+                row.update(result[HOME], result[AWAY], groups.pointsForAWin);
+            }
+            if (row.team == groups.tournament.getTeamIndex(AWAY)) {
+                row.update(result[AWAY], result[HOME], groups.pointsForAWin);
+            }
+        }
+        sortTable();
     }
 }
