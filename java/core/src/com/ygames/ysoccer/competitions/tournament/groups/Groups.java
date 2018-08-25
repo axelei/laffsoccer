@@ -104,7 +104,10 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void clear() {
-        // TODO
+        currentGroup = 0;
+        for (Group group : groups) {
+            group.clear();
+        }
     }
 
     private Group getGroup() {
