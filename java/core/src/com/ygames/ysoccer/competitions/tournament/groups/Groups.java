@@ -15,7 +15,7 @@ public class Groups extends Round implements Json.Serializable {
 
     public int rounds;
     public int pointsForAWin;
-    int currentGroup;
+    public int currentGroup;
     public ArrayList<Group> groups;
 
     Comparator<TableRow> tableRowComparator;
@@ -129,34 +129,34 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void nextMatch() {
-        currentGroup = currentGroup + 1;
+        if (isEnded()) {
+            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
 
-        if (currentGroup == groups.size()) {
-            currentGroup = 0;
-            if (isEnded()) {
-                ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
-
-                // top teams
-                int topTeams = numberOfTopTeams();
-                for (int team = 0; team < topTeams; team++) {
-                    for (Group group : groups) {
-                        qualifiedTeams.add(group.table.get(team).team);
-                    }
-                }
-
-                // runners up
-                int runnersUp = numberOfRunnersUp();
-                ArrayList<TableRow> runnersUpTable = new ArrayList<TableRow>();
+            // top teams
+            int topTeams = numberOfTopTeams();
+            for (int team = 0; team < topTeams; team++) {
                 for (Group group : groups) {
-                    runnersUpTable.add(group.table.get(topTeams));
+                    qualifiedTeams.add(group.table.get(team).team);
                 }
-                Collections.sort(runnersUpTable, tableRowComparator);
-                for (int team = 0; team < runnersUp; team++) {
-                    qualifiedTeams.add(runnersUpTable.get(team).team);
-                }
+            }
 
-                tournament.nextRound(qualifiedTeams);
-            } else {
+            // runners up
+            int runnersUp = numberOfRunnersUp();
+            ArrayList<TableRow> runnersUpTable = new ArrayList<TableRow>();
+            for (Group group : groups) {
+                runnersUpTable.add(group.table.get(topTeams));
+            }
+            Collections.sort(runnersUpTable, tableRowComparator);
+            for (int team = 0; team < runnersUp; team++) {
+                qualifiedTeams.add(runnersUpTable.get(team).team);
+            }
+
+            tournament.nextRound(qualifiedTeams);
+        } else {
+            currentGroup = currentGroup + 1;
+
+            if (currentGroup == groups.size()) {
+                currentGroup = 0;
                 for (Group group : groups) {
                     group.nextMatch();
                 }
@@ -180,7 +180,7 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public boolean isEnded() {
-        return (currentGroup == 0) && getGroup().isEnded();
+        return (currentGroup == groups.size() - 1) && getGroup().isEnded();
     }
 
     @Override
