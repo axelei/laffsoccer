@@ -96,7 +96,10 @@ public class Groups extends Round implements Json.Serializable {
 
     @Override
     public void restart() {
-        // TODO
+        currentGroup = 0;
+        for (Group group : groups) {
+            group.restart();
+        }
     }
 
     @Override
