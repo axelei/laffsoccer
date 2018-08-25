@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Const.BASE_TEAM;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
@@ -375,5 +376,26 @@ public abstract class Competition {
     }
 
     public void matchCompleted() {
+    }
+
+    public class ComparatorByPlayersValue implements Comparator<Integer> {
+
+        @Override
+        public int compare(Integer teamIndex1, Integer teamIndex2) {
+            Team team1 = teams.get(teamIndex1), team2 = teams.get(teamIndex2);
+            int v1 = 0, v2 = 0;
+            for (int i = 0; i < BASE_TEAM; i++) {
+                v1 += team1.playerAtPosition(i).getValue();
+                v2 += team2.playerAtPosition(i).getValue();
+            }
+
+            // by players value
+            if (v1 != v2) {
+                return v2 - v1;
+            }
+
+            // by team name
+            return team1.name.compareTo(team2.name);
+        }
     }
 }
