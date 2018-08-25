@@ -52,12 +52,15 @@ class PlayTournament extends GLScreen {
                 Groups groups = (Groups) tournament.getRound();
                 int tableHeight = 21 * (groups.groupNumberOfTeams() + 1) + 2;
                 int visibleGroups = min(groups.groups.size(), 480 / tableHeight);
+                int topTeams = groups.numberOfTopTeams();
+                int runnersUp = groups.numberOfRunnersUp();
+
                 for (int g = offset; g < offset + visibleGroups; g++) {
                     Group group = groups.groups.get(g);
 
                     // table headers
                     int dx = 250;
-                    int dy = 94 + (tableHeight + 24) * (g - offset) + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams()+2));
+                    int dy = 94 + (tableHeight + 24) * (g - offset) + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams() + 2));
                     w = new Label();
                     w.setGeometry(dx, dy, 322, 21);
                     w.setText(Assets.strings.get("GROUP") + " " + ((char) (65 + g)), Font.Align.CENTER, Assets.font10);
@@ -83,29 +86,44 @@ class PlayTournament extends GLScreen {
                     // table body
                     int tm = 0;
                     dx = 570;
-                    for (TableRow row : group.table) {
+                    for (int row = 0; row < group.table.size(); row++) {
+                        TableRow tableRow = group.table.get(row);
+                        Team team = tournament.teams.get(tableRow.team);
                         w = new Button();
                         w.setGeometry(210, dy + 20 + 21 * tm, 36, 23);
+                        Integer bodyColor = null;
+                        switch (team.controlMode) {
+                            case PLAYER:
+                                bodyColor = 0x0000C8;
+                                break;
+
+                            case COACH:
+                                bodyColor = 0x009BDC;
+                                break;
+                        }
+                        w.setColors(bodyColor, null, null);
                         w.setText(tm + 1, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
-                        Team team = tournament.teams.get(row.team);
                         w = new Button();
                         w.setGeometry(250, dy + 20 + 21 * tm, 322, 23);
-                        switch (team.controlMode) {
-                            case COMPUTER:
-                                w.setColors(0x981E1E, 0x000000, 0x000000);
-                                break;
-
-                            case PLAYER:
-                                w.setColors(0x0000C8, 0x000000, 0x000000);
-                                break;
-
-                            case COACH:
-                                w.setColors(0x009BDC, 0x000000, 0x000000);
-                                break;
+                        if (runnersUp == 0) {
+                            if (row < topTeams) {
+                                bodyColor = 0x3847A3;
+                            } else {
+                                bodyColor = 0xC8000E;
+                            }
+                        } else {
+                            if (row < topTeams) {
+                                bodyColor = 0x4444FF;
+                            } else if (row == topTeams) {
+                                bodyColor = 0xBA9206;
+                            } else {
+                                bodyColor = 0xC8000E;
+                            }
                         }
+                        w.setColors(bodyColor, 0x1E1E1E, 0x1E1E1E);
                         w.setText(team.name, Font.Align.LEFT, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
@@ -113,56 +131,56 @@ class PlayTournament extends GLScreen {
                         // played
                         w = new Button();
                         w.setGeometry(dx, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.won + row.drawn + row.lost, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.won + tableRow.drawn + tableRow.lost, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
                         // won
                         w = new Button();
                         w.setGeometry(dx + 70, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.won, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.won, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
                         // drawn
                         w = new Button();
                         w.setGeometry(dx + 2 * 70, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.drawn, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.drawn, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
                         // lost
                         w = new Button();
                         w.setGeometry(dx + 3 * 70, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.lost, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.lost, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
                         // goals for
                         w = new Button();
                         w.setGeometry(dx + 4 * 70, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.goalsFor, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.goalsFor, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
                         // goals against
                         w = new Button();
                         w.setGeometry(dx + 5 * 70, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.goalsAgainst, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.goalsAgainst, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
                         // points
                         w = new Button();
                         w.setGeometry(dx + 6 * 70, dy + 20 + 21 * tm, 72, 23);
-                        w.setColors(0x808080, 0x000000, 0x000000);
-                        w.setText(row.points, Font.Align.CENTER, Assets.font10);
+                        w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
+                        w.setText(tableRow.points, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
                         widgets.add(w);
 
