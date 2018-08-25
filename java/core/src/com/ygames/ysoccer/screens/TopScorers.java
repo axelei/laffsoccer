@@ -41,13 +41,26 @@ class TopScorers extends GLScreen {
                 widgets.add(w);
             }
 
-            w = new ScorerNameButton(21 * row, scorer.player, position);
+            int color;
+            switch (position) {
+                case 1:
+                    color = 0xD4AF37;
+                    break;
+                case 2:
+                    color = 0xB8B8B8;
+                    break;
+                default:
+                    color = position % 2 == 0 ? 0xC9AE5D : 0xB09851;
+                    break;
+            }
+
+            w = new ScorerNameButton(21 * row, scorer.player, color);
             widgets.add(w);
 
-            w = new TeamNameLabel(21 * row, scorer.player.team, position);
+            w = new TeamNameLabel(21 * row, scorer.player.team, color);
             widgets.add(w);
 
-            w = new GoalsLabel(21 * row, scorer.goals, position);
+            w = new GoalsLabel(21 * row, scorer.goals, color);
             widgets.add(w);
 
             if (row > 21) {
@@ -101,21 +114,9 @@ class TopScorers extends GLScreen {
 
     private class ScorerNameButton extends Button {
 
-        ScorerNameButton(int y, Player player, int position) {
+        ScorerNameButton(int y, Player player, int color) {
             setGeometry(game.gui.WIDTH / 2 - 240 + 1, y, 240, 23);
-            switch (player.team.controlMode) {
-                case COMPUTER:
-                    setColors(0x981E1E, 0x000000, 0x000000);
-                    break;
-
-                case PLAYER:
-                    setColors(0x0000C8, 0x000000, 0x000000);
-                    break;
-
-                case COACH:
-                    setColors(0x009BDC, 0x000000, 0x000000);
-                    break;
-            }
+            setColors(color, 0x1E1E1E, 0x1E1E1E);
             setText(player.shirtName, Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
@@ -123,23 +124,9 @@ class TopScorers extends GLScreen {
 
     private class TeamNameLabel extends Button {
 
-        TeamNameLabel(int y, Team team, int position) {
+        TeamNameLabel(int y, Team team, int color) {
             setGeometry(game.gui.WIDTH / 2 - 1, y, 240, 23);
-            switch (team.controlMode) {
-                case COMPUTER:
-                    setColors(0x981E1E, 0x000000, 0x000000);
-                    break;
-
-                case PLAYER:
-                    setColors(0x0000C8, 0x000000, 0x000000);
-                    break;
-
-                case COACH:
-                    setColors(0x009BDC, 0x000000, 0x000000);
-                    break;
-            }
-            int color = position % 2 == 0 ? 0x808080 : 0x9C9C9C;
-            setColors(color, 0x000000, 0x000000);
+            setColors(color, 0x1E1E1E, 0x1E1E1E);
             setText(team.name, Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
@@ -147,9 +134,8 @@ class TopScorers extends GLScreen {
 
     private class GoalsLabel extends Button {
 
-        GoalsLabel(int y, int goals, int position) {
-            int color = position % 2 == 0 ? 0x808080 : 0x9C9C9C;
-            setColors(color, 0x000000, 0x000000);
+        GoalsLabel(int y, int goals, int color) {
+            setColors(color, 0x1E1E1E, 0x1E1E1E);
             setGeometry(game.gui.WIDTH / 2 + 240 - 3, y, 40, 23);
             setText(goals, Font.Align.CENTER, Assets.font10);
             setActive(false);
