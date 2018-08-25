@@ -113,15 +113,21 @@ public class Groups extends Round implements Json.Serializable {
         return getGroup().getMatch();
     }
 
+    public int numberOfTopTeams() {
+        return tournament.numberOfNextRoundTeams() / groups.size();
+    }
+
+    public int numberOfRunnersUp() {
+        return tournament.numberOfNextRoundTeams() % groups.size();
+    }
+
     @Override
     public void nextMatch() {
         if (isEnded()) {
             ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
-            int nextRoundTeams = tournament.rounds.get(tournament.currentRound + 1).numberOfTeams;
-            int topTeams = nextRoundTeams / groups.size();
-            int runnersUp = nextRoundTeams % groups.size();
 
             // top teams
+            int topTeams = numberOfTopTeams();
             for (int team = 0; team < topTeams; team++) {
                 for (Group group : groups) {
                     qualifiedTeams.add(group.table.get(team).team);
@@ -129,6 +135,7 @@ public class Groups extends Round implements Json.Serializable {
             }
 
             // runners up
+            int runnersUp = numberOfRunnersUp();
             ArrayList<TableRow> runnersUpTable = new ArrayList<TableRow>();
             for (Group group : groups) {
                 runnersUpTable.add(group.table.get(topTeams));
