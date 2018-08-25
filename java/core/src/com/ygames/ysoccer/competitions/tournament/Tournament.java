@@ -15,11 +15,13 @@ public class Tournament extends Competition implements Json.Serializable {
 
     public ArrayList<Round> rounds;
     public AwayGoals awayGoals;
+    public ComparatorByPlayersValue teamComparatorByPlayersValue;
 
     public Tournament() {
         super(Type.TOURNAMENT);
         rounds = new ArrayList<Round>();
         awayGoals = AwayGoals.OFF;
+        teamComparatorByPlayersValue = new ComparatorByPlayersValue();
     }
 
     @Override
@@ -57,7 +59,7 @@ public class Tournament extends Competition implements Json.Serializable {
             qualifiedTeams.add(i);
         }
 
-        ComparatorByPlayersValue teamComparatorByPlayersValue = new ComparatorByPlayersValue();
+        // seeding
         Collections.sort(qualifiedTeams, teamComparatorByPlayersValue);
 
         getRound().start(qualifiedTeams);

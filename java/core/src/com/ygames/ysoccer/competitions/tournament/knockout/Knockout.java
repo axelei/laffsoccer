@@ -170,6 +170,10 @@ public class Knockout extends Round implements Json.Serializable {
             for (Leg leg : legs) {
                 qualifiedTeams.addAll(leg.getQualifiedTeams());
             }
+
+            // seeding
+            Collections.sort(qualifiedTeams, tournament.teamComparatorByPlayersValue);
+
             tournament.nextRound(qualifiedTeams);
         }
     }

@@ -50,7 +50,7 @@ class TopScorers extends GLScreen {
                     color = 0xB8B8B8;
                     break;
                 default:
-                    color = position % 2 == 0 ? 0xC9AE5D : 0xB09851;
+                    color = position % 2 == 0 ? 0x968245 : 0xB09851;
                     break;
             }
 
