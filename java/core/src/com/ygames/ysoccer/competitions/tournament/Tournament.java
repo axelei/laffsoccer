@@ -9,6 +9,7 @@ import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Tournament extends Competition implements Json.Serializable {
 
@@ -55,6 +56,9 @@ public class Tournament extends Competition implements Json.Serializable {
         for (int i = 0; i < numberOfTeams; i++) {
             qualifiedTeams.add(i);
         }
+
+        ComparatorByPlayersValue teamComparatorByPlayersValue = new ComparatorByPlayersValue();
+        Collections.sort(qualifiedTeams, teamComparatorByPlayersValue);
 
         getRound().start(qualifiedTeams);
         updateMonth();
