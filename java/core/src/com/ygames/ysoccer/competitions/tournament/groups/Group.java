@@ -61,8 +61,17 @@ public class Group implements Json.Serializable {
     }
 
     void restart() {
+        currentRound = 0;
+        currentMatch = 0;
         resetCalendar();
         resetTable();
+    }
+
+    void clear() {
+        currentRound = 0;
+        currentMatch = 0;
+        calendar.clear();
+        table.clear();
     }
 
     public Match getMatch() {
@@ -124,9 +133,6 @@ public class Group implements Json.Serializable {
         for (Match match : calendar) {
             resetMatch(match);
         }
-
-        currentRound = 0;
-        currentMatch = 0;
     }
 
     private void populateTable(ArrayList<Integer> teams) {
