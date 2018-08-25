@@ -60,6 +60,11 @@ public class Group implements Json.Serializable {
         populateTable(teams);
     }
 
+    void restart() {
+        resetCalendar();
+        resetTable();
+    }
+
     public Match getMatch() {
         return calendar.get(currentMatch);
     }
@@ -115,6 +120,15 @@ public class Group implements Json.Serializable {
         currentRound = 0;
     }
 
+    private void resetCalendar() {
+        for (Match match : calendar) {
+            resetMatch(match);
+        }
+
+        currentRound = 0;
+        currentMatch = 0;
+    }
+
     private void populateTable(ArrayList<Integer> teams) {
         for (int i = 0; i < teams.size(); i++) {
             table.add(new TableRow(teams.get(i)));
@@ -122,8 +136,19 @@ public class Group implements Json.Serializable {
         sortTable();
     }
 
+    private void resetTable() {
+        for (TableRow row : table) {
+            row.reset();
+        }
+        sortTable();
+    }
+
     private void sortTable() {
         Collections.sort(table, groups.tableRowComparator);
+    }
+
+    private void resetMatch(Match match) {
+        match.resultAfter90 = null;
     }
 
     void generateResult() {

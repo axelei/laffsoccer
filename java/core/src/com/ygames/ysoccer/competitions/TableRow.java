@@ -34,7 +34,7 @@ public class TableRow {
         }
     }
 
-    void reset() {
+    public void reset() {
         won = 0;
         drawn = 0;
         lost = 0;
