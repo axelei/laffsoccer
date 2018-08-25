@@ -26,11 +26,10 @@ import static java.lang.Math.min;
 class PlayTournament extends GLScreen {
 
     private Tournament tournament;
-    private Knockout knockout;
     private ArrayList<Match> matches;
     private int offset;
+    private int maxOffset;
     private ArrayList<Widget> resultWidgets;
-    private Font font10green;
 
     PlayTournament(GLGame game) {
         super(game);
@@ -39,7 +38,7 @@ class PlayTournament extends GLScreen {
 
         background = game.stateBackground;
 
-        font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
+        Font font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
         font10green.load();
 
         Widget w;
@@ -47,25 +46,29 @@ class PlayTournament extends GLScreen {
         w = new TitleBar(tournament.getMenuTitle(), game.stateColor.body);
         widgets.add(w);
 
+        resultWidgets = new ArrayList<Widget>();
         switch (tournament.getRound().type) {
             case GROUPS:
                 Groups groups = (Groups) tournament.getRound();
-                int tableHeight = 21 * (groups.groupNumberOfTeams() + 1) + 2;
-                int visibleGroups = min(groups.groups.size(), 480 / tableHeight);
+                int tableHeight = 21 * (groups.groupNumberOfTeams() + 1) + 23;
+                int visibleGroups = min(groups.groups.size(), 512 / tableHeight);
                 int topTeams = groups.numberOfTopTeams();
                 int runnersUp = groups.numberOfRunnersUp();
 
-                for (int g = offset; g < offset + visibleGroups; g++) {
+                // tables
+                resultWidgets = new ArrayList<Widget>();
+                for (int g = 0; g < groups.groups.size(); g++) {
                     Group group = groups.groups.get(g);
 
                     // table headers
                     int dx = 250;
-                    int dy = 94 + (tableHeight + 24) * (g - offset) + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams() + 2));
                     w = new Label();
-                    w.setGeometry(dx, dy, 322, 21);
+                    w.setGeometry(dx, 0, 322, 21);
                     w.setText(Assets.strings.get("GROUP") + " " + ((char) (65 + g)), Font.Align.CENTER, Assets.font10);
+                    resultWidgets.add(w);
                     widgets.add(w);
                     dx += 320;
+
                     String[] headers = {
                             "TABLE HEADER.PLAYED MATCHES",
                             "TABLE HEADER.WON MATCHES",
@@ -77,8 +80,9 @@ class PlayTournament extends GLScreen {
                     };
                     for (String header : headers) {
                         w = new Label();
-                        w.setGeometry(dx, dy, 72, 21);
+                        w.setGeometry(dx, 0, 72, 21);
                         w.setText(Assets.strings.get(header), Font.Align.CENTER, Assets.font10);
+                        resultWidgets.add(w);
                         widgets.add(w);
                         dx += 70;
                     }
@@ -90,24 +94,15 @@ class PlayTournament extends GLScreen {
                         TableRow tableRow = group.table.get(row);
                         Team team = tournament.teams.get(tableRow.team);
                         w = new Button();
-                        w.setGeometry(210, dy + 20 + 21 * tm, 36, 23);
-                        Integer bodyColor = null;
-                        switch (team.controlMode) {
-                            case PLAYER:
-                                bodyColor = 0x0000C8;
-                                break;
-
-                            case COACH:
-                                bodyColor = 0x009BDC;
-                                break;
-                        }
-                        w.setColors(bodyColor, null, null);
+                        w.setGeometry(210, 0, 36, 23);
                         w.setText(tm + 1, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         w = new Button();
-                        w.setGeometry(250, dy + 20 + 21 * tm, 322, 23);
+                        w.setGeometry(250, 0, 322, 23);
+                        Integer bodyColor;
                         if (runnersUp == 0) {
                             if (row < topTeams) {
                                 bodyColor = 0x3847A3;
@@ -126,71 +121,97 @@ class PlayTournament extends GLScreen {
                         w.setColors(bodyColor, 0x1E1E1E, 0x1E1E1E);
                         w.setText(team.name, Font.Align.LEFT, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // played
                         w = new Button();
-                        w.setGeometry(dx, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.won + tableRow.drawn + tableRow.lost, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // won
                         w = new Button();
-                        w.setGeometry(dx + 70, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx + 70, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.won, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // drawn
                         w = new Button();
-                        w.setGeometry(dx + 2 * 70, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx + 2 * 70, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.drawn, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // lost
                         w = new Button();
-                        w.setGeometry(dx + 3 * 70, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx + 3 * 70, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.lost, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // goals for
                         w = new Button();
-                        w.setGeometry(dx + 4 * 70, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx + 4 * 70, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.goalsFor, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // goals against
                         w = new Button();
-                        w.setGeometry(dx + 5 * 70, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx + 5 * 70, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.goalsAgainst, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         // points
                         w = new Button();
-                        w.setGeometry(dx + 6 * 70, dy + 20 + 21 * tm, 72, 23);
+                        w.setGeometry(dx + 6 * 70, 0, 72, 23);
                         w.setColors(0x808080, 0x1E1E1E, 0x1E1E1E);
                         w.setText(tableRow.points, Font.Align.CENTER, Assets.font10);
                         w.setActive(false);
+                        resultWidgets.add(w);
                         widgets.add(w);
 
                         tm = tm + 1;
                     }
                 }
+                offset = 0;
+                if (groups.currentGroup >= visibleGroups) {
+                    offset = groups.currentGroup - visibleGroups + 1;
+                }
+                updateResultWidgets();
+
+                if (groups.groups.size() > visibleGroups) {
+                    int topScrollY = 98 + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams() + 2)) + 21;
+                    int bottomScrollY = topScrollY + visibleGroups * tableHeight - 21 * 2 - 36;
+
+                    maxOffset = groups.groups.size() - visibleGroups;
+
+                    w = new ScrollButton(180, topScrollY, -1);
+                    widgets.add(w);
+
+                    w = new ScrollButton(180, bottomScrollY, +1);
+                    widgets.add(w);
+                }
                 break;
 
             case KNOCKOUT:
-                knockout = (Knockout) tournament.getRound();
+                Knockout knockout = (Knockout) tournament.getRound();
                 matches = knockout.getMatches();
 
                 offset = 0;
@@ -204,12 +225,12 @@ class PlayTournament extends GLScreen {
                 }
 
                 // calendar
-                resultWidgets = new ArrayList<Widget>();
                 for (int m = 0; m < matches.size(); m++) {
                     Match match = matches.get(m);
                     int qualified = knockout.getLeg().getQualifiedTeam(match);
 
-                    w = new TeamButton(335, dy + 64 * m, tournament.teams.get(match.teams[HOME]), Font.Align.RIGHT, qualified == match.teams[HOME]);
+                    int bodyColor = qualified == -1 ? 0x808080 : (qualified == match.teams[HOME] ? 0x4444FF : 0xC8000E);
+                    w = new TeamButton(335, dy + 64 * m, tournament.teams.get(match.teams[HOME]), Font.Align.RIGHT, bodyColor);
                     resultWidgets.add(w);
                     widgets.add(w);
 
@@ -237,7 +258,8 @@ class PlayTournament extends GLScreen {
                     resultWidgets.add(w);
                     widgets.add(w);
 
-                    w = new TeamButton(705, dy + 64 * m, tournament.teams.get(match.teams[AWAY]), Font.Align.LEFT, qualified == match.teams[AWAY]);
+                    bodyColor = qualified == -1 ? 0x808080 : (qualified == match.teams[AWAY] ? 0x4444FF : 0xC8000E);
+                    w = new TeamButton(705, dy + 64 * m, tournament.teams.get(match.teams[AWAY]), Font.Align.LEFT, bodyColor);
                     resultWidgets.add(w);
                     widgets.add(w);
 
@@ -253,10 +275,12 @@ class PlayTournament extends GLScreen {
                 if (!tournament.isEnded()) {
 
                     if (matches.size() > 8) {
-                        w = new ScrollButton(115, -1);
+                        maxOffset = matches.size() - 8;
+
+                        w = new ScrollButton(228, 115, -1);
                         widgets.add(w);
 
-                        w = new ScrollButton(564, +1);
+                        w = new ScrollButton(228, 564, +1);
                         widgets.add(w);
                     }
                 }
@@ -340,24 +364,9 @@ class PlayTournament extends GLScreen {
 
     private class TeamButton extends Button {
 
-        TeamButton(int x, int y, Team team, Font.Align align, boolean qualified) {
+        TeamButton(int x, int y, Team team, Font.Align align, int bodyColor) {
             setGeometry(x, y, 240, 26);
-            int bodyColor = 0;
-            switch (team.controlMode) {
-                case COMPUTER:
-                    bodyColor = 0x981E1E;
-                    break;
-
-                case PLAYER:
-                    bodyColor = 0x0000C8;
-                    break;
-
-                case COACH:
-                    bodyColor = 0x009BDC;
-                    break;
-            }
-            int borderColor = qualified ? 0x21E337 : 0x1A1A1A;
-            setColors(bodyColor, borderColor, borderColor);
+            setColors(bodyColor, 0x1E1E1E, 0x1E1E1E);
             setText(team.name, align, Assets.font10);
             setActive(false);
         }
@@ -380,9 +389,9 @@ class PlayTournament extends GLScreen {
 
         int direction;
 
-        ScrollButton(int y, int direction) {
+        ScrollButton(int x, int y, int direction) {
             this.direction = direction;
-            setGeometry(228, y, 20, 36);
+            setGeometry(x, y, 20, 36);
             textureRegion = Assets.scroll[direction == 1 ? 1 : 0];
             setAddShadow(true);
         }
@@ -398,7 +407,7 @@ class PlayTournament extends GLScreen {
         }
 
         private void scroll(int direction) {
-            offset = Emath.slide(offset, 0, matches.size() - 8, direction);
+            offset = Emath.slide(offset, 0, maxOffset, direction);
             updateResultWidgets();
         }
     }
@@ -547,17 +556,41 @@ class PlayTournament extends GLScreen {
     }
 
     private void updateResultWidgets() {
-        if (matches.size() > 8) {
-            int m = 0;
-            for (Widget w : resultWidgets) {
-                if ((m >= 6 * offset) && (m < 6 * (offset + 8))) {
-                    w.y = 120 + 64 * (m / 6 - offset) + ((m % 6) == 5 ? 26 : 0);
-                    w.setVisible(true);
-                } else {
-                    w.setVisible(false);
+        int m = 0;
+        switch (tournament.getRound().type) {
+            case GROUPS:
+                Groups groups = (Groups) tournament.getRound();
+                int widgetsPerTable = 8 + 9 * groups.groupNumberOfTeams();
+                int tableHeight = 21 * (groups.groupNumberOfTeams() + 1) + 23;
+                int visibleGroups = min(groups.groups.size(), 512 / tableHeight);
+                int dy = 98 - offset * tableHeight + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams() + 2));
+                for (Widget w : resultWidgets) {
+                    if ((m >= widgetsPerTable * offset) && (m < widgetsPerTable * (offset + visibleGroups))) {
+                        int i = m % widgetsPerTable;
+                        int row = i < 8 ? 0 : (i - 8) / 9 + 1;
+                        w.y = dy + 21 * row;
+                        w.setVisible(true);
+                    } else {
+                        w.setVisible(false);
+                    }
+                    m = m + 1;
+                    if (m % widgetsPerTable == 0) dy += tableHeight;
                 }
-                m = m + 1;
-            }
+                break;
+
+            case KNOCKOUT:
+                if (matches.size() > 8) {
+                    for (Widget w : resultWidgets) {
+                        if ((m >= 6 * offset) && (m < 6 * (offset + 8))) {
+                            w.y = 120 + 64 * (m / 6 - offset) + ((m % 6) == 5 ? 26 : 0);
+                            w.setVisible(true);
+                        } else {
+                            w.setVisible(false);
+                        }
+                        m = m + 1;
+                    }
+                }
+                break;
         }
     }
 }
