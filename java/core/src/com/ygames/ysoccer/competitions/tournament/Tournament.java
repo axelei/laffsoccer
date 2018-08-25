@@ -186,4 +186,12 @@ public class Tournament extends Competition implements Json.Serializable {
         }
         return false;
     }
+
+    public int numberOfNextRoundTeams() {
+        if (currentRound == rounds.size() - 1) {
+            return 1;
+        } else {
+            return rounds.get(currentRound + 1).numberOfTeams;
+        }
+    }
 }

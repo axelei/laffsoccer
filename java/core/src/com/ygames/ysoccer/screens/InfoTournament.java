@@ -481,7 +481,7 @@ class InfoTournament extends GLScreen {
                     break;
 
                 case GROUPS:
-                    int groups = 1; // TODO ((Groups) tournament.rounds.get(round)).groups.size();
+                    int groups = ((Groups) tournament.rounds.get(round)).groups.size();
                     if (groups == 1) {
                         if (round == tournament.rounds.size() - 1) {
                             label = Assets.strings.get("TOURNAMENT.GROUP WINNER WINS TOURNAMENT");
