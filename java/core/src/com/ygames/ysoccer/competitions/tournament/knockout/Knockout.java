@@ -185,12 +185,28 @@ public class Knockout extends Round implements Json.Serializable {
 
     private void generateCalendar(ArrayList<Integer> qualifiedTeams) {
 
-        Collections.shuffle(qualifiedTeams);
+        if (!seeded) {
+            Collections.shuffle(qualifiedTeams);
+        }
+
+        // create random partitioned mapping
+        List<Integer> groupsIndexes = new ArrayList<Integer>();
+        for (int t = 0; t < qualifiedTeams.size() / 2; t++) {
+            groupsIndexes.add(t);
+        }
+        List<Integer> teamsMapping = new ArrayList<Integer>();
+        for (int t = 0; t < 2; t++) {
+            Collections.shuffle(groupsIndexes);
+            for (int g = 0; g < qualifiedTeams.size() / 2; g++) {
+                teamsMapping.add(t * qualifiedTeams.size() / 2 + groupsIndexes.get(g));
+            }
+        }
 
         for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
             Match match = new Match();
-            match.teams[HOME] = qualifiedTeams.get(2 * i);
-            match.teams[AWAY] = qualifiedTeams.get(2 * i + 1);
+            int shuffle = Emath.rand(0, 1);
+            match.teams[HOME] = qualifiedTeams.get(teamsMapping.get(i + shuffle * (qualifiedTeams.size() / 2)));
+            match.teams[AWAY] = qualifiedTeams.get(teamsMapping.get(i + (1 - shuffle) * (qualifiedTeams.size() / 2)));
             getLeg().matches.add(match);
         }
     }
