@@ -79,7 +79,7 @@ public class Group implements Json.Serializable {
     }
 
     public boolean isEnded() {
-        return currentMatch == calendar.size() - 1;
+        return currentMatch == calendar.size() - 1 && getMatch().getResult() != null;
     }
 
     public void nextMatch() {
