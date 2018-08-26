@@ -17,7 +17,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 public class Group implements Json.Serializable {
 
     private Groups groups;
-    private ArrayList<Match> calendar;
+    public ArrayList<Match> calendar;
     public List<TableRow> table;
     private int currentMatch;
     private int currentRound;
