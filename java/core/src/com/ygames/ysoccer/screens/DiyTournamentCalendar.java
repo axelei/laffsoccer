@@ -67,6 +67,9 @@ class DiyTournamentCalendar extends GLScreen {
             setSelectedWidget(teamButtons.get(0));
         }
 
+        w = new BackButton();
+        widgets.add(w);
+
         w = new AbortButton();
         widgets.add(w);
         if (selectedWidget == null) {
@@ -75,6 +78,72 @@ class DiyTournamentCalendar extends GLScreen {
 
         w = new PlayButton();
         widgets.add(w);
+    }
+
+    private class BackButton extends Button {
+
+        BackButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
+            setColors(0x9A6C9C);
+            setText("BACK", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            boolean b;
+            switch (mode) {
+                case GROUPS_DISTRIBUTION:
+                    b = groupsTeams.size() > 0;
+                    setVisible(b);
+                    setActive(b);
+                    break;
+
+                case GROUP_MATCHES:
+                    b = currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0;
+                    setVisible(b);
+                    setActive(b);
+                    break;
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            switch (mode) {
+                case GROUPS_DISTRIBUTION:
+                    Integer teamIndex = groupsTeams.get(groupsTeams.size() - 1);
+                    groupsTeams.remove(teamIndex);
+                    for (Widget w : teamButtons) {
+                        TeamButton teamButton = (TeamButton) w;
+                        if (teamButton.teamIndex == teamIndex) {
+                            teamButton.done = false;
+                            break;
+                        }
+                    }
+                    break;
+
+                case GROUP_MATCHES:
+                    Group group = groups.groups.get(currentGroup);
+                    Match match = group.calendar.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+
+                    if (matchSide == HOME) {
+                        matchSide = AWAY;
+                        currentMatch--;
+                    } else {
+                        matchSide = HOME;
+                        group.calendar.remove(match);
+                    }
+                    int team = match.teams[matchSide];
+                    for (Widget w : teamButtons) {
+                        TeamButton teamButton = (TeamButton) w;
+                        if (teamButton.teamIndex == team) {
+                            teamButton.matches--;
+                            break;
+                        }
+                    }
+                    break;
+            }
+            refreshAllWidgets();
+        }
     }
 
     private class TeamButton extends Button {
@@ -99,6 +168,9 @@ class DiyTournamentCalendar extends GLScreen {
                     if (done) {
                         setText(team.name + " (" + (char) (65 + groupIndex) + ")");
                         setActive(false);
+                    } else {
+                        setText(team.name);
+                        setActive(true);
                     }
                     break;
 
