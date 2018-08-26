@@ -4,6 +4,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -54,6 +55,17 @@ class SelectCompetition extends GLScreen {
 
         // Competitions buttons
         List<Widget> competitionsList = new ArrayList<Widget>();
+
+        FileHandle tournamentsFile = currentFolder.child("tournaments.json");
+        if (tournamentsFile.exists()) {
+            Tournament[] tournaments = Assets.json.fromJson(Tournament[].class, tournamentsFile.readString("UTF-8"));
+            for (Tournament tournament : tournaments) {
+                tournament.category = Competition.Category.PRESET_COMPETITION;
+                w = new CompetitionButton(tournament);
+                competitionsList.add(w);
+                widgets.add(w);
+            }
+        }
 
         FileHandle leaguesFile = currentFolder.child("leagues.json");
         if (leaguesFile.exists()) {

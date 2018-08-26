@@ -45,6 +45,8 @@ public abstract class Round {
 
     public abstract void restart();
 
+    public abstract boolean isPreset();
+
     public abstract void clear();
 
     public abstract Match getMatch();

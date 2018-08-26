@@ -58,6 +58,7 @@ public class Group implements Json.Serializable {
         }
 
         populateTable(teams);
+        sortTable();
     }
 
     void restart() {
@@ -135,11 +136,10 @@ public class Group implements Json.Serializable {
         }
     }
 
-    private void populateTable(ArrayList<Integer> teams) {
+    public void populateTable(ArrayList<Integer> teams) {
         for (int i = 0; i < teams.size(); i++) {
             table.add(new TableRow(teams.get(i)));
         }
-        sortTable();
     }
 
     private void resetTable() {
@@ -149,7 +149,7 @@ public class Group implements Json.Serializable {
         sortTable();
     }
 
-    private void sortTable() {
+    void sortTable() {
         Collections.sort(table, groups.tableRowComparator);
     }
 

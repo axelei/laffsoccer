@@ -59,8 +59,10 @@ public class Tournament extends Competition implements Json.Serializable {
             qualifiedTeams.add(i);
         }
 
-        // seeding
-        Collections.sort(qualifiedTeams, teamComparatorByPlayersValue);
+        if (!getRound().isPreset()) {
+            // seeding
+            Collections.sort(qualifiedTeams, teamComparatorByPlayersValue);
+        }
 
         getRound().start(qualifiedTeams);
         updateMonth();
