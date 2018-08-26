@@ -44,6 +44,9 @@ class DiyTournamentCalendar extends GLScreen {
         w = new TitleBar("DIY TOURNAMENT CALENDAR", game.stateColor.body);
         widgets.add(w);
 
+        w = new StatusLabel();
+        widgets.add(w);
+
         switch (tournament.getRound().type) {
             case GROUPS:
                 groups = (Groups) tournament.getRound();
@@ -78,6 +81,36 @@ class DiyTournamentCalendar extends GLScreen {
 
         w = new PlayButton();
         widgets.add(w);
+    }
+
+    private class StatusLabel extends Button {
+
+        StatusLabel() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 80, 180, 36);
+            setText("", Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            switch (mode) {
+                case GROUPS_DISTRIBUTION:
+                    int groupIndex = groupsTeams.size() / groups.groupNumberOfTeams();
+                    setText("CREATE GROUP " + (char) (65 + groupIndex));
+                    break;
+
+                case GROUP_MATCHES:
+                    if (currentGroup == groups.groups.size()) {
+                        setVisible(false);
+                    } else {
+                        int matches = groups.groupNumberOfTeams() * (groups.groupNumberOfTeams() - 1) / 2;
+                        int match = groups.groups.get(currentGroup).calendar.size();
+                        setText("GROUP " + (char) (65 + currentGroup) +
+                                " MATCHES:" + " " + match + " / " + matches);
+                    }
+                    break;
+            }
+        }
     }
 
     private class BackButton extends Button {
