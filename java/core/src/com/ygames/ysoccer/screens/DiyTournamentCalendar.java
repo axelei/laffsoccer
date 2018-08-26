@@ -70,6 +70,15 @@ class DiyTournamentCalendar extends GLScreen {
             setSelectedWidget(teamButtons.get(0));
         }
 
+        w = new HomeTeamLabel();
+        widgets.add(w);
+
+        w = new VersusLabel();
+        widgets.add(w);
+
+        w = new AwayTeamLabel();
+        widgets.add(w);
+
         w = new BackButton();
         widgets.add(w);
 
@@ -107,6 +116,65 @@ class DiyTournamentCalendar extends GLScreen {
                         int match = groups.groups.get(currentGroup).calendar.size();
                         setText("GROUP " + (char) (65 + currentGroup) +
                                 " MATCHES:" + " " + match + " / " + matches);
+                    }
+                    break;
+            }
+        }
+    }
+
+    private class HomeTeamLabel extends Button {
+
+        HomeTeamLabel() {
+            setGeometry(240, 618, 322, 36);
+            setText("", Font.Align.RIGHT, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            switch (mode) {
+                case GROUP_MATCHES:
+                    if (currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0) {
+                        Match match = groups.groups.get(currentGroup).calendar.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+                        setText(game.teamList.get(match.teams[HOME]).name);
+                    } else {
+                        setText("");
+                    }
+                    break;
+            }
+        }
+    }
+
+    private class VersusLabel extends Button {
+
+        VersusLabel() {
+            setGeometry(game.gui.WIDTH / 2 - 20, 618, 40, 36);
+            setText(Assets.strings.get("ABBREVIATIONS.VERSUS"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0);
+        }
+    }
+
+    private class AwayTeamLabel extends Button {
+
+        AwayTeamLabel() {
+            setGeometry(720, 618, 322, 36);
+            setText("", Font.Align.LEFT, Assets.font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            switch (mode) {
+                case GROUP_MATCHES:
+                    if (currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0 && matchSide == HOME) {
+                        Match match = groups.groups.get(currentGroup).calendar.get(currentMatch - 1);
+                        setText(game.teamList.get(match.teams[AWAY]).name);
+                    } else {
+                        setText("");
                     }
                     break;
             }
