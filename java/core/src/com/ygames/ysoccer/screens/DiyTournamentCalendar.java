@@ -67,6 +67,12 @@ class DiyTournamentCalendar extends GLScreen {
             setSelectedWidget(teamButtons.get(0));
         }
 
+        w = new AbortButton();
+        widgets.add(w);
+        if (selectedWidget == null) {
+            setSelectedWidget(w);
+        }
+
         w = new PlayButton();
         widgets.add(w);
     }
@@ -164,6 +170,20 @@ class DiyTournamentCalendar extends GLScreen {
                     }
             }
             refreshAllWidgets();
+        }
+    }
+
+    private class AbortButton extends Button {
+
+        AbortButton() {
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setColors(0xC8000E);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new Main(game));
         }
     }
 
