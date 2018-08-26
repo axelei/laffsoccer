@@ -4,6 +4,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -498,6 +499,8 @@ class SelectTeams extends GLScreen {
                 case LEAGUE:
                     game.setScreen(new DiyLeagueCalendar(game, (League) navigation.competition));
                     break;
+                case TOURNAMENT:
+                    game.setScreen(new DiyTournamentCalendar(game, (Tournament) navigation.competition));
             }
         }
     }
