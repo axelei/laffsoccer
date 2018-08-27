@@ -594,7 +594,7 @@ public class Knockout extends Round implements Json.Serializable {
         return title;
     }
 
-    private void newLeg() {
+    public void newLeg() {
         Leg leg = new Leg(this);
         legs.add(leg);
     }

@@ -3,6 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.competitions.tournament.groups.Group;
 import com.ygames.ysoccer.competitions.tournament.groups.Groups;
+import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
@@ -23,11 +24,13 @@ class DiyTournamentCalendar extends GLScreen {
 
     private Tournament tournament;
     private Groups groups;
+    private Knockout knockout;
     private int currentGroup;
     private int currentMatch;
     private int matchSide;
     private List<Integer> groupsTeams;
     private List<Widget> teamButtons;
+    private ArrayList<Match> matches;
 
     private enum Mode {GROUPS_DISTRIBUTION, GROUP_MATCHES, KNOCKOUT_CALENDAR}
 
@@ -37,6 +40,7 @@ class DiyTournamentCalendar extends GLScreen {
         super(game);
         this.tournament = tournament;
         groupsTeams = new ArrayList<Integer>();
+        matches = new ArrayList<Match>();
 
         background = game.stateBackground;
         Widget w;
@@ -51,6 +55,11 @@ class DiyTournamentCalendar extends GLScreen {
             case GROUPS:
                 groups = (Groups) tournament.getRound();
                 mode = Mode.GROUPS_DISTRIBUTION;
+                break;
+
+            case KNOCKOUT:
+                knockout = (Knockout) tournament.getRound();
+                mode = Mode.KNOCKOUT_CALENDAR;
                 break;
         }
 
@@ -118,6 +127,10 @@ class DiyTournamentCalendar extends GLScreen {
                                 " MATCHES:" + " " + match + " / " + matches);
                     }
                     break;
+
+                case KNOCKOUT_CALENDAR:
+                    setText("MATCHES:" + " " + currentMatch + " / " + knockout.numberOfTeams / 2);
+                    break;
             }
         }
     }
@@ -141,6 +154,15 @@ class DiyTournamentCalendar extends GLScreen {
                         setText("");
                     }
                     break;
+
+                case KNOCKOUT_CALENDAR:
+                    if (matches.size() > 0) {
+                        Match match = matches.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+                        setText(game.teamList.get(match.teams[HOME]).name);
+                    } else {
+                        setText("");
+                    }
+                    break;
             }
         }
     }
@@ -154,7 +176,15 @@ class DiyTournamentCalendar extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0);
+            switch (mode) {
+                case GROUP_MATCHES:
+                    setVisible(currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0);
+                    break;
+
+                case KNOCKOUT_CALENDAR:
+                    setVisible(matches.size() > 0);
+                    break;
+            }
         }
     }
 
@@ -172,6 +202,15 @@ class DiyTournamentCalendar extends GLScreen {
                 case GROUP_MATCHES:
                     if (currentGroup < groups.groups.size() && groups.groups.get(currentGroup).calendar.size() > 0 && matchSide == HOME) {
                         Match match = groups.groups.get(currentGroup).calendar.get(currentMatch - 1);
+                        setText(game.teamList.get(match.teams[AWAY]).name);
+                    } else {
+                        setText("");
+                    }
+                    break;
+
+                case KNOCKOUT_CALENDAR:
+                    if (matches.size() > 0 && matchSide == HOME) {
+                        Match match = matches.get(currentMatch - 1);
                         setText(game.teamList.get(match.teams[AWAY]).name);
                     } else {
                         setText("");
@@ -204,11 +243,19 @@ class DiyTournamentCalendar extends GLScreen {
                     setVisible(b);
                     setActive(b);
                     break;
+
+                case KNOCKOUT_CALENDAR:
+                    b = matches.size() > 0;
+                    setVisible(b);
+                    setActive(b);
+                    break;
             }
         }
 
         @Override
         public void onFire1Down() {
+            Match match;
+            int team;
             switch (mode) {
                 case GROUPS_DISTRIBUTION:
                     Integer teamIndex = groupsTeams.get(groupsTeams.size() - 1);
@@ -224,7 +271,7 @@ class DiyTournamentCalendar extends GLScreen {
 
                 case GROUP_MATCHES:
                     Group group = groups.groups.get(currentGroup);
-                    Match match = group.calendar.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+                    match = group.calendar.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
 
                     if (matchSide == HOME) {
                         matchSide = AWAY;
@@ -233,11 +280,30 @@ class DiyTournamentCalendar extends GLScreen {
                         matchSide = HOME;
                         group.calendar.remove(match);
                     }
-                    int team = match.teams[matchSide];
+                    team = match.teams[matchSide];
                     for (Widget w : teamButtons) {
                         TeamButton teamButton = (TeamButton) w;
                         if (teamButton.teamIndex == team) {
-                            teamButton.matches--;
+                            teamButton.teamMatches--;
+                            break;
+                        }
+                    }
+                    break;
+
+                case KNOCKOUT_CALENDAR:
+                    match = matches.get(matchSide == HOME ? currentMatch - 1 : currentMatch);
+                    if (matchSide == HOME) {
+                        matchSide = AWAY;
+                        currentMatch--;
+                    } else {
+                        matchSide = HOME;
+                        matches.remove(match);
+                    }
+                    team = match.teams[matchSide];
+                    for (Widget w : teamButtons) {
+                        TeamButton teamButton = (TeamButton) w;
+                        if (teamButton.teamIndex == team) {
+                            teamButton.done = false;
                             break;
                         }
                     }
@@ -252,7 +318,7 @@ class DiyTournamentCalendar extends GLScreen {
         private Team team;
         int teamIndex;
         private int groupIndex;
-        private int matches;
+        private int teamMatches;
         boolean done;
 
         TeamButton(Team team, int teamIndex) {
@@ -276,7 +342,7 @@ class DiyTournamentCalendar extends GLScreen {
                     break;
 
                 case GROUP_MATCHES:
-                    setText(team.name + " " + matches);
+                    setText(team.name + " " + teamMatches);
                     setVisible(groupIndex == currentGroup);
                     setActive(groupIndex == currentGroup);
                     break;
@@ -334,13 +400,29 @@ class DiyTournamentCalendar extends GLScreen {
                         matchSide = HOME;
                         currentMatch += 1;
                     }
-                    matches++;
+                    teamMatches++;
 
                     // advance to next group
                     if (currentMatch == groups.groupNumberOfTeams() * (groups.groupNumberOfTeams() - 1) / 2) {
                         currentGroup++;
                         currentMatch = 0;
                     }
+                    break;
+
+                case KNOCKOUT_CALENDAR:
+                    if (matchSide == HOME) {
+                        Match match = new Match();
+                        match.teams[HOME] = teamIndex;
+                        matches.add(match);
+                        matchSide = AWAY;
+                    } else {
+                        Match match = matches.get(currentMatch);
+                        match.teams[AWAY] = teamIndex;
+                        matchSide = HOME;
+                        currentMatch += 1;
+                    }
+                    done = true;
+                    break;
             }
             refreshAllWidgets();
         }
@@ -370,8 +452,28 @@ class DiyTournamentCalendar extends GLScreen {
         @Override
         public void refresh() {
             switch (mode) {
+                case GROUPS_DISTRIBUTION:
+                    setColors(0x666666);
+                    setActive(false);
+                    break;
+
                 case GROUP_MATCHES:
                     if (currentGroup == groups.groups.size() && currentMatch == 0) {
+                        setColors(0x138B21);
+                        setActive(true);
+                    } else {
+                        setColors(0x666666);
+                        setActive(false);
+                    }
+                    break;
+
+                case KNOCKOUT_CALENDAR:
+                    int teams = 0;
+                    for (Match match : matches) {
+                        if (match.teams[HOME] != -1) teams++;
+                        if (match.teams[AWAY] != -1) teams++;
+                    }
+                    if (teams == knockout.numberOfTeams) {
                         setColors(0x138B21);
                         setActive(true);
                     } else {
@@ -413,6 +515,16 @@ class DiyTournamentCalendar extends GLScreen {
                     tournament.start(game.teamList);
                     game.setCompetition(tournament);
                     game.setScreen(new PlayTournament(game));
+                    break;
+
+                case KNOCKOUT_CALENDAR:
+                    knockout.newLeg();
+                    knockout.legs.get(0).matches = matches;
+
+                    tournament.start(game.teamList);
+                    game.setCompetition(tournament);
+                    game.setScreen(new PlayTournament(game));
+                    break;
             }
         }
     }
