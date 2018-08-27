@@ -44,10 +44,10 @@ class TopScorers extends GLScreen {
             int color;
             switch (position) {
                 case 1:
-                    color = 0xD4AF37;
+                    color = 0xBA9A30;
                     break;
                 case 2:
-                    color = 0xB8B8B8;
+                    color = 0xADADAD;
                     break;
                 default:
                     color = position % 2 == 0 ? 0x968245 : 0xB09851;
