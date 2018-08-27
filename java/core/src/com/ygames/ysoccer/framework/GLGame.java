@@ -45,7 +45,7 @@ public class GLGame extends Game {
     public Texture stateBackground;
     public WidgetColor stateColor;
 
-    public ArrayList<Team> teamList;
+    public TeamList teamList;
     public Competition competition;
 
     public MenuMusic menuMusic;
@@ -70,7 +70,7 @@ public class GLGame extends Game {
         state = State.NONE;
         stateColor = new WidgetColor();
 
-        teamList = new ArrayList<Team>();
+        teamList = new TeamList();
 
         menuMusic = new MenuMusic("music");
 

@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
+import com.ygames.ysoccer.framework.TeamList;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
@@ -356,6 +357,7 @@ public class Team implements Json.Serializable {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null) return false;
         Team t = (Team) obj;
         return Assets.teamsRootFolder.child(path).equals(Assets.teamsRootFolder.child(t.path));
     }
@@ -634,8 +636,8 @@ public class Team implements Json.Serializable {
         path = tmp;
     }
 
-    public static ArrayList<Team> loadTeamList(List<String> paths) {
-        ArrayList<Team> teamList = new ArrayList<Team>();
+    public static TeamList loadTeamList(List<String> paths) {
+        TeamList teamList = new TeamList();
         for (String path : paths) {
             FileHandle teamFile = Assets.teamsRootFolder.child(path);
             if (teamFile.exists()) {

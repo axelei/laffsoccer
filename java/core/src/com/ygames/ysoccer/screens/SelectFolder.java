@@ -77,7 +77,7 @@ class SelectFolder extends GLScreen {
         switch (game.getState()) {
             case COMPETITION:
             case FRIENDLY:
-                int diff = navigation.competition.numberOfTeams - game.teamList.size();
+                int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
                 title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR")
                         + " " + navigation.competition.name;
                 break;
@@ -169,7 +169,7 @@ class SelectFolder extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(game.teamList.size() > 0);
+            setVisible(game.teamList.numberOfTeams() > 0);
         }
     }
 

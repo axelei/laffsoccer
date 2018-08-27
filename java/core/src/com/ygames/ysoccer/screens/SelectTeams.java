@@ -163,7 +163,7 @@ class SelectTeams extends GLScreen {
         public void refresh() {
             setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
             setColors(game.stateColor);
-            int diff = navigation.competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
             String title = Assets.strings.get((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR") + " " + navigation.competition.name;
             setText(title, Font.Align.CENTER, Assets.font14);
         }
@@ -304,12 +304,12 @@ class SelectTeams extends GLScreen {
 
                     case COACH:
                         team.controlMode = Team.ControlMode.UNDEFINED;
-                        game.teamList.remove(team);
+                        game.teamList.removeTeam(team);
                         break;
                 }
             } else {
                 team.controlMode = Team.ControlMode.COMPUTER;
-                game.teamList.add(team);
+                game.teamList.addTeam(team);
             }
             updateColors();
             viewSelectedTeamsButton.setDirty(true);
@@ -354,7 +354,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(game.teamList.size() > 0);
+            setVisible(game.teamList.numberOfTeams() > 0);
         }
     }
 
@@ -381,7 +381,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            int diff = navigation.competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
             if (diff == 0) {
                 switch (navigation.competition.type) {
                     case FRIENDLY:
@@ -419,6 +419,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            game.teamList.removeNullValues();
             switch (navigation.competition.type) {
                 case FRIENDLY:
                     Team homeTeam = game.teamList.get(HOME);
@@ -487,11 +488,12 @@ class SelectTeams extends GLScreen {
             setVisible(game.settings.development
                     && navigation.competition.type != Competition.Type.FRIENDLY
                     && navigation.competition.category == Competition.Category.DIY_COMPETITION
-                    && navigation.competition.numberOfTeams == game.teamList.size());
+                    && navigation.competition.numberOfTeams == game.teamList.numberOfTeams());
         }
 
         @Override
         public void onFire1Down() {
+            game.teamList.removeNullValues();
             switch (navigation.competition.type) {
                 case CUP:
                     game.setScreen(new DiyCupCalendar(game, (Cup) navigation.competition));

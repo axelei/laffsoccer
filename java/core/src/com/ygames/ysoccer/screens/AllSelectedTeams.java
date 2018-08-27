@@ -52,6 +52,7 @@ class AllSelectedTeams extends GLScreen {
 
         List<Widget> list = new ArrayList<Widget>();
         for (Team team : game.teamList) {
+            if (team == null) continue;
             w = new TeamButton(team);
             list.add(w);
             widgets.add(w);
@@ -70,7 +71,7 @@ class AllSelectedTeams extends GLScreen {
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
-        int diff = navigation.competition.numberOfTeams - game.teamList.size();
+        int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
         if (diff == 0) {
             setSelectedWidget(w);
         }
@@ -155,12 +156,12 @@ class AllSelectedTeams extends GLScreen {
 
                     case COACH:
                         team.controlMode = Team.ControlMode.UNDEFINED;
-                        game.teamList.remove(team);
+                        game.teamList.removeTeam(team);
                         break;
                 }
             } else {
                 team.controlMode = Team.ControlMode.COMPUTER;
-                game.teamList.add(team);
+                game.teamList.addTeam(team);
             }
             updateColors();
             playButton.setDirty(true);
@@ -197,7 +198,7 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            int diff = navigation.competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
             setText(Assets.strings.get((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -235,7 +236,7 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            int diff = navigation.competition.numberOfTeams - game.teamList.size();
+            int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
             if (diff == 0) {
                 switch (navigation.competition.type) {
                     case FRIENDLY:
@@ -273,6 +274,7 @@ class AllSelectedTeams extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            game.teamList.removeNullValues();
             switch (navigation.competition.type) {
                 case FRIENDLY:
                     Team homeTeam = game.teamList.get(HOME);
