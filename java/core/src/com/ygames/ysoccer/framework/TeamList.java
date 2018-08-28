@@ -28,7 +28,12 @@ public class TeamList extends ArrayList<Team> {
 
     public void removeNullValues() {
         while (indexOf(null) != -1) {
-            remove(indexOf(null));
+            if (indexOf(null) == size() - 1) {
+                remove(indexOf(null));
+            } else {
+                set(indexOf(null), get(size() - 1));
+                remove(size() - 1);
+            }
         }
     }
 }
