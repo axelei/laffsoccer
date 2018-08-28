@@ -172,7 +172,7 @@ public class Group implements Json.Serializable {
         groups.tournament.generateScorers(awayTeam, awayGoals);
     }
 
-    private void addMatchToTable(Match match) {
+    void addMatchToTable(Match match) {
         int[] result = match.getResult();
         for (TableRow row : table) {
             if (row.team == groups.tournament.getTeamIndex(HOME)) {

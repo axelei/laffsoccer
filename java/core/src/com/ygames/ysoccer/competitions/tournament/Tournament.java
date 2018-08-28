@@ -202,4 +202,8 @@ public class Tournament extends Competition implements Json.Serializable {
             return rounds.get(currentRound + 1).numberOfTeams;
         }
     }
+
+    public void matchCompleted() {
+        getRound().matchCompleted();
+    }
 }

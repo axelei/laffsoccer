@@ -90,4 +90,7 @@ public abstract class Round {
                 throw new GdxRuntimeException("Wrong Penalties value");
         }
     }
+
+    public void matchCompleted() {
+    }
 }

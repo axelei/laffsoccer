@@ -234,4 +234,9 @@ public class Groups extends Round implements Json.Serializable {
             return tournament.teams.get(o1.team).name.compareTo(tournament.teams.get(o2.team).name);
         }
     }
+
+    @Override
+    public void matchCompleted() {
+        getGroup().addMatchToTable(getMatch());
+    }
 }
