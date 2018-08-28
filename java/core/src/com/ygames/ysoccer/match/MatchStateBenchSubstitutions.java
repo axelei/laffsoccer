@@ -16,6 +16,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_OUT;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_BENCH_STANDING;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
+import static java.lang.Math.min;
 
 class MatchStateBenchSubstitutions extends MatchState {
 
@@ -56,14 +57,15 @@ class MatchStateBenchSubstitutions extends MatchState {
 
         // move selection
         if (fsm.benchStatus.inputDevice.yMoved()) {
+            int substitutes = min(match.settings.benchSize, fsm.benchStatus.team.lineup.size() - TEAM_SIZE);
 
             // if remaining substitutions
             if (fsm.benchStatus.team.substitutionsCount < match.settings.substitutions) {
-                fsm.benchStatus.selectedPosition = Emath.rotate(fsm.benchStatus.selectedPosition, -1, match.settings.benchSize - 1, fsm.benchStatus.inputDevice.y1);
+                fsm.benchStatus.selectedPosition = Emath.rotate(fsm.benchStatus.selectedPosition, -1, substitutes - 1, fsm.benchStatus.inputDevice.y1);
             }
 
             // reset positions
-            for (int i = 0; i < match.settings.benchSize; i++) {
+            for (int i = 0; i < substitutes; i++) {
                 Player player = fsm.benchStatus.team.lineup.get(TEAM_SIZE + i);
                 if (!player.fsm.getState().checkId(STATE_OUTSIDE)) {
                     player.fsm.setState(STATE_BENCH_SITTING);

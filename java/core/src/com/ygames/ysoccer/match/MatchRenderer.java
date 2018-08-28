@@ -18,6 +18,7 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
+import static java.lang.Math.min;
 
 public class MatchRenderer extends Renderer {
 
@@ -73,7 +74,7 @@ public class MatchRenderer extends Renderer {
         float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
         float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
         float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
-        zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
+        zoom = 20 * (int) (5.0f * min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
 
         guiHeight = guiWidth * height / width;
     }
@@ -853,7 +854,8 @@ public class MatchRenderer extends Renderer {
 
         Assets.font10.draw(batch, Assets.strings.get("BENCH"), x + w / 2, y + 3, Font.Align.CENTER);
 
-        for (int pos = 0; pos < match.settings.benchSize; pos++) {
+        int benchSize = min(match.settings.benchSize, match.fsm.benchStatus.team.lineup.size() - TEAM_SIZE);
+        for (int pos = 0; pos < benchSize; pos++) {
             Player player = match.fsm.benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
 
             if (!player.fsm.getState().checkId(STATE_OUTSIDE)) {
