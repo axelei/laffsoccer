@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.competitions.Cup;
+import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
@@ -193,11 +194,19 @@ class MatchStateMain extends MatchState {
                             Cup cup = (Cup) match.competition;
                             if (cup.playExtraTime()) {
                                 fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_EXTRA_TIME_STOP);
-                                return;
                             } else {
                                 fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
-                                return;
                             }
+                            return;
+
+                        case TOURNAMENT:
+                            Tournament tournament = (Tournament) match.competition;
+                            if (tournament.getRound().playExtraTime()) {
+                                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_EXTRA_TIME_STOP);
+                            } else {
+                                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
+                            }
+                            return;
                     }
                 }
                 break;

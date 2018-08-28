@@ -68,7 +68,7 @@ public class Groups extends Round implements Json.Serializable {
     @Override
     protected void start(ArrayList<Integer> qualifiedTeams) {
         if (isPreset()) {
-            for(Group group: groups) {
+            for (Group group : groups) {
                 group.sortTable();
             }
         } else {
@@ -197,6 +197,11 @@ public class Groups extends Round implements Json.Serializable {
     @Override
     public void generateResult() {
         getGroup().generateResult();
+    }
+
+    @Override
+    public boolean playExtraTime() {
+        return false;
     }
 
     @Override

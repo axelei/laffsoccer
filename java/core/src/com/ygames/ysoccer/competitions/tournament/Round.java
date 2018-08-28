@@ -61,6 +61,8 @@ public abstract class Round {
 
     public abstract void generateResult();
 
+    public abstract boolean playExtraTime();
+
     protected abstract String getMenuTitle();
 
     public static String getExtraTimeLabel(ExtraTime extraTime) {

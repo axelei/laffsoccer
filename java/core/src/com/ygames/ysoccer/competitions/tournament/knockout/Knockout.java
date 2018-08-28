@@ -273,7 +273,8 @@ public class Knockout extends Round implements Json.Serializable {
     }
 
     // decide if extra time have to be played depending on current result, leg's type and settings
-    private boolean playExtraTime() {
+    @Override
+    public boolean playExtraTime() {
         Match match = getMatch();
 
         // first leg
