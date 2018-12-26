@@ -505,12 +505,6 @@ class DiyTournamentCalendar extends GLScreen {
                                 group.calendar.add(match);
                             }
                         }
-                        // populate table
-                        ArrayList<Integer> teams = new ArrayList<Integer>();
-                        for (int t = 0; t < groups.groupNumberOfTeams(); t++) {
-                            teams.add(groupsTeams.get(g * groups.groupNumberOfTeams() + t));
-                        }
-                        group.populateTable(teams);
                     }
                     tournament.start(game.teamList);
                     game.setCompetition(tournament);

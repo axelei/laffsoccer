@@ -16,11 +16,11 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 public class Group implements Json.Serializable {
 
+    private int currentRound;
+    private int currentMatch;
     private Groups groups;
     public ArrayList<Match> calendar;
     public List<TableRow> table;
-    private int currentMatch;
-    private int currentRound;
 
     Group() {
         calendar = new ArrayList<Match>();
@@ -40,7 +40,9 @@ public class Group implements Json.Serializable {
         Collections.addAll(calendar, calendarArray);
 
         TableRow[] tableArray = json.readValue("table", TableRow[].class, jsonData);
-        Collections.addAll(table, tableArray);
+        if (tableArray != null) {
+            Collections.addAll(table, tableArray);
+        }
     }
 
     @Override
@@ -57,7 +59,7 @@ public class Group implements Json.Serializable {
             generateCalendar(teams);
         }
 
-        populateTable(teams);
+        populateTable();
         sortTable();
     }
 
@@ -136,10 +138,24 @@ public class Group implements Json.Serializable {
         }
     }
 
-    public void populateTable(ArrayList<Integer> teams) {
-        for (int i = 0; i < teams.size(); i++) {
-            table.add(new TableRow(teams.get(i)));
+    private void populateTable() {
+        for (Match match : calendar) {
+            for (int t = HOME; t <= AWAY; t++) {
+                int team = match.teams[t];
+                if (!tableContains(team)) {
+                    table.add(new TableRow(team));
+                }
+            }
         }
+    }
+
+    private boolean tableContains(int team) {
+        for (TableRow tableRow : table) {
+            if (tableRow.team == team) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void resetTable() {
@@ -149,7 +165,7 @@ public class Group implements Json.Serializable {
         sortTable();
     }
 
-    void sortTable() {
+    private void sortTable() {
         Collections.sort(table, groups.tableRowComparator);
     }
 

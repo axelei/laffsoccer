@@ -34,7 +34,7 @@ public class Groups extends Round implements Json.Serializable {
 
         rounds = jsonData.getInt("rounds");
         pointsForAWin = jsonData.getInt("pointsForAWin");
-        currentGroup = jsonData.getInt("currentGroup");
+        currentGroup = jsonData.getInt("currentGroup", 0);
 
         Group[] groupsArray = json.readValue("groups", Group[].class, jsonData);
         for (Group group : groupsArray) {
@@ -69,7 +69,7 @@ public class Groups extends Round implements Json.Serializable {
     protected void start(ArrayList<Integer> qualifiedTeams) {
         if (isPreset()) {
             for (Group group : groups) {
-                group.sortTable();
+                group.start(null);
             }
         } else {
             if (!seeded) {
