@@ -89,14 +89,14 @@ public class Button extends Widget {
 
         // top left border
         shapeRenderer.setColor(topLeftColor, alpha);
-        shapeRenderer.triangle(bx, by, bx + bw, by, bx + bw - 1, by + 2);
-        shapeRenderer.triangle(bx + bw - 1, by + 2, bx + 1, by + 2, bx, by);
-        shapeRenderer.triangle(bx, by + 1, bx, by + bh, bx + 2, by + bh - 1);
+        shapeRenderer.triangle(bx + 1, by, bx + bw - 1, by, bx + bw - 1, by + 2);
+        shapeRenderer.triangle(bx + bw - 1, by + 2, bx + 1, by + 2, bx + 1, by);
+        shapeRenderer.triangle(bx, by + 1, bx, by + bh -1, bx + 2, by + bh - 1);
         shapeRenderer.triangle(bx + 2, by + bh - 1, bx + 2, by + 2, bx, by + 1);
 
         // bottom right border
         shapeRenderer.setColor(bottomRightColor, alpha);
-        shapeRenderer.triangle(bx + bw - 2, by + 2, bx + bw - 2, by + bh - 1, bx + bw, by + bh);
+        shapeRenderer.triangle(bx + bw - 2, by + 2, bx + bw - 2, by + bh - 1, bx + bw, by + bh -1);
         shapeRenderer.triangle(bx + bw, by + bh, bx + bw, by + 1, bx + bw - 2, by + 2);
         shapeRenderer.triangle(bx + 2, by + bh - 2, bx + bw - 2, by + bh - 2, bx + bw - 1, by + bh);
         shapeRenderer.triangle(bx + bw - 1, by + bh, bx + 1, by + bh, bx + 2, by + bh - 2);
