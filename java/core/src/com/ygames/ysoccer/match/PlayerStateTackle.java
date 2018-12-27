@@ -43,8 +43,17 @@ class PlayerStateTackle extends PlayerState {
 
         for (int i = 1; i < TEAM_SIZE; i++) {
             Player opponent = player.team.match.team[1 - player.team.index].lineup.get(i);
-            if (Emath.dist(player.x, player.y, opponent.x, opponent.y) < 8) {
+            if (Emath.dist(player.x, player.y, opponent.x, opponent.y) < 8 &&
+                    opponent.checkState(opponent.fsm.STATE_DOWN) == false) {
+
                 opponent.setState(opponent.fsm.STATE_DOWN);
+                boolean foul = ball.owner != player;
+                // TODO
+                // float angleDiff = Math.abs(((player.a - opponent.a + 360.0f) % 360.0f));
+                // boolean book = angleDiff <= 45 || angleDiff >= 315;
+                if (foul) {
+                    player.commitFoul(opponent);
+                }
             }
         }
 

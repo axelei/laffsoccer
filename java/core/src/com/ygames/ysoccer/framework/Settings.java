@@ -63,7 +63,7 @@ public class Settings {
         musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);
         musicVolume = preferences.getInteger("musicVolume", 40);
         useFlags = preferences.getBoolean("useFlags", true);
-        maxPlayerValue = preferences.getInteger("maxPlayerValueM", 1)
+        maxPlayerValue = preferences.getInteger("maxPlayerValueM", 2)
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
 

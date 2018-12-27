@@ -183,6 +183,10 @@ public class Player implements Json.Serializable {
         fsm.setState(id);
     }
 
+    public boolean checkState(int id) {
+        return fsm.state != null && fsm.state.checkId(id);
+    }
+
     void think() {
         fsm.think();
     }
@@ -896,5 +900,9 @@ public class Player implements Json.Serializable {
         }
 
         return (facingPlayer != null);
+    }
+
+    void commitFoul(Player opponent) {
+        match.newFoul(this, opponent);
     }
 }

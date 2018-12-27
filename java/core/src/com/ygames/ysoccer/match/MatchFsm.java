@@ -85,6 +85,7 @@ public class MatchFsm {
     static final int STATE_BENCH_SUBSTITUTIONS = 28;
     static final int STATE_BENCH_FORMATION = 29;
     static final int STATE_BENCH_TACTICS = 30;
+    static final int STATE_FREE_KICK_STOP = 31;
 
     MatchFsm(Match match) {
         this.match = match;
@@ -127,6 +128,7 @@ public class MatchFsm {
         states.add(new MatchStateBenchSubstitutions(this));
         states.add(new MatchStateBenchFormation(this));
         states.add(new MatchStateBenchTactics(this));
+        states.add(new MatchStateFreeKickStop(this));
     }
 
     public MatchState getState() {

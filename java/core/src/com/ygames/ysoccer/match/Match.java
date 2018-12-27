@@ -6,6 +6,7 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.math.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class Match implements Json.Serializable {
     float throwInX;
     float throwInY;
 
+    Foul foul;
     List<Goal> goals;
 
     public int subframe;
@@ -466,5 +468,30 @@ public class Match implements Json.Serializable {
     int getRank() {
         int matchRank = (int) ((team[HOME].getRank() + 2 * team[AWAY].getRank()) / 3);
         return (competition.type == Competition.Type.FRIENDLY) ? matchRank : (matchRank + 1);
+    }
+
+    public void newFoul(Player player, Player opponent) {
+        foul = new Foul();
+        foul.time = clock;
+        foul.position = new Vector2(player.x, player.y);
+        foul.player = player;
+        foul.opponent = opponent;
+    }
+
+    class Foul {
+        public float time;
+        public Vector2 position;
+        public Player player;
+        public Player opponent;
+
+        public boolean isPenalty() {
+            return (Math.abs(position.x) < Const.PENALTY_AREA_W / 2)
+                    &&
+                    Emath.isIn(
+                            position.y,
+                            player.team.side * (Const.GOAL_LINE - Const.PENALTY_AREA_H),
+                            player.team.side * Const.GOAL_LINE
+                    );
+        }
     }
 }
