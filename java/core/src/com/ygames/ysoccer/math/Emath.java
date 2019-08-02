@@ -5,31 +5,31 @@ public class Emath {
     private static float TO_RADIANS = (float) Math.PI / 180.0f;
     private static float TO_DEGREES = 180.0f / (float) Math.PI;
 
-    static public boolean isIn(float x, float a, float b) {
+    public static boolean isIn(float x, float a, float b) {
         return (b > a) ? (a <= x) && (x <= b) : (b <= x) && (x <= a);
     }
 
-    static public int bound(int value, int valueMin, int valueMax) {
+    public static int bound(int value, int valueMin, int valueMax) {
         return Math.min(Math.max(value, valueMin), valueMax);
     }
 
-    static public float aTan2(float y, float x) {
+    public static float aTan2(float y, float x) {
         return (float) (Math.atan2(y, x) * TO_DEGREES);
     }
 
-    static public float cos(float a) {
+    public static float cos(float a) {
         return (float) Math.cos(a * TO_RADIANS);
     }
 
-    static public float sin(float a) {
+    public static float sin(float a) {
         return (float) Math.sin(a * TO_RADIANS);
     }
 
-    static public float hypo(float diffX, float diffY) {
+    public static float hypo(float diffX, float diffY) {
         return (float) Math.sqrt(diffX * diffX + diffY * diffY);
     }
 
-    static public float dist(float x1, float y1, float x2, float y2) {
+    public static float dist(float x1, float y1, float x2, float y2) {
         return hypo(x2 - x1, y2 - y1);
     }
 
