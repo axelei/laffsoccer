@@ -25,6 +25,7 @@ class MatchStateKickOff extends MatchState {
         match.renderer.displayScore = true;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         isKickingOff = false;
 

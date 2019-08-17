@@ -17,21 +17,18 @@ public class Settings {
     public static int screenWidth;
     public static int screenHeight;
 
+    private SharedPreferences preferences;
     public float musicVolume;
     public float sfxVolume;
     public int gameLengthIndex;
     public int weatherMaxStrength;
     public boolean displayRadar;
     public boolean autoReplay;
-    public boolean invertedControls;
 
-    Editor editor;
     public static final int[] gameLengths = {3, 5, 7, 10};
 
     public Settings(GLGame glGame) {
-        editor = glGame.getFileIO().getPreferences().edit();
-
-        SharedPreferences preferences = glGame.getFileIO().getPreferences();
+        preferences = glGame.getFileIO().getPreferences();
 
         musicVolume = preferences.getFloat("musicVolume", 0.4f);
         sfxVolume = preferences.getFloat("sfxVolume", 0.4f);
@@ -39,19 +36,18 @@ public class Settings {
         weatherMaxStrength = preferences.getInt("weatherMaxStrength", Weather.Strength.LIGHT);
         displayRadar = preferences.getBoolean("displayRadar", false);
         autoReplay = preferences.getBoolean("autoReplay", true);
-        invertedControls = preferences.getBoolean("invertedControls", true);
     }
 
     public void save() {
+        Editor editor = preferences.edit();
+
         editor.putFloat("musicVolume", musicVolume);
         editor.putFloat("sfxVolume", sfxVolume);
         editor.putInt("gameLengthIndex", gameLengthIndex);
         editor.putInt("weatherMaxStrength", weatherMaxStrength);
         editor.putBoolean("displayRadar", displayRadar);
         editor.putBoolean("autoReplay", autoReplay);
-        editor.putBoolean("invertedControls", invertedControls);
 
-        editor.commit();
+        editor.apply();
     }
-
 }

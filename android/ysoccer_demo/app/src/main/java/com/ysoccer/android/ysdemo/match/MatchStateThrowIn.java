@@ -25,6 +25,7 @@ class MatchStateThrowIn extends MatchState {
         match.renderer.displayScore = true;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
         isThrowingIn = false;

@@ -25,6 +25,7 @@ class MatchStateGoalKick extends MatchState {
         match.renderer.displayScore = true;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         goalKickTeam = match.team[1 - match.ball.ownerLast.team.index];
 

@@ -13,9 +13,10 @@ import com.ysoccer.android.ysdemo.gui.Widget;
 public class MenuMain extends GLScreen {
 
     class GameSettingsButton extends Button {
-        public GameSettingsButton() {
+
+        GameSettingsButton() {
             setColors(0x536B90, 0x7090C2, 0x263142);
-            setGeometry(Settings.GUI_WIDTH / 2 - 30 - 320, 290, 320, 36);
+            setGeometry(Settings.GUI_WIDTH / 2 - 30 - 320, 280, 320, 42);
             setText(gettext(R.string.SETTINGS), 0, 14);
         }
 
@@ -25,23 +26,11 @@ public class MenuMain extends GLScreen {
         }
     }
 
-    class HelpButton extends Button {
-        public HelpButton() {
-            setColors(0x6101D7, 0x7D1DFF, 0x3A0181);
-            setGeometry(Settings.GUI_WIDTH / 2 - 30 - 320, 340, 320, 36);
-            setText(gettext(R.string.CONTROLS), 0, 14);
-        }
-
-        @Override
-        public void onFire1Down() {
-            game.setScreen(new MenuHelp(game));
-        }
-    }
-
     class PlayButton extends Button {
-        public PlayButton() {
-            setColors(0x2D855D, 0x3DB37D, 0x1E5027);
-            setGeometry(Settings.GUI_WIDTH / 2 + 30, 290, 320, 36);
+
+        PlayButton() {
+            setColors(0x376E2F, 0x4E983F, 0x214014);
+            setGeometry(Settings.GUI_WIDTH / 2 + 30, 280, 320, 42);
             setText(gettext(R.string.PLAY_MATCH), 0, 14);
         }
 
@@ -52,9 +41,10 @@ public class MenuMain extends GLScreen {
     }
 
     class FullVersionButton extends Button {
-        public FullVersionButton() {
-            setColors(0x415600, 0x5E7D00, 0x243000);
-            setGeometry(Settings.GUI_WIDTH / 2 + 30, 340, 320, 36);
+
+        FullVersionButton() {
+            setColors(0x1B8A7F, 0x25BDAE, 0x115750);
+            setGeometry(Settings.GUI_WIDTH / 2 -170, 380, 320, 36);
             setText(gettext(R.string.PC_VERSION), 0, 14);
         }
 
@@ -66,7 +56,7 @@ public class MenuMain extends GLScreen {
         }
     }
 
-    public MenuMain(Game game) {
+    MenuMain(Game game) {
 
         super(game);
 
@@ -88,9 +78,6 @@ public class MenuMain extends GLScreen {
         getWidgets().add(w);
 
         setSelectedWidget(w);
-
-        w = new HelpButton();
-        getWidgets().add(w);
 
         w = new PlayButton();
         getWidgets().add(w);

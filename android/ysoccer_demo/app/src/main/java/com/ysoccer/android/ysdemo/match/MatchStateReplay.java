@@ -2,6 +2,7 @@ package com.ysoccer.android.ysdemo.match;
 
 import com.ysoccer.android.framework.impl.GLGame;
 import com.ysoccer.android.ysdemo.Assets;
+import com.ysoccer.android.ysdemo.R;
 import com.ysoccer.android.ysdemo.Settings;
 
 class MatchStateReplay extends MatchState {
@@ -29,6 +30,7 @@ class MatchStateReplay extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = false;
+        match.renderer.displayControls = true;
 
         subframe0 = match.subframe;
 
@@ -106,12 +108,11 @@ class MatchStateReplay extends MatchState {
 //		}
 
         //quit on fire button
-//		for (Local d:t_input = EachIn input_devices) {
-//			if (d.fire1Down()) {
-//				quit();
-//				return;
-//			}
-//		}
+        if ((match.team[Match.HOME].fire1Down() != null)
+                || (match.team[Match.AWAY].fire1Down() != null)) {
+            match.fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            return;
+        }
 
         //quit on last position
         if ((position == Const.REPLAY_SUBFRAMES) && (controllingDevice == null)) {
@@ -127,8 +128,11 @@ class MatchStateReplay extends MatchState {
     void render() {
         super.render();
 
-        int f = Math.round(match.subframe / GLGame.SUBFRAMES) % 32;
-        match.renderer.glGraphics.drawSubTextureRect(Assets.replay, -Settings.guiOriginX + 34, -Settings.guiOriginY + 28, 40, 46, 40 * (f % 8), 46 * (f / 8), 40, 46);
+        if ((match.subframe / GLGame.SUBFRAMES) % 32 > 16) {
+            match.renderer.glGraphics.text14u(
+                    match.glGame.getResources().getString(R.string.AUTO_REPLAY),
+                    -Settings.guiOriginX + 34, -Settings.guiOriginY + 28, Assets.ucode14, +1);
+        }
 //		if (controllingDevice != null) {
 //			int frameX = 1 + controllingDevice.x1;
 //			int frameY = 1 + controllingDevice.y1;

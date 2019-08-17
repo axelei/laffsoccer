@@ -43,7 +43,7 @@
     <string name="YES">SÍ</string>
     <string name="NO">NO</string>
     <string name="GAME_LENGTH">DURACIÓN PARTIDO</string>
-    <string name="$N_MINUTES">$N MINUTOS</string>
+    <string name="N_MINUTES">$N MINUTOS</string>
     <string name="SELECT_TEAMS">SELECCIONAR EQUIPOS</string>
     <string name="COMPUTER">ORDENADOR</string>
     <string name="PLAYER">JUGADOR</string>

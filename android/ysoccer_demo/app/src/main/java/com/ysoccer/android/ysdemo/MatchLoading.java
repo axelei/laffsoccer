@@ -5,6 +5,7 @@ import com.ysoccer.android.framework.gl.Frame;
 import com.ysoccer.android.framework.gl.SpriteBatcher;
 import com.ysoccer.android.framework.gl.Texture;
 import com.ysoccer.android.framework.impl.GLScreen;
+import com.ysoccer.android.framework.math.Emath;
 import com.ysoccer.android.ysdemo.match.Match;
 import com.ysoccer.android.ysdemo.match.Match.MatchListener;
 import com.ysoccer.android.ysdemo.match.MatchRenderer;
@@ -14,11 +15,11 @@ import com.ysoccer.android.ysdemo.match.Weather;
 
 public class MatchLoading extends GLScreen {
 
-    final Team[] teams;
-    final MatchSettings matchSettings;
-    final Match match;
+    private final Team[] teams;
+    private final MatchSettings matchSettings;
+    private final Match match;
 
-    public MatchLoading(Game game, Team[] teams, MatchSettings matchSettings) {
+    MatchLoading(Game game, Team[] teams, MatchSettings matchSettings) {
         super(game);
         this.teams = teams;
         this.matchSettings = matchSettings;
@@ -129,13 +130,21 @@ public class MatchLoading extends GLScreen {
         Assets.crowdSound.setLooping(true);
         Assets.crowdSound.setVolume(glGame.settings.sfxVolume);
 
-        glGame.touchInput.setInverted(glGame.settings.invertedControls);
-
         match = new Match(glGame, teams, matchListener, matchSettings);
         match.renderer = new MatchRenderer(glGraphics, batcher, match);
         match.renderer.loadGraphics(glGame);
         glGraphics.light = 0;
 
+        if (glGame.gamepadInput == null) {
+            Assets.joystick = new Texture(glGame, "images/joystick.png");
+            for (int i = 0; i < 4; i++) {
+                Assets.joystickRegions[i] = new Frame(
+                        Assets.joystick,
+                        128 * Emath.floor(i / 2f), 128 * (i % 2),
+                        128, 128
+                );
+            }
+        }
     }
 
     @Override

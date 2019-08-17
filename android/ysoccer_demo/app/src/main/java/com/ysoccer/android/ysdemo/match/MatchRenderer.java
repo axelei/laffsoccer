@@ -55,6 +55,7 @@ public class MatchRenderer {
     boolean displayScore;
     boolean displayStatistics;
     boolean displayRadar;
+    boolean displayControls;
 
     public MatchRenderer(GLGraphics glGraphics, SpriteBatcher batcher,
                          Match match) {
@@ -258,6 +259,23 @@ public class MatchRenderer {
         if (displayControlledPlayer) {
             drawControlledPlayersNumbers();
         }
+
+        //////// CONTROLS ////////
+        if (displayControls && game.gamepadInput == null) {
+            gl.glMatrixMode(GL10.GL_PROJECTION);
+            gl.glLoadIdentity();
+            GLU.gluOrtho2D(gl, 0, TouchInput.TOUCHCAM_WIDTH, TouchInput.TOUCHCAM_HEIGHT, 0);
+
+            gl.glMatrixMode(GL10.GL_MODELVIEW);
+            gl.glLoadIdentity();
+
+            gl.glEnable(GL10.GL_BLEND);
+            gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+
+            drawControls(game.touchInput);
+        }
+        //////////////////////////
+
 
         ////////////////////GUI////////////////////
         gl.glMatrixMode(GL10.GL_PROJECTION);
@@ -697,6 +715,31 @@ public class MatchRenderer {
 
     }
 
+    private void drawControls(TouchInput touchInput) {
+        batcher.beginBatch(Assets.joystick);
+        batcher.drawSprite(
+                TouchInput.joystickCurrentPos.x - TouchInput.JOYSTICK_R,
+                TouchInput.joystickCurrentPos.y - TouchInput.JOYSTICK_R,
+                128, 128, Assets.joystickRegions[0]
+        );
+        batcher.drawSprite(
+                TouchInput.joystickCurrentPos.x + ((touchInput.value ? Emath.cos(touchInput.angle) : 0) - 2) * TouchInput.JOYSTICK_R / 2,
+                TouchInput.joystickCurrentPos.y + ((touchInput.value ? Emath.sin(touchInput.angle) : 0) - 2) * TouchInput.JOYSTICK_R / 2,
+                128, 128, Assets.joystickRegions[1]
+        );
+        batcher.drawSprite(
+                TouchInput.BUTTON_X - TouchInput.BUTTON_R,
+                TouchInput.BUTTON_Y - TouchInput.BUTTON_R,
+                128, 128, Assets.joystickRegions[2]
+        );
+        batcher.drawSprite(
+                TouchInput.BUTTON_X - TouchInput.BUTTON_R,
+                TouchInput.BUTTON_Y - TouchInput.BUTTON_R,
+                128, 128, Assets.joystickRegions[3]
+        );
+        batcher.endBatch();
+    }
+
     private void drawTime() {
 
         int minute = match.getMinute();
@@ -851,28 +894,28 @@ public class MatchRenderer {
 //				glGraphics.drawTexture(Assets.teamFlagsShadows[Match.HOME], 12, y0 +10);
         }
         //SetColor(light, light, light)
-        glGraphics.drawTexture(Assets.teamFlags[Match.HOME], -Settings.guiOriginX + 10, y0 + 8);
+        glGraphics.drawTexture(Assets.teamFlags[Match.HOME], -Settings.guiOriginX + 210, y0 + 8);
 //		}
         if (Assets.teamFlags[Match.AWAY] != null) {
 //			if (match.team[Match.AWAY].isNational == false) {
 //				glGraphics.drawTexture(Assets.teamFlagsShadows[Match.AWAY], Settings.screenWidth -w1 -8, y0 +10);
 //			}
             //SetColor(light, light, light)
-            glGraphics.drawTexture(Assets.teamFlags[Match.AWAY], -Settings.guiOriginX + Settings.screenWidth - w1 - 10, y0 + 8);
+            glGraphics.drawTexture(Assets.teamFlags[Match.AWAY], -Settings.guiOriginX + Settings.screenWidth - w1 - 210, y0 + 8);
         }
 
         //teams
-        glGraphics.text14u(match.team[Match.HOME].name, -Settings.guiOriginX + 10, y0 - 22, Assets.ucode14, +1);
-        glGraphics.text14u(match.team[Match.AWAY].name, -Settings.guiOriginX + Settings.screenWidth - 8, y0 - 22, Assets.ucode14, -1);
+        glGraphics.text14u(match.team[Match.HOME].name, -Settings.guiOriginX + 210, y0 - 22, Assets.ucode14, +1);
+        glGraphics.text14u(match.team[Match.AWAY].name, -Settings.guiOriginX + Settings.screenWidth - 208, y0 - 22, Assets.ucode14, -1);
 
         //bars
         glGraphics.setColor(0xFFFFFF);
-        glGraphics.drawRect(-Settings.guiOriginX + 10, y0, Settings.screenWidth / 2 - 22, 2);
-        glGraphics.drawRect(-Settings.guiOriginX + Settings.screenWidth / 2 + 12, y0, Settings.screenWidth / 2 - 22, 2);
+        glGraphics.drawRect(-Settings.guiOriginX + 210, y0, Settings.screenWidth / 2 - 222, 2);
+        glGraphics.drawRect(-Settings.guiOriginX + Settings.screenWidth / 2 + 12, y0, Settings.screenWidth / 2 - 222, 2);
 
         glGraphics.setColor(0x242424);
-        glGraphics.drawRect(-Settings.guiOriginX + 12, y0 + 2, Settings.screenWidth / 2 - 22, 2);
-        glGraphics.drawRect(-Settings.guiOriginX + Settings.screenWidth / 2 + 14, y0 + 2, Settings.screenWidth / 2 - 22, 2);
+        glGraphics.drawRect(-Settings.guiOriginX + 212, y0 + 2, Settings.screenWidth / 2 - 222, 2);
+        glGraphics.drawRect(-Settings.guiOriginX + Settings.screenWidth / 2 + 14, y0 + 2, Settings.screenWidth / 2 - 222, 2);
 
         //TODO: usare sprite batcher;
         //home score
@@ -907,7 +950,7 @@ public class MatchRenderer {
 
     private void drawStatistics() {
 
-        int l = 13 + (Settings.screenWidth - 640) / 5 + 2;
+        int l = 13 + (Settings.screenWidth - 100) / 5 + 2;
         int r = Settings.screenWidth - l + 2;
         int w = r - l;
         int t = 20 + (Settings.screenHeight - 400) / 5 + 2;

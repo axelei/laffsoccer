@@ -23,6 +23,7 @@ class MatchStateStartingPositions extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         match.setStartingPositions();
         match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);

@@ -24,6 +24,7 @@ class MatchStateCornerStop extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         if (match.team[Match.HOME].side == -match.ball.ySide) {
             match.stats[Match.HOME].cornersWon += 1;

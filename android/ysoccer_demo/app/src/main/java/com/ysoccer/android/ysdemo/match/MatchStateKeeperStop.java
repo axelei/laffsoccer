@@ -25,6 +25,7 @@ class MatchStateKeeperStop extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         keeper = match.ball.holder;
         keeperTeam = match.team[keeper.team.index];
@@ -57,6 +58,10 @@ class MatchStateKeeperStop extends MatchState {
 
             match.updateBall();
             match.updatePlayers(true);
+
+            if ((match.subframe % GLGame.VIRTUAL_REFRESH_RATE) == 0) {
+                match.ball.updatePrediction();
+            }
 
             match.nextSubframe();
 

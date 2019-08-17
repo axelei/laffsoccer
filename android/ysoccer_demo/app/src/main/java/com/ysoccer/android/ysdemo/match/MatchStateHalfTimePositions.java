@@ -23,6 +23,7 @@ class MatchStateHalfTimePositions extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = true;
         match.renderer.displayRadar = false;
+        match.renderer.displayControls = true;
 
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();

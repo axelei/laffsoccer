@@ -16,20 +16,19 @@ import java.util.ArrayList;
 
 public class MenuOptions extends GLScreen {
 
-    final Team[] teams;
+    private final Team[] teams;
 
-    MatchSettings matchSettings;
-    TimePicture timePicture;
-    TimeButton timeButton;
-    PitchPicture pitchPicture;
-    PitchButton pitchButton;
-    WeatherPicture weatherPicture;
-    WeatherButton weatherButton;
-    KitButton[] kitButtons = new KitButton[2];
-    ArrayList<KitSelectedButton>[] kitSelectedButtons = (ArrayList<KitSelectedButton>[]) new ArrayList[2];
+    private MatchSettings matchSettings;
+    private TimePicture timePicture;
+    private TimeButton timeButton;
+    private PitchPicture pitchPicture;
+    private WeatherPicture weatherPicture;
+    private WeatherButton weatherButton;
+    private ArrayList<KitSelectedButton>[] kitSelectedButtons = (ArrayList<KitSelectedButton>[]) new ArrayList[2];
 
     class TimePicture extends Button {
-        public TimePicture() {
+
+        TimePicture() {
             setColors(0x000000, 0x8F8D8D, 0x404040);
             setGeometry((Settings.GUI_WIDTH - 50) / 2, 130 - 50 / 2, 50, 50);
             setTexture(Assets.light, 0, 0, 46, 46);
@@ -37,20 +36,21 @@ public class MenuOptions extends GLScreen {
             updateFrame();
         }
 
-        public void updateFrame() {
+        void updateFrame() {
             setFrame(47, 46, matchSettings.time, 0);
         }
     }
 
     class TimeButton extends Button {
-        public TimeButton() {
+
+        TimeButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
             setText("", 0, 14);
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText(gettext(matchSettings.timeStringId()));
         }
 
@@ -63,7 +63,8 @@ public class MenuOptions extends GLScreen {
     }
 
     class PitchPicture extends Button {
-        public PitchPicture() {
+
+        PitchPicture() {
             setColors(0x000000, 0x8F8D8D, 0x404040);
             setGeometry((Settings.GUI_WIDTH - 50) / 2, 200 - 50 / 2, 50, 50);
             setTexture(Assets.pitches, 0, 0, 46, 46);
@@ -71,20 +72,21 @@ public class MenuOptions extends GLScreen {
             updateFrame();
         }
 
-        public void updateFrame() {
+        void updateFrame() {
             setFrame(47, 46, matchSettings.pitchType, 0);
         }
     }
 
     class PitchButton extends Button {
-        public PitchButton() {
+
+        PitchButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
             setText("", 0, 14);
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText(gettext(matchSettings.pitchStringId()));
         }
 
@@ -99,7 +101,8 @@ public class MenuOptions extends GLScreen {
     }
 
     class WeatherPicture extends Button {
-        public WeatherPicture() {
+
+        WeatherPicture() {
             setColors(0x000000, 0x8F8D8D, 0x404040);
             setGeometry((Settings.GUI_WIDTH - 50) / 2, 270 - 50 / 2, 50, 50);
             setTexture(Assets.weather, 0, 0, 46, 46);
@@ -107,20 +110,21 @@ public class MenuOptions extends GLScreen {
             updateFrame();
         }
 
-        public void updateFrame() {
+        void updateFrame() {
             setFrame(46, 46, matchSettings.weatherOffset(), 0);
         }
     }
 
     class WeatherButton extends Button {
-        public WeatherButton() {
+
+        WeatherButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(Settings.GUI_WIDTH / 2 + 65, 270 - 40 / 2, 300, 40);
             setText("", 0, 14);
             updateText();
         }
 
-        public void updateText() {
+        void updateText() {
             setText(gettext(matchSettings.weatherStringId()));
         }
 
@@ -136,7 +140,7 @@ public class MenuOptions extends GLScreen {
 
         Team team;
 
-        public KitButton(Team team) {
+        KitButton(Team team) {
             this.team = team;
             setGeometry((1 + 3 * team.index) * (Settings.GUI_WIDTH) / 5 - 43, 330, 86, 154);
             setFrame(163, 300, 0, 0);
@@ -167,7 +171,7 @@ public class MenuOptions extends GLScreen {
         Team team;
         int index;
 
-        public KitSelectedButton(Team team, int index) {
+        KitSelectedButton(Team team, int index) {
             this.team = team;
             this.index = index;
             setGeometry((1 + 3 * team.index) * (Settings.GUI_WIDTH) / 5 - 43 + 18 * index, 330 + 165, 16, 16);
@@ -184,7 +188,8 @@ public class MenuOptions extends GLScreen {
     }
 
     class PlayButton extends Button {
-        public PlayButton() {
+
+        PlayButton() {
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
             setGeometry((Settings.GUI_WIDTH - 340) / 2, 375, 340, 40);
             setText(gettext(R.string.PLAY_MATCH), 0, 14);
@@ -197,7 +202,8 @@ public class MenuOptions extends GLScreen {
     }
 
     class BackButton extends Button {
-        public BackButton() {
+
+        BackButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 180) / 2,
                     Settings.GUI_HEIGHT - 40 - 20, 180, 40);
@@ -210,7 +216,7 @@ public class MenuOptions extends GLScreen {
         }
     }
 
-    public MenuOptions(Game game, Team[] teams) {
+    MenuOptions(Game game, Team[] teams) {
         super(game);
         this.teams = teams;
 
@@ -238,7 +244,7 @@ public class MenuOptions extends GLScreen {
         Widget w;
 
         w = new Button();
-        w.setColors(0x536B90, 0x7090C2, 0x263142);
+        w.setColors(0x536B90, 0x7090C2, 0x7090C2);
         String title = teams[0].name + "  -  " + teams[1].name;
         int titleWidth = Math.max(340, 40 + 16 * title.length());
         w.setGeometry((Settings.GUI_WIDTH - titleWidth) / 2, 20, titleWidth, 40);
@@ -248,7 +254,7 @@ public class MenuOptions extends GLScreen {
 
         // time of the day
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 65, 130 - 40 / 2, 300, 40);
         w.setText(gettext(R.string.TIME), 0, 14);
         w.isActive = false;
@@ -262,7 +268,7 @@ public class MenuOptions extends GLScreen {
 
         // pitch type
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 65, 200 - 40 / 2, 300, 40);
         w.setText(gettext(R.string.PITCH), 0, 14);
         w.isActive = false;
@@ -271,12 +277,12 @@ public class MenuOptions extends GLScreen {
         pitchPicture = new PitchPicture();
         getWidgets().add(pitchPicture);
 
-        pitchButton = new PitchButton();
+        PitchButton pitchButton = new PitchButton();
         getWidgets().add(pitchButton);
 
         // weather effects
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 65, 270 - 40 / 2, 300, 40);
         w.setText(gettext(R.string.WEATHER), 0, 14);
         w.isActive = false;
@@ -292,7 +298,7 @@ public class MenuOptions extends GLScreen {
             w = new KitButton(teams[t]);
             getWidgets().add(w);
 
-            kitSelectedButtons[t] = new ArrayList<KitSelectedButton>();
+            kitSelectedButtons[t] = new ArrayList<>();
             for (int i = 0; i < teams[t].kits.size(); i++) {
                 KitSelectedButton kitSelectedButton = new KitSelectedButton(
                         teams[t], i);

@@ -21,6 +21,7 @@ class MatchStateFullTimeStop extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         match.clock = match.length;
 

@@ -43,7 +43,7 @@
     <string name="YES">JA</string>
     <string name="NO">NEIN</string>
     <string name="GAME_LENGTH">DIY-SPIELDAUER</string>
-    <string name="$N_MINUTES">$N MINUTEN</string>
+    <string name="N_MINUTES">$N MINUTEN</string>
     <string name="SELECT_TEAMS">TEAMS WÄHLEN</string>
     <string name="COMPUTER">COMPUTER</string>
     <string name="PLAYER">SPIELER</string>

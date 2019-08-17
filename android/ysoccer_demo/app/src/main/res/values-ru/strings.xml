@@ -43,7 +43,7 @@
     <string name="YES">ДА</string>
     <string name="NO">НЕТ</string>
     <string name="GAME_LENGTH">ПРОДОЛЖИТЕЛЬНОСТЬ ИГРЫ</string>
-    <string name="$N_MINUTES">$N МИНУТ</string>
+    <string name="N_MINUTES">$N МИНУТ</string>
     <string name="SELECT_TEAMS">ВЫБРАТЬ КОМАНДУ</string>
     <string name="COMPUTER">КОМПЬЮТЕР</string>
     <string name="PLAYER">ИГРОК</string>

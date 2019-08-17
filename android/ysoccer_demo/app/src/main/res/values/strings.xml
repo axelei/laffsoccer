@@ -43,7 +43,7 @@
     <string name="YES">YES</string>
     <string name="NO">NO</string>
     <string name="GAME_LENGTH">GAME LENGTH</string>
-    <string name="$N_MINUTES">$N MINUTES</string>
+    <string name="N_MINUTES">$N MINUTES</string>
     <string name="SELECT_TEAMS">SELECT TEAMS</string>
     <string name="COMPUTER">COMPUTER</string>
     <string name="PLAYER">PLAYER</string>

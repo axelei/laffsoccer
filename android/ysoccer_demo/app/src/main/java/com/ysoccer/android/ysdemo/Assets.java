@@ -78,6 +78,9 @@ public class Assets {
     public static Frame fogFrame;
     public static Texture logo;
 
+    public static Texture joystick;
+    public static Frame[] joystickRegions = new Frame[4];
+
     public static Font font;
     public static int GLYPHWIDTH = 16;
     public static int GLYPHHEIGHT = 23;

@@ -5,7 +5,7 @@ import com.ysoccer.android.framework.impl.GLScreen;
 
 public class MenuIntro extends GLScreen {
 
-    public MenuIntro(Game game) {
+    MenuIntro(Game game) {
         super(game);
     }
 

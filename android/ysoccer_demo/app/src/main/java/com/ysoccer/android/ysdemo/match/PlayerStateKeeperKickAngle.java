@@ -23,7 +23,6 @@ class PlayerStateKeeperKickAngle extends PlayerState {
         }
 
         ball.setPosition(player.x + 5 * Emath.cos(player.a), player.y + 5 * Emath.sin(player.a), 12);
-        ball.updatePrediction();
 
         player.animationStandRun();
     }

@@ -23,6 +23,7 @@ class MatchStateHalfTimeEnter extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         match.setStartingPositions();
     }

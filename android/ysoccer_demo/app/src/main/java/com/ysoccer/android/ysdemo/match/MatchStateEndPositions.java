@@ -23,6 +23,7 @@ class MatchStateEndPositions extends MatchState {
         match.renderer.displayScore = true;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = false;
+        match.renderer.displayControls = true;
 
         match.period = Match.Period.UNDEFINED;
 

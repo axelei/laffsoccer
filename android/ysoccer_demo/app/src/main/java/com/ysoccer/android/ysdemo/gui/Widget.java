@@ -107,6 +107,12 @@ public abstract class Widget {
         this.frameY = frameY;
     }
 
+    public void setColors(int color) {
+        this.body = color;
+        this.lightBorder = color;
+        this.darkBorder = color;
+    }
+
     public void setColors(int body, int lightBorder, int darkBorder) {
         this.body = body;
         this.lightBorder = lightBorder;

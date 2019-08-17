@@ -50,4 +50,7 @@ public class Emath {
         return value > 0 ? 1 : (value < 0 ? -1 : 0);
     }
 
+    public static int floor(double value) {
+        return (int) Math.floor(value);
+    }
 }

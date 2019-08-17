@@ -33,7 +33,7 @@ class MenuSettings extends GLScreen {
     private class MusicButton extends Button {
 
         MusicButton() {
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setColors(0x1F1F95);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 100, 200, 40);
             setText("", 0, 14);
             isActive = false;
@@ -80,7 +80,7 @@ class MenuSettings extends GLScreen {
     private class SfxButton extends Button {
 
         SfxButton() {
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setColors(0x1F1F95);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 160, 200, 40);
             setText("", 0, 14);
             isActive = false;
@@ -128,7 +128,7 @@ class MenuSettings extends GLScreen {
     private class LengthButton extends Button {
 
         LengthButton() {
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setColors(0x1F1F95);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 220, 200, 40);
             setText("", 0, 14);
             isActive = false;
@@ -136,7 +136,7 @@ class MenuSettings extends GLScreen {
         }
 
         void updateText() {
-            setText(gettext(R.string.$N_MINUTES).replaceFirst("\\$N",
+            setText(gettext(R.string.N_MINUTES).replaceFirst("\\$N",
                     "" + Settings.gameLengths[glGame.settings.gameLengthIndex]));
         }
     }
@@ -178,7 +178,7 @@ class MenuSettings extends GLScreen {
     private class WeatherButton extends Button {
 
         WeatherButton() {
-            setColors(0x1F1F95, 0x3030D4, 0x151563);
+            setColors(0x1F1F95);
             setGeometry(Settings.GUI_WIDTH / 2 + 30 + 100, 280, 200, 40);
             setText("", 0, 14);
             isActive = false;
@@ -278,7 +278,7 @@ class MenuSettings extends GLScreen {
         Widget w;
 
         w = new Button();
-        w.setColors(0x536B90, 0x7090C2, 0x263142);
+        w.setColors(0x536B90, 0x7090C2, 0x7090C2);
         w.setGeometry((Settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
         w.setText(gettext(R.string.SETTINGS), 0, 14);
         w.isActive = false;
@@ -286,7 +286,7 @@ class MenuSettings extends GLScreen {
 
         // music volume
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 100, 400, 40);
         w.setText(gettext(R.string.MUSIC_VOLUME), 0, 14);
         w.isActive = false;
@@ -303,7 +303,7 @@ class MenuSettings extends GLScreen {
 
         // sfx volume
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 160, 400, 40);
         w.setText(gettext(R.string.SFX_VOLUME), 0, 14);
         w.isActive = false;
@@ -320,7 +320,7 @@ class MenuSettings extends GLScreen {
 
         // game length
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 220, 400, 40);
         w.setText(gettext(R.string.GAME_LENGTH), 0, 14);
         w.isActive = false;
@@ -337,7 +337,7 @@ class MenuSettings extends GLScreen {
 
         // weather effects
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 280, 400, 40);
         w.setText(gettext(R.string.WEATHER_EFFECTS), 0, 14);
         w.isActive = false;
@@ -354,7 +354,7 @@ class MenuSettings extends GLScreen {
 
         // display radar
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 340, 400, 40);
         w.setText(gettext(R.string.RADAR), 0, 14);
         w.isActive = false;
@@ -365,7 +365,7 @@ class MenuSettings extends GLScreen {
 
         // auto replay
         w = new Button();
-        w.setColors(0x800000, 0xB40000, 0x400000);
+        w.setColors(0x800000, 0xB40000, 0xB40000);
         w.setGeometry(Settings.GUI_WIDTH / 2 - 400 - 30, 400, 400, 40);
         w.setText(gettext(R.string.AUTO_REPLAY), 0, 14);
         w.isActive = false;

@@ -15,6 +15,8 @@ class MatchStateIntro extends MatchState {
     void entryActions() {
         super.entryActions();
 
+        match.renderer.displayControls = true;
+
         match.setIntroPositions();
         match.resetData();
 

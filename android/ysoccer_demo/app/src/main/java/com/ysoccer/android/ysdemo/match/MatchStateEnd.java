@@ -21,6 +21,7 @@ class MatchStateEnd extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = true;
         match.renderer.displayRadar = false;
+        match.renderer.displayControls = true;
 
         match.period = Match.Period.UNDEFINED;
     }

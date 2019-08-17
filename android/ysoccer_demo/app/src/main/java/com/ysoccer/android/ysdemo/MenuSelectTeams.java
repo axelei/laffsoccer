@@ -19,21 +19,21 @@ import java.util.List;
 
 public class MenuSelectTeams extends GLScreen {
 
-    final ContinueButton continueButton;
-    final Team[] teams;
+    private final ContinueButton continueButton;
+    private final Team[] teams;
 
     class TeamButton extends Button {
 
         Team team;
 
-        public TeamButton(Team team) {
+        TeamButton(Team team) {
             setSize(300, 28);
             setText(team.getName(), 0, 14);
             this.team = team;
             updateColor();
         }
 
-        public void updateColor() {
+        void updateColor() {
             switch (team.getControlMode()) {
                 case UNDEFINED:
                     setColors(0x98691E, 0xC88B28, 0x3E2600);
@@ -87,7 +87,8 @@ public class MenuSelectTeams extends GLScreen {
     }
 
     class BackButton extends Button {
-        public BackButton() {
+
+        BackButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH) / 2 - 300 - 30,
                     Settings.GUI_HEIGHT - 40 - 20, 300, 40);
@@ -101,7 +102,8 @@ public class MenuSelectTeams extends GLScreen {
     }
 
     class ContinueButton extends Button {
-        public ContinueButton() {
+
+        ContinueButton() {
             setGeometry(Settings.GUI_WIDTH / 2 + 30,
                     Settings.GUI_HEIGHT - 40 - 20, 340, 40);
             setText(gettext(R.string.PLAY_MATCH), 0, 14);
@@ -109,7 +111,7 @@ public class MenuSelectTeams extends GLScreen {
             updateStatus();
         }
 
-        public void updateStatus() {
+        void updateStatus() {
             Team home = teams[0];
             Team away = teams[1];
             isActive = (home != null) && (away != null) && (home.getControlMode() != away.getControlMode());
@@ -131,7 +133,7 @@ public class MenuSelectTeams extends GLScreen {
         }
     }
 
-    public MenuSelectTeams(Game game) {
+    MenuSelectTeams(Game game) {
         super(game);
 
         Assets.Backgrounds.menuMatch = new Texture(glGame,
@@ -146,7 +148,7 @@ public class MenuSelectTeams extends GLScreen {
         Widget w;
 
         w = new Button();
-        w.setColors(0x536B90, 0x7090C2, 0x263142);
+        w.setColors(0x536B90, 0x7090C2, 0x7090C2);
         w.setGeometry((Settings.GUI_WIDTH - 400) / 2, 20, 400, 40);
         w.setText(gettext(R.string.SELECT_TEAMS), 0, 14);
         w.isActive = false;
@@ -154,16 +156,26 @@ public class MenuSelectTeams extends GLScreen {
 
         // player - coach
         w = new Button();
-        w.setColors(0x0000C8, 0x1919FF, 0x000078);
-        w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 20, 80, 300, 32);
+        w.setColors(0x0000C8);
+        w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 20, 80, 60, 32);
+        w.isActive = false;
+        getWidgets().add(w);
+
+        w = new Button();
+        w.setGeometry(Settings.GUI_WIDTH / 2 - 300 - 20 +80, 80, 180, 32);
         w.setText(gettext(R.string.PLAYER), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
 
         // computer
         w = new Button();
-        w.setColors(0x981E1E, 0xC72929, 0x640000);
-        w.setGeometry(Settings.GUI_WIDTH / 2 + 20, 80, 300, 32);
+        w.setColors(0x981E1E);
+        w.setGeometry(Settings.GUI_WIDTH / 2 + 20, 80, 60, 32);
+        w.isActive = false;
+        getWidgets().add(w);
+
+        w = new Button();
+        w.setGeometry(Settings.GUI_WIDTH / 2 + 20 +80, 80, 180, 32);
         w.setText(gettext(R.string.COMPUTER), 0, 14);
         w.isActive = false;
         getWidgets().add(w);
@@ -209,7 +221,7 @@ public class MenuSelectTeams extends GLScreen {
 
     }
 
-    void addTeam(Team buttonTeam) {
+    private void addTeam(Team buttonTeam) {
         if (teams[0] == null) {
             teams[0] = buttonTeam;
         } else if (buttonTeam != teams[0] && teams[1] == null) {
@@ -217,7 +229,7 @@ public class MenuSelectTeams extends GLScreen {
         }
     }
 
-    void removeTeam(Team buttonTeam) {
+    private void removeTeam(Team buttonTeam) {
         if (teams[0] == buttonTeam) {
             teams[0] = teams[1];
         }
@@ -236,7 +248,7 @@ public class MenuSelectTeams extends GLScreen {
     }
 
     private List<Team> loadTeams() {
-        List<Team> teams = new ArrayList<Team>();
+        List<Team> teams = new ArrayList<>();
         String ext = "wld";
 
         InputStream in = null;
@@ -244,7 +256,7 @@ public class MenuSelectTeams extends GLScreen {
             in = glGame.getFileIO().readAsset("data/team_" + ext + ".yst");
             DataInputStream is = new DataInputStream(in);
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
-            String line = "";
+            String line;
             while ((line = br.readLine()) != null) {
                 if (line.length() > 0 && line.charAt(0) == '#') {
 
@@ -262,7 +274,7 @@ public class MenuSelectTeams extends GLScreen {
                     br.readLine();
 
                     // skip division
-                    line = br.readLine();
+                    br.readLine();
 
                     Team team = new Team(nameKey, ext, number);
                     team.name = glGame.translate(nameKey);

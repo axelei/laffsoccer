@@ -10,11 +10,26 @@ import java.util.List;
 
 public class TouchInput extends InputDevice {
 
-    Camera2D guiCam;
-    Vector2 touchPoint;
-    Vector2 oldTouchPoint;
-    private boolean inverted;
+    static final int TOUCHCAM_WIDTH = 1024;
+    static final int TOUCHCAM_HEIGHT = 576;
+
+    static final int JOYSTICK_R = 64;
+    private static final int JOYSTICK_BASE_X = 30 + JOYSTICK_R;
+    private static final int JOYSTICK_BASE_Y = TOUCHCAM_HEIGHT - JOYSTICK_R - 30;
+
+    static Vector2 joystickCurrentPos;
+    private static Vector2 joystickVelocity;
+    private static Vector2 joystickTargetPos;
+
+    static int BUTTON_R = 64;
+    static int BUTTON_X = TOUCHCAM_WIDTH - BUTTON_R - 30;
+    static int BUTTON_Y = TOUCHCAM_HEIGHT - BUTTON_R - 30;
+
+    private Camera2D touchCam;
+    private Vector2 touchPoint;
+    private Vector2 joystickDirection;
     public List<TouchEvent> touchEvents;
+    private boolean joystickHold;
 
     private boolean f1;
     private boolean f2;
@@ -23,51 +38,110 @@ public class TouchInput extends InputDevice {
 
     public TouchInput(GLGraphics glGraphics) {
         setType(ID_TOUCH);
-        guiCam = new Camera2D(glGraphics, 1280, 800);
+        touchCam = new Camera2D(glGraphics, TOUCHCAM_WIDTH, TOUCHCAM_HEIGHT);
         touchPoint = new Vector2();
-        oldTouchPoint = new Vector2();
-        this.inverted = false;
+        joystickDirection = new Vector2();
+        joystickHold = true;
+
+        joystickCurrentPos = new Vector2(JOYSTICK_BASE_X, JOYSTICK_BASE_Y);
+        joystickTargetPos = new Vector2(JOYSTICK_BASE_X, JOYSTICK_BASE_Y);
+        joystickVelocity = new Vector2();
     }
 
     public void _read() {
         int len = touchEvents.size();
-        if (len > 0) {
-            f1 = false;
-            f2 = false;
-            v = false;
-        }
         for (int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
 
             touchPoint.set(event.x, event.y);
 
-            guiCam.touchToWorld(touchPoint);
+            touchCam.touchToWorld(touchPoint);
 
-            if (inverted ? (touchPoint.x > 640) : (touchPoint.x < 640)) {
-                if (touchPoint.y > 80) {
-                    f1 = (event.type != TouchEvent.TOUCH_UP);
-                } else {
-                    f2 = (event.type != TouchEvent.TOUCH_UP);
+            if (touchPoint.x < TOUCHCAM_WIDTH / 2) {
+                // Joystick
+                float touchJoystickDist;
+                switch (event.type) {
+                    case TouchEvent.TOUCH_DOWN:
+                        touchJoystickDist = touchPoint.dist(joystickCurrentPos);
+                        v = false;
+                        if (touchJoystickDist < JOYSTICK_R) {
+                            joystickHold = true;
+                            if (touchJoystickDist > 0.25f * JOYSTICK_R) {
+                                joystickDirection.set(joystickCurrentPos);
+                                joystickDirection.sub(touchPoint);
+                                joystickDirection.rotate(180);
+                                a = Math.round(joystickDirection.angle());
+                                v = true;
+                            }
+                        }
+                        break;
+
+                    case TouchEvent.TOUCH_DRAGGED:
+                        if (!joystickHold) continue;
+
+                        touchJoystickDist = touchPoint.dist(joystickCurrentPos);
+                        joystickDirection.set(joystickCurrentPos);
+                        joystickDirection.sub(touchPoint);
+
+                        if (touchJoystickDist > 2 * JOYSTICK_R) {
+                            joystickDirection.setV(JOYSTICK_R);
+                            joystickTargetPos.set(touchPoint).add(joystickDirection);
+                            if (joystickTargetPos.x < JOYSTICK_R) {
+                                joystickTargetPos.setX(JOYSTICK_R);
+                            }
+                            if (joystickTargetPos.y > JOYSTICK_BASE_Y) {
+                                joystickTargetPos.setY(JOYSTICK_BASE_Y);
+                            }
+                        }
+
+                        v = false;
+                        if (touchJoystickDist > 0.25f * JOYSTICK_R) {
+                            joystickDirection.rotate(180);
+                            a = Math.round(joystickDirection.angle());
+                            v = true;
+                        }
+                        break;
+
+                    case TouchEvent.TOUCH_UP:
+                        joystickHold = false;
+                        v = false;
+                        break;
                 }
             } else {
-                v = false;
-                if (event.type == TouchEvent.TOUCH_DRAGGED) {
-                    v = true;
-                    oldTouchPoint.sub(touchPoint);
-                    if (oldTouchPoint.v > 2) {
-                        a = Math.round((180.0f + oldTouchPoint.a) / 45.0f) * 45;
-                    }
+                float touchButtonDist;
+                switch (event.type) {
+                    case TouchEvent.TOUCH_DOWN:
+                        touchButtonDist = Emath.dist(touchPoint.x, touchPoint.y, BUTTON_X, BUTTON_Y);
+                        f1 = touchButtonDist < BUTTON_R;
+                        break;
+
+                    case TouchEvent.TOUCH_DRAGGED:
+                        touchButtonDist = Emath.dist(touchPoint.x, touchPoint.y, BUTTON_X, BUTTON_Y);
+                        f1 = touchButtonDist < 3 * BUTTON_R;
+                        break;
+
+                    case TouchEvent.TOUCH_UP:
+                        f1 = false;
+                        break;
                 }
-                oldTouchPoint.set(touchPoint);
             }
         }
         x0 = v ? Math.round(Emath.cos((a / 45.0f) * 45)) : 0;
         y0 = v ? Math.round(Emath.sin((a / 45.0f) * 45)) : 0;
         fire10 = f1;
         fire20 = f2;
-    }
 
-    public void setInverted(boolean inverted) {
-        this.inverted = inverted;
+        // move joystick
+        if (!joystickHold) {
+            joystickTargetPos.set(JOYSTICK_BASE_X, JOYSTICK_BASE_Y);
+        }
+        joystickVelocity.set(joystickTargetPos);
+        joystickVelocity.sub(joystickCurrentPos);
+        if (joystickVelocity.len() > 1) {
+            if (joystickVelocity.len() > 8) {
+                joystickVelocity.setV(8);
+            }
+            joystickCurrentPos.add(joystickVelocity);
+        }
     }
 }

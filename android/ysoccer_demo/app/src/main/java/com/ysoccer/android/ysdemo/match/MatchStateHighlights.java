@@ -24,6 +24,7 @@ class MatchStateHighlights extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = false;
+        match.renderer.displayControls = false;
 
         // position of current frame inside the highlights vector
         position = 0;

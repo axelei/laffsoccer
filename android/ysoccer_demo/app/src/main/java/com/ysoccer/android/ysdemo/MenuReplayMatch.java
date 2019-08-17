@@ -9,12 +9,13 @@ import com.ysoccer.android.ysdemo.match.Team;
 
 public class MenuReplayMatch extends GLScreen {
 
-    final Team[] teams;
-    final MatchSettings matchSettings;
+    private final Team[] teams;
+    private final MatchSettings matchSettings;
 
     class ReplayButton extends Button {
-        public ReplayButton() {
-            setColors(0x2D855D, 0x3DB37D, 0x1E5027);
+
+        ReplayButton() {
+            setColors(0x2D855D);
             setGeometry((Settings.GUI_WIDTH - 300) / 2, 250, 300, 40);
             setText(gettext(R.string.REPLAY_MATCH), 0, 14);
         }
@@ -35,7 +36,8 @@ public class MenuReplayMatch extends GLScreen {
     }
 
     class BackButton extends Button {
-        public BackButton() {
+
+        BackButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((Settings.GUI_WIDTH - 300) / 2, 310, 300, 40);
             setText(gettext(R.string.EXIT), 0, 14);
@@ -47,7 +49,7 @@ public class MenuReplayMatch extends GLScreen {
         }
     }
 
-    public MenuReplayMatch(Game game, Team[] teams, MatchSettings matchSettings) {
+    MenuReplayMatch(Game game, Team[] teams, MatchSettings matchSettings) {
         super(game);
         this.teams = teams;
         this.matchSettings = matchSettings;
@@ -57,7 +59,7 @@ public class MenuReplayMatch extends GLScreen {
         Widget w;
 
         w = new Button();
-        w.setColors(0x536B90, 0x7090C2, 0x263142);
+        w.setColors(0x536B90, 0x7090C2, 0x7090C2);
         String title = teams[0].name + "  -  " + teams[1].name;
         int titleWidth = Math.max(340, 40 + 16 * title.length());
         w.setGeometry((Settings.GUI_WIDTH - titleWidth) / 2, 20, titleWidth, 40);

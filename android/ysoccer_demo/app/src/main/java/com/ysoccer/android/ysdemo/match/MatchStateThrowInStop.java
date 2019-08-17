@@ -23,6 +23,7 @@ class MatchStateThrowInStop extends MatchState {
         match.renderer.displayScore = false;
         match.renderer.displayStatistics = false;
         match.renderer.displayRadar = true;
+        match.renderer.displayControls = true;
 
         match.listener.whistleSound(match.settings.sfxVolume);
 
