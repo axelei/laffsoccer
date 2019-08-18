@@ -224,7 +224,7 @@ class EditTeam extends GLScreen {
 
         TacticsButton(int t) {
             this.t = t;
-            setGeometry(692 + 94 * (t % 2), 44 + 25 * ((int) Math.floor(t / 2)), 90, 22);
+            setGeometry(692 + 94 * (t % 2), 44 + 25 * ((int) Math.floor(t / 2f)), 90, 22);
             setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
         }
 
@@ -645,6 +645,7 @@ class EditTeam extends GLScreen {
 
                 case SHIRT2:
                     team.kits.get(selectedKit).shirt2 = color;
+                    team.kits.get(selectedKit).shirt3 = color;
                     break;
 
                 case SHIRT3:
@@ -722,6 +723,7 @@ class EditTeam extends GLScreen {
 
                 case SHIRT2:
                     team.kits.get(selectedKit).shirt2 = color;
+                    team.kits.get(selectedKit).shirt3 = color;
                     break;
 
                 case SHIRT3:
@@ -935,11 +937,12 @@ class EditTeam extends GLScreen {
 
             if (kit == null) return;
 
-            // copy style, shirt1 & shirt2 colors from kit 0 or 1
+            // copy style & shirt colors from kit 0 or 1
             Kit other = team.kits.get(team.kits.size() - 4);
             kit.style = other.style;
             kit.shirt1 = other.shirt1;
             kit.shirt2 = other.shirt2;
+            kit.shirt3 = other.shirt3;
 
             // copy shorts & socks colors from kit 1 or 0
             other = team.kits.get(5 - team.kits.size());
