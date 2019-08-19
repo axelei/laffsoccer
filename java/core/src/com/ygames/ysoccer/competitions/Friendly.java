@@ -3,7 +3,6 @@ package com.ygames.ysoccer.competitions;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
-import com.ygames.ysoccer.match.Pitch;
 
 public class Friendly extends Competition {
 
@@ -14,7 +13,7 @@ public class Friendly extends Competition {
         name = Assets.strings.get("FRIENDLY");
         match = new Match();
         numberOfTeams = 2;
-        time = MatchSettings.Time.RANDOM;
+        weather = Competition.Weather.BY_PITCH_TYPE;
     }
 
     @Override
@@ -22,7 +21,8 @@ public class Friendly extends Competition {
         return match;
     }
 
-    public Pitch.Type resolvePitchType() {
-        return pitchType;
+    @Override
+    public MatchSettings.Time getTime() {
+        return MatchSettings.Time.values()[Assets.random.nextInt(2)];
     }
 }

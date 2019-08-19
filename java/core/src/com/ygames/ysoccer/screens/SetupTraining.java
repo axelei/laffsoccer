@@ -218,19 +218,14 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            if (matchSettings.pitchType != Pitch.Type.RANDOM) {
-                setColors(0x1F1F95);
-                setActive(true);
-            } else {
-                setColors(0x666666);
-                setActive(false);
-            }
+            setColors(0x1F1F95);
+            setActive(true);
             setText(Assets.strings.get(matchSettings.getWeatherLabel()));
         }
 
         @Override
         public void onFire1Down() {
-            matchSettings.rotateWeather(true);
+            matchSettings.rotateWeather();
             setDirty(true);
             weatherPicture.setDirty(true);
         }

@@ -258,7 +258,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY && matchSettings.pitchType != Pitch.Type.RANDOM) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY) {
                 setColors(0x1F1F95);
                 setActive(true);
             } else {
@@ -270,7 +270,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            matchSettings.rotateWeather(true);
+            matchSettings.rotateWeather();
             setDirty(true);
             weatherPicture.setDirty(true);
         }

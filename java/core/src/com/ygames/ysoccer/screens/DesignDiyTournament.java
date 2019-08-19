@@ -344,7 +344,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updatePitchType(int n) {
-            tournament.pitchType = Pitch.Type.values()[Emath.rotate(tournament.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
+            tournament.pitchType = Pitch.Type.values()[Emath.rotate(tournament.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
             setDirty(true);
         }
 

@@ -303,7 +303,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updatePitchType(int n) {
-            cup.pitchType = Pitch.Type.values()[Emath.rotate(cup.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
+            cup.pitchType = Pitch.Type.values()[Emath.rotate(cup.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
             setDirty(true);
         }
 

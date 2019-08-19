@@ -61,7 +61,7 @@ public abstract class Competition {
     protected Competition(Type type) {
         this.type = type;
         filename = "";
-        teams = new ArrayList<Team>();
+        teams = new ArrayList<>();
         weather = Weather.BY_SEASON;
         seasonStart = Month.AUGUST;
         seasonEnd = Month.MAY;
@@ -69,7 +69,7 @@ public abstract class Competition {
         substitutions = 3;
         benchSize = 5;
         time = MatchSettings.Time.DAY;
-        scorers = new ArrayList<Scorer>();
+        scorers = new ArrayList<>();
         scorerComparator = new ScorerComparator();
     }
 
@@ -151,7 +151,7 @@ public abstract class Competition {
     }
 
     public void start(ArrayList<Team> teams) {
-        this.teams = new ArrayList<Team>(teams);
+        this.teams = new ArrayList<>(teams);
     }
 
     public abstract Match getMatch();
@@ -223,7 +223,11 @@ public abstract class Competition {
         }
     }
 
-    public Pitch.Type resolvePitchType() {
+    public MatchSettings.Time getTime() {
+        return time;
+    }
+
+    public Pitch.Type getPitchType() {
         int p;
 
         if (weather == Weather.BY_SEASON) {

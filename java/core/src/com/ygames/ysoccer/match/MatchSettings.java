@@ -10,7 +10,7 @@ public class MatchSettings {
 
     int matchLength;
 
-    public enum Time {DAY, NIGHT, RANDOM}
+    public enum Time {DAY, NIGHT}
 
     public Time time;
     float shadowAlpha;
@@ -18,27 +18,29 @@ public class MatchSettings {
     public Pitch.Type pitchType;
 
     public Grass grass;
-    public int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG, Weather.RANDOM
-    public int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
+    int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG
+    int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
     private int weatherMaxStrength;
     public Wind wind;
     public int substitutions;
     public int benchSize;
-    public boolean fullScreen;
-    public boolean autoReplays;
+    boolean fullScreen;
+    boolean autoReplays;
     public boolean radar;
-    public boolean crowdChants;
+    boolean crowdChants;
     public boolean commentary;
 
     public MatchSettings(Settings gameSettings) {
         matchLength = gameSettings.matchLength;
         matchLength = Settings.matchLengths[0];
-        this.time = Time.RANDOM;
-        this.pitchType = Pitch.Type.RANDOM;
+        this.time = MatchSettings.Time.values()[Assets.random.nextInt(2)];
+        this.pitchType = Pitch.Type.values()[Emath.rand(Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal())];
         this.grass = new Grass();
         this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
-        weatherEffect = Weather.RANDOM;
+        for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
+            rotateWeather();
+        }
         benchSize = gameSettings.benchSize;
         fullScreen = gameSettings.fullScreen;
         autoReplays = gameSettings.autoReplays;
@@ -53,17 +55,13 @@ public class MatchSettings {
         } else {
             matchLength = Settings.matchLengths[0];
         }
-        this.time = competition.time;
-        this.pitchType = competition.resolvePitchType();
+        this.time = competition.getTime();
+        this.pitchType = competition.getPitchType();
         this.grass = new Grass();
         this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
-        if (competition.type == Competition.Type.FRIENDLY || competition.type == Competition.Type.TEST_MATCH) {
-            weatherEffect = Weather.RANDOM;
-        } else {
-            for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
-                rotateWeather(false);
-            }
+        for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
+            rotateWeather();
         }
         substitutions = competition.substitutions;
         benchSize = competition.benchSize;
@@ -75,53 +73,40 @@ public class MatchSettings {
     }
 
     public void rotateTime(int direction) {
-        time = MatchSettings.Time.values()[Emath.rotate(time, MatchSettings.Time.DAY, MatchSettings.Time.RANDOM, direction)];
+        time = MatchSettings.Time.values()[Emath.rotate(time, MatchSettings.Time.DAY, Time.NIGHT, direction)];
     }
 
     public void rotatePitchType(int direction) {
-        pitchType = Pitch.Type.values()[Emath.rotate(pitchType.ordinal(), Pitch.Type.FROZEN.ordinal(), Pitch.Type.RANDOM.ordinal(), direction)];
-        weatherEffect = Weather.RANDOM;
-        sky = Sky.CLOUDY;
+        pitchType = Pitch.Type.values()[Emath.rotate(pitchType.ordinal(), Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal(), direction)];
+        weatherEffect = Weather.WIND;
+        weatherStrength = Weather.Strength.NONE;
+        sky = Sky.CLEAR;
     }
 
-    public void rotateWeather(boolean includeRandom) {
-        if (pitchType == Pitch.Type.RANDOM) {
-            return;
-        }
-
+    public void rotateWeather() {
         if ((weatherStrength == Weather.Strength.NONE) && (sky == Sky.CLEAR)) {
             sky = Sky.CLOUDY;
         } else {
             boolean found;
             do {
                 found = true;
-                if (weatherEffect == Weather.RANDOM) {
-                    weatherEffect = Weather.WIND;
-                    weatherStrength = Weather.Strength.NONE;
-                } else if (weatherStrength < Weather.Strength.STRONG) {
+                if (weatherStrength < Weather.Strength.STRONG) {
                     weatherStrength = weatherStrength + 1;
                 } else {
-                    if (includeRandom) {
-                        weatherEffect = (weatherEffect + 1) % 5;
-                        weatherStrength = Weather.Strength.LIGHT;
+                    weatherEffect = Emath.rotate(weatherEffect, Weather.WIND, Weather.FOG, 1);
+                    if (weatherEffect == Weather.WIND) {
+                        weatherStrength = Weather.Strength.NONE;
                     } else {
-                        weatherEffect = (weatherEffect + 1) % Weather.RANDOM;
-                        if (weatherEffect == Weather.WIND) {
-                            weatherStrength = Weather.Strength.NONE;
-                        } else {
-                            weatherStrength = Weather.Strength.LIGHT;
-                        }
+                        weatherStrength = Weather.Strength.LIGHT;
                     }
                 }
 
                 // weather possibility check
-                if (weatherEffect != Weather.RANDOM) {
-                    if (weatherStrength > Weather.cap[pitchType.ordinal()][weatherEffect]) {
-                        found = false;
-                    }
-                    if (weatherStrength > weatherMaxStrength) {
-                        found = false;
-                    }
+                if (weatherStrength > Weather.cap[pitchType.ordinal()][weatherEffect]) {
+                    found = false;
+                }
+                if (weatherStrength > weatherMaxStrength) {
+                    found = false;
                 }
 
                 // sky
@@ -135,15 +120,12 @@ public class MatchSettings {
         }
     }
 
-    public boolean isSnowing() {
-        if ((pitchType == Pitch.Type.SNOWED) || (pitchType == Pitch.Type.WHITE)) {
-            return true;
-        }
-        if ((pitchType == Pitch.Type.FROZEN) && (weatherEffect == Weather.SNOW)
-                && (weatherStrength > Weather.Strength.NONE)) {
-            return true;
-        }
-        return false;
+    public boolean useOrangeBall() {
+        return (pitchType == Pitch.Type.SNOWED) ||
+                (pitchType == Pitch.Type.WHITE) ||
+                ((pitchType == Pitch.Type.FROZEN)
+                        && (weatherEffect == Weather.SNOW)
+                        && (weatherStrength > Weather.Strength.NONE));
     }
 
     public static String getTimeLabel(Time time) {
@@ -152,8 +134,6 @@ public class MatchSettings {
                 return "TIME.DAY";
             case NIGHT:
                 return "TIME.NIGHT";
-            case RANDOM:
-                return "RANDOM";
             default:
                 throw new GdxRuntimeException("Unknown time");
         }
@@ -161,89 +141,75 @@ public class MatchSettings {
 
     public String getWeatherLabel() {
         String s = "";
-        if (weatherEffect == Weather.RANDOM) {
-            s = "RANDOM";
-        } else {
-            switch (weatherStrength) {
-                case Weather.Strength.NONE:
-                    if (sky == Sky.CLEAR) {
-                        s = "SKY.CLEAR";
-                    } else {
-                        s = "SKY.CLOUDY";
-                    }
-                    break;
+        switch (weatherStrength) {
+            case Weather.Strength.NONE:
+                if (sky == Sky.CLEAR) {
+                    s = "SKY.CLEAR";
+                } else {
+                    s = "SKY.CLOUDY";
+                }
+                break;
 
-                case Weather.Strength.LIGHT:
-                    switch (weatherEffect) {
-                        case Weather.WIND:
-                            s = "WIND.LIGHT";
-                            break;
+            case Weather.Strength.LIGHT:
+                switch (weatherEffect) {
+                    case Weather.WIND:
+                        s = "WIND.LIGHT";
+                        break;
 
-                        case Weather.RAIN:
-                            s = "RAIN.LIGHT";
-                            break;
+                    case Weather.RAIN:
+                        s = "RAIN.LIGHT";
+                        break;
 
-                        case Weather.SNOW:
-                            s = "SNOW.LIGHT";
-                            break;
+                    case Weather.SNOW:
+                        s = "SNOW.LIGHT";
+                        break;
 
-                        case Weather.FOG:
-                            s = "FOG.THIN";
-                            break;
-                    }
-                    break;
+                    case Weather.FOG:
+                        s = "FOG.THIN";
+                        break;
+                }
+                break;
 
-                case Weather.Strength.STRONG:
-                    switch (weatherEffect) {
-                        case Weather.WIND:
-                            s = "WIND.STRONG";
-                            break;
+            case Weather.Strength.STRONG:
+                switch (weatherEffect) {
+                    case Weather.WIND:
+                        s = "WIND.STRONG";
+                        break;
 
-                        case Weather.RAIN:
-                            s = "RAIN.STRONG";
-                            break;
+                    case Weather.RAIN:
+                        s = "RAIN.STRONG";
+                        break;
 
-                        case Weather.SNOW:
-                            s = "SNOW.STRONG";
-                            break;
+                    case Weather.SNOW:
+                        s = "SNOW.STRONG";
+                        break;
 
-                        case Weather.FOG:
-                            s = "FOG.THICK";
-                            break;
-                    }
-                    break;
-            }
+                    case Weather.FOG:
+                        s = "FOG.THICK";
+                        break;
+                }
+                break;
         }
         return s;
     }
 
     public int weatherOffset() {
-        if (weatherEffect == Weather.RANDOM) {
-            return 10;
+        if (weatherStrength == Weather.Strength.NONE) {
+            return sky;
         } else {
-            if (weatherStrength == Weather.Strength.NONE) {
-                return sky;
-            } else {
-                return 2 * weatherEffect + weatherStrength + 1;
-            }
+            return 2 * weatherEffect + weatherStrength + 1;
         }
     }
 
     public void setup() {
         initTime();
-        initPitchType();
         initGrass();
-        initWeather();
         initWind();
         adjustGrassFriction();
         adjustGrassBounce();
     }
 
     private void initTime() {
-        if (time == Time.RANDOM) {
-            time = Time.values()[Assets.random.nextInt(Time.RANDOM.ordinal())];
-        }
-
         if (time == Time.NIGHT) {
             shadowAlpha = 0.4f;
         } else {
@@ -251,35 +217,8 @@ public class MatchSettings {
         }
     }
 
-    private void initPitchType() {
-        if (pitchType == Pitch.Type.RANDOM) {
-            pitchType = Pitch.Type.values()[Assets.random.nextInt(Pitch.Type.RANDOM.ordinal())];
-        }
-    }
-
     private void initGrass() {
         grass.copy(Pitch.grasses[pitchType.ordinal()]);
-    }
-
-    private void initWeather() {
-        if (weatherEffect == Weather.RANDOM) {
-            weatherEffect = Assets.random.nextInt(Weather.RANDOM);
-            weatherStrength = Weather.Strength.STRONG - (int) Math.round(Math.log10(Assets.random.nextInt(16) + 1) / Math.log10(4));
-
-            // constrain by settings
-            weatherStrength = Math.min(weatherStrength, weatherMaxStrength);
-
-            // constrain by pitch_type
-            weatherStrength = Math.min(weatherStrength, Weather.cap[pitchType.ordinal()][weatherEffect]);
-
-            // sky
-            sky = Sky.CLOUDY;
-            if (weatherStrength == Weather.Strength.NONE) {
-                sky = Sky.CLEAR;
-            } else if (weatherEffect == Weather.WIND) {
-                sky = Sky.CLEAR;
-            }
-        }
     }
 
     private void initWind() {

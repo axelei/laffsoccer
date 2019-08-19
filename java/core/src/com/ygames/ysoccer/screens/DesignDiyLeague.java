@@ -268,7 +268,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updatePitchType(int n) {
-            league.pitchType = Pitch.Type.values()[Emath.rotate(league.pitchType.ordinal(), 0, Pitch.Type.RANDOM.ordinal(), n)];
+            league.pitchType = Pitch.Type.values()[Emath.rotate(league.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
             setDirty(true);
         }
 

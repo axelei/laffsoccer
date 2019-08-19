@@ -587,7 +587,7 @@ public class Assets {
                 break;
         }
 
-        Texture ballTexture = loadTexture("images/" + (matchSettings.isSnowing() ? "ballsnow.png" : "ball.png"), rgbPairs);
+        Texture ballTexture = loadTexture("images/" + (matchSettings.useOrangeBall() ? "ballsnow.png" : "ball.png"), rgbPairs);
         for (int r = 0; r < 5; r++) {
             ball[r] = new TextureRegion(ballTexture, r * 8, 0, 8, 8);
             ball[r].flip(false, true);

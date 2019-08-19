@@ -6,7 +6,6 @@ public class Weather {
     public static final int RAIN = 1;
     public static final int SNOW = 2;
     public static final int FOG = 3;
-    public static final int RANDOM = 4;
 
     public static class Strength {
 
