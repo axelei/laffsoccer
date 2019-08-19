@@ -98,6 +98,10 @@ class MatchScreen extends GLScreen {
             case TOURNAMENT:
                 game.setScreen(new PlayTournament(game));
                 break;
+
+            case TEST_MATCH:
+                game.setScreen(new DevTools(game));
+                break;
         }
     }
 }

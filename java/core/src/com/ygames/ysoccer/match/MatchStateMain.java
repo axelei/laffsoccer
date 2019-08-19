@@ -199,6 +199,7 @@ class MatchStateMain extends MatchState {
 
                     switch (match.competition.type) {
                         case FRIENDLY:
+                        case TEST_MATCH:
                         case LEAGUE:
                             fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FULL_TIME_STOP);
                             return;

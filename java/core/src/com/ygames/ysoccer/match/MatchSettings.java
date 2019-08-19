@@ -58,7 +58,7 @@ public class MatchSettings {
         this.grass = new Grass();
         this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
-        if (competition.type == Competition.Type.FRIENDLY) {
+        if (competition.type == Competition.Type.FRIENDLY || competition.type == Competition.Type.TEST_MATCH) {
             weatherEffect = Weather.RANDOM;
         } else {
             for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {

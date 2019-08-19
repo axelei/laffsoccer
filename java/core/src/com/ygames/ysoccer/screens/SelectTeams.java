@@ -48,7 +48,7 @@ class SelectTeams extends GLScreen {
             leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
         }
 
-        List<Team> teamList = new ArrayList<Team>();
+        ArrayList<Team> teamList = new ArrayList<Team>();
         FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
         for (FileHandle teamFileHandle : teamFileHandles) {
             Team team = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));

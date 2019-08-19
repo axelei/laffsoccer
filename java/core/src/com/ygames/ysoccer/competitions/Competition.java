@@ -27,7 +27,7 @@ import static java.lang.Math.min;
 
 public abstract class Competition {
 
-    public enum Type {FRIENDLY, LEAGUE, CUP, TOURNAMENT}
+    public enum Type {FRIENDLY, LEAGUE, CUP, TOURNAMENT, TEST_MATCH}
 
     public enum Category {DIY_COMPETITION, PRESET_COMPETITION}
 
