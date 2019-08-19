@@ -3,18 +3,24 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.ygames.ysoccer.competitions.Competition;
+import com.ygames.ysoccer.competitions.TestMatch;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Team;
 
 import ar.com.hjg.pngj.IImageLine;
 import ar.com.hjg.pngj.ImageLineInt;
 import ar.com.hjg.pngj.PngReader;
 import ar.com.hjg.pngj.PngWriter;
 import ar.com.hjg.pngj.chunks.ChunkCopyBehaviour;
+
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 class DevTools extends GLScreen {
 
@@ -32,6 +38,9 @@ class DevTools extends GLScreen {
 
         setSelectedWidget(w);
 
+        w = new MatchTestButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -42,13 +51,50 @@ class DevTools extends GLScreen {
 
         PlayerTestButton() {
             setColors(0x427AA1);
-            setGeometry((game.gui.WIDTH - 260) / 2, 360, 260, 36);
+            setGeometry((game.gui.WIDTH - 260) / 2, 340, 260, 36);
             setText("PLAYER TEST", Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
             game.setScreen(new TestPlayer(game));
+        }
+    }
+
+    private class MatchTestButton extends Button {
+
+        MatchTestButton() {
+            setColors(0x427AA1);
+            setGeometry((game.gui.WIDTH - 260) / 2, 410, 260, 36);
+            setText("MATCH TEST", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            FileHandle homeTeamFile = Gdx.files.local("/data/teams/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json");
+            Team homeTeam = Assets.json.fromJson(Team.class, homeTeamFile.readString("UTF-8"));
+            homeTeam.path = Assets.getRelativeTeamPath(homeTeamFile);
+            homeTeam.controlMode = Team.ControlMode.PLAYER;
+
+            FileHandle awayTeamFile = Gdx.files.local("/data/teams/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.ac_milan.json");
+            Team awayTeam = Assets.json.fromJson(Team.class, awayTeamFile.readString("UTF-8"));
+            awayTeam.path = Assets.getRelativeTeamPath(awayTeamFile);
+            awayTeam.controlMode = Team.ControlMode.COMPUTER;
+
+            // reset input devices
+            game.inputDevices.setAvailability(true);
+            homeTeam.setInputDevice(null);
+            homeTeam.releaseNonAiInputDevices();
+            awayTeam.setInputDevice(null);
+            awayTeam.releaseNonAiInputDevices();
+            homeTeam.inputDevice = game.inputDevices.assignFirstAvailable();
+
+            Competition testMatch = new TestMatch();
+            testMatch.getMatch().setTeam(HOME, homeTeam);
+            testMatch.getMatch().setTeam(AWAY, awayTeam);
+
+            navigation.competition = testMatch;
+            game.setScreen(new MatchSetup(game));
         }
     }
 
