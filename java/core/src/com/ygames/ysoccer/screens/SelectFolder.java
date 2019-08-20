@@ -26,7 +26,7 @@ class SelectFolder extends GLScreen {
         widgets.add(w);
 
         // Breadcrumb
-        List<Widget> breadcrumb = new ArrayList<Widget>();
+        List<Widget> breadcrumb = new ArrayList<>();
 
         FileHandle fh = navigation.folder;
         boolean isDataRoot;
@@ -46,8 +46,8 @@ class SelectFolder extends GLScreen {
         widgets.addAll(breadcrumb);
 
         // Folders buttons
-        List<Widget> list = new ArrayList<Widget>();
-        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(navigation.folder.list()));
+        List<Widget> list = new ArrayList<>();
+        ArrayList<FileHandle> files = new ArrayList<>(Arrays.asList(navigation.folder.list()));
         Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
@@ -69,6 +69,12 @@ class SelectFolder extends GLScreen {
         widgets.add(w);
         if (selectedWidget == null) {
             setSelectedWidget(w);
+        }
+
+        if (game.getState() == GLGame.State.EDIT &&
+                !navigation.folder.equals(Assets.teamsRootFolder)) {
+            w = new SearchPlayerButton();
+            widgets.add(w);
         }
     }
 
@@ -113,6 +119,7 @@ class SelectFolder extends GLScreen {
         @Override
         public void onFire1Down() {
             navigation.folder = folder;
+            navigation.league = null;
             game.setScreen(new SelectFolder(game));
         }
     }
@@ -176,19 +183,28 @@ class SelectFolder extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            if (game.getState() == GLGame.State.EDIT || game.getState() == GLGame.State.TRAINING) {
-                setColors(0xC84200);
-                setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
-            } else {
-                setColors(0xC8000E);
-                setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
-            }
+            setColors(0xC8000E);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
 
         @Override
         public void onFire1Down() {
             game.setScreen(new Main(game));
+        }
+    }
+
+    private class SearchPlayerButton extends Button {
+
+        SearchPlayerButton() {
+            setColors(0x4444AA);
+            setText(Assets.gettext("SEARCH.SEARCH PLAYER"), Font.Align.CENTER, Assets.font14);
+            setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SearchPlayer(game));
         }
     }
 }

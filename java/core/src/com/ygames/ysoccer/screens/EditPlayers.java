@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
@@ -18,7 +19,9 @@ import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 class EditPlayers extends GLScreen {
 
@@ -829,6 +832,16 @@ class EditPlayers extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            // if more than one league, set navigation league
+            if (team.league != null) {
+                FileHandle leaguesFile = navigation.folder.child("leagues.json");
+                if (leaguesFile.exists()) {
+                    List<String> leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
+                    if (leagues.size() > 1) {
+                        navigation.league = team.league;
+                    }
+                }
+            }
             game.setScreen(new SelectTeam(game));
         }
     }

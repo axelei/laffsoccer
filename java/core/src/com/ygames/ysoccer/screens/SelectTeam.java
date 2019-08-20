@@ -27,15 +27,15 @@ class SelectTeam extends GLScreen {
         w = new TitleBar(getTitle(), game.stateColor.body);
         widgets.add(w);
 
-        List<Widget> list = new ArrayList<Widget>();
+        List<Widget> list = new ArrayList<>();
 
-        List<String> leagues = new ArrayList<String>();
+        List<String> leagues = new ArrayList<>();
         FileHandle leaguesFile = navigation.folder.child("leagues.json");
         if (navigation.league == null && leaguesFile.exists()) {
             leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
         }
 
-        List<Team> teamList = new ArrayList<Team>();
+        List<Team> teamList = new ArrayList<>();
         FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
         for (FileHandle teamFileHandle : teamFileHandles) {
             Team team = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
@@ -77,7 +77,7 @@ class SelectTeam extends GLScreen {
 
 
         // Breadcrumb
-        List<Widget> breadcrumb = new ArrayList<Widget>();
+        List<Widget> breadcrumb = new ArrayList<>();
         if (navigation.league != null) {
             w = new BreadCrumbLeagueLabel();
             breadcrumb.add(w);
@@ -104,6 +104,12 @@ class SelectTeam extends GLScreen {
         widgets.add(w);
         if (selectedWidget == null) {
             setSelectedWidget(w);
+        }
+
+        if (game.getState() == GLGame.State.EDIT &&
+                !navigation.folder.equals(Assets.teamsRootFolder)) {
+            w = new SearchPlayerButton();
+            widgets.add(w);
         }
     }
 
@@ -156,6 +162,7 @@ class SelectTeam extends GLScreen {
                 game.setScreen(new SelectTeam(game));
             } else {
                 navigation.folder = folder;
+                navigation.league = null;
                 game.setScreen(new SelectFolder(game));
             }
         }
@@ -219,6 +226,20 @@ class SelectTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new Main(game));
+        }
+    }
+
+    private class SearchPlayerButton extends Button {
+
+        SearchPlayerButton() {
+            setColors(0x4444AA);
+            setText(Assets.gettext("SEARCH.SEARCH PLAYER"), Font.Align.CENTER, Assets.font14);
+            setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SearchPlayer(game));
         }
     }
 }

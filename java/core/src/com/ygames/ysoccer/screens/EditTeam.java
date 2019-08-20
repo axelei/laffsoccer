@@ -19,6 +19,7 @@ import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -1032,6 +1033,16 @@ class EditTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            // if more than one league, set navigation league
+            if (team.league != null) {
+                FileHandle leaguesFile = navigation.folder.child("leagues.json");
+                if (leaguesFile.exists()) {
+                    List<String> leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
+                    if (leagues.size() > 1) {
+                        navigation.league = team.league;
+                    }
+                }
+            }
             game.setScreen(new SelectTeam(game));
         }
     }
