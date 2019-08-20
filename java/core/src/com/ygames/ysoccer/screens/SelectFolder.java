@@ -65,6 +65,12 @@ class SelectFolder extends GLScreen {
         w = new ViewSelectedTeamsButton();
         widgets.add(w);
 
+        if (game.getState() == GLGame.State.EDIT &&
+                !navigation.folder.equals(Assets.teamsRootFolder)) {
+            w = new SearchTeamButton();
+            widgets.add(w);
+        }
+
         w = new ExitButton();
         widgets.add(w);
         if (selectedWidget == null) {
@@ -180,6 +186,20 @@ class SelectFolder extends GLScreen {
         }
     }
 
+    private class SearchTeamButton extends Button {
+
+        SearchTeamButton() {
+            setColors(0x4444AA);
+            setText(Assets.gettext("SEARCH.SEARCH TEAMS"), Font.Align.CENTER, Assets.font14);
+            setGeometry((game.gui.WIDTH - 180) / 2 -360 - 20, 660, 360, 36);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SearchTeams(game));
+        }
+    }
+
     private class ExitButton extends Button {
 
         ExitButton() {
@@ -198,7 +218,7 @@ class SelectFolder extends GLScreen {
 
         SearchPlayerButton() {
             setColors(0x4444AA);
-            setText(Assets.gettext("SEARCH.SEARCH PLAYER"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.gettext("SEARCH.SEARCH PLAYERS"), Font.Align.CENTER, Assets.font14);
             setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
         }
 

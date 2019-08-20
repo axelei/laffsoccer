@@ -9,7 +9,6 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
 import java.text.Normalizer;
@@ -19,7 +18,7 @@ import java.util.List;
 
 import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
-class SearchPlayer extends GLScreen {
+class SearchTeams extends GLScreen {
 
     private enum State {START, SEARCHING, FINISHED}
 
@@ -31,18 +30,18 @@ class SearchPlayer extends GLScreen {
 
     private int fileIndex;
     private List<String> teamFiles;
-    private List<PlayerButton> playerList;
+    private List<TeamButton> teamList;
 
     private boolean reachedMaxResults = false;
 
-    SearchPlayer(GLGame game) {
+    SearchTeams(GLGame game) {
         super(game);
 
         background = game.stateBackground;
 
         Widget w;
 
-        w = new TitleBar(Assets.gettext("SEARCH.SEARCH PLAYERS"), game.stateColor.body);
+        w = new TitleBar(Assets.gettext("SEARCH.SEARCH TEAMS"), game.stateColor.body);
         widgets.add(w);
 
         // Breadcrumb
@@ -70,7 +69,7 @@ class SearchPlayer extends GLScreen {
         widgets.addAll(breadcrumb);
 
         teamFiles = new ArrayList<>();
-        playerList = new ArrayList<>();
+        teamList = new ArrayList<>();
         recursiveTeamSearch(navigation.folder);
 
         w = new InfoLabel();
@@ -137,7 +136,7 @@ class SearchPlayer extends GLScreen {
         public void onFire1Down() {
             navigation.folder = folder;
             navigation.league = null;
-            game.setScreen(new SearchPlayer(game));
+            game.setScreen(new SearchTeams(game));
         }
     }
 
@@ -162,9 +161,9 @@ class SearchPlayer extends GLScreen {
 
                 case FINISHED:
                     if (reachedMaxResults) {
-                        setText(Assets.gettext("SEARCH.FIRST %n PLAYERS FOUND").replaceFirst("%n", MAX_RESULTS + ""));
+                        setText(Assets.gettext("SEARCH.FIRST %n TEAMS FOUND").replaceFirst("%n", MAX_RESULTS + ""));
                     } else {
-                        setText(Assets.gettext("SEARCH.%n PLAYERS FOUND").replaceFirst("%n", playerList.size() + ""));
+                        setText(Assets.gettext("SEARCH.%n TEAMS FOUND").replaceFirst("%n", teamList.size() + ""));
                     }
                     break;
             }
@@ -184,8 +183,8 @@ class SearchPlayer extends GLScreen {
         public void onChanged() {
             if (text.length() > 0) {
                 fileIndex = 0;
-                widgets.removeAll(playerList);
-                playerList.clear();
+                widgets.removeAll(teamList);
+                teamList.clear();
                 reachedMaxResults = false;
                 state = State.SEARCHING;
             }
@@ -224,7 +223,7 @@ class SearchPlayer extends GLScreen {
                 if (reachedMaxResults || fileIndex == teamFiles.size()) {
                     state = State.FINISHED;
                 } else {
-                    searchPlayer(teamFiles.get(fileIndex));
+                    searchTeam(teamFiles.get(fileIndex));
                     fileIndex++;
                 }
                 refreshAllWidgets();
@@ -235,23 +234,19 @@ class SearchPlayer extends GLScreen {
         }
     }
 
-    private void searchPlayer(String teamFile) {
+    private void searchTeam(String teamFile) {
         FileHandle fh = Assets.teamsRootFolder.child(teamFile);
         Team team = Assets.json.fromJson(Team.class, fh.readString("UTF-8"));
         team.path = Assets.getRelativeTeamPath(fh);
         String searchTerm = searchInputButton.getText();
-        for (Player player : team.players) {
-            if (accentInsensitiveContains(player.name, searchTerm) ||
-                    accentInsensitiveContains(player.shirtName, searchTerm)) {
-                if (playerList.size() < MAX_RESULTS) {
-                    PlayerButton playerButton = new PlayerButton(player, fh.parent());
-                    playerButton.setPosition((game.gui.WIDTH - 604) / 2, 210 + 21 * playerList.size());
-                    playerList.add(playerButton);
-                    widgets.add(playerButton);
-                } else {
-                    reachedMaxResults = true;
-                    return;
-                }
+        if (accentInsensitiveContains(team.name, searchTerm)) {
+            if (teamList.size() < MAX_RESULTS) {
+                TeamButton teamButton = new TeamButton(team, fh.parent());
+                teamButton.setPosition((game.gui.WIDTH - 604) / 2, 210 + 21 * teamList.size());
+                teamList.add(teamButton);
+                widgets.add(teamButton);
+            } else {
+                reachedMaxResults = true;
             }
         }
     }
@@ -262,23 +257,33 @@ class SearchPlayer extends GLScreen {
                 .contains(searchTerm);
     }
 
-    private class PlayerButton extends Button {
+    private class TeamButton extends Button {
 
-        Player player;
+        Team team;
         FileHandle folder;
 
-        PlayerButton(Player player, FileHandle folder) {
-            this.player = player;
+        TeamButton(Team team, FileHandle folder) {
+            this.team = team;
             this.folder = folder;
             setColors(0x308C3B);
             setSize(604, 19);
-            setText(player.name + " (" + player.team.name + ")", Font.Align.CENTER, Assets.font10);
+            String t = "";
+            switch (team.type) {
+                case CLUB:
+                case CUSTOM:
+                    t = team.name + " (" + team.country + ")";
+                    break;
+                case NATIONAL:
+                    t = team.name + " (" + folder.name() + ")";
+                    break;
+            }
+            setText(t, Font.Align.CENTER, Assets.font10);
         }
 
         @Override
         public void onFire1Down() {
             navigation.folder = folder;
-            game.setScreen(new EditPlayers(game, player.team, false));
+            game.setScreen(new EditTeam(game, team, false));
         }
     }
 }

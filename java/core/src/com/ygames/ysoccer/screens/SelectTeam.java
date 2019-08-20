@@ -218,9 +218,9 @@ class SelectTeam extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColors(0xC8000E);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -233,7 +233,7 @@ class SelectTeam extends GLScreen {
 
         SearchPlayerButton() {
             setColors(0x4444AA);
-            setText(Assets.gettext("SEARCH.SEARCH PLAYER"), Font.Align.CENTER, Assets.font14);
+            setText(Assets.gettext("SEARCH.SEARCH PLAYERS"), Font.Align.CENTER, Assets.font14);
             setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
         }
 
