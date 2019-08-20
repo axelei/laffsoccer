@@ -24,7 +24,8 @@ public class Pitch {
             "PITCH.DRY",
             "PITCH.HARD",
             "PITCH.SNOWED",
-            "PITCH.WHITE"
+            "PITCH.WHITE",
+            "RANDOM"
     };
 
     static final Grass[] grasses = {
