@@ -239,7 +239,7 @@ class SelectTeam extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SearchPlayer(game));
+            game.setScreen(new SearchPlayers(game));
         }
     }
 }

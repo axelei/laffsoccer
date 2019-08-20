@@ -19,7 +19,7 @@ import java.util.List;
 
 import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
-class SearchPlayer extends GLScreen {
+class SearchPlayers extends GLScreen {
 
     private enum State {START, SEARCHING, FINISHED}
 
@@ -35,7 +35,7 @@ class SearchPlayer extends GLScreen {
 
     private boolean reachedMaxResults = false;
 
-    SearchPlayer(GLGame game) {
+    SearchPlayers(GLGame game) {
         super(game);
 
         background = game.stateBackground;
@@ -137,7 +137,7 @@ class SearchPlayer extends GLScreen {
         public void onFire1Down() {
             navigation.folder = folder;
             navigation.league = null;
-            game.setScreen(new SearchPlayer(game));
+            game.setScreen(new SearchPlayers(game));
         }
     }
 
