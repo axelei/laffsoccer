@@ -40,19 +40,6 @@ class MatchStateFreeKick extends MatchState {
     }
 
     @Override
-    void entryActions() {
-        super.entryActions();
-        /* TODO
-        if (match.settings.commentary) {
-            int size = Assets.Commentary.foul.size();
-            if (size > 0) {
-                Assets.Commentary.foul.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
-            }
-        }
-        */
-    }
-
-    @Override
     void onResume() {
         super.onResume();
 

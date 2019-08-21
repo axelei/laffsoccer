@@ -84,6 +84,7 @@ class MatchStateMain extends MatchState {
                 } else {
                     event = Event.FREE_KICK;
                 }
+                match.stats[match.foul.player.team.index].foulsConceded += 1;
                 return;
             }
 

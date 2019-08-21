@@ -143,6 +143,7 @@ public class Assets {
     public static class Commentary {
 
         public static List<Sound> cornerKick = new ArrayList<Sound>();
+        public static List<Sound> foul = new ArrayList<Sound>();
         public static List<Sound> goal = new ArrayList<Sound>();
         public static List<Sound> keeperSave = new ArrayList<Sound>();
         public static List<Sound> ownGoal = new ArrayList<Sound>();
@@ -156,6 +157,9 @@ public class Assets {
                 if (extensions.contains(fileHandle.extension().toLowerCase())) {
                     if (fileHandle.nameWithoutExtension().startsWith("corner_kick")) {
                         cornerKick.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (fileHandle.nameWithoutExtension().startsWith("foul")) {
+                        foul.add(Gdx.audio.newSound(fileHandle));
                     }
                     if (fileHandle.nameWithoutExtension().startsWith("goal")) {
                         goal.add(Gdx.audio.newSound(fileHandle));
