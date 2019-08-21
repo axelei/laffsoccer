@@ -27,7 +27,7 @@ class MatchSetup extends GLScreen {
     private WeatherButton weatherButton;
     private WeatherPicture weatherPicture;
     private KitPicture[] kitPictures = new KitPicture[2];
-    private List<KitButton>[] kitButtons = (ArrayList<KitButton>[]) new ArrayList[2];
+    private List<KitButton>[] kitButtons = new ArrayList[2];
     private Widget playMatchButton;
 
     MatchSetup(GLGame game) {
@@ -87,7 +87,7 @@ class MatchSetup extends GLScreen {
             kitPictures[t] = new KitPicture(team, t);
             widgets.add(kitPictures[t]);
 
-            kitButtons[t] = new ArrayList<KitButton>();
+            kitButtons[t] = new ArrayList<>();
             for (int i = 0; i < team.kits.size(); i++) {
                 KitButton kitButton = new KitButton(team, t, i);
                 kitButtons[t].add(kitButton);
@@ -131,7 +131,8 @@ class MatchSetup extends GLScreen {
     private class TimeButton extends Button {
 
         TimeButton() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY ||
+                    navigation.competition.type == Competition.Type.TEST_MATCH) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
@@ -190,7 +191,8 @@ class MatchSetup extends GLScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY ||
+                    navigation.competition.type == Competition.Type.TEST_MATCH) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
@@ -258,7 +260,8 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY) {
+            if (navigation.competition.type == Competition.Type.FRIENDLY ||
+                    navigation.competition.type == Competition.Type.TEST_MATCH) {
                 setColors(0x1F1F95);
                 setActive(true);
             } else {

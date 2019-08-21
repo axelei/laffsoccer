@@ -71,6 +71,8 @@ class DevTools extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            game.setState(GLGame.State.FRIENDLY, null);
+
             FileHandle homeTeamFile = Gdx.files.local("/data/teams/1964-65/CLUB_TEAMS/EUROPE/ITALY/team.inter_milan.json");
             Team homeTeam = Assets.json.fromJson(Team.class, homeTeamFile.readString("UTF-8"));
             homeTeam.path = Assets.getRelativeTeamPath(homeTeamFile);

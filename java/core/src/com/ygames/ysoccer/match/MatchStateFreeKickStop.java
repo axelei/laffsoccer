@@ -88,20 +88,7 @@ class MatchStateFreeKickStop extends MatchState {
             match.ball.setPosition(match.foul.position.x, match.foul.position.y, 0);
             match.ball.updatePrediction();
 
-            // TODO
-            // fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FREE_KICK);
-
-            /// TEMPORARY ///
-            for (int t = HOME; t <= AWAY; t++) {
-                for (int i = 0; i < Const.TEAM_SIZE; i++) {
-                    Player player = match.team[t].lineup.get(i);
-                    player.fsm.setState(PlayerFsm.STATE_STAND_RUN);
-                }
-            }
-            match.foul = null;
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
-            /// END OF TEMPORARY ///
-
+            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FREE_KICK);
             return;
         }
 
