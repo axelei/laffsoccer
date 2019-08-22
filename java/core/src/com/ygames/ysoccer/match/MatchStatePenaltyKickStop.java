@@ -104,9 +104,8 @@ class MatchStatePenaltyKickStop extends MatchState {
             match.ball.setPosition(0, Math.signum(match.foul.position.y) * Const.PENALTY_SPOT_Y, 0);
             match.ball.updatePrediction();
 
-            // TODO
-            // fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_PENALTY);
-            //return;
+            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_PENALTY_KICK);
+            return;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {

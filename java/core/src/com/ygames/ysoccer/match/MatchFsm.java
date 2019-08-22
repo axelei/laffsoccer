@@ -88,6 +88,7 @@ public class MatchFsm {
     static final int STATE_FREE_KICK_STOP = 31;
     static final int STATE_FREE_KICK = 32;
     static final int STATE_PENALTY_KICK_STOP = 33;
+    static final int STATE_PENALTY_KICK = 34;
 
     MatchFsm(Match match) {
         this.match = match;
@@ -133,6 +134,7 @@ public class MatchFsm {
         states.add(new MatchStateFreeKickStop(this));
         states.add(new MatchStateFreeKick(this));
         states.add(new MatchStatePenaltyKickStop(this));
+        states.add(new MatchStatePenaltyKick(this));
     }
 
     public MatchState getState() {
