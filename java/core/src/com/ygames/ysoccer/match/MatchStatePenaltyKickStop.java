@@ -33,6 +33,13 @@ class MatchStatePenaltyKickStop extends MatchState {
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
+        if (match.settings.commentary) {
+            int size = Assets.Commentary.penalty.size();
+            if (size > 0) {
+                Assets.Commentary.penalty.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
+            }
+        }
+
         // set the player targets relative to penalty
         // even before moving the ball itself
         match.ball.updateZone(0, Math.signum(match.foul.position.y) * Const.PENALTY_SPOT_Y, 0, 0);

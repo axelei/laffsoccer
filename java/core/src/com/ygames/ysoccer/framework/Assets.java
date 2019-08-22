@@ -13,9 +13,9 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.competitions.tournament.groups.Groups;
 import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
-import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.CrowdRenderer;
 import com.ygames.ysoccer.match.Hair;
@@ -46,8 +46,8 @@ import java.util.Random;
 public class Assets {
 
     public static Random random;
-    public static Cursor customCursor;
-    public static Cursor hiddenCursor;
+    static Cursor customCursor;
+    static Cursor hiddenCursor;
     public static I18NBundle strings;
     public static List<String> locales;
     public static Font font14;
@@ -56,7 +56,7 @@ public class Assets {
     public static FileHandle competitionsRootFolder;
     public static FileHandle tacticsFolder;
     public static FileHandle savesFolder;
-    public static FileHandle saveGame;
+    static FileHandle saveGame;
     public static Json json;
     public static int[] calendars = new int[4600];
     public static List<String> associations;
@@ -142,38 +142,43 @@ public class Assets {
 
     public static class Commentary {
 
-        public static List<Sound> cornerKick = new ArrayList<Sound>();
-        public static List<Sound> foul = new ArrayList<Sound>();
-        public static List<Sound> goal = new ArrayList<Sound>();
-        public static List<Sound> keeperSave = new ArrayList<Sound>();
-        public static List<Sound> ownGoal = new ArrayList<Sound>();
-        public static List<Sound> playerSubstitution = new ArrayList<Sound>();
-        public static List<Sound> playerSwap = new ArrayList<Sound>();
+        public static List<Sound> cornerKick = new ArrayList<>();
+        public static List<Sound> foul = new ArrayList<>();
+        public static List<Sound> goal = new ArrayList<>();
+        public static List<Sound> keeperSave = new ArrayList<>();
+        public static List<Sound> ownGoal = new ArrayList<>();
+        public static List<Sound> penalty = new ArrayList<>();
+        public static List<Sound> playerSubstitution = new ArrayList<>();
+        public static List<Sound> playerSwap = new ArrayList<>();
 
         public static void load() {
             FileHandle commentaryFolder = Gdx.files.local("sounds/commentary");
             for (FileHandle fileHandle : commentaryFolder.list()) {
                 List<String> extensions = Arrays.asList("ogg", "wav", "mp3");
                 if (extensions.contains(fileHandle.extension().toLowerCase())) {
-                    if (fileHandle.nameWithoutExtension().startsWith("corner_kick")) {
+                    String name = fileHandle.nameWithoutExtension();
+                    if (name.startsWith("corner_kick")) {
                         cornerKick.add(Gdx.audio.newSound(fileHandle));
                     }
-                    if (fileHandle.nameWithoutExtension().startsWith("foul")) {
+                    if (name.startsWith("foul")) {
                         foul.add(Gdx.audio.newSound(fileHandle));
                     }
-                    if (fileHandle.nameWithoutExtension().startsWith("goal")) {
+                    if (name.startsWith("goal")) {
                         goal.add(Gdx.audio.newSound(fileHandle));
                     }
-                    if (fileHandle.nameWithoutExtension().startsWith("keeper_save")) {
+                    if (name.startsWith("keeper_save")) {
                         keeperSave.add(Gdx.audio.newSound(fileHandle));
                     }
-                    if (fileHandle.nameWithoutExtension().startsWith("own_goal")) {
+                    if (name.startsWith("own_goal")) {
                         ownGoal.add(Gdx.audio.newSound(fileHandle));
                     }
-                    if (fileHandle.nameWithoutExtension().startsWith("player_substitution")) {
+                    if (name.startsWith("penalty")) {
+                        penalty.add(Gdx.audio.newSound(fileHandle));
+                    }
+                    if (name.startsWith("player_substitution")) {
                         playerSubstitution.add(Gdx.audio.newSound(fileHandle));
                     }
-                    if (fileHandle.nameWithoutExtension().startsWith("player_swap")) {
+                    if (name.startsWith("player_swap")) {
                         playerSwap.add(Gdx.audio.newSound(fileHandle));
                     }
                 }
