@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.ygames.ysoccer.match.Const.BASE_TEAM;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
 import static com.ygames.ysoccer.match.Player.Role.DEFENDER;
@@ -529,6 +530,15 @@ public class Team implements Json.Serializable {
         }
     }
 
+    Player lastOfLineup() {
+        for (int pos = TEAM_SIZE - 1; pos > 0; pos--) {
+            Player ply = lineupAtPosition(pos);
+            if (!ply.checkState(PlayerFsm.STATE_OUTSIDE)) {
+                return ply;
+            }
+        }
+        return null;
+    }
 
     public int playerIndexAtPosition(int pos) {
         return playerIndexAtPosition(pos, null);

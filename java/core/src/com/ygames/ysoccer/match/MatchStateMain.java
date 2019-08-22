@@ -14,7 +14,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 class MatchStateMain extends MatchState {
 
     private enum Event {
-        KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, FREE_KICK, NONE
+        KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, FREE_KICK, PENALTY_KICK, NONE
     }
 
     private Event event;
@@ -80,7 +80,7 @@ class MatchStateMain extends MatchState {
 
             if (match.foul != null) {
                 if (match.foul.isPenalty()) {
-                    // TODO event = Event.PENALTY;
+                    event = Event.PENALTY_KICK;
                 } else {
                     event = Event.FREE_KICK;
                 }
@@ -178,6 +178,10 @@ class MatchStateMain extends MatchState {
 
             case FREE_KICK:
                 fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FREE_KICK_STOP);
+                return;
+
+            case PENALTY_KICK:
+                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_PENALTY_KICK_STOP);
                 return;
         }
 
