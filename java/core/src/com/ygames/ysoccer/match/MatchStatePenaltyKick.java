@@ -18,6 +18,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_CORNER_KICK_ANGLE;
+import static com.ygames.ysoccer.match.PlayerFsm.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.STATE_STAND_RUN;
 
@@ -86,9 +87,7 @@ class MatchStatePenaltyKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            // TODO penaltyKicker.fsm.setState(STATE_PENALTY_KICK_ANGLE);
-            // TEMPORARY //
-            penaltyKicker.fsm.setState(STATE_CORNER_KICK_ANGLE);
+            penaltyKicker.fsm.setState(STATE_PENALTY_KICK_ANGLE);
             if (penaltyKicker.team.usesAutomaticInputDevice()) {
                 penaltyKicker.inputDevice = penaltyKicker.team.inputDevice;
             }

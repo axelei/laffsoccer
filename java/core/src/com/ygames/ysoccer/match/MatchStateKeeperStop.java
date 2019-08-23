@@ -57,6 +57,10 @@ class MatchStateKeeperStop extends MatchState {
             match.updateBall();
             match.updatePlayers(true);
 
+            if ((match.subframe % GLGame.VIRTUAL_REFRESH_RATE) == 0) {
+                match.ball.updatePrediction();
+            }
+
             match.nextSubframe();
 
             match.save();

@@ -21,19 +21,20 @@ class PlayerFsm extends Fsm {
     static final int STATE_THROW_IN_SPEED = 16;
     static final int STATE_CORNER_KICK_ANGLE = 17;
     static final int STATE_CORNER_KICK_SPEED = 18;
-    static final int STATE_GOAL_SCORER = 19;
-    static final int STATE_GOAL_MATE = 20;
-    static final int STATE_OWN_GOAL_SCORER = 21;
+    static final int STATE_PENALTY_KICK_ANGLE = 19;
+    static final int STATE_GOAL_SCORER = 20;
+    static final int STATE_GOAL_MATE = 21;
+    static final int STATE_OWN_GOAL_SCORER = 22;
 
-    static final int STATE_KEEPER_POSITIONING = 22;
-    static final int STATE_KEEPER_DIVING_LOW_SINGLE = 23;
-    static final int STATE_KEEPER_DIVING_LOW_DOUBLE = 24;
-    static final int STATE_KEEPER_DIVING_MIDDLE_ONE = 25;
-    static final int STATE_KEEPER_DIVING_MIDDLE_TWO = 26;
-    static final int STATE_KEEPER_DIVING_HIGH_ONE = 27;
-    static final int STATE_KEEPER_CATCHING_HIGH = 28;
-    static final int STATE_KEEPER_CATCHING_LOW = 29;
-    static final int STATE_KEEPER_KICK_ANGLE = 30;
+    static final int STATE_KEEPER_POSITIONING = 23;
+    static final int STATE_KEEPER_DIVING_LOW_SINGLE = 24;
+    static final int STATE_KEEPER_DIVING_LOW_DOUBLE = 25;
+    static final int STATE_KEEPER_DIVING_MIDDLE_ONE = 26;
+    static final int STATE_KEEPER_DIVING_MIDDLE_TWO = 27;
+    static final int STATE_KEEPER_DIVING_HIGH_ONE = 28;
+    static final int STATE_KEEPER_CATCHING_HIGH = 29;
+    static final int STATE_KEEPER_CATCHING_LOW = 30;
+    static final int STATE_KEEPER_KICK_ANGLE = 31;
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -54,6 +55,7 @@ class PlayerFsm extends Fsm {
     PlayerStateThrowInSpeed stateThrowInSpeed;
     PlayerStateCornerKickAngle stateCornerKickAngle;
     PlayerStateCornerKickSpeed stateCornerKickSpeed;
+    PlayerStatePenaltyKickAngle statePenaltyKickAngle;
     PlayerStateGoalScorer stateGoalScorer;
     PlayerStateGoalMate stateGoalMate;
     PlayerStateOwnGoalScorer stateOwnGoalScorer;
@@ -88,6 +90,7 @@ class PlayerFsm extends Fsm {
         addState(stateThrowInSpeed = new PlayerStateThrowInSpeed(player));
         addState(stateCornerKickAngle = new PlayerStateCornerKickAngle(player));
         addState(stateCornerKickSpeed = new PlayerStateCornerKickSpeed(player));
+        addState(statePenaltyKickAngle = new PlayerStatePenaltyKickAngle(player));
         addState(stateGoalScorer = new PlayerStateGoalScorer(player));
         addState(stateGoalMate = new PlayerStateGoalMate(player));
         addState(stateOwnGoalScorer = new PlayerStateOwnGoalScorer(player));
