@@ -32,6 +32,8 @@ class MatchState {
         this.fsm = fsm;
         this.match = fsm.getMatch();
         this.matchRenderer = fsm.getMatchRenderer();
+
+        fsm.addState(this);
     }
 
     void entryActions() {

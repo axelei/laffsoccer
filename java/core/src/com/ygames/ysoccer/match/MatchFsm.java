@@ -103,44 +103,48 @@ public class MatchFsm {
 
         actions = new ArrayDeque<>();
 
-        states.add(new MatchStateIntro(this));
-        states.add(new MatchStateStartingPositions(this));
-        states.add(new MatchStateKickOff(this));
-        states.add(new MatchStateMain(this));
-        states.add(new MatchStateThrowInStop(this));
-        states.add(new MatchStateThrowIn(this));
-        states.add(new MatchStateGoalKickStop(this));
-        states.add(new MatchStateGoalKick(this));
-        states.add(new MatchStateCornerStop(this));
-        states.add(new MatchStateCornerKick(this));
-        states.add(new MatchStateKeeperStop(this));
-        states.add(new MatchStateGoal(this));
-        states.add(new MatchStateHalfTimeStop(this));
-        states.add(new MatchStateHalfTimePositions(this));
-        states.add(new MatchStateHalfTimeWait(this));
-        states.add(new MatchStateHalfTimeEnter(this));
-        states.add(new MatchStateFullTimeStop(this));
-        states.add(new MatchStateExtraTimeStop(this));
-        states.add(new MatchStateHalfExtraTimeStop(this));
-        states.add(new MatchStateFullExtraTimeStop(this));
-        states.add(new MatchStateEndPositions(this));
-        states.add(new MatchStateEnd(this));
-        states.add(new MatchStateReplay(this));
-        states.add(new MatchStatePause(this));
-        states.add(new MatchStateHighlights(this));
-        states.add(new MatchStateBenchEnter(this));
-        states.add(new MatchStateBenchExit(this));
-        states.add(new MatchStateBenchSubstitutions(this));
-        states.add(new MatchStateBenchFormation(this));
-        states.add(new MatchStateBenchTactics(this));
-        states.add(new MatchStateFreeKickStop(this));
-        states.add(new MatchStateFreeKick(this));
-        states.add(new MatchStatePenaltyKickStop(this));
-        states.add(new MatchStatePenaltyKick(this));
+        new MatchStateIntro(this);
+        new MatchStateStartingPositions(this);
+        new MatchStateKickOff(this);
+        new MatchStateMain(this);
+        new MatchStateThrowInStop(this);
+        new MatchStateThrowIn(this);
+        new MatchStateGoalKickStop(this);
+        new MatchStateGoalKick(this);
+        new MatchStateCornerStop(this);
+        new MatchStateCornerKick(this);
+        new MatchStateKeeperStop(this);
+        new MatchStateGoal(this);
+        new MatchStateHalfTimeStop(this);
+        new MatchStateHalfTimePositions(this);
+        new MatchStateHalfTimeWait(this);
+        new MatchStateHalfTimeEnter(this);
+        new MatchStateFullTimeStop(this);
+        new MatchStateExtraTimeStop(this);
+        new MatchStateHalfExtraTimeStop(this);
+        new MatchStateFullExtraTimeStop(this);
+        new MatchStateEndPositions(this);
+        new MatchStateEnd(this);
+        new MatchStateReplay(this);
+        new MatchStatePause(this);
+        new MatchStateHighlights(this);
+        new MatchStateBenchEnter(this);
+        new MatchStateBenchExit(this);
+        new MatchStateBenchSubstitutions(this);
+        new MatchStateBenchFormation(this);
+        new MatchStateBenchTactics(this);
+        new MatchStateFreeKickStop(this);
+        new MatchStateFreeKick(this);
+        new MatchStatePenaltyKickStop(this);
+        new MatchStatePenaltyKick(this);
     }
 
     public MatchState getState() {
         return currentState;
+    }
+
+    void addState(MatchState state) {
+        states.add(state);
     }
 
     public Match getMatch() {
