@@ -14,8 +14,7 @@ class MatchStateGoal extends MatchState {
     private boolean replayDone;
 
     MatchStateGoal(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_GOAL;
+        super(MatchFsm.STATE_GOAL, fsm);
 
         displayGoalScorer = true;
         displayTime = true;

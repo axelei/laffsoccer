@@ -21,8 +21,7 @@ import static java.lang.Math.min;
 class MatchStateBenchSubstitutions extends MatchState {
 
     MatchStateBenchSubstitutions(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_BENCH_SUBSTITUTIONS;
+        super(MatchFsm.STATE_BENCH_SUBSTITUTIONS, fsm);
     }
 
     @Override

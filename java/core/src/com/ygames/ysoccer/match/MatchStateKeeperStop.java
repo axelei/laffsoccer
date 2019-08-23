@@ -14,8 +14,7 @@ class MatchStateKeeperStop extends MatchState {
     private Team opponentTeam;
 
     MatchStateKeeperStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_KEEPER_STOP;
+        super(MatchFsm.STATE_KEEPER_STOP, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

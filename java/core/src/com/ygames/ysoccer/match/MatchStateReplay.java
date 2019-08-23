@@ -17,8 +17,7 @@ class MatchStateReplay extends MatchState {
     private InputDevice inputDevice;
 
     MatchStateReplay(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_REPLAY;
+        super(MatchFsm.STATE_REPLAY, fsm);
 
         displayWindVane = true;
     }

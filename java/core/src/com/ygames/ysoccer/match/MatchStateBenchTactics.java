@@ -14,8 +14,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
 class MatchStateBenchTactics extends MatchState {
 
     MatchStateBenchTactics(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_BENCH_TACTICS;
+        super(MatchFsm.STATE_BENCH_TACTICS, fsm);
     }
 
     @Override

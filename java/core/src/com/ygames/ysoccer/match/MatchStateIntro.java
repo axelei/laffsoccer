@@ -13,8 +13,7 @@ class MatchStateIntro extends MatchState {
     private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
 
     MatchStateIntro(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_INTRO;
+        super(MatchFsm.STATE_INTRO, fsm);
     }
 
     @Override

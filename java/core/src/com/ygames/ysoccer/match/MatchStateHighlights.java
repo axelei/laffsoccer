@@ -15,8 +15,7 @@ class MatchStateHighlights extends MatchState {
     private boolean slowMotion;
 
     MatchStateHighlights(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_HIGHLIGHTS;
+        super(MatchFsm.STATE_HIGHLIGHTS, fsm);
 
         displayWindVane = true;
     }

@@ -21,8 +21,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 class MatchStateBenchFormation extends MatchState {
 
     MatchStateBenchFormation(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_BENCH_FORMATION;
+        super(MatchFsm.STATE_BENCH_FORMATION, fsm);
     }
 
     @Override

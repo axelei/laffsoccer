@@ -10,8 +10,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 class MatchStateEnd extends MatchState {
 
     MatchStateEnd(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_END;
+        super(MatchFsm.STATE_END, fsm);
 
         displayStatistics = true;
     }

@@ -15,8 +15,7 @@ class MatchStateThrowInStop extends MatchState {
     private boolean move;
 
     MatchStateThrowInStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_THROW_IN_STOP;
+        super(MatchFsm.STATE_THROW_IN_STOP, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

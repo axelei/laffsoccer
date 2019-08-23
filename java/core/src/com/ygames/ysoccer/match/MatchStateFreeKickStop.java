@@ -19,8 +19,7 @@ class MatchStateFreeKickStop extends MatchState {
     private boolean move;
 
     MatchStateFreeKickStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_FREE_KICK_STOP;
+        super(MatchFsm.STATE_FREE_KICK_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;

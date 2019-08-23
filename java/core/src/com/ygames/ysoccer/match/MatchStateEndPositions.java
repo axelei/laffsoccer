@@ -11,8 +11,7 @@ class MatchStateEndPositions extends MatchState {
     boolean move;
 
     MatchStateEndPositions(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_END_POSITIONS;
+        super(MatchFsm.STATE_END_POSITIONS, fsm);
 
         displayScore = true;
     }

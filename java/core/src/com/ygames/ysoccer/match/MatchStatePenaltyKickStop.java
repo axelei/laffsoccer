@@ -20,8 +20,7 @@ class MatchStatePenaltyKickStop extends MatchState {
     private Player penaltyKicker;
 
     MatchStatePenaltyKickStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_PENALTY_KICK_STOP;
+        super(MatchFsm.STATE_PENALTY_KICK_STOP, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

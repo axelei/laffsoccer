@@ -12,8 +12,7 @@ class MatchStatePause extends MatchState {
     private boolean resume;
 
     MatchStatePause(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_PAUSE;
+        super(MatchFsm.STATE_PAUSE, fsm);
 
         displayWindVane = true;
     }

@@ -19,8 +19,7 @@ class MatchStateKickOff extends MatchState {
     private boolean isKickingOff;
 
     MatchStateKickOff(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_KICK_OFF;
+        super(MatchFsm.STATE_KICK_OFF, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

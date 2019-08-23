@@ -27,8 +27,7 @@ class MatchStatePenaltyKick extends MatchState {
     private boolean isKicking;
 
     MatchStatePenaltyKick(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_PENALTY_KICK;
+        super(MatchFsm.STATE_PENALTY_KICK, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

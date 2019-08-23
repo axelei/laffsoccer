@@ -11,8 +11,7 @@ class MatchStateHalfTimePositions extends MatchState {
     private boolean move;
 
     MatchStateHalfTimePositions(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_HALF_TIME_POSITIONS;
+        super(MatchFsm.STATE_HALF_TIME_POSITIONS, fsm);
 
         displayTime = true;
         displayWindVane = true;

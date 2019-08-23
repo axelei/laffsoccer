@@ -10,8 +10,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 class MatchStateFullExtraTimeStop extends MatchState {
 
     MatchStateFullExtraTimeStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_FULL_EXTRA_TIME_STOP;
+        super(MatchFsm.STATE_FULL_EXTRA_TIME_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;

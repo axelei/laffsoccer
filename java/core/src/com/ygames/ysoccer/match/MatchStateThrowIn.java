@@ -18,8 +18,7 @@ class MatchStateThrowIn extends MatchState {
     private boolean isThrowingIn;
 
     MatchStateThrowIn(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_THROW_IN;
+        super(MatchFsm.STATE_THROW_IN, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

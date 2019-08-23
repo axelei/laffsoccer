@@ -14,8 +14,7 @@ class MatchStateStartingPositions extends MatchState {
     private boolean move;
 
     MatchStateStartingPositions(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_STARTING_POSITIONS;
+        super(MatchFsm.STATE_STARTING_POSITIONS, fsm);
 
         displayTime = true;
         displayWindVane = true;

@@ -27,8 +27,7 @@ class MatchStateCornerKick extends MatchState {
     private boolean isKicking;
 
     MatchStateCornerKick(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_CORNER_KICK;
+        super(MatchFsm.STATE_CORNER_KICK, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

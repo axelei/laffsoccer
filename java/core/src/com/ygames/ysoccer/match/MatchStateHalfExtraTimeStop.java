@@ -10,8 +10,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 class MatchStateHalfExtraTimeStop extends MatchState {
 
     MatchStateHalfExtraTimeStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_HALF_EXTRA_TIME_STOP;
+        super(MatchFsm.STATE_HALF_EXTRA_TIME_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;

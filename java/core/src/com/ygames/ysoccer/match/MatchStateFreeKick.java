@@ -27,8 +27,7 @@ class MatchStateFreeKick extends MatchState {
     private boolean isKicking;
 
     MatchStateFreeKick(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_FREE_KICK;
+        super(MatchFsm.STATE_FREE_KICK, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

@@ -17,8 +17,7 @@ import static java.lang.Math.min;
 class MatchStateBenchExit extends MatchState {
 
     MatchStateBenchExit(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_BENCH_EXIT;
+        super(MatchFsm.STATE_BENCH_EXIT, fsm);
     }
 
     @Override

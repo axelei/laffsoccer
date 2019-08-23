@@ -10,8 +10,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 class MatchStateHalfTimeWait extends MatchState {
 
     MatchStateHalfTimeWait(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_HALF_TIME_WAIT;
+        super(MatchFsm.STATE_HALF_TIME_WAIT, fsm);
 
         displayTime = true;
         displayWindVane = true;

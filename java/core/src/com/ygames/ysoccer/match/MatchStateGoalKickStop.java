@@ -16,8 +16,7 @@ class MatchStateGoalKickStop extends MatchState {
     private int ySide;
 
     MatchStateGoalKickStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_GOAL_KICK_STOP;
+        super(MatchFsm.STATE_GOAL_KICK_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;

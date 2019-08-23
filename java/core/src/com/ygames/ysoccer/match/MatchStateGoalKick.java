@@ -19,8 +19,7 @@ class MatchStateGoalKick extends MatchState {
     private boolean isKicking;
 
     MatchStateGoalKick(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_GOAL_KICK;
+        super(MatchFsm.STATE_GOAL_KICK, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

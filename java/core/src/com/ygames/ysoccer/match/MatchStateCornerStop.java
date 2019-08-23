@@ -16,8 +16,7 @@ class MatchStateCornerStop extends MatchState {
     private int cornerY;
 
     MatchStateCornerStop(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_CORNER_STOP;
+        super(MatchFsm.STATE_CORNER_STOP, fsm);
 
         displayControlledPlayer = true;
         displayTime = true;

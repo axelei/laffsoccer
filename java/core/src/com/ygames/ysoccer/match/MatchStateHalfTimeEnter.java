@@ -13,8 +13,7 @@ class MatchStateHalfTimeEnter extends MatchState {
     private int enteringCounter;
 
     MatchStateHalfTimeEnter(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_HALF_TIME_ENTER;
+        super(MatchFsm.STATE_HALF_TIME_ENTER, fsm);
 
         displayTime = true;
         displayWindVane = true;

@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 class MatchState {
 
     protected int timer;
-    protected int id;
+    protected final int id;
     protected MatchFsm fsm;
 
     boolean displayControlledPlayer;
@@ -22,7 +22,8 @@ class MatchState {
     protected Match match;
     protected MatchRenderer matchRenderer;
 
-    MatchState(MatchFsm fsm) {
+    MatchState(int id, MatchFsm fsm) {
+        this.id = id;
         this.fsm = fsm;
         this.match = fsm.getMatch();
         this.matchRenderer = fsm.getMatchRenderer();

@@ -20,8 +20,7 @@ class MatchStateMain extends MatchState {
     private Event event;
 
     MatchStateMain(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_MAIN;
+        super(MatchFsm.STATE_MAIN, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

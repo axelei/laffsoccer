@@ -23,8 +23,7 @@ class MatchStateBenchEnter extends MatchState {
     private float cameraY;
 
     MatchStateBenchEnter(MatchFsm fsm) {
-        super(fsm);
-        id = MatchFsm.STATE_BENCH_ENTER;
+        super(MatchFsm.STATE_BENCH_ENTER, fsm);
     }
 
     @Override
