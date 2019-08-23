@@ -2,10 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Ai;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_IDLE;
+
 class AiStateIdle extends AiState {
 
-    AiStateIdle(Ai ai) {
-        super(AiFsm.Id.STATE_IDLE, ai);
+    AiStateIdle(AiFsm fsm, Ai ai) {
+        super(STATE_IDLE, fsm, ai);
     }
 
     @Override
@@ -23,22 +25,22 @@ class AiStateIdle extends AiState {
         if (playerState != null) {
             switch (PlayerFsm.Id.values()[playerState.id]) {
                 case STATE_KICK_OFF:
-                     return ai.fsm.stateKickingOff;
+                     return fsm.stateKickingOff;
 
                 case STATE_STAND_RUN:
-                     return ai.fsm.statePositioning;
+                     return fsm.statePositioning;
 
                 case STATE_GOAL_KICK:
-                     return ai.fsm.stateGoalKicking;
+                     return fsm.stateGoalKicking;
 
                 case STATE_THROW_IN_ANGLE:
-                     return ai.fsm.stateThrowingIn;
+                     return fsm.stateThrowingIn;
 
                 case STATE_CORNER_KICK_ANGLE:
-                     return ai.fsm.stateCornerKicking;
+                     return fsm.stateCornerKicking;
 
                 case STATE_KEEPER_KICK_ANGLE:
-                     return ai.fsm.stateKeeperKicking;
+                     return fsm.stateKeeperKicking;
             }
         }
         return null;

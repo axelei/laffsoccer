@@ -4,12 +4,13 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_SEEKING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateSeeking extends AiState {
 
-    AiStateSeeking(Ai ai) {
-        super(AiFsm.Id.STATE_SEEKING, ai);
+    AiStateSeeking(AiFsm fsm, Ai ai) {
+        super(STATE_SEEKING, fsm, ai);
     }
 
     @Override
@@ -30,24 +31,24 @@ class AiStateSeeking extends AiState {
         PlayerState playerState = player.fsm.getState();
         if ((playerState != null)
                 && !playerState.checkId(STATE_STAND_RUN)) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
 
         // someone has got the ball
         if (player.match.ball.owner != null) {
             // player
             if (player.match.ball.owner == player) {
-                 return ai.fsm.stateAttacking;
+                 return fsm.stateAttacking;
             }
             // mate
             if (player.match.ball.owner.team == player.team) {
-                return ai.fsm.statePositioning;
+                return fsm.statePositioning;
             }
         }
 
         // no longer the nearest
         if (player.team.near1 != player) {
-            return ai.fsm.statePositioning;
+            return fsm.statePositioning;
         }
 
         return null;

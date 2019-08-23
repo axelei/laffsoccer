@@ -4,10 +4,12 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KICKING_OFF;
+
 class AiStateKickingOff extends AiState {
 
-    AiStateKickingOff(Ai ai) {
-        super(AiFsm.Id.STATE_KICKING_OFF, ai);
+    AiStateKickingOff(AiFsm fsm, Ai ai) {
+        super(STATE_KICKING_OFF, fsm, ai);
     }
 
     @Override
@@ -20,7 +22,7 @@ class AiStateKickingOff extends AiState {
     @Override
     State checkConditions() {
         if (timer > 1.2f * GLGame.VIRTUAL_REFRESH_RATE) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
         return null;
     }

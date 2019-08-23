@@ -4,13 +4,14 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KEEPER_KICKING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK;
 
 class AiStateKeeperKicking extends AiState {
 
-    AiStateKeeperKicking(Ai ai) {
-        super(AiFsm.Id.STATE_KEEPER_KICKING, ai);
+    AiStateKeeperKicking(AiFsm fsm, Ai ai) {
+        super(STATE_KEEPER_KICKING, fsm, ai);
     }
 
     @Override
@@ -31,6 +32,6 @@ class AiStateKeeperKicking extends AiState {
         if (playerState.checkId(STATE_KICK)) {
             return null;
         }
-        return ai.fsm.stateIdle;
+        return fsm.stateIdle;
     }
 }

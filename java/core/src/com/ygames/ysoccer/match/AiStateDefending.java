@@ -4,12 +4,13 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_DEFENDING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateDefending extends AiState {
 
-    AiStateDefending(Ai ai) {
-        super(AiFsm.Id.STATE_DEFENDING, ai);
+    AiStateDefending(AiFsm fsm, Ai ai) {
+        super(STATE_DEFENDING, fsm, ai);
     }
 
     @Override
@@ -30,24 +31,24 @@ class AiStateDefending extends AiState {
         PlayerState playerState = player.fsm.getState();
         if ((playerState != null)
                 && !playerState.checkId(STATE_STAND_RUN)) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
 
         // got the ball
         if (player.match.ball.owner != null) {
             // self
             if (player.match.ball.owner == player) {
-                return ai.fsm.stateAttacking;
+                return fsm.stateAttacking;
             }
             // mate
             if (player.match.ball.owner.team == player.team) {
-                return ai.fsm.statePositioning;
+                return fsm.statePositioning;
             }
         }
 
         // no longer the best defender
         if (player.team.bestDefender != player) {
-            return ai.fsm.statePositioning;
+            return fsm.statePositioning;
         }
 
         return null;

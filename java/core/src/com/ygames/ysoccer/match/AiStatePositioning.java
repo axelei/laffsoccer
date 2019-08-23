@@ -3,12 +3,13 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStatePositioning extends AiState {
 
-    AiStatePositioning(Ai ai) {
-        super(AiFsm.Id.STATE_POSITIONING, ai);
+    AiStatePositioning(AiFsm fsm, Ai ai) {
+        super(STATE_POSITIONING, fsm, ai);
     }
 
     @Override
@@ -29,19 +30,19 @@ class AiStatePositioning extends AiState {
         PlayerState playerState = player.fsm.getState();
         if ((playerState != null)
                 && !playerState.checkId(STATE_STAND_RUN)) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
 
         if (player == player.team.near1) {
             if (player.match.ball.owner == null) {
-                return ai.fsm.stateSeeking;
+                return fsm.stateSeeking;
             } else if (player.match.ball.owner == player) {
-                return ai.fsm.stateAttacking;
+                return fsm.stateAttacking;
             }
         }
 
         if (player.team.bestDefender == player) {
-            return ai.fsm.stateDefending;
+            return fsm.stateDefending;
         }
 
         return null;

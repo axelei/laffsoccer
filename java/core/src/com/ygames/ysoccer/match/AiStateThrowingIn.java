@@ -4,13 +4,14 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_THROWING_IN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_SPEED;
 
 class AiStateThrowingIn extends AiState {
 
-    AiStateThrowingIn(Ai ai) {
-        super(AiFsm.Id.STATE_THROWING_IN, ai);
+    AiStateThrowingIn(AiFsm fsm, Ai ai) {
+        super(STATE_THROWING_IN, fsm, ai);
     }
 
     @Override
@@ -32,6 +33,6 @@ class AiStateThrowingIn extends AiState {
             return null;
         }
 
-        return ai.fsm.stateIdle;
+        return fsm.stateIdle;
     }
 }

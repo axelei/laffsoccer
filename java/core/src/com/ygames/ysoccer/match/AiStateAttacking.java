@@ -4,12 +4,13 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_ATTACKING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateAttacking extends AiState {
 
-    AiStateAttacking(Ai ai) {
-        super(AiFsm.Id.STATE_ATTACKING, ai);
+    AiStateAttacking(AiFsm fsm, Ai ai) {
+        super(STATE_ATTACKING, fsm, ai);
     }
 
     @Override
@@ -28,18 +29,18 @@ class AiStateAttacking extends AiState {
         PlayerState playerState = player.fsm.getState();
         if (playerState != null
                 && !playerState.checkId(STATE_STAND_RUN)) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
 
         // lost the ball
         if (player.match.ball.owner != player) {
-            return ai.fsm.stateSeeking;
+            return fsm.stateSeeking;
         }
 
         // passing
         if (player.facingPlayer != null
                 && (timer > 0.25f * GLGame.VIRTUAL_REFRESH_RATE)) {
-             return ai.fsm.statePassing;
+             return fsm.statePassing;
         }
 
         // near the goal
@@ -48,7 +49,7 @@ class AiStateAttacking extends AiState {
                 -player.team.side * (Const.GOAL_LINE - 1.5f * Const.PENALTY_AREA_H),
                 -player.team.side * Const.GOAL_LINE)
                 && (player.match.ball.z < 4)) {
-             return ai.fsm.stateKicking;
+             return fsm.stateKicking;
         }
 
         return null;

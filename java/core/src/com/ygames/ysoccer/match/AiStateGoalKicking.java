@@ -4,10 +4,12 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_GOAL_KICKING;
+
 class AiStateGoalKicking extends AiState {
 
-    AiStateGoalKicking(Ai ai) {
-        super(AiFsm.Id.STATE_GOAL_KICKING, ai);
+    AiStateGoalKicking(AiFsm fsm, Ai ai) {
+        super(STATE_GOAL_KICKING, fsm, ai);
     }
 
     @Override
@@ -22,7 +24,7 @@ class AiStateGoalKicking extends AiState {
     @Override
     State checkConditions() {
         if (timer > 1.5f * GLGame.VIRTUAL_REFRESH_RATE) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
         return null;
     }

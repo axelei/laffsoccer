@@ -5,12 +5,14 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KICKING;
+
 class AiStateKicking extends AiState {
 
     private int duration;
 
-    AiStateKicking(Ai ai) {
-        super(AiFsm.Id.STATE_KICKING, ai);
+    AiStateKicking(AiFsm fsm, Ai ai) {
+        super(STATE_KICKING, fsm, ai);
     }
 
     @Override
@@ -33,7 +35,7 @@ class AiStateKicking extends AiState {
     @Override
     State checkConditions() {
         if (timer > duration) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
         return null;
     }

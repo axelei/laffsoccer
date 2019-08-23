@@ -4,12 +4,14 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.AiFsm.Id.STATE_PASSING;
+
 class AiStatePassing extends AiState {
 
     private int duration;
 
-    AiStatePassing(Ai ai) {
-        super(AiFsm.Id.STATE_PASSING, ai);
+    AiStatePassing(AiFsm fsm, Ai ai) {
+        super(STATE_PASSING, fsm, ai);
     }
 
     @Override
@@ -31,7 +33,7 @@ class AiStatePassing extends AiState {
     @Override
     State checkConditions() {
         if (timer > 0.5f * GLGame.VIRTUAL_REFRESH_RATE) {
-            return ai.fsm.stateIdle;
+            return fsm.stateIdle;
         }
 
         return null;
