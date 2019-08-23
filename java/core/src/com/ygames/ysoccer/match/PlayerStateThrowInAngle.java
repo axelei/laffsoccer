@@ -3,12 +3,14 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
+
 class PlayerStateThrowInAngle extends PlayerState {
 
     private int animationCountdown;
 
-    PlayerStateThrowInAngle(Player player) {
-        super(PlayerFsm.Id.STATE_THROW_IN_ANGLE, player);
+    PlayerStateThrowInAngle(PlayerFsm fsm, Player player) {
+        super(STATE_THROW_IN_ANGLE, fsm, player);
     }
 
     @Override

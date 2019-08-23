@@ -1,9 +1,11 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+
 class PlayerStateOutside extends PlayerState {
 
-    PlayerStateOutside(Player player) {
-        super(PlayerFsm.Id.STATE_OUTSIDE, player);
+    PlayerStateOutside(PlayerFsm fsm, Player player) {
+        super(STATE_OUTSIDE, fsm, player);
     }
 
     @Override

@@ -2,10 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK_OFF;
+
 class PlayerStateKickOff extends PlayerState {
 
-    PlayerStateKickOff(Player player) {
-        super(PlayerFsm.Id.STATE_KICK_OFF, player);
+    PlayerStateKickOff(PlayerFsm fsm, Player player) {
+        super(STATE_KICK_OFF, fsm, player);
     }
 
     @Override

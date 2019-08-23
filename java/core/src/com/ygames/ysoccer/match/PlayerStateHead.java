@@ -3,14 +3,16 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_HEAD;
+
 class PlayerStateHead extends PlayerState {
 
     private boolean hit;
     private boolean jumped;
     private float v;
 
-    PlayerStateHead(Player player) {
-        super(PlayerFsm.Id.STATE_HEAD, player);
+    PlayerStateHead(PlayerFsm fsm, Player player) {
+        super(STATE_HEAD, fsm, player);
     }
 
     @Override

@@ -2,14 +2,16 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_SPEED;
+
 class PlayerStateCornerKickSpeed extends PlayerState {
 
     private float kickAngle;
     private float kickSpin;
     private boolean thrown;
 
-    PlayerStateCornerKickSpeed(Player player) {
-        super(PlayerFsm.Id.STATE_CORNER_KICK_SPEED, player);
+    PlayerStateCornerKickSpeed(PlayerFsm fsm, Player player) {
+        super(STATE_CORNER_KICK_SPEED, fsm, player);
     }
 
     @Override

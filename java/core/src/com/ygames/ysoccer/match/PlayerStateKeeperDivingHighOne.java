@@ -1,12 +1,14 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_DIVING_HIGH_ONE;
+
 class PlayerStateKeeperDivingHighOne extends PlayerState {
 
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[5];
 
-    PlayerStateKeeperDivingHighOne(Player player) {
-        super(PlayerFsm.Id.STATE_KEEPER_DIVING_HIGH_ONE, player);
+    PlayerStateKeeperDivingHighOne(PlayerFsm fsm, Player player) {
+        super(STATE_KEEPER_DIVING_HIGH_ONE, fsm, player);
 
         active = frames[0];
 

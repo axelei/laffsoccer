@@ -3,11 +3,12 @@ package com.ygames.ysoccer.match;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 
 class PlayerStateBenchSitting extends PlayerState {
 
-    PlayerStateBenchSitting(Player player) {
-        super(PlayerFsm.Id.STATE_BENCH_SITTING, player);
+    PlayerStateBenchSitting(PlayerFsm fsm, Player player) {
+        super(STATE_BENCH_SITTING, fsm, player);
     }
 
     @Override

@@ -2,10 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
+
 class PlayerStatePenaltyKickAngle extends PlayerState {
 
-    PlayerStatePenaltyKickAngle(Player player) {
-        super(PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE, player);
+    PlayerStatePenaltyKickAngle(PlayerFsm fsm, Player player) {
+        super(STATE_PENALTY_KICK_ANGLE, fsm, player);
     }
 
     @Override

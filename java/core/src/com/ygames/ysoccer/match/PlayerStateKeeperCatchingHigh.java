@@ -1,12 +1,14 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_CATCHING_HIGH;
+
 class PlayerStateKeeperCatchingHigh extends PlayerState {
 
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[4];
 
-    PlayerStateKeeperCatchingHigh(Player player) {
-        super(PlayerFsm.Id.STATE_KEEPER_CATCHING_HIGH, player);
+    PlayerStateKeeperCatchingHigh(PlayerFsm fsm, Player player) {
+        super(STATE_KEEPER_CATCHING_HIGH, fsm, player);
 
         active = frames[0];
 

@@ -3,10 +3,12 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_SCORER;
+
 class PlayerStateGoalScorer extends PlayerState {
 
-    PlayerStateGoalScorer(Player player) {
-        super(PlayerFsm.Id.STATE_GOAL_SCORER, player);
+    PlayerStateGoalScorer(PlayerFsm fsm, Player player) {
+        super(STATE_GOAL_SCORER, fsm, player);
     }
 
     @Override

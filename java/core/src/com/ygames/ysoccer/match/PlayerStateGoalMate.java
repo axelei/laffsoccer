@@ -2,12 +2,14 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_MATE;
+
 class PlayerStateGoalMate extends PlayerState {
 
     private Goal goal;
 
-    PlayerStateGoalMate(Player player) {
-        super(PlayerFsm.Id.STATE_GOAL_MATE, player);
+    PlayerStateGoalMate(PlayerFsm fsm, Player player) {
+        super(STATE_GOAL_MATE, fsm, player);
     }
 
     @Override

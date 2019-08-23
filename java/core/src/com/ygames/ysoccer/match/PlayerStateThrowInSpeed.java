@@ -3,12 +3,14 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_SPEED;
+
 class PlayerStateThrowInSpeed extends PlayerState {
 
     private boolean thrown;
 
-    PlayerStateThrowInSpeed(Player player) {
-        super(PlayerFsm.Id.STATE_THROW_IN_SPEED, player);
+    PlayerStateThrowInSpeed(PlayerFsm fsm, Player player) {
+        super(STATE_THROW_IN_SPEED, fsm, player);
     }
 
     @Override

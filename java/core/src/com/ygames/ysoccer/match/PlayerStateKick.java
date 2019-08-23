@@ -3,6 +3,8 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK;
+
 class PlayerStateKick extends PlayerState {
 
     private int isPassing;
@@ -11,8 +13,8 @@ class PlayerStateKick extends PlayerState {
     private static int IP_FALSE = 0;
     private static int IP_TRUE = 1;
 
-    PlayerStateKick(Player player) {
-        super(PlayerFsm.Id.STATE_KICK, player);
+    PlayerStateKick(PlayerFsm fsm, Player player) {
+        super(STATE_KICK, fsm, player);
     }
 
     @Override

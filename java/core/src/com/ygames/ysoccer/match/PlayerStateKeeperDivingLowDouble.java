@@ -1,12 +1,14 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_DIVING_LOW_DOUBLE;
+
 class PlayerStateKeeperDivingLowDouble extends PlayerState {
 
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[3];
 
-    PlayerStateKeeperDivingLowDouble(Player player) {
-        super(PlayerFsm.Id.STATE_KEEPER_DIVING_LOW_DOUBLE, player);
+    PlayerStateKeeperDivingLowDouble(PlayerFsm fsm, Player player) {
+        super(STATE_KEEPER_DIVING_LOW_DOUBLE, fsm, player);
 
         active = frames[0];
 

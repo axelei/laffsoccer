@@ -2,10 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_ANGLE;
+
 class PlayerStateCornerKickAngle extends PlayerState {
 
-    PlayerStateCornerKickAngle(Player player) {
-        super(PlayerFsm.Id.STATE_CORNER_KICK_ANGLE, player);
+    PlayerStateCornerKickAngle(PlayerFsm fsm, Player player) {
+        super(STATE_CORNER_KICK_ANGLE, fsm, player);
     }
 
     @Override

@@ -5,13 +5,14 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 
 class PlayerStateTackle extends PlayerState {
 
     private boolean hit;
 
-    PlayerStateTackle(Player player) {
-        super(PlayerFsm.Id.STATE_TACKLE, player);
+    PlayerStateTackle(PlayerFsm fsm, Player player) {
+        super(STATE_TACKLE, fsm, player);
     }
 
     @Override

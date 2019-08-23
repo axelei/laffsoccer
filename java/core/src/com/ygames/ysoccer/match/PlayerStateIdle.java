@@ -1,9 +1,11 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
+
 class PlayerStateIdle extends PlayerState {
 
-    PlayerStateIdle(Player player) {
-        super(PlayerFsm.Id.STATE_IDLE, player);
+    PlayerStateIdle(PlayerFsm fsm, Player player) {
+        super(STATE_IDLE, fsm, player);
     }
 
     @Override

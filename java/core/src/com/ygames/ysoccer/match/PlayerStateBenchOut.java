@@ -1,11 +1,12 @@
 package com.ygames.ysoccer.match;
 
 import static com.ygames.ysoccer.match.Const.BENCH_X;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_OUT;
 
 class PlayerStateBenchOut extends PlayerState {
 
-    PlayerStateBenchOut(Player player) {
-        super(PlayerFsm.Id.STATE_BENCH_OUT, player);
+    PlayerStateBenchOut(PlayerFsm fsm, Player player) {
+        super(STATE_BENCH_OUT, fsm, player);
     }
 
     @Override

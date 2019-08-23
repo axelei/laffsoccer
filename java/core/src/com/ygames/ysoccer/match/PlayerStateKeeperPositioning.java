@@ -3,12 +3,14 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
+
 class PlayerStateKeeperPositioning extends PlayerState {
 
     private int dangerTime;
 
-    PlayerStateKeeperPositioning(Player player) {
-        super(PlayerFsm.Id.STATE_KEEPER_POSITIONING, player);
+    PlayerStateKeeperPositioning(PlayerFsm fsm, Player player) {
+        super(STATE_KEEPER_POSITIONING, fsm, player);
     }
 
     private void updateTarget() {

@@ -2,10 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+
 class PlayerStateStandRun extends PlayerState {
 
-    PlayerStateStandRun(Player player) {
-        super(PlayerFsm.Id.STATE_STAND_RUN, player);
+    PlayerStateStandRun(PlayerFsm fsm, Player player) {
+        super(STATE_STAND_RUN, fsm, player);
     }
 
     @Override
