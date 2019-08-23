@@ -57,7 +57,7 @@ class PlayerStateStandRun extends PlayerState {
                 && (player == player.team.lineup.get(0))
                 && (player.team.near1 != player)
                 && (player.inputDevice == player.ai)) {
-            return player.fsm.stateKeeperPositioning;
+            return fsm.stateKeeperPositioning;
         }
 
         // player fired
@@ -67,15 +67,15 @@ class PlayerStateStandRun extends PlayerState {
             if (ball.owner == player) {
                 if (player.v > 0 && ball.z < 8) {
                     player.kickAngle = player.a;
-                    return player.fsm.stateKick;
+                    return fsm.stateKick;
                 }
                 // else head or tackle
             } else if (player.frameDistance < Const.BALL_PREDICTION) {
                 if (ball.prediction[player.frameDistance].z > 0.6f * Const.PLAYER_H) {
-                    return player.fsm.stateHead;
+                    return fsm.stateHead;
                 } else if (ball.prediction[player.frameDistance].z < 6) {
                     if ((player.v > 0) && (player.ballDistance < 100)) {
-                        return player.fsm.stateTackle;
+                        return fsm.stateTackle;
                     }
                 }
             } else {

@@ -80,7 +80,7 @@ class PlayerStateKick extends PlayerState {
     @Override
     State checkConditions() {
         if (timer > 0.35 * Const.SECOND) {
-            return player.fsm.stateStandRun;
+            return fsm.stateStandRun;
         }
         return null;
     }

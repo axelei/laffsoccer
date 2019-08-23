@@ -85,7 +85,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
     @Override
     State checkConditions() {
         if (player.inputDevice != player.ai) {
-            return player.fsm.stateStandRun;
+            return fsm.stateStandRun;
         }
 
         // detect danger
@@ -143,12 +143,12 @@ class PlayerStateKeeperPositioning extends PlayerState {
                         if (predZ > 30) {
                             //CATCH HIGH
                             if (frm * GLGame.SUBFRAMES < 0.6f * Const.SECOND) {
-                                return player.fsm.stateKeeperCatchingHigh;
+                                return fsm.stateKeeperCatchingHigh;
                             }
                         } else {
                             //CATCH LOW
                             if (frm * GLGame.SUBFRAMES < 0.6f * Const.SECOND) {
-                                return player.fsm.stateKeeperCatchingLow;
+                                return fsm.stateKeeperCatchingLow;
                             }
                         }
                     } else if (predZ < 7) {
@@ -157,14 +157,14 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             if ((frm * GLGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * Const.SECOND)) {
                                 player.thrustX = (Math.abs(diffX) - Const.POST_X) / (Const.GOAL_AREA_W / 2 - Const.POST_X);
                                 player.a = (diffX < 0) ? 180 : 0;
-                                return player.fsm.stateKeeperDivingLowSingle;
+                                return fsm.stateKeeperDivingLowSingle;
                             }
                         } else {
                             //LOW - TWO HANDS
                             if (frm * GLGame.SUBFRAMES < 0.5f * Const.SECOND) {
                                 player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X - 8);
                                 player.a = (diffX < 0) ? 180 : 0;
-                                return player.fsm.stateKeeperDivingLowDouble;
+                                return fsm.stateKeeperDivingLowDouble;
                             }
                         }
                     } else if (predZ < 21) {
@@ -173,7 +173,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X - 8);
                             player.thrustZ = (predZ - 7) / 14.0f;
                             player.a = (diffX < 0) ? 180 : 0;
-                            return player.fsm.stateKeeperDivingMiddleTwo;
+                            return fsm.stateKeeperDivingMiddleTwo;
                         }
                     } else if ((predZ < 27) && (Math.abs(diffX) < Const.POST_X + 16)) {
                         //MIDDLE - ONE HAND
@@ -181,7 +181,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X + 8);
                             player.thrustZ = (predZ - 17) / 6.0f;
                             player.a = (diffX < 0) ? 180 : 0;
-                            return player.fsm.stateKeeperDivingMiddleOne;
+                            return fsm.stateKeeperDivingMiddleOne;
                         }
                     } else if ((predZ < 44) && (Math.abs(diffX) < Const.POST_X + 16)) {
                         //HIGH - ONE HAND
@@ -189,7 +189,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             player.thrustX = (Math.abs(diffX) - 8) / (Const.POST_X + 8);
                             player.thrustZ = (float) Math.min((predZ - 27) / 8.0, 1);
                             player.a = (diffX < 0) ? 180 : 0;
-                            return player.fsm.stateKeeperDivingHighOne;
+                            return fsm.stateKeeperDivingHighOne;
                         }
                     }
                 }

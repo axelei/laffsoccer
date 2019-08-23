@@ -32,7 +32,7 @@ class PlayerStateKickOff extends PlayerState {
     State checkConditions() {
         if (player.inputDevice.fire1Down()) {
             player.kickAngle = player.a;
-            return player.fsm.stateKick;
+            return fsm.stateKick;
         }
         return null;
     }

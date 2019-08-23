@@ -66,7 +66,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
     @Override
     State checkConditions() {
         if (timer > 0.35f * GLGame.SUBFRAMES_PER_SECOND) {
-            return player.fsm.stateStandRun;
+            return fsm.stateStandRun;
         }
         return null;
     }

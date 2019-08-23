@@ -21,7 +21,7 @@ class PlayerStateReachTarget extends PlayerState {
     @Override
     State checkConditions() {
         if (player.targetDistance() < 1) {
-            return player.fsm.stateIdle;
+            return fsm.stateIdle;
         }
         return null;
     }

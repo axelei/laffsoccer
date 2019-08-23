@@ -93,7 +93,7 @@ class PlayerStateCornerKickSpeed extends PlayerState {
     @Override
     PlayerState checkConditions() {
         if (timer > 0.35f * Const.SECOND) {
-            return player.fsm.stateStandRun;
+            return fsm.stateStandRun;
         }
         return null;
     }

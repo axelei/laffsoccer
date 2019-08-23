@@ -68,7 +68,7 @@ class PlayerStateTackle extends PlayerState {
     @Override
     State checkConditions() {
         if (player.v < 30) {
-            return player.fsm.stateStandRun;
+            return fsm.stateStandRun;
         }
         return null;
     }

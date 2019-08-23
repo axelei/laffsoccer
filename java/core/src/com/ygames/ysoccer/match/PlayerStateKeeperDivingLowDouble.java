@@ -64,9 +64,9 @@ class PlayerStateKeeperDivingLowDouble extends PlayerState {
     State checkConditions() {
         if (timer >= 0.75f * Const.SECOND) {
             if (ball.holder == player) {
-                return player.fsm.stateKeeperKickAngle;
+                return fsm.stateKeeperKickAngle;
             } else {
-                return player.fsm.stateKeeperPositioning;
+                return fsm.stateKeeperPositioning;
             }
         }
         return null;

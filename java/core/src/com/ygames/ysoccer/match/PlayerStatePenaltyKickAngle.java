@@ -35,8 +35,8 @@ class PlayerStatePenaltyKickAngle extends PlayerState {
     @Override
     State checkConditions() {
         if (player.inputDevice.fire1Down()) {
-            // TODO player.fsm.statePenaltyKickSpeed;
-            return player.fsm.stateCornerKickSpeed;
+            // TODO fsm.statePenaltyKickSpeed;
+            return fsm.stateCornerKickSpeed;
         }
         return null;
     }

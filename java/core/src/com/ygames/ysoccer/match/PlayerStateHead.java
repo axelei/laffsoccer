@@ -69,7 +69,7 @@ class PlayerStateHead extends PlayerState {
     @Override
     State checkConditions() {
         if (jumped && player.vz == 0) {
-            return player.fsm.stateStandRun;
+            return fsm.stateStandRun;
         }
         return null;
     }
