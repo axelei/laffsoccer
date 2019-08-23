@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateGoalKickStop extends MatchState {
 
@@ -33,7 +34,7 @@ class MatchStateGoalKickStop extends MatchState {
         ySide = match.ball.ySide;
 
         match.resetAutomaticInputDevices();
-        match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
+        match.setPlayersState(STATE_REACH_TARGET, null);
 
         Team goalKickTeam = match.team[1 - match.ball.ownerLast.team.index];
         Player goalKickKeeper = goalKickTeam.lineup.get(0);

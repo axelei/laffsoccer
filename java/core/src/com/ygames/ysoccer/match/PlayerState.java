@@ -5,9 +5,13 @@ class PlayerState extends State {
     protected final Player player;
     protected final Ball ball;
 
-    public PlayerState(int id, Player player) {
-        this.id = id;
+    public PlayerState(PlayerFsm.Id id, Player player) {
+        this.id = id.ordinal();
         this.player = player;
         this.ball = player.ball;
+    }
+
+    boolean checkId(PlayerFsm.Id id) {
+        return (this.id == id.ordinal());
     }
 }

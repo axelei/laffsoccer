@@ -4,6 +4,8 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+
 class AiStateDefending extends AiState {
 
     AiStateDefending(Ai ai) {
@@ -25,9 +27,9 @@ class AiStateDefending extends AiState {
     @Override
     State checkConditions() {
         // player has changed its state
-        State playerState = player.fsm.getState();
+        PlayerState playerState = player.fsm.getState();
         if ((playerState != null)
-                && !playerState.checkId(PlayerFsm.STATE_STAND_RUN)) {
+                && !playerState.checkId(STATE_STAND_RUN)) {
             return ai.fsm.stateIdle;
         }
 

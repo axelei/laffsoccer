@@ -8,8 +8,9 @@ import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
 import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
-import static com.ygames.ysoccer.match.PlayerFsm.STATE_KEEPER_POSITIONING;
-import static com.ygames.ysoccer.match.PlayerFsm.STATE_STAND_RUN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.TrainingFsm.STATE_FREE;
@@ -81,7 +82,7 @@ public class Training {
         int len = team.lineup.size();
         for (int i = 0; i < len; i++) {
             Player player = team.lineup.get(i);
-            player.fsm.setState(PlayerFsm.STATE_OUTSIDE);
+            player.fsm.setState(STATE_OUTSIDE);
 
             player.x = 18 * (-team.lineup.size() + 2 * i) + 8 * Emath.cos(70 * (player.number));
             player.y = team.side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));

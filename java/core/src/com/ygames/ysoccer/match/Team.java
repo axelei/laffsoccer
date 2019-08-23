@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ygames.ysoccer.match.Const.BASE_TEAM;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
 import static com.ygames.ysoccer.match.Player.Role.DEFENDER;
@@ -28,6 +27,8 @@ import static com.ygames.ysoccer.match.Player.Role.LEFT_WINGER;
 import static com.ygames.ysoccer.match.Player.Role.MIDFIELDER;
 import static com.ygames.ysoccer.match.Player.Role.RIGHT_BACK;
 import static com.ygames.ysoccer.match.Player.Role.RIGHT_WINGER;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 public class Team implements Json.Serializable {
 
@@ -376,7 +377,7 @@ public class Team implements Json.Serializable {
         return (controlMode == ControlMode.PLAYER) && (inputDevice != null);
     }
 
-    void setPlayersState(int stateId, Player excluded) {
+    void setPlayersState(PlayerFsm.Id stateId, Player excluded) {
         for (int i = 0; i < TEAM_SIZE; i++) {
             Player player = lineup.get(i);
             if (player != excluded) {
@@ -413,7 +414,7 @@ public class Team implements Json.Serializable {
         if (controlled == null) {
 
             // assign input device
-            if (near1.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+            if (near1.fsm.getState().checkId(STATE_STAND_RUN)) {
                 near1.inputDevice = inputDevice;
             }
 
@@ -423,8 +424,8 @@ public class Team implements Json.Serializable {
             if ((controlled != near1)
                     && (controlled.frameDistance == Const.BALL_PREDICTION)) {
 
-                if (controlled.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)
-                        && near1.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                if (controlled.fsm.getState().checkId(STATE_STAND_RUN)
+                        && near1.fsm.getState().checkId(STATE_STAND_RUN)) {
                     near1.inputDevice = inputDevice;
                     controlled.inputDevice = controlled.ai;
                 }
@@ -434,8 +435,8 @@ public class Team implements Json.Serializable {
 
             // move input_device to ball owner
             if ((controlled != match.ball.owner)
-                    && controlled.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)
-                    && near1.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                    && controlled.fsm.getState().checkId(STATE_STAND_RUN)
+                    && near1.fsm.getState().checkId(STATE_STAND_RUN)) {
                 match.ball.owner.inputDevice = inputDevice;
                 controlled.inputDevice = controlled.ai;
             }
@@ -445,8 +446,8 @@ public class Team implements Json.Serializable {
             if ((bestDefender != null)
                     && (bestDefender != controlled)
                     && (bestDefender.defendDistance < 0.95f * controlled.defendDistance)
-                    && controlled.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)
-                    && bestDefender.fsm.getState().checkId(PlayerFsm.STATE_STAND_RUN)) {
+                    && controlled.fsm.getState().checkId(STATE_STAND_RUN)
+                    && bestDefender.fsm.getState().checkId(STATE_STAND_RUN)) {
                 bestDefender.inputDevice = inputDevice;
                 controlled.inputDevice = controlled.ai;
             }
@@ -533,7 +534,7 @@ public class Team implements Json.Serializable {
     Player lastOfLineup() {
         for (int pos = TEAM_SIZE - 1; pos > 0; pos--) {
             Player ply = lineupAtPosition(pos);
-            if (!ply.checkState(PlayerFsm.STATE_OUTSIDE)) {
+            if (!ply.checkState(STATE_OUTSIDE)) {
                 return ply;
             }
         }

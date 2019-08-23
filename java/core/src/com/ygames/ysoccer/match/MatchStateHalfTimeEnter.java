@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateHalfTimeEnter extends MatchState {
 
@@ -40,7 +41,7 @@ class MatchStateHalfTimeEnter extends MatchState {
                     for (int t = HOME; t <= AWAY; t++) {
                         int i = enteringCounter / 4;
                         Player player = match.team[t].lineup.get(i);
-                        player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                        player.fsm.setState(STATE_REACH_TARGET);
                     }
                 }
                 enteringCounter += 1;

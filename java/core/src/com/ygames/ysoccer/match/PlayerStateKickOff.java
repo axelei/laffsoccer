@@ -5,7 +5,7 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStateKickOff extends PlayerState {
 
     PlayerStateKickOff(Player player) {
-        super(PlayerFsm.STATE_KICK_OFF, player);
+        super(PlayerFsm.Id.STATE_KICK_OFF, player);
     }
 
     @Override

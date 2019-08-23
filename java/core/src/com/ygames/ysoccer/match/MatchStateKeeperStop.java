@@ -4,6 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+
 class MatchStateKeeperStop extends MatchState {
 
     private Player keeper;
@@ -35,8 +38,8 @@ class MatchStateKeeperStop extends MatchState {
         keeperTeam.assignAutomaticInputDevices(keeper);
         opponentTeam.assignAutomaticInputDevices(null);
 
-        keeperTeam.setPlayersState(PlayerFsm.STATE_REACH_TARGET, keeper);
-        opponentTeam.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
+        keeperTeam.setPlayersState(STATE_REACH_TARGET, keeper);
+        opponentTeam.setPlayersState(STATE_REACH_TARGET, null);
 
         keeperTeam.updateTactics(true);
         opponentTeam.updateTactics(true);
@@ -75,8 +78,8 @@ class MatchStateKeeperStop extends MatchState {
     @Override
     void checkConditions() {
         if (match.ball.holder == null) {
-            keeperTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, keeper);
-            opponentTeam.setPlayersState(PlayerFsm.STATE_STAND_RUN, null);
+            keeperTeam.setPlayersState(STATE_STAND_RUN, keeper);
+            opponentTeam.setPlayersState(STATE_STAND_RUN, null);
             fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
             return;
         }

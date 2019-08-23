@@ -14,6 +14,16 @@ import java.util.List;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_MATE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_SCORER;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OWN_GOAL_SCORER;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PHOTO;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 public class Match implements Json.Serializable {
 
@@ -240,7 +250,7 @@ public class Match implements Json.Serializable {
         for (int i = 0; i < len; i++) {
             Player player = team.lineup.get(i);
             if (i < Const.TEAM_SIZE) {
-                player.fsm.setState(PlayerFsm.STATE_OUTSIDE);
+                player.fsm.setState(STATE_OUTSIDE);
 
                 player.x = Const.TOUCH_LINE + 80;
                 player.y = 10 * team.side + 20;
@@ -255,7 +265,7 @@ public class Match implements Json.Serializable {
                 } else {
                     player.y = BENCH_Y_DOWN + 14 * (i - Const.TEAM_SIZE) + 46;
                 }
-                player.fsm.setState(PlayerFsm.STATE_BENCH_SITTING);
+                player.fsm.setState(STATE_BENCH_SITTING);
             }
         }
 
@@ -273,8 +283,8 @@ public class Match implements Json.Serializable {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     if (i < timer / enterDelay) {
                         Player player = team[t].lineup.get(i);
-                        if (player.fsm.getState().checkId(PlayerFsm.STATE_OUTSIDE)) {
-                            player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                        if (player.fsm.getState().checkId(STATE_OUTSIDE)) {
+                            player.fsm.setState(STATE_REACH_TARGET);
                             player.tx = Const.TOUCH_LINE - 300 + 7 * i;
                             player.ty = 60 * team[t].side - ((i % 2 == 0) ? 20 : 0);
                         }
@@ -292,8 +302,8 @@ public class Match implements Json.Serializable {
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
-                if (player.fsm.getState().checkId(PlayerFsm.STATE_IDLE)) {
-                    player.fsm.setState(PlayerFsm.STATE_PHOTO);
+                if (player.fsm.getState().checkId(STATE_IDLE)) {
+                    player.fsm.setState(STATE_PHOTO);
                 }
             }
         }
@@ -311,7 +321,7 @@ public class Match implements Json.Serializable {
         }
     }
 
-    public void setPlayersState(int stateId, Player excluded) {
+    public void setPlayersState(PlayerFsm.Id stateId, Player excluded) {
         for (int t = HOME; t <= AWAY; t++) {
             team[t].setPlayersState(stateId, excluded);
         }
@@ -322,15 +332,15 @@ public class Match implements Json.Serializable {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
                 PlayerState playerState = player.fsm.getState();
-                if (playerState.checkId(PlayerFsm.STATE_STAND_RUN) || playerState.checkId(PlayerFsm.STATE_KEEPER_POSITIONING)) {
+                if (playerState.checkId(STATE_STAND_RUN) || playerState.checkId(STATE_KEEPER_POSITIONING)) {
                     player.tx = player.x;
                     player.ty = player.y;
                     if ((t == goal.player.team.index) && (player == goal.player)) {
-                        player.fsm.setState(PlayerFsm.STATE_GOAL_SCORER);
+                        player.fsm.setState(STATE_GOAL_SCORER);
                     } else if ((t == goal.player.team.index) && (Emath.dist(player.x, player.y, goal.player.x, goal.player.y) < 150 * Assets.random.nextInt(4))) {
-                        player.fsm.setState(PlayerFsm.STATE_GOAL_MATE);
+                        player.fsm.setState(STATE_GOAL_MATE);
                     } else {
-                        player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                        player.fsm.setState(STATE_REACH_TARGET);
                     }
                 }
             }
@@ -342,13 +352,13 @@ public class Match implements Json.Serializable {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
                 PlayerState playerState = player.fsm.getState();
-                if (playerState.checkId(PlayerFsm.STATE_STAND_RUN) || playerState.checkId(PlayerFsm.STATE_KEEPER_POSITIONING)) {
+                if (playerState.checkId(STATE_STAND_RUN) || playerState.checkId(STATE_KEEPER_POSITIONING)) {
                     player.tx = player.x;
                     player.ty = player.y;
                     if (player == goal.player) {
-                        player.setState(PlayerFsm.STATE_OWN_GOAL_SCORER);
+                        player.setState(STATE_OWN_GOAL_SCORER);
                     } else {
-                        player.setState(PlayerFsm.STATE_REACH_TARGET);
+                        player.setState(STATE_REACH_TARGET);
                     }
                 }
             }

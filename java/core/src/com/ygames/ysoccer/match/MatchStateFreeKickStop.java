@@ -9,6 +9,9 @@ import com.ygames.ysoccer.framework.InputDevice;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 
 class MatchStateFreeKickStop extends MatchState {
 
@@ -57,10 +60,10 @@ class MatchStateFreeKickStop extends MatchState {
                 Player player = match.team[t].lineup.get(i);
 
                 // wait for tackle and down states to finish
-                if (player.checkState(PlayerFsm.STATE_TACKLE) || player.checkState(PlayerFsm.STATE_DOWN)) {
+                if (player.checkState(STATE_TACKLE) || player.checkState(STATE_DOWN)) {
                     allPlayersReachingTarget = false;
                 } else {
-                    player.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+                    player.fsm.setState(STATE_REACH_TARGET);
                 }
             }
         }

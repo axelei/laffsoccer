@@ -5,7 +5,7 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStateStandRun extends PlayerState {
 
     PlayerStateStandRun(Player player) {
-        super(PlayerFsm.STATE_STAND_RUN, player);
+        super(PlayerFsm.Id.STATE_STAND_RUN, player);
     }
 
     @Override

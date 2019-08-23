@@ -6,7 +6,7 @@ class PlayerStateKeeperDivingMiddleOne extends PlayerState {
     private KeeperFrame[] frames = new KeeperFrame[5];
 
     PlayerStateKeeperDivingMiddleOne(Player player) {
-        super(PlayerFsm.STATE_KEEPER_DIVING_MIDDLE_ONE, player);
+        super(PlayerFsm.Id.STATE_KEEPER_DIVING_MIDDLE_ONE, player);
 
         active = frames[0];
 

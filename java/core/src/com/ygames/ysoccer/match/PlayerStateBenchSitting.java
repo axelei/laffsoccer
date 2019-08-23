@@ -7,7 +7,7 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 class PlayerStateBenchSitting extends PlayerState {
 
     PlayerStateBenchSitting(Player player) {
-        super(PlayerFsm.STATE_BENCH_SITTING, player);
+        super(PlayerFsm.Id.STATE_BENCH_SITTING, player);
     }
 
     @Override

@@ -8,6 +8,9 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
 
 class MatchStateThrowIn extends MatchState {
 
@@ -37,7 +40,7 @@ class MatchStateThrowIn extends MatchState {
         throwInPlayer = fsm.throwInTeam.near1;
 
         throwInPlayer.setTarget(match.ball.x, match.ball.y);
-        throwInPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+        throwInPlayer.fsm.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -81,7 +84,7 @@ class MatchStateThrowIn extends MatchState {
 
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            throwInPlayer.fsm.setState(PlayerFsm.STATE_THROW_IN_ANGLE);
+            throwInPlayer.fsm.setState(STATE_THROW_IN_ANGLE);
             if (throwInPlayer.team.usesAutomaticInputDevice()) {
                 throwInPlayer.inputDevice = throwInPlayer.team.inputDevice;
             }
@@ -92,7 +95,7 @@ class MatchStateThrowIn extends MatchState {
     @Override
     void checkConditions() {
         if (Math.abs(match.ball.x) < Const.TOUCH_LINE) {
-            match.setPlayersState(PlayerFsm.STATE_STAND_RUN, throwInPlayer);
+            match.setPlayersState(STATE_STAND_RUN, throwInPlayer);
             fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
             return;
         }

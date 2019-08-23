@@ -5,7 +5,7 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStatePenaltyKickAngle extends PlayerState {
 
     PlayerStatePenaltyKickAngle(Player player) {
-        super(PlayerFsm.STATE_PENALTY_KICK_ANGLE, player);
+        super(PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE, player);
     }
 
     @Override

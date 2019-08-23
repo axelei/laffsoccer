@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 
 class MatchStateExtraTimeStop extends MatchState {
 
@@ -26,7 +27,7 @@ class MatchStateExtraTimeStop extends MatchState {
         Assets.Sounds.end.play(Assets.Sounds.volume / 100f);
 
         match.resetAutomaticInputDevices();
-        match.setPlayersState(PlayerFsm.STATE_IDLE, null);
+        match.setPlayersState(STATE_IDLE, null);
     }
 
     @Override

@@ -9,6 +9,9 @@ import com.ygames.ysoccer.framework.InputDevice;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_KICK;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class MatchStateGoalKick extends MatchState {
 
@@ -38,7 +41,7 @@ class MatchStateGoalKick extends MatchState {
 
         goalKickPlayer = fsm.goalKickTeam.lineupAtPosition(0);
         goalKickPlayer.setTarget(match.ball.x, match.ball.y + 6 * match.ball.ySide);
-        goalKickPlayer.fsm.setState(PlayerFsm.STATE_REACH_TARGET);
+        goalKickPlayer.fsm.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -80,7 +83,7 @@ class MatchStateGoalKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            goalKickPlayer.fsm.setState(PlayerFsm.STATE_GOAL_KICK);
+            goalKickPlayer.fsm.setState(STATE_GOAL_KICK);
             if (goalKickPlayer.team.usesAutomaticInputDevice()) {
                 goalKickPlayer.inputDevice = goalKickPlayer.team.inputDevice;
             }
@@ -91,7 +94,7 @@ class MatchStateGoalKick extends MatchState {
     @Override
     void checkConditions() {
         if (match.ball.v > 0) {
-            match.setPlayersState(PlayerFsm.STATE_STAND_RUN, goalKickPlayer);
+            match.setPlayersState(STATE_STAND_RUN, goalKickPlayer);
             fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
             return;
         }

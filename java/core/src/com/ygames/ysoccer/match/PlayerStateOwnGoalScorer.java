@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerStateOwnGoalScorer extends PlayerState {
 
     PlayerStateOwnGoalScorer(Player player) {
-        super(PlayerFsm.STATE_OWN_GOAL_SCORER, player);
+        super(PlayerFsm.Id.STATE_OWN_GOAL_SCORER, player);
     }
 
     @Override

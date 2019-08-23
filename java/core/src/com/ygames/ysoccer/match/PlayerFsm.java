@@ -2,39 +2,41 @@ package com.ygames.ysoccer.match;
 
 class PlayerFsm extends Fsm {
 
-    static final int STATE_IDLE = 1;
-    static final int STATE_OUTSIDE = 2;
-    static final int STATE_BENCH_SITTING = 3;
-    static final int STATE_BENCH_STANDING = 4;
-    static final int STATE_BENCH_OUT = 5;
+    enum Id {
+        STATE_IDLE,
+        STATE_OUTSIDE,
+        STATE_BENCH_SITTING,
+        STATE_BENCH_STANDING,
+        STATE_BENCH_OUT,
 
-    static final int STATE_PHOTO = 6;
-    static final int STATE_STAND_RUN = 7;
-    static final int STATE_KICK = 8;
-    static final int STATE_HEAD = 9;
-    static final int STATE_TACKLE = 10;
-    static final int STATE_DOWN = 11;
-    static final int STATE_REACH_TARGET = 12;
-    static final int STATE_KICK_OFF = 13;
-    static final int STATE_GOAL_KICK = 14;
-    static final int STATE_THROW_IN_ANGLE = 15;
-    static final int STATE_THROW_IN_SPEED = 16;
-    static final int STATE_CORNER_KICK_ANGLE = 17;
-    static final int STATE_CORNER_KICK_SPEED = 18;
-    static final int STATE_PENALTY_KICK_ANGLE = 19;
-    static final int STATE_GOAL_SCORER = 20;
-    static final int STATE_GOAL_MATE = 21;
-    static final int STATE_OWN_GOAL_SCORER = 22;
+        STATE_PHOTO,
+        STATE_STAND_RUN,
+        STATE_KICK,
+        STATE_HEAD,
+        STATE_TACKLE,
+        STATE_DOWN,
+        STATE_REACH_TARGET,
+        STATE_KICK_OFF,
+        STATE_GOAL_KICK,
+        STATE_THROW_IN_ANGLE,
+        STATE_THROW_IN_SPEED,
+        STATE_CORNER_KICK_ANGLE,
+        STATE_CORNER_KICK_SPEED,
+        STATE_PENALTY_KICK_ANGLE,
+        STATE_GOAL_SCORER,
+        STATE_GOAL_MATE,
+        STATE_OWN_GOAL_SCORER,
 
-    static final int STATE_KEEPER_POSITIONING = 23;
-    static final int STATE_KEEPER_DIVING_LOW_SINGLE = 24;
-    static final int STATE_KEEPER_DIVING_LOW_DOUBLE = 25;
-    static final int STATE_KEEPER_DIVING_MIDDLE_ONE = 26;
-    static final int STATE_KEEPER_DIVING_MIDDLE_TWO = 27;
-    static final int STATE_KEEPER_DIVING_HIGH_ONE = 28;
-    static final int STATE_KEEPER_CATCHING_HIGH = 29;
-    static final int STATE_KEEPER_CATCHING_LOW = 30;
-    static final int STATE_KEEPER_KICK_ANGLE = 31;
+        STATE_KEEPER_POSITIONING,
+        STATE_KEEPER_DIVING_LOW_SINGLE,
+        STATE_KEEPER_DIVING_LOW_DOUBLE,
+        STATE_KEEPER_DIVING_MIDDLE_ONE,
+        STATE_KEEPER_DIVING_MIDDLE_TWO,
+        STATE_KEEPER_DIVING_HIGH_ONE,
+        STATE_KEEPER_CATCHING_HIGH,
+        STATE_KEEPER_CATCHING_LOW,
+        STATE_KEEPER_KICK_ANGLE,
+    }
 
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
@@ -109,5 +111,9 @@ class PlayerFsm extends Fsm {
     @Override
     public PlayerState getState() {
         return (PlayerState) state;
+    }
+
+    void setState(Id id) {
+        super.setState(id.ordinal());
     }
 }

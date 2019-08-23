@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateCornerStop extends MatchState {
 
@@ -48,7 +49,7 @@ class MatchStateCornerStop extends MatchState {
 
         match.resetAutomaticInputDevices();
 
-        match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
+        match.setPlayersState(STATE_REACH_TARGET, null);
     }
 
     @Override

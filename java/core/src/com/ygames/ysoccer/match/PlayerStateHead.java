@@ -10,7 +10,7 @@ class PlayerStateHead extends PlayerState {
     private float v;
 
     PlayerStateHead(Player player) {
-        super(PlayerFsm.STATE_HEAD, player);
+        super(PlayerFsm.Id.STATE_HEAD, player);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerStateDown extends PlayerState {
 
     PlayerStateDown(Player player) {
-        super(PlayerFsm.STATE_DOWN, player);
+        super(PlayerFsm.Id.STATE_DOWN, player);
     }
 
     @Override

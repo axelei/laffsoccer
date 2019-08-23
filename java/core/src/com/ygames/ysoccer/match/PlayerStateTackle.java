@@ -4,13 +4,14 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 
 class PlayerStateTackle extends PlayerState {
 
     private boolean hit;
 
     PlayerStateTackle(Player player) {
-        super(PlayerFsm.STATE_TACKLE, player);
+        super(PlayerFsm.Id.STATE_TACKLE, player);
     }
 
     @Override
@@ -43,9 +44,9 @@ class PlayerStateTackle extends PlayerState {
         for (int i = 1; i < TEAM_SIZE; i++) {
             Player opponent = player.team.match.team[1 - player.team.index].lineup.get(i);
             if (Emath.dist(player.x, player.y, opponent.x, opponent.y) < 8 &&
-                    opponent.checkState(opponent.fsm.STATE_DOWN) == false) {
+                    opponent.checkState(STATE_DOWN) == false) {
 
-                opponent.setState(opponent.fsm.STATE_DOWN);
+                opponent.setState(STATE_DOWN);
                 boolean foul = ball.owner != player;
                 // TODO
                 // float angleDiff = Math.abs(((player.a - opponent.a + 360.0f) % 360.0f));

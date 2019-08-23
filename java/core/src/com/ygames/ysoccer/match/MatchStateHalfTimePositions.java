@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+
 class MatchStateHalfTimePositions extends MatchState {
 
     private boolean move;
@@ -31,7 +33,7 @@ class MatchStateHalfTimePositions extends MatchState {
         match.clock = match.length * 45 / 90;
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
-        match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
+        match.setPlayersState(STATE_OUTSIDE, null);
     }
 
     @Override

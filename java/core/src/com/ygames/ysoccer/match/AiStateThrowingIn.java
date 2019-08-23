@@ -4,6 +4,9 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_SPEED;
+
 class AiStateThrowingIn extends AiState {
 
     AiStateThrowingIn(Ai ai) {
@@ -22,10 +25,10 @@ class AiStateThrowingIn extends AiState {
     @Override
     State checkConditions() {
         PlayerState playerState = player.fsm.getState();
-        if (playerState.checkId(PlayerFsm.STATE_THROW_IN_ANGLE)) {
+        if (playerState.checkId(STATE_THROW_IN_ANGLE)) {
             return null;
         }
-        if (playerState.checkId(PlayerFsm.STATE_THROW_IN_SPEED)) {
+        if (playerState.checkId(STATE_THROW_IN_SPEED)) {
             return null;
         }
 

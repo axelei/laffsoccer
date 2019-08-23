@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+
 class MatchStateEndPositions extends MatchState {
 
     boolean move;
@@ -28,7 +30,7 @@ class MatchStateEndPositions extends MatchState {
         matchRenderer.actionCamera.offy = 0;
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
-        match.setPlayersState(PlayerFsm.STATE_OUTSIDE, null);
+        match.setPlayersState(STATE_OUTSIDE, null);
     }
 
     @Override

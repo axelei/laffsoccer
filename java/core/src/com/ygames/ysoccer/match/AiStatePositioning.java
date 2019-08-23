@@ -3,6 +3,8 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+
 class AiStatePositioning extends AiState {
 
     AiStatePositioning(Ai ai) {
@@ -24,9 +26,9 @@ class AiStatePositioning extends AiState {
 
     @Override
     State checkConditions() {
-        State playerState = player.fsm.getState();
+        PlayerState playerState = player.fsm.getState();
         if ((playerState != null)
-                && !playerState.checkId(PlayerFsm.STATE_STAND_RUN)) {
+                && !playerState.checkId(STATE_STAND_RUN)) {
             return ai.fsm.stateIdle;
         }
 

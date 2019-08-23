@@ -21,23 +21,23 @@ class AiStateIdle extends AiState {
     State checkConditions() {
         State playerState = player.fsm.getState();
         if (playerState != null) {
-            switch (playerState.id) {
-                case PlayerFsm.STATE_KICK_OFF:
+            switch (PlayerFsm.Id.values()[playerState.id]) {
+                case STATE_KICK_OFF:
                      return ai.fsm.stateKickingOff;
 
-                case PlayerFsm.STATE_STAND_RUN:
+                case STATE_STAND_RUN:
                      return ai.fsm.statePositioning;
 
-                case PlayerFsm.STATE_GOAL_KICK:
+                case STATE_GOAL_KICK:
                      return ai.fsm.stateGoalKicking;
 
-                case PlayerFsm.STATE_THROW_IN_ANGLE:
+                case STATE_THROW_IN_ANGLE:
                      return ai.fsm.stateThrowingIn;
 
-                case PlayerFsm.STATE_CORNER_KICK_ANGLE:
+                case STATE_CORNER_KICK_ANGLE:
                      return ai.fsm.stateCornerKicking;
 
-                case PlayerFsm.STATE_KEEPER_KICK_ANGLE:
+                case STATE_KEEPER_KICK_ANGLE:
                      return ai.fsm.stateKeeperKicking;
             }
         }

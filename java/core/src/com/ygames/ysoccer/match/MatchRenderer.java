@@ -17,7 +17,7 @@ import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.PlayerFsm.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static java.lang.Math.min;
 
 public class MatchRenderer extends Renderer {

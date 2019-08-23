@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateStartingPositions extends MatchState {
 
@@ -26,7 +27,7 @@ class MatchStateStartingPositions extends MatchState {
         super.entryActions();
 
         match.setStartingPositions();
-        match.setPlayersState(PlayerFsm.STATE_REACH_TARGET, null);
+        match.setPlayersState(STATE_REACH_TARGET, null);
     }
 
     @Override

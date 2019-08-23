@@ -179,12 +179,12 @@ public class Player implements Json.Serializable {
         this.ty = ty;
     }
 
-    public void setState(int id) {
+    public void setState(PlayerFsm.Id id) {
         fsm.setState(id);
     }
 
-    public boolean checkState(int id) {
-        return fsm.state != null && fsm.state.checkId(id);
+    public boolean checkState(PlayerFsm.Id id) {
+        return fsm.state != null && fsm.getState().checkId(id);
     }
 
     void think() {

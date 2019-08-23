@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerStatePhoto extends PlayerState {
 
     PlayerStatePhoto(Player player) {
-        super(PlayerFsm.STATE_PHOTO, player);
+        super(PlayerFsm.Id.STATE_PHOTO, player);
     }
 
     @Override

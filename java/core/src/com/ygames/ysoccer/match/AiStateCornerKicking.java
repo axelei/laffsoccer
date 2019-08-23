@@ -4,6 +4,9 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_ANGLE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_SPEED;
+
 class AiStateCornerKicking extends AiState {
 
     AiStateCornerKicking(Ai ai) {
@@ -22,10 +25,10 @@ class AiStateCornerKicking extends AiState {
     @Override
     State checkConditions() {
         PlayerState playerState = player.fsm.getState();
-        if (playerState.checkId(PlayerFsm.STATE_CORNER_KICK_ANGLE)) {
+        if (playerState.checkId(STATE_CORNER_KICK_ANGLE)) {
             return null;
         }
-        if (playerState.checkId(PlayerFsm.STATE_CORNER_KICK_SPEED)) {
+        if (playerState.checkId(STATE_CORNER_KICK_SPEED)) {
             return null;
         }
         return ai.fsm.stateIdle;

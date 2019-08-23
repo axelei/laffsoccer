@@ -4,6 +4,9 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK;
+
 class AiStateKeeperKicking extends AiState {
 
     AiStateKeeperKicking(Ai ai) {
@@ -22,10 +25,10 @@ class AiStateKeeperKicking extends AiState {
     @Override
     State checkConditions() {
         PlayerState playerState = player.fsm.getState();
-        if (playerState.checkId(PlayerFsm.STATE_KEEPER_KICK_ANGLE)) {
+        if (playerState.checkId(STATE_KEEPER_KICK_ANGLE)) {
             return null;
         }
-        if (playerState.checkId(PlayerFsm.STATE_KICK)) {
+        if (playerState.checkId(STATE_KICK)) {
             return null;
         }
         return ai.fsm.stateIdle;

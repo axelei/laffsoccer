@@ -5,7 +5,7 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStateCornerKickAngle extends PlayerState {
 
     PlayerStateCornerKickAngle(Player player) {
-        super(PlayerFsm.STATE_CORNER_KICK_ANGLE, player);
+        super(PlayerFsm.Id.STATE_CORNER_KICK_ANGLE, player);
     }
 
     @Override

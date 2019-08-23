@@ -5,6 +5,8 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
+
 class MatchStateHalfTimeStop extends MatchState {
 
     MatchStateHalfTimeStop(MatchFsm fsm) {
@@ -23,7 +25,7 @@ class MatchStateHalfTimeStop extends MatchState {
         Assets.Sounds.end.play(Assets.Sounds.volume / 100f);
 
         match.resetAutomaticInputDevices();
-        match.setPlayersState(PlayerFsm.STATE_IDLE, null);
+        match.setPlayersState(STATE_IDLE, null);
     }
 
     @Override

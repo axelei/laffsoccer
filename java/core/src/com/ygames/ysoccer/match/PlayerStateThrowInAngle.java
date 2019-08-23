@@ -8,7 +8,7 @@ class PlayerStateThrowInAngle extends PlayerState {
     private int animationCountdown;
 
     PlayerStateThrowInAngle(Player player) {
-        super(PlayerFsm.STATE_THROW_IN_ANGLE, player);
+        super(PlayerFsm.Id.STATE_THROW_IN_ANGLE, player);
     }
 
     @Override

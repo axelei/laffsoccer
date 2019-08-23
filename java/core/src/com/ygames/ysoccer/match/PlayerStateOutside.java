@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerStateOutside extends PlayerState {
 
     PlayerStateOutside(Player player) {
-        super(PlayerFsm.STATE_OUTSIDE, player);
+        super(PlayerFsm.Id.STATE_OUTSIDE, player);
     }
 
     @Override

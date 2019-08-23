@@ -12,7 +12,7 @@ class PlayerStateKick extends PlayerState {
     private static int IP_TRUE = 1;
 
     PlayerStateKick(Player player) {
-        super(PlayerFsm.STATE_KICK, player);
+        super(PlayerFsm.Id.STATE_KICK, player);
     }
 
     @Override

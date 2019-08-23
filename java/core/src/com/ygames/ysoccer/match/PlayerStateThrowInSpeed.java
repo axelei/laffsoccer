@@ -8,7 +8,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
     private boolean thrown;
 
     PlayerStateThrowInSpeed(Player player) {
-        super(PlayerFsm.STATE_THROW_IN_SPEED, player);
+        super(PlayerFsm.Id.STATE_THROW_IN_SPEED, player);
     }
 
     @Override

@@ -9,7 +9,9 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.PlayerFsm.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK_OFF;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class MatchStateKickOff extends MatchState {
 
@@ -81,7 +83,7 @@ class MatchStateKickOff extends MatchState {
         }
 
         if (!move && !isKickingOff) {
-            kickOffPlayer.setState(PlayerFsm.STATE_KICK_OFF);
+            kickOffPlayer.setState(STATE_KICK_OFF);
             isKickingOff = true;
         }
     }
@@ -93,7 +95,7 @@ class MatchStateKickOff extends MatchState {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     Player player = match.team[t].lineup.get(i);
                     if (player != kickOffPlayer) {
-                        player.fsm.setState(PlayerFsm.STATE_STAND_RUN);
+                        player.fsm.setState(STATE_STAND_RUN);
                     }
                 }
             }
