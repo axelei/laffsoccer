@@ -5,8 +5,7 @@ import static com.ygames.ysoccer.match.Const.BENCH_X;
 class PlayerStateBenchOut extends PlayerState {
 
     PlayerStateBenchOut(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_BENCH_OUT;
+        super(PlayerFsm.STATE_BENCH_OUT, player);
     }
 
     @Override

@@ -6,8 +6,7 @@ class PlayerStateKeeperDivingLowDouble extends PlayerState {
     private KeeperFrame[] frames = new KeeperFrame[3];
 
     PlayerStateKeeperDivingLowDouble(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_KEEPER_DIVING_LOW_DOUBLE;
+        super(PlayerFsm.STATE_KEEPER_DIVING_LOW_DOUBLE, player);
 
         active = frames[0];
 

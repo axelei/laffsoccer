@@ -9,8 +9,7 @@ class PlayerStateCornerKickSpeed extends PlayerState {
     private boolean thrown;
 
     PlayerStateCornerKickSpeed(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_CORNER_KICK_SPEED;
+        super(PlayerFsm.STATE_CORNER_KICK_SPEED, player);
     }
 
     @Override

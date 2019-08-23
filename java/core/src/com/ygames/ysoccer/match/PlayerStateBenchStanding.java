@@ -8,8 +8,7 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 class PlayerStateBenchStanding extends PlayerState {
 
     PlayerStateBenchStanding(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_BENCH_STANDING;
+        super(PlayerFsm.STATE_BENCH_STANDING, player);
     }
 
     @Override

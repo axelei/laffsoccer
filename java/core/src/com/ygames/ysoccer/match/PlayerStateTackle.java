@@ -10,8 +10,7 @@ class PlayerStateTackle extends PlayerState {
     private boolean hit;
 
     PlayerStateTackle(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_TACKLE;
+        super(PlayerFsm.STATE_TACKLE, player);
     }
 
     @Override

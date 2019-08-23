@@ -5,8 +5,7 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStateStandRun extends PlayerState {
 
     PlayerStateStandRun(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_STAND_RUN;
+        super(PlayerFsm.STATE_STAND_RUN, player);
     }
 
     @Override
@@ -66,7 +65,7 @@ class PlayerStateStandRun extends PlayerState {
             if (ball.owner == player) {
                 if (player.v > 0 && ball.z < 8) {
                     player.kickAngle = player.a;
-                     return player.fsm.stateKick;
+                    return player.fsm.stateKick;
                 }
                 // else head or tackle
             } else if (player.frameDistance < Const.BALL_PREDICTION) {

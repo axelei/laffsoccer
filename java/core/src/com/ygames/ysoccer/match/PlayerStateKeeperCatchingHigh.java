@@ -6,8 +6,7 @@ class PlayerStateKeeperCatchingHigh extends PlayerState {
     private KeeperFrame[] frames = new KeeperFrame[4];
 
     PlayerStateKeeperCatchingHigh(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_KEEPER_CATCHING_HIGH;
+        super(PlayerFsm.STATE_KEEPER_CATCHING_HIGH, player);
 
         active = frames[0];
 
@@ -71,7 +70,7 @@ class PlayerStateKeeperCatchingHigh extends PlayerState {
     State checkConditions() {
         if (timer >= 1.0f * Const.SECOND) {
             if (ball.holder == player) {
-                 return player.fsm.stateKeeperKickAngle;
+                return player.fsm.stateKeeperKickAngle;
             } else {
                 return player.fsm.stateKeeperPositioning;
             }

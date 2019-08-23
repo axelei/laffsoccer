@@ -3,8 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerStateIdle extends PlayerState {
 
     PlayerStateIdle(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_IDLE;
+        super(PlayerFsm.STATE_IDLE, player);
     }
 
     @Override

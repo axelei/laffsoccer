@@ -6,8 +6,7 @@ import com.ygames.ysoccer.math.Emath;
 class PlayerStateGoalScorer extends PlayerState {
 
     PlayerStateGoalScorer(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_GOAL_SCORER;
+        super(PlayerFsm.STATE_GOAL_SCORER, player);
     }
 
     @Override

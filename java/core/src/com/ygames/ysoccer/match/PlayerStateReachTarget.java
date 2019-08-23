@@ -3,8 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerStateReachTarget extends PlayerState {
 
     PlayerStateReachTarget(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_REACH_TARGET;
+        super(PlayerFsm.STATE_REACH_TARGET, player);
     }
 
     @Override

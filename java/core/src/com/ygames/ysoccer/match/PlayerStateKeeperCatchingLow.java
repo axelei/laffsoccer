@@ -6,8 +6,7 @@ class PlayerStateKeeperCatchingLow extends PlayerState {
     private KeeperFrame[] frames = new KeeperFrame[1];
 
     PlayerStateKeeperCatchingLow(Player player) {
-        super(player);
-        id = PlayerFsm.STATE_KEEPER_CATCHING_LOW;
+        super(PlayerFsm.STATE_KEEPER_CATCHING_LOW, player);
 
         active = frames[0];
 
