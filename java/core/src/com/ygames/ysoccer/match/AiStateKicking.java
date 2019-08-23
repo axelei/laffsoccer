@@ -10,7 +10,7 @@ class AiStateKicking extends AiState {
     private int duration;
 
     AiStateKicking(Ai ai) {
-        super(AiFsm.STATE_KICKING, ai);
+        super(AiFsm.Id.STATE_KICKING, ai);
     }
 
     @Override

@@ -7,7 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStateGoalKicking extends AiState {
 
     AiStateGoalKicking(Ai ai) {
-        super(AiFsm.STATE_GOAL_KICKING, ai);
+        super(AiFsm.Id.STATE_GOAL_KICKING, ai);
     }
 
     @Override

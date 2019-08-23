@@ -6,7 +6,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStatePositioning extends AiState {
 
     AiStatePositioning(Ai ai) {
-        super(AiFsm.STATE_POSITIONING, ai);
+        super(AiFsm.Id.STATE_POSITIONING, ai);
     }
 
     @Override

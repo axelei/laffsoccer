@@ -13,7 +13,6 @@ public class Ai extends InputDevice {
         this.player = player;
 
         fsm = new AiFsm(this);
-        fsm.setState(AiFsm.STATE_IDLE);
     }
 
     public void read() {

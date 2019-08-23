@@ -4,18 +4,20 @@ import com.ygames.ysoccer.framework.Ai;
 
 public class AiFsm extends Fsm {
 
-    public static final int STATE_IDLE = 1;
-    public static final int STATE_KICKING_OFF = 2;
-    public static final int STATE_POSITIONING = 3;
-    public static final int STATE_SEEKING = 4;
-    public static final int STATE_DEFENDING = 5;
-    public static final int STATE_ATTACKING = 6;
-    public static final int STATE_PASSING = 7;
-    public static final int STATE_KICKING = 8;
-    public static final int STATE_GOAL_KICKING = 9;
-    public static final int STATE_THROWING_IN = 10;
-    public static final int STATE_CORNER_KICKING = 11;
-    public static final int STATE_KEEPER_KICKING = 12;
+    enum Id {
+        STATE_IDLE,
+        STATE_KICKING_OFF,
+        STATE_POSITIONING,
+        STATE_SEEKING,
+        STATE_DEFENDING,
+        STATE_ATTACKING,
+        STATE_PASSING,
+        STATE_KICKING,
+        STATE_GOAL_KICKING,
+        STATE_THROWING_IN,
+        STATE_CORNER_KICKING,
+        STATE_KEEPER_KICKING
+    }
 
     AiStateIdle stateIdle;
     AiStateKickingOff stateKickingOff;
@@ -43,5 +45,11 @@ public class AiFsm extends Fsm {
         addState(stateThrowingIn = new AiStateThrowingIn(ai));
         addState(stateCornerKicking = new AiStateCornerKicking(ai));
         addState(stateKeeperKicking = new AiStateKeeperKicking(ai));
+
+        setState(Id.STATE_IDLE);
+    }
+
+    void setState(Id id) {
+        super.setState(id.ordinal());
     }
 }

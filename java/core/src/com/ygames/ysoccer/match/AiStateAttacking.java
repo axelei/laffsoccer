@@ -7,7 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStateAttacking extends AiState {
 
     AiStateAttacking(Ai ai) {
-        super(AiFsm.STATE_ATTACKING, ai);
+        super(AiFsm.Id.STATE_ATTACKING, ai);
     }
 
     @Override
