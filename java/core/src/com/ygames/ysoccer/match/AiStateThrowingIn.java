@@ -7,8 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStateThrowingIn extends AiState {
 
     AiStateThrowingIn(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_THROWING_IN;
+        super(AiFsm.STATE_THROWING_IN, ai);
     }
 
     @Override

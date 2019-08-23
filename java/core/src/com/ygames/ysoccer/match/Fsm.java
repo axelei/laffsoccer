@@ -11,7 +11,7 @@ class Fsm {
     protected State state;
 
     Fsm() {
-        states = new ArrayList<State>();
+        states = new ArrayList<>();
     }
 
     public State getState() {

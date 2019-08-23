@@ -9,8 +9,7 @@ class AiStatePassing extends AiState {
     private int duration;
 
     AiStatePassing(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_PASSING;
+        super(AiFsm.STATE_PASSING, ai);
     }
 
     @Override

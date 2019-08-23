@@ -7,8 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStateKeeperKicking extends AiState {
 
     AiStateKeeperKicking(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_KEEPER_KICKING;
+        super(AiFsm.STATE_KEEPER_KICKING, ai);
     }
 
     @Override

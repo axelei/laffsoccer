@@ -7,8 +7,7 @@ import com.ygames.ysoccer.math.Vector3;
 class AiStateDefending extends AiState {
 
     AiStateDefending(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_DEFENDING;
+        super(AiFsm.STATE_DEFENDING, ai);
     }
 
     @Override
@@ -36,7 +35,7 @@ class AiStateDefending extends AiState {
         if (player.match.ball.owner != null) {
             // self
             if (player.match.ball.owner == player) {
-                 return ai.fsm.stateAttacking;
+                return ai.fsm.stateAttacking;
             }
             // mate
             if (player.match.ball.owner.team == player.team) {

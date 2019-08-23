@@ -5,8 +5,7 @@ import com.ygames.ysoccer.framework.Ai;
 class AiStateIdle extends AiState {
 
     AiStateIdle(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_IDLE;
+        super(AiFsm.STATE_IDLE, ai);
     }
 
     @Override

@@ -7,7 +7,8 @@ class AiState extends State {
     final Ai ai;
     protected final Player player;
 
-    AiState(Ai ai) {
+    AiState(int id, Ai ai) {
+        this.id = id;
         this.ai = ai;
         this.player = ai.player;
     }

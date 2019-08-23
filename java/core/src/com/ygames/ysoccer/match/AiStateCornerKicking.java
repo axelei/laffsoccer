@@ -7,8 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStateCornerKicking extends AiState {
 
     AiStateCornerKicking(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_CORNER_KICKING;
+        super(AiFsm.STATE_CORNER_KICKING, ai);
     }
 
     @Override

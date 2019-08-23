@@ -6,8 +6,7 @@ import com.ygames.ysoccer.math.Emath;
 class AiStatePositioning extends AiState {
 
     AiStatePositioning(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_POSITIONING;
+        super(AiFsm.STATE_POSITIONING, ai);
     }
 
     @Override
@@ -35,12 +34,12 @@ class AiStatePositioning extends AiState {
             if (player.match.ball.owner == null) {
                 return ai.fsm.stateSeeking;
             } else if (player.match.ball.owner == player) {
-                 return ai.fsm.stateAttacking;
+                return ai.fsm.stateAttacking;
             }
         }
 
         if (player.team.bestDefender == player) {
-             return ai.fsm.stateDefending;
+            return ai.fsm.stateDefending;
         }
 
         return null;

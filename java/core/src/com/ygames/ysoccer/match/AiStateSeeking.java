@@ -7,8 +7,7 @@ import com.ygames.ysoccer.math.Vector3;
 class AiStateSeeking extends AiState {
 
     AiStateSeeking(Ai ai) {
-        super(ai);
-        id = AiFsm.STATE_SEEKING;
+        super(AiFsm.STATE_SEEKING, ai);
     }
 
     @Override
