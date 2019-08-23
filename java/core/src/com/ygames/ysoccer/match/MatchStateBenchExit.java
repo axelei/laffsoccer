@@ -10,6 +10,7 @@ import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_EXIT;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static java.lang.Math.min;
@@ -17,7 +18,7 @@ import static java.lang.Math.min;
 class MatchStateBenchExit extends MatchState {
 
     MatchStateBenchExit(MatchFsm fsm) {
-        super(MatchFsm.STATE_BENCH_EXIT, fsm);
+        super(STATE_BENCH_EXIT, fsm);
     }
 
     @Override

@@ -4,6 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
@@ -14,7 +19,7 @@ class MatchStateKeeperStop extends MatchState {
     private Team opponentTeam;
 
     MatchStateKeeperStop(MatchFsm fsm) {
-        super(MatchFsm.STATE_KEEPER_STOP, fsm);
+        super(STATE_KEEPER_STOP, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;
@@ -79,7 +84,7 @@ class MatchStateKeeperStop extends MatchState {
         if (match.ball.holder == null) {
             keeperTeam.setPlayersState(STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(STATE_STAND_RUN, null);
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
             return;
         }
 
@@ -94,7 +99,7 @@ class MatchStateKeeperStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

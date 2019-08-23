@@ -14,9 +14,10 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -27,7 +28,7 @@ class MatchStatePenaltyKick extends MatchState {
     private boolean isKicking;
 
     MatchStatePenaltyKick(MatchFsm fsm) {
-        super(MatchFsm.STATE_PENALTY_KICK, fsm);
+        super(STATE_PENALTY_KICK, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

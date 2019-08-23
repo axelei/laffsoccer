@@ -5,6 +5,9 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+
 class MatchStatePause extends MatchState {
 
     private boolean keyPause;
@@ -12,7 +15,7 @@ class MatchStatePause extends MatchState {
     private boolean resume;
 
     MatchStatePause(MatchFsm fsm) {
-        super(MatchFsm.STATE_PAUSE, fsm);
+        super(STATE_PAUSE, fsm);
 
         displayWindVane = true;
     }
@@ -43,21 +46,21 @@ class MatchStatePause extends MatchState {
     void checkConditions() {
 
         if (resume) {
-            fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+            fsm.pushAction(RESTORE_FOREGROUND);
             return;
         }
 
         // resume on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
-                fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+                fsm.pushAction(RESTORE_FOREGROUND);
                 return;
             }
         }
 
         // resume on 'Esc'
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+            fsm.pushAction(RESTORE_FOREGROUND);
             return;
         }
     }

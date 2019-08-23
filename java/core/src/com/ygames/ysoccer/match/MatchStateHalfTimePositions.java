@@ -4,6 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_POSITIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_WAIT;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
 class MatchStateHalfTimePositions extends MatchState {
@@ -11,7 +16,7 @@ class MatchStateHalfTimePositions extends MatchState {
     private boolean move;
 
     MatchStateHalfTimePositions(MatchFsm fsm) {
-        super(MatchFsm.STATE_HALF_TIME_POSITIONS, fsm);
+        super(STATE_HALF_TIME_POSITIONS, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -62,7 +67,7 @@ class MatchStateHalfTimePositions extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_WAIT);
+            fsm.pushAction(NEW_FOREGROUND, STATE_HALF_TIME_WAIT);
             return;
         }
 
@@ -77,7 +82,7 @@ class MatchStateHalfTimePositions extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

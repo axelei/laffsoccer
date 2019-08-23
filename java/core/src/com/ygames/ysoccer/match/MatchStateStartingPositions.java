@@ -7,6 +7,12 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KICK_OFF;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_STARTING_POSITIONS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateStartingPositions extends MatchState {
@@ -14,7 +20,7 @@ class MatchStateStartingPositions extends MatchState {
     private boolean move;
 
     MatchStateStartingPositions(MatchFsm fsm) {
-        super(MatchFsm.STATE_STARTING_POSITIONS, fsm);
+        super(STATE_STARTING_POSITIONS, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -52,7 +58,7 @@ class MatchStateStartingPositions extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_KICK_OFF);
+            fsm.pushAction(NEW_FOREGROUND, STATE_KICK_OFF);
             return;
         }
 
@@ -67,7 +73,7 @@ class MatchStateStartingPositions extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -77,7 +83,7 @@ class MatchStateStartingPositions extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }

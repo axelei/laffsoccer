@@ -7,6 +7,11 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_STARTING_POSITIONS;
 
 class MatchStateGoal extends MatchState {
 
@@ -14,7 +19,7 @@ class MatchStateGoal extends MatchState {
     private boolean replayDone;
 
     MatchStateGoal(MatchFsm fsm) {
-        super(MatchFsm.STATE_GOAL, fsm);
+        super(STATE_GOAL, fsm);
 
         displayGoalScorer = true;
         displayTime = true;
@@ -115,7 +120,7 @@ class MatchStateGoal extends MatchState {
                 matchRenderer.actionCamera.offx = 0;
                 matchRenderer.actionCamera.offy = 0;
 
-                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+                fsm.pushAction(NEW_FOREGROUND, STATE_STARTING_POSITIONS);
                 return;
             }
         }
@@ -132,7 +137,7 @@ class MatchStateGoal extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

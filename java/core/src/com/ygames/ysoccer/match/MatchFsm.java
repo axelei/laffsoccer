@@ -13,12 +13,12 @@ public class MatchFsm {
 
     private class Action {
         ActionType type;
-        int stateId;
+        Id stateId;
         int timer;
 
-        Action(ActionType type, int state) {
+        Action(ActionType type, Id stateId) {
             this.type = type;
-            this.stateId = state;
+            this.stateId = stateId;
         }
 
         void update() {
@@ -55,51 +55,53 @@ public class MatchFsm {
 
     MatchKeys matchKeys;
 
-    static final int STATE_INTRO = 1;
-    static final int STATE_STARTING_POSITIONS = 2;
-    static final int STATE_KICK_OFF = 3;
-    static final int STATE_MAIN = 4;
-    static final int STATE_THROW_IN_STOP = 5;
-    static final int STATE_THROW_IN = 6;
-    static final int STATE_GOAL_KICK_STOP = 7;
-    static final int STATE_GOAL_KICK = 8;
-    static final int STATE_CORNER_STOP = 9;
-    static final int STATE_CORNER_KICK = 10;
-    static final int STATE_KEEPER_STOP = 11;
-    static final int STATE_GOAL = 12;
-    static final int STATE_HALF_TIME_STOP = 13;
-    static final int STATE_HALF_TIME_POSITIONS = 14;
-    static final int STATE_HALF_TIME_WAIT = 15;
-    static final int STATE_HALF_TIME_ENTER = 16;
-    static final int STATE_FULL_TIME_STOP = 17;
-    static final int STATE_EXTRA_TIME_STOP = 18;
-    static final int STATE_HALF_EXTRA_TIME_STOP = 19;
-    static final int STATE_FULL_EXTRA_TIME_STOP = 20;
-    static final int STATE_END_POSITIONS = 21;
-    static final int STATE_END = 22;
-    static final int STATE_REPLAY = 23;
-    static final int STATE_PAUSE = 24;
-    static final int STATE_HIGHLIGHTS = 25;
-    static final int STATE_BENCH_ENTER = 26;
-    static final int STATE_BENCH_EXIT = 27;
-    static final int STATE_BENCH_SUBSTITUTIONS = 28;
-    static final int STATE_BENCH_FORMATION = 29;
-    static final int STATE_BENCH_TACTICS = 30;
-    static final int STATE_FREE_KICK_STOP = 31;
-    static final int STATE_FREE_KICK = 32;
-    static final int STATE_PENALTY_KICK_STOP = 33;
-    static final int STATE_PENALTY_KICK = 34;
+    enum Id {
+        STATE_INTRO,
+        STATE_STARTING_POSITIONS,
+        STATE_KICK_OFF,
+        STATE_MAIN,
+        STATE_THROW_IN_STOP,
+        STATE_THROW_IN,
+        STATE_GOAL_KICK_STOP,
+        STATE_GOAL_KICK,
+        STATE_CORNER_STOP,
+        STATE_CORNER_KICK,
+        STATE_KEEPER_STOP,
+        STATE_GOAL,
+        STATE_HALF_TIME_STOP,
+        STATE_HALF_TIME_POSITIONS,
+        STATE_HALF_TIME_WAIT,
+        STATE_HALF_TIME_ENTER,
+        STATE_FULL_TIME_STOP,
+        STATE_EXTRA_TIME_STOP,
+        STATE_HALF_EXTRA_TIME_STOP,
+        STATE_FULL_EXTRA_TIME_STOP,
+        STATE_END_POSITIONS,
+        STATE_END,
+        STATE_REPLAY,
+        STATE_PAUSE,
+        STATE_HIGHLIGHTS,
+        STATE_BENCH_ENTER,
+        STATE_BENCH_EXIT,
+        STATE_BENCH_SUBSTITUTIONS,
+        STATE_BENCH_FORMATION,
+        STATE_BENCH_TACTICS,
+        STATE_FREE_KICK_STOP,
+        STATE_FREE_KICK,
+        STATE_PENALTY_KICK_STOP,
+        STATE_PENALTY_KICK
+    }
 
     MatchFsm(Match match) {
         this.match = match;
         this.matchKeys = new MatchKeys(match);
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
-        states = new ArrayList<MatchState>();
+        states = new ArrayList<>();
         benchStatus = new BenchStatus();
         benchStatus.targetX = -TOUCH_LINE - 140 + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
         benchStatus.targetY = -20;
 
-        actions = new ArrayDeque<Action>();
+        actions = new ArrayDeque<>();
 
         states.add(new MatchStateIntro(this));
         states.add(new MatchStateStartingPositions(this));
@@ -231,7 +233,7 @@ public class MatchFsm {
         }
     }
 
-    private MatchState searchState(int id) {
+    private MatchState searchState(Id id) {
         for (int i = 0; i < states.size(); i++) {
             MatchState s = states.get(i);
             if (s.checkId(id)) {
@@ -243,11 +245,11 @@ public class MatchFsm {
     }
 
     public void pushAction(ActionType type) {
-        pushAction(type, 0);
+        pushAction(type, null);
     }
 
-    public void pushAction(ActionType type, int state) {
-        actions.offer(new Action(type, state));
+    public void pushAction(ActionType type, Id stateId) {
+        actions.offer(new Action(type, stateId));
     }
 
     class BenchStatus {

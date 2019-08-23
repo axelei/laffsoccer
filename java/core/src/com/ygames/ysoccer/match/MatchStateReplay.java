@@ -6,6 +6,11 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+
 class MatchStateReplay extends MatchState {
 
     private int subframe0;
@@ -17,7 +22,7 @@ class MatchStateReplay extends MatchState {
     private InputDevice inputDevice;
 
     MatchStateReplay(MatchFsm fsm) {
-        super(MatchFsm.STATE_REPLAY, fsm);
+        super(STATE_REPLAY, fsm);
 
         displayWindVane = true;
     }
@@ -133,14 +138,14 @@ class MatchStateReplay extends MatchState {
     private void quit() {
         // if final frame is different from starting frame then fade out
         if (position != Const.REPLAY_SUBFRAMES) {
-            fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
+            fsm.pushAction(FADE_OUT);
         }
 
-        fsm.pushAction(MatchFsm.ActionType.RESTORE_FOREGROUND);
+        fsm.pushAction(RESTORE_FOREGROUND);
 
         // if final frame is different from starting frame then fade in
         if (position != Const.REPLAY_SUBFRAMES) {
-            fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+            fsm.pushAction(FADE_IN);
         }
     }
 }

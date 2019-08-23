@@ -13,8 +13,9 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_EXIT;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_EXIT;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateBenchEnter extends MatchState {
@@ -23,7 +24,7 @@ class MatchStateBenchEnter extends MatchState {
     private float cameraY;
 
     MatchStateBenchEnter(MatchFsm fsm) {
-        super(MatchFsm.STATE_BENCH_ENTER, fsm);
+        super(STATE_BENCH_ENTER, fsm);
     }
 
     @Override

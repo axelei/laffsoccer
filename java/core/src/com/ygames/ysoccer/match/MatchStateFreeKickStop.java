@@ -9,6 +9,12 @@ import com.ygames.ysoccer.framework.InputDevice;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
@@ -19,7 +25,7 @@ class MatchStateFreeKickStop extends MatchState {
     private boolean move;
 
     MatchStateFreeKickStop(MatchFsm fsm) {
-        super(MatchFsm.STATE_FREE_KICK_STOP, fsm);
+        super(STATE_FREE_KICK_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -97,7 +103,7 @@ class MatchStateFreeKickStop extends MatchState {
             match.ball.setPosition(match.foul.position.x, match.foul.position.y, 0);
             match.ball.updatePrediction();
 
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_FREE_KICK);
+            fsm.pushAction(NEW_FOREGROUND, STATE_FREE_KICK);
             return;
         }
 
@@ -112,7 +118,7 @@ class MatchStateFreeKickStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -122,7 +128,7 @@ class MatchStateFreeKickStop extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }

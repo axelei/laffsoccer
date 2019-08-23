@@ -14,6 +14,9 @@ import java.util.List;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_INTRO;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_MATE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_SCORER;
@@ -380,8 +383,8 @@ public class Match implements Json.Serializable {
     }
 
     public void start() {
-        fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_INTRO);
-        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+        fsm.pushAction(NEW_FOREGROUND, STATE_INTRO);
+        fsm.pushAction(FADE_IN);
     }
 
     void findNearest() {

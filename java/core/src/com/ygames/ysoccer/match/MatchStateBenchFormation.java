@@ -12,8 +12,9 @@ import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_TACTICS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_FORMATION;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_TACTICS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_STANDING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
@@ -21,7 +22,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 class MatchStateBenchFormation extends MatchState {
 
     MatchStateBenchFormation(MatchFsm fsm) {
-        super(MatchFsm.STATE_BENCH_FORMATION, fsm);
+        super(STATE_BENCH_FORMATION, fsm);
     }
 
     @Override

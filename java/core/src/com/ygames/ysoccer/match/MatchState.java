@@ -1,9 +1,14 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+
 class MatchState {
 
     protected int timer;
-    protected final int id;
+    protected final MatchFsm.Id id;
     protected MatchFsm fsm;
 
     boolean displayControlledPlayer;
@@ -22,7 +27,7 @@ class MatchState {
     protected Match match;
     protected MatchRenderer matchRenderer;
 
-    MatchState(int id, MatchFsm fsm) {
+    MatchState(MatchFsm.Id id, MatchFsm fsm) {
         this.id = id;
         this.fsm = fsm;
         this.match = fsm.getMatch();
@@ -47,7 +52,7 @@ class MatchState {
     void checkConditions() {
     }
 
-    boolean checkId(int id) {
+    boolean checkId(MatchFsm.Id id) {
         return (this.id == id);
     }
 
@@ -55,9 +60,9 @@ class MatchState {
     }
 
     void replay() {
-        fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-        fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_REPLAY);
-        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+        fsm.pushAction(FADE_OUT);
+        fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);
+        fsm.pushAction(FADE_IN);
     }
 
     void quitMatch() {

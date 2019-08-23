@@ -6,6 +6,11 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_STARTING_POSITIONS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateHalfTimeEnter extends MatchState {
@@ -13,7 +18,7 @@ class MatchStateHalfTimeEnter extends MatchState {
     private int enteringCounter;
 
     MatchStateHalfTimeEnter(MatchFsm fsm) {
-        super(MatchFsm.STATE_HALF_TIME_ENTER, fsm);
+        super(STATE_HALF_TIME_ENTER, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -62,7 +67,7 @@ class MatchStateHalfTimeEnter extends MatchState {
     @Override
     void checkConditions() {
         if (enteringCounter / 4 == Const.TEAM_SIZE) {
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            fsm.pushAction(NEW_FOREGROUND, STATE_STARTING_POSITIONS);
             return;
         }
 
@@ -77,7 +82,7 @@ class MatchStateHalfTimeEnter extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

@@ -5,12 +5,17 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FULL_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 
 class MatchStateFullTimeStop extends MatchState {
 
     MatchStateFullTimeStop(MatchFsm fsm) {
-        super(MatchFsm.STATE_FULL_TIME_STOP, fsm);
+        super(STATE_FULL_TIME_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -60,7 +65,7 @@ class MatchStateFullTimeStop extends MatchState {
     @Override
     void checkConditions() {
         if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END_POSITIONS);
+            fsm.pushAction(NEW_FOREGROUND, STATE_END_POSITIONS);
             return;
         }
 
@@ -75,7 +80,7 @@ class MatchStateFullTimeStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

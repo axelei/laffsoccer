@@ -9,12 +9,13 @@ import com.ygames.ysoccer.math.Emath;
 import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_TACTICS;
 
 class MatchStateBenchTactics extends MatchState {
 
     MatchStateBenchTactics(MatchFsm fsm) {
-        super(MatchFsm.STATE_BENCH_TACTICS, fsm);
+        super(STATE_BENCH_TACTICS, fsm);
     }
 
     @Override

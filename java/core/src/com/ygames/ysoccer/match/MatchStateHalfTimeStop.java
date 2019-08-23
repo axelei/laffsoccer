@@ -5,12 +5,17 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_POSITIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 
 class MatchStateHalfTimeStop extends MatchState {
 
     MatchStateHalfTimeStop(MatchFsm fsm) {
-        super(MatchFsm.STATE_HALF_TIME_STOP, fsm);
+        super(STATE_HALF_TIME_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -57,7 +62,7 @@ class MatchStateHalfTimeStop extends MatchState {
     @Override
     void checkConditions() {
         if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HALF_TIME_POSITIONS);
+            fsm.pushAction(NEW_FOREGROUND, STATE_HALF_TIME_POSITIONS);
             return;
         }
 
@@ -72,7 +77,7 @@ class MatchStateHalfTimeStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

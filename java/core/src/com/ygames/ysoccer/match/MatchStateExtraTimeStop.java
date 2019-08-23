@@ -7,12 +7,17 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_EXTRA_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_STARTING_POSITIONS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 
 class MatchStateExtraTimeStop extends MatchState {
 
     MatchStateExtraTimeStop(MatchFsm fsm) {
-        super(MatchFsm.STATE_EXTRA_TIME_STOP, fsm);
+        super(STATE_EXTRA_TIME_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -76,7 +81,7 @@ class MatchStateExtraTimeStop extends MatchState {
             match.period = Match.Period.FIRST_EXTRA_TIME;
             match.clock = match.length;
 
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_STARTING_POSITIONS);
+            fsm.pushAction(NEW_FOREGROUND, STATE_STARTING_POSITIONS);
             return;
         }
 
@@ -91,7 +96,7 @@ class MatchStateExtraTimeStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

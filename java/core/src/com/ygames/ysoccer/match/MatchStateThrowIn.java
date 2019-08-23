@@ -8,6 +8,12 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_THROW_IN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
@@ -18,7 +24,7 @@ class MatchStateThrowIn extends MatchState {
     private boolean isThrowingIn;
 
     MatchStateThrowIn(MatchFsm fsm) {
-        super(MatchFsm.STATE_THROW_IN, fsm);
+        super(STATE_THROW_IN, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;
@@ -95,7 +101,7 @@ class MatchStateThrowIn extends MatchState {
     void checkConditions() {
         if (Math.abs(match.ball.x) < Const.TOUCH_LINE) {
             match.setPlayersState(STATE_STAND_RUN, throwInPlayer);
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
             return;
         }
 
@@ -110,7 +116,7 @@ class MatchStateThrowIn extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -120,7 +126,7 @@ class MatchStateThrowIn extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }

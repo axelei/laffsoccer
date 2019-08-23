@@ -9,7 +9,12 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK_OFF;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KICK_OFF;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
@@ -19,7 +24,7 @@ class MatchStateKickOff extends MatchState {
     private boolean isKickingOff;
 
     MatchStateKickOff(MatchFsm fsm) {
-        super(MatchFsm.STATE_KICK_OFF, fsm);
+        super(STATE_KICK_OFF, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;
@@ -82,7 +87,7 @@ class MatchStateKickOff extends MatchState {
         }
 
         if (!move && !isKickingOff) {
-            kickOffPlayer.setState(STATE_KICK_OFF);
+            kickOffPlayer.setState(PlayerFsm.Id.STATE_KICK_OFF);
             isKickingOff = true;
         }
     }
@@ -98,7 +103,7 @@ class MatchStateKickOff extends MatchState {
                     }
                 }
             }
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
             return;
         }
 
@@ -113,7 +118,7 @@ class MatchStateKickOff extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -123,7 +128,7 @@ class MatchStateKickOff extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }

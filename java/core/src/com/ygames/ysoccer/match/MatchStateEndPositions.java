@@ -4,6 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
 class MatchStateEndPositions extends MatchState {
@@ -11,7 +19,7 @@ class MatchStateEndPositions extends MatchState {
     boolean move;
 
     MatchStateEndPositions(MatchFsm fsm) {
-        super(MatchFsm.STATE_END_POSITIONS, fsm);
+        super(STATE_END_POSITIONS, fsm);
 
         displayScore = true;
     }
@@ -61,12 +69,12 @@ class MatchStateEndPositions extends MatchState {
         if (!move) {
             if (match.recorder.hasHighlights()) {
                 match.recorder.restart();
-                fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-                fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+                fsm.pushAction(FADE_OUT);
+                fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
+                fsm.pushAction(FADE_IN);
                 return;
             } else {
-                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
+                fsm.pushAction(NEW_FOREGROUND, STATE_END);
                 return;
             }
         }
@@ -82,7 +90,7 @@ class MatchStateEndPositions extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
     }

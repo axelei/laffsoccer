@@ -6,6 +6,11 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
 
 class MatchStateHighlights extends MatchState {
 
@@ -15,7 +20,7 @@ class MatchStateHighlights extends MatchState {
     private boolean slowMotion;
 
     MatchStateHighlights(MatchFsm fsm) {
-        super(MatchFsm.STATE_HIGHLIGHTS, fsm);
+        super(STATE_HIGHLIGHTS, fsm);
 
         displayWindVane = true;
     }
@@ -85,17 +90,17 @@ class MatchStateHighlights extends MatchState {
                 quit();
                 return;
             } else {
-                fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-                fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_HIGHLIGHTS);
-                fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+                fsm.pushAction(FADE_OUT);
+                fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
+                fsm.pushAction(FADE_IN);
                 return;
             }
         }
     }
 
     void quit() {
-        fsm.pushAction(MatchFsm.ActionType.FADE_OUT);
-        fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_END);
-        fsm.pushAction(MatchFsm.ActionType.FADE_IN);
+        fsm.pushAction(FADE_OUT);
+        fsm.pushAction(NEW_FOREGROUND, STATE_END);
+        fsm.pushAction(FADE_IN);
     }
 }

@@ -8,6 +8,12 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateGoalKickStop extends MatchState {
@@ -16,7 +22,7 @@ class MatchStateGoalKickStop extends MatchState {
     private int ySide;
 
     MatchStateGoalKickStop(MatchFsm fsm) {
-        super(MatchFsm.STATE_GOAL_KICK_STOP, fsm);
+        super(STATE_GOAL_KICK_STOP, fsm);
 
         displayTime = true;
         displayWindVane = true;
@@ -85,7 +91,7 @@ class MatchStateGoalKickStop extends MatchState {
             match.ball.setPosition((Const.GOAL_AREA_W / 2) * xSide, (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide, 0);
             match.ball.updatePrediction();
 
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_GOAL_KICK);
+            fsm.pushAction(NEW_FOREGROUND, STATE_GOAL_KICK);
             return;
         }
 
@@ -100,7 +106,7 @@ class MatchStateGoalKickStop extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -110,7 +116,7 @@ class MatchStateGoalKickStop extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }

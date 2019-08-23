@@ -9,7 +9,12 @@ import com.ygames.ysoccer.framework.InputDevice;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_KICK;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
@@ -19,7 +24,7 @@ class MatchStateGoalKick extends MatchState {
     private boolean isKicking;
 
     MatchStateGoalKick(MatchFsm fsm) {
-        super(MatchFsm.STATE_GOAL_KICK, fsm);
+        super(STATE_GOAL_KICK, fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;
@@ -82,7 +87,7 @@ class MatchStateGoalKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            goalKickPlayer.fsm.setState(STATE_GOAL_KICK);
+            goalKickPlayer.fsm.setState(PlayerFsm.Id.STATE_GOAL_KICK);
             if (goalKickPlayer.team.usesAutomaticInputDevice()) {
                 goalKickPlayer.inputDevice = goalKickPlayer.team.inputDevice;
             }
@@ -94,7 +99,7 @@ class MatchStateGoalKick extends MatchState {
     void checkConditions() {
         if (match.ball.v > 0) {
             match.setPlayersState(STATE_STAND_RUN, goalKickPlayer);
-            fsm.pushAction(MatchFsm.ActionType.NEW_FOREGROUND, MatchFsm.STATE_MAIN);
+            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
             return;
         }
 
@@ -109,7 +114,7 @@ class MatchStateGoalKick extends MatchState {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_PAUSE);
+            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
 
@@ -119,7 +124,7 @@ class MatchStateGoalKick extends MatchState {
             if (inputDevice != null) {
                 fsm.benchStatus.team = match.team[t];
                 fsm.benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(MatchFsm.ActionType.HOLD_FOREGROUND, MatchFsm.STATE_BENCH_ENTER);
+                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }
         }
