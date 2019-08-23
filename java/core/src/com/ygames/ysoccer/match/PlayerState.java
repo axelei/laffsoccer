@@ -11,6 +11,8 @@ class PlayerState extends State {
         this.fsm = fsm;
         this.player = player;
         this.ball = player.ball;
+
+        fsm.addState(this);
     }
 
     boolean checkId(PlayerFsm.Id id) {
