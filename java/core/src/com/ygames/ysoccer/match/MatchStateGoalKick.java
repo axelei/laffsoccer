@@ -45,7 +45,7 @@ class MatchStateGoalKick extends MatchState {
 
         goalKickPlayer = fsm.goalKickTeam.lineupAtPosition(0);
         goalKickPlayer.setTarget(match.ball.x, match.ball.y + 6 * match.ball.ySide);
-        goalKickPlayer.fsm.setState(STATE_REACH_TARGET);
+        goalKickPlayer.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -87,7 +87,7 @@ class MatchStateGoalKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            goalKickPlayer.fsm.setState(PlayerFsm.Id.STATE_GOAL_KICK);
+            goalKickPlayer.setState(PlayerFsm.Id.STATE_GOAL_KICK);
             if (goalKickPlayer.team.usesAutomaticInputDevice()) {
                 goalKickPlayer.inputDevice = goalKickPlayer.team.inputDevice;
             }

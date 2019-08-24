@@ -63,7 +63,7 @@ class MatchStateCornerKick extends MatchState {
         cornerKickPlayer = fsm.cornerKickTeam.near1;
 
         cornerKickPlayer.setTarget(match.ball.x + 7 * match.ball.xSide, match.ball.y);
-        cornerKickPlayer.fsm.setState(STATE_REACH_TARGET);
+        cornerKickPlayer.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -102,7 +102,7 @@ class MatchStateCornerKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            cornerKickPlayer.fsm.setState(STATE_CORNER_KICK_ANGLE);
+            cornerKickPlayer.setState(STATE_CORNER_KICK_ANGLE);
             if (cornerKickPlayer.team.usesAutomaticInputDevice()) {
                 cornerKickPlayer.inputDevice = cornerKickPlayer.team.inputDevice;
             }

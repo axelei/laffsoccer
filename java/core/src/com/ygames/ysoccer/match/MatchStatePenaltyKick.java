@@ -46,7 +46,7 @@ class MatchStatePenaltyKick extends MatchState {
 
         penaltyKicker = match.foul.opponent.team.lastOfLineup();
         penaltyKicker.setTarget(match.ball.x, match.ball.y - 7 * match.ball.ySide);
-        penaltyKicker.fsm.setState(STATE_REACH_TARGET);
+        penaltyKicker.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -86,7 +86,7 @@ class MatchStatePenaltyKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            penaltyKicker.fsm.setState(STATE_PENALTY_KICK_ANGLE);
+            penaltyKicker.setState(STATE_PENALTY_KICK_ANGLE);
             if (penaltyKicker.team.usesAutomaticInputDevice()) {
                 penaltyKicker.inputDevice = penaltyKicker.team.inputDevice;
             }

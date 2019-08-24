@@ -21,7 +21,7 @@ class AiStateIdle extends AiState {
 
     @Override
     State checkConditions() {
-        State playerState = player.fsm.getState();
+        State playerState = player.getState();
         if (playerState != null) {
             switch (PlayerFsm.Id.values()[playerState.id]) {
                 case STATE_KICK_OFF:

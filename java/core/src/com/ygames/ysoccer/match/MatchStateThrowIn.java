@@ -45,7 +45,7 @@ class MatchStateThrowIn extends MatchState {
         throwInPlayer = fsm.throwInTeam.near1;
 
         throwInPlayer.setTarget(match.ball.x, match.ball.y);
-        throwInPlayer.fsm.setState(STATE_REACH_TARGET);
+        throwInPlayer.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -89,7 +89,7 @@ class MatchStateThrowIn extends MatchState {
 
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            throwInPlayer.fsm.setState(STATE_THROW_IN_ANGLE);
+            throwInPlayer.setState(STATE_THROW_IN_ANGLE);
             if (throwInPlayer.team.usesAutomaticInputDevice()) {
                 throwInPlayer.inputDevice = throwInPlayer.team.inputDevice;
             }

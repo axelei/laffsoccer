@@ -42,7 +42,7 @@ class MatchStateBenchEnter extends MatchState {
                 if (match.team[t].usesAutomaticInputDevice()) {
                     player.setInputDevice(player.ai);
                 }
-                player.fsm.setState(STATE_REACH_TARGET);
+                player.setState(STATE_REACH_TARGET);
             }
         }
 

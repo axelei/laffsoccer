@@ -73,7 +73,7 @@ class MatchStateBenchFormation extends MatchState {
                 fsm.benchStatus.swapPosition = -1;
                 if (fsm.benchStatus.substPosition != -1) {
                     Player player = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
-                    player.fsm.setState(STATE_BENCH_STANDING);
+                    player.setState(STATE_BENCH_STANDING);
 
                     fsm.benchStatus.selectedPosition = fsm.benchStatus.substPosition - TEAM_SIZE;
                     fsm.benchStatus.substPosition = -1;
@@ -109,8 +109,8 @@ class MatchStateBenchFormation extends MatchState {
                         fsm.benchStatus.team.substitutionsCount += 1;
 
                         i2 = fsm.benchStatus.team.playerIndexAtPosition(fsm.benchStatus.substPosition);
-                        fsm.benchStatus.team.lineup.get(i1).fsm.setState(STATE_OUTSIDE);
-                        fsm.benchStatus.team.lineup.get(i2).fsm.setState(STATE_REACH_TARGET);
+                        fsm.benchStatus.team.lineup.get(i1).setState(STATE_OUTSIDE);
+                        fsm.benchStatus.team.lineup.get(i2).setState(STATE_REACH_TARGET);
                         fsm.benchStatus.substPosition = -1;
 
                         if (match.settings.commentary) {
@@ -127,8 +127,8 @@ class MatchStateBenchFormation extends MatchState {
                         coach.timer = 500;
 
                         i2 = fsm.benchStatus.team.playerIndexAtPosition(fsm.benchStatus.swapPosition);
-                        fsm.benchStatus.team.lineup.get(i1).fsm.setState(STATE_REACH_TARGET);
-                        fsm.benchStatus.team.lineup.get(i2).fsm.setState(STATE_REACH_TARGET);
+                        fsm.benchStatus.team.lineup.get(i1).setState(STATE_REACH_TARGET);
+                        fsm.benchStatus.team.lineup.get(i2).setState(STATE_REACH_TARGET);
                         fsm.benchStatus.swapPosition = -1;
 
                         if (match.settings.commentary) {
@@ -165,7 +165,7 @@ class MatchStateBenchFormation extends MatchState {
             fsm.benchStatus.swapPosition = -1;
             if (fsm.benchStatus.substPosition != -1) {
                 Player player = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
-                player.fsm.setState(STATE_BENCH_STANDING);
+                player.setState(STATE_BENCH_STANDING);
 
                 fsm.benchStatus.selectedPosition = fsm.benchStatus.substPosition - TEAM_SIZE;
                 fsm.benchStatus.substPosition = -1;

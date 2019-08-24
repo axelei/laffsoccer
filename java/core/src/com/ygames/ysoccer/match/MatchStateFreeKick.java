@@ -54,7 +54,7 @@ class MatchStateFreeKick extends MatchState {
 
         freeKickPlayer.tx = match.ball.x - 7 * freeKickPlayer.team.side + 1;
         freeKickPlayer.ty = match.ball.y + 1;
-        freeKickPlayer.fsm.setState(STATE_REACH_TARGET);
+        freeKickPlayer.setState(STATE_REACH_TARGET);
     }
 
     @Override

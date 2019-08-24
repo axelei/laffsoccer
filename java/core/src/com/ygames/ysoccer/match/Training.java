@@ -82,7 +82,7 @@ public class Training {
         int len = team.lineup.size();
         for (int i = 0; i < len; i++) {
             Player player = team.lineup.get(i);
-            player.fsm.setState(STATE_OUTSIDE);
+            player.setState(STATE_OUTSIDE);
 
             player.x = 18 * (-team.lineup.size() + 2 * i) + 8 * Emath.cos(70 * (player.number));
             player.y = team.side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));
@@ -93,9 +93,9 @@ public class Training {
 
             // set states
             if (i == 0 && player.role == GOALKEEPER) {
-                player.fsm.setState(STATE_KEEPER_POSITIONING);
+                player.setState(STATE_KEEPER_POSITIONING);
             } else {
-                player.fsm.setState(STATE_STAND_RUN);
+                player.setState(STATE_STAND_RUN);
             }
         }
 

@@ -45,7 +45,7 @@ class MatchStateHalfTimeEnter extends MatchState {
                     for (int t = HOME; t <= AWAY; t++) {
                         int i = enteringCounter / 4;
                         Player player = match.team[t].lineup.get(i);
-                        player.fsm.setState(STATE_REACH_TARGET);
+                        player.setState(STATE_REACH_TARGET);
                     }
                 }
                 enteringCounter += 1;

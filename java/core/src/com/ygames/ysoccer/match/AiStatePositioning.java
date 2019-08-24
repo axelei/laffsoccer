@@ -27,7 +27,7 @@ class AiStatePositioning extends AiState {
 
     @Override
     State checkConditions() {
-        PlayerState playerState = player.fsm.getState();
+        PlayerState playerState = player.getState();
         if ((playerState != null)
                 && !playerState.checkId(STATE_STAND_RUN)) {
             return fsm.stateIdle;

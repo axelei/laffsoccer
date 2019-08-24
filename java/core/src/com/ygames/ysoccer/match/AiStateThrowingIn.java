@@ -25,7 +25,7 @@ class AiStateThrowingIn extends AiState {
 
     @Override
     State checkConditions() {
-        PlayerState playerState = player.fsm.getState();
+        PlayerState playerState = player.getState();
         if (playerState.checkId(STATE_THROW_IN_ANGLE)) {
             return null;
         }

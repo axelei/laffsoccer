@@ -858,7 +858,7 @@ public class MatchRenderer extends Renderer {
         for (int pos = 0; pos < benchSize; pos++) {
             Player player = match.fsm.benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
 
-            if (!player.fsm.getState().checkId(STATE_OUTSIDE)) {
+            if (!player.getState().checkId(STATE_OUTSIDE)) {
                 Assets.font10.draw(batch, player.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
                 Assets.font10.draw(batch, player.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
                 Assets.font10.draw(batch, Assets.strings.get(player.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);

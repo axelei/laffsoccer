@@ -381,7 +381,7 @@ public class Team implements Json.Serializable {
         for (int i = 0; i < TEAM_SIZE; i++) {
             Player player = lineup.get(i);
             if (player != excluded) {
-                player.fsm.setState(stateId);
+                player.setState(stateId);
             }
         }
     }
@@ -414,7 +414,7 @@ public class Team implements Json.Serializable {
         if (controlled == null) {
 
             // assign input device
-            if (near1.fsm.getState().checkId(STATE_STAND_RUN)) {
+            if (near1.getState().checkId(STATE_STAND_RUN)) {
                 near1.inputDevice = inputDevice;
             }
 
@@ -424,8 +424,8 @@ public class Team implements Json.Serializable {
             if ((controlled != near1)
                     && (controlled.frameDistance == Const.BALL_PREDICTION)) {
 
-                if (controlled.fsm.getState().checkId(STATE_STAND_RUN)
-                        && near1.fsm.getState().checkId(STATE_STAND_RUN)) {
+                if (controlled.getState().checkId(STATE_STAND_RUN)
+                        && near1.getState().checkId(STATE_STAND_RUN)) {
                     near1.inputDevice = inputDevice;
                     controlled.inputDevice = controlled.ai;
                 }
@@ -435,8 +435,8 @@ public class Team implements Json.Serializable {
 
             // move input_device to ball owner
             if ((controlled != match.ball.owner)
-                    && controlled.fsm.getState().checkId(STATE_STAND_RUN)
-                    && near1.fsm.getState().checkId(STATE_STAND_RUN)) {
+                    && controlled.getState().checkId(STATE_STAND_RUN)
+                    && near1.getState().checkId(STATE_STAND_RUN)) {
                 match.ball.owner.inputDevice = inputDevice;
                 controlled.inputDevice = controlled.ai;
             }
@@ -446,8 +446,8 @@ public class Team implements Json.Serializable {
             if ((bestDefender != null)
                     && (bestDefender != controlled)
                     && (bestDefender.defendDistance < 0.95f * controlled.defendDistance)
-                    && controlled.fsm.getState().checkId(STATE_STAND_RUN)
-                    && bestDefender.fsm.getState().checkId(STATE_STAND_RUN)) {
+                    && controlled.getState().checkId(STATE_STAND_RUN)
+                    && bestDefender.getState().checkId(STATE_STAND_RUN)) {
                 bestDefender.inputDevice = inputDevice;
                 controlled.inputDevice = controlled.ai;
             }

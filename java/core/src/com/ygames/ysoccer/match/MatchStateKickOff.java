@@ -58,7 +58,7 @@ class MatchStateKickOff extends MatchState {
     void onPause() {
         super.onPause();
         match.setStartingPositions();
-        kickOffPlayer.fsm.setState(STATE_REACH_TARGET);
+        kickOffPlayer.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -99,7 +99,7 @@ class MatchStateKickOff extends MatchState {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     Player player = match.team[t].lineup.get(i);
                     if (player != kickOffPlayer) {
-                        player.fsm.setState(STATE_STAND_RUN);
+                        player.setState(STATE_STAND_RUN);
                     }
                 }
             }

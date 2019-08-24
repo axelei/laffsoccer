@@ -253,7 +253,7 @@ public class Match implements Json.Serializable {
         for (int i = 0; i < len; i++) {
             Player player = team.lineup.get(i);
             if (i < Const.TEAM_SIZE) {
-                player.fsm.setState(STATE_OUTSIDE);
+                player.setState(STATE_OUTSIDE);
 
                 player.x = Const.TOUCH_LINE + 80;
                 player.y = 10 * team.side + 20;
@@ -268,7 +268,7 @@ public class Match implements Json.Serializable {
                 } else {
                     player.y = BENCH_Y_DOWN + 14 * (i - Const.TEAM_SIZE) + 46;
                 }
-                player.fsm.setState(STATE_BENCH_SITTING);
+                player.setState(STATE_BENCH_SITTING);
             }
         }
 
@@ -286,8 +286,8 @@ public class Match implements Json.Serializable {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     if (i < timer / enterDelay) {
                         Player player = team[t].lineup.get(i);
-                        if (player.fsm.getState().checkId(STATE_OUTSIDE)) {
-                            player.fsm.setState(STATE_REACH_TARGET);
+                        if (player.getState().checkId(STATE_OUTSIDE)) {
+                            player.setState(STATE_REACH_TARGET);
                             player.tx = Const.TOUCH_LINE - 300 + 7 * i;
                             player.ty = 60 * team[t].side - ((i % 2 == 0) ? 20 : 0);
                         }
@@ -305,8 +305,8 @@ public class Match implements Json.Serializable {
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
-                if (player.fsm.getState().checkId(STATE_IDLE)) {
-                    player.fsm.setState(STATE_PHOTO);
+                if (player.getState().checkId(STATE_IDLE)) {
+                    player.setState(STATE_PHOTO);
                 }
             }
         }
@@ -334,16 +334,16 @@ public class Match implements Json.Serializable {
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
-                PlayerState playerState = player.fsm.getState();
+                PlayerState playerState = player.getState();
                 if (playerState.checkId(STATE_STAND_RUN) || playerState.checkId(STATE_KEEPER_POSITIONING)) {
                     player.tx = player.x;
                     player.ty = player.y;
                     if ((t == goal.player.team.index) && (player == goal.player)) {
-                        player.fsm.setState(STATE_GOAL_SCORER);
+                        player.setState(STATE_GOAL_SCORER);
                     } else if ((t == goal.player.team.index) && (Emath.dist(player.x, player.y, goal.player.x, goal.player.y) < 150 * Assets.random.nextInt(4))) {
-                        player.fsm.setState(STATE_GOAL_MATE);
+                        player.setState(STATE_GOAL_MATE);
                     } else {
-                        player.fsm.setState(STATE_REACH_TARGET);
+                        player.setState(STATE_REACH_TARGET);
                     }
                 }
             }
@@ -354,7 +354,7 @@ public class Match implements Json.Serializable {
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < Const.TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
-                PlayerState playerState = player.fsm.getState();
+                PlayerState playerState = player.getState();
                 if (playerState.checkId(STATE_STAND_RUN) || playerState.checkId(STATE_KEEPER_POSITIONING)) {
                     player.tx = player.x;
                     player.ty = player.y;

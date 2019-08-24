@@ -31,8 +31,8 @@ class MatchStateBenchExit extends MatchState {
         int substitutes = min(match.settings.benchSize, fsm.benchStatus.team.lineup.size() - TEAM_SIZE);
         for (int i = 0; i < substitutes; i++) {
             Player player = fsm.benchStatus.team.lineup.get(TEAM_SIZE + i);
-            if (!player.fsm.getState().checkId(STATE_OUTSIDE)) {
-                player.fsm.setState(STATE_BENCH_SITTING);
+            if (!player.getState().checkId(STATE_OUTSIDE)) {
+                player.setState(STATE_BENCH_SITTING);
             }
         }
     }

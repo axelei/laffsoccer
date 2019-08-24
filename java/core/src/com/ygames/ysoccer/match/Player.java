@@ -89,7 +89,7 @@ public class Player implements Json.Serializable {
     Training training;
     MatchSettings matchSettings;
     Ball ball;
-    PlayerFsm fsm;
+    private PlayerFsm fsm;
 
     float speed;
 
@@ -177,6 +177,10 @@ public class Player implements Json.Serializable {
     void setTarget(float tx, float ty) {
         this.tx = tx;
         this.ty = ty;
+    }
+
+    public PlayerState getState() {
+        return fsm.getState();
     }
 
     public void setState(PlayerFsm.Id id) {

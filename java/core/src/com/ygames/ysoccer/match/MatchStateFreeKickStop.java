@@ -68,7 +68,7 @@ class MatchStateFreeKickStop extends MatchState {
                 if (player.checkState(STATE_TACKLE) || player.checkState(STATE_DOWN)) {
                     allPlayersReachingTarget = false;
                 } else {
-                    player.fsm.setState(STATE_REACH_TARGET);
+                    player.setState(STATE_REACH_TARGET);
                 }
             }
         }

@@ -28,7 +28,7 @@ class AiStateDefending extends AiState {
     @Override
     State checkConditions() {
         // player has changed its state
-        PlayerState playerState = player.fsm.getState();
+        PlayerState playerState = player.getState();
         if ((playerState != null)
                 && !playerState.checkId(STATE_STAND_RUN)) {
             return fsm.stateIdle;

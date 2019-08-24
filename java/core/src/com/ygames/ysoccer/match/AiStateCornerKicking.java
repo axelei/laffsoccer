@@ -25,7 +25,7 @@ class AiStateCornerKicking extends AiState {
 
     @Override
     State checkConditions() {
-        PlayerState playerState = player.fsm.getState();
+        PlayerState playerState = player.getState();
         if (playerState.checkId(STATE_CORNER_KICK_ANGLE)) {
             return null;
         }
