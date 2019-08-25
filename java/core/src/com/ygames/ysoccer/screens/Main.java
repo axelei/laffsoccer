@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -20,7 +21,6 @@ import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.framework.Font.Align.LEFT;
-import static com.ygames.ysoccer.framework.Font.Align.RIGHT;
 import static com.ygames.ysoccer.framework.GLGame.State.COMPETITION;
 import static com.ygames.ysoccer.framework.GLGame.State.NONE;
 import static com.ygames.ysoccer.framework.GLGame.State.TRAINING;
@@ -92,10 +92,7 @@ public class Main extends GLScreen {
         w.setPosition(20, game.gui.HEIGHT - 29);
         widgets.add(w);
 
-        // homepage
-        w = new Label();
-        w.setText("YSOCCER.SF.NET", RIGHT, font10);
-        w.setGeometry(game.gui.WIDTH - 300, game.gui.HEIGHT - 20, 300, 20);
+        w = new HomePageButton();
         widgets.add(w);
 
         if (game.settings.development) {
@@ -312,6 +309,19 @@ public class Main extends GLScreen {
             } else {
                 game.setScreen(new LoadCompetition(game));
             }
+        }
+    }
+
+    private class HomePageButton extends Button {
+
+        HomePageButton() {
+            setGeometry(game.gui.WIDTH - 172, game.gui.HEIGHT - 20, 172, 20);
+            setText("YSOCCER.SF.NET", LEFT, font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            Gdx.net.openURI("http://ysoccer.sf.net");
         }
     }
 
