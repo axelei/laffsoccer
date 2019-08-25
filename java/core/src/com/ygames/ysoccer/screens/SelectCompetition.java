@@ -16,7 +16,8 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
+
+import static com.ygames.ysoccer.framework.Assets.gettext;
 
 class SelectCompetition extends GLScreen {
 
@@ -30,11 +31,11 @@ class SelectCompetition extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("CHOOSE PRESET COMPETITION"), game.stateColor.body);
+        w = new TitleBar(gettext("CHOOSE PRESET COMPETITION"), game.stateColor.body);
         widgets.add(w);
 
         // Breadcrumb
-        List<Widget> breadcrumb = new ArrayList<Widget>();
+        ArrayList<Widget> breadcrumb = new ArrayList<>();
 
         FileHandle fh = currentFolder;
         boolean isDataRoot;
@@ -54,7 +55,7 @@ class SelectCompetition extends GLScreen {
         widgets.addAll(breadcrumb);
 
         // Competitions buttons
-        List<Widget> competitionsList = new ArrayList<Widget>();
+        ArrayList<Widget> competitionsList = new ArrayList<>();
 
         FileHandle tournamentsFile = currentFolder.child("tournaments.json");
         if (tournamentsFile.exists()) {
@@ -90,8 +91,8 @@ class SelectCompetition extends GLScreen {
         }
 
         // Folders buttons
-        List<Widget> foldersList = new ArrayList<Widget>();
-        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(currentFolder.list()));
+        ArrayList<Widget> foldersList = new ArrayList<>();
+        ArrayList<FileHandle> files = new ArrayList<>(Arrays.asList(currentFolder.list()));
         Collections.sort(files, Assets.fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
@@ -104,12 +105,12 @@ class SelectCompetition extends GLScreen {
         int topY = 380 - 28 * (competitionsList.size() + Widget.getRows(foldersList)) / 2;
         int centerY = topY + 28 * competitionsList.size() / 2;
         if (competitionsList.size() > 0) {
-            Widget.arrange(game.gui.WIDTH, centerY, 28, competitionsList);
+            Widget.arrange(game.gui.WIDTH, centerY, 28, 20, competitionsList);
             setSelectedWidget(competitionsList.get(0));
         }
         centerY += 28 * (competitionsList.size() + Widget.getRows(foldersList)) / 2 + 6;
         if (foldersList.size() > 0) {
-            Widget.arrange(game.gui.WIDTH, centerY, 28, foldersList);
+            Widget.arrange(game.gui.WIDTH, centerY, 28, 20, foldersList);
             setSelectedWidget(foldersList.get(0));
         }
 
@@ -187,7 +188,7 @@ class SelectCompetition extends GLScreen {
 
         AbortButton() {
             setColors(0xC8000E);
-            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), Font.Align.CENTER, Assets.font14);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
 

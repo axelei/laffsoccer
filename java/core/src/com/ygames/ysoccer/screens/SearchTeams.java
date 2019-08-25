@@ -14,8 +14,8 @@ import com.ygames.ysoccer.match.Team;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
 class SearchTeams extends GLScreen {
@@ -29,8 +29,8 @@ class SearchTeams extends GLScreen {
     private Button searchInputButton;
 
     private int fileIndex;
-    private List<String> teamFiles;
-    private List<TeamButton> teamList;
+    private ArrayList<String> teamFiles;
+    private ArrayList<TeamButton> teamList;
 
     private boolean reachedMaxResults = false;
 
@@ -41,11 +41,11 @@ class SearchTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.gettext("SEARCH.SEARCH TEAMS"), game.stateColor.body);
+        w = new TitleBar(gettext("SEARCH.SEARCH TEAMS"), game.stateColor.body);
         widgets.add(w);
 
         // Breadcrumb
-        List<Widget> breadcrumb = new ArrayList<>();
+        ArrayList<Widget> breadcrumb = new ArrayList<>();
         if (navigation.league != null) {
             w = new BreadCrumbLeagueLabel();
             breadcrumb.add(w);
@@ -152,7 +152,7 @@ class SearchTeams extends GLScreen {
         public void refresh() {
             switch (state) {
                 case START:
-                    setText("(" + teamFiles.size() + " " + Assets.gettext("TEAMS") + ")");
+                    setText("(" + teamFiles.size() + " " + gettext("TEAMS") + ")");
                     break;
 
                 case SEARCHING:
@@ -161,9 +161,9 @@ class SearchTeams extends GLScreen {
 
                 case FINISHED:
                     if (reachedMaxResults) {
-                        setText(Assets.gettext("SEARCH.FIRST %n TEAMS FOUND").replaceFirst("%n", MAX_RESULTS + ""));
+                        setText(gettext("SEARCH.FIRST %n TEAMS FOUND").replaceFirst("%n", MAX_RESULTS + ""));
                     } else {
-                        setText(Assets.gettext("SEARCH.%n TEAMS FOUND").replaceFirst("%n", teamList.size() + ""));
+                        setText(gettext("SEARCH.%n TEAMS FOUND").replaceFirst("%n", teamList.size() + ""));
                     }
                     break;
             }
@@ -197,7 +197,7 @@ class SearchTeams extends GLScreen {
         ExitButton() {
             setColors(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.gettext("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -283,7 +283,19 @@ class SearchTeams extends GLScreen {
         @Override
         public void onFire1Down() {
             navigation.folder = folder;
-            game.setScreen(new EditTeam(game, team, false));
+            navigation.league = team.league;
+
+            switch (game.getState()) {
+                case EDIT:
+                    game.setScreen(new EditTeam(game, team, false));
+                    break;
+
+                case TRAINING:
+                    navigation.team = team;
+                    game.setScreen(new SetupTraining(game));
+                    break;
+            }
+
         }
     }
 }

@@ -80,7 +80,7 @@ public abstract class Widget {
     }
 
     public void setColors(WidgetColor color) {
-        if(color == null) {
+        if (color == null) {
             this.color.set(null, null, null);
         } else {
             this.color.set(color.body, color.lightBorder, color.darkBorder);
@@ -197,30 +197,47 @@ public abstract class Widget {
         this.dirty = dirty;
     }
 
-    public static void arrange(int width, int centerY, int rowHeight, List<Widget> widgetList) {
+    public static void arrange(int width, int centerY, int rowHeight, int spacing, List<Widget> widgetList) {
         Widget w;
+        int maxRows = 8;
         int len = widgetList.size();
-        int col1 = Emath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
-        int col2 = Emath.floor(len / 3.0) + ((len % 3) > 0 ? 1 : 0);
-        for (int i = 0; i < len; i++) {
-            w = widgetList.get(i);
-            if (len <= 8) {
+        if (len <= maxRows) {
+            for (int i = 0; i < len; i++) {
+                w = widgetList.get(i);
                 w.x = (width - w.w) / 2;
                 w.y = centerY - rowHeight * len / 2 + rowHeight * i;
-            } else {
+            }
+        } else if (len <= 2 * maxRows) {
+            int col1 = Emath.floor((len + 1) / 2.0);
+            for (int i = 0; i < len; i++) {
+                w = widgetList.get(i);
                 if (i < col1) {
-                    w.x = (width - 3 * w.w) / 2 - 20;
+                    w.x = (width - 2 * w.w - spacing) / 2;
+                    w.y = centerY + (int) (rowHeight * (i - col1 / 2.0));
+                } else {
+                    w.x = (width + spacing) / 2;
+                    w.y = centerY + (int) (rowHeight * ((i - col1) - col1 / 2.0));
+                }
+            }
+        } else {
+            int col1 = Emath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
+            int col2 = Emath.floor(len / 3.0) + ((len % 3) > 0 ? 1 : 0);
+            for (int i = 0; i < len; i++) {
+                w = widgetList.get(i);
+                if (i < col1) {
+                    w.x = (width - 3 * w.w) / 2 - spacing;
                     w.y = centerY + (int) (rowHeight * (i - col2 / 2.0));
                 } else if (i < col1 + col2) {
                     w.x = (width - w.w) / 2;
                     w.y = centerY + (int) (rowHeight * ((i - col1) - col2 / 2.0));
                 } else {
-                    w.x = (width + w.w) / 2 + 20;
+                    w.x = (width + w.w) / 2 + spacing;
                     w.y = centerY + (int) (rowHeight * ((i - col1 - col2) - col2 / 2.0));
                 }
             }
         }
     }
+
 
     public static int getRows(List<Widget> widgetList) {
         int len = widgetList.size();

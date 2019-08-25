@@ -1,8 +1,6 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -14,8 +12,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.teamFilenameFilter;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
+import static com.ygames.ysoccer.gui.Widget.widgetComparatorByText;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Team.ControlMode.COACH;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
+import static com.ygames.ysoccer.match.Team.ControlMode.PLAYER;
+import static com.ygames.ysoccer.match.Team.ControlMode.UNDEFINED;
 
 class AllSelectedTeams extends GLScreen {
 
@@ -29,7 +38,7 @@ class AllSelectedTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("ALL SELECTED TEAMS FOR") + " " + navigation.competition.name, game.stateColor.body);
+        w = new TitleBar(gettext("ALL SELECTED TEAMS FOR") + " " + navigation.competition.name, game.stateColor.body);
         widgets.add(w);
 
         w = new ComputerButton();
@@ -50,15 +59,15 @@ class AllSelectedTeams extends GLScreen {
         w = new CoachLabel();
         widgets.add(w);
 
-        List<Widget> list = new ArrayList<Widget>();
+        List<Widget> list = new ArrayList<>();
         for (Team team : game.teamList) {
             if (team == null) continue;
             w = new TeamButton(team);
             list.add(w);
             widgets.add(w);
         }
-        Collections.sort(list, Widget.widgetComparatorByText);
-        Widget.arrange(game.gui.WIDTH, 392, 29, list);
+        Collections.sort(list, widgetComparatorByText);
+        Widget.arrange(game.gui.WIDTH, 392, 29, 20, list);
 
         w = new ChangeTeamsButton();
         widgets.add(w);
@@ -90,7 +99,7 @@ class AllSelectedTeams extends GLScreen {
 
         ComputerLabel() {
             setGeometry((game.gui.WIDTH - 3 * 260) / 2 - 20 + 80, 112, 180, 26);
-            setText(Assets.strings.get("CONTROL MODE.COMPUTER"), Font.Align.LEFT, Assets.font10);
+            setText(gettext("CONTROL MODE.COMPUTER"), LEFT, font10);
             setActive(false);
         }
     }
@@ -108,7 +117,7 @@ class AllSelectedTeams extends GLScreen {
 
         PlayerCoachLabel() {
             setGeometry((game.gui.WIDTH - 260) / 2 + 80, 112, 180, 26);
-            setText(Assets.strings.get("CONTROL MODE.PLAYER-COACH"), Font.Align.LEFT, Assets.font10);
+            setText(gettext("CONTROL MODE.PLAYER-COACH"), LEFT, font10);
             setActive(false);
         }
     }
@@ -126,7 +135,7 @@ class AllSelectedTeams extends GLScreen {
 
         CoachLabel() {
             setGeometry((game.gui.WIDTH + 260) / 2 + 20 + 80, 112, 180, 26);
-            setText(Assets.strings.get("CONTROL MODE.COACH"), Font.Align.LEFT, Assets.font10);
+            setText(gettext("CONTROL MODE.COACH"), LEFT, font10);
             setActive(false);
         }
     }
@@ -139,7 +148,7 @@ class AllSelectedTeams extends GLScreen {
             this.team = team;
             setSize(300, 28);
             updateColors();
-            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setText(team.name, CENTER, font14);
         }
 
         @Override
@@ -147,20 +156,20 @@ class AllSelectedTeams extends GLScreen {
             if (game.teamList.contains(team)) {
                 switch (team.controlMode) {
                     case COMPUTER:
-                        team.controlMode = Team.ControlMode.PLAYER;
+                        team.controlMode = PLAYER;
                         break;
 
                     case PLAYER:
-                        team.controlMode = Team.ControlMode.COACH;
+                        team.controlMode = COACH;
                         break;
 
                     case COACH:
-                        team.controlMode = Team.ControlMode.UNDEFINED;
+                        team.controlMode = UNDEFINED;
                         game.teamList.removeTeam(team);
                         break;
                 }
             } else {
-                team.controlMode = Team.ControlMode.COMPUTER;
+                team.controlMode = COMPUTER;
                 game.teamList.addTeam(team);
             }
             updateColors();
@@ -199,17 +208,22 @@ class AllSelectedTeams extends GLScreen {
         @Override
         public void refresh() {
             int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
-            setText(Assets.strings.get((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
-            FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
+            /*TODO
+            if (navigation.folder.equals(favouritesFile)) {
+                game.setScreen(new SelectFavourites(game));
+            } else {*/
+            FileHandle[] teamFileHandles = navigation.folder.list(teamFilenameFilter);
             if (teamFileHandles.length > 0) {
                 game.setScreen(new SelectTeams(game));
             } else {
                 game.setScreen(new SelectFolder(game));
             }
+            /*}*/
         }
     }
 
@@ -218,7 +232,7 @@ class AllSelectedTeams extends GLScreen {
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E);
-            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), CENTER, font14);
         }
 
         @Override
@@ -231,7 +245,7 @@ class AllSelectedTeams extends GLScreen {
 
         PlayButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 660, 360, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -240,32 +254,32 @@ class AllSelectedTeams extends GLScreen {
             if (diff == 0) {
                 switch (navigation.competition.type) {
                     case FRIENDLY:
-                        setText(Assets.strings.get("PLAY FRIENDLY"));
+                        setText(gettext("PLAY FRIENDLY"));
                         break;
 
                     case LEAGUE:
-                        setText(Assets.strings.get("PLAY LEAGUE"));
+                        setText(gettext("PLAY LEAGUE"));
                         break;
 
                     case CUP:
-                        setText(Assets.strings.get("PLAY CUP"));
+                        setText(gettext("PLAY CUP"));
                         break;
 
                     case TOURNAMENT:
-                        setText(Assets.strings.get("PLAY TOURNAMENT"));
+                        setText(gettext("PLAY TOURNAMENT"));
                         break;
                 }
                 setColors(0x138B21, 0x1BC12F, 0x004814);
                 setActive(true);
             } else {
                 if (diff > 1) {
-                    setText(Assets.strings.get("SELECT %n MORE TEAMS").replace("%n", "" + diff));
+                    setText(gettext("SELECT %n MORE TEAMS").replace("%n", "" + diff));
                 } else if (diff == 1) {
-                    setText(Assets.strings.get("SELECT 1 MORE TEAM"));
+                    setText(gettext("SELECT 1 MORE TEAM"));
                 } else if (diff == -1) {
-                    setText(Assets.strings.get("SELECT 1 LESS TEAM"));
+                    setText(gettext("SELECT 1 LESS TEAM"));
                 } else {
-                    setText(Assets.strings.get("SELECT %n LESS TEAMS").replace("%n", "" + (-diff)));
+                    setText(gettext("SELECT %n LESS TEAMS").replace("%n", "" + (-diff)));
                 }
                 setColors(null);
                 setActive(false);
@@ -292,13 +306,13 @@ class AllSelectedTeams extends GLScreen {
                     awayTeam.releaseNonAiInputDevices();
 
                     // choose the menu to set
-                    if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+                    if (homeTeam.controlMode != COMPUTER) {
                         if (lastFireInputDevice != null) {
                             homeTeam.setInputDevice(lastFireInputDevice);
                         }
                         navigation.team = homeTeam;
                         game.setScreen(new SetTeam(game));
-                    } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+                    } else if (awayTeam.controlMode != COMPUTER) {
                         if (lastFireInputDevice != null) {
                             awayTeam.setInputDevice(lastFireInputDevice);
                         }

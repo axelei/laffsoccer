@@ -60,6 +60,8 @@ public class Assets {
     public static Json json;
     public static int[] calendars = new int[4600];
     public static List<String> associations;
+    public static FileHandle favouritesFile;
+    public static ArrayList<String> favourites;
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
     public static List<String> hairStyles;
@@ -219,6 +221,10 @@ public class Assets {
         json.setOutputType(JsonWriter.OutputType.json);
         json.setUsePrototypes(false);
         loadCalendars();
+
+        favouritesFile = teamsRootFolder.child("favourites.json");
+        favourites = loadFavourites();
+
         associations = new ArrayList<String>(Arrays.asList(Const.associations));
         loadTactics();
         loadKits();
@@ -300,6 +306,19 @@ public class Assets {
                 } catch (IOException e) {
                 }
         }
+    }
+
+    private static ArrayList<String> loadFavourites() {
+        if (favouritesFile.exists()) {
+            return Assets.json.fromJson(ArrayList.class, String.class, favouritesFile.readString("UTF-8"));
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
+    public static void saveFavourites() {
+        String json = Assets.json.toJson(favourites, ArrayList.class, String.class);
+        favouritesFile.writeString(json, false, "UTF-8");
     }
 
     public static Comparator<FileHandle> fileComparatorByName = new CompareFileHandlesByName();
@@ -823,6 +842,13 @@ public class Assets {
 
     public static String getRelativeTeamPath(FileHandle fileHandle) {
         return fileHandle.path().replaceFirst(teamsRootFolder.path(), "");
+    }
+
+    public static FileHandle getTeamFirstFolder(FileHandle fh) {
+        while (!fh.parent().equals(Assets.teamsRootFolder)) {
+            fh = fh.parent();
+        }
+        return fh;
     }
 
     public static FilenameFilter teamFilenameFilter = new FilenameFilter() {

@@ -2,8 +2,6 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -17,6 +15,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.fileComparatorByName;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.tacticsFolder;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+
 class LoadTactics extends GLScreen {
 
     LoadTactics(GLGame game) {
@@ -26,21 +30,21 @@ class LoadTactics extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("LOAD EDITED TACTICS"), 0xBA9206);
+        w = new TitleBar(gettext("LOAD EDITED TACTICS"), 0xBA9206);
         widgets.add(w);
 
         // read tactics files
-        List<FileHandle> files = Arrays.asList(Assets.tacticsFolder.list(".TAC"));
-        Collections.sort(files, Assets.fileComparatorByName);
+        List<FileHandle> files = Arrays.asList(tacticsFolder.list(".TAC"));
+        Collections.sort(files, fileComparatorByName);
 
-        List<Widget> list = new ArrayList<Widget>();
+        ArrayList<Widget> list = new ArrayList<>();
         for (FileHandle file : files) {
             w = new TacticsButton(file.nameWithoutExtension());
             list.add(w);
             widgets.add(w);
         }
 
-        Widget.arrange(game.gui.WIDTH, 280, 42, list);
+        Widget.arrange(game.gui.WIDTH, 280, 42, 20, list);
 
         if (list.size() > 0) {
             setSelectedWidget(list.get(0));
@@ -52,7 +56,7 @@ class LoadTactics extends GLScreen {
             w.setSize(80, 36);
             w.setPosition(widget.x + 165, widget.y);
             w.setColors(0x98691E, 0xC88B28, 0x3E2600);
-            w.setText("TACT", Font.Align.CENTER, Assets.font14);
+            w.setText("TACT", CENTER, font14);
             w.setActive(false);
             widgets.add(w);
         }
@@ -73,7 +77,7 @@ class LoadTactics extends GLScreen {
             this.name = name;
             setSize(245, 36);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
-            setText(name, Font.Align.CENTER, Assets.font14);
+            setText(name, CENTER, font14);
         }
 
         @Override
@@ -82,7 +86,7 @@ class LoadTactics extends GLScreen {
             tactics.copyFrom(game.editedTactics);
             game.tacticsUndo.push(tactics);
 
-            InputStream in = Assets.tacticsFolder.child(name + ".TAC").read();
+            InputStream in = tacticsFolder.child(name + ".TAC").read();
             try {
                 game.editedTactics.loadFile(in);
             } catch (IOException e) {
@@ -96,10 +100,10 @@ class LoadTactics extends GLScreen {
 
     private class AbortButton extends Button {
 
-        public AbortButton() {
+        AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
-            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), CENTER, font14);
         }
 
         @Override

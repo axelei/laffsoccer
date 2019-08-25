@@ -40,15 +40,26 @@ class SelectTeams extends GLScreen {
         widgets.add(w);
         titleButton = w;
 
-        List<Widget> list = new ArrayList<Widget>();
+        List<Widget> list = new ArrayList<>();
 
-        List<String> leagues = new ArrayList<String>();
+        List<String> leagues = new ArrayList<>();
+        boolean singleLeague = false;
         FileHandle leaguesFile = navigation.folder.child("leagues.json");
-        if (navigation.league == null && leaguesFile.exists()) {
+        if (leaguesFile.exists()) {
             leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
+            if (leagues.size() == 1) {
+                singleLeague = true;
+            }
+            if (navigation.league == null) {
+                if (singleLeague) {
+                    navigation.league = leagues.get(0);
+                }
+            } else {
+                leagues.clear();
+            }
         }
 
-        ArrayList<Team> teamList = new ArrayList<Team>();
+        ArrayList<Team> teamList = new ArrayList<>();
         FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
         for (FileHandle teamFileHandle : teamFileHandles) {
             Team team = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
@@ -68,7 +79,7 @@ class SelectTeams extends GLScreen {
                 list.add(leagueButton);
                 widgets.add(leagueButton);
             }
-            Widget.arrange(game.gui.WIDTH, 392, 34, list);
+            Widget.arrange(game.gui.WIDTH, 392, 34, 20, list);
             setSelectedWidget(list.get(0));
         }
 
@@ -104,13 +115,9 @@ class SelectTeams extends GLScreen {
 
             if (list.size() > 0) {
                 Collections.sort(list, Widget.widgetComparatorByText);
-                Widget.arrange(game.gui.WIDTH, 392, 29, list);
+                Widget.arrange(game.gui.WIDTH, 392, 29, 20, list);
                 setSelectedWidget(list.get(0));
             }
-
-            w = new PlayButton();
-            widgets.add(w);
-            playButton = w;
 
             w = new CalendarButton();
             widgets.add(w);
@@ -127,7 +134,7 @@ class SelectTeams extends GLScreen {
         boolean isDataRoot;
         do {
             isDataRoot = fh.equals(Assets.teamsRootFolder);
-            boolean disabled = (navigation.league == null && fh == navigation.folder);
+            boolean disabled = (fh == navigation.folder) && (navigation.league == null || singleLeague);
             w = new BreadCrumbButton(fh, isDataRoot, disabled);
             breadcrumb.add(w);
             fh = fh.parent();
@@ -150,6 +157,10 @@ class SelectTeams extends GLScreen {
         if (selectedWidget == null) {
             setSelectedWidget(w);
         }
+
+        w = new PlayButton();
+        widgets.add(w);
+        playButton = w;
     }
 
     private class TitleBar extends Button {
@@ -205,6 +216,7 @@ class SelectTeams extends GLScreen {
                 game.setScreen(new SelectTeams(game));
             } else {
                 navigation.folder = fh;
+                navigation.league = null;
                 game.setScreen(new SelectFolder(game));
             }
         }
@@ -381,6 +393,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void refresh() {
+            setVisible(game.teamList.numberOfTeams() > 0);
             int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
             if (diff == 0) {
                 switch (navigation.competition.type) {

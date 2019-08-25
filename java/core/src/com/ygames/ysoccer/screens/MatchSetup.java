@@ -1,9 +1,8 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -16,6 +15,12 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.competitions.Competition.Type.FRIENDLY;
+import static com.ygames.ysoccer.competitions.Competition.Type.TEST_MATCH;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.teamFilenameFilter;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
@@ -109,7 +114,7 @@ class MatchSetup extends GLScreen {
         TimeLabel() {
             setColors(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 130 - 40 / 2, 300, 40);
-            setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("TIME"), CENTER, font14);
             setActive(false);
         }
     }
@@ -131,20 +136,20 @@ class MatchSetup extends GLScreen {
     private class TimeButton extends Button {
 
         TimeButton() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY ||
-                    navigation.competition.type == Competition.Type.TEST_MATCH) {
+            if (navigation.competition.type == FRIENDLY ||
+                    navigation.competition.type == TEST_MATCH) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
                 setActive(false);
             }
             setGeometry(game.gui.WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(MatchSettings.getTimeLabel(matchSettings.time)));
+            setText(gettext(MatchSettings.getTimeLabel(matchSettings.time)));
         }
 
         @Override
@@ -169,7 +174,7 @@ class MatchSetup extends GLScreen {
         PitchTypeLabel() {
             setColors(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 200 - 40 / 2, 300, 40);
-            setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("PITCH TYPE"), CENTER, font14);
             setActive(false);
         }
     }
@@ -191,20 +196,20 @@ class MatchSetup extends GLScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY ||
-                    navigation.competition.type == Competition.Type.TEST_MATCH) {
+            if (navigation.competition.type == FRIENDLY ||
+                    navigation.competition.type == TEST_MATCH) {
                 setColors(0x1F1F95);
             } else {
                 setColors(0x666666);
                 setActive(false);
             }
             setGeometry(game.gui.WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Pitch.names[matchSettings.pitchType.ordinal()]));
+            setText(gettext(Pitch.names[matchSettings.pitchType.ordinal()]));
         }
 
         @Override
@@ -231,7 +236,7 @@ class MatchSetup extends GLScreen {
         WeatherLabel() {
             setColors(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 270 - 40 / 2, 300, 40);
-            setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("WEATHER"), CENTER, font14);
             setActive(false);
         }
     }
@@ -255,20 +260,20 @@ class MatchSetup extends GLScreen {
         WeatherButton() {
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setGeometry(game.gui.WIDTH / 2 + 65, 270 - 40 / 2, 300, 40);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
         public void refresh() {
-            if (navigation.competition.type == Competition.Type.FRIENDLY ||
-                    navigation.competition.type == Competition.Type.TEST_MATCH) {
+            if (navigation.competition.type == FRIENDLY ||
+                    navigation.competition.type == TEST_MATCH) {
                 setColors(0x1F1F95);
                 setActive(true);
             } else {
                 setColors(0x666666);
                 setActive(false);
             }
-            setText(Assets.strings.get(matchSettings.getWeatherLabel()));
+            setText(gettext(matchSettings.getWeatherLabel()));
         }
 
         @Override
@@ -285,7 +290,7 @@ class MatchSetup extends GLScreen {
             int sign = teamIndex == 0 ? -1 : 1;
             setGeometry((game.gui.WIDTH - 500) / 2 + (500 / 2 + 20) * sign, 326, 500, 42);
             setColors(0x1F1F95);
-            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setText(team.name, CENTER, font14);
             setActive(false);
         }
     }
@@ -354,7 +359,7 @@ class MatchSetup extends GLScreen {
         PlayMatchButton() {
             setGeometry((game.gui.WIDTH - 240) / 2, 510, 240, 50);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
-            setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("PLAY MATCH"), CENTER, font14);
         }
 
         @Override
@@ -368,14 +373,24 @@ class MatchSetup extends GLScreen {
         ExitButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
             switch (navigation.competition.type) {
                 case FRIENDLY:
-                    game.setScreen(new SelectTeams(game));
+                    /* TODO
+                    if (navigation.folder.equals(favouritesFile)) {
+                        game.setScreen(new SelectFavourites(game));
+                    } else {*/
+                    FileHandle[] teamFileHandles = navigation.folder.list(teamFilenameFilter);
+                    if (teamFileHandles.length > 0) {
+                        game.setScreen(new SelectTeams(game));
+                    } else {
+                        game.setScreen(new SelectFolder(game));
+                    }
+                    /*}*/
                     break;
 
                 case LEAGUE:

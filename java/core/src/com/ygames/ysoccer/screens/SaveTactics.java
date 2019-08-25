@@ -17,11 +17,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.framework.GLGame.State.NONE;
 
 class SaveTactics extends GLScreen {
 
-    String filename;
+    private String filename;
 
     SaveTactics(GLGame game) {
         super(game);
@@ -32,21 +33,21 @@ class SaveTactics extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("SAVE TACTICS"), 0xBA9206);
+        w = new TitleBar(gettext("SAVE TACTICS"), 0xBA9206);
         widgets.add(w);
 
         // read tactics files
         List<FileHandle> files = Arrays.asList(Assets.tacticsFolder.list(".TAC"));
         Collections.sort(files, Assets.fileComparatorByName);
 
-        List<Widget> list = new ArrayList<Widget>();
+        List<Widget> list = new ArrayList<>();
         for (FileHandle file : files) {
             w = new TacticsButton(file.nameWithoutExtension());
             list.add(w);
             widgets.add(w);
         }
 
-        Widget.arrange(game.gui.WIDTH, 280, 42, list);
+        Widget.arrange(game.gui.WIDTH, 280, 42, 20, list);
 
         for (Widget widget : list) {
             widget.w = 160;
@@ -95,7 +96,7 @@ class SaveTactics extends GLScreen {
 
         FilenameLabel() {
             setGeometry(game.gui.WIDTH / 2 - 180, 500, 180, 36);
-            setText(Assets.strings.get("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
+            setText(gettext("FILENAME") + ":", Font.Align.RIGHT, Assets.font14);
         }
     }
 
@@ -119,7 +120,7 @@ class SaveTactics extends GLScreen {
         SaveButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 590, 180, 36);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("SAVE"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -130,10 +131,10 @@ class SaveTactics extends GLScreen {
 
     private class AbortButton extends Button {
 
-        public AbortButton() {
+        AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xDC0000, 0xFF4141, 0x8C0000);
-            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
         @Override

@@ -3,9 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -14,6 +12,16 @@ import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
 
+import static com.ygames.ysoccer.competitions.Competition.Category.DIY_COMPETITION;
+import static com.ygames.ysoccer.competitions.Competition.Category.PRESET_COMPETITION;
+import static com.ygames.ysoccer.framework.Assets.competitionsRootFolder;
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
+import static com.ygames.ysoccer.framework.Font.Align.RIGHT;
+import static com.ygames.ysoccer.framework.GLGame.State.COMPETITION;
 import static com.ygames.ysoccer.framework.GLGame.State.NONE;
 import static com.ygames.ysoccer.framework.GLGame.State.TRAINING;
 
@@ -26,6 +34,9 @@ public class Main extends GLScreen {
 
         game.teamList.clear();
         game.setState(NONE, null);
+        navigation.folder = Assets.teamsRootFolder;
+        navigation.league = null;
+        navigation.team = null;
 
         Widget w;
 
@@ -77,13 +88,13 @@ public class Main extends GLScreen {
 
         // release date
         w = new Label();
-        w.setText("", Font.Align.LEFT, Assets.font10);
+        w.setText("", LEFT, font10);
         w.setPosition(20, game.gui.HEIGHT - 29);
         widgets.add(w);
 
         // homepage
         w = new Label();
-        w.setText("YSOCCER.SF.NET", Font.Align.RIGHT, Assets.font10);
+        w.setText("YSOCCER.SF.NET", RIGHT, font10);
         w.setGeometry(game.gui.WIDTH - 300, game.gui.HEIGHT - 20, 300, 20);
         widgets.add(w);
 
@@ -98,7 +109,7 @@ public class Main extends GLScreen {
         GameOptionsButton() {
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 270, 350, 36);
             setColors(0x536B90, 0x7090C2, 0x263142);
-            setText(Assets.strings.get("GAME OPTIONS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("GAME OPTIONS"), CENTER, font14);
         }
 
         @Override
@@ -112,7 +123,7 @@ public class Main extends GLScreen {
         MatchOptionsButton() {
             setColors(0x3847A3);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 315, 350, 36);
-            setText(Assets.strings.get("MATCH OPTIONS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("MATCH OPTIONS"), CENTER, font14);
         }
 
         @Override
@@ -126,7 +137,7 @@ public class Main extends GLScreen {
         ControlsButton() {
             setColors(0x83079C);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 360, 350, 36);
-            setText(Assets.strings.get("CONTROLS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("CONTROLS"), CENTER, font14);
         }
 
         @Override
@@ -140,7 +151,7 @@ public class Main extends GLScreen {
         EditTacticsButton() {
             setColors(0xBA9206);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 405, 350, 36);
-            setText(Assets.strings.get("EDIT TACTICS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EDIT TACTICS"), CENTER, font14);
         }
 
         @Override
@@ -156,13 +167,12 @@ public class Main extends GLScreen {
         EditTeamsButton() {
             setColors(0x89421B, 0xBB5A25, 0x3D1E0D);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 450, 350, 36);
-            setText(Assets.strings.get("EDIT TEAMS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EDIT TEAMS"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
             game.setState(GLGame.State.EDIT, null);
-            navigation.folder = Assets.teamsRootFolder;
             navigation.competition = null;
             game.setScreen(new SelectFolder(game));
         }
@@ -173,7 +183,7 @@ public class Main extends GLScreen {
         FriendlyButton() {
             setGeometry(game.gui.WIDTH / 2 + 45, 270, 350, 36);
             setColors(0x2D855D, 0x3DB37D, 0x1E5027);
-            setText(Assets.strings.get("FRIENDLY"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("FRIENDLY"), CENTER, font14);
         }
 
         @Override
@@ -187,13 +197,13 @@ public class Main extends GLScreen {
         DiyCompetitionButton() {
             setColors(0x376E2F, 0x4E983F, 0x214014);
             setGeometry(game.gui.WIDTH / 2 + 45, 315, 350, 36);
-            setText(Assets.strings.get("DIY COMPETITION"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("DIY COMPETITION"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
             if (game.hasCompetition()) {
-                game.setScreen(new CreateCompetitionWarning(game, Competition.Category.DIY_COMPETITION));
+                game.setScreen(new CreateCompetitionWarning(game, DIY_COMPETITION));
             } else {
                 game.setScreen(new DiyCompetition(game));
             }
@@ -205,16 +215,16 @@ public class Main extends GLScreen {
         PresetCompetitionButton() {
             setColors(0x415600, 0x5E7D00, 0x243000);
             setGeometry(game.gui.WIDTH / 2 + 45, 360, 350, 36);
-            setText(Assets.strings.get("PRESET COMPETITION"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("PRESET COMPETITION"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
             if (game.hasCompetition()) {
-                game.setScreen(new CreateCompetitionWarning(game, Competition.Category.PRESET_COMPETITION));
+                game.setScreen(new CreateCompetitionWarning(game, PRESET_COMPETITION));
             } else {
-                game.setState(GLGame.State.COMPETITION, Competition.Category.PRESET_COMPETITION);
-                game.setScreen(new SelectCompetition(game, Assets.competitionsRootFolder));
+                game.setState(COMPETITION, PRESET_COMPETITION);
+                game.setScreen(new SelectCompetition(game, competitionsRootFolder));
             }
         }
     }
@@ -224,13 +234,12 @@ public class Main extends GLScreen {
         TrainingButton() {
             setColors(0x1B8A7F, 0x25BDAE, 0x115750);
             setGeometry(game.gui.WIDTH / 2 + 45, 405, 350, 36);
-            setText(Assets.strings.get("TRAINING"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("TRAINING"), CENTER, font14);
         }
 
         @Override
         protected void onFire1Down() {
             game.setState(TRAINING, null);
-            navigation.folder = Assets.teamsRootFolder;
             navigation.competition = null;
             game.setScreen(new SelectFolder(game));
         }
@@ -241,8 +250,8 @@ public class Main extends GLScreen {
         ReplayContinueCompetitionButton(int y) {
             setColors(0x568200, 0x77B400, 0x243E00);
             setGeometry((game.gui.WIDTH - 600) / 2, y, 600, 32);
-            String s = Assets.strings.get(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
-            setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font10);
+            String s = gettext(game.competition.isEnded() ? "REPLAY %s" : "CONTINUE %s");
+            setText(s.replace("%s", game.competition.name), CENTER, font10);
         }
 
         @Override
@@ -254,7 +263,7 @@ public class Main extends GLScreen {
             switch (game.competition.category) {
                 case DIY_COMPETITION:
                 case PRESET_COMPETITION:
-                    game.setState(GLGame.State.COMPETITION, game.competition.category);
+                    game.setState(COMPETITION, game.competition.category);
                     switch (game.competition.type) {
                         case LEAGUE:
                             game.setScreen(new PlayLeague(game));
@@ -278,8 +287,8 @@ public class Main extends GLScreen {
         SaveCompetitionButton(int y) {
             setColors(0xC8000E, 0xFF1929, 0x74040C);
             setGeometry((game.gui.WIDTH - 600) / 2, y + 40, 600, 32);
-            String s = Assets.strings.get("SAVE %s");
-            setText(s.replace("%s", game.competition.name), Font.Align.CENTER, Assets.font10);
+            String s = gettext("SAVE %s");
+            setText(s.replace("%s", game.competition.name), CENTER, font10);
         }
 
         @Override
@@ -293,7 +302,7 @@ public class Main extends GLScreen {
         LoadOldCompetitionButton(int y) {
             setColors(0x2898c7);
             setGeometry((game.gui.WIDTH - 600) / 2, y, 600, 32);
-            setText(Assets.strings.get("LOAD OLD COMPETITION"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("LOAD OLD COMPETITION"), CENTER, font10);
         }
 
         @Override
@@ -311,7 +320,7 @@ public class Main extends GLScreen {
         DevToolsButton() {
             setColors(0x191FB0);
             setGeometry((game.gui.WIDTH - 300) / 2, 675, 300, 32);
-            setText("DEVELOPMENT TOOLS", Font.Align.CENTER, Assets.font10);
+            setText("DEVELOPMENT TOOLS", CENTER, font10);
         }
 
         @Override

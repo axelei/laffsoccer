@@ -1,7 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -12,6 +10,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.gui.Widget.widgetComparatorByText;
+
 class CompetitionViewTeams extends GLScreen {
 
     CompetitionViewTeams(GLGame game) {
@@ -21,10 +24,10 @@ class CompetitionViewTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("SELECT SQUAD TO VIEW"), game.stateColor.body);
+        w = new TitleBar(gettext("SELECT SQUAD TO VIEW"), game.stateColor.body);
         widgets.add(w);
 
-        List<Widget> list = new ArrayList<Widget>();
+        List<Widget> list = new ArrayList<>();
         for (Team team : game.competition.teams) {
             w = new TeamButton(team);
             list.add(w);
@@ -33,8 +36,8 @@ class CompetitionViewTeams extends GLScreen {
         }
 
         if (list.size() > 0) {
-            Collections.sort(list, Widget.widgetComparatorByText);
-            Widget.arrange(game.gui.WIDTH, 350, 32, list);
+            Collections.sort(list, widgetComparatorByText);
+            Widget.arrange(game.gui.WIDTH, 350, 32, 20, list);
             setSelectedWidget(list.get(0));
         }
 
@@ -50,7 +53,7 @@ class CompetitionViewTeams extends GLScreen {
             this.team = team;
             setSize(270, 30);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
-            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setText(team.name, CENTER, font14);
         }
 
         @Override
@@ -64,7 +67,7 @@ class CompetitionViewTeams extends GLScreen {
         ExitButton() {
             setColors(0xC84200, 0xFF6519, 0x803300);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), CENTER, font14);
         }
 
         @Override

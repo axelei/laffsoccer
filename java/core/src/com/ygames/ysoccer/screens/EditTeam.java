@@ -3,7 +3,6 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -19,10 +18,15 @@ import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
 
 class EditTeam extends GLScreen {
 
@@ -226,7 +230,7 @@ class EditTeam extends GLScreen {
         TacticsButton(int t) {
             this.t = t;
             setGeometry(692 + 94 * (t % 2), 44 + 25 * ((int) Math.floor(t / 2f)), 90, 22);
-            setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
+            setText(Tactics.codes[t], CENTER, font10);
         }
 
         @Override
@@ -258,7 +262,7 @@ class EditTeam extends GLScreen {
         TeamNameButton() {
             setGeometry(194, 30, 450, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
-            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setText(team.name, CENTER, font14);
             setEntryLimit(16);
         }
 
@@ -294,7 +298,7 @@ class EditTeam extends GLScreen {
         CoachLabel() {
             setGeometry(90, 290, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("COACH"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("COACH"), CENTER, font10);
             setActive(false);
         }
     }
@@ -304,7 +308,7 @@ class EditTeam extends GLScreen {
         CoachButton() {
             setGeometry(280, 290, 364, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText(team.coach.name, Font.Align.CENTER, Assets.font10);
+            setText(team.coach.name, CENTER, font10);
             setEntryLimit(28);
         }
 
@@ -320,7 +324,7 @@ class EditTeam extends GLScreen {
         CoachNationalityButton() {
             setGeometry(652, 290, 60, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText(team.coach.nationality, Font.Align.CENTER, Assets.font10);
+            setText(team.coach.nationality, CENTER, font10);
             setEntryLimit(3);
             setInputFilter("[A-Z]");
         }
@@ -337,7 +341,7 @@ class EditTeam extends GLScreen {
         CityLabel() {
             setGeometry(90, 200, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("CITY"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("CITY"), CENTER, font10);
             setActive(false);
         }
     }
@@ -347,7 +351,7 @@ class EditTeam extends GLScreen {
         CityButton() {
             setGeometry(280, 200, 364, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText(team.city, Font.Align.CENTER, Assets.font10);
+            setText(team.city, CENTER, font10);
             setEntryLimit(28);
         }
 
@@ -363,7 +367,7 @@ class EditTeam extends GLScreen {
         StadiumLabel() {
             setGeometry(90, 245, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("STADIUM"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("STADIUM"), CENTER, font10);
             setActive(false);
         }
     }
@@ -373,7 +377,7 @@ class EditTeam extends GLScreen {
         private StadiumButton() {
             setGeometry(280, 245, 364, 32);
             setColors(0x10A000, 0x15E000, 0x096000);
-            setText(team.stadium, Font.Align.CENTER, Assets.font10);
+            setText(team.stadium, CENTER, font10);
             setEntryLimit(28);
         }
 
@@ -389,7 +393,7 @@ class EditTeam extends GLScreen {
         CountryLabel() {
             setGeometry(90, 110, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("COUNTRY"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("COUNTRY"), CENTER, font10);
             setActive(false);
         }
     }
@@ -399,7 +403,7 @@ class EditTeam extends GLScreen {
         private CountryButton() {
             setGeometry(280, 110, 364, 32);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText(team.country, Font.Align.CENTER, Assets.font10);
+            setText(team.country, CENTER, font10);
             setActive(false);
         }
     }
@@ -409,7 +413,7 @@ class EditTeam extends GLScreen {
         LeagueLabel() {
             setGeometry(90, 155, 182, 32);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("LEAGUE"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("LEAGUE"), CENTER, font10);
             setActive(false);
         }
     }
@@ -419,11 +423,11 @@ class EditTeam extends GLScreen {
         List<String> leagues;
 
         LeagueButton() {
-            FileHandle leaguesFile = navigation.folder.child("leagues.json");
-            this.leagues = Arrays.asList(Assets.json.fromJson(String[].class, leaguesFile.readString("UTF-8")));
+            FileHandle file = navigation.folder.child("leagues.json");
+            this.leagues = Arrays.asList(Assets.json.fromJson(String[].class, file.readString("UTF-8")));
             setGeometry(280, 155, 364, 32);
             setColors(0x10A000);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
         }
 
         @Override
@@ -449,7 +453,6 @@ class EditTeam extends GLScreen {
                 i = Emath.rotate(i, 0, leagues.size() - 1, n);
             }
             team.league = leagues.get(i);
-            navigation.league = team.league;
             setDirty(true);
             setModifiedFlag();
         }
@@ -484,7 +487,7 @@ class EditTeam extends GLScreen {
                     label = "KITS.2ND CHANGE";
                     break;
             }
-            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
+            setText(gettext(label), CENTER, font14);
         }
 
         @Override
@@ -544,7 +547,7 @@ class EditTeam extends GLScreen {
         StyleLabel() {
             setGeometry(528, 364, 175, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get("KITS.STYLE"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("KITS.STYLE"), CENTER, font10);
             setActive(false);
         }
     }
@@ -561,7 +564,7 @@ class EditTeam extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(team.kits.get(selectedKit).style.replace('_', ' '), Font.Align.CENTER, Assets.font10);
+            setText(team.kits.get(selectedKit).style.replace('_', ' '), CENTER, font10);
         }
 
         @Override
@@ -599,7 +602,7 @@ class EditTeam extends GLScreen {
         KitFieldLabel(String label, int x, int y) {
             setGeometry(x, y, 175, 23);
             setColors(0x808080, 0xC0C0C0, 0x404040);
-            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font10);
+            setText(gettext(label), CENTER, font10);
             setActive(false);
         }
     }
@@ -613,7 +616,7 @@ class EditTeam extends GLScreen {
             this.field = field;
             setGeometry(x, y, 40, 24);
             setColors(0x666666, 0x8F8D8D, 0x404040);
-            setText("#", Font.Align.CENTER, Assets.font10);
+            setText("#", CENTER, font10);
         }
 
         @Override
@@ -702,7 +705,7 @@ class EditTeam extends GLScreen {
         KitColorButton(Kit.Field field, int x, int y) {
             this.field = field;
             setGeometry(x, y, 133, 24);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setEntryLimit(6);
             setInputFilter("[A-F0-9]");
         }
@@ -776,7 +779,7 @@ class EditTeam extends GLScreen {
         PlayerNumberButton(int pos) {
             this.pos = pos;
             setGeometry(734, 374 + 24 * pos, 34, 21);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setActive(false);
         }
 
@@ -811,7 +814,7 @@ class EditTeam extends GLScreen {
         PlayerNameButton(int pos) {
             this.pos = pos;
             setGeometry(796, 374 + 24 * pos, 364, 21);
-            setText("", Font.Align.LEFT, Assets.font10);
+            setText("", LEFT, font10);
             setActive(false);
         }
 
@@ -829,14 +832,14 @@ class EditTeam extends GLScreen {
         PlayerRoleButton(int pos) {
             this.pos = pos;
             setGeometry(1160, 374 + 24 * pos, 36, 21);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setActive(false);
         }
 
         @Override
         public void refresh() {
             Player player = team.playerAtPosition(pos);
-            setText(Assets.strings.get(player.getRoleLabel()));
+            setText(gettext(player.getRoleLabel()));
         }
     }
 
@@ -904,7 +907,7 @@ class EditTeam extends GLScreen {
         EditPlayersButton() {
             setGeometry(100, 660, 206, 36);
             setColors(0x00825F, 0x00C28E, 0x00402F);
-            setText(Assets.strings.get("PLAYERS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("PLAYERS"), CENTER, font14);
         }
 
         @Override
@@ -917,7 +920,7 @@ class EditTeam extends GLScreen {
 
         NewKitButton() {
             setGeometry(310, 660, 226, 36);
-            setText(Assets.strings.get("NEW KIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("NEW KIT"), CENTER, font14);
         }
 
         @Override
@@ -965,7 +968,7 @@ class EditTeam extends GLScreen {
 
         DeleteKitButton() {
             setGeometry(540, 660, 226, 36);
-            setText(Assets.strings.get("DELETE KIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("DELETE KIT"), CENTER, font14);
         }
 
         @Override
@@ -1002,7 +1005,7 @@ class EditTeam extends GLScreen {
 
         SaveButton() {
             setGeometry(770, 660, 196, 36);
-            setText(Assets.strings.get("SAVE"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("SAVE"), CENTER, font14);
         }
 
         @Override
@@ -1019,6 +1022,7 @@ class EditTeam extends GLScreen {
         @Override
         public void onFire1Down() {
             team.persist();
+            navigation.league = team.league;
             game.setScreen(new SelectTeam(game));
         }
     }
@@ -1028,21 +1032,11 @@ class EditTeam extends GLScreen {
         ExitButton() {
             setGeometry(970, 660, 196, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
-            // if more than one league, set navigation league
-            if (team.league != null) {
-                FileHandle leaguesFile = navigation.folder.child("leagues.json");
-                if (leaguesFile.exists()) {
-                    List<String> leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
-                    if (leagues.size() > 1) {
-                        navigation.league = team.league;
-                    }
-                }
-            }
             game.setScreen(new SelectTeam(game));
         }
     }

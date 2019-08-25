@@ -10,6 +10,8 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 
+import static com.ygames.ysoccer.framework.Assets.favouritesFile;
+
 class SetupTraining extends GLScreen {
 
     private MatchSettings matchSettings;
@@ -29,7 +31,7 @@ class SetupTraining extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("TRAINING"), game.stateColor.body);
+        w = new TitleBar(navigation.team.name + " - " + Assets.strings.get("TRAINING"), game.stateColor.body);
         widgets.add(w);
 
         w = new TimeLabel();
@@ -268,7 +270,7 @@ class SetupTraining extends GLScreen {
 
     private class ExitButton extends Button {
 
-        public ExitButton() {
+        ExitButton() {
             setGeometry((game.gui.WIDTH - 196) / 2, 660, 196, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
@@ -276,7 +278,11 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new SelectTeam(game));
+            if (navigation.folder.equals(favouritesFile)) {
+                game.setScreen(new SelectFavourite(game));
+            } else {
+                game.setScreen(new SelectTeam(game));
+            }
         }
     }
 }

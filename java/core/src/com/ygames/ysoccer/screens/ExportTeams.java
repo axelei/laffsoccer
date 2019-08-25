@@ -8,8 +8,6 @@ import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.export.Config;
 import com.ygames.ysoccer.export.FileConfig;
 import com.ygames.ysoccer.export.TeamConfig;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -22,11 +20,17 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.fileComparatorByName;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.teamsRootFolder;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Player.Skill.CONTROL;
 import static com.ygames.ysoccer.match.Player.Skill.FINISHING;
 import static com.ygames.ysoccer.match.Player.Skill.HEADING;
@@ -64,13 +68,13 @@ class ExportTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("EXPORT"), 0x762B8E);
+        w = new TitleBar(gettext("EXPORT"), 0x762B8E);
         widgets.add(w);
 
         // Folders buttons
-        List<Widget> list = new ArrayList<Widget>();
-        ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(Assets.teamsRootFolder.list()));
-        Collections.sort(files, Assets.fileComparatorByName);
+        List<Widget> list = new ArrayList<>();
+        ArrayList<FileHandle> files = new ArrayList<>(Arrays.asList(teamsRootFolder.list()));
+        Collections.sort(files, fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
@@ -81,7 +85,7 @@ class ExportTeams extends GLScreen {
 
         if (list.size() > 0) {
             state = State.READY;
-            Widget.arrange(game.gui.WIDTH, 380, 34, list);
+            Widget.arrange(game.gui.WIDTH, 380, 34, 20, list);
             setSelectedWidget(list.get(0));
         }
         w = new InfoLabel();
@@ -108,7 +112,7 @@ class ExportTeams extends GLScreen {
                 setColors(0x666666);
                 setActive(false);
             }
-            setText(folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font14);
+            setText(folder.name().replace('_', ' '), CENTER, font14);
         }
 
         @Override
@@ -128,7 +132,7 @@ class ExportTeams extends GLScreen {
 
         InfoLabel() {
             setGeometry((game.gui.WIDTH - 400) / 2, 300, 400, 40);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             setActive(false);
         }
 
@@ -157,7 +161,7 @@ class ExportTeams extends GLScreen {
 
         ExitButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -166,10 +170,10 @@ class ExportTeams extends GLScreen {
                 case NO_FOLDERS:
                 case FINISHED:
                     setColors(0xC84200);
-                    setText(Assets.strings.get("EXIT"));
+                    setText(gettext("EXIT"));
                     break;
                 case READY:
-                    setText(Assets.strings.get("ABORT"));
+                    setText(gettext("ABORT"));
                     setColors(0xC8000E);
                     break;
             }
@@ -210,7 +214,7 @@ class ExportTeams extends GLScreen {
         // number of teams
         int numberOfTeams = 0;
         for (TeamConfig teamConfig : exportConfig.teams) {
-            FileHandle sourceFile = Assets.teamsRootFolder.child(teamConfig.path);
+            FileHandle sourceFile = teamsRootFolder.child(teamConfig.path);
             if (sourceFile.exists()) {
                 teamConfig.sourceFile = sourceFile;
                 numberOfTeams++;
@@ -465,6 +469,6 @@ class ExportTeams extends GLScreen {
     }
 
     private static String decompose(String s) {
-        return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        return Normalizer.normalize(s, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 }

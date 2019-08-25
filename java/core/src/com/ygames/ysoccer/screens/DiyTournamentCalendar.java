@@ -4,8 +4,6 @@ import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.competitions.tournament.groups.Group;
 import com.ygames.ysoccer.competitions.tournament.groups.Groups;
 import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -17,6 +15,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
+import static com.ygames.ysoccer.framework.Font.Align.RIGHT;
+import static com.ygames.ysoccer.gui.Widget.widgetComparatorByText;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
@@ -39,8 +43,8 @@ class DiyTournamentCalendar extends GLScreen {
     DiyTournamentCalendar(GLGame game, Tournament tournament) {
         super(game);
         this.tournament = tournament;
-        groupsTeams = new ArrayList<Integer>();
-        matches = new ArrayList<Match>();
+        groupsTeams = new ArrayList<>();
+        matches = new ArrayList<>();
 
         background = game.stateBackground;
         Widget w;
@@ -63,7 +67,7 @@ class DiyTournamentCalendar extends GLScreen {
                 break;
         }
 
-        teamButtons = new ArrayList<Widget>();
+        teamButtons = new ArrayList<>();
 
         int teamIndex = 0;
         for (Team team : game.teamList) {
@@ -74,8 +78,8 @@ class DiyTournamentCalendar extends GLScreen {
         }
 
         if (teamButtons.size() > 0) {
-            Collections.sort(teamButtons, Widget.widgetComparatorByText);
-            Widget.arrange(game.gui.WIDTH, 392, 29, teamButtons);
+            Collections.sort(teamButtons, widgetComparatorByText);
+            Widget.arrange(game.gui.WIDTH, 392, 29, 20, teamButtons);
             setSelectedWidget(teamButtons.get(0));
         }
 
@@ -105,7 +109,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         StatusLabel() {
             setGeometry((game.gui.WIDTH - 180) / 2, 80, 180, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             setActive(false);
         }
 
@@ -139,7 +143,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         HomeTeamLabel() {
             setGeometry(240, 618, 322, 36);
-            setText("", Font.Align.RIGHT, Assets.font14);
+            setText("", RIGHT, font14);
             setActive(false);
         }
 
@@ -171,7 +175,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         VersusLabel() {
             setGeometry(game.gui.WIDTH / 2 - 20, 618, 40, 36);
-            setText(Assets.strings.get("ABBREVIATIONS.VERSUS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABBREVIATIONS.VERSUS"), CENTER, font14);
         }
 
         @Override
@@ -192,7 +196,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         AwayTeamLabel() {
             setGeometry(720, 618, 322, 36);
-            setText("", Font.Align.LEFT, Assets.font14);
+            setText("", LEFT, font14);
             setActive(false);
         }
 
@@ -225,7 +229,7 @@ class DiyTournamentCalendar extends GLScreen {
         BackButton() {
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
             setColors(0x9A6C9C);
-            setText("BACK", Font.Align.CENTER, Assets.font14);
+            setText("BACK", CENTER, font14);
         }
 
         @Override
@@ -325,7 +329,7 @@ class DiyTournamentCalendar extends GLScreen {
             this.team = team;
             this.teamIndex = teamIndex;
             setSize(300, 28);
-            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setText(team.name, CENTER, font14);
         }
 
         @Override
@@ -433,7 +437,7 @@ class DiyTournamentCalendar extends GLScreen {
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setColors(0xC8000E);
-            setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), CENTER, font14);
         }
 
         @Override
@@ -446,7 +450,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         PlayButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 660, 360, 36);
-            setText("PLAY TOURNAMENT", Font.Align.CENTER, Assets.font14);
+            setText("PLAY TOURNAMENT", CENTER, font14);
         }
 
         @Override
