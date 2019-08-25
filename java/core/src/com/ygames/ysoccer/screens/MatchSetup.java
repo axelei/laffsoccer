@@ -13,13 +13,11 @@ import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.ygames.ysoccer.competitions.Competition.Type.FRIENDLY;
 import static com.ygames.ysoccer.competitions.Competition.Type.TEST_MATCH;
 import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.framework.Assets.teamFilenameFilter;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -32,7 +30,7 @@ class MatchSetup extends GLScreen {
     private WeatherButton weatherButton;
     private WeatherPicture weatherPicture;
     private KitPicture[] kitPictures = new KitPicture[2];
-    private List<KitButton>[] kitButtons = new ArrayList[2];
+    private ArrayList<KitButton>[] kitButtons = new ArrayList[2];
     private Widget playMatchButton;
 
     MatchSetup(GLGame game) {
@@ -380,17 +378,16 @@ class MatchSetup extends GLScreen {
         public void onFire1Down() {
             switch (navigation.competition.type) {
                 case FRIENDLY:
-                    /* TODO
-                    if (navigation.folder.equals(favouritesFile)) {
+                    if (navigation.folder.equals(Assets.favouritesFile)) {
                         game.setScreen(new SelectFavourites(game));
-                    } else {*/
-                    FileHandle[] teamFileHandles = navigation.folder.list(teamFilenameFilter);
-                    if (teamFileHandles.length > 0) {
-                        game.setScreen(new SelectTeams(game));
                     } else {
-                        game.setScreen(new SelectFolder(game));
+                        FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
+                        if (teamFileHandles.length > 0) {
+                            game.setScreen(new SelectTeams(game));
+                        } else {
+                            game.setScreen(new SelectFolder(game));
+                        }
                     }
-                    /*}*/
                     break;
 
                 case LEAGUE:

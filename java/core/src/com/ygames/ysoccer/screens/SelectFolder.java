@@ -2,7 +2,6 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -13,9 +12,12 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.fileComparatorByName;
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
@@ -32,7 +34,7 @@ class SelectFolder extends GLScreen {
         widgets.add(w);
 
         // Breadcrumb
-        List<Widget> breadcrumb = new ArrayList<>();
+        ArrayList<Widget> breadcrumb = new ArrayList<>();
 
         FileHandle fh = navigation.folder;
         boolean isDataRoot;
@@ -52,9 +54,9 @@ class SelectFolder extends GLScreen {
         widgets.addAll(breadcrumb);
 
         // Folders buttons
-        List<Widget> list = new ArrayList<>();
+        ArrayList<Widget> list = new ArrayList<>();
         ArrayList<FileHandle> files = new ArrayList<>(Arrays.asList(navigation.folder.list()));
-        Collections.sort(files, Assets.fileComparatorByName);
+        Collections.sort(files, fileComparatorByName);
         for (FileHandle file : files) {
             if (file.isDirectory()) {
                 w = new FolderButton(file);
@@ -63,15 +65,10 @@ class SelectFolder extends GLScreen {
             }
         }
 
-        switch (game.getState()) {
-            case EDIT:
-            case TRAINING:
-                if (navigation.folder.equals(Assets.teamsRootFolder) && Assets.favourites.size() > 0) {
-                    w = new FavouritesButton();
-                    list.add(w);
-                    widgets.add(w);
-                }
-                break;
+        if (navigation.folder.equals(Assets.teamsRootFolder) && Assets.favourites.size() > 0) {
+            w = new FavouritesButton();
+            list.add(w);
+            widgets.add(w);
         }
 
         if (list.size() > 0) {
@@ -148,7 +145,7 @@ class SelectFolder extends GLScreen {
             } else {
                 setColors(game.stateColor);
             }
-            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font10);
+            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), CENTER, font10);
             autoWidth();
         }
 
@@ -168,7 +165,7 @@ class SelectFolder extends GLScreen {
             this.fileHandle = fileHandle;
             setSize(340, 32);
             setColors(0x568200, 0x77B400, 0x243E00);
-            setText(fileHandle.name().replace('_', ' '), Font.Align.CENTER, Assets.font14);
+            setText(fileHandle.name().replace('_', ' '), CENTER, font14);
         }
 
         @Override
@@ -202,19 +199,17 @@ class SelectFolder extends GLScreen {
         FavouritesButton() {
             setSize(340, 32);
             setColors(0x568200, 0x77B400, 0x243E00);
-            setText(gettext("FAVOURITES"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("FAVOURITES"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
             switch (game.getState()) {
-                /* TODO
                 case COMPETITION:
                 case FRIENDLY:
                     navigation.folder = Assets.favouritesFile;
                     game.setScreen(new SelectFavourites(game));
                     break;
-                    */
 
                 case EDIT:
                 case TRAINING:
@@ -230,7 +225,7 @@ class SelectFolder extends GLScreen {
         ViewSelectedTeamsButton() {
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
             setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
-            setText(gettext("VIEW SELECTED TEAMS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("VIEW SELECTED TEAMS"), CENTER, font14);
         }
 
         @Override
@@ -248,7 +243,7 @@ class SelectFolder extends GLScreen {
 
         SearchTeamButton() {
             setColors(0x4444AA);
-            setText(gettext("SEARCH.SEARCH TEAMS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("SEARCH.SEARCH TEAMS"), CENTER, font14);
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
         }
 
@@ -267,7 +262,7 @@ class SelectFolder extends GLScreen {
 
         AbortButton() {
             setColors(0xC8000E);
-            setText(gettext("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), CENTER, font14);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
 
@@ -281,7 +276,7 @@ class SelectFolder extends GLScreen {
 
         PlayButton() {
             setGeometry(game.gui.WIDTH / 2 + 110, 660, 360, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -385,7 +380,7 @@ class SelectFolder extends GLScreen {
 
         SearchPlayerButton() {
             setColors(0x4444AA);
-            setText(gettext("SEARCH.SEARCH PLAYERS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("SEARCH.SEARCH PLAYERS"), CENTER, font14);
             setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
         }
 

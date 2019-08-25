@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
@@ -22,6 +23,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
@@ -35,7 +41,7 @@ class SetTeam extends GLScreen {
     private boolean compareTactics;
     private Font font10yellow;
 
-    private List<Widget> playerButtons = new ArrayList<Widget>();
+    private List<Widget> playerButtons = new ArrayList<>();
     private TacticsBoard tacticsBoard;
     private Widget[] tacticsButtons = new Widget[18];
     private Widget teamInputDeviceButton;
@@ -177,7 +183,7 @@ class SetTeam extends GLScreen {
         PlayerInputDeviceButton(int pos) {
             this.pos = pos;
             setGeometry(80, 120 + 22 * pos, 42, 20);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setImagePosition(1, -2);
             setAddShadow(true);
             textOffsetX = 11;
@@ -268,7 +274,7 @@ class SetTeam extends GLScreen {
         PlayerNumberButton(int pos) {
             this.pos = pos;
             setGeometry(148, 120 + 22 * pos, 34, 20);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setActive(false);
         }
 
@@ -290,7 +296,7 @@ class SetTeam extends GLScreen {
         PlayerNameButton(int pos) {
             this.pos = pos;
             setGeometry(184, 120 + 22 * pos, 364, 20);
-            setText("", Font.Align.LEFT, Assets.font10);
+            setText("", LEFT, font10);
         }
 
         @Override
@@ -359,7 +365,7 @@ class SetTeam extends GLScreen {
         PlayerNationalityCodeButton(int pos) {
             this.pos = pos;
             setGeometry(550, 120 + 22 * pos, 58, 20);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setActive(false);
         }
 
@@ -381,7 +387,7 @@ class SetTeam extends GLScreen {
         PlayerRoleButton(int x, int pos) {
             this.pos = pos;
             setGeometry(x, 120 + 22 * pos, 34, 20);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
             setActive(false);
         }
 
@@ -391,7 +397,7 @@ class SetTeam extends GLScreen {
             if (player == null) {
                 setText("");
             } else {
-                setText(Assets.strings.get(player.getRoleLabel()));
+                setText(gettext(player.getRoleLabel()));
             }
         }
     }
@@ -405,7 +411,7 @@ class SetTeam extends GLScreen {
             this.pos = pos;
             this.skillIndex = skillIndex;
             setGeometry(x, 120 + 22 * pos, 13, 20);
-            setText("", Font.Align.CENTER, font10yellow);
+            setText("", CENTER, font10yellow);
             setActive(false);
         }
 
@@ -419,7 +425,7 @@ class SetTeam extends GLScreen {
                 if (skills == null) {
                     setText("");
                 } else {
-                    setText(Assets.strings.get(Player.getSkillLabel(skills[skillIndex])));
+                    setText(gettext(Player.getSkillLabel(skills[skillIndex])));
                 }
             }
         }
@@ -453,7 +459,7 @@ class SetTeam extends GLScreen {
         TacticsButton(int t) {
             this.t = t;
             setGeometry(game.gui.WIDTH - 90 - 110, 120 + 23 * t, 110, 21);
-            setText(Tactics.codes[t], Font.Align.CENTER, Assets.font10);
+            setText(Tactics.codes[t], CENTER, font10);
         }
 
         @Override
@@ -481,16 +487,16 @@ class SetTeam extends GLScreen {
         TacticsComparisonButton() {
             setGeometry(game.gui.WIDTH / 2 + 140, 439, 264, 36);
             setColors(0x824200, 0xB46A00, 0x4C2600);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
         }
 
         @Override
         public void refresh() {
             setVisible(shownTeam == ownTeam);
             if (compareTactics) {
-                setText(Assets.strings.get("TEAM TACTICS"));
+                setText(gettext("TEAM TACTICS"));
             } else {
-                setText(Assets.strings.get("TACTICS COMPARISON"));
+                setText(gettext("TACTICS COMPARISON"));
             }
         }
 
@@ -507,12 +513,12 @@ class SetTeam extends GLScreen {
         OpponentTeamButton() {
             setGeometry(game.gui.WIDTH / 2 + 140, 483, 264, 36);
             setColors(0x8B2323, 0xBF4531, 0x571717);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
         }
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(shownTeam == ownTeam ? "VIEW OPPONENT" : "VIEW TEAM"));
+            setText(gettext(shownTeam == ownTeam ? "VIEW OPPONENT" : "VIEW TEAM"));
         }
 
         @Override
@@ -532,7 +538,7 @@ class SetTeam extends GLScreen {
 
         TeamInputDeviceButton() {
             setGeometry(game.gui.WIDTH / 2 + 140, 536, 202, 42);
-            setText("", Font.Align.LEFT, Assets.font10);
+            setText("", LEFT, font10);
             textOffsetX = 50;
             setImagePosition(8, 1);
             setAddShadow(true);
@@ -548,11 +554,11 @@ class SetTeam extends GLScreen {
                         break;
 
                     case KEYBOARD:
-                        setText(Assets.strings.get("KEYBOARD") + " " + (shownTeam.inputDevice.port + 1));
+                        setText(gettext("KEYBOARD") + " " + (shownTeam.inputDevice.port + 1));
                         break;
 
                     case JOYSTICK:
-                        setText(Assets.strings.get("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
+                        setText(gettext("JOYSTICK") + " " + (shownTeam.inputDevice.port + 1));
                         break;
                 }
                 textureRegion = Assets.controls[0][shownTeam.inputDevice.type.ordinal()];
@@ -582,7 +588,7 @@ class SetTeam extends GLScreen {
         EditTacticsButton() {
             setGeometry(game.gui.WIDTH - 90 - 110, 540, 110, 34);
             setColors(0xBA9206, 0xE9B607, 0x6A5304);
-            setText(Assets.strings.get("TACTICS.EDIT"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("TACTICS.EDIT"), CENTER, font10);
         }
 
         @Override
@@ -601,24 +607,24 @@ class SetTeam extends GLScreen {
 
         ControlModeButton() {
             setGeometry(game.gui.WIDTH / 2 + 140, 586, 155, 40);
-            setText("", Font.Align.CENTER, Assets.font10);
+            setText("", CENTER, font10);
         }
 
         @Override
         public void refresh() {
             switch (shownTeam.controlMode) {
                 case COMPUTER:
-                    setText(Assets.strings.get("CONTROL MODE.COMPUTER") + ":");
+                    setText(gettext("CONTROL MODE.COMPUTER") + ":");
                     setColors(0x981E1E, 0xC72929, 0x640000);
                     break;
 
                 case PLAYER:
-                    setText(Assets.strings.get("CONTROL MODE.PLAYER") + ":");
+                    setText(gettext("CONTROL MODE.PLAYER") + ":");
                     setColors(0x0000C8, 0x1919FF, 0x000078);
                     break;
 
                 case COACH:
-                    setText(Assets.strings.get("CONTROL MODE.COACH") + ":");
+                    setText(gettext("CONTROL MODE.COACH") + ":");
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
@@ -650,7 +656,7 @@ class SetTeam extends GLScreen {
 
         CoachNameLabel() {
             setPosition(game.gui.WIDTH / 2 + 140 + 155 + 10, 586 + 20);
-            setText("", Font.Align.LEFT, Assets.font10);
+            setText("", LEFT, font10);
         }
 
         @Override
@@ -663,7 +669,7 @@ class SetTeam extends GLScreen {
 
         TeamNameButton() {
             setGeometry((game.gui.WIDTH - 780) / 2, 40, 780, 41);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             setActive(false);
         }
 
@@ -697,7 +703,7 @@ class SetTeam extends GLScreen {
         PlayMatchButton() {
             setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT - 30 - 42, 240, 42);
             setColors(0xDC0000);
-            setText(Assets.strings.get("PLAY MATCH"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("PLAY MATCH"), CENTER, font14);
         }
 
         @Override
@@ -721,7 +727,7 @@ class SetTeam extends GLScreen {
         ExitButton() {
             setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 38 - 2, 150, 38);
             setColors(0xC84200);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), CENTER, font14);
         }
 
         @Override
@@ -733,7 +739,16 @@ class SetTeam extends GLScreen {
         public void onFire1Down() {
             switch (navigation.competition.type) {
                 case FRIENDLY:
-                    game.setScreen(new SelectTeams(game));
+                    if (navigation.folder.equals(Assets.favouritesFile)) {
+                        game.setScreen(new SelectFavourites(game));
+                    } else {
+                        FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
+                        if (teamFileHandles.length > 0) {
+                            game.setScreen(new SelectTeams(game));
+                        } else {
+                            game.setScreen(new SelectFolder(game));
+                        }
+                    }
                     break;
 
                 case LEAGUE:

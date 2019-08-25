@@ -1,6 +1,9 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.ygames.ysoccer.competitions.Cup;
+import com.ygames.ysoccer.competitions.League;
+import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -11,11 +14,14 @@ import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
+import static com.ygames.ysoccer.competitions.Competition.Category.DIY_COMPETITION;
+import static com.ygames.ysoccer.competitions.Competition.Type.FRIENDLY;
 import static com.ygames.ysoccer.framework.Assets.font10;
 import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.getTeamFirstFolder;
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.teamsRootFolder;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.framework.Font.Align.LEFT;
 import static com.ygames.ysoccer.gui.Widget.widgetComparatorByText;
@@ -26,20 +32,35 @@ import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 import static com.ygames.ysoccer.match.Team.ControlMode.PLAYER;
 import static com.ygames.ysoccer.match.Team.ControlMode.UNDEFINED;
 
-class AllSelectedTeams extends GLScreen {
+class SelectFavourites extends GLScreen {
 
+    private Widget titleButton;
+    private Widget viewSelectedTeamsButton;
     private Widget playButton;
-    private Widget changeTeamsButton;
+    private Widget calendarButton;
 
-    AllSelectedTeams(GLGame game) {
+    SelectFavourites(GLGame game) {
         super(game);
 
         background = game.stateBackground;
 
         Widget w;
 
-        w = new TitleBar(gettext("ALL SELECTED TEAMS FOR") + " " + navigation.competition.name, game.stateColor.body);
+        w = new TitleBar();
         widgets.add(w);
+        titleButton = w;
+
+        ArrayList<Widget> teamButtons = new ArrayList<>();
+
+        ArrayList<Team> teamList = new ArrayList<>();
+        for (String teamPath : Assets.favourites) {
+            FileHandle file = teamsRootFolder.child(teamPath);
+            if (file.exists()) {
+                Team team = Assets.json.fromJson(Team.class, file.readString("UTF-8"));
+                team.path = Assets.getRelativeTeamPath(file);
+                teamList.add(team);
+            }
+        }
 
         w = new ComputerButton();
         widgets.add(w);
@@ -59,30 +80,99 @@ class AllSelectedTeams extends GLScreen {
         w = new CoachLabel();
         widgets.add(w);
 
-        List<Widget> list = new ArrayList<>();
-        for (Team team : game.teamList) {
-            if (team == null) continue;
-            w = new TeamButton(team);
-            list.add(w);
+        for (Team team : teamList) {
+            if (game.teamList.contains(team)) {
+                w = new TeamButton(game.teamList.get(game.teamList.indexOf(team)));
+            } else {
+                w = new TeamButton(team);
+            }
+            teamButtons.add(w);
             widgets.add(w);
         }
-        Collections.sort(list, widgetComparatorByText);
-        Widget.arrange(game.gui.WIDTH, 392, 29, 20, list);
 
-        w = new ChangeTeamsButton();
-        widgets.add(w);
-        changeTeamsButton = w;
-        setSelectedWidget(w);
-
-        w = new AbortButton();
-        widgets.add(w);
+        if (teamButtons.size() > 0) {
+            Collections.sort(teamButtons, widgetComparatorByText);
+            Widget.arrange(game.gui.WIDTH, 392, 29, 20, teamButtons);
+            setSelectedWidget(teamButtons.get(0));
+        }
 
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
-        int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
-        if (diff == 0) {
+
+        w = new CalendarButton();
+        widgets.add(w);
+        calendarButton = w;
+
+        // Breadcrumb
+        ArrayList<Widget> breadcrumb = new ArrayList<>();
+
+        w = new BreadCrumbRootButton();
+        breadcrumb.add(w);
+
+        w = new BreadCrumbFavouritesLabel();
+        breadcrumb.add(w);
+
+        int x = (game.gui.WIDTH - 960) / 2;
+        for (Widget b : breadcrumb) {
+            b.setPosition(x, 72);
+            x += b.w + 2;
+        }
+        widgets.addAll(breadcrumb);
+
+        w = new ViewSelectedTeamsButton();
+        widgets.add(w);
+        viewSelectedTeamsButton = w;
+
+        w = new AbortButton();
+        widgets.add(w);
+        if (selectedWidget == null) {
             setSelectedWidget(w);
+        }
+    }
+
+    private class TitleBar extends Button {
+
+        TitleBar() {
+            setColors(game.stateColor);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
+            setColors(game.stateColor);
+            int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
+            String title = gettext((diff == 0) ? "CHANGE TEAMS FOR" : "CHOOSE TEAMS FOR") + " " + navigation.competition.name;
+            setText(title, CENTER, font14);
+        }
+    }
+
+    private class BreadCrumbRootButton extends Button {
+
+        BreadCrumbRootButton() {
+            setSize(0, 32);
+            setColors(game.stateColor);
+            setText("" + (char) 20, CENTER, font10);
+            autoWidth();
+        }
+
+        @Override
+        public void onFire1Down() {
+            navigation.folder = Assets.teamsRootFolder;
+            navigation.league = null;
+            game.setScreen(new SelectFolder(game));
+        }
+    }
+
+    private class BreadCrumbFavouritesLabel extends Button {
+
+        BreadCrumbFavouritesLabel() {
+            setSize(0, 32);
+            setColors(game.stateColor.darker());
+            setActive(false);
+            setText(gettext("FAVOURITES"), CENTER, font10);
+            autoWidth();
         }
     }
 
@@ -143,12 +233,15 @@ class AllSelectedTeams extends GLScreen {
     private class TeamButton extends Button {
 
         private Team team;
+        FileHandle folder;
 
         TeamButton(Team team) {
             this.team = team;
-            setSize(300, 28);
+            setSize(382, 28);
             updateColors();
-            setText(team.name, CENTER, font14);
+            FileHandle teamFolder = teamsRootFolder.child(team.path);
+            String mainFolder = getTeamFirstFolder(teamFolder).name();
+            setText(team.name + ", " + mainFolder, CENTER, font14);
         }
 
         @Override
@@ -173,8 +266,10 @@ class AllSelectedTeams extends GLScreen {
                 game.teamList.addTeam(team);
             }
             updateColors();
+            viewSelectedTeamsButton.setDirty(true);
             playButton.setDirty(true);
-            changeTeamsButton.setDirty(true);
+            calendarButton.setDirty(true);
+            titleButton.setDirty(true);
         }
 
         private void updateColors() {
@@ -198,31 +293,22 @@ class AllSelectedTeams extends GLScreen {
         }
     }
 
-    private class ChangeTeamsButton extends Button {
+    private class ViewSelectedTeamsButton extends Button {
 
-        ChangeTeamsButton() {
+        ViewSelectedTeamsButton() {
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
             setColors(0x9A6C9C, 0xBA99BB, 0x4F294F);
-        }
-
-        @Override
-        public void refresh() {
-            int diff = navigation.competition.numberOfTeams - game.teamList.numberOfTeams();
-            setText(gettext((diff == 0) ? "CHANGE TEAMS" : "CHOOSE TEAMS"), CENTER, font14);
+            setText(gettext("VIEW SELECTED TEAMS"), CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
-            if (navigation.folder.equals(Assets.favouritesFile)) {
-                game.setScreen(new SelectFavourites(game));
-            } else {
-                FileHandle[] teamFileHandles = navigation.folder.list(Assets.teamFilenameFilter);
-                if (teamFileHandles.length > 0) {
-                    game.setScreen(new SelectTeams(game));
-                } else {
-                    game.setScreen(new SelectFolder(game));
-                }
-            }
+            game.setScreen(new AllSelectedTeams(game));
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(game.teamList.numberOfTeams() > 0);
         }
     }
 
@@ -339,6 +425,38 @@ class AllSelectedTeams extends GLScreen {
                     game.setCompetition(navigation.competition);
                     game.setScreen(new PlayTournament(game));
                     break;
+            }
+        }
+    }
+
+    private class CalendarButton extends Button {
+
+        CalendarButton() {
+            setGeometry(game.gui.WIDTH / 2 + 490, 660, 40, 36);
+            setText("" + (char) 21, CENTER, font14);
+            setColors(0x138B21);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(game.settings.development
+                    && navigation.competition.type != FRIENDLY
+                    && navigation.competition.category == DIY_COMPETITION
+                    && navigation.competition.numberOfTeams == game.teamList.numberOfTeams());
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.teamList.removeNullValues();
+            switch (navigation.competition.type) {
+                case CUP:
+                    game.setScreen(new DiyCupCalendar(game, (Cup) navigation.competition));
+                    break;
+                case LEAGUE:
+                    game.setScreen(new DiyLeagueCalendar(game, (League) navigation.competition));
+                    break;
+                case TOURNAMENT:
+                    game.setScreen(new DiyTournamentCalendar(game, (Tournament) navigation.competition));
             }
         }
     }
