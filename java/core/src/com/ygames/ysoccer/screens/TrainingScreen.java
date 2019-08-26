@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.screens;
 
+import com.strongjoshua.console.Console;
+import com.strongjoshua.console.GUIConsole;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -12,6 +14,8 @@ class TrainingScreen extends GLScreen {
     private boolean started;
     private boolean paused;
     private boolean ended;
+
+    private Console console;
 
     TrainingScreen(GLGame game, Training training) {
         super(game);
@@ -28,6 +32,15 @@ class TrainingScreen extends GLScreen {
                 quit();
             }
         };
+
+        if (game.settings.development) {
+            console = new GUIConsole();
+            console.setSizePercent(25, 100);
+            console.setPositionPercent(0, 0);
+            console.setHoverAlpha(0.9f);
+            console.setNoHoverAlpha(0.9f);
+            console.setCommandExecutor(new MatchScreen.ConsoleCommandExecutor());
+        }
     }
 
     @Override
@@ -46,6 +59,11 @@ class TrainingScreen extends GLScreen {
         if (!ended) {
             training.fsm.getTrainingRenderer().render();
         }
+
+        if (game.settings.development) {
+            console.draw();
+            paused = console.isVisible();
+        }
     }
 
     @Override
@@ -53,6 +71,10 @@ class TrainingScreen extends GLScreen {
         super.resize(width, height);
 
         training.fsm.getTrainingRenderer().resize(width, height, game.settings);
+
+        if (game.settings.development) {
+            console.refresh();
+        }
     }
 
     private void quit() {

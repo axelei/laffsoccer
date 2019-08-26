@@ -56,9 +56,9 @@ class TrainingStateFree extends TrainingState {
 
             // goal/corner/goal-kick
             if (ball.y * ball.ySide >= (GOAL_LINE + BALL_R)) {
+                ball.collisionNet();
                 // goal
                 if (Emath.isIn(ball.x, -POST_X, POST_X) && (ball.z <= CROSSBAR_H)) {
-                    ball.collisionNet();
                 } else {
                     // corner/goal-kick
                     ball.collisionJumpers();

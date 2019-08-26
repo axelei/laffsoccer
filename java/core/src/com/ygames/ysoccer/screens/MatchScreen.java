@@ -1,8 +1,13 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.graphics.Color;
+import com.strongjoshua.console.CommandExecutor;
+import com.strongjoshua.console.Console;
+import com.strongjoshua.console.GUIConsole;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
 
@@ -15,6 +20,8 @@ class MatchScreen extends GLScreen {
     private boolean matchStarted;
     private boolean matchPaused;
     private boolean matchEnded;
+
+    private Console console;
 
     MatchScreen(GLGame game, Match match) {
         super(game);
@@ -31,6 +38,15 @@ class MatchScreen extends GLScreen {
                 quit(matchCompleted);
             }
         };
+
+        if (game.settings.development) {
+            console = new GUIConsole();
+            console.setSizePercent(25, 100);
+            console.setPositionPercent(0, 0);
+            console.setHoverAlpha(0.9f);
+            console.setNoHoverAlpha(0.9f);
+            console.setCommandExecutor(new ConsoleCommandExecutor());
+        }
     }
 
     @Override
@@ -49,6 +65,11 @@ class MatchScreen extends GLScreen {
         if (!matchEnded) {
             match.fsm.getMatchRenderer().render();
         }
+
+        if (game.settings.development) {
+            console.draw();
+            matchPaused = console.isVisible();
+        }
     }
 
     @Override
@@ -56,6 +77,10 @@ class MatchScreen extends GLScreen {
         super.resize(width, height);
 
         match.fsm.getMatchRenderer().resize(width, height, game.settings);
+
+        if (game.settings.development) {
+            console.refresh();
+        }
     }
 
     private void quit(boolean matchCompleted) {
@@ -102,6 +127,16 @@ class MatchScreen extends GLScreen {
             case TEST_MATCH:
                 game.setScreen(new DevTools(game));
                 break;
+        }
+    }
+
+    public static class ConsoleCommandExecutor extends CommandExecutor {
+        public void setGravity(float f) {
+            Const.GRAVITY = f;
+        }
+
+        public void showGravity() {
+            console.log("Gravity " + Const.GRAVITY);
         }
     }
 }

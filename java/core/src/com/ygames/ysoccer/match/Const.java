@@ -6,7 +6,7 @@ public class Const {
 
     static final int SECOND = GLGame.SUBFRAMES_PER_SECOND;
     static final int BALL_R = 4;
-    static final float GRAVITY = 350.0f / SECOND;
+    public static float GRAVITY = 350.0f / SECOND;
 
     static final int REPLAY_DURATION = 8; // seconds
     static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRESH_RATE;
