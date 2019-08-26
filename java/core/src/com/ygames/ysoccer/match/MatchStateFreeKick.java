@@ -44,7 +44,7 @@ class MatchStateFreeKick extends MatchState {
 
         Team freeKickTeam = match.foul.opponent.team;
 
-        matchRenderer.actionCamera.offy = -80 * freeKickTeam.side;
+        matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -80 * freeKickTeam.side);
 
         isKicking = false;
 
@@ -52,7 +52,7 @@ class MatchStateFreeKick extends MatchState {
         freeKickTeam.findNearest();
         freeKickPlayer = freeKickTeam.near1;
 
-        freeKickPlayer.tx = match.ball.x - 7 * freeKickPlayer.team.side + 1;
+        freeKickPlayer.tx = match.ball.x - 7 * freeKickTeam.side + 1;
         freeKickPlayer.ty = match.ball.y + 1;
         freeKickPlayer.setState(STATE_REACH_TARGET);
     }

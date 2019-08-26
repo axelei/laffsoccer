@@ -5,23 +5,25 @@ import com.ygames.ysoccer.math.Emath;
 public class ActionCamera {
 
     // follow
-    public static final int CF_NONE = 0;
-    public static final int CF_BALL = 1;
-    public static final int CF_TARGET = 2;
+    static final int CF_NONE = 0;
+    static final int CF_BALL = 1;
+    static final int CF_TARGET = 2;
 
     // speed
-    public static final int CS_NORMAL = 0;
-    public static final int CS_FAST = 1;
-    public static final int CS_WARP = 2;
+    static final int CS_NORMAL = 0;
+    static final int CS_FAST = 1;
+    static final int CS_WARP = 2;
 
     float x; // position
     float y;
-    float vx; // speed
-    float vy;
-    float offx; // offset
-    float offy;
 
-    Renderer renderer;
+    private float vx; // speed
+    private float vy;
+
+    private float offsetX;
+    private float offsetY;
+
+    private Renderer renderer;
 
     public ActionCamera(Renderer renderer) {
         this.renderer = renderer;
@@ -29,9 +31,14 @@ public class ActionCamera {
         y = 0;
     }
 
+    void setOffset(float x, float y) {
+        this.offsetX = x;
+        this.offsetY = y;
+    }
+
     // follow: CF_NONE, CF_BALL, CF_TARGET
     // speed: CS_NORMAL, CS_FAST, CS_WARP
-    public int updateX(int follow, int speed, float target_x, boolean limit) {
+    int updateX(int follow, int speed, float target_x, boolean limit) {
 
         switch (follow) {
 
@@ -44,7 +51,7 @@ public class ActionCamera {
 
                 if (ball.v * Emath.cos(ball.a) != 0) {
                     // "remember" last direction of movement
-                    offx = renderer.screenWidth / 20.0f * Emath.cos(ball.a);
+                    offsetX = renderer.screenWidth / 20.0f * Emath.cos(ball.a);
                 }
 
                 // speed
@@ -53,14 +60,14 @@ public class ActionCamera {
                     vx = (1 - 5.0f / Const.SECOND) * vx;
                 } else {
                     // accelerate
-                    vx = vx + (2.5f / Const.SECOND) * Math.signum(offx) * Math.abs(vx - ball.v * Emath.cos(ball.a));
+                    vx = vx + (2.5f / Const.SECOND) * Math.signum(offsetX) * Math.abs(vx - ball.v * Emath.cos(ball.a));
                 }
 
                 x = x + vx / Const.SECOND;
 
                 // near the point "ball+offset"
-                if (Math.abs(ball.x + offx - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))) >= 10) {
-                    float f = ball.x + offx - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f));
+                if (Math.abs(ball.x + offsetX - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))) >= 10) {
+                    float f = ball.x + offsetX - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f));
                     x = x + (10.0f / Const.SECOND) * (1 + speed) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;
@@ -95,7 +102,7 @@ public class ActionCamera {
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
     // speed: CS_NORMAL, CS_FAST, CS_WARP
-    public int updateY(int follow, int speed, float target_y, boolean limit) {
+    int updateY(int follow, int speed, float target_y, boolean limit) {
 
         switch (follow) {
 
@@ -108,7 +115,7 @@ public class ActionCamera {
 
                 if (ball.v * Emath.cos(ball.a) != 0) {
                     // "remember" last direction of movement
-                    offy = renderer.screenHeight / 20.0f * Emath.sin(ball.a);
+                    offsetY = renderer.screenHeight / 20.0f * Emath.sin(ball.a);
                 }
 
                 // speed
@@ -117,14 +124,14 @@ public class ActionCamera {
                     vy = (1 - 5.0f / Const.SECOND) * vy;
                 } else {
                     // accelerate
-                    vy = vy + (2.5f / Const.SECOND) * Math.signum(offy) * Math.abs(vy - ball.v * Emath.sin(ball.a));
+                    vy = vy + (2.5f / Const.SECOND) * Math.signum(offsetY) * Math.abs(vy - ball.v * Emath.sin(ball.a));
                 }
 
                 y = y + vy / Const.SECOND;
 
                 // near the point "ball+offset"
-                if (Math.abs(ball.y + offy - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))) >= 10) {
-                    float f = ball.y + offy - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f));
+                if (Math.abs(ball.y + offsetY - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))) >= 10) {
+                    float f = ball.y + offsetY - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f));
                     y = y + (10.0f / Const.SECOND) * (1 + speed) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;

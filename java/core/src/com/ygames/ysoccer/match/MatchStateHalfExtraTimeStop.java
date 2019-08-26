@@ -65,8 +65,7 @@ class MatchStateHalfExtraTimeStop extends MatchState {
             match.ball.setPosition(0, 0, 0);
             match.ball.updatePrediction();
 
-            matchRenderer.actionCamera.offx = 0;
-            matchRenderer.actionCamera.offy = 0;
+            matchRenderer.actionCamera.setOffset(0, 0);
 
             match.swapTeamSides();
 

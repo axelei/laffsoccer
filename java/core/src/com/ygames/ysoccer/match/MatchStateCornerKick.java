@@ -53,8 +53,7 @@ class MatchStateCornerKick extends MatchState {
     void onResume() {
         super.onResume();
 
-        matchRenderer.actionCamera.offx = -30 * match.ball.xSide;
-        matchRenderer.actionCamera.offy = -30 * match.ball.ySide;
+        matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -30 * match.ball.ySide);
 
         isKicking = false;
 

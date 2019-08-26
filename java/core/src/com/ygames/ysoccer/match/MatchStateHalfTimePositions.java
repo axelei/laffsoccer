@@ -30,8 +30,7 @@ class MatchStateHalfTimePositions extends MatchState {
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();
 
-        matchRenderer.actionCamera.offx = 0;
-        matchRenderer.actionCamera.offy = 0;
+        matchRenderer.actionCamera.setOffset(0, 0);
 
         match.period = Match.Period.UNDEFINED;
         match.clock = match.length * 45 / 90;
