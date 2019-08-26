@@ -49,7 +49,7 @@ class MatchStateBenchSubstitutions extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX, false);
+            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX);
             matchRenderer.updateCameraY(CF_TARGET, CS_FAST, fsm.benchStatus.targetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;

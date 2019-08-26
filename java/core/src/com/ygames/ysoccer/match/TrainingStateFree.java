@@ -31,6 +31,8 @@ class TrainingStateFree extends TrainingState {
         training.setIntroPositions();
 
         lastTrained = team.lineup.get(0);
+
+        trainingRenderer.actionCamera.setLimited(true, true);
     }
 
     @Override
@@ -85,7 +87,7 @@ class TrainingStateFree extends TrainingState {
             training.save();
 
             trainingRenderer.updateCameraX(CF_BALL, CS_NORMAL);
-            trainingRenderer.updateCameraY(CF_BALL, CS_NORMAL, 0, false);
+            trainingRenderer.updateCameraY(CF_BALL, CS_NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

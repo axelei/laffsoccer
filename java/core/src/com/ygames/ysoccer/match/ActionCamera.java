@@ -23,6 +23,9 @@ public class ActionCamera {
     private float offsetX;
     private float offsetY;
 
+    private boolean xLimited;
+    private boolean yLimited;
+
     private Renderer renderer;
 
     public ActionCamera(Renderer renderer) {
@@ -36,9 +39,14 @@ public class ActionCamera {
         this.offsetY = y;
     }
 
+    void setLimited(boolean xLimited, boolean yLimited) {
+        this.xLimited = xLimited;
+        this.yLimited = yLimited;
+    }
+
     // follow: CF_NONE, CF_BALL, CF_TARGET
     // speed: CS_NORMAL, CS_FAST, CS_WARP
-    int updateX(int follow, int speed, float target_x, boolean limit) {
+    int updateX(int follow, int speed, float target_x) {
 
         switch (follow) {
 
@@ -84,7 +92,7 @@ public class ActionCamera {
         float xmin = 0;
         float xmax = Const.PITCH_W - renderer.screenWidth / (renderer.zoom / 100.0f);
 
-        if ((renderer.screenWidth / (renderer.zoom / 100.0f) < 1600) && limit) {
+        if (xLimited && (renderer.screenWidth / (renderer.zoom / 100.0f) < 1600)) {
             xmin = Const.CENTER_X - Const.TOUCH_LINE - renderer.screenWidth / (16 * renderer.zoom / 100.0f);
             xmax = Const.CENTER_X + Const.TOUCH_LINE + renderer.screenWidth / (16 * renderer.zoom / 100.0f) - renderer.screenWidth / (renderer.zoom / 100.0f);
         }
@@ -102,7 +110,7 @@ public class ActionCamera {
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
     // speed: CS_NORMAL, CS_FAST, CS_WARP
-    int updateY(int follow, int speed, float target_y, boolean limit) {
+    int updateY(int follow, int speed, float target_y) {
 
         switch (follow) {
 
@@ -149,7 +157,7 @@ public class ActionCamera {
         float ymin = 0;
         float ymax = Const.PITCH_H - renderer.screenHeight / (renderer.zoom / 100.0f);
 
-        if (limit) {
+        if (yLimited) {
             ymin = Const.CENTER_Y - Const.GOAL_LINE - renderer.screenHeight / (4 * renderer.zoom / 100.0f);
             ymax = Const.CENTER_Y + Const.GOAL_LINE + renderer.screenHeight / (4 * renderer.zoom / 100.0f) - renderer.screenHeight / (renderer.zoom / 100.0f);
         }

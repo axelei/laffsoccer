@@ -55,7 +55,7 @@ class MatchStateBenchExit extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.oldTargetX, false);
+            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.oldTargetX);
             matchRenderer.updateCameraY(CF_TARGET, CS_WARP, fsm.benchStatus.oldTargetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
@@ -69,6 +69,7 @@ class MatchStateBenchExit extends MatchState {
         float dy = matchRenderer.actionCamera.y - fsm.benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
         if (Emath.hypo(dx, dy) <= 1) {
+            matchRenderer.actionCamera.setLimited(true, true);
             fsm.pushAction(RESTORE_FOREGROUND);
             return;
         }

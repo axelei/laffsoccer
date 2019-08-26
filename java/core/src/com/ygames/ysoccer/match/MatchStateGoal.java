@@ -60,6 +60,8 @@ class MatchStateGoal extends MatchState {
         }
 
         match.resetAutomaticInputDevices();
+
+        matchRenderer.actionCamera.setLimited(true, false);
     }
 
     @Override
@@ -93,11 +95,11 @@ class MatchStateGoal extends MatchState {
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
                 matchRenderer.updateCameraX(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
-                matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL, 0, false);
+                matchRenderer.updateCameraY(ActionCamera.CF_BALL, ActionCamera.CS_NORMAL);
             } else {
                 // follow scorer
                 matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].x);
-                matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].y, false);
+                matchRenderer.updateCameraY(ActionCamera.CF_TARGET, ActionCamera.CS_FAST, goal.player.data[match.subframe].y);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

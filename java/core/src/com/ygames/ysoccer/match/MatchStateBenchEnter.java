@@ -48,6 +48,7 @@ class MatchStateBenchEnter extends MatchState {
 
         cameraX = matchRenderer.actionCamera.x;
         cameraY = matchRenderer.actionCamera.y;
+        matchRenderer.actionCamera.setLimited(false, true);
     }
 
     @Override
@@ -66,7 +67,7 @@ class MatchStateBenchEnter extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX, false);
+            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX);
             matchRenderer.updateCameraY(CF_TARGET, CS_WARP, fsm.benchStatus.targetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;

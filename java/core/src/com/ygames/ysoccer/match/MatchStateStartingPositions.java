@@ -33,6 +33,7 @@ class MatchStateStartingPositions extends MatchState {
 
         match.setStartingPositions();
         match.setPlayersState(STATE_REACH_TARGET, null);
+        matchRenderer.actionCamera.setLimited(true, true);
     }
 
     @Override
