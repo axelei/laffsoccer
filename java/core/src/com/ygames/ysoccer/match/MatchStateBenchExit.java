@@ -4,8 +4,8 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
-import static com.ygames.ysoccer.match.ActionCamera.CS_WARP;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.WARP;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -55,8 +55,8 @@ class MatchStateBenchExit extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.oldTargetX);
-            matchRenderer.updateCameraY(CF_TARGET, CS_WARP, fsm.benchStatus.oldTargetY);
+            matchRenderer.updateCameraX(CF_TARGET, FAST, fsm.benchStatus.oldTargetX);
+            matchRenderer.updateCameraY(CF_TARGET, WARP, fsm.benchStatus.oldTargetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -5,8 +5,8 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
-import static com.ygames.ysoccer.match.ActionCamera.CS_WARP;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.WARP;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -67,8 +67,8 @@ class MatchStateBenchEnter extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX);
-            matchRenderer.updateCameraY(CF_TARGET, CS_WARP, fsm.benchStatus.targetY);
+            matchRenderer.updateCameraX(CF_TARGET, FAST, fsm.benchStatus.targetX);
+            matchRenderer.updateCameraY(CF_TARGET, WARP, fsm.benchStatus.targetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

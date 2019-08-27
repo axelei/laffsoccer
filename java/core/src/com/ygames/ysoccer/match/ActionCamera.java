@@ -9,10 +9,11 @@ public class ActionCamera {
     static final int CF_BALL = 1;
     static final int CF_TARGET = 2;
 
-    // speed
-    static final int CS_NORMAL = 0;
-    static final int CS_FAST = 1;
-    static final int CS_WARP = 2;
+    enum Speed {
+        NORMAL,
+        FAST,
+        WARP
+    }
 
     float x; // position
     float y;
@@ -45,8 +46,7 @@ public class ActionCamera {
     }
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
-    // speed: CS_NORMAL, CS_FAST, CS_WARP
-    int updateX(int follow, int speed, float target_x) {
+    int updateX(int follow, Speed speed, float target_x) {
 
         switch (follow) {
 
@@ -76,13 +76,13 @@ public class ActionCamera {
                 // near the point "ball+offset"
                 if (Math.abs(ball.x + offsetX - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))) >= 10) {
                     float f = ball.x + offsetX - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f));
-                    x = x + (10.0f / Const.SECOND) * (1 + speed) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
+                    x = x + (10.0f / Const.SECOND) * (1 + speed.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;
 
             case CF_TARGET:
                 x = x + (10.0f / Const.SECOND)
-                        * (1 + speed)
+                        * (1 + speed.ordinal())
                         * Math.signum(target_x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f)))
                         * (float) Math.sqrt(Math.abs(target_x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))));
                 break;
@@ -109,8 +109,7 @@ public class ActionCamera {
     }
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
-    // speed: CS_NORMAL, CS_FAST, CS_WARP
-    int updateY(int follow, int speed, float target_y) {
+    int updateY(int follow, Speed speed, float target_y) {
 
         switch (follow) {
 
@@ -140,14 +139,14 @@ public class ActionCamera {
                 // near the point "ball+offset"
                 if (Math.abs(ball.y + offsetY - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))) >= 10) {
                     float f = ball.y + offsetY - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f));
-                    y = y + (10.0f / Const.SECOND) * (1 + speed) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
+                    y = y + (10.0f / Const.SECOND) * (1 + speed.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;
 
             case CF_TARGET:
                 y = y
                         + (10.0f / Const.SECOND)
-                        * (1 + speed)
+                        * (1 + speed.ordinal())
                         * Math.signum(target_y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f)))
                         * (float) Math.sqrt(Math.abs(target_y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))));
                 break;

@@ -9,7 +9,7 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.Collections;
 
 import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.CS_FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_FORMATION;
@@ -49,8 +49,8 @@ class MatchStateBenchFormation extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, CS_FAST, fsm.benchStatus.targetX);
-            matchRenderer.updateCameraY(CF_TARGET, CS_FAST, fsm.benchStatus.targetY);
+            matchRenderer.updateCameraX(CF_TARGET, FAST, fsm.benchStatus.targetX);
+            matchRenderer.updateCameraY(CF_TARGET, FAST, fsm.benchStatus.targetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

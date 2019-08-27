@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -106,8 +107,8 @@ class MatchStatePenaltyKickStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, ActionCamera.CS_NORMAL, match.foul.position.x);
-            matchRenderer.updateCameraY(ActionCamera.CF_NONE, ActionCamera.CS_NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, NORMAL, match.foul.position.x);
+            matchRenderer.updateCameraY(ActionCamera.CF_NONE, NORMAL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
