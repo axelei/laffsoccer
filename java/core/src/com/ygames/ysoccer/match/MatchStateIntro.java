@@ -5,7 +5,8 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -52,11 +53,11 @@ class MatchStateIntro extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_NONE);
+            matchRenderer.updateCameraX(STILL);
             if (timer < GLGame.VIRTUAL_REFRESH_RATE) {
-                matchRenderer.updateCameraY(ActionCamera.CF_NONE);
+                matchRenderer.updateCameraY(STILL);
             } else {
-                matchRenderer.updateCameraY(ActionCamera.CF_BALL);
+                matchRenderer.updateCameraY(FOLLOW_BALL);
             }
 
             timeLeft -= GLGame.SUBFRAME_DURATION;

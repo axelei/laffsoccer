@@ -6,7 +6,7 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
-import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
@@ -45,8 +45,8 @@ class MatchStateBenchTactics extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, fsm.benchStatus.targetX);
-            matchRenderer.updateCameraY(CF_TARGET, fsm.benchStatus.targetY);
+            matchRenderer.updateCameraX(REACH_TARGET, fsm.benchStatus.targetX);
+            matchRenderer.updateCameraY(REACH_TARGET, fsm.benchStatus.targetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

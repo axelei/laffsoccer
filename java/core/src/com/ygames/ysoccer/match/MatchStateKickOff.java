@@ -7,8 +7,8 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -84,8 +84,8 @@ class MatchStateKickOff extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_BALL);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL);
+            matchRenderer.updateCameraX(FOLLOW_BALL);
+            matchRenderer.updateCameraY(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

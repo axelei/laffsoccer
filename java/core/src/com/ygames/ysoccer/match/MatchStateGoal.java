@@ -5,6 +5,9 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -95,13 +98,13 @@ class MatchStateGoal extends MatchState {
 
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
-                matchRenderer.updateCameraX(ActionCamera.CF_NONE);
-                matchRenderer.updateCameraY(ActionCamera.CF_BALL);
+                matchRenderer.updateCameraX(STILL);
+                matchRenderer.updateCameraY(FOLLOW_BALL);
             } else {
                 // follow scorer
                 matchRenderer.actionCamera.setSpeedMode(FAST);
-                matchRenderer.updateCameraX(ActionCamera.CF_TARGET, goal.player.data[match.subframe].x);
-                matchRenderer.updateCameraY(ActionCamera.CF_TARGET, goal.player.data[match.subframe].y);
+                matchRenderer.updateCameraX(REACH_TARGET, goal.player.data[match.subframe].x);
+                matchRenderer.updateCameraY(REACH_TARGET, goal.player.data[match.subframe].y);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

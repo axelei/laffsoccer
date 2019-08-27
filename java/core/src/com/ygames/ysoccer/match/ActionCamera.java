@@ -4,10 +4,11 @@ import com.ygames.ysoccer.math.Emath;
 
 public class ActionCamera {
 
-    // follow
-    static final int CF_NONE = 0;
-    static final int CF_BALL = 1;
-    static final int CF_TARGET = 2;
+    enum Mode {
+        STILL,
+        FOLLOW_BALL,
+        REACH_TARGET
+    }
 
     enum SpeedMode {
         NORMAL,
@@ -52,16 +53,15 @@ public class ActionCamera {
         this.yLimited = yLimited;
     }
 
-    // follow: CF_NONE, CF_BALL, CF_TARGET
-    int updateX(int follow, float target_x) {
+    int updateX(Mode mode, float target_x) {
 
-        switch (follow) {
+        switch (mode) {
 
-            case CF_NONE:
+            case STILL:
                 // do nothing
                 break;
 
-            case CF_BALL:
+            case FOLLOW_BALL:
                 Ball ball = renderer.ball;
 
                 if (ball.v * Emath.cos(ball.a) != 0) {
@@ -87,7 +87,7 @@ public class ActionCamera {
                 }
                 break;
 
-            case CF_TARGET:
+            case REACH_TARGET:
                 x = x + (10.0f / Const.SECOND)
                         * (1 + speedMode.ordinal())
                         * Math.signum(target_x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f)))
@@ -115,16 +115,15 @@ public class ActionCamera {
         return Math.round(x);
     }
 
-    // follow: CF_NONE, CF_BALL, CF_TARGET
-    int updateY(int follow, float target_y) {
+    int updateY(Mode mode, float target_y) {
 
-        switch (follow) {
+        switch (mode) {
 
-            case CF_NONE:
+            case STILL:
                 // do nothing;
                 break;
 
-            case CF_BALL:
+            case FOLLOW_BALL:
                 Ball ball = renderer.ball;
 
                 if (ball.v * Emath.cos(ball.a) != 0) {
@@ -150,7 +149,7 @@ public class ActionCamera {
                 }
                 break;
 
-            case CF_TARGET:
+            case REACH_TARGET:
                 y = y
                         + (10.0f / Const.SECOND)
                         * (1 + speedMode.ordinal())

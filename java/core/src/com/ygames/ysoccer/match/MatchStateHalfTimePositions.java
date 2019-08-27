@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
@@ -58,8 +59,8 @@ class MatchStateHalfTimePositions extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, 0);
-            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, 0);
+            matchRenderer.updateCameraX(REACH_TARGET, 0);
+            matchRenderer.updateCameraY(REACH_TARGET, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

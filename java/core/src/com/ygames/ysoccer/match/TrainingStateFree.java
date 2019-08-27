@@ -7,8 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.Collections;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
-import static com.ygames.ysoccer.match.ActionCamera.CF_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
@@ -86,8 +85,8 @@ class TrainingStateFree extends TrainingState {
 
             training.save();
 
-            trainingRenderer.updateCameraX(CF_BALL);
-            trainingRenderer.updateCameraY(CF_BALL);
+            trainingRenderer.updateCameraX(FOLLOW_BALL);
+            trainingRenderer.updateCameraY(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -8,7 +8,7 @@ import com.ygames.ysoccer.framework.InputDevice;
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
-import static com.ygames.ysoccer.match.ActionCamera.CF_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -94,8 +94,8 @@ class MatchStateCornerKick extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_BALL);
-            matchRenderer.updateCameraY(CF_BALL);
+            matchRenderer.updateCameraX(FOLLOW_BALL);
+            matchRenderer.updateCameraY(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
