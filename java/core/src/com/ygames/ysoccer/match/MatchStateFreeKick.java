@@ -18,7 +18,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_ANGLE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
@@ -91,13 +91,10 @@ class MatchStateFreeKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            // TODO freeKickPlayer.setState(STATE_FREE_KICK);
-            // TEMPORARY //
-            freeKickPlayer.setState(STATE_CORNER_KICK_ANGLE);
+            freeKickPlayer.setState(STATE_FREE_KICK_ANGLE);
             if (freeKickPlayer.team.usesAutomaticInputDevice()) {
                 freeKickPlayer.inputDevice = freeKickPlayer.team.inputDevice;
             }
-            // END OF TEMPORARY //
             isKicking = true;
         }
     }

@@ -24,7 +24,6 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 class MatchStateFreeKickStop extends MatchState {
 
     private boolean allPlayersReachingTarget;
-    private boolean move;
 
     MatchStateFreeKickStop(MatchFsm fsm) {
         super(STATE_FREE_KICK_STOP, fsm);
@@ -91,7 +90,7 @@ class MatchStateFreeKickStop extends MatchState {
             match.updateBall();
             match.ball.inFieldKeep();
 
-            move = match.updatePlayers(true);
+            match.updatePlayers(true);
             match.updateTeamTactics();
 
             match.nextSubframe();
@@ -106,7 +105,7 @@ class MatchStateFreeKickStop extends MatchState {
 
     @Override
     void checkConditions() {
-        if (allPlayersReachingTarget && !move) {
+        if (allPlayersReachingTarget) {
             match.ball.setPosition(match.foul.position.x, match.foul.position.y, 0);
             match.ball.updatePrediction();
 
