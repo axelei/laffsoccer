@@ -80,7 +80,7 @@ class TrainingStateFree extends TrainingState {
 
             training.nextSubframe();
 
-            training.save();
+            trainingRenderer.save();
 
             trainingRenderer.updateCamera(FOLLOW_BALL);
 

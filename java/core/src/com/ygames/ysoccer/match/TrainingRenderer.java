@@ -234,6 +234,11 @@ public class TrainingRenderer extends Renderer {
 
     void updateCamera(ActionCamera.Mode mode) {
         actionCamera.update(mode);
+    }
+
+    void save() {
+        ball.save(training.subframe);
+        training.team.save(training.subframe);
         vcameraX[training.subframe] = Math.round(actionCamera.x);
         vcameraY[training.subframe] = Math.round(actionCamera.y);
     }

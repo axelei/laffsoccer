@@ -70,11 +70,6 @@ public class Training {
         return team.updateLineup(true);
     }
 
-    void save() {
-        ball.save(subframe);
-        team.save(subframe);
-    }
-
     void setIntroPositions() {
 
         ball.setPosition(0, team.side * PENALTY_AREA_H, 0);
