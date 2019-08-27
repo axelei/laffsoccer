@@ -232,20 +232,20 @@ public class TrainingRenderer extends Renderer {
         }
     }
 
-    void updateCameraX(int follow, ActionCamera.SpeedMode speed) {
-        updateCameraX(follow, speed, 0);
+    void updateCameraX(int follow) {
+        updateCameraX(follow, 0);
     }
 
-    void updateCameraX(int follow, ActionCamera.SpeedMode speed, float targetX) {
-        vcameraX[training.subframe] = actionCamera.updateX(follow, speed, targetX);
+    void updateCameraX(int follow, float targetX) {
+        vcameraX[training.subframe] = actionCamera.updateX(follow, targetX);
     }
 
-    void updateCameraY(int follow, ActionCamera.SpeedMode speed) {
-        updateCameraY(follow, speed, 0);
+    void updateCameraY(int follow) {
+        updateCameraY(follow, 0);
     }
 
-    void updateCameraY(int follow, ActionCamera.SpeedMode speed, float targetY) {
-        vcameraY[training.subframe] = actionCamera.updateY(follow, speed, targetY);
+    void updateCameraY(int follow, float targetY) {
+        vcameraY[training.subframe] = actionCamera.updateY(follow, targetY);
     }
 
     private void drawPlayerNumberAndName(Player player) {

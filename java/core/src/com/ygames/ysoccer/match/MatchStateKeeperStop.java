@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
@@ -73,8 +72,8 @@ class MatchStateKeeperStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_NONE, NORMAL);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL, NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_NONE);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

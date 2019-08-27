@@ -40,6 +40,8 @@ class MatchStateGoalKick extends MatchState {
         super.onResume();
 
         matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -30 * match.ball.ySide);
+        matchRenderer.actionCamera.setSpeedMode(FAST);
+        matchRenderer.actionCamera.setLimited(true, true);
 
         isKicking = false;
 
@@ -78,8 +80,8 @@ class MatchStateGoalKick extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_BALL, FAST);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL, FAST);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -4,7 +4,6 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.ActionCamera.CF_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.WARP;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
@@ -35,6 +34,8 @@ class MatchStateBenchExit extends MatchState {
                 player.setState(STATE_BENCH_SITTING);
             }
         }
+
+        matchRenderer.actionCamera.setSpeedMode(WARP);
     }
 
     @Override
@@ -55,8 +56,8 @@ class MatchStateBenchExit extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_TARGET, FAST, fsm.benchStatus.oldTargetX);
-            matchRenderer.updateCameraY(CF_TARGET, WARP, fsm.benchStatus.oldTargetY);
+            matchRenderer.updateCameraX(CF_TARGET, fsm.benchStatus.oldTargetX);
+            matchRenderer.updateCameraY(CF_TARGET, fsm.benchStatus.oldTargetY);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -69,7 +70,6 @@ class MatchStateBenchExit extends MatchState {
         float dy = matchRenderer.actionCamera.y - fsm.benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
         if (Emath.hypo(dx, dy) <= 1) {
-            matchRenderer.actionCamera.setLimited(true, true);
             fsm.pushAction(RESTORE_FOREGROUND);
             return;
         }

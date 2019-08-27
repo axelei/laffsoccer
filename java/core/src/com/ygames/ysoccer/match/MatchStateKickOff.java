@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -53,6 +54,8 @@ class MatchStateKickOff extends MatchState {
         if (kickOffTeam.usesAutomaticInputDevice()) {
             kickOffPlayer.inputDevice = kickOffTeam.inputDevice;
         }
+
+        matchRenderer.actionCamera.setSpeedMode(FAST);
     }
 
     @Override
@@ -81,8 +84,8 @@ class MatchStateKickOff extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_BALL, FAST);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL, FAST);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

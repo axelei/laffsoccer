@@ -53,8 +53,8 @@ class MatchStateHalfTimeStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_BALL, NORMAL);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL, NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

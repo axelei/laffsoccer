@@ -47,6 +47,9 @@ class MatchStatePenaltyKick extends MatchState {
         penaltyKicker = match.foul.opponent.team.lastOfLineup();
         penaltyKicker.setTarget(match.ball.x, match.ball.y - 7 * match.ball.ySide);
         penaltyKicker.setState(STATE_REACH_TARGET);
+
+        matchRenderer.actionCamera.setSpeedMode(FAST);
+        matchRenderer.actionCamera.setLimited(true, true);
     }
 
     @Override
@@ -77,8 +80,8 @@ class MatchStatePenaltyKick extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_BALL, FAST);
-            matchRenderer.updateCameraY(CF_BALL, FAST);
+            matchRenderer.updateCameraX(CF_BALL);
+            matchRenderer.updateCameraY(CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -43,8 +43,8 @@ class MatchStateHalfTimeWait extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, NORMAL, 0);
-            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, NORMAL, 0);
+            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, 0);
+            matchRenderer.updateCameraY(ActionCamera.CF_TARGET, 0);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

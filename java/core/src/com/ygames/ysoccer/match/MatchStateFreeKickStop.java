@@ -57,6 +57,12 @@ class MatchStateFreeKickStop extends MatchState {
     }
 
     @Override
+    void onResume() {
+        matchRenderer.actionCamera.setSpeedMode(NORMAL);
+        matchRenderer.actionCamera.setLimited(true, true);
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -91,8 +97,8 @@ class MatchStateFreeKickStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_NONE, NORMAL);
-            matchRenderer.updateCameraY(ActionCamera.CF_NONE, NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_NONE);
+            matchRenderer.updateCameraY(ActionCamera.CF_NONE);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

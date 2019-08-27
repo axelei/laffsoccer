@@ -45,6 +45,8 @@ class MatchStateFreeKick extends MatchState {
         Team freeKickTeam = match.foul.opponent.team;
 
         matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -80 * freeKickTeam.side);
+        matchRenderer.actionCamera.setSpeedMode(FAST);
+        matchRenderer.actionCamera.setLimited(true, true);
 
         isKicking = false;
 
@@ -81,8 +83,8 @@ class MatchStateFreeKick extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_BALL, FAST);
-            matchRenderer.updateCameraY(CF_BALL, FAST);
+            matchRenderer.updateCameraX(CF_BALL);
+            matchRenderer.updateCameraY(CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

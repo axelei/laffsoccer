@@ -34,6 +34,11 @@ class MatchStateStartingPositions extends MatchState {
 
         match.setStartingPositions();
         match.setPlayersState(STATE_REACH_TARGET, null);
+    }
+
+    @Override
+    void onResume() {
+        matchRenderer.actionCamera.setSpeedMode(FAST);
         matchRenderer.actionCamera.setLimited(true, true);
     }
 
@@ -50,8 +55,8 @@ class MatchStateStartingPositions extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_BALL, FAST);
-            matchRenderer.updateCameraY(ActionCamera.CF_BALL, FAST);
+            matchRenderer.updateCameraX(ActionCamera.CF_BALL);
+            matchRenderer.updateCameraY(ActionCamera.CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

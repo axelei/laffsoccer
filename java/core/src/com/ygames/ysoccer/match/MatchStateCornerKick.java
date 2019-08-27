@@ -54,6 +54,8 @@ class MatchStateCornerKick extends MatchState {
         super.onResume();
 
         matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -30 * match.ball.ySide);
+        matchRenderer.actionCamera.setSpeedMode(FAST);
+        matchRenderer.actionCamera.setLimited(true, true);
 
         isKicking = false;
 
@@ -92,8 +94,8 @@ class MatchStateCornerKick extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(CF_BALL, FAST);
-            matchRenderer.updateCameraY(CF_BALL, FAST);
+            matchRenderer.updateCameraX(CF_BALL);
+            matchRenderer.updateCameraY(CF_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

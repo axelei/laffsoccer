@@ -70,6 +70,12 @@ class MatchStatePenaltyKickStop extends MatchState {
     }
 
     @Override
+    void onResume() {
+        matchRenderer.actionCamera.setSpeedMode(NORMAL);
+        matchRenderer.actionCamera.setLimited(true, true);
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -107,8 +113,8 @@ class MatchStatePenaltyKickStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, NORMAL, match.foul.position.x);
-            matchRenderer.updateCameraY(ActionCamera.CF_NONE, NORMAL);
+            matchRenderer.updateCameraX(ActionCamera.CF_TARGET, match.foul.position.x);
+            matchRenderer.updateCameraY(ActionCamera.CF_NONE);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

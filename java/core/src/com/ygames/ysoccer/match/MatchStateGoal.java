@@ -6,7 +6,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -96,12 +95,13 @@ class MatchStateGoal extends MatchState {
 
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
-                matchRenderer.updateCameraX(ActionCamera.CF_NONE, NORMAL);
-                matchRenderer.updateCameraY(ActionCamera.CF_BALL, NORMAL);
+                matchRenderer.updateCameraX(ActionCamera.CF_NONE);
+                matchRenderer.updateCameraY(ActionCamera.CF_BALL);
             } else {
                 // follow scorer
-                matchRenderer.updateCameraX(ActionCamera.CF_TARGET, FAST, goal.player.data[match.subframe].x);
-                matchRenderer.updateCameraY(ActionCamera.CF_TARGET, FAST, goal.player.data[match.subframe].y);
+                matchRenderer.actionCamera.setSpeedMode(FAST);
+                matchRenderer.updateCameraX(ActionCamera.CF_TARGET, goal.player.data[match.subframe].x);
+                matchRenderer.updateCameraY(ActionCamera.CF_TARGET, goal.player.data[match.subframe].y);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
