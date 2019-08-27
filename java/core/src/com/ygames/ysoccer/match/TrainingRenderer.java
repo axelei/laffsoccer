@@ -233,19 +233,11 @@ public class TrainingRenderer extends Renderer {
     }
 
     void updateCameraX(ActionCamera.Mode mode) {
-        updateCameraX(mode, 0);
-    }
-
-    void updateCameraX(ActionCamera.Mode mode, float targetX) {
-        vcameraX[training.subframe] = actionCamera.updateX(mode, targetX);
+        vcameraX[training.subframe] = actionCamera.updateX(mode);
     }
 
     void updateCameraY(ActionCamera.Mode mode) {
-        updateCameraY(mode, 0);
-    }
-
-    void updateCameraY(ActionCamera.Mode mode, float targetY) {
-        vcameraY[training.subframe] = actionCamera.updateY(mode, targetY);
+        vcameraY[training.subframe] = actionCamera.updateY(mode);
     }
 
     private void drawPlayerNumberAndName(Player player) {

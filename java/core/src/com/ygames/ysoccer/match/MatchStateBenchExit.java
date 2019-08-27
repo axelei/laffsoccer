@@ -35,6 +35,7 @@ class MatchStateBenchExit extends MatchState {
             }
         }
 
+        matchRenderer.actionCamera.setTarget(fsm.benchStatus.oldTargetX, fsm.benchStatus.oldTargetY);
         matchRenderer.actionCamera.setSpeedMode(WARP);
     }
 
@@ -56,8 +57,8 @@ class MatchStateBenchExit extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(REACH_TARGET, fsm.benchStatus.oldTargetX);
-            matchRenderer.updateCameraY(REACH_TARGET, fsm.benchStatus.oldTargetY);
+            matchRenderer.updateCameraX(REACH_TARGET);
+            matchRenderer.updateCameraY(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -69,6 +70,7 @@ class MatchStateBenchExit extends MatchState {
         float dx = matchRenderer.actionCamera.x - fsm.benchStatus.oldTargetX - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
         float dy = matchRenderer.actionCamera.y - fsm.benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
+        // TODO: replace with test on speed provided by camera
         if (Emath.hypo(dx, dy) <= 1) {
             fsm.pushAction(RESTORE_FOREGROUND);
             return;

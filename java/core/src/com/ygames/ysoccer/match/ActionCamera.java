@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.math.Emath;
 
 public class ActionCamera {
@@ -30,6 +31,8 @@ public class ActionCamera {
     private boolean xLimited;
     private boolean yLimited;
 
+    private Vector2 target;
+
     private Renderer renderer;
 
     public ActionCamera(Renderer renderer) {
@@ -37,6 +40,7 @@ public class ActionCamera {
         x = 0.5f * (Const.PITCH_W - renderer.screenWidth / (renderer.zoom / 100.0f));
         y = 0;
         speedMode = SpeedMode.NORMAL;
+        target = new Vector2();
     }
 
     public void setSpeedMode(SpeedMode speedMode) {
@@ -53,7 +57,11 @@ public class ActionCamera {
         this.yLimited = yLimited;
     }
 
-    int updateX(Mode mode, float target_x) {
+    void setTarget(float x, float y) {
+        target.set(x, y);
+    }
+
+    int updateX(Mode mode) {
 
         switch (mode) {
 
@@ -90,8 +98,8 @@ public class ActionCamera {
             case REACH_TARGET:
                 x = x + (10.0f / Const.SECOND)
                         * (1 + speedMode.ordinal())
-                        * Math.signum(target_x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f)))
-                        * (float) Math.sqrt(Math.abs(target_x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))));
+                        * Math.signum(target.x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f)))
+                        * (float) Math.sqrt(Math.abs(target.x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))));
                 break;
         }
 
@@ -115,7 +123,7 @@ public class ActionCamera {
         return Math.round(x);
     }
 
-    int updateY(Mode mode, float target_y) {
+    int updateY(Mode mode) {
 
         switch (mode) {
 
@@ -153,8 +161,8 @@ public class ActionCamera {
                 y = y
                         + (10.0f / Const.SECOND)
                         * (1 + speedMode.ordinal())
-                        * Math.signum(target_y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f)))
-                        * (float) Math.sqrt(Math.abs(target_y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))));
+                        * Math.signum(target.y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f)))
+                        * (float) Math.sqrt(Math.abs(target.y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))));
                 break;
         }
 

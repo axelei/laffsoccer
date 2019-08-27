@@ -30,6 +30,8 @@ class MatchStateHalfTimeWait extends MatchState {
         match.swapTeamSides();
 
         match.kickOffTeam = 1 - match.coinToss;
+
+        matchRenderer.actionCamera.setTarget(0,0);
     }
 
     @Override
@@ -43,8 +45,8 @@ class MatchStateHalfTimeWait extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(REACH_TARGET, 0);
-            matchRenderer.updateCameraY(REACH_TARGET, 0);
+            matchRenderer.updateCameraX(REACH_TARGET);
+            matchRenderer.updateCameraY(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

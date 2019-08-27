@@ -30,6 +30,7 @@ class MatchStateEnd extends MatchState {
 
         match.period = Match.Period.UNDEFINED;
 
+        matchRenderer.actionCamera.setTarget(0,0);
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
     }
 
@@ -44,8 +45,8 @@ class MatchStateEnd extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(REACH_TARGET, 0);
-            matchRenderer.updateCameraY(REACH_TARGET, 0);
+            matchRenderer.updateCameraX(REACH_TARGET);
+            matchRenderer.updateCameraY(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

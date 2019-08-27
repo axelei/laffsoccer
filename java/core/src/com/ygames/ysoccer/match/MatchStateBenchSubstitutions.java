@@ -30,6 +30,7 @@ class MatchStateBenchSubstitutions extends MatchState {
         super.entryActions();
         displayBenchPlayers = true;
 
+        matchRenderer.actionCamera.setTarget(fsm.benchStatus.targetX, fsm.benchStatus.targetY);
         matchRenderer.actionCamera.setSpeedMode(FAST);
     }
 
@@ -51,8 +52,8 @@ class MatchStateBenchSubstitutions extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(REACH_TARGET, fsm.benchStatus.targetX);
-            matchRenderer.updateCameraY(REACH_TARGET, fsm.benchStatus.targetY);
+            matchRenderer.updateCameraX(REACH_TARGET);
+            matchRenderer.updateCameraY(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

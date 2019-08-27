@@ -47,6 +47,7 @@ class MatchStateBenchEnter extends MatchState {
 
         cameraX = matchRenderer.actionCamera.x;
         cameraY = matchRenderer.actionCamera.y;
+        matchRenderer.actionCamera.setTarget(fsm.benchStatus.targetX, fsm.benchStatus.targetY);
         matchRenderer.actionCamera.setLimited(false, true);
         matchRenderer.actionCamera.setSpeedMode(WARP);
     }
@@ -67,8 +68,8 @@ class MatchStateBenchEnter extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(REACH_TARGET, fsm.benchStatus.targetX);
-            matchRenderer.updateCameraY(REACH_TARGET, fsm.benchStatus.targetY);
+            matchRenderer.updateCameraX(REACH_TARGET);
+            matchRenderer.updateCameraY(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -80,6 +81,7 @@ class MatchStateBenchEnter extends MatchState {
         float dx = cameraX - matchRenderer.actionCamera.x;
         float dy = cameraY - matchRenderer.actionCamera.y;
 
+        // TODO: replace with test on speed provided by camera
         if (dx <= 1 && dy <= 1) {
             Coach coach = fsm.benchStatus.team.coach;
             coach.status = Coach.Status.STAND;
