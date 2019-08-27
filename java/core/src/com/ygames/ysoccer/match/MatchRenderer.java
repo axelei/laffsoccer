@@ -1003,8 +1003,9 @@ public class MatchRenderer extends Renderer {
     }
 
     void updateCamera(ActionCamera.Mode mode) {
-        vcameraX[match.subframe] = actionCamera.updateX(mode);
-        vcameraY[match.subframe] = actionCamera.updateY(mode);
+        actionCamera.update(mode);
+        vcameraX[match.subframe] = Math.round(actionCamera.x);
+        vcameraY[match.subframe] = Math.round(actionCamera.y);
     }
 
     private void drawPlayerNumberAndName(Player player) {
