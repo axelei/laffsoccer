@@ -7,7 +7,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Settings;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,10 +32,12 @@ public class MatchRenderer extends Renderer {
         this.camera = glGraphics.camera;
         this.match = match;
         this.ball = match.ball;
+        actionCamera = new ActionCamera(ball);
 
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.game.settings);
 
-        actionCamera = new ActionCamera(this);
+        actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
+        actionCamera.y = 0;
         for (int i = 0; i < Const.REPLAY_SUBFRAMES; i++) {
             vcameraX[i] = Math.round(actionCamera.x);
             vcameraY[i] = Math.round(actionCamera.y);
@@ -66,17 +67,6 @@ public class MatchRenderer extends Renderer {
         allSprites.add(new GoalTopB(glGraphics));
 
         Assets.crowdRenderer.setMaxRank(match.getRank());
-    }
-
-    public void resize(int width, int height, Settings settings) {
-        screenWidth = width;
-        screenHeight = height;
-        float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
-        float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
-        float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
-        zoom = 20 * (int) (5.0f * min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
-
-        guiHeight = guiWidth * height / width;
     }
 
     public void render() {

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Settings;
 
 import static com.badlogic.gdx.Gdx.gl;
 
@@ -20,10 +19,11 @@ public class TrainingRenderer extends Renderer {
         this.camera = glGraphics.camera;
         this.training = training;
         this.ball = training.ball;
+        actionCamera = new ActionCamera(ball);
 
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), training.game.settings);
 
-        actionCamera = new ActionCamera(this);
+        actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
         actionCamera.y = 0.5f * (Const.PITCH_H - screenHeight / (zoom / 100.0f));
         for (int i = 0; i < Const.REPLAY_SUBFRAMES; i++) {
             vcameraX[i] = Math.round(actionCamera.x);
@@ -46,17 +46,6 @@ public class TrainingRenderer extends Renderer {
         }
         allSprites.add(new GoalTopA(glGraphics));
         allSprites.add(new GoalTopB(glGraphics));
-    }
-
-    public void resize(int width, int height, Settings settings) {
-        screenWidth = width;
-        screenHeight = height;
-        float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
-        float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
-        float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
-        zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
-
-        guiHeight = guiWidth * height / width;
     }
 
     public void render() {

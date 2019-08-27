@@ -29,6 +29,7 @@ class MatchStateBenchEnter extends MatchState {
     @Override
     void entryActions() {
 
+        // TODO get current observed position from camera
         fsm.benchStatus.oldTargetX = matchRenderer.vcameraX[match.subframe] - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
         fsm.benchStatus.oldTargetY = matchRenderer.vcameraY[match.subframe] - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 

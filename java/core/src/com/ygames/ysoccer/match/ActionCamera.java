@@ -3,6 +3,14 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Const.CENTER_X;
+import static com.ygames.ysoccer.match.Const.CENTER_Y;
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.PITCH_H;
+import static com.ygames.ysoccer.match.Const.PITCH_W;
+import static com.ygames.ysoccer.match.Const.SECOND;
+import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
+
 public class ActionCamera {
 
     enum Mode {
@@ -33,12 +41,13 @@ public class ActionCamera {
 
     private Vector2 target;
 
-    private Renderer renderer;
+    private Ball ball;
+    private int screenWidth;
+    private int screenHeight;
+    private int zoom;
 
-    public ActionCamera(Renderer renderer) {
-        this.renderer = renderer;
-        x = 0.5f * (Const.PITCH_W - renderer.screenWidth / (renderer.zoom / 100.0f));
-        y = 0;
+    public ActionCamera(Ball ball) {
+        this.ball = ball;
         speedMode = SpeedMode.NORMAL;
         target = new Vector2();
     }
@@ -61,6 +70,12 @@ public class ActionCamera {
         target.set(x, y);
     }
 
+    void setScreenParameters(int screenWidth, int screenHeight, int zoom) {
+        this.screenWidth = screenWidth;
+        this.screenHeight = screenHeight;
+        this.zoom = zoom;
+    }
+
     void update(Mode mode) {
 
         switch (mode) {
@@ -70,72 +85,70 @@ public class ActionCamera {
                 break;
 
             case FOLLOW_BALL:
-                Ball ball = renderer.ball;
-
                 // "remember" last direction of movement
                 if (ball.v * Emath.cos(ball.a) != 0) {
-                    offsetX = renderer.screenWidth / 20.0f * Emath.cos(ball.a);
+                    offsetX = screenWidth / 20.0f * Emath.cos(ball.a);
                 }
                 if (ball.v * Emath.sin(ball.a) != 0) {
-                    offsetY = renderer.screenHeight / 20.0f * Emath.sin(ball.a);
+                    offsetY = screenHeight / 20.0f * Emath.sin(ball.a);
                 }
 
                 // speed
                 if (Math.abs(vx) > Math.abs(ball.v * Emath.cos(ball.a))) {
                     // decelerate
-                    vx = (1 - 5.0f / Const.SECOND) * vx;
+                    vx = (1 - 5.0f / SECOND) * vx;
                 } else {
                     // accelerate
-                    vx = vx + (2.5f / Const.SECOND) * Math.signum(offsetX) * Math.abs(vx - ball.v * Emath.cos(ball.a));
+                    vx = vx + (2.5f / SECOND) * Math.signum(offsetX) * Math.abs(vx - ball.v * Emath.cos(ball.a));
                 }
                 if (Math.abs(vy) > Math.abs(ball.v * Emath.sin(ball.a))) {
                     // decelerate
-                    vy = (1 - 5.0f / Const.SECOND) * vy;
+                    vy = (1 - 5.0f / SECOND) * vy;
                 } else {
                     // accelerate
-                    vy = vy + (2.5f / Const.SECOND) * Math.signum(offsetY) * Math.abs(vy - ball.v * Emath.sin(ball.a));
+                    vy = vy + (2.5f / SECOND) * Math.signum(offsetY) * Math.abs(vy - ball.v * Emath.sin(ball.a));
                 }
 
-                x = x + vx / Const.SECOND;
-                y = y + vy / Const.SECOND;
+                x = x + vx / SECOND;
+                y = y + vy / SECOND;
 
                 // near the point "ball+offset"
-                if (Math.abs(ball.x + offsetX - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))) >= 10) {
-                    float f = ball.x + offsetX - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f));
-                    x = x + (10.0f / Const.SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
+                if (Math.abs(ball.x + offsetX - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f))) >= 10) {
+                    float f = ball.x + offsetX - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f));
+                    x = x + (10.0f / SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
-                if (Math.abs(ball.y + offsetY - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))) >= 10) {
-                    float f = ball.y + offsetY - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f));
-                    y = y + (10.0f / Const.SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
+                if (Math.abs(ball.y + offsetY - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f))) >= 10) {
+                    float f = ball.y + offsetY - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f));
+                    y = y + (10.0f / SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;
 
             case REACH_TARGET:
-                x = x + (10.0f / Const.SECOND)
+                x = x + (10.0f / SECOND)
                         * (1 + speedMode.ordinal())
-                        * Math.signum(target.x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f)))
-                        * (float) Math.sqrt(Math.abs(target.x - (x - Const.CENTER_X + renderer.screenWidth / (2 * renderer.zoom / 100.0f))));
+                        * Math.signum(target.x - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f)))
+                        * (float) Math.sqrt(Math.abs(target.x - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f))));
                 y = y
-                        + (10.0f / Const.SECOND)
+                        + (10.0f / SECOND)
                         * (1 + speedMode.ordinal())
-                        * Math.signum(target.y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f)))
-                        * (float) Math.sqrt(Math.abs(target.y - (y - Const.CENTER_Y + renderer.screenHeight / (2 * renderer.zoom / 100.0f))));
+                        * Math.signum(target.y - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f)))
+                        * (float) Math.sqrt(Math.abs(target.y - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f))));
                 break;
         }
 
         // keep inside pitch
         float xmin = 0;
-        float xmax = Const.PITCH_W - renderer.screenWidth / (renderer.zoom / 100.0f);
+        float xmax = PITCH_W - screenWidth / (zoom / 100.0f);
         float ymin = 0;
-        float ymax = Const.PITCH_H - renderer.screenHeight / (renderer.zoom / 100.0f);
+        float ymax = PITCH_H - screenHeight / (zoom / 100.0f);
 
-        if (xLimited && (renderer.screenWidth / (renderer.zoom / 100.0f) < 1600)) {
-            xmin = Const.CENTER_X - Const.TOUCH_LINE - renderer.screenWidth / (16 * renderer.zoom / 100.0f);
-            xmax = Const.CENTER_X + Const.TOUCH_LINE + renderer.screenWidth / (16 * renderer.zoom / 100.0f) - renderer.screenWidth / (renderer.zoom / 100.0f);
+        if (xLimited && (screenWidth / (zoom / 100.0f) < 1600)) {
+            xmin = CENTER_X - TOUCH_LINE - screenWidth / (16 * zoom / 100.0f);
+            xmax = CENTER_X + TOUCH_LINE + screenWidth / (16 * zoom / 100.0f) - screenWidth / (zoom / 100.0f);
         }
         if (yLimited) {
-            ymin = Const.CENTER_Y - Const.GOAL_LINE - renderer.screenHeight / (4 * renderer.zoom / 100.0f);
-            ymax = Const.CENTER_Y + Const.GOAL_LINE + renderer.screenHeight / (4 * renderer.zoom / 100.0f) - renderer.screenHeight / (renderer.zoom / 100.0f);
+            ymin = CENTER_Y - GOAL_LINE - screenHeight / (4 * zoom / 100.0f);
+            ymax = CENTER_Y + GOAL_LINE + screenHeight / (4 * zoom / 100.0f) - screenHeight / (zoom / 100.0f);
         }
 
         if (x < xmin) {

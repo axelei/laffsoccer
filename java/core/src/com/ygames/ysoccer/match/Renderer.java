@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
@@ -46,6 +47,19 @@ class Renderer {
     Renderer() {
         allSprites = new ArrayList<Sprite>();
         spriteComparator = new Sprite.SpriteComparator();
+    }
+
+    public void resize(int width, int height, Settings settings) {
+        screenWidth = width;
+        screenHeight = height;
+        float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
+        float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
+        float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
+        zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
+
+        actionCamera.setScreenParameters(screenWidth, screenHeight, zoom);
+
+        guiHeight = guiWidth * height / width;
     }
 
     void renderSprites(int subframe) {
