@@ -47,7 +47,7 @@ class MatchStateBenchFormation extends MatchState {
 
             match.nextSubframe();
 
-            match.save();
+            matchRenderer.save();
 
             matchRenderer.updateCamera(REACH_TARGET);
 

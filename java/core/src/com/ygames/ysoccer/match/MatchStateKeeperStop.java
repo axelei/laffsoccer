@@ -72,7 +72,7 @@ class MatchStateKeeperStop extends MatchState {
 
             match.nextSubframe();
 
-            match.save();
+            matchRenderer.save();
 
             matchRenderer.updateCamera(FOLLOW_BALL);
 

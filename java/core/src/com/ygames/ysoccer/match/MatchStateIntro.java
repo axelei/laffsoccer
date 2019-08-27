@@ -51,7 +51,7 @@ class MatchStateIntro extends MatchState {
 
             match.nextSubframe();
 
-            match.save();
+            matchRenderer.save();
 
             if (timer < GLGame.VIRTUAL_REFRESH_RATE) {
                 matchRenderer.updateCamera(STILL);

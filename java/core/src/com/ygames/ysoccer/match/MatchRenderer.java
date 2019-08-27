@@ -1004,6 +1004,12 @@ public class MatchRenderer extends Renderer {
 
     void updateCamera(ActionCamera.Mode mode) {
         actionCamera.update(mode);
+    }
+
+    void save() {
+        ball.save(match.subframe);
+        match.team[HOME].save(match.subframe);
+        match.team[AWAY].save(match.subframe);
         vcameraX[match.subframe] = Math.round(actionCamera.x);
         vcameraY[match.subframe] = Math.round(actionCamera.y);
     }

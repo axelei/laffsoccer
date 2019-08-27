@@ -96,7 +96,7 @@ class MatchStateFreeKickStop extends MatchState {
 
             match.nextSubframe();
 
-            match.save();
+            matchRenderer.save();
 
             matchRenderer.updateCamera(STILL);
 

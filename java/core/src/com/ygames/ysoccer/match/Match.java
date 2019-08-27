@@ -228,12 +228,6 @@ public class Match implements Json.Serializable {
         team[AWAY].coach.update();
     }
 
-    void save() {
-        ball.save(subframe);
-        team[HOME].save(subframe);
-        team[AWAY].save(subframe);
-    }
-
     void resetData() {
         updatePlayers(false);
         for (int f = 0; f < Const.REPLAY_SUBFRAMES; f++) {
