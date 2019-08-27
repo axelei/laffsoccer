@@ -73,8 +73,7 @@ class MatchStateThrowInStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(STILL);
-            matchRenderer.updateCameraY(FOLLOW_BALL);
+            matchRenderer.updateCamera(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

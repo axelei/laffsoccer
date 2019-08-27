@@ -98,8 +98,7 @@ class MatchStateFreeKickStop extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(STILL);
-            matchRenderer.updateCameraY(STILL);
+            matchRenderer.updateCamera(STILL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

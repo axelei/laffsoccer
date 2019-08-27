@@ -98,14 +98,12 @@ class MatchStateGoal extends MatchState {
 
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
-                matchRenderer.updateCameraX(STILL);
-                matchRenderer.updateCameraY(FOLLOW_BALL);
+                matchRenderer.updateCamera(FOLLOW_BALL);
             } else {
                 // follow scorer
                 matchRenderer.actionCamera.setSpeedMode(FAST);
                 matchRenderer.actionCamera.setTarget(goal.player.data[match.subframe].x, goal.player.data[match.subframe].y);
-                matchRenderer.updateCameraX(REACH_TARGET);
-                matchRenderer.updateCameraY(REACH_TARGET);
+                matchRenderer.updateCamera(REACH_TARGET);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

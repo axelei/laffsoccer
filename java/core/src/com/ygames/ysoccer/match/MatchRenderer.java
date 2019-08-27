@@ -26,7 +26,7 @@ public class MatchRenderer extends Renderer {
     private MatchState matchState;
     private List<PlayerSprite> radarPlayers;
 
-    public MatchRenderer(GLGraphics glGraphics, Match match) {
+    MatchRenderer(GLGraphics glGraphics, Match match) {
         super();
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
@@ -42,7 +42,7 @@ public class MatchRenderer extends Renderer {
             vcameraY[i] = Math.round(actionCamera.y);
         }
 
-        radarPlayers = new ArrayList<PlayerSprite>();
+        radarPlayers = new ArrayList<>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
         for (int t = HOME; t <= AWAY; t++) {
             CoachSprite coachSprite = new CoachSprite(glGraphics, match.team[t].coach);
@@ -1002,11 +1002,8 @@ public class MatchRenderer extends Renderer {
         }
     }
 
-    void updateCameraX(ActionCamera.Mode mode) {
+    void updateCamera(ActionCamera.Mode mode) {
         vcameraX[match.subframe] = actionCamera.updateX(mode);
-    }
-
-    void updateCameraY(ActionCamera.Mode mode) {
         vcameraY[match.subframe] = actionCamera.updateY(mode);
     }
 

@@ -49,8 +49,7 @@ class MatchStateBenchFormation extends MatchState {
 
             match.save();
 
-            matchRenderer.updateCameraX(REACH_TARGET);
-            matchRenderer.updateCameraY(REACH_TARGET);
+            matchRenderer.updateCamera(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
