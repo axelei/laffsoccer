@@ -232,19 +232,19 @@ public class TrainingRenderer extends Renderer {
         }
     }
 
-    void updateCameraX(int follow, ActionCamera.Speed speed) {
+    void updateCameraX(int follow, ActionCamera.SpeedMode speed) {
         updateCameraX(follow, speed, 0);
     }
 
-    void updateCameraX(int follow, ActionCamera.Speed speed, float targetX) {
+    void updateCameraX(int follow, ActionCamera.SpeedMode speed, float targetX) {
         vcameraX[training.subframe] = actionCamera.updateX(follow, speed, targetX);
     }
 
-    void updateCameraY(int follow, ActionCamera.Speed speed) {
+    void updateCameraY(int follow, ActionCamera.SpeedMode speed) {
         updateCameraY(follow, speed, 0);
     }
 
-    void updateCameraY(int follow, ActionCamera.Speed speed, float targetY) {
+    void updateCameraY(int follow, ActionCamera.SpeedMode speed, float targetY) {
         vcameraY[training.subframe] = actionCamera.updateY(follow, speed, targetY);
     }
 

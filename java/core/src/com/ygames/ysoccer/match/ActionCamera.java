@@ -9,7 +9,7 @@ public class ActionCamera {
     static final int CF_BALL = 1;
     static final int CF_TARGET = 2;
 
-    enum Speed {
+    enum SpeedMode {
         NORMAL,
         FAST,
         WARP
@@ -46,7 +46,7 @@ public class ActionCamera {
     }
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
-    int updateX(int follow, Speed speed, float target_x) {
+    int updateX(int follow, SpeedMode speed, float target_x) {
 
         switch (follow) {
 
@@ -109,7 +109,7 @@ public class ActionCamera {
     }
 
     // follow: CF_NONE, CF_BALL, CF_TARGET
-    int updateY(int follow, Speed speed, float target_y) {
+    int updateY(int follow, SpeedMode speed, float target_y) {
 
         switch (follow) {
 
