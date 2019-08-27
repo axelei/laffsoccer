@@ -82,8 +82,7 @@ class TrainingStateFree extends TrainingState {
 
             training.save();
 
-            trainingRenderer.updateCameraX(FOLLOW_BALL);
-            trainingRenderer.updateCameraY(FOLLOW_BALL);
+            trainingRenderer.updateCamera(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

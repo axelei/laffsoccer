@@ -232,11 +232,8 @@ public class TrainingRenderer extends Renderer {
         }
     }
 
-    void updateCameraX(ActionCamera.Mode mode) {
+    void updateCamera(ActionCamera.Mode mode) {
         vcameraX[training.subframe] = actionCamera.updateX(mode);
-    }
-
-    void updateCameraY(ActionCamera.Mode mode) {
         vcameraY[training.subframe] = actionCamera.updateY(mode);
     }
 
