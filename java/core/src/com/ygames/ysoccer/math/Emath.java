@@ -67,4 +67,8 @@ public class Emath {
         endAngle = (endAngle + 360) % 360;
         return (Math.abs(endAngle - startAngle) < 180) ? 1 : -1;
     }
+
+    public static float roundBy(float value, float step) {
+        return step * Math.round(value / step);
+    }
 }
