@@ -14,6 +14,11 @@ import java.util.List;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
+import static com.ygames.ysoccer.match.Const.GOAL_AREA_H;
+import static com.ygames.ysoccer.match.Const.GOAL_AREA_W;
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
+import static com.ygames.ysoccer.match.Const.PENALTY_AREA_W;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_INTRO;
@@ -499,6 +504,22 @@ public class Match implements Json.Serializable {
                             player.team.side * (Const.GOAL_LINE - Const.PENALTY_AREA_H),
                             player.team.side * Const.GOAL_LINE
                     );
+        }
+
+        boolean isDirectShot() {
+            return Math.abs(ball.x) < (PENALTY_AREA_W / 2 + 110)
+                    && Emath.isIn(ball.y,
+                    player.team.side * (GOAL_LINE - PENALTY_AREA_H - 110),
+                    player.team.side * GOAL_LINE
+            );
+        }
+
+        boolean isNearOwnGoal() {
+            return Math.abs(ball.x) < (GOAL_AREA_W / 2 + 50)
+                    && Emath.isIn(ball.y,
+                    -player.team.side * (GOAL_LINE - GOAL_AREA_H - 50),
+                    -player.team.side * GOAL_LINE
+            );
         }
     }
 }
