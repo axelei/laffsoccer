@@ -18,6 +18,8 @@ import com.ygames.ysoccer.math.Vector2;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+
 public class Player implements Json.Serializable {
 
     public enum Role {GOALKEEPER, RIGHT_BACK, LEFT_BACK, DEFENDER, RIGHT_WINGER, LEFT_WINGER, MIDFIELDER, ATTACKER}
@@ -904,6 +906,31 @@ public class Player implements Json.Serializable {
         }
 
         return (facingPlayer != null);
+    }
+
+    Player searchNearPlayer() {
+
+        Player nearPlayer = null;
+        float minDistance = 30f;
+        float nearPlayerDistance = 350; // if all players are far than this value, no player is found
+
+        for (Player ply : team.lineup) {
+            if (ply.checkState(STATE_OUTSIDE)) {
+                continue;
+            }
+
+            float distance = distanceFrom(ply);
+            if (distance < nearPlayerDistance && distance > minDistance) {
+                nearPlayer = ply;
+                nearPlayerDistance = distance;
+            }
+        }
+
+        return nearPlayer;
+    }
+
+    float distanceFrom(Player player) {
+        return Emath.dist(x, y, player.x, player.y);
     }
 
     void commitFoul(Player opponent) {
