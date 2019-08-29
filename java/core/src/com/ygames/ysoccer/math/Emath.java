@@ -61,4 +61,10 @@ public class Emath {
     public static int rand(int min, int max) {
         return min + ((int) Math.floor((max - min + 1) * Math.random()));
     }
+
+    public static int turningDirection(float startAngle, float endAngle) {
+        startAngle = (startAngle + 360) % 360;
+        endAngle = (endAngle + 360) % 360;
+        return (Math.abs(endAngle - startAngle) < 180) ? 1 : -1;
+    }
 }
