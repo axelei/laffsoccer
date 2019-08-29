@@ -33,6 +33,10 @@ public class Emath {
         return hypo(x2 - x1, y2 - y1);
     }
 
+    public static float angle(float x1, float y1, float x2, float y2) {
+        return aTan2(y2 - y1, x2 - x1);
+    }
+
     public static int rotate(int value, int low, int high, int direction) {
         return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
     }
