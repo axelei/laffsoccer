@@ -5,8 +5,8 @@ public class Emath {
     private static float TO_RADIANS = (float) Math.PI / 180.0f;
     private static float TO_DEGREES = 180.0f / (float) Math.PI;
 
-    public static boolean isIn(float x, float a, float b) {
-        return (b > a) ? (a <= x) && (x <= b) : (b <= x) && (x <= a);
+    public static boolean isIn(float v, float a, float b) {
+        return (b > a) ? (a <= v) && (v <= b) : (b <= v) && (v <= a);
     }
 
     public static int bound(int value, int valueMin, int valueMax) {
@@ -55,6 +55,6 @@ public class Emath {
 
     // random integer between min and max (included)
     public static int rand(int min, int max) {
-        return ((int) Math.floor((max - min + 1) * Math.random())) - min;
+        return min + ((int) Math.floor((max - min + 1) * Math.random()));
     }
 }
