@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Ai;
@@ -13,7 +14,6 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.math.Emath;
-import com.ygames.ysoccer.math.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -247,18 +247,20 @@ public class Player implements Json.Serializable {
         }
     }
 
-    public void getPossession() {
+    void getPossession() {
         if ((ballDistance <= 8)
                 && Emath.dist(x0, y0, ball.x0, ball.y0) > 8
                 && (ball.z < (Const.PLAYER_H + Const.BALL_R))) {
 
             float smoothedBallV = ball.v * 0.5f;
-            Vector2 ballVec = new Vector2(smoothedBallV, ball.a, true);
-            Vector2 playerVec = new Vector2(v, a, true);
+            Vector2 ballVec = new Vector2(smoothedBallV, 0);
+            ballVec.setAngle(ball.a);
+            Vector2 playerVec = new Vector2(v, 0);
+            playerVec.setAngle(a);
 
             Vector2 differenceVec = playerVec.sub(ballVec);
 
-            if (differenceVec.v < 220 + 7 * skills.control) {
+            if (differenceVec.len() < 220 + 7 * skills.control) {
                 ball.setOwner(this);
                 ball.x = x + (Const.BALL_R - 1) * Emath.cos(a);
                 ball.y = y + (Const.BALL_R - 1) * Emath.sin(a);
@@ -267,7 +269,7 @@ public class Player implements Json.Serializable {
             } else {
                 ball.setOwner(this);
                 ball.setOwner(null);
-                ball.collisionPlayer(this, 0.5f * differenceVec.v);
+                ball.collisionPlayer((1 - 0.1f * skills.control) * differenceVec.len());
             }
 
             ball.vz = ball.vz / (2 + skills.control);
