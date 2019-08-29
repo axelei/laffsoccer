@@ -407,8 +407,12 @@ public class Player implements Json.Serializable {
         return Emath.aTan2(ty - y, tx - x);
     }
 
-    void watchBall() {
-        a = Math.round((Emath.aTan2(y - ball.y, x - ball.x) + 180) / 45.0f) * 45.0f;
+    void watchPosition(Vector2 pos) {
+        a = Emath.roundBy((Emath.aTan2(y - pos.y, x - pos.x) + 180), 45.0f);
+    }
+
+    void watchPosition(float x0, float y0) {
+        a = Emath.roundBy((Emath.aTan2(y - y0, x - x0) + 180), 45.0f);
     }
 
     public String getRoleLabel() {

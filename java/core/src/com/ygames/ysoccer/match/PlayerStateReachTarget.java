@@ -29,6 +29,6 @@ class PlayerStateReachTarget extends PlayerState {
     @Override
     void exitActions() {
         player.v = 0;
-        player.watchBall();
+        player.watchPosition(player.team.match.pointOfInterest);
     }
 }

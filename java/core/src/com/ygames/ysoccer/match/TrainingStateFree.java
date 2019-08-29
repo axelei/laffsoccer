@@ -70,7 +70,7 @@ class TrainingStateFree extends TrainingState {
 
             for (Player player : team.lineup) {
                 if (player.inputDevice == player.ai && player != team.lineup.get(0)) {
-                    player.watchBall();
+                    player.watchPosition(ball.x, ball.y);
                 }
             }
 
