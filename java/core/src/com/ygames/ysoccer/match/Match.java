@@ -1,12 +1,12 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
-import com.ygames.ysoccer.math.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,6 +81,8 @@ public class Match implements Json.Serializable {
 
     Recorder recorder;
 
+    Vector2 pointOfInterest;
+
     public Match() {
         team = new Team[2];
     }
@@ -118,6 +120,7 @@ public class Match implements Json.Serializable {
         goals = new ArrayList<Goal>();
 
         recorder = new Recorder(this);
+        pointOfInterest = new Vector2();
     }
 
     @Override
@@ -521,5 +524,9 @@ public class Match implements Json.Serializable {
                     -player.team.side * GOAL_LINE
             );
         }
+    }
+
+    void setPointOfInterest(float x, float y) {
+        pointOfInterest.set(x, y);
     }
 }

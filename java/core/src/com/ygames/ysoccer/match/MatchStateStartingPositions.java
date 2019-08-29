@@ -35,6 +35,7 @@ class MatchStateStartingPositions extends MatchState {
 
         match.setStartingPositions();
         match.setPlayersState(STATE_REACH_TARGET, null);
+        match.setPointOfInterest(match.ball.x, match.ball.y);
     }
 
     @Override
