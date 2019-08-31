@@ -126,12 +126,16 @@ class MatchStateReplay extends MatchState {
     void render() {
         super.render();
 
-        int f = Math.round(match.subframe / GLGame.SUBFRAMES) % 32;
-        matchRenderer.batch.draw(Assets.replay[f % 16][f / 16], 34, 28);
-        if (inputDevice != null) {
-            int frameX = 1 + inputDevice.x1;
-            int frameY = 1 + inputDevice.y1;
-            matchRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
+        if (paused) {
+            matchRenderer.batch.draw(Assets.pause, 34, 28);
+        } else {
+            int f = Math.round(match.subframe / GLGame.SUBFRAMES) % 32;
+            matchRenderer.batch.draw(Assets.replay[f % 16][f / 16], 34, 28);
+            if (inputDevice != null) {
+                int frameX = 1 + inputDevice.x1;
+                int frameY = 1 + inputDevice.y1;
+                matchRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
+            }
         }
     }
 
