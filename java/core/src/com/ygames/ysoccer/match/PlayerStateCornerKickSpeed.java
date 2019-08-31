@@ -10,8 +10,8 @@ class PlayerStateCornerKickSpeed extends PlayerState {
     private float kickSpin;
     private boolean thrown;
 
-    PlayerStateCornerKickSpeed(PlayerFsm fsm, Player player) {
-        super(STATE_CORNER_KICK_SPEED, fsm, player);
+    PlayerStateCornerKickSpeed(PlayerFsm fsm) {
+        super(STATE_CORNER_KICK_SPEED, fsm);
     }
 
     @Override

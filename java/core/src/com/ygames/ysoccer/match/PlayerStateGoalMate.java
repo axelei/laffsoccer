@@ -8,8 +8,8 @@ class PlayerStateGoalMate extends PlayerState {
 
     private Goal goal;
 
-    PlayerStateGoalMate(PlayerFsm fsm, Player player) {
-        super(STATE_GOAL_MATE, fsm, player);
+    PlayerStateGoalMate(PlayerFsm fsm) {
+        super(STATE_GOAL_MATE, fsm);
     }
 
     @Override

@@ -41,6 +41,8 @@ class PlayerFsm extends Fsm {
         STATE_KEEPER_KICK_ANGLE,
     }
 
+    protected Player player;
+
     PlayerStateIdle stateIdle;
     PlayerStateOutside stateOutSide;
     PlayerStateBenchSitting stateBenchSitting;
@@ -79,42 +81,43 @@ class PlayerFsm extends Fsm {
     PlayerStateKeeperCatchingLow stateKeeperCatchingLow;
 
     public PlayerFsm(Player player) {
-        stateIdle = new PlayerStateIdle(this, player);
-        stateOutSide = new PlayerStateOutside(this, player);
-        stateBenchSitting = new PlayerStateBenchSitting(this, player);
-        stateBenchStanding = new PlayerStateBenchStanding(this, player);
-        stateBenchOut = new PlayerStateBenchOut(this, player);
+        this.player = player;
+        stateIdle = new PlayerStateIdle(this);
+        stateOutSide = new PlayerStateOutside(this);
+        stateBenchSitting = new PlayerStateBenchSitting(this);
+        stateBenchStanding = new PlayerStateBenchStanding(this);
+        stateBenchOut = new PlayerStateBenchOut(this);
 
-        statePhoto = new PlayerStatePhoto(this, player);
-        stateStandRun = new PlayerStateStandRun(this, player);
-        stateKick = new PlayerStateKick(this, player);
-        stateHead = new PlayerStateHead(this, player);
-        stateTackle = new PlayerStateTackle(this, player);
-        stateDown = new PlayerStateDown(this, player);
-        stateReachTarget = new PlayerStateReachTarget(this, player);
-        stateKickOff = new PlayerStateKickOff(this, player);
-        stateGoalKick = new PlayerStateGoalKick(this, player);
-        stateThrowInAngle = new PlayerStateThrowInAngle(this, player);
-        stateThrowInSpeed = new PlayerStateThrowInSpeed(this, player);
-        stateCornerKickAngle = new PlayerStateCornerKickAngle(this, player);
-        stateCornerKickSpeed = new PlayerStateCornerKickSpeed(this, player);
-        stateFreeKickAngle = new PlayerStateFreeKickAngle(this, player);
-        stateFreeKickSpeed = new PlayerStateFreeKickSpeed(this, player);
-        statePenaltyKickAngle = new PlayerStatePenaltyKickAngle(this, player);
-        statePenaltyKickSpeed = new PlayerStatePenaltyKickSpeed(this, player);
-        stateGoalScorer = new PlayerStateGoalScorer(this, player);
-        stateGoalMate = new PlayerStateGoalMate(this, player);
-        stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this, player);
+        statePhoto = new PlayerStatePhoto(this);
+        stateStandRun = new PlayerStateStandRun(this);
+        stateKick = new PlayerStateKick(this);
+        stateHead = new PlayerStateHead(this);
+        stateTackle = new PlayerStateTackle(this);
+        stateDown = new PlayerStateDown(this);
+        stateReachTarget = new PlayerStateReachTarget(this);
+        stateKickOff = new PlayerStateKickOff(this);
+        stateGoalKick = new PlayerStateGoalKick(this);
+        stateThrowInAngle = new PlayerStateThrowInAngle(this);
+        stateThrowInSpeed = new PlayerStateThrowInSpeed(this);
+        stateCornerKickAngle = new PlayerStateCornerKickAngle(this);
+        stateCornerKickSpeed = new PlayerStateCornerKickSpeed(this);
+        stateFreeKickAngle = new PlayerStateFreeKickAngle(this);
+        stateFreeKickSpeed = new PlayerStateFreeKickSpeed(this);
+        statePenaltyKickAngle = new PlayerStatePenaltyKickAngle(this);
+        statePenaltyKickSpeed = new PlayerStatePenaltyKickSpeed(this);
+        stateGoalScorer = new PlayerStateGoalScorer(this);
+        stateGoalMate = new PlayerStateGoalMate(this);
+        stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this);
 
-        stateKeeperPositioning = new PlayerStateKeeperPositioning(this, player);
-        stateKeeperDivingLowSingle = new PlayerStateKeeperDivingLowSingle(this, player);
-        stateKeeperDivingLowDouble = new PlayerStateKeeperDivingLowDouble(this, player);
-        stateKeeperDivingMiddleOne = new PlayerStateKeeperDivingMiddleOne(this, player);
-        stateKeeperDivingMiddleTwo = new PlayerStateKeeperDivingMiddleTwo(this, player);
-        stateKeeperDivingHighOne = new PlayerStateKeeperDivingHighOne(this, player);
-        stateKeeperCatchingHigh = new PlayerStateKeeperCatchingHigh(this, player);
-        stateKeeperCatchingLow = new PlayerStateKeeperCatchingLow(this, player);
-        stateKeeperKickAngle = new PlayerStateKeeperKickAngle(this, player);
+        stateKeeperPositioning = new PlayerStateKeeperPositioning(this);
+        stateKeeperDivingLowSingle = new PlayerStateKeeperDivingLowSingle(this);
+        stateKeeperDivingLowDouble = new PlayerStateKeeperDivingLowDouble(this);
+        stateKeeperDivingMiddleOne = new PlayerStateKeeperDivingMiddleOne(this);
+        stateKeeperDivingMiddleTwo = new PlayerStateKeeperDivingMiddleTwo(this);
+        stateKeeperDivingHighOne = new PlayerStateKeeperDivingHighOne(this);
+        stateKeeperCatchingHigh = new PlayerStateKeeperCatchingHigh(this);
+        stateKeeperCatchingLow = new PlayerStateKeeperCatchingLow(this);
+        stateKeeperKickAngle = new PlayerStateKeeperKickAngle(this);
     }
 
     @Override

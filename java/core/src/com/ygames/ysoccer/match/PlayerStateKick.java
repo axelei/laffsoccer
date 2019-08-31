@@ -13,8 +13,8 @@ class PlayerStateKick extends PlayerState {
     private static int IP_FALSE = 0;
     private static int IP_TRUE = 1;
 
-    PlayerStateKick(PlayerFsm fsm, Player player) {
-        super(STATE_KICK, fsm, player);
+    PlayerStateKick(PlayerFsm fsm) {
+        super(STATE_KICK, fsm);
     }
 
     @Override

@@ -4,8 +4,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
 class PlayerStateOutside extends PlayerState {
 
-    PlayerStateOutside(PlayerFsm fsm, Player player) {
-        super(STATE_OUTSIDE, fsm, player);
+    PlayerStateOutside(PlayerFsm fsm) {
+        super(STATE_OUTSIDE, fsm);
     }
 
     @Override

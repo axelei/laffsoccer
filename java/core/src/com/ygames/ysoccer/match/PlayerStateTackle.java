@@ -11,8 +11,8 @@ class PlayerStateTackle extends PlayerState {
 
     private boolean hit;
 
-    PlayerStateTackle(PlayerFsm fsm, Player player) {
-        super(STATE_TACKLE, fsm, player);
+    PlayerStateTackle(PlayerFsm fsm) {
+        super(STATE_TACKLE, fsm);
     }
 
     @Override

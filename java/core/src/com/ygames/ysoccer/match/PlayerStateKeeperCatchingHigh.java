@@ -7,8 +7,8 @@ class PlayerStateKeeperCatchingHigh extends PlayerState {
     private KeeperFrame active;
     private KeeperFrame[] frames = new KeeperFrame[4];
 
-    PlayerStateKeeperCatchingHigh(PlayerFsm fsm, Player player) {
-        super(STATE_KEEPER_CATCHING_HIGH, fsm, player);
+    PlayerStateKeeperCatchingHigh(PlayerFsm fsm) {
+        super(STATE_KEEPER_CATCHING_HIGH, fsm);
 
         active = frames[0];
 

@@ -4,8 +4,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PHOTO;
 
 class PlayerStatePhoto extends PlayerState {
 
-    PlayerStatePhoto(PlayerFsm fsm, Player player) {
-        super(STATE_PHOTO, fsm, player);
+    PlayerStatePhoto(PlayerFsm fsm) {
+        super(STATE_PHOTO, fsm);
     }
 
     @Override

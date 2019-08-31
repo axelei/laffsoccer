@@ -6,10 +6,10 @@ class PlayerState extends State {
     protected final Player player;
     protected final Ball ball;
 
-    public PlayerState(PlayerFsm.Id id, PlayerFsm fsm, Player player) {
+    public PlayerState(PlayerFsm.Id id, PlayerFsm fsm) {
         this.id = id.ordinal();
         this.fsm = fsm;
-        this.player = player;
+        this.player = fsm.player;
         this.ball = player.ball;
 
         fsm.addState(this);

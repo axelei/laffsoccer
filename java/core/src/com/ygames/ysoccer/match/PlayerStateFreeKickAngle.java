@@ -6,8 +6,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_ANGLE;
 
 class PlayerStateFreeKickAngle extends PlayerState {
 
-    PlayerStateFreeKickAngle(PlayerFsm fsm, Player player) {
-        super(STATE_FREE_KICK_ANGLE, fsm, player);
+    PlayerStateFreeKickAngle(PlayerFsm fsm) {
+        super(STATE_FREE_KICK_ANGLE, fsm);
     }
 
     @Override

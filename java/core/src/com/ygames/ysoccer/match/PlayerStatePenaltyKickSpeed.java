@@ -10,8 +10,8 @@ class PlayerStatePenaltyKickSpeed extends PlayerState {
     private float kickSpin;
     private boolean endOfAfterEffect;
 
-    PlayerStatePenaltyKickSpeed(PlayerFsm fsm, Player player) {
-        super(STATE_PENALTY_KICK_SPEED, fsm, player);
+    PlayerStatePenaltyKickSpeed(PlayerFsm fsm) {
+        super(STATE_PENALTY_KICK_SPEED, fsm);
     }
 
     @Override

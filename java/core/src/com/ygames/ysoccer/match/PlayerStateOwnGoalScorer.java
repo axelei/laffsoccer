@@ -4,8 +4,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OWN_GOAL_SCORER;
 
 class PlayerStateOwnGoalScorer extends PlayerState {
 
-    PlayerStateOwnGoalScorer(PlayerFsm fsm, Player player) {
-        super(STATE_OWN_GOAL_SCORER, fsm, player);
+    PlayerStateOwnGoalScorer(PlayerFsm fsm) {
+        super(STATE_OWN_GOAL_SCORER, fsm);
     }
 
     @Override

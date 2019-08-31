@@ -9,8 +9,8 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
     private int dangerTime;
 
-    PlayerStateKeeperPositioning(PlayerFsm fsm, Player player) {
-        super(STATE_KEEPER_POSITIONING, fsm, player);
+    PlayerStateKeeperPositioning(PlayerFsm fsm) {
+        super(STATE_KEEPER_POSITIONING, fsm);
     }
 
     private void updateTarget() {

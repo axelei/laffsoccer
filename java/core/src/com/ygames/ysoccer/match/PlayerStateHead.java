@@ -11,8 +11,8 @@ class PlayerStateHead extends PlayerState {
     private boolean jumped;
     private float v;
 
-    PlayerStateHead(PlayerFsm fsm, Player player) {
-        super(STATE_HEAD, fsm, player);
+    PlayerStateHead(PlayerFsm fsm) {
+        super(STATE_HEAD, fsm);
     }
 
     @Override

@@ -8,8 +8,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_STANDING;
 
 class PlayerStateBenchStanding extends PlayerState {
 
-    PlayerStateBenchStanding(PlayerFsm fsm, Player player) {
-        super(STATE_BENCH_STANDING, fsm, player);
+    PlayerStateBenchStanding(PlayerFsm fsm) {
+        super(STATE_BENCH_STANDING, fsm);
     }
 
     @Override

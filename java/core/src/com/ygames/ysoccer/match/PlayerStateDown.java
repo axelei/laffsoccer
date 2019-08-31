@@ -4,8 +4,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 
 class PlayerStateDown extends PlayerState {
 
-    PlayerStateDown(PlayerFsm fsm, Player player) {
-        super(STATE_DOWN, fsm, player);
+    PlayerStateDown(PlayerFsm fsm) {
+        super(STATE_DOWN, fsm);
     }
 
     @Override

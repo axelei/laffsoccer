@@ -8,8 +8,8 @@ class PlayerStatePenaltyKickAngle extends PlayerState {
 
     private float defaultAngle;
 
-    PlayerStatePenaltyKickAngle(PlayerFsm fsm, Player player) {
-        super(STATE_PENALTY_KICK_ANGLE, fsm, player);
+    PlayerStatePenaltyKickAngle(PlayerFsm fsm) {
+        super(STATE_PENALTY_KICK_ANGLE, fsm);
     }
 
     @Override

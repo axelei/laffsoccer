@@ -10,8 +10,8 @@ class PlayerStateFreeKickSpeed extends PlayerState {
     private float kickSpin;
     private boolean thrown;
 
-    PlayerStateFreeKickSpeed(PlayerFsm fsm, Player player) {
-        super(STATE_FREE_KICK_SPEED, fsm, player);
+    PlayerStateFreeKickSpeed(PlayerFsm fsm) {
+        super(STATE_FREE_KICK_SPEED, fsm);
     }
 
     @Override

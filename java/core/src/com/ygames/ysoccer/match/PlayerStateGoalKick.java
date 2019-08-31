@@ -6,8 +6,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_KICK;
 
 class PlayerStateGoalKick extends PlayerState {
 
-    PlayerStateGoalKick(PlayerFsm fsm, Player player) {
-        super(STATE_GOAL_KICK, fsm, player);
+    PlayerStateGoalKick(PlayerFsm fsm) {
+        super(STATE_GOAL_KICK, fsm);
     }
 
     @Override

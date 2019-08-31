@@ -6,8 +6,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 
 class PlayerStateKeeperKickAngle extends PlayerState {
 
-    PlayerStateKeeperKickAngle(PlayerFsm fsm, Player player) {
-        super(STATE_KEEPER_KICK_ANGLE, fsm, player);
+    PlayerStateKeeperKickAngle(PlayerFsm fsm) {
+        super(STATE_KEEPER_KICK_ANGLE, fsm);
     }
 
     @Override
