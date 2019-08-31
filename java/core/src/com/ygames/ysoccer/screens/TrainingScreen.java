@@ -1,10 +1,12 @@
 package com.ygames.ysoccer.screens;
 
+import com.strongjoshua.console.CommandExecutor;
 import com.strongjoshua.console.Console;
 import com.strongjoshua.console.GUIConsole;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Training;
 
@@ -39,7 +41,7 @@ class TrainingScreen extends GLScreen {
             console.setPositionPercent(0, 0);
             console.setHoverAlpha(0.9f);
             console.setNoHoverAlpha(0.9f);
-            console.setCommandExecutor(new MatchScreen.ConsoleCommandExecutor());
+            console.setCommandExecutor(new ConsoleCommandExecutor());
         }
     }
 
@@ -94,5 +96,15 @@ class TrainingScreen extends GLScreen {
         training.team.lineup.clear();
 
         game.setScreen(new SetupTraining(game));
+    }
+
+    public class ConsoleCommandExecutor extends CommandExecutor {
+        public void setGravity(float f) {
+            Const.GRAVITY = f;
+        }
+
+        public void showGravity() {
+            console.log("Gravity " + Const.GRAVITY);
+        }
     }
 }

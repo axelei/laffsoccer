@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.screens;
 
-import com.badlogic.gdx.graphics.Color;
 import com.strongjoshua.console.CommandExecutor;
 import com.strongjoshua.console.Console;
 import com.strongjoshua.console.GUIConsole;
@@ -10,6 +9,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Team;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -130,13 +130,31 @@ class MatchScreen extends GLScreen {
         }
     }
 
-    public static class ConsoleCommandExecutor extends CommandExecutor {
+    public class ConsoleCommandExecutor extends CommandExecutor {
         public void setGravity(float f) {
             Const.GRAVITY = f;
         }
 
         public void showGravity() {
             console.log("Gravity " + Const.GRAVITY);
+        }
+
+        public void homePenalty() {
+            Match match = MatchScreen.this.match;
+            Team homeTeam = match.team[HOME];
+            Player homePlayer = homeTeam.lineup.get(0);
+            Team awayTeam = match.team[AWAY];
+            Player awayPlayer = awayTeam.lineup.get(0);
+            match.newFoul(awayPlayer, homePlayer);
+        }
+
+        public void awayPenalty() {
+            Match match = MatchScreen.this.match;
+            Team homeTeam = match.team[HOME];
+            Player homePlayer = homeTeam.lineup.get(0);
+            Team awayTeam = match.team[AWAY];
+            Player awayPlayer = awayTeam.lineup.get(0);
+            match.newFoul(homePlayer, awayPlayer);
         }
     }
 }
