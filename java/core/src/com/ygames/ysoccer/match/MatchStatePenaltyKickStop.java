@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
@@ -26,6 +27,7 @@ class MatchStatePenaltyKickStop extends MatchState {
     private boolean allPlayersReachingTarget;
     private boolean move;
     private Player penaltyKicker;
+    private Vector2 penaltyKickPosition;
 
     MatchStatePenaltyKickStop(MatchFsm fsm) {
         super(STATE_PENALTY_KICK_STOP, fsm);
@@ -35,6 +37,8 @@ class MatchStatePenaltyKickStop extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+
+        penaltyKickPosition = new Vector2();
     }
 
     @Override
@@ -67,6 +71,11 @@ class MatchStatePenaltyKickStop extends MatchState {
         penaltyKicker = match.foul.opponent.team.lastOfLineup();
         penaltyKicker.setTarget(-40 * match.ball.ySide, Math.signum(match.foul.position.y) * (Const.PENALTY_SPOT_Y - 45));
 
+        penaltyKickPosition.set(
+                0,
+                Math.signum(match.foul.position.y) * Const.PENALTY_SPOT_Y
+        );
+
         match.resetAutomaticInputDevices();
     }
 
@@ -75,6 +84,8 @@ class MatchStatePenaltyKickStop extends MatchState {
         matchRenderer.actionCamera.setTarget(match.foul.position.x, match.foul.position.y);
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
+
+        match.setPointOfInterest(penaltyKickPosition);
     }
 
     @Override
@@ -124,7 +135,7 @@ class MatchStatePenaltyKickStop extends MatchState {
     @Override
     void checkConditions() {
         if (allPlayersReachingTarget && !move) {
-            match.ball.setPosition(0, Math.signum(match.foul.position.y) * Const.PENALTY_SPOT_Y, 0);
+            match.ball.setPosition(penaltyKickPosition.x, penaltyKickPosition.y,0);
             match.ball.updatePrediction();
 
             fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK);

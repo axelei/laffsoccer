@@ -529,4 +529,8 @@ public class Match implements Json.Serializable {
     void setPointOfInterest(float x, float y) {
         pointOfInterest.set(x, y);
     }
+
+    void setPointOfInterest(Vector2 v) {
+        pointOfInterest.set(v);
+    }
 }

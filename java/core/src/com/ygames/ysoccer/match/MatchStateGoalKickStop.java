@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
@@ -23,6 +24,7 @@ class MatchStateGoalKickStop extends MatchState {
 
     private int xSide;
     private int ySide;
+    private Vector2 goalKickPosition;
 
     MatchStateGoalKickStop(MatchFsm fsm) {
         super(STATE_GOAL_KICK_STOP, fsm);
@@ -30,6 +32,8 @@ class MatchStateGoalKickStop extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+
+        goalKickPosition = new Vector2();
     }
 
     @Override
@@ -56,12 +60,19 @@ class MatchStateGoalKickStop extends MatchState {
 
         goalKickTeam.updateTactics(true);
         opponentTeam.updateTactics(true);
+
+        goalKickPosition.set(
+                (Const.GOAL_AREA_W / 2f) * xSide,
+                (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide
+        );
     }
 
     @Override
     void onResume() {
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
+
+        match.setPointOfInterest(goalKickPosition);
     }
 
     @Override
@@ -96,7 +107,7 @@ class MatchStateGoalKickStop extends MatchState {
     @Override
     void checkConditions() {
         if ((match.ball.v < 5) && (match.ball.vz < 5)) {
-            match.ball.setPosition((Const.GOAL_AREA_W / 2) * xSide, (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide, 0);
+            match.ball.setPosition(goalKickPosition.x, goalKickPosition.y, 0);
             match.ball.updatePrediction();
 
             fsm.pushAction(NEW_FOREGROUND, STATE_GOAL_KICK);

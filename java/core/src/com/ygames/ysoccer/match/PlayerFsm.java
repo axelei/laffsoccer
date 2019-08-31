@@ -25,6 +25,7 @@ class PlayerFsm extends Fsm {
         STATE_FREE_KICK_ANGLE,
         STATE_FREE_KICK_SPEED,
         STATE_PENALTY_KICK_ANGLE,
+        STATE_PENALTY_KICK_SPEED,
         STATE_GOAL_SCORER,
         STATE_GOAL_MATE,
         STATE_OWN_GOAL_SCORER,
@@ -62,6 +63,7 @@ class PlayerFsm extends Fsm {
     PlayerStateFreeKickAngle stateFreeKickAngle;
     PlayerStateFreeKickSpeed stateFreeKickSpeed;
     PlayerStatePenaltyKickAngle statePenaltyKickAngle;
+    PlayerStatePenaltyKickSpeed statePenaltyKickSpeed;
     PlayerStateGoalScorer stateGoalScorer;
     PlayerStateGoalMate stateGoalMate;
     PlayerStateOwnGoalScorer stateOwnGoalScorer;
@@ -99,6 +101,7 @@ class PlayerFsm extends Fsm {
         stateFreeKickAngle = new PlayerStateFreeKickAngle(this, player);
         stateFreeKickSpeed = new PlayerStateFreeKickSpeed(this, player);
         statePenaltyKickAngle = new PlayerStatePenaltyKickAngle(this, player);
+        statePenaltyKickSpeed = new PlayerStatePenaltyKickSpeed(this, player);
         stateGoalScorer = new PlayerStateGoalScorer(this, player);
         stateGoalMate = new PlayerStateGoalMate(this, player);
         stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this, player);
