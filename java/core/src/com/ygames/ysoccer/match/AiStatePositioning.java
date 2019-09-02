@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_POSITIONING;
@@ -8,8 +7,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStatePositioning extends AiState {
 
-    AiStatePositioning(AiFsm fsm, Ai ai) {
-        super(STATE_POSITIONING, fsm, ai);
+    AiStatePositioning(AiFsm fsm) {
+        super(STATE_POSITIONING, fsm);
     }
 
     @Override

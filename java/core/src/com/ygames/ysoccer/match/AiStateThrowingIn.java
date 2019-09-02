@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -10,8 +9,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_SPEED;
 
 class AiStateThrowingIn extends AiState {
 
-    AiStateThrowingIn(AiFsm fsm, Ai ai) {
-        super(STATE_THROWING_IN, fsm, ai);
+    AiStateThrowingIn(AiFsm fsm) {
+        super(STATE_THROWING_IN, fsm);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -8,8 +7,8 @@ import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KICKING_OFF;
 
 class AiStateKickingOff extends AiState {
 
-    AiStateKickingOff(AiFsm fsm, Ai ai) {
-        super(STATE_KICKING_OFF, fsm, ai);
+    AiStateKickingOff(AiFsm fsm) {
+        super(STATE_KICKING_OFF, fsm);
     }
 
     @Override

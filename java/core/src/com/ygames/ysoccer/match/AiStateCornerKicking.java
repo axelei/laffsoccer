@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -10,8 +9,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_SPEED;
 
 class AiStateCornerKicking extends AiState {
 
-    AiStateCornerKicking(AiFsm fsm, Ai ai) {
-        super(STATE_CORNER_KICKING, fsm, ai);
+    AiStateCornerKicking(AiFsm fsm) {
+        super(STATE_CORNER_KICKING, fsm);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
@@ -9,8 +8,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateDefending extends AiState {
 
-    AiStateDefending(AiFsm fsm, Ai ai) {
-        super(STATE_DEFENDING, fsm, ai);
+    AiStateDefending(AiFsm fsm) {
+        super(STATE_DEFENDING, fsm);
     }
 
     @Override

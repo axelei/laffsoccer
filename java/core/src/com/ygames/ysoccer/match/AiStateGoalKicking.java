@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -8,8 +7,8 @@ import static com.ygames.ysoccer.match.AiFsm.Id.STATE_GOAL_KICKING;
 
 class AiStateGoalKicking extends AiState {
 
-    AiStateGoalKicking(AiFsm fsm, Ai ai) {
-        super(STATE_GOAL_KICKING, fsm, ai);
+    AiStateGoalKicking(AiFsm fsm) {
+        super(STATE_GOAL_KICKING, fsm);
     }
 
     @Override

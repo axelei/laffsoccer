@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -36,8 +35,8 @@ class AiStateFreeKicking extends AiState {
 
     private KickType kickType;
 
-    AiStateFreeKicking(AiFsm fsm, Ai ai) {
-        super(STATE_FREE_KICKING, fsm, ai);
+    AiStateFreeKicking(AiFsm fsm) {
+        super(STATE_FREE_KICKING, fsm);
     }
 
     @Override

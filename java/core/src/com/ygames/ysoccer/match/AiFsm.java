@@ -20,6 +20,8 @@ public class AiFsm extends Fsm {
         STATE_KEEPER_KICKING
     }
 
+    Ai ai;
+
     AiStateIdle stateIdle;
     AiStateKickingOff stateKickingOff;
     AiStatePositioning statePositioning;
@@ -35,19 +37,21 @@ public class AiFsm extends Fsm {
     AiStateKeeperKicking stateKeeperKicking;
 
     public AiFsm(Ai ai) {
-        stateIdle = new AiStateIdle(this, ai);
-        stateKickingOff = new AiStateKickingOff(this, ai);
-        statePositioning = new AiStatePositioning(this, ai);
-        stateSeeking = new AiStateSeeking(this, ai);
-        stateDefending = new AiStateDefending(this, ai);
-        stateAttacking = new AiStateAttacking(this, ai);
-        statePassing = new AiStatePassing(this, ai);
-        stateKicking = new AiStateKicking(this, ai);
-        stateGoalKicking = new AiStateGoalKicking(this, ai);
-        stateThrowingIn = new AiStateThrowingIn(this, ai);
-        stateCornerKicking = new AiStateCornerKicking(this, ai);
-        stateFreeKicking = new AiStateFreeKicking(this, ai);
-        stateKeeperKicking = new AiStateKeeperKicking(this, ai);
+        this.ai = ai;
+
+        stateIdle = new AiStateIdle(this);
+        stateKickingOff = new AiStateKickingOff(this);
+        statePositioning = new AiStatePositioning(this);
+        stateSeeking = new AiStateSeeking(this);
+        stateDefending = new AiStateDefending(this);
+        stateAttacking = new AiStateAttacking(this);
+        statePassing = new AiStatePassing(this);
+        stateKicking = new AiStateKicking(this);
+        stateGoalKicking = new AiStateGoalKicking(this);
+        stateThrowingIn = new AiStateThrowingIn(this);
+        stateCornerKicking = new AiStateCornerKicking(this);
+        stateFreeKicking = new AiStateFreeKicking(this);
+        stateKeeperKicking = new AiStateKeeperKicking(this);
 
         setState(Id.STATE_IDLE);
     }

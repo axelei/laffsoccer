@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
@@ -9,8 +8,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateSeeking extends AiState {
 
-    AiStateSeeking(AiFsm fsm, Ai ai) {
-        super(STATE_SEEKING, fsm, ai);
+    AiStateSeeking(AiFsm fsm) {
+        super(STATE_SEEKING, fsm);
     }
 
     @Override
@@ -38,7 +37,7 @@ class AiStateSeeking extends AiState {
         if (player.match.ball.owner != null) {
             // player
             if (player.match.ball.owner == player) {
-                 return fsm.stateAttacking;
+                return fsm.stateAttacking;
             }
             // mate
             if (player.match.ball.owner.team == player.team) {

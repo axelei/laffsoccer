@@ -8,10 +8,10 @@ class AiState extends State {
     protected final Ai ai;
     protected final Player player;
 
-    AiState(AiFsm.Id id, AiFsm fsm, Ai ai) {
+    AiState(AiFsm.Id id, AiFsm fsm) {
         this.id = id.ordinal();
         this.fsm = fsm;
-        this.ai = ai;
+        this.ai = fsm.ai;
         this.player = ai.player;
 
         fsm.addState(this);
