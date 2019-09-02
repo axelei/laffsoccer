@@ -40,6 +40,9 @@ class AiStateIdle extends AiState {
                 case STATE_FREE_KICK_ANGLE:
                     return fsm.stateFreeKicking;
 
+                case STATE_PENALTY_KICK_ANGLE:
+                    return fsm.statePenaltyKicking;
+
                 case STATE_KEEPER_KICK_ANGLE:
                     return fsm.stateKeeperKicking;
             }

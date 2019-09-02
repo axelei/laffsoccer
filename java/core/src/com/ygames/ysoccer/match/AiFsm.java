@@ -17,6 +17,7 @@ public class AiFsm extends Fsm {
         STATE_THROWING_IN,
         STATE_CORNER_KICKING,
         STATE_FREE_KICKING,
+        STATE_PENALTY_KICKING,
         STATE_KEEPER_KICKING
     }
 
@@ -34,6 +35,7 @@ public class AiFsm extends Fsm {
     AiStateThrowingIn stateThrowingIn;
     AiStateCornerKicking stateCornerKicking;
     AiStateFreeKicking stateFreeKicking;
+    AiStatePenaltyKicking statePenaltyKicking;
     AiStateKeeperKicking stateKeeperKicking;
 
     public AiFsm(Ai ai) {
@@ -51,6 +53,7 @@ public class AiFsm extends Fsm {
         stateThrowingIn = new AiStateThrowingIn(this);
         stateCornerKicking = new AiStateCornerKicking(this);
         stateFreeKicking = new AiStateFreeKicking(this);
+        statePenaltyKicking = new AiStatePenaltyKicking(this);
         stateKeeperKicking = new AiStateKeeperKicking(this);
 
         setState(Id.STATE_IDLE);

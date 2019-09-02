@@ -37,6 +37,11 @@ public class Emath {
         return aTan2(y2 - y1, x2 - x1);
     }
 
+    public static float angleDist(float a1, float a2) {
+        float d = Math.abs(a2 - a1) % 360;
+        return d > 180 ? 360 - d : d;
+    }
+
     public static int rotate(int value, int low, int high, int direction) {
         return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
     }
@@ -60,6 +65,15 @@ public class Emath {
     // random integer between min and max (included)
     public static int rand(int min, int max) {
         return min + ((int) Math.floor((max - min + 1) * Math.random()));
+    }
+
+    public static <T extends Enum<T>> T randomPick(T... element) {
+        return element[rand(0, element.length - 1)];
+    }
+
+    public static <T extends Enum<T>> T randomPick(Class<T> c) {
+        int values = c.getEnumConstants().length;
+        return c.getEnumConstants()[Emath.rand(0, values - 1)];
     }
 
     public static float roundBy(float value, float step) {
