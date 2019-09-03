@@ -98,14 +98,13 @@ class AiStateFreeKicking extends AiState {
         switch (step) {
             case TURNING:
                 if (timer > 20) {
-                    player.a = Math.round(targetAngle / 45.0f) * 45.0f;
                     if (Math.abs(targetAngle - player.a) > 3) {
                         kickSpin = Math.signum(targetAngle - player.a);
                     } else {
                         kickSpin = 0;
                     }
-                    ai.x0 = Math.round(Emath.cos(player.a));
-                    ai.y0 = Math.round(Emath.sin(player.a));
+                    ai.x0 = Math.round(Emath.cos(targetAngle));
+                    ai.y0 = Math.round(Emath.sin(targetAngle));
                     Gdx.app.debug(player.shirtName, "angle: " + player.a + ", targetAngle: " + targetAngle);
                     step = Step.WAITING;
                     timer = 0;
