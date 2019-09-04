@@ -25,9 +25,13 @@ class TestPlayer extends GLScreen {
 
     private enum Animation {ANIMATION_OFF, HORIZONTAL, VERTICAL}
 
+    private enum Shadows {NONE, DAY, NIGHT}
+
     private Animation animation;
     private int animationLength;
     private int animationSpeed;
+
+    private Shadows shadows;
 
     private final int displayedRows = 7;
 
@@ -35,7 +39,6 @@ class TestPlayer extends GLScreen {
     private int selectedKit = 0;
     private Player player;
     private PlayerSprite playerSprite;
-    private int offset;
     private int fmx, fmy;
     private int fmx2 = 0;
     private int fmy2 = 0;
@@ -48,6 +51,8 @@ class TestPlayer extends GLScreen {
         animation = Animation.ANIMATION_OFF;
         animationLength = 8;
         animationSpeed = 3;
+
+        shadows = Shadows.NONE;
 
         Widget w;
 
@@ -153,6 +158,10 @@ class TestPlayer extends GLScreen {
         w = new AnimationSpeedButton(x, y);
         widgets.add(w);
 
+        y += 40;
+        w = new ShadowsButton(x, y);
+        widgets.add(w);
+
         w = new ExitButton(x);
         widgets.add(w);
 
@@ -162,8 +171,8 @@ class TestPlayer extends GLScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
-        camera.setToOrtho(true, game.gui.screenWidth / 2, game.gui.screenHeight / 2); // 640 x 360
-        camera.translate(-game.gui.originX / 2, -game.gui.originY / 2);
+        camera.setToOrtho(true, game.gui.screenWidth / 2f, game.gui.screenHeight / 2f); // 640 x 360
+        camera.translate(-game.gui.originX / 2f, -game.gui.originY / 2f);
         camera.update();
 
         batch.setProjectionMatrix(camera.combined);
@@ -209,13 +218,14 @@ class TestPlayer extends GLScreen {
         shapeRenderer.end();
 
         batch.begin();
-        for (int j = offset; j < offset + displayedRows; j++) {
+        for (int j = 0; j < displayedRows; j++) {
             for (int i = 0; i < 8; i++) {
                 player.x = x0 + 24 + 50 * i;
                 player.y = y0 + 36 + 50 * j;
                 player.fmx = i;
                 player.fmy = j + fmy - cursorY;
                 player.save(0);
+                drawPlayerShadow();
                 playerSprite.draw(0);
             }
         }
@@ -247,13 +257,14 @@ class TestPlayer extends GLScreen {
         player.fmx = (fmx + Emath.floor(fmx2 / 5f)) % 8;
         player.fmy = (fmy + Emath.floor(fmy2 / 5f)) % getPlayerRows();
         player.save(0);
+        drawPlayerShadow();
         playerSprite.draw(0);
 
         batch.end();
 
         // selected player (x4)
-        camera.setToOrtho(true, game.gui.screenWidth / 4, game.gui.screenHeight / 4); // 320 x 180
-        camera.translate(-game.gui.originX / 4, -game.gui.originY / 4);
+        camera.setToOrtho(true, game.gui.screenWidth / 4f, game.gui.screenHeight / 4f); // 320 x 180
+        camera.translate(-game.gui.originX / 4f, -game.gui.originY / 4f);
         camera.update();
 
         batch.setProjectionMatrix(camera.combined);
@@ -263,12 +274,13 @@ class TestPlayer extends GLScreen {
         player.y = 70;
         player.save(0);
         batch.begin();
+        drawPlayerShadow();
         playerSprite.draw(0);
         batch.end();
 
         // selected player (x8)
-        camera.setToOrtho(true, game.gui.screenWidth / 8, game.gui.screenHeight / 8); // 160 x 90
-        camera.translate(-game.gui.originX / 8, -game.gui.originY / 8);
+        camera.setToOrtho(true, game.gui.screenWidth / 8f, game.gui.screenHeight / 8f); // 160 x 90
+        camera.translate(-game.gui.originX / 8f, -game.gui.originY / 8f);
         camera.update();
 
         batch.setProjectionMatrix(camera.combined);
@@ -278,8 +290,26 @@ class TestPlayer extends GLScreen {
         player.y = 70;
         player.save(0);
         batch.begin();
+        drawPlayerShadow();
         playerSprite.draw(0);
         batch.end();
+    }
+
+    private void drawPlayerShadow() {
+        if (shadows != Shadows.NONE) {
+            for (int s = 0; s < (shadows == Shadows.NIGHT ? 4 : 1); s++) {
+                Data d = player.data[0];
+                if (d.isVisible) {
+                    float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
+                    float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
+                    float mX = (s == 0 || s == 3) ? 0.65f : -0.65f;
+                    float mY = (s == 0 || s == 1) ? 0.46f : -0.46f;
+                    batch.setColor(0xFFFFFF, 0.5f);
+                    batch.draw(Assets.playerShadow[d.fmx][d.fmy][s], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+                }
+            }
+        }
+        batch.setColor(0xFFFFFF, 1);
     }
 
     private class StyleLabel extends Button {
@@ -825,6 +855,34 @@ class TestPlayer extends GLScreen {
 
         private void updateRow(int n) {
             animationSpeed = Emath.slide(animationSpeed, 1, 5, n);
+            setDirty(true);
+        }
+    }
+
+    private class ShadowsButton extends Button {
+
+        ShadowsButton(int x, int y) {
+            setGeometry(x, y, 175, 23);
+            setColors(0x8F5902);
+        }
+
+        @Override
+        public void refresh() {
+            setText("SHADOWS: " + shadows, Font.Align.CENTER, Assets.font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateRow(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateRow(-1);
+        }
+
+        private void updateRow(int n) {
+            shadows = Emath.rotate(shadows, Shadows.class, n);
             setDirty(true);
         }
     }
