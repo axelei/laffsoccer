@@ -11,7 +11,7 @@ import static com.ygames.ysoccer.match.Const.PITCH_W;
 import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
 
-public class ActionCamera {
+class ActionCamera {
 
     enum Mode {
         STILL,
@@ -46,28 +46,32 @@ public class ActionCamera {
     private int screenHeight;
     private int zoom;
 
-    public ActionCamera(Ball ball) {
+    ActionCamera(Ball ball) {
         this.ball = ball;
         speedMode = SpeedMode.NORMAL;
         target = new Vector2();
     }
 
-    public void setSpeedMode(SpeedMode speedMode) {
+    ActionCamera setSpeedMode(SpeedMode speedMode) {
         this.speedMode = speedMode;
+        return this;
     }
 
-    void setOffset(float x, float y) {
+    ActionCamera setOffset(float x, float y) {
         this.offsetX = x;
         this.offsetY = y;
+        return this;
     }
 
-    void setLimited(boolean xLimited, boolean yLimited) {
+    ActionCamera setLimited(boolean xLimited, boolean yLimited) {
         this.xLimited = xLimited;
         this.yLimited = yLimited;
+        return this;
     }
 
-    void setTarget(float x, float y) {
+    ActionCamera setTarget(float x, float y) {
         target.set(x, y);
+        return this;
     }
 
     void setScreenParameters(int screenWidth, int screenHeight, int zoom) {

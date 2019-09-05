@@ -200,7 +200,12 @@ public class Groups extends Round implements Json.Serializable {
     }
 
     @Override
-    public boolean playExtraTime() {
+    protected boolean playExtraTime() {
+        return false;
+    }
+
+    @Override
+    protected boolean playPenalties() {
         return false;
     }
 

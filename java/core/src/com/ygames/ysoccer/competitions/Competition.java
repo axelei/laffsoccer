@@ -169,6 +169,14 @@ public abstract class Competition {
                 && getTeam(AWAY).controlMode == COMPUTER;
     }
 
+    public boolean playExtraTime()  {
+        return false;
+    }
+
+    public boolean playPenalties()  {
+        return false;
+    }
+
     public boolean isEnded() {
         return true;
     }

@@ -332,7 +332,7 @@ public class Cup extends Competition implements Json.Serializable {
     }
 
     // decide if penalties have to be played depending on current result, leg's type and settings
-    private boolean playPenalties() {
+    public boolean playPenalties() {
         Match match = getMatch();
         Round round = rounds.get(currentRound);
 

@@ -61,7 +61,9 @@ public abstract class Round {
 
     public abstract void generateResult();
 
-    public abstract boolean playExtraTime();
+    protected abstract boolean playExtraTime();
+
+    protected abstract boolean playPenalties();
 
     protected abstract String getMenuTitle();
 

@@ -690,11 +690,6 @@ class DesignDiyCup extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 + 230, 344 + 34 * round, 240, 32);
             setColors(0x1F1F95, 0x3030D4, 0x151563);
             setText("", Font.Align.CENTER, Assets.font14);
-
-            // TODO: remove after penalties are implemented
-            setActive(false);
-            setColors(0x666666, 0x8F8D8D, 0x404040);
-            //
         }
 
         @Override

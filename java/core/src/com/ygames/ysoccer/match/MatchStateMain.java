@@ -2,8 +2,6 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.competitions.Cup;
-import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
@@ -26,6 +24,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_THROW_IN_STOP;
 
@@ -222,30 +221,12 @@ class MatchStateMain extends MatchState {
 
                     match.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_90_MINUTES);
 
-                    switch (match.competition.type) {
-                        case FRIENDLY:
-                        case TEST_MATCH:
-                        case LEAGUE:
-                            fsm.pushAction(NEW_FOREGROUND, STATE_FULL_TIME_STOP);
-                            return;
-
-                        case CUP:
-                            Cup cup = (Cup) match.competition;
-                            if (cup.playExtraTime()) {
-                                fsm.pushAction(NEW_FOREGROUND, STATE_EXTRA_TIME_STOP);
-                            } else {
-                                fsm.pushAction(NEW_FOREGROUND, STATE_FULL_TIME_STOP);
-                            }
-                            return;
-
-                        case TOURNAMENT:
-                            Tournament tournament = (Tournament) match.competition;
-                            if (tournament.getRound().playExtraTime()) {
-                                fsm.pushAction(NEW_FOREGROUND, STATE_EXTRA_TIME_STOP);
-                            } else {
-                                fsm.pushAction(NEW_FOREGROUND, STATE_FULL_TIME_STOP);
-                            }
-                            return;
+                    if (match.competition.playExtraTime()) {
+                        fsm.pushAction(NEW_FOREGROUND, STATE_EXTRA_TIME_STOP);
+                    } else if (match.competition.playPenalties()) {
+                        fsm.pushAction(NEW_FOREGROUND, STATE_PENALTIES_STOP);
+                    } else {
+                        fsm.pushAction(NEW_FOREGROUND, STATE_FULL_TIME_STOP);
                     }
                 }
                 break;
@@ -262,7 +243,11 @@ class MatchStateMain extends MatchState {
 
                     match.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_EXTRA_TIME);
 
-                    fsm.pushAction(NEW_FOREGROUND, STATE_FULL_EXTRA_TIME_STOP);
+                    if (match.competition.playPenalties()) {
+                        fsm.pushAction(NEW_FOREGROUND, STATE_PENALTIES_STOP);
+                    } else {
+                        fsm.pushAction(NEW_FOREGROUND, STATE_FULL_EXTRA_TIME_STOP);
+                    }
                     return;
                 }
                 break;
