@@ -19,7 +19,7 @@ public class Tournament extends Competition implements Json.Serializable {
 
     public Tournament() {
         super(Type.TOURNAMENT);
-        rounds = new ArrayList<Round>();
+        rounds = new ArrayList<>();
         awayGoals = AwayGoals.OFF;
         teamComparatorByPlayersValue = new ComparatorByPlayersValue();
     }
@@ -54,7 +54,7 @@ public class Tournament extends Competition implements Json.Serializable {
     public void start(ArrayList<Team> teams) {
         super.start(teams);
 
-        ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+        ArrayList<Integer> qualifiedTeams = new ArrayList<>();
         for (int i = 0; i < numberOfTeams; i++) {
             qualifiedTeams.add(i);
         }
@@ -108,7 +108,7 @@ public class Tournament extends Competition implements Json.Serializable {
         getRound().start(qualifiedTeams);
     }
 
-    public void updateMonth() {
+    private void updateMonth() {
         if (weather == Weather.BY_SEASON) {
             int seasonLength = ((seasonEnd.ordinal() - seasonStart.ordinal() + 12) % 12);
             currentMonth = Month.values()[(seasonStart.ordinal() + seasonLength * currentRound / rounds.size()) % 12];
@@ -211,7 +211,13 @@ public class Tournament extends Competition implements Json.Serializable {
         }
     }
 
+    @Override
     public void matchCompleted() {
         getRound().matchCompleted();
+    }
+
+    @Override
+    public void matchInterrupted() {
+        getRound().matchInterrupted();
     }
 }

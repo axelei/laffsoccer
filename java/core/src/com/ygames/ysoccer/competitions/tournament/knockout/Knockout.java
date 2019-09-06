@@ -17,7 +17,9 @@ import java.util.List;
 import static com.ygames.ysoccer.competitions.tournament.Round.ExtraTime.ON;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Match.ResultType.AFTER_90_MINUTES;
 import static com.ygames.ysoccer.match.Match.ResultType.AFTER_PENALTIES;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 public class Knockout extends Round implements Json.Serializable {
 
@@ -33,7 +35,7 @@ public class Knockout extends Round implements Json.Serializable {
         extraTime = ON;
         penalties = Penalties.ON;
         currentLeg = 0;
-        legs = new ArrayList<Leg>();
+        legs = new ArrayList<>();
     }
 
     @Override
@@ -97,7 +99,7 @@ public class Knockout extends Round implements Json.Serializable {
         currentLeg = 0;
 
         // copy first round, first leg matches
-        List<Match> firstLegMatches = new ArrayList<Match>();
+        List<Match> firstLegMatches = new ArrayList<>();
         for (Match m : legs.get(0).matches) {
             Match match = new Match();
             match.teams[HOME] = m.teams[HOME];
@@ -166,7 +168,7 @@ public class Knockout extends Round implements Json.Serializable {
         newLeg();
         generateNextLegCalendar();
         if (getLeg().matches.size() == 0) {
-            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+            ArrayList<Integer> qualifiedTeams = new ArrayList<>();
             for (Leg leg : legs) {
                 qualifiedTeams.addAll(leg.getQualifiedTeams());
             }
@@ -199,11 +201,11 @@ public class Knockout extends Round implements Json.Serializable {
         }
 
         // create random partitioned mapping
-        List<Integer> groupsIndexes = new ArrayList<Integer>();
+        List<Integer> groupsIndexes = new ArrayList<>();
         for (int t = 0; t < qualifiedTeams.size() / 2; t++) {
             groupsIndexes.add(t);
         }
-        List<Integer> teamsMapping = new ArrayList<Integer>();
+        List<Integer> teamsMapping = new ArrayList<>();
         for (int t = 0; t < 2; t++) {
             Collections.shuffle(groupsIndexes);
             for (int g = 0; g < qualifiedTeams.size() / 2; g++) {
@@ -599,5 +601,55 @@ public class Knockout extends Round implements Json.Serializable {
     public void newLeg() {
         Leg leg = new Leg(this);
         legs.add(leg);
+    }
+
+    @Override
+    protected void matchCompleted() {
+    }
+
+    @Override
+    protected void matchInterrupted() {
+        Match match = getMatch();
+        if (match.team[HOME].controlMode == COMPUTER && match.team[AWAY].controlMode != COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfterPenalties != null) {
+                goals += match.resultAfterPenalties[AWAY];
+                match.resultAfterPenalties[HOME] += goals;
+            } else if (match.resultAfterExtraTime != null) {
+                goals += match.resultAfterExtraTime[AWAY];
+                match.resultAfterExtraTime[HOME] += goals;
+                tournament.generateScorers(match.team[HOME], goals);
+            } else if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[AWAY];
+                match.resultAfter90[HOME] += goals;
+                tournament.generateScorers(match.team[HOME], goals);
+            } else {
+                match.setResult(goals, 0, AFTER_90_MINUTES);
+                tournament.generateScorers(match.team[HOME], goals);
+            }
+            matchCompleted();
+        } else if (match.team[HOME].controlMode != COMPUTER && match.team[AWAY].controlMode == COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfterPenalties != null) {
+                goals += match.resultAfterPenalties[HOME];
+                match.resultAfterPenalties[AWAY] += goals;
+            } else if (match.resultAfterExtraTime != null) {
+                goals += match.resultAfterExtraTime[HOME];
+                match.resultAfterExtraTime[AWAY] += goals;
+                tournament.generateScorers(match.team[HOME], goals);
+            } else if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[HOME];
+                match.resultAfter90[AWAY] += goals;
+                tournament.generateScorers(match.team[HOME], goals);
+            } else {
+                match.setResult(0, 6, AFTER_90_MINUTES);
+                tournament.generateScorers(match.team[HOME], goals);
+            }
+            matchCompleted();
+        } else {
+            match.resultAfter90 = null;
+            match.resultAfterExtraTime = null;
+            match.resultAfterPenalties = null;
+        }
     }
 }

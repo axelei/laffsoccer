@@ -93,6 +93,7 @@ public abstract class Round {
         }
     }
 
-    public void matchCompleted() {
-    }
+    abstract protected void matchCompleted();
+
+    abstract protected void matchInterrupted();
 }

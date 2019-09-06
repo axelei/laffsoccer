@@ -4,12 +4,18 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.TableRow;
 import com.ygames.ysoccer.competitions.tournament.Round;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Match.ResultType.AFTER_90_MINUTES;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 public class Groups extends Round implements Json.Serializable {
 
@@ -22,7 +28,7 @@ public class Groups extends Round implements Json.Serializable {
 
     public Groups() {
         super(Type.GROUPS);
-        groups = new ArrayList<Group>();
+        groups = new ArrayList<>();
         rounds = 1;
         pointsForAWin = 3;
         tableRowComparator = new TableRowComparator();
@@ -77,11 +83,11 @@ public class Groups extends Round implements Json.Serializable {
             }
 
             // create random partitioned mapping
-            List<Integer> groupsIndexes = new ArrayList<Integer>();
+            List<Integer> groupsIndexes = new ArrayList<>();
             for (int t = 0; t < groups.size(); t++) {
                 groupsIndexes.add(t);
             }
-            List<Integer> teamsMapping = new ArrayList<Integer>();
+            List<Integer> teamsMapping = new ArrayList<>();
             for (int t = 0; t < groupNumberOfTeams(); t++) {
                 Collections.shuffle(groupsIndexes);
                 for (int g = 0; g < groups.size(); g++) {
@@ -91,7 +97,7 @@ public class Groups extends Round implements Json.Serializable {
 
             // start each group
             for (int g = 0; g < groups.size(); g++) {
-                ArrayList<Integer> groupTeams = new ArrayList<Integer>();
+                ArrayList<Integer> groupTeams = new ArrayList<>();
                 for (int t = 0; t < groupNumberOfTeams(); t++) {
                     groupTeams.add(qualifiedTeams.get(teamsMapping.get(t * groups.size() + g)));
                 }
@@ -136,7 +142,7 @@ public class Groups extends Round implements Json.Serializable {
     @Override
     public void nextMatch() {
         if (isEnded()) {
-            ArrayList<Integer> qualifiedTeams = new ArrayList<Integer>();
+            ArrayList<Integer> qualifiedTeams = new ArrayList<>();
 
             // top teams
             int topTeams = numberOfTopTeams();
@@ -148,7 +154,7 @@ public class Groups extends Round implements Json.Serializable {
 
             // runners up
             int runnersUp = numberOfRunnersUp();
-            ArrayList<TableRow> runnersUpTable = new ArrayList<TableRow>();
+            ArrayList<TableRow> runnersUpTable = new ArrayList<>();
             for (Group group : groups) {
                 runnersUpTable.add(group.table.get(topTeams));
             }
@@ -241,7 +247,35 @@ public class Groups extends Round implements Json.Serializable {
     }
 
     @Override
-    public void matchCompleted() {
+    protected void matchCompleted() {
         getGroup().addMatchToTable(getMatch());
+    }
+
+    @Override
+    protected void matchInterrupted() {
+        Match match = getMatch();
+        if (match.team[HOME].controlMode == COMPUTER && match.team[AWAY].controlMode != COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[AWAY];
+                match.resultAfter90[HOME] += goals;
+            } else {
+                match.setResult(goals, 0, AFTER_90_MINUTES);
+            }
+            tournament.generateScorers(match.team[HOME], goals);
+            matchCompleted();
+        } else if (match.team[HOME].controlMode != COMPUTER && match.team[AWAY].controlMode == COMPUTER) {
+            int goals = 4 + Assets.random.nextInt(2);
+            if (match.resultAfter90 != null) {
+                goals += match.resultAfter90[AWAY];
+                match.resultAfter90[HOME] += goals;
+            } else {
+                match.setResult(0, goals, AFTER_90_MINUTES);
+            }
+            tournament.generateScorers(match.team[AWAY], goals);
+            matchCompleted();
+        } else {
+            match.resultAfter90 = null;
+        }
     }
 }
