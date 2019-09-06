@@ -17,6 +17,7 @@ class MatchState {
     boolean displayTime;
     boolean displayWindVane;
     boolean displayScore;
+    boolean displayPenaltiesScore;
     boolean displayStatistics;
     boolean displayRadar;
     boolean displayBenchPlayers;

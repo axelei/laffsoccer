@@ -6,9 +6,10 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES_STOP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 
@@ -64,7 +65,13 @@ class MatchStatePenaltiesStop extends MatchState {
 
             matchRenderer.actionCamera.setOffset(0, 0);
 
-            // TODO fsm.pushAction(NEW_FOREGROUND, STATE_PENALTIES);
+            match.penaltyKickingTeam = Assets.random.nextInt(2);
+
+            match.period = Match.Period.PENALTIES;
+
+            match.addPenalties(5);
+
+            fsm.pushAction(NEW_FOREGROUND, STATE_PENALTIES);
             return;
         }
 

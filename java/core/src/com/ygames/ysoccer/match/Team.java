@@ -61,6 +61,7 @@ public class Team implements Json.Serializable {
     public List<Player> players;
     public List<Player> lineup;
     public int substitutionsCount;
+    int kickerIndex;
 
     private static Map<Player.Role, Player.Role[]> substitutionRules;
 
@@ -176,7 +177,7 @@ public class Team implements Json.Serializable {
 
     void beforeMatch(Match match) {
         this.match = match;
-        lineup = new ArrayList<Player>();
+        lineup = new ArrayList<>();
         int lineupSize = Math.min(players.size(), TEAM_SIZE + match.settings.benchSize);
         for (int i = 0; i < lineupSize; i++) {
             Player player = players.get(i);
@@ -185,11 +186,12 @@ public class Team implements Json.Serializable {
             lineup.add(player);
         }
         substitutionsCount = 0;
+        kickerIndex = TEAM_SIZE - 1;
     }
 
     void beforeTraining(Training training) {
         this.training = training;
-        lineup = new ArrayList<Player>();
+        lineup = new ArrayList<>();
         int lineupSize = players.size();
         for (int i = 0; i < lineupSize; i++) {
             Player player = players.get(i);

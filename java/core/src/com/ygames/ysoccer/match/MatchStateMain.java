@@ -84,8 +84,6 @@ class MatchStateMain extends MatchState {
                 if (match.ball.owner != null) {
                     match.stats[match.ball.owner.team.index].ballPossession += 1;
                 }
-
-                match.setPointOfInterest(match.ball.x, match.ball.y);
             }
 
             match.updateBall();

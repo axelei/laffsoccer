@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
+import static com.ygames.ysoccer.match.Const.PENALTY_SPOT_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -26,7 +27,6 @@ class MatchStatePenaltyKickStop extends MatchState {
 
     private boolean allPlayersReachingTarget;
     private boolean move;
-    private Player penaltyKicker;
     private Vector2 penaltyKickPosition;
 
     MatchStatePenaltyKickStop(MatchFsm fsm) {
@@ -54,9 +54,14 @@ class MatchStatePenaltyKickStop extends MatchState {
             }
         }
 
+        Player penaltyKicker = match.foul.opponent.team.lastOfLineup();
+        match.foul = null;
+        match.createPenalty(penaltyKicker, match.ball.ySide);
+
+
         // set the player targets relative to penalty
         // even before moving the ball itself
-        match.ball.updateZone(0, Math.signum(match.foul.position.y) * Const.PENALTY_SPOT_Y, 0, 0);
+        match.ball.updateZone(0, match.penalty.side * PENALTY_SPOT_Y, 0, 0);
         match.updateTeamTactics();
         match.team[HOME].lineup.get(0).setTarget(0, match.team[HOME].side * (Const.GOAL_LINE - 8));
         match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));
@@ -68,20 +73,15 @@ class MatchStatePenaltyKickStop extends MatchState {
             }
         }
 
-        penaltyKicker = match.foul.opponent.team.lastOfLineup();
-        penaltyKicker.setTarget(-40 * match.ball.ySide, Math.signum(match.foul.position.y) * (Const.PENALTY_SPOT_Y - 45));
-
-        penaltyKickPosition.set(
-                0,
-                Math.signum(match.foul.position.y) * Const.PENALTY_SPOT_Y
-        );
+        penaltyKicker.setTarget(-40 * match.ball.ySide, match.penalty.side * (PENALTY_SPOT_Y - 45));
+        penaltyKickPosition.set(0, match.penalty.side * PENALTY_SPOT_Y);
 
         match.resetAutomaticInputDevices();
     }
 
     @Override
     void onResume() {
-        matchRenderer.actionCamera.setTarget(match.foul.position.x, match.foul.position.y);
+        matchRenderer.actionCamera.setTarget(penaltyKickPosition.x, penaltyKickPosition.y);
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
 
@@ -135,7 +135,7 @@ class MatchStatePenaltyKickStop extends MatchState {
     @Override
     void checkConditions() {
         if (allPlayersReachingTarget && !move) {
-            match.ball.setPosition(penaltyKickPosition.x, penaltyKickPosition.y,0);
+            match.ball.setPosition(penaltyKickPosition.x, penaltyKickPosition.y, 0);
             match.ball.updatePrediction();
 
             fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK);

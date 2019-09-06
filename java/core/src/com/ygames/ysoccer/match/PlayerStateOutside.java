@@ -12,7 +12,7 @@ class PlayerStateOutside extends PlayerState {
     void doActions() {
         super.doActions();
         if (player.isVisible && player.targetDistance() > 1.5f) {
-            player.v = 200.0f;
+            player.v = 180 + 3 * player.skills.speed;
             player.a = player.targetAngle();
         } else {
             player.v = 0.0f;

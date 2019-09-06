@@ -12,7 +12,7 @@ class PlayerStateReachTarget extends PlayerState {
     void doActions() {
         super.doActions();
 
-        player.v = 200;
+        player.v = 180 + 3 * player.skills.speed;
         player.a = player.targetAngle();
 
         player.animationStandRun();

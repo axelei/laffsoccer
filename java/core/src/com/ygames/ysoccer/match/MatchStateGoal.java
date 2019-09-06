@@ -6,7 +6,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -65,7 +64,7 @@ class MatchStateGoal extends MatchState {
 
         match.resetAutomaticInputDevices();
 
-        matchRenderer.actionCamera.setLimited(true, false);
+        matchRenderer.actionCamera.setLimited(true, true);
     }
 
     @Override

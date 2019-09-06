@@ -66,7 +66,7 @@ class MatchScreen extends GLScreen {
             match.fsm.getMatchRenderer().render();
         }
 
-        if (game.settings.development) {
+        if (!matchEnded && game.settings.development) {
             console.draw();
             matchPaused = console.isVisible();
         }

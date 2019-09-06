@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -22,13 +23,14 @@ class MatchStateEndPositions extends MatchState {
 
     MatchStateEndPositions(MatchFsm fsm) {
         super(STATE_END_POSITIONS, fsm);
-
-        displayScore = true;
     }
 
     @Override
     void entryActions() {
         super.entryActions();
+
+        displayScore = (match.period != PENALTIES);
+        displayPenaltiesScore = (match.period == PENALTIES);
 
         match.period = Match.Period.UNDEFINED;
 
@@ -39,8 +41,8 @@ class MatchStateEndPositions extends MatchState {
         matchRenderer.actionCamera.setOffset(0, 0);
         matchRenderer.actionCamera.setSpeedMode(FAST);
 
-        match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
-        match.setPlayersState(STATE_OUTSIDE, null);
+        match.setLineupTarget(Const.TOUCH_LINE + 80, 0);
+        match.setLineupState(STATE_OUTSIDE);
     }
 
     @Override

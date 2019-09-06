@@ -19,6 +19,9 @@ import static com.ygames.ysoccer.match.Const.GOAL_AREA_W;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
 import static com.ygames.ysoccer.match.Const.PENALTY_AREA_W;
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.Match.PenaltyState.SCORED;
+import static com.ygames.ysoccer.match.Match.PenaltyState.TO_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_INTRO;
@@ -32,6 +35,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OWN_GOAL_SCORER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PHOTO;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+import static com.ygames.ysoccer.math.Emath.rotate;
 
 public class Match implements Json.Serializable {
 
@@ -43,7 +47,7 @@ public class Match implements Json.Serializable {
 
     public static final int HOME = 0;
     public static final int AWAY = 1;
-    public int teams[] = {-1, -1};
+    public int[] teams = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
     public Scorers scorers;
     public int[] resultAfter90;
@@ -55,25 +59,47 @@ public class Match implements Json.Serializable {
     public MatchFsm fsm;
 
     Ball ball;
-    public Team team[];
-    public int benchSide; // 1 = home upside, -1 = home downside
+    public Team[] team;
+    int benchSide; // 1 = home upside, -1 = home downside
 
     public MatchListener listener;
     public MatchSettings settings;
     public Competition competition;
 
-    enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME}
+    enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME, PENALTIES}
 
     public float clock;
     int length;
     Period period;
     int coinToss;
     int kickOffTeam;
+    int penaltyKickingTeam;
     float throwInX;
     float throwInY;
 
     Foul foul;
     List<Goal> goals;
+
+    enum PenaltyState {TO_KICK, SCORED, MISSED}
+
+    ArrayList<Penalty>[] penalties = new ArrayList[2];
+    Penalty penalty;
+
+    class Penalty {
+        PenaltyState state;
+        Player kicker;
+        int side;
+
+        Penalty(Player kicker, int side) {
+            this.state = TO_KICK;
+            this.kicker = kicker;
+            this.side = side;
+        }
+
+        void setState(PenaltyState state) {
+            this.state = state;
+        }
+    }
 
     public int subframe;
     boolean chantSwitch;
@@ -117,10 +143,77 @@ public class Match implements Json.Serializable {
         coinToss = Assets.random.nextInt(2); // 0 = home begins, 1 = away begins
         kickOffTeam = coinToss;
 
-        goals = new ArrayList<Goal>();
+        goals = new ArrayList<>();
+        penalties[HOME] = new ArrayList<>();
+        penalties[AWAY] = new ArrayList<>();
 
         recorder = new Recorder(this);
         pointOfInterest = new Vector2();
+    }
+
+    void createPenalty(Player player, int side) {
+        this.penalty = new Penalty(player, side);
+    }
+
+    void addPenalties(int n) {
+        for (int t = HOME; t <= AWAY; t++) {
+            int newSize = penalties[t].size() + n;
+            while (penalties[t].size() < newSize) {
+                Player kicker = team[t].lineupAtPosition(team[t].kickerIndex);
+                if (!kicker.checkState(STATE_OUTSIDE)) {
+                    penalties[t].add(new Penalty(kicker, -1));
+                }
+                team[t].kickerIndex = rotate(team[t].kickerIndex, 0, team[t].lineup.size() - 1, -1);
+            }
+        }
+    }
+
+    void nextPenalty() {
+        this.penalty = null;
+        for (Penalty penalty : penalties[penaltyKickingTeam]) {
+            if (penalty.state == TO_KICK) {
+                this.penalty = penalty;
+                return;
+            }
+        }
+    }
+
+    int penaltyGoals(int t) {
+        int goals = 0;
+        for (Penalty penalty : penalties[t]) {
+            if (penalty.state == SCORED) goals++;
+        }
+        return goals;
+    }
+
+    int penaltiesScore(int t) {
+        int s = 0;
+        for (Penalty penalty : penalties[t]) {
+            if (penalty.state == SCORED) {
+                s++;
+            }
+        }
+        return s;
+    }
+
+    int penaltiesPotentialScore(int t) {
+        int s = 0;
+        for (Penalty penalty : penalties[t]) {
+            if (penalty.state == SCORED || penalty.state == TO_KICK) {
+                s++;
+            }
+        }
+        return s;
+    }
+
+    int penaltiesLeft(int t) {
+        int s = 0;
+        for (Penalty penalty : penalties[t]) {
+            if (penalty.state == TO_KICK) {
+                s++;
+            }
+        }
+        return s;
     }
 
     @Override
@@ -254,7 +347,7 @@ public class Match implements Json.Serializable {
         int len = team.lineup.size();
         for (int i = 0; i < len; i++) {
             Player player = team.lineup.get(i);
-            if (i < Const.TEAM_SIZE) {
+            if (i < TEAM_SIZE) {
                 player.setState(STATE_OUTSIDE);
 
                 player.x = Const.TOUCH_LINE + 80;
@@ -266,9 +359,9 @@ public class Match implements Json.Serializable {
             } else {
                 player.x = BENCH_X;
                 if ((1 - 2 * team.index) == benchSide) {
-                    player.y = BENCH_Y_UP + 14 * (i - Const.TEAM_SIZE) + 46;
+                    player.y = BENCH_Y_UP + 14 * (i - TEAM_SIZE) + 46;
                 } else {
-                    player.y = BENCH_Y_DOWN + 14 * (i - Const.TEAM_SIZE) + 46;
+                    player.y = BENCH_Y_DOWN + 14 * (i - TEAM_SIZE) + 46;
                 }
                 player.setState(STATE_BENCH_SITTING);
             }
@@ -283,9 +376,9 @@ public class Match implements Json.Serializable {
     }
 
     void enterPlayers(int timer, int enterDelay) {
-        if ((timer % enterDelay) == 0 && (timer / enterDelay <= Const.TEAM_SIZE)) {
+        if ((timer % enterDelay) == 0 && (timer / enterDelay <= TEAM_SIZE)) {
             for (int t = HOME; t <= AWAY; t++) {
-                for (int i = 0; i < Const.TEAM_SIZE; i++) {
+                for (int i = 0; i < TEAM_SIZE; i++) {
                     if (i < timer / enterDelay) {
                         Player player = team[t].lineup.get(i);
                         if (player.getState().checkId(STATE_OUTSIDE)) {
@@ -300,12 +393,12 @@ public class Match implements Json.Serializable {
     }
 
     boolean enterPlayersFinished(int timer, int enterDelay) {
-        return timer / enterDelay > Const.TEAM_SIZE;
+        return timer / enterDelay > TEAM_SIZE;
     }
 
     void playersPhoto() {
         for (int t = HOME; t <= AWAY; t++) {
-            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            for (int i = 0; i < TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
                 if (player.getState().checkId(STATE_IDLE)) {
                     player.setState(STATE_PHOTO);
@@ -317,7 +410,7 @@ public class Match implements Json.Serializable {
     void setStartingPositions() {
         int t = kickOffTeam;
         for (int k = 0; k < 2; k++) {
-            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            for (int i = 0; i < TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
                 player.tx = Pitch.startingPositions[k][i][0] * -team[t].side;
                 player.ty = Pitch.startingPositions[k][i][1] * -team[t].side;
@@ -332,9 +425,17 @@ public class Match implements Json.Serializable {
         }
     }
 
+    void setLineupState(PlayerFsm.Id stateId) {
+        for (int t = HOME; t <= AWAY; t++) {
+            for (Player player : team[t].lineup) {
+                player.setState(stateId);
+            }
+        }
+    }
+
     void setStatesForGoal(Goal goal) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            for (int i = 0; i < TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
                 PlayerState playerState = player.getState();
                 if (playerState.checkId(STATE_STAND_RUN) || playerState.checkId(STATE_KEEPER_POSITIONING)) {
@@ -354,7 +455,7 @@ public class Match implements Json.Serializable {
 
     void setStatesForOwnGoal(Goal goal) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            for (int i = 0; i < TEAM_SIZE; i++) {
                 Player player = team[t].lineup.get(i);
                 PlayerState playerState = player.getState();
                 if (playerState.checkId(STATE_STAND_RUN) || playerState.checkId(STATE_KEEPER_POSITIONING)) {
@@ -372,8 +473,18 @@ public class Match implements Json.Serializable {
 
     void setPlayersTarget(float tx, float ty) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (int i = 0; i < Const.TEAM_SIZE; i++) {
+            for (int i = 0; i < TEAM_SIZE; i++) {
                 team[t].lineup.get(i).setTarget(tx, ty);
+            }
+        }
+    }
+
+    void setLineupTarget(float tx, float ty) {
+        for (int t = HOME; t <= AWAY; t++) {
+            for (Player player : team[t].lineup) {
+                if (!player.checkState(STATE_OUTSIDE)) {
+                    player.setTarget(tx, ty);
+                }
             }
         }
     }
@@ -454,11 +565,12 @@ public class Match implements Json.Serializable {
 
     boolean periodIsTerminable() {
         // ball near the penalty area
-        if ((Math.abs(ball.zoneX) <= 1) && (Math.abs(ball.zoneY) == 3)) {
+        if ((Math.abs(ball.zoneY) == 3)) {
             return false;
         }
         // ball going toward the goals
-        if (Math.abs(ball.y) > Math.abs(ball.y0)) {
+        if ((Math.abs(ball.y) > (GOAL_LINE / 4))
+                && (Math.abs(ball.y) > Math.abs(ball.y0))) {
             return false;
         }
         return true;

@@ -9,22 +9,24 @@ import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class MatchStatePenaltyKick extends MatchState {
 
-    private Player penaltyKicker;
     private boolean isKicking;
 
     MatchStatePenaltyKick(MatchFsm fsm) {
@@ -32,10 +34,17 @@ class MatchStatePenaltyKick extends MatchState {
 
         displayControlledPlayer = true;
         displayBallOwner = true;
-        displayTime = true;
         displayWindVane = true;
-        displayScore = true;
-        displayRadar = true;
+    }
+
+    @Override
+    void entryActions() {
+        super.entryActions();
+
+        displayTime = (match.period != PENALTIES);
+        displayScore = (match.period != PENALTIES);
+        displayPenaltiesScore = (match.period == PENALTIES);
+        displayRadar = (match.period != PENALTIES);
     }
 
     @Override
@@ -44,9 +53,8 @@ class MatchStatePenaltyKick extends MatchState {
 
         isKicking = false;
 
-        penaltyKicker = match.foul.opponent.team.lastOfLineup();
-        penaltyKicker.setTarget(match.ball.x, match.ball.y - 7 * match.ball.ySide);
-        penaltyKicker.setState(STATE_REACH_TARGET);
+        match.penalty.kicker.setTarget(match.ball.x, match.ball.y - 7 * match.ball.ySide);
+        match.penalty.kicker.setState(STATE_REACH_TARGET);
 
         matchRenderer.actionCamera.setSpeedMode(FAST);
         matchRenderer.actionCamera.setLimited(true, true);
@@ -56,7 +64,7 @@ class MatchStatePenaltyKick extends MatchState {
     void onPause() {
         super.onPause();
 
-        penaltyKicker.setTarget(-40 * match.ball.ySide, Math.signum(match.foul.position.y) * (Const.PENALTY_SPOT_Y - 45));
+        match.penalty.kicker.setTarget(-40 * match.ball.ySide, match.penalty.side * (Const.PENALTY_SPOT_Y - 45));
     }
 
     @Override
@@ -80,7 +88,11 @@ class MatchStatePenaltyKick extends MatchState {
 
             matchRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            if (match.period == PENALTIES) {
+                matchRenderer.updateCamera(STILL);
+            } else {
+                matchRenderer.updateCamera(FOLLOW_BALL);
+            }
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -88,9 +100,9 @@ class MatchStatePenaltyKick extends MatchState {
         if (!move && !isKicking) {
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-            penaltyKicker.setState(STATE_PENALTY_KICK_ANGLE);
-            if (penaltyKicker.team.usesAutomaticInputDevice()) {
-                penaltyKicker.inputDevice = penaltyKicker.team.inputDevice;
+            match.penalty.kicker.setState(STATE_PENALTY_KICK_ANGLE);
+            if (match.penalty.kicker.team.usesAutomaticInputDevice()) {
+                match.penalty.kicker.inputDevice = match.penalty.kicker.team.inputDevice;
             }
 
             isKicking = true;
@@ -100,10 +112,16 @@ class MatchStatePenaltyKick extends MatchState {
     @Override
     void checkConditions() {
         if (match.ball.v > 0) {
-            match.setPlayersState(STATE_STAND_RUN, penaltyKicker);
-            match.foul = null;
-            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
-            return;
+            if (match.period == PENALTIES) {
+                match.penalty.kicker.setState(STATE_IDLE);
+                // TODO fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK_END);
+                return;
+            } else {
+                match.setPlayersState(STATE_STAND_RUN, match.penalty.kicker);
+                match.penalty = null;
+                fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
+                return;
+            }
         }
 
         if (Gdx.input.isKeyPressed(ESCAPE)) {
