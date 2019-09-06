@@ -20,6 +20,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_END;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
@@ -114,7 +115,7 @@ class MatchStatePenaltyKick extends MatchState {
         if (match.ball.v > 0) {
             if (match.period == PENALTIES) {
                 match.penalty.kicker.setState(STATE_IDLE);
-                // TODO fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK_END);
+                fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK_END);
                 return;
             } else {
                 match.setPlayersState(STATE_STAND_RUN, match.penalty.kicker);

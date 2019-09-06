@@ -90,6 +90,7 @@ public class MatchFsm {
         STATE_FREE_KICK,
         STATE_PENALTY_KICK_STOP,
         STATE_PENALTY_KICK,
+        STATE_PENALTY_KICK_END,
         STATE_PENALTIES_STOP,
         STATE_PENALTIES
     }
@@ -139,6 +140,7 @@ public class MatchFsm {
         new MatchStateFreeKick(this);
         new MatchStatePenaltyKickStop(this);
         new MatchStatePenaltyKick(this);
+        new MatchStatePenaltyKickEnd(this);
         new MatchStatePenaltiesStop(this);
         new MatchStatePenalties(this);
     }
