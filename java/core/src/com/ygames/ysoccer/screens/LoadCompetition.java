@@ -28,14 +28,13 @@ class LoadCompetition extends GLScreen {
         widgets.add(w);
 
         // Competitions buttons
-        List<Widget> competitionButtonsList = new ArrayList<Widget>();
-        List<Widget> categoryLabelsList = new ArrayList<Widget>();
+        List<Widget> competitionButtonsList = new ArrayList<>();
 
-        ArrayList<FileHandle> folders = new ArrayList<FileHandle>(Arrays.asList(Assets.savesFolder.list()));
+        ArrayList<FileHandle> folders = new ArrayList<>(Arrays.asList(Assets.savesFolder.list()));
         Collections.sort(folders, Assets.fileComparatorByName);
         for (FileHandle folder : folders) {
             if (folder.isDirectory()) {
-                ArrayList<FileHandle> files = new ArrayList<FileHandle>(Arrays.asList(folder.list()));
+                ArrayList<FileHandle> files = new ArrayList<>(Arrays.asList(folder.list()));
                 Collections.sort(files, Assets.fileComparatorByName);
                 for (FileHandle file : files) {
                     if (!file.isDirectory() && file.extension().equals("json")) {
@@ -45,27 +44,12 @@ class LoadCompetition extends GLScreen {
                         w = new CompetitionButton(file.nameWithoutExtension(), competition);
                         competitionButtonsList.add(w);
                         widgets.add(w);
-
-                        w = new CategoryLabel(competition);
-                        categoryLabelsList.add(w);
-                        widgets.add(w);
                     }
                 }
             }
         }
 
-        if (competitionButtonsList.size() > 0) {
-            int len = competitionButtonsList.size();
-            for (int i = 0; i < len; i++) {
-                Widget b = competitionButtonsList.get(i);
-                Widget l = categoryLabelsList.get(i);
-                b.x = (game.gui.WIDTH - b.w - l.w - 4) / 2;
-                b.y = 355 + 34 * (i - len / 2);
-                l.x = (game.gui.WIDTH + b.w - l.w + 4) / 2;
-                l.y = 355 + 34 * (i - len / 2);
-            }
-            setSelectedWidget(competitionButtonsList.get(0));
-        }
+        Widget.arrange(game.gui.WIDTH, 380, 34, 20, competitionButtonsList);
 
         w = new AbortButton();
         widgets.add(w);
@@ -82,7 +66,14 @@ class LoadCompetition extends GLScreen {
         CompetitionButton(String filename, Competition competition) {
             this.competition = competition;
             setSize(540, 30);
-            setColors(0x1B4D85, 0x256AB7, 0x001D3E);
+            switch (competition.category) {
+                case DIY_COMPETITION:
+                    setColors(0x376E2F);
+                    break;
+                case PRESET_COMPETITION:
+                    setColors(0x415600);
+                    break;
+            }
             setText(filename, Font.Align.CENTER, Assets.font14);
         }
 
@@ -107,23 +98,6 @@ class LoadCompetition extends GLScreen {
                     }
                     break;
             }
-        }
-    }
-
-    private class CategoryLabel extends Button {
-
-        CategoryLabel(Competition competition) {
-            setSize(180, 30);
-            setText(competition.getCategoryFolder(), Font.Align.CENTER, Assets.font14);
-            switch (competition.category) {
-                case DIY_COMPETITION:
-                    setColors(0x376E2F);
-                    break;
-                case PRESET_COMPETITION:
-                    setColors(0x415600);
-                    break;
-            }
-            setActive(false);
         }
     }
 
