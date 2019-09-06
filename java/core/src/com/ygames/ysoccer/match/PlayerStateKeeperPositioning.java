@@ -3,28 +3,37 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 
 class PlayerStateKeeperPositioning extends PlayerState {
 
     private int dangerTime;
+    private float reactivity;
 
     PlayerStateKeeperPositioning(PlayerFsm fsm) {
         super(STATE_KEEPER_POSITIONING, fsm);
     }
 
+    @Override
+    void entryActions() {
+        super.entryActions();
+        dangerTime = 0;
+        reactivity = (0.2f - 0.03f * player.getSkillKeeper()) * Const.SECOND;
+    }
+
     private void updateTarget() {
         // default value
-        float new_tx = ball.x * 12 / Math.max((Math.abs(ball.y - Math.signum(player.y) * Const.GOAL_LINE)), 1);
+        float new_tx = ball.x * 12 / Math.max((Math.abs(ball.y - Math.signum(player.y) * GOAL_LINE)), 1);
         new_tx = Math.signum(new_tx) * Math.min(Math.abs(new_tx), Const.POST_X + 5);
-        float new_ty = player.team.side * (Const.GOAL_LINE - 8);
+        float new_ty = player.team.side * (GOAL_LINE - 8);
 
         // penalty area positioning
         if ((Math.abs(ball.x) < Const.PENALTY_AREA_W / 2)
-                && Emath.isIn(ball.y, player.team.side * (Const.GOAL_LINE - Const.PENALTY_AREA_H), player.team.side * Const.GOAL_LINE)) {
+                && Emath.isIn(ball.y, player.team.side * (GOAL_LINE - Const.PENALTY_AREA_H), player.team.side * GOAL_LINE)) {
 
             // if ball is approaching
-            if (Emath.dist(ball.x, ball.y, 0, player.team.side * Const.GOAL_LINE) < Emath.dist(ball.x0, ball.y0, 0, player.team.side * Const.GOAL_LINE)) {
+            if (Emath.dist(ball.x, ball.y, 0, player.team.side * GOAL_LINE) < Emath.dist(ball.x0, ball.y0, 0, player.team.side * GOAL_LINE)) {
 
                 // if ball is reachable reach the point where it will go
                 if (player.frameDistance < Const.BALL_PREDICTION) {
@@ -34,14 +43,14 @@ class PlayerStateKeeperPositioning extends PlayerState {
                 } else {
                     // try to reach it anyway
                     new_tx = ball.x;
-                    new_ty = player.team.side * (Const.GOAL_LINE - 0.5f * Math.abs(Const.GOAL_LINE - Math.abs(ball.y)));
+                    new_ty = player.team.side * (GOAL_LINE - 0.5f * Math.abs(GOAL_LINE - Math.abs(ball.y)));
                 }
             }
         }
 
         // goal area positioning: reach the ball!
         if ((Math.abs(ball.x) < Const.GOAL_AREA_W / 2)
-                && Emath.isIn(ball.y, player.team.side * (Const.GOAL_LINE - Const.GOAL_AREA_H), player.team.side * Const.GOAL_LINE)) {
+                && Emath.isIn(ball.y, player.team.side * (GOAL_LINE - Const.GOAL_AREA_H), player.team.side * GOAL_LINE)) {
             if (player.frameDistance < Const.BALL_PREDICTION) {
                 new_tx = ball.prediction[player.frameDistance].x;
                 new_ty = ball.prediction[player.frameDistance].y;
@@ -90,8 +99,8 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
         // detect danger
         boolean found = false;
-        if ((Math.abs(ball.y) < Const.GOAL_LINE)
-                && (Math.abs(ball.y) > 0.5f * Const.GOAL_LINE)
+        if ((Math.abs(ball.y) < GOAL_LINE)
+                && (Math.abs(ball.y) > 0.5f * GOAL_LINE)
                 && (Math.signum(ball.y) == Math.signum(player.y))
                 && (ball.owner == null)) {
             for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
@@ -100,7 +109,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                 float z = ball.prediction[frm].z;
                 if ((Math.abs(x) < Const.GOAL_AREA_W / 2)
                         && (Math.abs(z) < 2 * Const.CROSSBAR_H)
-                        && ((Math.abs(y) > Const.GOAL_LINE) && (Math.abs(y) < Const.GOAL_LINE + 15))) {
+                        && ((Math.abs(y) > GOAL_LINE) && (Math.abs(y) < GOAL_LINE + 15))) {
                     found = true;
                 }
             }
@@ -112,7 +121,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
             dangerTime = 0;
         }
 
-        if (dangerTime > (0.3 - 0.03 * player.getSkillKeeper()) * Const.SECOND) {
+        if (dangerTime > reactivity) {
             float predX = 0;
             float predZ = 0;
 
@@ -155,7 +164,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                         if (Math.abs(diffX) > Const.POST_X) {
                             //LOW - ONE HAND
                             if ((frm * GLGame.SUBFRAMES < 0.7f * Const.SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * Const.SECOND)) {
-                                player.thrustX = (Math.abs(diffX) - Const.POST_X) / (Const.GOAL_AREA_W / 2 - Const.POST_X);
+                                player.thrustX = (Math.abs(diffX) - Const.POST_X) / (Const.GOAL_AREA_W / 2f - Const.POST_X);
                                 player.a = (diffX < 0) ? 180 : 0;
                                 return fsm.stateKeeperDivingLowSingle;
                             }
@@ -197,11 +206,5 @@ class PlayerStateKeeperPositioning extends PlayerState {
         }
 
         return null;
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-        dangerTime = 0;
     }
 }
