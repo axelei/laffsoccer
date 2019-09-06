@@ -55,29 +55,29 @@ class AiStatePenaltyKicking extends AiState {
 
             case MEDIUM:
                 kickDuration = Emath.rand(50, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
-                kickAngle = randomPick(KickAngle.class);
+                kickAngle = randomPick(KickAngle.LEFT, KickAngle.RIGHT);
                 break;
 
             case HIGH:
                 kickDuration = Emath.rand(10, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
-                kickAngle = randomPick(KickAngle.class);
+                kickAngle = randomPick(KickAngle.LEFT, KickAngle.RIGHT);
                 break;
         }
 
         switch (kickAngle) {
             case LEFT:
-                controlsAngle = -90 * player.team.side - 45;
-                targetAngle = -90 * player.team.side - Emath.rand(10, 30);
+                controlsAngle = 90 * player.ball.ySide - 45;
+                targetAngle = 90 * player.ball.ySide - Emath.rand(10, 30);
                 break;
 
             case CENTER:
-                controlsAngle = -90 * player.team.side;
-                targetAngle = -90 * player.team.side;
+                controlsAngle = 90 * player.ball.ySide;
+                targetAngle = 90 * player.ball.ySide;
                 break;
 
             case RIGHT:
-                controlsAngle = -90 * player.team.side + 45;
-                targetAngle = -90 * player.team.side + Emath.rand(10, 30);
+                controlsAngle = 90 * player.ball.ySide + 45;
+                targetAngle = 90 * player.ball.ySide + Emath.rand(10, 30);
                 break;
         }
         Gdx.app.debug(player.shirtName,
