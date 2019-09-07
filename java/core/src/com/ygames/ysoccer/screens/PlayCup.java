@@ -15,8 +15,15 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
+import static com.ygames.ysoccer.framework.Font.Align.RIGHT;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.Team.ControlMode.COMPUTER;
 
 class PlayCup extends GLScreen {
 
@@ -24,7 +31,6 @@ class PlayCup extends GLScreen {
     private ArrayList<Match> matches;
     private int offset;
     private ArrayList<Widget> resultWidgets;
-    private Font font10green;
 
     PlayCup(GLGame game) {
         super(game);
@@ -33,7 +39,7 @@ class PlayCup extends GLScreen {
 
         background = game.stateBackground;
 
-        font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
+        Font font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
         font10green.load();
 
         Widget w;
@@ -53,19 +59,22 @@ class PlayCup extends GLScreen {
         }
 
         // calendar
-        resultWidgets = new ArrayList<Widget>();
+        resultWidgets = new ArrayList<>();
         for (int m = 0; m < matches.size(); m++) {
             Match match = matches.get(m);
             int qualified = cup.getLeg().getQualifiedTeam(match);
+            int borderColor = 0x1E1E1E;
+            if (qualified == match.teams[HOME]) borderColor = 0x26D73A;
+            if (qualified == match.teams[AWAY]) borderColor = 0xD4333E;
 
-            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[HOME]), Font.Align.RIGHT, qualified == match.teams[HOME]);
+            w = new TeamButton(335, dy + 64 * m, cup.teams.get(match.teams[HOME]), RIGHT, borderColor);
             resultWidgets.add(w);
             widgets.add(w);
 
             // result (home goals)
             w = new Label();
             w.setGeometry(640 - 45, dy + 64 * m, 30, 26);
-            w.setText("", Font.Align.RIGHT, Assets.font10);
+            w.setText("", RIGHT, font10);
             if (match.getResult() != null) {
                 w.setText(match.getResult()[HOME]);
             }
@@ -79,21 +88,24 @@ class PlayCup extends GLScreen {
             // result (away goals)
             w = new Label();
             w.setGeometry(640 + 15, dy + 64 * m, 30, 26);
-            w.setText("", Font.Align.LEFT, Assets.font10);
+            w.setText("", LEFT, font10);
             if (match.isEnded()) {
                 w.setText(match.getResult()[AWAY]);
             }
             resultWidgets.add(w);
             widgets.add(w);
 
-            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[AWAY]), Font.Align.LEFT, qualified == match.teams[AWAY]);
+            borderColor = 0x1E1E1E;
+            if (qualified == match.teams[AWAY]) borderColor = 0x26D73A;
+            if (qualified == match.teams[HOME]) borderColor = 0xD4333E;
+            w = new TeamButton(705, dy + 64 * m, cup.teams.get(match.teams[AWAY]), LEFT, borderColor);
             resultWidgets.add(w);
             widgets.add(w);
 
             // status
             w = new Label();
             w.setGeometry(game.gui.WIDTH / 2 - 360, dy + 26 + 64 * m, 720, 26);
-            w.setText(cup.getMatchStatus(match), Font.Align.CENTER, font10green);
+            w.setText(cup.getMatchStatus(match), CENTER, font10green);
             resultWidgets.add(w);
             widgets.add(w);
         }
@@ -102,7 +114,7 @@ class PlayCup extends GLScreen {
         // home team
         w = new Label();
         w.setGeometry(240, 618, 322, 36);
-        w.setText(cup.getTeam(HOME).name, Font.Align.RIGHT, Assets.font14);
+        w.setText(cup.getTeam(HOME).name, RIGHT, font14);
         widgets.add(w);
 
         Match match = cup.getMatch();
@@ -110,7 +122,7 @@ class PlayCup extends GLScreen {
         // result (home goals)
         w = new Label();
         w.setGeometry(game.gui.WIDTH / 2 - 60, 618, 40, 36);
-        w.setText("", Font.Align.RIGHT, Assets.font14);
+        w.setText("", RIGHT, font14);
         if (match.isEnded()) {
             w.setText(match.getResult()[HOME]);
         }
@@ -119,18 +131,18 @@ class PlayCup extends GLScreen {
         // versus / -
         w = new Label();
         w.setGeometry(game.gui.WIDTH / 2 - 20, 618, 40, 36);
-        w.setText("", Font.Align.CENTER, Assets.font14);
+        w.setText("", CENTER, font14);
         if (match.isEnded()) {
             w.setText("-");
         } else {
-            w.setText(Assets.strings.get("ABBREVIATIONS.VERSUS"));
+            w.setText(gettext("ABBREVIATIONS.VERSUS"));
         }
         widgets.add(w);
 
         // result (away goals)
         w = new Label();
         w.setGeometry(game.gui.WIDTH / 2 + 20, 618, 40, 36);
-        w.setText("", Font.Align.LEFT, Assets.font14);
+        w.setText("", LEFT, font14);
         if (match.isEnded()) {
             w.setText(match.getResult()[AWAY]);
         }
@@ -139,7 +151,7 @@ class PlayCup extends GLScreen {
         // away team
         w = new Label();
         w.setGeometry(720, 618, 322, 36);
-        w.setText(cup.getTeam(AWAY).name, Font.Align.LEFT, Assets.font14);
+        w.setText(cup.getTeam(AWAY).name, LEFT, font14);
         widgets.add(w);
 
         w = new ViewStatisticsButton();
@@ -184,25 +196,11 @@ class PlayCup extends GLScreen {
 
     private class TeamButton extends Button {
 
-        TeamButton(int x, int y, Team team, Font.Align align, boolean qualified) {
+        TeamButton(int x, int y, Team team, Font.Align align, int borderColor) {
             setGeometry(x, y, 240, 26);
-            int bodyColor = 0;
-            switch (team.controlMode) {
-                case COMPUTER:
-                    bodyColor = 0x981E1E;
-                    break;
-
-                case PLAYER:
-                    bodyColor = 0x0000C8;
-                    break;
-
-                case COACH:
-                    bodyColor = 0x009BDC;
-                    break;
-            }
-            int borderColor = qualified ? 0x21E337 : 0x1A1A1A;
+            int bodyColor = (team.controlMode == COMPUTER) ? 0x8C8C8C : team.controlModeColor();
             setColors(bodyColor, borderColor, borderColor);
-            setText(team.name, align, Assets.font10);
+            setText(team.name, align, font10);
             setActive(false);
         }
     }
@@ -212,7 +210,7 @@ class PlayCup extends GLScreen {
         VersusLabel(int y, Match match) {
             setGeometry((game.gui.WIDTH - 30) / 2, y, 30, 26);
             // NOTE: max 2 characters
-            setText(Assets.strings.get("ABBREVIATIONS.VERSUS"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("ABBREVIATIONS.VERSUS"), CENTER, font10);
             if (match.isEnded()) {
                 setText("-");
             }
@@ -252,11 +250,11 @@ class PlayCup extends GLScreen {
         PlayViewMatchButton() {
             setGeometry(game.gui.WIDTH / 2 - 430, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             if (cup.bothComputers()) {
-                setText(Assets.strings.get("VIEW MATCH"));
+                setText(gettext("VIEW MATCH"));
             } else {
-                setText("- " + Assets.strings.get("MATCH") + " -");
+                setText("- " + gettext("MATCH") + " -");
             }
         }
 
@@ -279,14 +277,14 @@ class PlayCup extends GLScreen {
             awayTeam.releaseNonAiInputDevices();
 
             // choose the menu to set
-            if (homeTeam.controlMode != Team.ControlMode.COMPUTER) {
+            if (homeTeam.controlMode != COMPUTER) {
                 if (lastFireInputDevice != null) {
                     homeTeam.setInputDevice(lastFireInputDevice);
                 }
                 navigation.competition = cup;
                 navigation.team = homeTeam;
                 game.setScreen(new SetTeam(game));
-            } else if (awayTeam.controlMode != Team.ControlMode.COMPUTER) {
+            } else if (awayTeam.controlMode != COMPUTER) {
                 if (lastFireInputDevice != null) {
                     awayTeam.setInputDevice(lastFireInputDevice);
                 }
@@ -330,7 +328,7 @@ class PlayCup extends GLScreen {
                 label = "NEXT MATCH";
                 onHold = true;
             }
-            setText(Assets.strings.get(label), Font.Align.CENTER, Assets.font14);
+            setText(gettext(label), CENTER, font14);
         }
 
         @Override
@@ -356,11 +354,11 @@ class PlayCup extends GLScreen {
         ViewResultButton() {
             setGeometry(game.gui.WIDTH / 2 - 190, 660, 220, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             if (cup.bothComputers()) {
-                setText(Assets.strings.get("VIEW RESULT"));
+                setText(gettext("VIEW RESULT"));
             } else {
-                setText("- " + Assets.strings.get("RESULT") + " -");
+                setText("- " + gettext("RESULT") + " -");
             }
         }
 
@@ -392,7 +390,7 @@ class PlayCup extends GLScreen {
         ViewStatisticsButton() {
             setGeometry(game.gui.WIDTH / 2 + 50, 660, 180, 36);
             setColors(0x138B21, 0x1BC12F, 0x004814);
-            setText(Assets.strings.get("STATS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("STATS"), CENTER, font14);
         }
 
         @Override
@@ -406,7 +404,7 @@ class PlayCup extends GLScreen {
         ExitButton() {
             setGeometry(game.gui.WIDTH / 2 + 250, 660, 180, 36);
             setColors(0xC84200, 0xFF6519, 0x803300);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), CENTER, font14);
         }
 
         @Override

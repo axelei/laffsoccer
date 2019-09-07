@@ -36,6 +36,8 @@ public class Team implements Json.Serializable {
 
     public enum ControlMode {UNDEFINED, COMPUTER, PLAYER, COACH}
 
+    private final int[] controlModeColors = {0x666666, 0x981E1E, 0x123FC8, 0x009BDC};
+
     public Match match;
     public Training training;
 
@@ -720,5 +722,9 @@ public class Team implements Json.Serializable {
 
         // standard kit
         return kits.get(index).loadImage();
+    }
+
+    public int controlModeColor() {
+        return controlModeColors[controlMode.ordinal()];
     }
 }
