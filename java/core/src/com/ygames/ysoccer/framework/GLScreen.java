@@ -10,6 +10,7 @@ import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.math.Emath;
 
@@ -35,6 +36,23 @@ public abstract class GLScreen implements Screen {
         public Team team;
         public MatchSettings matchSettings;
         public Competition competition;
+        private Player clipboardPlayer;
+
+        public Player getClipboardPlayer() {
+            Player player = clipboardPlayer;
+            clipboardPlayer = null;
+            return player;
+        }
+
+        public void setClipboardPlayer(Player player) {
+            if (player != null) {
+                if (clipboardPlayer == null) {
+                    clipboardPlayer = new Player();
+                    clipboardPlayer.skills = new Player.Skills();
+                }
+                clipboardPlayer.copyFrom(player);
+            }
+        }
     }
 
     protected static final Navigation navigation = new Navigation();
@@ -45,7 +63,7 @@ public abstract class GLScreen implements Screen {
         batch = game.glGraphics.batch;
         shapeRenderer = game.glGraphics.shapeRenderer;
 
-        widgets = new ArrayList<Widget>();
+        widgets = new ArrayList<>();
         playMenuMusic = true;
     }
 

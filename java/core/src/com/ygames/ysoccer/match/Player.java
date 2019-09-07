@@ -626,6 +626,7 @@ public class Player implements Json.Serializable {
         shirtName = player.shirtName;
         nationality = player.nationality;
         role = player.role;
+        value = player.value;
 
         hairColor = player.hairColor;
         hairStyle = player.hairStyle;

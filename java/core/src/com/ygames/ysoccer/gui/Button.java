@@ -12,8 +12,8 @@ public class Button extends Widget {
 
     private static final double sweepSpeed = 0.4;
 
-    int imageX;
-    int imageY;
+    private int imageX;
+    private int imageY;
 
     public Button() {
         active = true;

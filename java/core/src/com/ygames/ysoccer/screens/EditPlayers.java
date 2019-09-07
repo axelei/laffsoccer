@@ -30,19 +30,22 @@ class EditPlayers extends GLScreen {
     Team team;
     private int selectedPos;
     private boolean modified;
+    private Player clipboardPlayer;
+
     private TextureRegion[][] imageSkill = new TextureRegion[8][2];
 
     private Widget[] selectButtons = new Widget[Const.FULL_TEAM];
     private Widget[] priceButtons = new Widget[Const.FULL_TEAM];
 
     private Widget saveButton;
-    private Widget tmpPlayerButton;
+    private Widget clipboardPlayerButton;
 
     EditPlayers(GLGame game, Team team, Boolean modified) {
         super(game);
         this.team = team;
         selectedPos = -1;
         this.modified = modified;
+        clipboardPlayer = navigation.getClipboardPlayer();
 
         background = new Texture("images/backgrounds/menu_edit_players.jpg");
 
@@ -101,8 +104,8 @@ class EditPlayers extends GLScreen {
             widgets.add(w);
         }
 
-        w = new TmpPlayerButton();
-        tmpPlayerButton = w;
+        w = new ClipBoardPlayerButton();
+        clipboardPlayerButton = w;
         widgets.add(w);
 
         w = new TeamNameButton();
@@ -130,26 +133,6 @@ class EditPlayers extends GLScreen {
     private void setModifiedFlag() {
         modified = true;
         saveButton.setDirty(true);
-    }
-
-    private void copyPlayer(Player player) {
-        if (game.tmpPlayer == null) {
-            game.tmpPlayer = new Player();
-            game.tmpPlayer.skills = new Player.Skills();
-        }
-        game.tmpPlayer.copyFrom(player);
-        tmpPlayerButton.setDirty(true);
-    }
-
-    private void pastePlayer(Player player) {
-        player.copyFrom(game.tmpPlayer);
-        game.tmpPlayer = null;
-        tmpPlayerButton.setDirty(true);
-    }
-
-    private void clearPlayer() {
-        game.tmpPlayer = null;
-        tmpPlayerButton.setDirty(true);
     }
 
     private class HairColorButton extends Button {
@@ -203,6 +186,7 @@ class EditPlayers extends GLScreen {
 
             setDirty(true);
             selectButtons[pos].setDirty(true);
+            clipboardPlayerButton.setDirty(true);
             setModifiedFlag();
         }
     }
@@ -262,6 +246,7 @@ class EditPlayers extends GLScreen {
             player.hairStyle = Assets.hairStyles.get(i);
             setDirty(true);
             selectButtons[pos].setDirty(true);
+            clipboardPlayerButton.setDirty(true);
             setModifiedFlag();
         }
     }
@@ -314,6 +299,7 @@ class EditPlayers extends GLScreen {
 
             setDirty(true);
             selectButtons[pos].setDirty(true);
+            clipboardPlayerButton.setDirty(true);
             setModifiedFlag();
         }
     }
@@ -346,14 +332,13 @@ class EditPlayers extends GLScreen {
             // select
             if (selectedPos == -1) {
                 selectedPos = pos;
-                Player player = team.playerAtPosition(selectedPos);
-                copyPlayer(player);
+                clipboardPlayer = team.playerAtPosition(selectedPos);
             }
 
             // deselect
             else if (selectedPos == pos) {
                 selectedPos = -1;
-                clearPlayer();
+                clipboardPlayer = null;
             }
 
             // swap
@@ -364,7 +349,7 @@ class EditPlayers extends GLScreen {
                 Collections.swap(team.players, ply1, ply2);
 
                 selectedPos = -1;
-                clearPlayer();
+                clipboardPlayer = null;
                 setModifiedFlag();
             }
 
@@ -480,6 +465,7 @@ class EditPlayers extends GLScreen {
         @Override
         public void onChanged() {
             team.playerAtPosition(pos).shirtName = text;
+            clipboardPlayerButton.setDirty(true);
             setModifiedFlag();
         }
     }
@@ -679,7 +665,7 @@ class EditPlayers extends GLScreen {
     private class TeamNameButton extends InputButton {
 
         TeamNameButton() {
-            setGeometry(194, 30, 450, 40);
+            setGeometry((game.gui.WIDTH - 450) / 2, 30, 450, 40);
             setColors(0x9C522A, 0xBB5A25, 0x69381D);
             setText(team.name, CENTER, font14);
             setEntryLimit(16);
@@ -692,23 +678,27 @@ class EditPlayers extends GLScreen {
         }
     }
 
-    private class TmpPlayerButton extends Button {
+    private class ClipBoardPlayerButton extends Button {
 
-        TmpPlayerButton() {
-            setGeometry(1000, 30, 194, 24);
-            setColors(0x1769BD, 0x3A90E8, 0x10447A);
-            setText("", CENTER, font10);
+        ClipBoardPlayerButton() {
+            setGeometry(62, 30, 236, 40);
+            setText("", LEFT, font10);
             setActive(false);
+            setImageScale(2f, 2f);
+            setImagePosition(w - 40, -1);
+            setTextOffsetX(6);
         }
 
         @Override
         public void refresh() {
-            if (game.tmpPlayer == null) {
+            if (clipboardPlayer == null) {
+                setColors(0x6B8EB5, 0x10447A, 0x10447A);
                 setText("");
-                setVisible(false);
+                textureRegion = null;
             } else {
-                setText(game.tmpPlayer.shirtName);
-                setVisible(true);
+                setColors(0x1769BD, 0x10447A, 0x10447A);
+                setText(clipboardPlayer.shirtName);
+                textureRegion = clipboardPlayer.createFace();
             }
         }
     }
@@ -750,8 +740,9 @@ class EditPlayers extends GLScreen {
             Player player = team.newPlayer();
 
             if (player != null) {
-                if (game.tmpPlayer != null) {
-                    pastePlayer(player);
+                if (clipboardPlayer != null) {
+                    player.copyFrom(clipboardPlayer);
+                    clipboardPlayer = null;
                     selectedPos = -1;
                 }
                 refreshAllWidgets();
@@ -821,6 +812,7 @@ class EditPlayers extends GLScreen {
         public void onFire1Down() {
             team.persist();
             navigation.league = team.league;
+            navigation.setClipboardPlayer(clipboardPlayer);
             game.setScreen(new SelectTeam(game));
         }
     }
@@ -835,6 +827,7 @@ class EditPlayers extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            navigation.setClipboardPlayer(clipboardPlayer);
             game.setScreen(new SelectTeam(game));
         }
     }

@@ -111,6 +111,10 @@ public abstract class Widget {
         this.font = font;
     }
 
+    public void setTextOffsetX(int textOffsetX) {
+        this.textOffsetX = textOffsetX;
+    }
+
     public void setActive(boolean active) {
         this.active = active;
     }
