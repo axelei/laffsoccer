@@ -25,6 +25,7 @@ import java.util.List;
 import static com.ygames.ysoccer.framework.Assets.font10;
 import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.teamsRootFolder;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.framework.Font.Align.LEFT;
 
@@ -49,7 +50,8 @@ class EditTeam extends GLScreen {
     private Widget kitWidget;
     private Widget newKitButton;
     private Widget deleteKitButton;
-    private Widget saveButton;
+    private Widget resetButton;
+    private Widget saveExitButton;
 
     EditTeam(GLGame game, Team team, Boolean modified) {
         super(game);
@@ -210,17 +212,19 @@ class EditTeam extends GLScreen {
         deleteKitButton = w;
         widgets.add(w);
 
-        w = new SaveButton();
-        saveButton = w;
+        w = new ResetButton();
+        resetButton = w;
         widgets.add(w);
 
-        w = new ExitButton();
+        w = new SaveExitButton();
+        saveExitButton = w;
         widgets.add(w);
     }
 
     private void setModifiedFlag() {
         modified = true;
-        saveButton.setDirty(true);
+        resetButton.setDirty(true);
+        saveExitButton.setDirty(true);
     }
 
     private class TacticsButton extends Button {
@@ -1001,42 +1005,58 @@ class EditTeam extends GLScreen {
         }
     }
 
-    private class SaveButton extends Button {
+    private class ResetButton extends Button {
 
-        SaveButton() {
+        ResetButton() {
             setGeometry(770, 660, 196, 36);
-            setText(gettext("SAVE"), CENTER, font14);
+            setText(gettext("EDIT.RESET"), CENTER, font14);
         }
 
         @Override
         public void refresh() {
             if (modified) {
-                setColors(0xDC0000, 0xFF4141, 0x8C0000);
+                setColors(0xBDBF2F);
                 setActive(true);
             } else {
-                setColors(0x666666, 0x8F8D8D, 0x404040);
+                setColors(0x666666);
                 setActive(false);
             }
         }
 
         @Override
         public void onFire1Down() {
-            team.persist();
-            navigation.league = team.league;
-            game.setScreen(new SelectTeam(game));
+            FileHandle file = teamsRootFolder.child(team.path);
+            if (file.exists()) {
+                Team team = Assets.json.fromJson(Team.class, file.readString("UTF-8"));
+                team.path = Assets.getRelativeTeamPath(file);
+                game.setScreen(new EditTeam(game, team, false));
+            }
         }
     }
 
-    private class ExitButton extends Button {
+    private class SaveExitButton extends Button {
 
-        ExitButton() {
+        SaveExitButton() {
             setGeometry(970, 660, 196, 36);
-            setColors(0xC84200, 0xFF6519, 0x803300);
-            setText(gettext("EXIT"), CENTER, font14);
+            setText(gettext(""), CENTER, font14);
+        }
+
+        @Override
+        public void refresh() {
+            if (modified) {
+                setColors(0xDC0000);
+                setText(gettext("SAVE"));
+            } else {
+                setColors(0xC84200);
+                setText(gettext("EXIT"));
+            }
         }
 
         @Override
         public void onFire1Down() {
+            if (modified) {
+                team.persist();
+            }
             game.setScreen(new SelectTeam(game));
         }
     }
