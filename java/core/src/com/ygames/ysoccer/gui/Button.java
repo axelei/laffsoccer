@@ -39,7 +39,7 @@ public class Button extends Widget {
             drawBorder(shapeRenderer, x, y, w, h, color.lightBorder, color.darkBorder);
         }
 
-        if (selected) {
+        if (selected && active) {
             if (entryMode) {
                 drawBorder(shapeRenderer, x, y, w, h, 0xEEEE8A, 0xBFBF6F);
             } else {

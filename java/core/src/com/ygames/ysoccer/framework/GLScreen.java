@@ -39,9 +39,7 @@ public abstract class GLScreen implements Screen {
         private Player clipboardPlayer;
 
         public Player getClipboardPlayer() {
-            Player player = clipboardPlayer;
-            clipboardPlayer = null;
-            return player;
+            return clipboardPlayer;
         }
 
         public void setClipboardPlayer(Player player) {
@@ -51,6 +49,8 @@ public abstract class GLScreen implements Screen {
                     clipboardPlayer.skills = new Player.Skills();
                 }
                 clipboardPlayer.copyFrom(player);
+            } else {
+                clipboardPlayer = null;
             }
         }
     }
