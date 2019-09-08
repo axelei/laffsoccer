@@ -102,7 +102,7 @@ class AiStatePenaltyKicking extends AiState {
                                     ", controlsAngle: " + (controlsAngle + 360) % 360 +
                                     ", targetAngle: " + (targetAngle + 360) % 360
                     );
-                    if (Emath.angleDist(player.a, targetAngle) < 3) {
+                    if (Emath.angleDiff(player.a, targetAngle) < 3) {
                         step = Step.KICKING;
                         timer = 0;
                     }

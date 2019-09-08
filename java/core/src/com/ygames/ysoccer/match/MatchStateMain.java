@@ -8,6 +8,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -27,6 +28,8 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_THROW_IN_STOP;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 
 class MatchStateMain extends MatchState {
 
@@ -96,16 +99,6 @@ class MatchStateMain extends MatchState {
                 return;
             }
 
-            if (match.foul != null) {
-                if (match.foul.isPenalty()) {
-                    event = Event.PENALTY_KICK;
-                } else {
-                    event = Event.FREE_KICK;
-                }
-                match.stats[match.foul.player.team.index].foulsConceded += 1;
-                return;
-            }
-
             match.ball.collisionFlagposts();
 
             if (match.ball.collisionGoal()) {
@@ -137,10 +130,92 @@ class MatchStateMain extends MatchState {
                 }
             }
 
-            // Throw-in
+            // throw-ins
             if (Math.abs(match.ball.x) > (Const.TOUCH_LINE + Const.BALL_R)) {
                 event = Event.THROW_IN;
                 fsm.throwInTeam = match.team[1 - match.ball.ownerLast.team.index];
+                return;
+            }
+
+            // colliding tackles and fouls
+            if (match.tackle == null) {
+
+                for (int t = HOME; t <= AWAY; t++) {
+
+                    // for each tackling player
+                    for (int i = 0; i < TEAM_SIZE; i++) {
+                        Player player = match.team[t].lineup.get(i);
+                        if (player != null && player.checkState(STATE_TACKLE)) {
+
+                            // search near opponents
+                            Team opponentTeam = match.team[1 - player.team.index];
+                            Player opponent = opponentTeam.searchPlayerNearTo(player, 8);
+
+                            if (opponent != null && !opponent.checkState(STATE_DOWN)) {
+                                float angleDiff = Emath.angleDiff(player.a, opponent.a);
+                                match.newTackle(player, opponent, angleDiff);
+                                Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at angle " + angleDiff + " angle diff");
+                            }
+                        }
+                    }
+                }
+            } else {
+                if (Emath.dist(match.tackle.player.x, match.tackle.player.y, match.tackle.opponent.x, match.tackle.opponent.y) >= 8) {
+
+                    // tackle is finished, eventually generate a foul
+                    Player player = match.tackle.player;
+                    Player opponent = match.tackle.opponent;
+                    float angleDiff = match.tackle.angleDiff;
+
+                    float downProbability;
+
+                    // back/side
+                    if (angleDiff < 112.5f) {
+                        downProbability = 0.7f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control;
+                    }
+
+                    // front
+                    else {
+                        downProbability = 0.9f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control;
+                    }
+
+                    float foulProbability;
+
+                    // back tackle
+                    if (angleDiff < 67.5f) {
+                        foulProbability = (player.ballDistance < opponent.ballDistance) ? 0.8f : 0.9f;
+                    }
+
+                    // side tackle
+                    else if (angleDiff < 112.5f) {
+                        foulProbability = (player.ballDistance < opponent.ballDistance) ? 0.2f : 0.8f;
+                    }
+
+                    // front tackle
+                    else {
+                        foulProbability = (player.ballDistance < opponent.ballDistance) ? 0.3f : 0.9f;
+                    }
+
+                    Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " finished, down probability: " + downProbability + ", foul probability: " + foulProbability);
+
+                    if (Assets.random.nextFloat() < downProbability) {
+                        opponent.setState(STATE_DOWN);
+
+                        if (Assets.random.nextFloat() < foulProbability) {
+                            match.newFoul();
+                        }
+                    }
+                    match.tackle = null;
+                }
+            }
+
+            if (match.foul != null) {
+                if (match.foul.isPenalty()) {
+                    event = Event.PENALTY_KICK;
+                } else {
+                    event = Event.FREE_KICK;
+                }
+                match.stats[match.foul.player.team.index].foulsConceded += 1;
                 return;
             }
 

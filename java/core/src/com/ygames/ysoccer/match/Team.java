@@ -727,4 +727,14 @@ public class Team implements Json.Serializable {
     public int controlModeColor() {
         return controlModeColors[controlMode.ordinal()];
     }
+
+    Player searchPlayerNearTo(Player other, float maxDistance) {
+        for (int j = 0; j < TEAM_SIZE; j++) {
+            Player ply = lineup.get(j);
+            if (Emath.dist(ply.x, ply.y, other.x, other.y) < maxDistance) {
+                return ply;
+            }
+        }
+        return null;
+    }
 }

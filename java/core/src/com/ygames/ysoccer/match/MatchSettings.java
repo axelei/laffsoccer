@@ -68,6 +68,7 @@ public class MatchSettings {
         substitutions = competition.substitutions;
         benchSize = competition.benchSize;
         fullScreen = gameSettings.fullScreen;
+        zoom = gameSettings.zoom;
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
         crowdChants = true;

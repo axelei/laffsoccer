@@ -186,23 +186,5 @@ class MatchScreen extends GLScreen {
         public void runAnimation(float f) {
             Const.PLAYER_RUN_ANIMATION = f;
         }
-
-        public void homePenalty() {
-            Match match = MatchScreen.this.match;
-            Team homeTeam = match.team[HOME];
-            Player homePlayer = homeTeam.lineup.get(0);
-            Team awayTeam = match.team[AWAY];
-            Player awayPlayer = awayTeam.lineup.get(0);
-            match.newFoul(awayPlayer, homePlayer);
-        }
-
-        public void awayPenalty() {
-            Match match = MatchScreen.this.match;
-            Team homeTeam = match.team[HOME];
-            Player homePlayer = homeTeam.lineup.get(0);
-            Team awayTeam = match.team[AWAY];
-            Player awayPlayer = awayTeam.lineup.get(0);
-            match.newFoul(homePlayer, awayPlayer);
-        }
     }
 }

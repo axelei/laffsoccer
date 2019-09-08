@@ -14,7 +14,7 @@ class PlayerStateReachTarget extends PlayerState {
     void doActions() {
         super.doActions();
 
-        player.v = 160 + Emath.rand(0, 20) + 3 * player.skills.speed;
+        player.v = 140 + Emath.rand(0, 30) + 4 * player.skills.speed;
         player.a = player.targetAngle();
 
         player.animationStandRun();

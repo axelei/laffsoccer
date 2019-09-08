@@ -77,6 +77,7 @@ public class Match implements Json.Serializable {
     float throwInX;
     float throwInY;
 
+    Tackle tackle;
     Foul foul;
     List<Goal> goals;
 
@@ -597,12 +598,21 @@ public class Match implements Json.Serializable {
         return (competition.type == Competition.Type.FRIENDLY) ? matchRank : (matchRank + 1);
     }
 
-    public void newFoul(Player player, Player opponent) {
+    void newTackle(Player player, Player opponent, float angleDiff) {
+        tackle = new Tackle();
+        tackle.time = clock;
+        tackle.position = new Vector2(player.x, player.y);
+        tackle.player = player;
+        tackle.opponent = opponent;
+        tackle.angleDiff = angleDiff;
+    }
+
+    void newFoul() {
         foul = new Foul();
-        foul.time = clock;
-        foul.position = new Vector2(player.x, player.y);
-        foul.player = player;
-        foul.opponent = opponent;
+        foul.time = tackle.time;
+        foul.position = new Vector2(tackle.position);
+        foul.player = tackle.player;
+        foul.opponent = tackle.opponent;
     }
 
     class Foul {
@@ -636,6 +646,14 @@ public class Match implements Json.Serializable {
                     -player.team.side * GOAL_LINE
             );
         }
+    }
+
+    class Tackle {
+        public float time;
+        public Vector2 position;
+        public Player player;
+        public Player opponent;
+        float angleDiff;
     }
 
     void setPointOfInterest(float x, float y) {

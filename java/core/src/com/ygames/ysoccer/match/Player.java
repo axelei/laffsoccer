@@ -18,6 +18,7 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
 public class Player implements Json.Serializable {
@@ -75,7 +76,7 @@ public class Player implements Json.Serializable {
     public Hair hair;
 
     public Skills skills;
-    public List<Skill> bestSkills = new ArrayList<Skill>();
+    public List<Skill> bestSkills = new ArrayList<>();
 
     public int value; // 0 to 49
 
@@ -88,7 +89,6 @@ public class Player implements Json.Serializable {
     Player facingPlayer;
     float facingAngle;
     Match match;
-    Training training;
     MatchSettings matchSettings;
     Ball ball;
     private PlayerFsm fsm;
@@ -108,15 +108,15 @@ public class Player implements Json.Serializable {
     float v;
     float vz;
     public float a;
-    float thrustX; // horiz.speed in keeper saves (min=0, max=1)
-    float thrustZ; // vert.speed in keeper saves (min=0, max=1)
+    float thrustX; // horizontal speed in keeper saves (min=0, max=1)
+    float thrustZ; // vertical speed in keeper saves (min=0, max=1)
 
     float tx; // x position (target)
     float ty; // y position (target)
 
     public float fmx; // 0..7 direction
     public float fmy; // 1 = standing, 0 and 2 = running
-    float fmySweep;
+    private float fmySweep;
 
     float ballDistance;
 
@@ -169,7 +169,6 @@ public class Player implements Json.Serializable {
         this.ball = training.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
-        this.training = training;
         this.matchSettings = training.settings;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
@@ -189,7 +188,7 @@ public class Player implements Json.Serializable {
         fsm.setState(id);
     }
 
-    public boolean checkState(PlayerFsm.Id id) {
+    boolean checkState(PlayerFsm.Id id) {
         return fsm.state != null && fsm.getState().checkId(id);
     }
 
@@ -288,19 +287,19 @@ public class Player implements Json.Serializable {
             int fmy = Math.abs((int) Math.floor(this.fmy));
 
             // offset
-            int offx = +24 + Math.round(ball.x - x);
-            int offy = +34 + Math.round(-ball.z - Const.BALL_R + z);
+            int offX = +24 + Math.round(ball.x - x);
+            int offY = +34 + Math.round(-ball.z - Const.BALL_R + z);
 
             // verify if the pixel is inside the frame
-            if ((offx < 0) || (offx >= 50)) {
+            if ((offX < 0) || (offX >= 50)) {
                 return false;
             }
-            if ((offy < 0) || (offy >= 50)) {
+            if ((offY < 0) || (offY >= 50)) {
                 return false;
             }
 
-            int det_x = Math.round(50 * (fmx % 24) + offx);
-            int det_y = Math.round(50 * (fmy % 24) + offy);
+            int det_x = Math.round(50 * (fmx % 24) + offX);
+            int det_y = Math.round(50 * (fmy % 24) + offY);
 
             int rgb = Assets.keeperCollisionDetection.getPixel(det_x, det_y) >>> 8;
 
@@ -347,7 +346,7 @@ public class Player implements Json.Serializable {
                     if (ball.v > 180) {
                         Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
                     }
-                    // real ball x-y angle (when spinned, it is different from ball.a)
+                    // real ball x-y angle (when spinning, it is different from ball.a)
                     float ballAxy = Emath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
 
                     float ballVx = ball.v * Emath.cos(ballAxy);
@@ -588,7 +587,7 @@ public class Player implements Json.Serializable {
         }
     }
 
-    public int getDefenseRating() {
+    int getDefenseRating() {
         switch (role) {
             case DEFENDER:
             case RIGHT_BACK:
@@ -605,7 +604,7 @@ public class Player implements Json.Serializable {
         }
     }
 
-    public int getOffenseRating() {
+    int getOffenseRating() {
         switch (role) {
             case RIGHT_WINGER:
             case LEFT_WINGER:
@@ -757,7 +756,7 @@ public class Player implements Json.Serializable {
         return bestSkills.contains(skill) ? removeBestSkill(skill) : addBestSkill(skill);
     }
 
-    public int getSkillKeeper() {
+    int getSkillKeeper() {
         return (int) ((value + 0.5f) / 7);
     }
 
@@ -808,7 +807,7 @@ public class Player implements Json.Serializable {
     public int getScoringWeight() {
         int value = skills.heading + skills.shooting + skills.finishing;
 
-        if (getIndex() < Const.TEAM_SIZE) {
+        if (getIndex() < TEAM_SIZE) {
             value *= 4;
         }
 
@@ -831,7 +830,7 @@ public class Player implements Json.Serializable {
 
     public TextureRegion createFace() {
 
-        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        List<RgbPair> rgbPairs = new ArrayList<>();
 
         addSkinColors(rgbPairs);
         addHairColors(rgbPairs);
@@ -867,32 +866,21 @@ public class Player implements Json.Serializable {
     }
 
     boolean searchFacingPlayer(boolean longRange) {
-        return searchFacingPlayer(longRange, false);
-    }
-
-    boolean searchFacingPlayer(boolean longRange, boolean inAction) {
 
         float minDistance = 0.0f;
-        float maxDistance = Const.TOUCH_LINE / 2;
+        float maxDistance = Const.TOUCH_LINE / 2f;
         if (longRange) {
-            minDistance = Const.TOUCH_LINE / 2;
+            minDistance = Const.TOUCH_LINE / 2f;
             maxDistance = Const.TOUCH_LINE;
         }
 
-        float maxAngle;
-        if (inAction) {
-            maxAngle = 15.5f + skills.passing;
-        } else {
-            maxAngle = 22.5f;
-        }
-
+        float maxAngle = 22.5f;
         float facingDelta = maxDistance * Emath.sin(maxAngle);
 
         facingPlayer = null;
         facingAngle = 0.0f;
 
-        int len = team.lineup.size();
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < TEAM_SIZE; i++) {
             Player ply = team.lineup.get(i);
             if (ply == this) {
                 continue;
@@ -938,9 +926,5 @@ public class Player implements Json.Serializable {
 
     float distanceFrom(Player player) {
         return Emath.dist(x, y, player.x, player.y);
-    }
-
-    void commitFoul(Player opponent) {
-        match.newFoul(this, opponent);
     }
 }

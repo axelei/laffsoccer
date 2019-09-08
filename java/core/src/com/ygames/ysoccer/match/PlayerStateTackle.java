@@ -3,8 +3,6 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
-import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 
 class PlayerStateTackle extends PlayerState {
@@ -38,22 +36,6 @@ class PlayerStateTackle extends PlayerState {
                     }
 
                     Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * Assets.Sounds.volume / 100f);
-                }
-            }
-        }
-
-        for (int i = 1; i < TEAM_SIZE; i++) {
-            Player opponent = player.team.match.team[1 - player.team.index].lineup.get(i);
-            if (Emath.dist(player.x, player.y, opponent.x, opponent.y) < 8 &&
-                    opponent.checkState(STATE_DOWN) == false) {
-
-                opponent.setState(STATE_DOWN);
-                boolean foul = ball.owner != player;
-                // TODO
-                // float angleDiff = Math.abs(((player.a - opponent.a + 360.0f) % 360.0f));
-                // boolean book = angleDiff <= 45 || angleDiff >= 315;
-                if (foul) {
-                    player.commitFoul(opponent);
                 }
             }
         }

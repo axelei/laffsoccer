@@ -37,7 +37,7 @@ public class Emath {
         return aTan2(y2 - y1, x2 - x1);
     }
 
-    public static float angleDist(float a1, float a2) {
+    public static float angleDiff(float a1, float a2) {
         float d = Math.abs(a2 - a1) % 360;
         return d > 180 ? 360 - d : d;
     }
