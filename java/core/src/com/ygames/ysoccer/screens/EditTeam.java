@@ -909,7 +909,7 @@ class EditTeam extends GLScreen {
     private class EditPlayersButton extends Button {
 
         EditPlayersButton() {
-            setGeometry(100, 660, 206, 36);
+            setGeometry(80, 660, 206, 36);
             setColors(0x00825F, 0x00C28E, 0x00402F);
             setText(gettext("PLAYERS"), CENTER, font14);
         }
@@ -1008,7 +1008,7 @@ class EditTeam extends GLScreen {
     private class ResetButton extends Button {
 
         ResetButton() {
-            setGeometry(770, 660, 196, 36);
+            setGeometry(790, 660, 196, 36);
             setText(gettext("EDIT.RESET"), CENTER, font14);
         }
 
@@ -1037,7 +1037,7 @@ class EditTeam extends GLScreen {
     private class SaveExitButton extends Button {
 
         SaveExitButton() {
-            setGeometry(970, 660, 196, 36);
+            setGeometry(990, 660, 196, 36);
             setText(gettext(""), CENTER, font14);
         }
 

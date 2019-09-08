@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.math.Emath;
+
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
 class PlayerStateOutside extends PlayerState {
@@ -12,10 +14,10 @@ class PlayerStateOutside extends PlayerState {
     void doActions() {
         super.doActions();
         if (player.isVisible && player.targetDistance() > 1.5f) {
-            player.v = 180 + 3 * player.skills.speed;
+            player.v = 160 + Emath.rand(0, 20) + 3 * player.skills.speed;
             player.a = player.targetAngle();
         } else {
-            player.v = 0.0f;
+            player.v = 0;
             player.isVisible = false;
         }
 

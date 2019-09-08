@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.math.Emath;
+
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class PlayerStateReachTarget extends PlayerState {
@@ -12,7 +14,7 @@ class PlayerStateReachTarget extends PlayerState {
     void doActions() {
         super.doActions();
 
-        player.v = 180 + 3 * player.skills.speed;
+        player.v = 160 + Emath.rand(0, 20) + 3 * player.skills.speed;
         player.a = player.targetAngle();
 
         player.animationStandRun();

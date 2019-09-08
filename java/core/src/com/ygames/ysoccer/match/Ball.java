@@ -88,8 +88,8 @@ class Ball {
 
     private float updatePhysics() {
         // angle & spin
-        a += 4.0 / Const.SECOND * s;
-        s *= 1 - 2.0 / Const.SECOND;
+        a += Const.SPIN_FACTOR / Const.SECOND * s;
+        s *= 1 - Const.SPIN_DAMPENING / Const.SECOND;
 
         // position & speed
         x += v / Const.SECOND * Emath.cos(a);
@@ -100,7 +100,7 @@ class Ball {
             v -= matchSettings.grass.friction / Const.SECOND * Math.sqrt(Math.abs(v));
         } else {
             // air friction
-            v *= 1 - 0.3 / Const.SECOND;
+            v *= 1 - Const.AIR_FRICTION / Const.SECOND;
         }
 
         // wind
@@ -135,7 +135,7 @@ class Ball {
             vz -= Const.GRAVITY;
 
             // air friction
-            vz *= 1 - 0.3 / Const.SECOND;
+            vz *= 1 - Const.AIR_FRICTION / Const.SECOND;
         }
 
         // bounce
@@ -147,7 +147,7 @@ class Ball {
             } else {
                 // bounce
                 v *= (1 + vz / 1400.0f);
-                vz *= -0.01f * matchSettings.grass.bounce;
+                vz *= -Const.BOUNCE * matchSettings.grass.bounce;
             }
             bouncing_speed = vz;
         }
