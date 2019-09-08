@@ -8,15 +8,12 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.match.Renderer;
 import com.ygames.ysoccer.match.Weather;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_MAX;
-import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_MIN;
-import static com.ygames.ysoccer.match.MatchRenderer.VISIBLE_FIELD_WIDTH_OPT;
 
 class MatchOptions extends GLScreen {
 
@@ -292,9 +289,7 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateZoom(int n) {
-            int zoomMin = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MAX);
-            int zoomMax = 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MIN);
-            game.settings.zoom = Emath.slide(game.settings.zoom, zoomMin, zoomMax, 5 * n);
+            game.settings.zoom = Emath.slide(game.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), 5 * n);
             setDirty(true);
         }
     }

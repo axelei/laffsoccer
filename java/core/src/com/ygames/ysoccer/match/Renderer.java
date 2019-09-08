@@ -12,11 +12,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class Renderer {
+public class Renderer {
 
     public static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
     public static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
     public static final float VISIBLE_FIELD_WIDTH_MIN = 0.65f;
+
+    public static int zoomMin() {
+        return 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MAX);
+    }
+
+    public static int zoomMax() {
+        return 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MIN);
+    }
 
     static final float guiAlpha = 0.9f;
 
