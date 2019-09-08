@@ -212,7 +212,7 @@ public class Player implements Json.Serializable {
     void animationStandRun() {
         fmx = Math.round(((a + 360) % 360) / 45) % 8;
         if (v > 0) {
-            fmySweep = (fmySweep + 0.16f * v / 1000) % 4;
+            fmySweep = (fmySweep + Const.PLAYER_RUN_ANIMATION * v / 1000) % 4;
             if (fmySweep > 3) {
                 fmy = fmySweep - 2;
             } else {
@@ -226,7 +226,7 @@ public class Player implements Json.Serializable {
     void animationScorer() {
         fmx = Math.round(((a + 360) % 360) / 45) % 8;
         if (v > 0) {
-            fmySweep = (fmySweep + 0.16f * v / 1000) % 4;
+            fmySweep = (fmySweep + Const.PLAYER_RUN_ANIMATION * v / 1000) % 4;
             if (fmySweep > 3) {
                 fmy = 12;
             } else {
@@ -258,7 +258,7 @@ public class Player implements Json.Serializable {
             Vector2 playerVec = new Vector2(v, 0);
             playerVec.setAngle(a);
 
-            Vector2 differenceVec = playerVec.sub(ballVec);
+            Vector2 differenceVec = new Vector2();//playerVec.sub(ballVec);
 
             if (differenceVec.len() < 220 + 7 * skills.control) {
                 ball.setOwner(this);

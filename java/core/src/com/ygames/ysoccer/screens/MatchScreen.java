@@ -140,7 +140,6 @@ class MatchScreen extends GLScreen {
 
         public void gravity(float f) {
             Const.GRAVITY = f;
-            console.log("gravity " + Const.GRAVITY);
         }
 
         @HiddenCommand
@@ -150,7 +149,6 @@ class MatchScreen extends GLScreen {
 
         public void airFriction(float f) {
             Const.AIR_FRICTION = f;
-            console.log("airFriction " + Const.AIR_FRICTION);
         }
 
         @HiddenCommand
@@ -160,7 +158,6 @@ class MatchScreen extends GLScreen {
 
         public void spinFactor(float f) {
             Const.SPIN_FACTOR = f;
-            console.log("spinFactor " + Const.SPIN_FACTOR);
         }
 
         @HiddenCommand
@@ -170,7 +167,6 @@ class MatchScreen extends GLScreen {
 
         public void spinDampening(float f) {
             Const.SPIN_DAMPENING = f;
-            console.log("spinDampening " + Const.SPIN_DAMPENING);
         }
 
         @HiddenCommand
@@ -180,7 +176,15 @@ class MatchScreen extends GLScreen {
 
         public void bounce(float f) {
             Const.BOUNCE = f;
-            console.log("bounce " + Const.BOUNCE);
+        }
+
+        @HiddenCommand
+        public void runAnimation() {
+            console.log("runAnimation " + Const.PLAYER_RUN_ANIMATION);
+        }
+
+        public void runAnimation(float f) {
+            Const.PLAYER_RUN_ANIMATION = f;
         }
 
         public void homePenalty() {
