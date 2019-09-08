@@ -72,7 +72,7 @@ class TrainingScreen extends GLScreen {
     public void resize(int width, int height) {
         super.resize(width, height);
 
-        training.fsm.getTrainingRenderer().resize(width, height, game.settings);
+        training.fsm.getTrainingRenderer().resize(width, height, training.settings.zoom);
 
         if (game.settings.development) {
             console.refresh();

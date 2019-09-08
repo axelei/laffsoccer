@@ -57,13 +57,13 @@ public class Renderer {
         spriteComparator = new Sprite.SpriteComparator();
     }
 
-    public void resize(int width, int height, Settings settings) {
+    public void resize(int width, int height, int newZoom) {
         screenWidth = width;
         screenHeight = height;
         float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
         float zoomOpt = width / (VISIBLE_FIELD_WIDTH_OPT * 2 * Const.TOUCH_LINE);
         float zoomMax = width / (VISIBLE_FIELD_WIDTH_MIN * 2 * Const.TOUCH_LINE);
-        zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * settings.zoom * zoomOpt, zoomMin), zoomMax));
+        zoom = 20 * (int) (5.0f * Math.min(Math.max(0.01f * newZoom * zoomOpt, zoomMin), zoomMax));
 
         actionCamera.setScreenParameters(screenWidth, screenHeight, zoom);
 

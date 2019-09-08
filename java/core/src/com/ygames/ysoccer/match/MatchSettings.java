@@ -25,6 +25,7 @@ public class MatchSettings {
     public int substitutions;
     public int benchSize;
     boolean fullScreen;
+    public int zoom;
     boolean autoReplays;
     public boolean radar;
     boolean crowdChants;
@@ -43,6 +44,7 @@ public class MatchSettings {
         }
         benchSize = gameSettings.benchSize;
         fullScreen = gameSettings.fullScreen;
+        zoom = gameSettings.zoom;
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
         crowdChants = true;

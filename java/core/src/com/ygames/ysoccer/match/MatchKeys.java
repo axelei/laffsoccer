@@ -3,6 +3,9 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.math.Emath;
+
+import static com.ygames.ysoccer.framework.Assets.gettext;
 
 class MatchKeys {
 
@@ -16,6 +19,8 @@ class MatchKeys {
     private boolean keySoundUp;
     private boolean keySoundDown;
     private boolean keyScreenMode;
+    private boolean keyZoomOut;
+    private boolean keyZoomIn;
     private boolean keyCommentary;
     private boolean keyCrowdChants;
     private boolean keyRadar;
@@ -27,12 +32,12 @@ class MatchKeys {
 
     public void update() {
 
-        if (messageTimer > 0)  messageTimer--;
+        if (messageTimer > 0) messageTimer--;
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
             match.recorder.saveHighlight(match.fsm.getMatchRenderer());
 
-            message = Assets.strings.get("ACTION RECORDED");
+            message = gettext("ACTION RECORDED");
             messageTimer = 60;
         }
 
@@ -57,11 +62,11 @@ class MatchKeys {
         if (Gdx.input.isKeyPressed(Input.Keys.F4) && !keyCommentary) {
             match.settings.commentary = !match.settings.commentary;
 
-            message = Assets.strings.get("MATCH OPTIONS.COMMENTARY") + " ";
+            message = gettext("MATCH OPTIONS.COMMENTARY") + " ";
             if (match.settings.commentary) {
-                message += Assets.strings.get("MATCH OPTIONS.COMMENTARY.ON");
+                message += gettext("MATCH OPTIONS.COMMENTARY.ON");
             } else {
-                message += Assets.strings.get("MATCH OPTIONS.COMMENTARY.OFF");
+                message += gettext("MATCH OPTIONS.COMMENTARY.OFF");
             }
             messageTimer = 60;
         }
@@ -71,11 +76,11 @@ class MatchKeys {
             Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
             Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
 
-            message = Assets.strings.get("MATCH OPTIONS.CROWD CHANTS") + " ";
+            message = gettext("MATCH OPTIONS.CROWD CHANTS") + " ";
             if (match.settings.crowdChants) {
-                message += Assets.strings.get("MATCH OPTIONS.CROWD CHANTS.ON");
+                message += gettext("MATCH OPTIONS.CROWD CHANTS.ON");
             } else {
-                message += Assets.strings.get("MATCH OPTIONS.CROWD CHANTS.OFF");
+                message += gettext("MATCH OPTIONS.CROWD CHANTS.OFF");
             }
             messageTimer = 60;
         }
@@ -85,22 +90,40 @@ class MatchKeys {
             match.game.setScreenMode(match.settings.fullScreen);
 
             if (match.settings.fullScreen) {
-                message = Assets.strings.get("SCREEN MODE.FULL SCREEN");
+                message = gettext("SCREEN MODE.FULL SCREEN");
             } else {
-                message = Assets.strings.get("SCREEN MODE.WINDOW");
+                message = gettext("SCREEN MODE.WINDOW");
             }
 
             messageTimer = 120;
         }
 
+        if (Gdx.input.isKeyPressed(Input.Keys.F8) && !keyZoomOut) {
+            match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), -5);
+            match.fsm.getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
+
+            message = gettext("ZOOM") + " " + match.settings.zoom + "%";
+
+            messageTimer = 60;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.F9) && !keyZoomIn) {
+            match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), 5);
+            match.fsm.getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
+
+            message = gettext("ZOOM") + " " + match.settings.zoom + "%";
+
+            messageTimer = 60;
+        }
+
         if (Gdx.input.isKeyPressed(Input.Keys.F11) && !keyRadar) {
             match.settings.radar = !match.settings.radar;
 
-            message = Assets.strings.get("RADAR") + " ";
+            message = gettext("RADAR") + " ";
             if (match.settings.radar) {
-                message += Assets.strings.get("RADAR.ON");
+                message += gettext("RADAR.ON");
             } else {
-                message += Assets.strings.get("RADAR.OFF");
+                message += gettext("RADAR.OFF");
             }
 
             messageTimer = 60;
@@ -109,12 +132,12 @@ class MatchKeys {
         if (Gdx.input.isKeyPressed(Input.Keys.F12) && !keyAutoReplay) {
             match.settings.autoReplays = !match.settings.autoReplays;
 
-            message = Assets.strings.get("AUTO REPLAYS") + " ";
+            message = gettext("AUTO REPLAYS") + " ";
 
             if (match.settings.autoReplays) {
-                message += Assets.strings.get("AUTO REPLAYS.ON");
+                message += gettext("AUTO REPLAYS.ON");
             } else {
-                message += Assets.strings.get("AUTO REPLAYS.OFF");
+                message += gettext("AUTO REPLAYS.OFF");
             }
 
             messageTimer = 60;
@@ -126,12 +149,14 @@ class MatchKeys {
         keyCommentary = Gdx.input.isKeyPressed(Input.Keys.F4);
         keyCrowdChants = Gdx.input.isKeyPressed(Input.Keys.F5);
         keyScreenMode = Gdx.input.isKeyPressed(Input.Keys.F7);
+        keyZoomOut = Gdx.input.isKeyPressed(Input.Keys.F8);
+        keyZoomIn = Gdx.input.isKeyPressed(Input.Keys.F9);
         keyRadar = Gdx.input.isKeyPressed(Input.Keys.F11);
         keyAutoReplay = Gdx.input.isKeyPressed(Input.Keys.F12);
     }
 
     private void setMessageSoundEffects() {
-        message = Assets.strings.get("MATCH OPTIONS.SOUND VOLUME") + " <";
+        message = gettext("MATCH OPTIONS.SOUND VOLUME") + " <";
         for (int i = 10; i <= 100; i += 10) {
             message += (i <= Assets.Sounds.volume) ? "|" : " ";
         }

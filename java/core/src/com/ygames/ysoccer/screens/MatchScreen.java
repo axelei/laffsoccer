@@ -77,7 +77,7 @@ class MatchScreen extends GLScreen {
     public void resize(int width, int height) {
         super.resize(width, height);
 
-        match.fsm.getMatchRenderer().resize(width, height, game.settings);
+        match.fsm.getMatchRenderer().resize(width, height, match.settings.zoom);
 
         if (game.settings.development) {
             console.refresh();

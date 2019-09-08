@@ -34,7 +34,7 @@ public class MatchRenderer extends Renderer {
         this.ball = match.ball;
         actionCamera = new ActionCamera(ball);
 
-        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.game.settings);
+        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
 
         actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
         actionCamera.y = 0;

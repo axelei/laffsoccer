@@ -21,7 +21,7 @@ public class TrainingRenderer extends Renderer {
         this.ball = training.ball;
         actionCamera = new ActionCamera(ball);
 
-        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), training.game.settings);
+        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), training.settings.zoom);
 
         actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
         actionCamera.y = 0.5f * (Const.PITCH_H - screenHeight / (zoom / 100.0f));
