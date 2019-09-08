@@ -89,7 +89,11 @@ class DevTools extends GLScreen {
             homeTeam.releaseNonAiInputDevices();
             awayTeam.setInputDevice(null);
             awayTeam.releaseNonAiInputDevices();
-            homeTeam.inputDevice = game.inputDevices.assignFirstAvailable();
+            if (lastFireInputDevice != null) {
+                homeTeam.setInputDevice(lastFireInputDevice);
+            } else {
+                homeTeam.inputDevice = game.inputDevices.assignFirstAvailable();
+            }
 
             Competition testMatch = new TestMatch();
             testMatch.getMatch().setTeam(HOME, homeTeam);
