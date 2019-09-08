@@ -5,12 +5,12 @@ public class Grass {
     public int lightShadow;
     public int darkShadow;
     float friction;
-    int bounce;
+    float bounce;
 
     Grass() {
     }
 
-    Grass(int lightShadow, int darkShadow, int friction, int bounce) {
+    Grass(int lightShadow, int darkShadow, float friction, float bounce) {
         this.lightShadow = lightShadow;
         this.darkShadow = darkShadow;
         this.friction = friction;

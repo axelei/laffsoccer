@@ -245,11 +245,11 @@ public class MatchSettings {
         if (weatherStrength != Weather.Strength.NONE) {
             switch (weatherEffect) {
                 case Weather.RAIN:
-                    grass.bounce = grass.bounce - 3 * weatherStrength;
+                    grass.bounce = grass.bounce - 0.03f * weatherStrength;
                     break;
 
                 case Weather.SNOW:
-                    grass.bounce = grass.bounce - 2 * weatherStrength;
+                    grass.bounce = grass.bounce - 0.02f * weatherStrength;
                     break;
             }
         }

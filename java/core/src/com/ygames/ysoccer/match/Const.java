@@ -10,7 +10,7 @@ public class Const {
     public static float AIR_FRICTION = 0.28f;
     public static float SPIN_FACTOR = 8.0f;
     public static float SPIN_DAMPENING = 5.0f;
-    public static float BOUNCE = 0.009f;
+    public static float BOUNCE = 0.9f;
 
     static final int REPLAY_DURATION = 8; // seconds
     static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRESH_RATE;
