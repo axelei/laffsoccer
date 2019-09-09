@@ -12,6 +12,7 @@ import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.POST_X;
+import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 
 class TrainingStateFree extends TrainingState {
@@ -63,9 +64,12 @@ class TrainingStateFree extends TrainingState {
                     ball.collisionNetOut();
                 }
                 if (ball.v == 0) {
-                    ball.x = lastTrained.x + (BALL_R - 1) * Emath.cos(lastTrained.a);
-                    ball.y = lastTrained.y + (BALL_R - 1) * Emath.sin(lastTrained.a);
+                    resetBall();
                 }
+            }
+
+            if ((Math.abs(ball.x) > TOUCH_LINE) && (ball.v == 0)) {
+                resetBall();
             }
 
             for (Player player : team.lineup) {
@@ -110,6 +114,10 @@ class TrainingStateFree extends TrainingState {
                 && ball.owner.inputDevice != ball.owner.ai) {
             lastTrained = ball.owner;
         }
+
+        if (training.team.fire2Down() != null) {
+            resetBall();
+        }
     }
 
     @Override
@@ -118,5 +126,12 @@ class TrainingStateFree extends TrainingState {
             quitTraining();
             return;
         }
+    }
+
+    private void resetBall() {
+        ball.x = lastTrained.x + (BALL_R - 1) * Emath.cos(lastTrained.a);
+        ball.y = lastTrained.y + (BALL_R - 1) * Emath.sin(lastTrained.a);
+        ball.z = 0;
+        ball.vMax = 0;
     }
 }
