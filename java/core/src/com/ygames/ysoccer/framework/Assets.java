@@ -88,14 +88,13 @@ public class Assets {
     public static TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
     public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
     public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
-    public static Map<Hair, TextureRegion[][]> hairs = new HashMap<Hair, TextureRegion[][]>();
+    public static Map<Hair, TextureRegion[][]> hairs = new HashMap<>();
     public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
     public static TextureRegion[][] playerNumbers = new TextureRegion[10][2];
     public static TextureRegion[] tinyNumbers = new TextureRegion[10];
     public static TextureRegion[] time = new TextureRegion[11];
     public static TextureRegion[] score = new TextureRegion[11];
-    public static TextureRegion[][] replay = new TextureRegion[16][2];
     public static TextureRegion[][] replaySpeed = new TextureRegion[3][3];
     public static TextureRegion[] rain = new TextureRegion[4];
     public static TextureRegion[] snow = new TextureRegion[3];
@@ -224,11 +223,11 @@ public class Assets {
         favouritesFile = teamsRootFolder.child("favourites.json");
         favourites = loadFavourites();
 
-        associations = new ArrayList<String>(Arrays.asList(Const.associations));
+        associations = new ArrayList<>(Arrays.asList(Const.associations));
         loadTactics();
         loadKits();
         hairStyles = loadHairStyles();
-        currencies = new ArrayList<String>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
+        currencies = new ArrayList<>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
         loadScroll();
         shortArrow = loadTextureRegion("images/short_arrow.png");
         loadStars();
@@ -249,7 +248,6 @@ public class Assets {
         loadTinyNumbers();
         loadTime();
         loadScore();
-        loadReplay();
         loadReplaySpeed();
         loadRain();
         loadSnow();
@@ -261,7 +259,7 @@ public class Assets {
     }
 
     private static void loadLocales() {
-        locales = new ArrayList<String>();
+        locales = new ArrayList<>();
         FileHandle[] files = Gdx.files.local("i18n/").list(".properties");
         for (FileHandle file : files) {
             String[] parts = file.nameWithoutExtension().split("_");
@@ -349,7 +347,7 @@ public class Assets {
     }
 
     private static void loadKits() {
-        kits = new ArrayList<String>();
+        kits = new ArrayList<>();
         FileHandle fileHandle = Gdx.files.internal("images/kit");
         for (FileHandle kitFile : fileHandle.list(".png")) {
             kits.add(kitFile.nameWithoutExtension());
@@ -362,7 +360,7 @@ public class Assets {
     }
 
     private static List<String> loadHairStyles() {
-        List<String> hairStyles = new ArrayList<String>();
+        List<String> hairStyles = new ArrayList<>();
         FileHandle folder = Gdx.files.internal("images/player/hairstyles");
         for (FileHandle file : folder.list(".png")) {
             hairStyles.add(file.nameWithoutExtension());
@@ -495,16 +493,6 @@ public class Assets {
         }
     }
 
-    private static void loadReplay() {
-        Texture texture = new Texture("images/replay.png");
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; j < 2; j++) {
-                replay[i][j] = new TextureRegion(texture, 40 * i, 46 * j, 40, 46);
-                replay[i][j].flip(false, true);
-            }
-        }
-    }
-
     private static void loadReplaySpeed() {
         Texture texture = new Texture("images/replay_speed.png");
         for (int i = 0; i < 3; i++) {
@@ -578,7 +566,7 @@ public class Assets {
     }
 
     public static void loadCrowd(Team team) {
-        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        List<RgbPair> rgbPairs = new ArrayList<>();
         team.kits.get(0).addKitColors(rgbPairs);
         Texture texture = loadTexture("images/stadium/crowd.png", rgbPairs);
         crowd[0] = new TextureRegion(texture, 0, 0, 47, 35);
@@ -594,7 +582,7 @@ public class Assets {
     }
 
     public static void loadBall(MatchSettings matchSettings) {
-        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        List<RgbPair> rgbPairs = new ArrayList<>();
         switch (matchSettings.time) {
             case DAY:
                 rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
@@ -615,7 +603,7 @@ public class Assets {
     }
 
     public static void loadCornerFlags(MatchSettings matchSettings) {
-        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        List<RgbPair> rgbPairs = new ArrayList<>();
         switch (matchSettings.time) {
             case DAY:
                 rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.darkShadow));
@@ -641,7 +629,7 @@ public class Assets {
 
     public static void loadKeeper(Player p) {
         if (keeper[p.team.index][p.skinColor.ordinal()][0][0] == null) {
-            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            List<RgbPair> rgbPairs = new ArrayList<>();
             p.addSkinColors(rgbPairs);
             Texture keeper = loadTexture("images/player/keeper.png", rgbPairs);
             for (int frameX = 0; frameX < 8; frameX++) {
@@ -664,7 +652,7 @@ public class Assets {
     }
 
     public static void loadCoach(Team team) {
-        List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+        List<RgbPair> rgbPairs = new ArrayList<>();
         team.kits.get(0).addKitColors(rgbPairs);
         Texture texture = loadTexture("images/coach.png", rgbPairs);
         for (int i = 0; i < 6; i++) {
@@ -717,7 +705,7 @@ public class Assets {
 
     public static void loadPlayer(Player p) {
         if (player[p.team.index][p.skinColor.ordinal()][0][0] == null) {
-            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            List<RgbPair> rgbPairs = new ArrayList<>();
             p.team.kits.get(p.team.kitIndex).addKitColors(rgbPairs);
             p.addSkinColors(rgbPairs);
             Texture playerTexture = loadTexture("images/player/" + p.team.kits.get(p.team.kitIndex).style + ".png", rgbPairs);
@@ -743,7 +731,7 @@ public class Assets {
     public static void loadHair(Player player) {
         player.hair = new Hair(player.hairColor, player.hairStyle);
         if (hairs.get(player.hair) == null) {
-            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            List<RgbPair> rgbPairs = new ArrayList<>();
             player.addHairColors(rgbPairs);
             Texture texture = loadTexture("images/player/hairstyles/" + player.hairStyle + ".png", rgbPairs);
             TextureRegion[][] textureRegion = new TextureRegion[8][10];
@@ -785,7 +773,7 @@ public class Assets {
         return textureRegion;
     }
 
-    public static Texture loadTexture(String internalPath, List<RgbPair> rgbPairs) {
+    private static Texture loadTexture(String internalPath, List<RgbPair> rgbPairs) {
         InputStream in = null;
         try {
             in = Gdx.files.internal(internalPath).read();

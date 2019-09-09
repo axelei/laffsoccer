@@ -2,14 +2,19 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.Renderer.guiAlpha;
 
 class MatchStateReplay extends MatchState {
 
@@ -126,16 +131,32 @@ class MatchStateReplay extends MatchState {
     void render() {
         super.render();
 
+        int f = Math.round(1f * match.subframe / GLGame.SUBFRAMES) % 32;
+        if (f < 16) {
+            Assets.font10.draw(matchRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
+        }
+
+        matchRenderer.batch.end();
+        float a = position * 360f / Const.REPLAY_SUBFRAMES;
+        GLShapeRenderer shapeRenderer = matchRenderer.shapeRenderer;
+        shapeRenderer.setProjectionMatrix(matchRenderer.camera.combined);
+        shapeRenderer.setAutoShapeType(true);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.arc(20, 32, 6, 270 + a, 360 - a);
+        shapeRenderer.setColor(0xFF0000, guiAlpha);
+        shapeRenderer.arc(18, 30, 6, 270 + a, 360 - a);
+        shapeRenderer.end();
+        matchRenderer.batch.begin();
+
+        if (inputDevice != null) {
+            int frameX = 1 + inputDevice.x1;
+            int frameY = 1 + inputDevice.y1;
+            matchRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
+        }
+
         if (paused) {
-            matchRenderer.batch.draw(Assets.pause, 34, 28);
-        } else {
-            int f = Math.round(match.subframe / GLGame.SUBFRAMES) % 32;
-            matchRenderer.batch.draw(Assets.replay[f % 16][f / 16], 34, 28);
-            if (inputDevice != null) {
-                int frameX = 1 + inputDevice.x1;
-                int frameY = 1 + inputDevice.y1;
-                matchRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
-            }
+            Assets.font10.draw(matchRenderer.batch, gettext("PAUSE"), matchRenderer.guiWidth / 2, 22, Font.Align.CENTER);
         }
     }
 
