@@ -15,7 +15,9 @@ class Ball {
     float y0;
     float z0;
     float v;
+    float vMax;
     float vz;
+    float vzMax;
     float a;
     float s;
     float f;
@@ -127,6 +129,10 @@ class Ball {
             s = 0;
         }
 
+        if (v > vMax) {
+            vMax = v;
+        }
+
         // z position
         z += vz / Const.SECOND;
 
@@ -152,6 +158,9 @@ class Ball {
             bouncing_speed = vz;
         }
 
+        if (vz > vzMax) {
+            vzMax = vz;
+        }
         return bouncing_speed;
     }
 

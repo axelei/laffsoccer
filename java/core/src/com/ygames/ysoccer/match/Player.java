@@ -56,11 +56,7 @@ public class Player implements Json.Serializable {
             8, 8, 8, 8, 8, 8, 8, 9, 9, 9,
     };
 
-    // keeper collision types
-    private static final int CT_NONE = 0;
-    private static final int CT_REBOUND = 1;
-    private static final int CT_CATCH = 2;
-    private static final int CT_DEFLECT = 3;
+    enum KeeperCollision {NONE, REBOUND, CATCH, DEFLECT}
 
     public String name;
     public String shirtName;
@@ -276,7 +272,7 @@ public class Player implements Json.Serializable {
     }
 
     boolean keeperCollision() {
-        int collisionType = CT_NONE;
+        KeeperCollision collisionType = KeeperCollision.NONE;
 
         if (Math.abs(ball.y0 - y) >= 1 && Math.abs(ball.y - y) < 1) {
 
@@ -305,44 +301,22 @@ public class Player implements Json.Serializable {
 
             switch (rgb) {
                 case 0xC0C000:
-                    collisionType = CT_REBOUND;
+                    collisionType = KeeperCollision.REBOUND;
                     break;
 
                 case 0xC00000:
-                    collisionType = CT_CATCH;
+                    collisionType = KeeperCollision.CATCH;
                     break;
 
                 case 0x0000C0:
-                    collisionType = CT_DEFLECT;
+                    collisionType = KeeperCollision.DEFLECT;
                     break;
             }
 
-            Gdx.app.debug("Keeper collision", GLColor.toHexString(rgb) + " at " + det_x + ", " + det_y);
+            Gdx.app.debug("Keeper collision", collisionType + " (" + GLColor.toHexString(rgb) + ") at " + det_x + ", " + det_y);
 
             switch (collisionType) {
-                case CT_REBOUND:
-                    if (ball.v > 180) {
-                        Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
-                    }
-                    ball.v = ball.v / 4;
-                    ball.a = (-ball.a) % 360;
-                    ball.s = -ball.s;
-                    ball.setOwner(this, false);
-                    ball.setOwner(null);
-                    break;
-
-                case CT_CATCH:
-                    if (ball.v > 180) {
-                        Assets.Sounds.hold.play(0.5f * Assets.Sounds.volume / 100f);
-                    }
-                    ball.v = 0;
-                    ball.vz = 0;
-                    ball.s = 0;
-                    ball.setOwner(this);
-                    ball.setHolder(this);
-                    break;
-
-                case CT_DEFLECT:
+                case REBOUND:
                     if (ball.v > 180) {
                         Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
                     }
@@ -354,12 +328,48 @@ public class Player implements Json.Serializable {
 
                     ballVx = Math.signum(ballVx)
                             * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
+                            + Math.min(100,v) * Emath.cos(a);
+                    ballVy = 0.25f * ballVy;
+
+                    ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
+                    ball.vz = 2 * vz;
+                    ball.a = (-Emath.aTan2(ballVy, ballVx))% 360;
+                    ball.s = -ball.s;
+
+                    ball.setOwner(this, false);
+                    ball.setOwner(null);
+                    break;
+
+                case CATCH:
+                    if (ball.v > 180) {
+                        Assets.Sounds.hold.play(0.5f * Assets.Sounds.volume / 100f);
+                    }
+                    ball.v = 0;
+                    ball.vz = 0;
+                    ball.s = 0;
+
+                    ball.setOwner(this);
+                    ball.setHolder(this);
+                    break;
+
+                case DEFLECT:
+                    if (ball.v > 180) {
+                        Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
+                    }
+                    // real ball x-y angle (when spinning, it is different from ball.a)
+                    ballAxy = Emath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
+
+                    ballVx = ball.v * Emath.cos(ballAxy);
+                    ballVy = ball.v * Emath.sin(ballAxy);
+
+                    ballVx = Math.signum(ballVx)
+                            * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
                             + v * Emath.cos(a);
                     ballVy = 0.7f * ballVy;
 
                     ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
-                    ball.a = Emath.aTan2(ballVy, ballVx);
                     ball.vz = 1.5f * vz;
+                    ball.a = Emath.aTan2(ballVy, ballVx);
 
                     ball.setOwner(this, false);
                     ball.setOwner(null);
@@ -367,7 +377,7 @@ public class Player implements Json.Serializable {
             }
         }
 
-        if (collisionType == CT_CATCH) {
+        if (collisionType == KeeperCollision.CATCH) {
             if (matchSettings.commentary) {
                 int size = Assets.Commentary.keeperSave.size();
                 if (size > 0) {
@@ -376,7 +386,7 @@ public class Player implements Json.Serializable {
             }
         }
 
-        return (collisionType == CT_CATCH);
+        return (collisionType == KeeperCollision.CATCH);
     }
 
     void holdBall(int offX, int offZ) {
