@@ -497,7 +497,7 @@ public class Assets {
         Texture texture = new Texture("images/replay_speed.png");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                replaySpeed[i][j] = new TextureRegion(texture, 29 * i, 29 * j, 29, 29);
+                replaySpeed[i][j] = new TextureRegion(texture, 42 * i, 42 * j, 41, 41);
                 replaySpeed[i][j].flip(false, true);
             }
         }
