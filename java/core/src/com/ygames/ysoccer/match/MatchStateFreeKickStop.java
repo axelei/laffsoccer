@@ -6,6 +6,8 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import java.util.ArrayList;
+
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -24,6 +26,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 class MatchStateFreeKickStop extends MatchState {
 
     private boolean allPlayersReachingTarget;
+    private ArrayList<Player> playersReachingTarget;
 
     MatchStateFreeKickStop(MatchFsm fsm) {
         super(STATE_FREE_KICK_STOP, fsm);
@@ -31,6 +34,8 @@ class MatchStateFreeKickStop extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+
+        playersReachingTarget = new ArrayList<>();
     }
 
     @Override
@@ -54,10 +59,15 @@ class MatchStateFreeKickStop extends MatchState {
         match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));
 
         match.resetAutomaticInputDevices();
+
+        allPlayersReachingTarget = false;
+        playersReachingTarget.clear();
     }
 
     @Override
     void onResume() {
+        match.setPointOfInterest(match.foul.position);
+
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
     }
@@ -66,25 +76,26 @@ class MatchStateFreeKickStop extends MatchState {
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
-        allPlayersReachingTarget = true;
-        for (int t = HOME; t <= AWAY; t++) {
-            for (int i = 0; i < TEAM_SIZE; i++) {
-                Player player = match.team[t].lineup.get(i);
-
-                // wait for tackle and down states to finish
-                if (player.checkState(STATE_TACKLE) || player.checkState(STATE_DOWN)) {
-                    allPlayersReachingTarget = false;
-                } else {
-                    player.setState(STATE_REACH_TARGET);
-                }
-            }
-        }
-
         float timeLeft = deltaTime;
         while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
             if (match.subframe % GLGame.SUBFRAMES == 0) {
                 match.updateAi();
+
+                allPlayersReachingTarget = true;
+                for (int t = HOME; t <= AWAY; t++) {
+                    for (int i = 0; i < TEAM_SIZE; i++) {
+                        Player player = match.team[t].lineup.get(i);
+
+                        // wait for tackle and down states to finish
+                        if (player.checkState(STATE_TACKLE) || player.checkState(STATE_DOWN)) {
+                            allPlayersReachingTarget = false;
+                        } else if (!playersReachingTarget.contains(player)){
+                            player.setState(STATE_REACH_TARGET);
+                            playersReachingTarget.add(player);
+                        }
+                    }
+                }
             }
 
             match.updateBall();

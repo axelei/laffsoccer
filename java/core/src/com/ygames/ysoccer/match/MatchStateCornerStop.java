@@ -2,12 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -21,8 +21,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
 class MatchStateCornerStop extends MatchState {
 
-    private int cornerX;
-    private int cornerY;
+    private Vector2 cornerPosition;
 
     MatchStateCornerStop(MatchFsm fsm) {
         super(STATE_CORNER_STOP, fsm);
@@ -31,6 +30,8 @@ class MatchStateCornerStop extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+
+        cornerPosition = new Vector2();
     }
 
     @Override
@@ -45,12 +46,11 @@ class MatchStateCornerStop extends MatchState {
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-        cornerX = (Const.TOUCH_LINE - 12) * match.ball.xSide;
-        cornerY = (Const.GOAL_LINE - 12) * match.ball.ySide;
+        cornerPosition.set((Const.TOUCH_LINE - 12) * match.ball.xSide, (Const.GOAL_LINE - 12) * match.ball.ySide);
 
         // set the player targets relative to corner zone
         // even before moving the ball itself
-        match.ball.updateZone(cornerX, cornerY, 0, 0);
+        match.ball.updateZone(cornerPosition.x, cornerPosition.y, 0, 0);
         match.updateTeamTactics();
         match.team[HOME].lineup.get(0).setTarget(0, match.team[HOME].side * (Const.GOAL_LINE - 8));
         match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));
@@ -62,6 +62,8 @@ class MatchStateCornerStop extends MatchState {
 
     @Override
     void onResume() {
+        match.setPointOfInterest(cornerPosition);
+
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
     }
@@ -98,7 +100,7 @@ class MatchStateCornerStop extends MatchState {
     @Override
     void checkConditions() {
         if ((match.ball.v < 5) && (match.ball.vz < 5)) {
-            match.ball.setPosition(cornerX, cornerY, 0);
+            match.ball.setPosition(cornerPosition);
             match.ball.updatePrediction();
 
             fsm.pushAction(NEW_FOREGROUND, STATE_CORNER_KICK);

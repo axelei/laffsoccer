@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
@@ -62,6 +63,10 @@ class Ball {
         v = 0;
         vz = 0;
         s = 0;
+    }
+
+    public void setPosition(Vector2 position) {
+        this.setPosition(position.x, position.y, 0);
     }
 
     public float update() {

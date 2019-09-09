@@ -6,15 +6,24 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
 class PlayerStateOutside extends PlayerState {
 
+    private float v;
+
     PlayerStateOutside(PlayerFsm fsm) {
         super(STATE_OUTSIDE, fsm);
+    }
+
+    @Override
+    void entryActions() {
+        super.entryActions();
+
+        v = 170 + Emath.rand(0, 30);
     }
 
     @Override
     void doActions() {
         super.doActions();
         if (player.isVisible && player.targetDistance() > 1.5f) {
-            player.v = 140 + Emath.rand(0, 60);
+            player.v = v;
             player.a = player.targetAngle();
         } else {
             player.v = 0;

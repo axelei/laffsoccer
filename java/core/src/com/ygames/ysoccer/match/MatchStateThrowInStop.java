@@ -7,7 +7,6 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -39,8 +38,7 @@ class MatchStateThrowInStop extends MatchState {
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-        match.throwInX = match.ball.xSide * Const.TOUCH_LINE;
-        match.throwInY = match.ball.y;
+        fsm.throwInPosition.set(match.ball.xSide * Const.TOUCH_LINE, match.ball.y);
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(STATE_REACH_TARGET, null);
@@ -48,6 +46,8 @@ class MatchStateThrowInStop extends MatchState {
 
     @Override
     void onResume() {
+        match.setPointOfInterest(fsm.throwInPosition);
+
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
     }
@@ -82,7 +82,7 @@ class MatchStateThrowInStop extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            match.ball.setPosition(match.throwInX, match.throwInY, 0);
+            match.ball.setPosition(fsm.throwInPosition);
             match.ball.updatePrediction();
 
             fsm.pushAction(NEW_FOREGROUND, STATE_THROW_IN);

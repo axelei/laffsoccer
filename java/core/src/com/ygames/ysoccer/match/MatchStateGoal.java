@@ -64,6 +64,8 @@ class MatchStateGoal extends MatchState {
 
         match.resetAutomaticInputDevices();
 
+        match.setPointOfInterest(match.ball.x, match.ball.y);
+
         matchRenderer.actionCamera.setLimited(true, true);
     }
 

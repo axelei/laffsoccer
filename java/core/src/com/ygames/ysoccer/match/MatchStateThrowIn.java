@@ -59,7 +59,7 @@ class MatchStateThrowIn extends MatchState {
 
         match.updateTeamTactics();
 
-        match.ball.setPosition(match.throwInX, match.throwInY, 0);
+        match.ball.setPosition(fsm.throwInPosition);
         match.ball.updatePrediction();
     }
 

@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import java.util.ArrayDeque;
@@ -46,6 +47,7 @@ public class MatchFsm {
     private MatchState currentState;
     MatchState holdState;
     BenchStatus benchStatus;
+    Vector2 throwInPosition;
     Team throwInTeam;
     Team cornerKickTeam;
     Team goalKickTeam;
@@ -103,6 +105,7 @@ public class MatchFsm {
         benchStatus = new BenchStatus();
         benchStatus.targetX = -TOUCH_LINE - 140 + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
         benchStatus.targetY = -20;
+        throwInPosition = new Vector2();
 
         actions = new ArrayDeque<>();
 

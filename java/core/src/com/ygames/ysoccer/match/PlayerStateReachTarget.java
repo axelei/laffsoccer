@@ -11,12 +11,17 @@ class PlayerStateReachTarget extends PlayerState {
     }
 
     @Override
+    void entryActions() {
+        super.entryActions();
+
+        player.v = 170 + Emath.rand(0, 30);
+    }
+
+    @Override
     void doActions() {
         super.doActions();
 
-        player.v = 140 + Emath.rand(0, 60);
         player.a = player.targetAngle();
-
         player.animationStandRun();
     }
 

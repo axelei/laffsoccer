@@ -49,6 +49,8 @@ class MatchStateKeeperStop extends MatchState {
 
         keeperTeam.updateTactics(true);
         opponentTeam.updateTactics(true);
+
+        match.setPointOfInterest(keeper.x, keeper.y);
     }
 
     @Override
