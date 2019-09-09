@@ -145,16 +145,17 @@ class MatchStateMain extends MatchState {
                     // for each tackling player
                     for (int i = 0; i < TEAM_SIZE; i++) {
                         Player player = match.team[t].lineup.get(i);
-                        if (player != null && player.checkState(STATE_TACKLE)) {
+                        if (player != null && player.checkState(STATE_TACKLE) && player.v > 50) {
 
                             // search near opponents
                             Team opponentTeam = match.team[1 - player.team.index];
                             Player opponent = opponentTeam.searchPlayerNearTo(player, 8);
 
                             if (opponent != null && !opponent.checkState(STATE_DOWN)) {
+                                float strength = (4f + player.v/260f) / 5f;
                                 float angleDiff = Emath.angleDiff(player.a, opponent.a);
-                                match.newTackle(player, opponent, angleDiff);
-                                Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at angle " + angleDiff + " angle diff");
+                                match.newTackle(player, opponent, strength, angleDiff);
+                                Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at speed: " + player.v + " (strenght = " + strength + ") and angle: " + angleDiff );
                             }
                         }
                     }
@@ -171,12 +172,12 @@ class MatchStateMain extends MatchState {
 
                     // back/side
                     if (angleDiff < 112.5f) {
-                        downProbability = 0.7f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control;
+                        downProbability = match.tackle.strength * (0.7f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control);
                     }
 
                     // front
                     else {
-                        downProbability = 0.9f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control;
+                        downProbability = match.tackle.strength * (0.9f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control);
                     }
 
                     float foulProbability;

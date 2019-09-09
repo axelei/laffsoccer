@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -74,8 +75,6 @@ public class Match implements Json.Serializable {
     int coinToss;
     int kickOffTeam;
     int penaltyKickingTeam;
-    float throwInX;
-    float throwInY;
 
     Tackle tackle;
     Foul foul;
@@ -598,12 +597,13 @@ public class Match implements Json.Serializable {
         return (competition.type == Competition.Type.FRIENDLY) ? matchRank : (matchRank + 1);
     }
 
-    void newTackle(Player player, Player opponent, float angleDiff) {
+    void newTackle(Player player, Player opponent, float strength, float angleDiff) {
         tackle = new Tackle();
         tackle.time = clock;
         tackle.position = new Vector2(player.x, player.y);
         tackle.player = player;
         tackle.opponent = opponent;
+        tackle.strength = strength;
         tackle.angleDiff = angleDiff;
     }
 
@@ -653,6 +653,7 @@ public class Match implements Json.Serializable {
         public Vector2 position;
         public Player player;
         public Player opponent;
+        float strength;
         float angleDiff;
     }
 
@@ -661,6 +662,7 @@ public class Match implements Json.Serializable {
     }
 
     void setPointOfInterest(Vector2 v) {
+        Gdx.app.debug(this.getClass().getSimpleName(), "Setting point of interest at: " + v.x + ", " + v.y);
         pointOfInterest.set(v);
     }
 }

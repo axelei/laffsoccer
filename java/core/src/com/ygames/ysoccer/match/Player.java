@@ -253,9 +253,9 @@ public class Player implements Json.Serializable {
             Vector2 playerVec = new Vector2(v, 0);
             playerVec.setAngle(a);
 
-            Vector2 differenceVec = new Vector2();//playerVec.sub(ballVec);
+            Vector2 differenceVec = playerVec.sub(ballVec);
 
-            if (differenceVec.len() < 220 + 7 * skills.control) {
+            if (differenceVec.len() < 250 + 20 * skills.control) {
                 ball.setOwner(this);
                 ball.x = x + (Const.BALL_R - 1) * Emath.cos(a);
                 ball.y = y + (Const.BALL_R - 1) * Emath.sin(a);
@@ -364,7 +364,7 @@ public class Player implements Json.Serializable {
 
                     ballVx = Math.signum(ballVx)
                             * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
-                            + v * Emath.cos(a);
+                            + Math.min(100,v) * Emath.cos(a);
                     ballVy = 0.7f * ballVy;
 
                     ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
