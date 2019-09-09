@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.math;
 
+import com.ygames.ysoccer.framework.Assets;
+
 public class Emath {
 
     private static float TO_RADIANS = (float) Math.PI / 180.0f;
@@ -69,16 +71,16 @@ public class Emath {
 
     // random integer between min and max (included)
     public static int rand(int min, int max) {
-        return min + ((int) Math.floor((max - min + 1) * Math.random()));
+        return min + Assets.random.nextInt(max + 1 - min);
     }
 
     public static <T extends Enum<T>> T randomPick(T... element) {
-        return element[rand(0, element.length - 1)];
+        return element[Assets.random.nextInt(element.length)];
     }
 
     public static <T extends Enum<T>> T randomPick(Class<T> c) {
         int values = c.getEnumConstants().length;
-        return c.getEnumConstants()[Emath.rand(0, values - 1)];
+        return c.getEnumConstants()[Assets.random.nextInt(values)];
     }
 
     public static float roundBy(float value, float step) {

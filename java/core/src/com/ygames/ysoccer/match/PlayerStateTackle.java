@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
@@ -14,11 +15,22 @@ class PlayerStateTackle extends PlayerState {
     }
 
     @Override
+    void entryActions() {
+        super.entryActions();
+
+        hit = false;
+
+        player.v = 1.4f * (player.speed) * (1 + 0.02f * player.skills.tackling);
+        player.x += 8 * Emath.cos(player.a);
+        player.y += 8 * Emath.sin(player.a);
+    }
+
+    @Override
     void doActions() {
         super.doActions();
 
         if (!hit) {
-            if ((ball.z < 5) && (player.ballDistance < 18)) {
+            if ((ball.z < 5) && (player.ballDistance < 9)) {
                 float angle = Emath.aTan2(ball.y - player.y, ball.x - player.x);
                 float angleDiff = Math.abs((((angle - player.a + 540) % 360)) - 180);
                 if ((angleDiff <= 90)
@@ -53,14 +65,5 @@ class PlayerStateTackle extends PlayerState {
             return fsm.stateStandRun;
         }
         return null;
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-
-        hit = false;
-
-        player.v = 1.4f * (player.speed) * (1 + 0.02f * player.skills.tackling);
     }
 }

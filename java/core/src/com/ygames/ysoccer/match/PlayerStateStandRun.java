@@ -71,11 +71,21 @@ class PlayerStateStandRun extends PlayerState {
                 }
                 // else head or tackle
             } else if (player.frameDistance < Const.BALL_PREDICTION) {
-                if (ball.prediction[player.frameDistance].z > 0.6f * Const.PLAYER_H) {
-                    return fsm.stateHead;
-                } else if (ball.prediction[player.frameDistance].z < 6) {
+                if (ball.prediction[player.frameDistance].z > 18) {
+                    float angle = Emath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
+                    float angleDiff = Emath.angleDiff(angle, player.a);
+                    if (angleDiff < 90f) {
+                        return fsm.stateHead;
+                    }
+                }
+
+                if (ball.prediction[player.frameDistance].z < 6) {
                     if ((player.v > 0) && (player.ballDistance < 100)) {
-                        return fsm.stateTackle;
+                        float angle = Emath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
+                        float angleDiff = Emath.angleDiff(angle, player.a);
+                        if (angleDiff < 90f) {
+                            return fsm.stateTackle;
+                        }
                     }
                 }
             } else {

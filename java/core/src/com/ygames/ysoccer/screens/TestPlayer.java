@@ -220,10 +220,10 @@ class TestPlayer extends GLScreen {
         batch.begin();
         for (int j = 0; j < displayedRows; j++) {
             for (int i = 0; i < 8; i++) {
-                player.x = x0 + 24 + 50 * i;
-                player.y = y0 + 36 + 50 * j;
                 player.fmx = i;
                 player.fmy = j + fmy - cursorY;
+                player.x = x0 + 7 + 50 * i + PlayerSprite.offsets[(int) Math.abs(Math.floor(player.fmy))][Math.round(player.fmx)][0];
+                player.y = y0 + 10 + 50 * j + PlayerSprite.offsets[(int) Math.abs(Math.floor(player.fmy))][Math.round(player.fmx)][1];
                 player.save(0);
                 drawPlayerShadow();
                 playerSprite.draw(0);
@@ -252,8 +252,8 @@ class TestPlayer extends GLScreen {
         }
 
         // selected player (x2)
-        player.x = 570;
-        player.y = 60;
+        player.x = 572;
+        player.y = 120;
         player.fmx = (fmx + Emath.floor(fmx2 / 5f)) % 8;
         player.fmy = (fmy + Emath.floor(fmy2 / 5f)) % getPlayerRows();
         player.save(0);
@@ -270,29 +270,21 @@ class TestPlayer extends GLScreen {
         batch.setProjectionMatrix(camera.combined);
         batch.setColor(0xFFFFFF, 1f);
 
-        player.x = 285;
-        player.y = 70;
+        player.x = 286;
+        player.y = 130;
         player.save(0);
         batch.begin();
         drawPlayerShadow();
         playerSprite.draw(0);
         batch.end();
 
-        // selected player (x8)
-        camera.setToOrtho(true, game.gui.screenWidth / 8f, game.gui.screenHeight / 8f); // 160 x 90
-        camera.translate(-game.gui.originX / 8f, -game.gui.originY / 8f);
-        camera.update();
-
-        batch.setProjectionMatrix(camera.combined);
-        batch.setColor(0xFFFFFF, 1f);
-
-        player.x = 142;
-        player.y = 70;
-        player.save(0);
-        batch.begin();
-        drawPlayerShadow();
-        playerSprite.draw(0);
-        batch.end();
+        Data d = player.data[0];
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.setAutoShapeType(true);
+        shapeRenderer.begin();
+        shapeRenderer.line(d.x - 1, d.y, d.x + 1, d.y);
+        shapeRenderer.line(d.x, d.y - 1, d.x, d.y + 1);
+        shapeRenderer.end();
     }
 
     private void drawPlayerShadow() {
