@@ -3,8 +3,10 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 
@@ -16,12 +18,11 @@ class MatchStatePause extends MatchState {
 
     MatchStatePause(MatchFsm fsm) {
         super(STATE_PAUSE, fsm);
-
-        displayWindVane = true;
     }
 
     @Override
     void entryActions() {
+        useHoldStateDisplayFlags();
         keyPause = Gdx.input.isKeyPressed(Input.Keys.P);
         waitingNoPauseKey = true;
         resume = false;
@@ -68,6 +69,24 @@ class MatchStatePause extends MatchState {
     @Override
     void render() {
         super.render();
-        matchRenderer.batch.draw(Assets.pause, 34, 28);
+        Assets.font10.draw(matchRenderer.batch, gettext("PAUSE"), matchRenderer.guiWidth / 2, 22, Font.Align.CENTER);
+    }
+
+    private void useHoldStateDisplayFlags() {
+        MatchState holdState = match.fsm.getHoldState();
+
+        displayControlledPlayer = holdState.displayControlledPlayer;
+        displayBallOwner = holdState.displayBallOwner;
+        displayGoalScorer = holdState.displayGoalScorer;
+        displayTime = holdState.displayTime;
+        displayWindVane = holdState.displayWindVane;
+        displayRosters = holdState.displayRosters;
+        displayScore = holdState.displayScore;
+        displayPenaltiesScore = holdState.displayPenaltiesScore;
+        displayStatistics = holdState.displayStatistics;
+        displayRadar = holdState.displayRadar;
+        displayBenchPlayers = holdState.displayBenchPlayers;
+        displayBenchFormation = holdState.displayBenchFormation;
+        displayTacticsSwitch = holdState.displayTacticsSwitch;
     }
 }

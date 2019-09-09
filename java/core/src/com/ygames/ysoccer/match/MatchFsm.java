@@ -44,7 +44,7 @@ public class MatchFsm {
 
     private List<MatchState> states;
     private MatchState currentState;
-    private MatchState holdState;
+    MatchState holdState;
     BenchStatus benchStatus;
     Team throwInTeam;
     Team cornerKickTeam;
@@ -147,6 +147,10 @@ public class MatchFsm {
 
     public MatchState getState() {
         return currentState;
+    }
+
+    MatchState getHoldState() {
+        return holdState;
     }
 
     void addState(MatchState state) {

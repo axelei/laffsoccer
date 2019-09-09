@@ -154,6 +154,11 @@ public class MatchRenderer extends Renderer {
             batch.draw(Assets.wind[match.settings.wind.direction][match.settings.wind.speed - 1], guiWidth - 50, 20);
         }
 
+        // rosters
+        if (matchState.displayRosters) {
+            drawRosters();
+        }
+
         // score
         if (matchState.displayScore) {
             drawScore();

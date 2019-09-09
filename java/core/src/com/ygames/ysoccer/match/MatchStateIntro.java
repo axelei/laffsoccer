@@ -21,6 +21,8 @@ class MatchStateIntro extends MatchState {
 
     MatchStateIntro(MatchFsm fsm) {
         super(STATE_INTRO, fsm);
+
+        displayRosters = true;
     }
 
     @Override
@@ -88,11 +90,5 @@ class MatchStateIntro extends MatchState {
             fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
             return;
         }
-    }
-
-    @Override
-    void render() {
-        super.render();
-        matchRenderer.drawRosters();
     }
 }
