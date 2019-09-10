@@ -88,6 +88,7 @@ public class Const {
     static final int BENCH_Y_DOWN = 38;
 
     static final int PLAYER_H = 22;
+    static final int PLAYER_W = 14;
     static final int FIELD_XMIN = -565;
     static final int FIELD_XMAX = +572;
     static final int FIELD_YMIN = -700;

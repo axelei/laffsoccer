@@ -56,6 +56,9 @@ class MatchStateFreeKickStop extends MatchState {
         match.ball.updateZone(match.foul.position.x, match.foul.position.y, 0, 0);
         match.updateTeamTactics();
         match.foul.player.team.keepTargetDistanceFrom(match.foul.position);
+        if (match.foul.isDirectShot()) {
+            match.foul.player.team.setFreeKickBarrier();
+        }
         match.team[HOME].lineup.get(0).setTarget(0, match.team[HOME].side * (Const.GOAL_LINE - 8));
         match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));
 

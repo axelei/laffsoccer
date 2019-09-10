@@ -44,6 +44,13 @@ public class Emath {
         return d > 180 ? 360 - d : d;
     }
 
+    public static float signedAngleDiff(float a1, float a2) {
+        float an1 = (a1 + 360) % 360;
+        float an2 = (a2 + 360) % 360;
+        int sign = (an1 - an2 >= 0 && an1 - an2 <= 180) || (an1 - an2 <= -180 && an1 - an2 >= -360) ? 1 : -1;
+        return sign * angleDiff(an1, an2);
+    }
+
     public static int rotate(int value, int low, int high, int direction) {
         return ((value - low + (high - low + 1) + direction) % (high - low + 1)) + low;
     }

@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
 import static com.ygames.ysoccer.match.Player.Role.DEFENDER;
@@ -296,6 +298,57 @@ public class Team implements Json.Serializable {
                 vec.add(position);
                 player.setTarget(vec.x, vec.y);
             }
+        }
+    }
+
+    void setFreeKickBarrier() {
+        // angle to cover
+        float nearPostAngle = Emath.angle(match.foul.position.x, match.foul.position.y, Math.signum(match.foul.position.x) * POST_X, match.foul.player.team.side * GOAL_LINE);
+        float goalCenterAngle = Emath.angle(match.foul.position.x, match.foul.position.y, 0, match.foul.player.team.side * GOAL_LINE);
+        float angleToCover = Emath.signedAngleDiff(goalCenterAngle, nearPostAngle);
+
+        // angle step
+        Vector2 foulToGoal = new Vector2(0, match.foul.player.team.side * GOAL_LINE).sub(match.foul.position);
+        Vector2 foulToBarrier = new Vector2(foulToGoal).setLength(Const.FREE_KICK_DISTANCE + Const.PLAYER_W / 2f);
+        float angleStep = Emath.aTan2(Const.PLAYER_W, foulToBarrier.len()) * Math.signum(angleToCover);
+
+        // barrier size
+        int size = Math.round(angleToCover / angleStep);
+
+        float angle = nearPostAngle;
+        Vector2 barrierPosition = new Vector2();
+
+        ArrayList<Player> barrier = new ArrayList<>();
+        while (barrier.size() < size) {
+
+            // search nearest player among those beyond barrier position
+            float minDistance = 2 * Const.GOAL_LINE;
+            float goalToBarrierDistance = foulToGoal.len() - foulToBarrier.len();
+            Player nearest = null;
+            for (int i = 1; i < TEAM_SIZE; i++) {
+                Player player = lineup.get(i);
+                if (!barrier.contains(player)) {
+                    float goalDistance = Emath.dist(player.tx, player.ty, 0, player.team.side * GOAL_LINE);
+                    if ((goalDistance > goalToBarrierDistance) && (goalDistance < minDistance)) {
+                        nearest = player;
+                        minDistance = goalDistance;
+                    }
+                }
+            }
+
+            if (nearest != null) {
+                barrier.add(nearest);
+            } else {
+                break;
+            }
+        }
+
+        // set targets
+        for (Player player : barrier) {
+            foulToBarrier.setAngle(angle);
+            barrierPosition.set(match.foul.position).add(foulToBarrier);
+            player.setTarget(barrierPosition.x, barrierPosition.y);
+            angle += angleStep;
         }
     }
 

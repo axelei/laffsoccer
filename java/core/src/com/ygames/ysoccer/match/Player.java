@@ -326,14 +326,14 @@ public class Player implements Json.Serializable {
                     float ballVx = ball.v * Emath.cos(ballAxy);
                     float ballVy = ball.v * Emath.sin(ballAxy);
 
-                    ballVx = Math.signum(ballVx)
+                    ballVx = Math.signum(Emath.cos(a))
                             * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
                             + Math.min(100,v) * Emath.cos(a);
-                    ballVy = 0.25f * ballVy;
+                    ballVy = -0.25f * ballVy;
 
                     ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
                     ball.vz = 2 * vz;
-                    ball.a = (-Emath.aTan2(ballVy, ballVx))% 360;
+                    ball.a = Emath.aTan2(ballVy, ballVx);
                     ball.s = -ball.s;
 
                     ball.setOwner(this, false);
@@ -362,7 +362,7 @@ public class Player implements Json.Serializable {
                     ballVx = ball.v * Emath.cos(ballAxy);
                     ballVy = ball.v * Emath.sin(ballAxy);
 
-                    ballVx = Math.signum(ballVx)
+                    ballVx = Math.signum(Emath.cos(a))
                             * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
                             + Math.min(100,v) * Emath.cos(a);
                     ballVy = 0.7f * ballVy;
