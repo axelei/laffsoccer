@@ -7,6 +7,8 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import java.util.ArrayList;
+
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.PENALTY_SPOT_Y;
@@ -26,6 +28,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 class MatchStatePenaltyKickStop extends MatchState {
 
     private boolean allPlayersReachingTarget;
+    private ArrayList<Player> playersReachingTarget;
     private boolean move;
     private Vector2 penaltyKickPosition;
 
@@ -38,6 +41,7 @@ class MatchStatePenaltyKickStop extends MatchState {
         displayWindVane = true;
         displayRadar = true;
 
+        playersReachingTarget = new ArrayList<>();
         penaltyKickPosition = new Vector2();
     }
 
@@ -77,6 +81,9 @@ class MatchStatePenaltyKickStop extends MatchState {
         penaltyKickPosition.set(0, match.penalty.side * PENALTY_SPOT_Y);
 
         match.resetAutomaticInputDevices();
+
+        allPlayersReachingTarget = false;
+        playersReachingTarget.clear();
     }
 
     @Override
@@ -100,8 +107,9 @@ class MatchStatePenaltyKickStop extends MatchState {
                 // wait for tackle and down states to finish
                 if (player.checkState(STATE_TACKLE) || player.checkState(STATE_DOWN)) {
                     allPlayersReachingTarget = false;
-                } else {
+                } else if (!playersReachingTarget.contains(player)) {
                     player.setState(STATE_REACH_TARGET);
+                    playersReachingTarget.add(player);
                 }
             }
         }

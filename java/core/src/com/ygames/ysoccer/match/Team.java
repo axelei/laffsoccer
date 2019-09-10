@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
@@ -282,6 +283,19 @@ public class Team implements Json.Serializable {
 
             player.tx = -side * player.tx;
             player.ty = -side * (player.ty - 4);
+        }
+    }
+
+    void keepTargetDistanceFrom(Vector2 position) {
+        for (int i = 1; i < TEAM_SIZE; i++) {
+            Player player = lineup.get(i);
+            Vector2 vec = new Vector2(player.tx, player.ty);
+            vec.sub(position);
+            if (vec.len() < Const.FREE_KICK_DISTANCE) {
+                vec.setLength(Const.FREE_KICK_DISTANCE);
+                vec.add(position);
+                player.setTarget(vec.x, vec.y);
+            }
         }
     }
 

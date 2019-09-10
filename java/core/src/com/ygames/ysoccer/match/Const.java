@@ -74,6 +74,9 @@ public class Const {
     static final int PENALTY_AREA_W = 572;
     static final int PENALTY_AREA_H = 174;
     static final int PENALTY_SPOT_Y = 524;
+    static final float PENALTY_DISTANCE = GOAL_LINE - PENALTY_SPOT_Y;
+    static final float YARD = PENALTY_DISTANCE / 12f;
+    static final float FREE_KICK_DISTANCE = 10f * YARD;
 
     // goals
     static final int GOAL_BTM_X = -72;

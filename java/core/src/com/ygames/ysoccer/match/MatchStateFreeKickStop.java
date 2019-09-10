@@ -55,6 +55,7 @@ class MatchStateFreeKickStop extends MatchState {
         // even before moving the ball itself
         match.ball.updateZone(match.foul.position.x, match.foul.position.y, 0, 0);
         match.updateTeamTactics();
+        match.foul.player.team.keepTargetDistanceFrom(match.foul.position);
         match.team[HOME].lineup.get(0).setTarget(0, match.team[HOME].side * (Const.GOAL_LINE - 8));
         match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));
 
@@ -90,7 +91,7 @@ class MatchStateFreeKickStop extends MatchState {
                         // wait for tackle and down states to finish
                         if (player.checkState(STATE_TACKLE) || player.checkState(STATE_DOWN)) {
                             allPlayersReachingTarget = false;
-                        } else if (!playersReachingTarget.contains(player)){
+                        } else if (!playersReachingTarget.contains(player)) {
                             player.setState(STATE_REACH_TARGET);
                             playersReachingTarget.add(player);
                         }
@@ -102,7 +103,6 @@ class MatchStateFreeKickStop extends MatchState {
             match.ball.inFieldKeep();
 
             match.updatePlayers(true);
-            match.updateTeamTactics();
 
             match.nextSubframe();
 
