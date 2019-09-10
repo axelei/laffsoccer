@@ -98,21 +98,22 @@ class AiStateFreeKicking extends AiState {
         switch (step) {
             case TURNING:
                 if (timer > 20) {
-                    if (Math.abs(targetAngle - player.a) > 3) {
-                        kickSpin = Math.signum(targetAngle - player.a);
-                    } else {
-                        kickSpin = 0;
-                    }
                     ai.x0 = Math.round(Emath.cos(targetAngle));
                     ai.y0 = Math.round(Emath.sin(targetAngle));
-                    Gdx.app.debug(player.shirtName, "angle: " + player.a + ", targetAngle: " + targetAngle);
                     step = Step.WAITING;
                     timer = 0;
                 }
                 break;
 
             case WAITING:
-                if (timer > 20) {
+                if (timer > 30) {
+                    float signedAngleDiff = Emath.signedAngleDiff(targetAngle, player.a);
+                    if (Math.abs(signedAngleDiff) > 3) {
+                        kickSpin = Math.signum(signedAngleDiff);
+                    } else {
+                        kickSpin = 0;
+                    }
+                    Gdx.app.debug(player.shirtName, "angle: " + player.a + ", targetAngle: " + targetAngle + " signedAngleDiff: " + signedAngleDiff + " kickSpin: " + kickSpin);
                     step = Step.KICKING;
                     timer = 0;
                 }
@@ -124,7 +125,6 @@ class AiStateFreeKicking extends AiState {
                         ai.x0 = Math.round(Emath.cos(player.a));
                         ai.y0 = Math.round(Emath.sin(player.a));
                         if (kickSpin != 0 && player.getState().checkId(STATE_FREE_KICK_SPEED)) {
-                            Gdx.app.debug(player.shirtName, "Adding spin: " + kickSpin);
                             ai.x0 = Math.round(Emath.cos(player.a + kickSpin * 45));
                             ai.y0 = Math.round(Emath.sin(player.a + kickSpin * 45));
                         }
@@ -134,7 +134,6 @@ class AiStateFreeKicking extends AiState {
                         ai.x0 = 0;
                         ai.y0 = 0;
                         if (kickSpin != 0 && player.getState().checkId(STATE_FREE_KICK_SPEED)) {
-                            Gdx.app.debug(player.shirtName, "Adding spin: " + kickSpin);
                             ai.x0 = Math.round(Emath.cos(player.a + kickSpin * 90));
                             ai.y0 = Math.round(Emath.sin(player.a + kickSpin * 90));
                         }
@@ -144,7 +143,6 @@ class AiStateFreeKicking extends AiState {
                         ai.x0 = Math.round(Emath.cos(player.a + 180));
                         ai.y0 = Math.round(Emath.sin(player.a + 180));
                         if (kickSpin != 0 && player.getState().checkId(STATE_FREE_KICK_SPEED)) {
-                            Gdx.app.debug(player.shirtName, "Adding spin: " + kickSpin);
                             ai.x0 = Math.round(Emath.cos(player.a + 180 - kickSpin * 45));
                             ai.y0 = Math.round(Emath.sin(player.a + 180 - kickSpin * 45));
                         }

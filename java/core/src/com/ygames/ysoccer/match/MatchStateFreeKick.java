@@ -10,6 +10,7 @@ import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
@@ -18,6 +19,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BARRIER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -25,6 +27,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 class MatchStateFreeKick extends MatchState {
 
     private Player freeKickPlayer;
+    private Team freeKickTeam;
+    private Team defendingTeam;
     private boolean isKicking;
 
     MatchStateFreeKick(MatchFsm fsm) {
@@ -42,7 +46,7 @@ class MatchStateFreeKick extends MatchState {
     void onResume() {
         super.onResume();
 
-        Team freeKickTeam = match.foul.opponent.team;
+        freeKickTeam = match.foul.opponent.team;
 
         matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -80 * freeKickTeam.side);
         matchRenderer.actionCamera.setSpeedMode(FAST);
@@ -57,6 +61,13 @@ class MatchStateFreeKick extends MatchState {
         freeKickPlayer.tx = match.ball.x - 7 * freeKickTeam.side + 1;
         freeKickPlayer.ty = match.ball.y + 1;
         freeKickPlayer.setState(STATE_REACH_TARGET);
+
+        defendingTeam = match.foul.player.team;
+        for (Player ply : defendingTeam.lineup) {
+            if (defendingTeam.barrier.contains(ply)) {
+                ply.setState(STATE_BARRIER);
+            }
+        }
     }
 
     @Override
@@ -102,7 +113,14 @@ class MatchStateFreeKick extends MatchState {
     @Override
     void checkConditions() {
         if (match.ball.v > 0) {
-            match.setPlayersState(STATE_STAND_RUN, freeKickPlayer);
+            freeKickTeam.setPlayersState(STATE_STAND_RUN, freeKickPlayer);
+            for (int i = 0; i < TEAM_SIZE; i++) {
+                Player player = defendingTeam.lineup.get(i);
+                if (!defendingTeam.barrier.contains(player)) {
+                    player.setState(STATE_STAND_RUN);
+                }
+            }
+
             match.foul = null;
             fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
             return;

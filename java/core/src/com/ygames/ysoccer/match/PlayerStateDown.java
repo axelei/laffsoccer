@@ -17,7 +17,7 @@ class PlayerStateDown extends PlayerState {
 
     @Override
     PlayerState checkConditions() {
-        if (timer > 3f * Const.SECOND) {
+        if (timer > 1.5f * Const.SECOND) {
             return fsm.stateStandRun;
         }
         return null;

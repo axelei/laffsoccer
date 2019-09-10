@@ -14,7 +14,7 @@ class PlayerStateReachTarget extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        player.v = 170 + Emath.rand(0, 30);
+        player.v = 180 + Emath.rand(0, 20);
     }
 
     @Override

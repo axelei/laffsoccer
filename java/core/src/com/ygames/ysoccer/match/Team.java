@@ -67,6 +67,7 @@ public class Team implements Json.Serializable {
     public List<Player> lineup;
     public int substitutionsCount;
     int kickerIndex;
+    ArrayList<Player> barrier;
 
     private static Map<Player.Role, Player.Role[]> substitutionRules;
 
@@ -192,6 +193,7 @@ public class Team implements Json.Serializable {
         }
         substitutionsCount = 0;
         kickerIndex = TEAM_SIZE - 1;
+        barrier = new ArrayList<>();
     }
 
     void beforeTraining(Training training) {
@@ -302,23 +304,24 @@ public class Team implements Json.Serializable {
     }
 
     void setFreeKickBarrier() {
+        barrier.clear();
+
         // angle to cover
-        float nearPostAngle = Emath.angle(match.foul.position.x, match.foul.position.y, Math.signum(match.foul.position.x) * POST_X, match.foul.player.team.side * GOAL_LINE);
-        float goalCenterAngle = Emath.angle(match.foul.position.x, match.foul.position.y, 0, match.foul.player.team.side * GOAL_LINE);
+        float nearPostAngle = Emath.angle(match.foul.position.x, match.foul.position.y, Math.signum(match.foul.position.x) * POST_X, side * GOAL_LINE);
+        float goalCenterAngle = Emath.angle(match.foul.position.x, match.foul.position.y, 0, side * GOAL_LINE);
         float angleToCover = Emath.signedAngleDiff(goalCenterAngle, nearPostAngle);
 
         // angle step
-        Vector2 foulToGoal = new Vector2(0, match.foul.player.team.side * GOAL_LINE).sub(match.foul.position);
+        Vector2 foulToGoal = new Vector2(0, side * GOAL_LINE).sub(match.foul.position);
         Vector2 foulToBarrier = new Vector2(foulToGoal).setLength(Const.FREE_KICK_DISTANCE + Const.PLAYER_W / 2f);
         float angleStep = Emath.aTan2(Const.PLAYER_W, foulToBarrier.len()) * Math.signum(angleToCover);
 
         // barrier size
-        int size = Math.round(angleToCover / angleStep);
+        int size = Emath.ceil(angleToCover / angleStep);
 
         float angle = nearPostAngle;
         Vector2 barrierPosition = new Vector2();
 
-        ArrayList<Player> barrier = new ArrayList<>();
         while (barrier.size() < size) {
 
             // search nearest player among those beyond barrier position

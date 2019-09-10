@@ -76,6 +76,10 @@ public class Emath {
         return (int) Math.floor(value);
     }
 
+    public static int ceil(float v) {
+        return 1 + floor(v);
+    }
+
     // random integer between min and max (included)
     public static int rand(int min, int max) {
         return min + Assets.random.nextInt(max + 1 - min);

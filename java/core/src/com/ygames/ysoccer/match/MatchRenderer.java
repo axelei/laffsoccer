@@ -308,7 +308,7 @@ public class MatchRenderer extends Renderer {
 
     void drawRosters() {
 
-        int l = 13 + (guiWidth - 640) / 5 + 2;
+        int l = 13 + (guiWidth - 360) / 5 + 2;
         int r = guiWidth - l + 2;
         int w = r - l;
         int t = guiHeight / 2 - 270 + 2;

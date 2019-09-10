@@ -24,6 +24,7 @@ class PlayerFsm extends Fsm {
         STATE_CORNER_KICK_SPEED,
         STATE_FREE_KICK_ANGLE,
         STATE_FREE_KICK_SPEED,
+        STATE_BARRIER,
         STATE_PENALTY_KICK_ANGLE,
         STATE_PENALTY_KICK_SPEED,
         STATE_GOAL_SCORER,
@@ -43,42 +44,43 @@ class PlayerFsm extends Fsm {
 
     protected Player player;
 
-    PlayerStateIdle stateIdle;
-    PlayerStateOutside stateOutSide;
-    PlayerStateBenchSitting stateBenchSitting;
-    PlayerStateBenchStanding stateBenchStanding;
-    PlayerStateBenchOut stateBenchOut;
+    PlayerState stateIdle;
+    PlayerState stateOutSide;
+    PlayerState stateBenchSitting;
+    PlayerState stateBenchStanding;
+    PlayerState stateBenchOut;
 
-    PlayerStatePhoto statePhoto;
-    PlayerStateStandRun stateStandRun;
-    PlayerStateKick stateKick;
-    PlayerStateHead stateHead;
-    PlayerStateTackle stateTackle;
-    PlayerStateDown stateDown;
-    PlayerStateReachTarget stateReachTarget;
-    PlayerStateKickOff stateKickOff;
-    PlayerStateGoalKick stateGoalKick;
-    PlayerStateThrowInAngle stateThrowInAngle;
-    PlayerStateThrowInSpeed stateThrowInSpeed;
-    PlayerStateCornerKickAngle stateCornerKickAngle;
-    PlayerStateCornerKickSpeed stateCornerKickSpeed;
-    PlayerStateFreeKickAngle stateFreeKickAngle;
-    PlayerStateFreeKickSpeed stateFreeKickSpeed;
-    PlayerStatePenaltyKickAngle statePenaltyKickAngle;
-    PlayerStatePenaltyKickSpeed statePenaltyKickSpeed;
-    PlayerStateGoalScorer stateGoalScorer;
-    PlayerStateGoalMate stateGoalMate;
-    PlayerStateOwnGoalScorer stateOwnGoalScorer;
-    PlayerStateKeeperKickAngle stateKeeperKickAngle;
+    PlayerState statePhoto;
+    PlayerState stateStandRun;
+    PlayerState stateKick;
+    PlayerState stateHead;
+    PlayerState stateTackle;
+    PlayerState stateDown;
+    PlayerState stateReachTarget;
+    PlayerState stateKickOff;
+    PlayerState stateGoalKick;
+    PlayerState stateThrowInAngle;
+    PlayerState stateThrowInSpeed;
+    PlayerState stateCornerKickAngle;
+    PlayerState stateCornerKickSpeed;
+    PlayerState stateFreeKickAngle;
+    PlayerState stateFreeKickSpeed;
+    PlayerState stateBarrier;
+    PlayerState statePenaltyKickAngle;
+    PlayerState statePenaltyKickSpeed;
+    PlayerState stateGoalScorer;
+    PlayerState stateGoalMate;
+    PlayerState stateOwnGoalScorer;
+    PlayerState stateKeeperKickAngle;
 
-    PlayerStateKeeperPositioning stateKeeperPositioning;
-    PlayerStateKeeperDivingLowSingle stateKeeperDivingLowSingle;
-    PlayerStateKeeperDivingLowDouble stateKeeperDivingLowDouble;
-    PlayerStateKeeperDivingMiddleOne stateKeeperDivingMiddleOne;
-    PlayerStateKeeperDivingMiddleTwo stateKeeperDivingMiddleTwo;
-    PlayerStateKeeperDivingHighOne stateKeeperDivingHighOne;
-    PlayerStateKeeperCatchingHigh stateKeeperCatchingHigh;
-    PlayerStateKeeperCatchingLow stateKeeperCatchingLow;
+    PlayerState stateKeeperPositioning;
+    PlayerState stateKeeperDivingLowSingle;
+    PlayerState stateKeeperDivingLowDouble;
+    PlayerState stateKeeperDivingMiddleOne;
+    PlayerState stateKeeperDivingMiddleTwo;
+    PlayerState stateKeeperDivingHighOne;
+    PlayerState stateKeeperCatchingHigh;
+    PlayerState stateKeeperCatchingLow;
 
     public PlayerFsm(Player player) {
         this.player = player;
@@ -103,6 +105,7 @@ class PlayerFsm extends Fsm {
         stateCornerKickSpeed = new PlayerStateCornerKickSpeed(this);
         stateFreeKickAngle = new PlayerStateFreeKickAngle(this);
         stateFreeKickSpeed = new PlayerStateFreeKickSpeed(this);
+        stateBarrier = new PlayerStateBarrier(this);
         statePenaltyKickAngle = new PlayerStatePenaltyKickAngle(this);
         statePenaltyKickSpeed = new PlayerStatePenaltyKickSpeed(this);
         stateGoalScorer = new PlayerStateGoalScorer(this);
