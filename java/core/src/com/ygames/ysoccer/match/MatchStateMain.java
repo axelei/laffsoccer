@@ -102,6 +102,7 @@ class MatchStateMain extends MatchState {
             match.ball.collisionFlagposts();
 
             if (match.ball.collisionGoal()) {
+                match.stats[attackingTeam].overallShots += 1;
                 match.stats[attackingTeam].centeredShots += 1;
             }
 
@@ -111,6 +112,7 @@ class MatchStateMain extends MatchState {
                 if (Emath.isIn(match.ball.x, -Const.POST_X, Const.POST_X)
                         && (match.ball.z <= Const.CROSSBAR_H)) {
                     match.stats[attackingTeam].goals += 1;
+                    match.stats[attackingTeam].overallShots += 1;
                     match.stats[attackingTeam].centeredShots += 1;
                     match.addGoal(attackingTeam);
 
@@ -123,6 +125,9 @@ class MatchStateMain extends MatchState {
                         fsm.cornerKickTeam = match.team[1 - match.ball.ownerLast.team.index];
                         return;
                     } else {
+                        if (Emath.isIn(match.ball.x, -Const.GOAL_AREA_W / 2f, Const.GOAL_AREA_W / 2f)) {
+                            match.stats[attackingTeam].overallShots += 1;
+                        }
                         event = Event.GOAL_KICK;
                         fsm.goalKickTeam = match.team[1 - match.ball.ownerLast.team.index];
                         return;
@@ -152,10 +157,10 @@ class MatchStateMain extends MatchState {
                             Player opponent = opponentTeam.searchPlayerNearTo(player, 8);
 
                             if (opponent != null && !opponent.checkState(STATE_DOWN)) {
-                                float strength = (4f + player.v/260f) / 5f;
+                                float strength = (4f + player.v / 260f) / 5f;
                                 float angleDiff = Emath.angleDiff(player.a, opponent.a);
                                 match.newTackle(player, opponent, strength, angleDiff);
-                                Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at speed: " + player.v + " (strenght = " + strength + ") and angle: " + angleDiff );
+                                Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at speed: " + player.v + " (strenght = " + strength + ") and angle: " + angleDiff);
                             }
                         }
                     }

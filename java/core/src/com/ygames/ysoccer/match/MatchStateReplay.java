@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
+import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
@@ -34,10 +35,9 @@ class MatchStateReplay extends MatchState {
 
     @Override
     void entryActions() {
+        super.entryActions();
 
         subframe0 = match.subframe;
-
-        match.subframe = (subframe0 + 1) % Const.REPLAY_SUBFRAMES;
 
         paused = false;
         slowMotion = false;
@@ -46,7 +46,7 @@ class MatchStateReplay extends MatchState {
         keySlow = Gdx.input.isKeyPressed(Input.Keys.R);
         keyPause = Gdx.input.isKeyPressed(Input.Keys.P);
 
-        // position of current frame inside the replay vector
+        // position of current frame in the replay vector
         position = 0;
 
         inputDevice = null;
@@ -93,11 +93,7 @@ class MatchStateReplay extends MatchState {
 
         // set position
         if (!paused) {
-            position += speed;
-
-            // limits
-            position = Math.max(position, 1);
-            position = Math.min(position, Const.REPLAY_SUBFRAMES);
+            position = Emath.slide(position, 1, Const.REPLAY_SUBFRAMES, speed);
 
             match.subframe = (subframe0 + position) % Const.REPLAY_SUBFRAMES;
         }
@@ -106,7 +102,7 @@ class MatchStateReplay extends MatchState {
     @Override
     void checkConditions() {
 
-        // quit on 'ESC'
+        // quit on ESC
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quit();
             return;

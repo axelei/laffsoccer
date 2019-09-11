@@ -19,6 +19,14 @@ class Recorder {
         this.match = match;
     }
 
+    int getCurrent() {
+        return current;
+    }
+
+    int getRecorded() {
+        return Math.min(recorded, MAX_RECORDS);
+    }
+
     void saveHighlight(MatchRenderer matchRenderer) {
 
         // if more then MAX_RECORDS the oldest ones are overwritten

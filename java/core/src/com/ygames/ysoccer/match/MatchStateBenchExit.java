@@ -22,6 +22,7 @@ class MatchStateBenchExit extends MatchState {
 
     @Override
     void entryActions() {
+        super.entryActions();
 
         Coach coach = fsm.benchStatus.team.coach;
         coach.status = Coach.Status.BENCH;

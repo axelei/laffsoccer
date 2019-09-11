@@ -22,6 +22,8 @@ class MatchStatePause extends MatchState {
 
     @Override
     void entryActions() {
+        super.entryActions();
+
         useHoldStateDisplayFlags();
         keyPause = Gdx.input.isKeyPressed(Input.Keys.P);
         waitingNoPauseKey = true;
