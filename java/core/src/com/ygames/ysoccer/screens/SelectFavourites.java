@@ -5,6 +5,7 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -94,6 +95,11 @@ class SelectFavourites extends GLScreen {
             Collections.sort(teamButtons, widgetComparatorByText);
             Widget.arrange(game.gui.WIDTH, 392, 29, 20, teamButtons);
             setSelectedWidget(teamButtons.get(0));
+
+            for (Widget teamButton : teamButtons) {
+                w = new FavouriteFolderButton(teamButton);
+                widgets.add(w);
+            }
         }
 
         w = new PlayButton();
@@ -290,6 +296,24 @@ class SelectFavourites extends GLScreen {
                     setColors(0x009BDC, 0x19BBFF, 0x0071A0);
                     break;
             }
+        }
+    }
+
+    private class FavouriteFolderButton extends Button {
+
+        private TeamButton teamButton;
+
+        FavouriteFolderButton(Widget teamButton) {
+            this.teamButton = (TeamButton) teamButton;
+            setGeometry(teamButton.x + teamButton.w, teamButton.y, 26, 28);
+            setText("" + (char) 20, Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            navigation.folder = Assets.teamsRootFolder.child(teamButton.team.path).parent();
+            navigation.league = teamButton.team.league;
+            game.setScreen(new SelectTeams(game));
         }
     }
 
