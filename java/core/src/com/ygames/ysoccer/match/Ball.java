@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
@@ -12,6 +13,7 @@ class Ball {
     float x;
     float y;
     float z;
+    float zMax;
     float x0;
     float y0;
     float z0;
@@ -161,6 +163,10 @@ class Ball {
                 vz *= -Const.BOUNCE * matchSettings.grass.bounce;
             }
             bouncing_speed = vz;
+        }
+
+        if(z > zMax) {
+            zMax = z;
         }
 
         if (vz > vzMax) {

@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -16,12 +17,13 @@ class AiStateFreeKicking extends AiState {
 
     private float targetDistance;
     private float targetAngle;
+    private int preparingTime;
     private float kickDuration;
     private float kickSpin;
 
     enum Step {
         TURNING,
-        WAITING,
+        PREPARING,
         KICKING
     }
 
@@ -42,6 +44,7 @@ class AiStateFreeKicking extends AiState {
     @Override
     void entryActions() {
         step = Step.TURNING;
+        boolean playerHasShootingConfidence = (Assets.random.nextFloat() < (0.13f * player.skills.shooting));
 
         // CASE A: CLEAN AREA
         if (player.match.foul.isNearOwnGoal()) {
@@ -50,9 +53,8 @@ class AiStateFreeKicking extends AiState {
             Gdx.app.debug(player.shirtName, "Cleaning area");
         }
 
-
         // CASE B: DIRECT SHOT
-        else if (player.match.foul.isDirectShot()) {
+        else if (player.match.foul.isDirectShot() && playerHasShootingConfidence) {
             setGoalTarget();
             Gdx.app.debug(player.shirtName, "Kicking to goal");
         } else {
@@ -78,12 +80,15 @@ class AiStateFreeKicking extends AiState {
         if (targetDistance <= 250) {
             kickType = KickType.SHORT;
             kickDuration = (250 + targetDistance) / 10000 * GLGame.VIRTUAL_REFRESH_RATE;
+            preparingTime = 20;
         } else if (targetDistance < 500) {
             kickType = KickType.MEDIUM;
             kickDuration = (100 + targetDistance) / 10000 * GLGame.VIRTUAL_REFRESH_RATE;
+            preparingTime = 30;
         } else {
             kickType = KickType.LONG;
             kickDuration = targetDistance / 30000 * GLGame.VIRTUAL_REFRESH_RATE;
+            preparingTime = 40;
         }
         Gdx.app.debug(player.shirtName,
                 "Kicking type: " + kickType +
@@ -97,16 +102,16 @@ class AiStateFreeKicking extends AiState {
 
         switch (step) {
             case TURNING:
-                if (timer > 20) {
+                if (timer > 10) {
                     ai.x0 = Math.round(Emath.cos(targetAngle));
                     ai.y0 = Math.round(Emath.sin(targetAngle));
-                    step = Step.WAITING;
+                    step = Step.PREPARING;
                     timer = 0;
                 }
                 break;
 
-            case WAITING:
-                if (timer > 30) {
+            case PREPARING:
+                if (timer > preparingTime) {
                     float signedAngleDiff = Emath.signedAngleDiff(targetAngle, player.a);
                     if (Math.abs(signedAngleDiff) > 3) {
                         kickSpin = Math.signum(signedAngleDiff);

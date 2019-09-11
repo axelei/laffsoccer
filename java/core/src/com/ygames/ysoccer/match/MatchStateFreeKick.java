@@ -4,12 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
+import com.ygames.ysoccer.math.Emath;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -47,6 +49,7 @@ class MatchStateFreeKick extends MatchState {
         super.onResume();
 
         freeKickTeam = match.foul.opponent.team;
+        defendingTeam = match.foul.player.team;
 
         matchRenderer.actionCamera.setOffset(-30 * match.ball.xSide, -80 * freeKickTeam.side);
         matchRenderer.actionCamera.setSpeedMode(FAST);
@@ -58,11 +61,11 @@ class MatchStateFreeKick extends MatchState {
         freeKickTeam.findNearest();
         freeKickPlayer = freeKickTeam.near1;
 
-        freeKickPlayer.tx = match.ball.x - 7 * freeKickTeam.side + 1;
-        freeKickPlayer.ty = match.ball.y + 1;
+        float ballToGoal = Emath.roundBy(Emath.angle(match.ball.x, match.ball.y, 0, defendingTeam.side * GOAL_LINE), 45f);
+        freeKickPlayer.tx = match.ball.x - 7 * Emath.cos(ballToGoal);
+        freeKickPlayer.ty = match.ball.y - 7 * Emath.sin(ballToGoal);
         freeKickPlayer.setState(STATE_REACH_TARGET);
 
-        defendingTeam = match.foul.player.team;
         for (Player ply : defendingTeam.lineup) {
             if (defendingTeam.barrier.contains(ply)) {
                 ply.setState(STATE_BARRIER);

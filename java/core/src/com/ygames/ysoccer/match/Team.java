@@ -170,7 +170,7 @@ public class Team implements Json.Serializable {
         Player player = new Player();
         player.name = "";
         player.shirtName = "";
-        player.nationality = country;
+        player.nationality = "";
         player.role = GOALKEEPER;
         rotatePlayerNumber(player, 1);
         player.skinColor = Skin.Color.PINK;
@@ -340,6 +340,7 @@ public class Team implements Json.Serializable {
             }
 
             if (nearest != null) {
+                Gdx.app.debug(nearest.shirtName, "added to barrier");
                 barrier.add(nearest);
             } else {
                 break;
