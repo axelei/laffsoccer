@@ -7,8 +7,13 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 
 class MatchStatePause extends MatchState {
 
@@ -59,6 +64,14 @@ class MatchStatePause extends MatchState {
                 fsm.pushAction(RESTORE_FOREGROUND);
                 return;
             }
+        }
+
+        // hand over to replay
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+            fsm.pushAction(FADE_OUT);
+            fsm.pushAction(NEW_FOREGROUND, STATE_REPLAY);
+            fsm.pushAction(FADE_IN);
+            return;
         }
 
         // resume on 'Esc'
