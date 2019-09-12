@@ -30,6 +30,9 @@ class ActionCamera {
     float x; // position
     float y;
 
+    private float dx;
+    private float dy;
+
     private float vx; // speed
     private float vy;
 
@@ -78,6 +81,8 @@ class ActionCamera {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
         this.zoom = zoom;
+        dx = CENTER_X - screenWidth / (2 * zoom / 100.0f);
+        dy = CENTER_Y - screenHeight / (2 * zoom / 100.0f);
     }
 
     void update(Mode mode) {
@@ -117,12 +122,12 @@ class ActionCamera {
                 y = y + vy / SECOND;
 
                 // near the point "ball+offset"
-                if (Math.abs(ball.x + offsetX - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f))) >= 10) {
-                    float f = ball.x + offsetX - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f));
+                if (Math.abs(ball.x + offsetX - (x - dx)) >= 10) {
+                    float f = ball.x + offsetX - (x - dx);
                     x = x + (10.0f / SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
-                if (Math.abs(ball.y + offsetY - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f))) >= 10) {
-                    float f = ball.y + offsetY - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f));
+                if (Math.abs(ball.y + offsetY - (y - dy)) >= 10) {
+                    float f = ball.y + offsetY - (y - dy);
                     y = y + (10.0f / SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;
@@ -130,13 +135,13 @@ class ActionCamera {
             case REACH_TARGET:
                 x = x + (10.0f / SECOND)
                         * (1 + speedMode.ordinal())
-                        * Math.signum(target.x - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f)))
-                        * (float) Math.sqrt(Math.abs(target.x - (x - CENTER_X + screenWidth / (2 * zoom / 100.0f))));
+                        * Math.signum(target.x - (x - dx))
+                        * (float) Math.sqrt(Math.abs(target.x - (x - dx)));
                 y = y
                         + (10.0f / SECOND)
                         * (1 + speedMode.ordinal())
-                        * Math.signum(target.y - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f)))
-                        * (float) Math.sqrt(Math.abs(target.y - (y - CENTER_Y + screenHeight / (2 * zoom / 100.0f))));
+                        * Math.signum(target.y - (y - dy))
+                        * (float) Math.sqrt(Math.abs(target.y - (y - dy)));
                 break;
         }
 
