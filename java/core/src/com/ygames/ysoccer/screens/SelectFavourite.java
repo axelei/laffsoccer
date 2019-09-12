@@ -2,7 +2,6 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -12,9 +11,10 @@ import com.ygames.ysoccer.match.Team;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.ygames.ysoccer.framework.Assets.favourites;
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.framework.Assets.saveFavourites;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.framework.GLGame.State.EDIT;
 
 class SelectFavourite extends GLScreen {
@@ -31,7 +31,7 @@ class SelectFavourite extends GLScreen {
 
         ArrayList<Widget> teamButtons = new ArrayList<>();
 
-        for (String teamPath : favourites) {
+        for (String teamPath : Assets.favourites) {
             FileHandle file = Assets.teamsRootFolder.child(teamPath);
             if (file.exists()) {
                 Team team = Assets.json.fromJson(Team.class, file.readString("UTF-8"));
@@ -47,11 +47,9 @@ class SelectFavourite extends GLScreen {
             Widget.arrange(game.gui.WIDTH, 380, 30, game.getState() == EDIT ? 40 : 20, teamButtons);
             setSelectedWidget(teamButtons.get(0));
 
-            if (game.getState() == EDIT) {
-                for (Widget teamButton : teamButtons) {
-                    w = new FavouriteToggleButton(teamButton);
-                    widgets.add(w);
-                }
+            for (Widget teamButton : teamButtons) {
+                w = new FavouriteFolderButton(teamButton);
+                widgets.add(w);
             }
         }
 
@@ -97,7 +95,7 @@ class SelectFavourite extends GLScreen {
         BreadCrumbRootButton() {
             setSize(0, 32);
             setColors(game.stateColor);
-            setText("" + (char) 20, Font.Align.CENTER, Assets.font10);
+            setText("" + (char) 20, CENTER, font10);
             autoWidth();
         }
 
@@ -115,7 +113,7 @@ class SelectFavourite extends GLScreen {
             setSize(0, 32);
             setColors(game.stateColor.darker());
             setActive(false);
-            setText(gettext("FAVOURITES"), Font.Align.CENTER, Assets.font10);
+            setText(gettext("FAVOURITES"), CENTER, font10);
             autoWidth();
         }
     }
@@ -131,7 +129,7 @@ class SelectFavourite extends GLScreen {
             setSize(382, 28);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
             String mainFolder = Assets.getTeamFirstFolder(folder).name();
-            setText(team.name + ", " + mainFolder, Font.Align.CENTER, Assets.font14);
+            setText(team.name + ", " + mainFolder, CENTER, font14);
         }
 
         @Override
@@ -151,34 +149,21 @@ class SelectFavourite extends GLScreen {
         }
     }
 
-    private class FavouriteToggleButton extends Button {
+    private class FavouriteFolderButton extends Button {
 
-        private Team team;
-        private boolean isFavourite;
+        private TeamButton teamButton;
 
-        FavouriteToggleButton(Widget teamButton) {
-            this.team = ((TeamButton) teamButton).team;
-            setGeometry(teamButton.x - 26, teamButton.y, 26, 28);
-            setText("", Font.Align.CENTER, Assets.font14);
-            isFavourite = favourites.contains(team.path);
-        }
-
-        @Override
-        public void refresh() {
-            setText(isFavourite ? "" + (char) 22 : "" + (char) 23);
+        FavouriteFolderButton(Widget teamButton) {
+            this.teamButton = (TeamButton) teamButton;
+            setGeometry(teamButton.x + teamButton.w, teamButton.y, 26, 28);
+            setText("" + (char) 20, CENTER, font14);
         }
 
         @Override
         public void onFire1Down() {
-            if (favourites.contains(team.path)) {
-                favourites.remove(team.path);
-                isFavourite = false;
-            } else {
-                favourites.add(team.path);
-                isFavourite = true;
-            }
-            saveFavourites();
-            setDirty(true);
+            navigation.folder = Assets.teamsRootFolder.child(teamButton.team.path).parent();
+            navigation.league = teamButton.team.league;
+            game.setScreen(new SelectTeam(game));
         }
     }
 
@@ -187,7 +172,7 @@ class SelectFavourite extends GLScreen {
         AbortButton() {
             setColors(0xC8000E);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(gettext("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), CENTER, font14);
         }
 
         @Override

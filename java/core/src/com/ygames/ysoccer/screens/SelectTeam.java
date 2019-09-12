@@ -2,7 +2,6 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -15,8 +14,12 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.ygames.ysoccer.framework.Assets.favourites;
+import static com.ygames.ysoccer.framework.Assets.font10;
+import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.framework.Assets.saveFavourites;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.Font.Align.LEFT;
 import static com.ygames.ysoccer.framework.GLGame.State.EDIT;
 import static com.ygames.ysoccer.match.Team.Type.CLUB;
 
@@ -162,7 +165,7 @@ class SelectTeam extends GLScreen {
             setSize(0, 32);
             setColors(game.stateColor.darker());
             setActive(false);
-            setText(navigation.league, Font.Align.CENTER, Assets.font10);
+            setText(navigation.league, CENTER, font10);
             autoWidth();
         }
     }
@@ -180,7 +183,7 @@ class SelectTeam extends GLScreen {
             } else {
                 setColors(game.stateColor);
             }
-            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), Font.Align.CENTER, Assets.font10);
+            setText(isDataRoot ? "" + (char) 20 : folder.name().replace('_', ' '), CENTER, font10);
             autoWidth();
         }
 
@@ -202,7 +205,7 @@ class SelectTeam extends GLScreen {
         LeagueButton(String name) {
             setSize(300, 32);
             setColors(0x1B4D85);
-            setText(name, Font.Align.CENTER, Assets.font14);
+            setText(name, CENTER, font14);
         }
 
         @Override
@@ -220,7 +223,7 @@ class SelectTeam extends GLScreen {
             this.team = team;
             setSize(270, 28);
             setColors(0x98691E, 0xC88B28, 0x3E2600);
-            setText(team.name, Font.Align.CENTER, Assets.font14);
+            setText(team.name, CENTER, font14);
         }
 
         @Override
@@ -245,8 +248,8 @@ class SelectTeam extends GLScreen {
 
         FavouriteToggleButton(Widget teamButton) {
             teamPath = ((TeamButton) teamButton).team.path;
-            setGeometry(teamButton.x - 26, teamButton.y, 26, 28);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setGeometry(teamButton.x + teamButton.w, teamButton.y, 26, 28);
+            setText("", CENTER, font14);
             isFavourite = favourites.contains(teamPath);
         }
 
@@ -277,8 +280,8 @@ class SelectTeam extends GLScreen {
             for (int i = 0; i < 11; i++) {
                 v += team.playerAtPosition(i).getValue();
             }
-            setGeometry(teamButton.x + teamButton.w - 52, teamButton.y, 60, 19);
-            setText("" + v, Font.Align.RIGHT, Assets.font10);
+            setGeometry(teamButton.x, teamButton.y, 60, 19);
+            setText("" + v, LEFT, font10);
         }
     }
 
@@ -287,7 +290,7 @@ class SelectTeam extends GLScreen {
         AbortButton() {
             setColors(0xC8000E);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(gettext("ABORT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("ABORT"), CENTER, font14);
         }
 
         @Override
@@ -300,7 +303,7 @@ class SelectTeam extends GLScreen {
 
         SearchPlayerButton() {
             setColors(0x4444AA);
-            setText(gettext("SEARCH.SEARCH PLAYERS"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("SEARCH.SEARCH PLAYERS"), CENTER, font14);
             setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
         }
 

@@ -209,11 +209,12 @@ class MatchStateMain extends MatchState {
 
                         if (Assets.random.nextFloat() < foulProbability) {
                             match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y);
+                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x +", "+  match.tackle.opponent.y);
                         } else {
-                            Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " was probably not a foul!");
+                            Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
                         }
                     } else {
-                        Gdx.app.debug(opponent.shirtName, "avoids the tackle from " + player.shirtName + "!");
+                        Gdx.app.debug(opponent.shirtName, "avoids the tackle from " + player.shirtName);
                     }
                     match.tackle = null;
                 }

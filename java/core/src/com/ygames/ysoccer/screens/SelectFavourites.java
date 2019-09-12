@@ -20,9 +20,7 @@ import static com.ygames.ysoccer.competitions.Competition.Category.DIY_COMPETITI
 import static com.ygames.ysoccer.competitions.Competition.Type.FRIENDLY;
 import static com.ygames.ysoccer.framework.Assets.font10;
 import static com.ygames.ysoccer.framework.Assets.font14;
-import static com.ygames.ysoccer.framework.Assets.getTeamFirstFolder;
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.framework.Assets.teamsRootFolder;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.framework.Font.Align.LEFT;
 import static com.ygames.ysoccer.gui.Widget.widgetComparatorByText;
@@ -55,7 +53,7 @@ class SelectFavourites extends GLScreen {
 
         ArrayList<Team> teamList = new ArrayList<>();
         for (String teamPath : Assets.favourites) {
-            FileHandle file = teamsRootFolder.child(teamPath);
+            FileHandle file = Assets.teamsRootFolder.child(teamPath);
             if (file.exists()) {
                 Team team = Assets.json.fromJson(Team.class, file.readString("UTF-8"));
                 team.path = Assets.getRelativeTeamPath(file);
@@ -245,8 +243,8 @@ class SelectFavourites extends GLScreen {
             this.team = team;
             setSize(382, 28);
             updateColors();
-            FileHandle teamFolder = teamsRootFolder.child(team.path);
-            String mainFolder = getTeamFirstFolder(teamFolder).name();
+            FileHandle teamFolder = Assets.teamsRootFolder.child(team.path);
+            String mainFolder = Assets.getTeamFirstFolder(teamFolder).name();
             setText(team.name + ", " + mainFolder, CENTER, font14);
         }
 
@@ -306,7 +304,7 @@ class SelectFavourites extends GLScreen {
         FavouriteFolderButton(Widget teamButton) {
             this.teamButton = (TeamButton) teamButton;
             setGeometry(teamButton.x + teamButton.w, teamButton.y, 26, 28);
-            setText("" + (char) 20, Font.Align.CENTER, Assets.font14);
+            setText("" + (char) 20, CENTER, font14);
         }
 
         @Override
