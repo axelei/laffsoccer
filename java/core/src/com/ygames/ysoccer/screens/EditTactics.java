@@ -73,7 +73,7 @@ class EditTactics extends GLScreen {
             if (player.role == Player.Role.GOALKEEPER) {
                 Assets.loadKeeper(player);
             } else {
-                Assets.loadPlayer(player);
+                Assets.loadPlayer(player, team.kits.get(team.kitIndex));
             }
             Assets.loadHair(player);
             player.fmx = 2;

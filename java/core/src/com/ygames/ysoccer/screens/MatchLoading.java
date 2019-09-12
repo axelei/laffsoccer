@@ -41,7 +41,7 @@ class MatchLoading extends GLScreen {
                 if (player.role == Player.Role.GOALKEEPER) {
                     Assets.loadKeeper(player);
                 } else {
-                    Assets.loadPlayer(player);
+                    Assets.loadPlayer(player, match.team[t].kits.get(match.team[t].kitIndex));
                 }
                 Assets.loadHair(player);
             }

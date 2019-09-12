@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
@@ -37,11 +38,12 @@ class TrainingLoading extends GLScreen {
         Assets.loadCornerFlags(matchSettings);
         team.loadImage();
         Assets.loadCoach(team);
+        Kit trainingKit = new Kit("PLAIN", 0xBFED6C, 0x264293, 0x264293, 0x264293, 0xBFED6C);
         for (Player player : team.players) {
             if (player.role == GOALKEEPER) {
                 Assets.loadKeeper(player);
             } else {
-                Assets.loadPlayer(player);
+                Assets.loadPlayer(player, trainingKit);
             }
             Assets.loadHair(player);
         }
@@ -60,7 +62,7 @@ class TrainingLoading extends GLScreen {
     private void setPlayersInputDevices() {
         int assigned_devices = 0;
         int i = 10;
-        while(i < training.team.lineup.size()) {
+        while (i < training.team.lineup.size()) {
             Player ply = training.team.lineup.get(i);
             if (assigned_devices < game.inputDevices.size()) {
                 if (ply.role != GOALKEEPER) {

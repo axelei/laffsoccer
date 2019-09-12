@@ -19,6 +19,7 @@ import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.CrowdRenderer;
 import com.ygames.ysoccer.match.Hair;
+import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Sky;
@@ -703,12 +704,12 @@ public class Assets {
         }
     }
 
-    public static void loadPlayer(Player p) {
+    public static void loadPlayer(Player p, Kit kit) {
         if (player[p.team.index][p.skinColor.ordinal()][0][0] == null) {
             List<RgbPair> rgbPairs = new ArrayList<>();
-            p.team.kits.get(p.team.kitIndex).addKitColors(rgbPairs);
+            kit.addKitColors(rgbPairs);
             p.addSkinColors(rgbPairs);
-            Texture playerTexture = loadTexture("images/player/" + p.team.kits.get(p.team.kitIndex).style + ".png", rgbPairs);
+            Texture playerTexture = loadTexture("images/player/" + kit.style + ".png", rgbPairs);
             for (int frameX = 0; frameX < 8; frameX++) {
                 for (int frameY = 0; frameY < 16; frameY++) {
                     player[p.team.index][p.skinColor.ordinal()][frameX][frameY] = new TextureRegion(playerTexture, 32 * frameX, 32 * frameY, 32, 32);

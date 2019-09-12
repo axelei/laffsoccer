@@ -44,6 +44,8 @@ class TestPlayer extends GLScreen {
     private int fmy2 = 0;
     private int cursorY;
 
+    private boolean hasExited = false;
+
     TestPlayer(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_edit_team.jpg");
@@ -171,6 +173,10 @@ class TestPlayer extends GLScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
+
+        // temporary workaround
+        if (hasExited) return;
+
         camera.setToOrtho(true, game.gui.screenWidth / 2f, game.gui.screenHeight / 2f); // 640 x 360
         camera.translate(-game.gui.originX / 2f, -game.gui.originY / 2f);
         camera.update();
@@ -889,13 +895,15 @@ class TestPlayer extends GLScreen {
 
         @Override
         public void onFire1Down() {
+            hasExited = true;
+            Assets.unloadPlayer(player);
             game.setScreen(new DevTools(game));
         }
     }
 
     private void reloadPlayer() {
         Assets.unloadPlayer(player);
-        Assets.loadPlayer(player);
+        Assets.loadPlayer(player, team.kits.get(team.kitIndex));
     }
 
     private void reloadHair() {
