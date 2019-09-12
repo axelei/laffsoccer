@@ -133,15 +133,12 @@ class ActionCamera {
                 break;
 
             case REACH_TARGET:
-                x = x + (10.0f / SECOND)
-                        * (1 + speedMode.ordinal())
-                        * Math.signum(target.x - (x - dx))
-                        * (float) Math.sqrt(Math.abs(target.x - (x - dx)));
-                y = y
-                        + (10.0f / SECOND)
-                        * (1 + speedMode.ordinal())
-                        * Math.signum(target.y - (y - dy))
-                        * (float) Math.sqrt(Math.abs(target.y - (y - dy)));
+                float x0 = target.x - (x - dx);
+                float y0 = target.y - (y - dy);
+                float a = Emath.aTan2(y0, x0);
+                double v = Math.sqrt(Math.abs(x0) + Math.abs(y0));
+                x += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * Emath.cos(a);
+                y += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * Emath.sin(a);
                 break;
         }
 
