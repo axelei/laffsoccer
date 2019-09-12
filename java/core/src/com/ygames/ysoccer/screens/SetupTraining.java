@@ -79,7 +79,7 @@ class SetupTraining extends GLScreen {
     private class TimeLabel extends Button {
 
         TimeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 130 - 40 / 2, 300, 40);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -89,7 +89,7 @@ class SetupTraining extends GLScreen {
     private class TimePicture extends Button {
 
         TimePicture() {
-            setColors(0x666666);
+            setColor(0x666666);
             setGeometry(game.gui.WIDTH / 2 - 300 - 65, 130 - 50 / 2, 50, 50);
             setActive(false);
         }
@@ -104,7 +104,7 @@ class SetupTraining extends GLScreen {
 
         TimeButton() {
             setGeometry(game.gui.WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -133,7 +133,7 @@ class SetupTraining extends GLScreen {
     private class PitchTypeLabel extends Button {
 
         PitchTypeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 200 - 40 / 2, 300, 40);
             setText(Assets.strings.get("PITCH TYPE"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -143,7 +143,7 @@ class SetupTraining extends GLScreen {
     private class PitchTypePicture extends Button {
 
         PitchTypePicture() {
-            setColors(0x666666);
+            setColor(0x666666);
             setGeometry(game.gui.WIDTH / 2 - 300 - 65, 200 - 50 / 2, 50, 50);
             setActive(false);
         }
@@ -157,7 +157,7 @@ class SetupTraining extends GLScreen {
     private class PitchTypeButton extends Button {
 
         PitchTypeButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -189,7 +189,7 @@ class SetupTraining extends GLScreen {
     private class WeatherLabel extends Button {
 
         WeatherLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 270 - 40 / 2, 300, 40);
             setText(Assets.strings.get("WEATHER"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -199,7 +199,7 @@ class SetupTraining extends GLScreen {
     private class WeatherPicture extends Button {
 
         WeatherPicture() {
-            setColors(0x666666);
+            setColor(0x666666);
             setGeometry(game.gui.WIDTH / 2 - 300 - 65, 270 - 50 / 2, 50, 50);
             setActive(false);
         }
@@ -220,7 +220,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setActive(true);
             setText(Assets.strings.get(matchSettings.getWeatherLabel()));
         }

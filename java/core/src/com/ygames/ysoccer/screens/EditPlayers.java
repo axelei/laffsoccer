@@ -804,10 +804,10 @@ class EditPlayers extends GLScreen {
         @Override
         public void refresh() {
             if (modified) {
-                setColors(0xBDBF2F);
+                setColor(0xBDBF2F);
                 setActive(true);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
                 setActive(false);
             }
         }
@@ -833,10 +833,10 @@ class EditPlayers extends GLScreen {
         @Override
         public void refresh() {
             if (modified) {
-                setColors(0xDC0000);
+                setColor(0xDC0000);
                 setText(gettext("SAVE"));
             } else {
-                setColors(0xC84200);
+                setColor(0xC84200);
                 setText(gettext("EXIT"));
             }
         }

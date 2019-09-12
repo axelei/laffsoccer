@@ -321,7 +321,7 @@ class TestPlayer extends GLScreen {
         StyleButton(int x, int y) {
             kitIndex = Assets.kits.indexOf(team.kits.get(0).style);
             setGeometry(x, y, 175, 24);
-            setColors(0x881845);
+            setColor(0x881845);
         }
 
         @Override
@@ -405,7 +405,7 @@ class TestPlayer extends GLScreen {
                     color = team.kits.get(selectedKit).socks;
                     break;
             }
-            setColors(color);
+            setColor(color);
         }
 
         @Override
@@ -473,7 +473,7 @@ class TestPlayer extends GLScreen {
         public void refresh() {
             int color = getColor();
             setText(GLColor.toHexString(color).substring(1).toUpperCase());
-            setColors(color);
+            setColor(color);
         }
 
         @Override
@@ -741,7 +741,7 @@ class TestPlayer extends GLScreen {
 
         AnimationTypeButton(int x, int y) {
             setGeometry(x, y, 175, 23);
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
         }
 
         @Override
@@ -779,7 +779,7 @@ class TestPlayer extends GLScreen {
 
         AnimationLengthButton(int x, int y) {
             setGeometry(x, y, 175, 23);
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
         }
 
         @Override
@@ -817,7 +817,7 @@ class TestPlayer extends GLScreen {
 
         AnimationSpeedButton(int x, int y) {
             setGeometry(x, y, 175, 23);
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
         }
 
         @Override
@@ -855,7 +855,7 @@ class TestPlayer extends GLScreen {
 
         ShadowsButton(int x, int y) {
             setGeometry(x, y, 175, 23);
-            setColors(0x8F5902);
+            setColor(0x8F5902);
         }
 
         @Override
@@ -883,7 +883,7 @@ class TestPlayer extends GLScreen {
 
         ExitButton(int x) {
             setGeometry(x, 660, 175, 32);
-            setColors(0xC84200);
+            setColor(0xC84200);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font10);
         }
 

@@ -100,10 +100,10 @@ class SaveCompetition extends GLScreen {
             setText(competition.getCategoryFolder(), Font.Align.CENTER, Assets.font14);
             switch (competition.category) {
                 case DIY_COMPETITION:
-                    setColors(0x376E2F);
+                    setColor(0x376E2F);
                     break;
                 case PRESET_COMPETITION:
-                    setColors(0x415600);
+                    setColor(0x415600);
                     break;
             }
             setActive(false);

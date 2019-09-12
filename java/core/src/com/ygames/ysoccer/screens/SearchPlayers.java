@@ -196,7 +196,7 @@ class SearchPlayers extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(gettext("EXIT"), Font.Align.CENTER, Assets.font14);
         }
@@ -270,7 +270,7 @@ class SearchPlayers extends GLScreen {
         PlayerButton(Player player, FileHandle folder) {
             this.player = player;
             this.folder = folder;
-            setColors(0x308C3B);
+            setColor(0x308C3B);
             setSize(604, 19);
             setText(player.name + " (" + player.team.name + ")", Font.Align.CENTER, Assets.font10);
         }

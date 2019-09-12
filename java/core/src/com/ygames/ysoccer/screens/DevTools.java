@@ -50,7 +50,7 @@ class DevTools extends GLScreen {
     private class PlayerTestButton extends Button {
 
         PlayerTestButton() {
-            setColors(0x427AA1);
+            setColor(0x427AA1);
             setGeometry((game.gui.WIDTH - 260) / 2, 340, 260, 36);
             setText("PLAYER TEST", Font.Align.CENTER, Assets.font14);
         }
@@ -64,7 +64,7 @@ class DevTools extends GLScreen {
     private class MatchTestButton extends Button {
 
         MatchTestButton() {
-            setColors(0x427AA1);
+            setColor(0x427AA1);
             setGeometry((game.gui.WIDTH - 260) / 2, 410, 260, 36);
             setText("MATCH TEST", Font.Align.CENTER, Assets.font14);
         }
@@ -107,7 +107,7 @@ class DevTools extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

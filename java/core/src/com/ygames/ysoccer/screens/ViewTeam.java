@@ -150,7 +150,7 @@ class ViewTeam extends GLScreen {
 
         TitleBar(Team team) {
             setGeometry((game.gui.WIDTH - 600) / 2, 45, 601, 41);
-            setColors(0x005DDE);
+            setColor(0x005DDE);
             setText(team.name, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -173,26 +173,26 @@ class ViewTeam extends GLScreen {
     private void setPlayerWidgetColor(Widget w, int pos, Team team, Competition competition) {
         // goalkeeper
         if (pos == 0) {
-            w.setColors(0x0094DE);
+            w.setColor(0x0094DE);
         }
         // other player
         else if (pos < Const.TEAM_SIZE) {
-            w.setColors(0x005DDE);
+            w.setColor(0x005DDE);
         }
         // bench / out
         else if (pos < team.players.size()) {
             // bench
             if (pos < Const.TEAM_SIZE + competition.benchSize) {
-                w.setColors(0x0046A6);
+                w.setColor(0x0046A6);
             }
             // out
             else {
-                w.setColors(0x303030);
+                w.setColor(0x303030);
             }
         }
         // void
         else {
-            w.setColors(0x101010);
+            w.setColor(0x101010);
         }
     }
 }

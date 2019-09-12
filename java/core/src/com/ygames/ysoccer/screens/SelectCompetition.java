@@ -169,7 +169,7 @@ class SelectCompetition extends GLScreen {
             this.competition = competition;
             boolean dataFolderExists = Assets.teamsRootFolder.child(competition.files.folder).exists();
             setSize(480, 28);
-            setColors(dataFolderExists ? 0x1B4D85 : 0x666666);
+            setColor(dataFolderExists ? 0x1B4D85 : 0x666666);
             setText(competition.name, Font.Align.CENTER, Assets.font14);
             setActive(dataFolderExists);
         }
@@ -187,7 +187,7 @@ class SelectCompetition extends GLScreen {
     private class AbortButton extends Button {
 
         AbortButton() {
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setText(gettext("ABORT"), Font.Align.CENTER, Assets.font14);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }

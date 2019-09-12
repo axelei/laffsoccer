@@ -226,7 +226,7 @@ class SelectTeams extends GLScreen {
 
         LeagueButton(String name) {
             setSize(300, 32);
-            setColors(0x1B4D85);
+            setColor(0x1B4D85);
             setText(name, Font.Align.CENTER, Assets.font14);
         }
 
@@ -374,7 +374,7 @@ class SelectTeams extends GLScreen {
 
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -493,7 +493,7 @@ class SelectTeams extends GLScreen {
         CalendarButton() {
             setGeometry(game.gui.WIDTH / 2 + 490, 660, 40, 36);
             setText("" + (char) 21, Font.Align.CENTER, Assets.font14);
-            setColors(0x138B21);
+            setColor(0x138B21);
         }
 
         @Override

@@ -430,7 +430,7 @@ class EditTeam extends GLScreen {
             FileHandle file = navigation.folder.child("leagues.json");
             this.leagues = Arrays.asList(Assets.json.fromJson(String[].class, file.readString("UTF-8")));
             setGeometry(280, 155, 364, 32);
-            setColors(0x10A000);
+            setColor(0x10A000);
             setText("", CENTER, font10);
         }
 
@@ -563,7 +563,7 @@ class EditTeam extends GLScreen {
         StyleButton() {
             kitIndex = Assets.kits.indexOf(team.kits.get(selectedKit).style);
             setGeometry(528, 364 + 25, 175, 24);
-            setColors(0x881845);
+            setColor(0x881845);
         }
 
         @Override
@@ -698,7 +698,7 @@ class EditTeam extends GLScreen {
                     color = team.kits.get(selectedKit).socks;
                     break;
             }
-            setColors(color);
+            setColor(color);
         }
     }
 
@@ -718,7 +718,7 @@ class EditTeam extends GLScreen {
         public void refresh() {
             int color = getColor();
             setText(GLColor.toHexString(color).substring(1).toUpperCase());
-            setColors(color);
+            setColor(color);
         }
 
         @Override
@@ -1015,10 +1015,10 @@ class EditTeam extends GLScreen {
         @Override
         public void refresh() {
             if (modified) {
-                setColors(0xBDBF2F);
+                setColor(0xBDBF2F);
                 setActive(true);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
                 setActive(false);
             }
         }
@@ -1044,10 +1044,10 @@ class EditTeam extends GLScreen {
         @Override
         public void refresh() {
             if (modified) {
-                setColors(0xDC0000);
+                setColor(0xDC0000);
                 setText(gettext("SAVE"));
             } else {
-                setColors(0xC84200);
+                setColor(0xC84200);
                 setText(gettext("EXIT"));
             }
         }

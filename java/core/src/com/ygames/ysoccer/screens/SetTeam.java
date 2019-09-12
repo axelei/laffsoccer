@@ -677,9 +677,9 @@ class SetTeam extends GLScreen {
         public void refresh() {
             setText(shownTeam.name);
             if (shownTeam == ownTeam) {
-                setColors(0x005DDE);
+                setColor(0x005DDE);
             } else {
-                setColors(0xAC1A1A);
+                setColor(0xAC1A1A);
             }
         }
     }
@@ -702,7 +702,7 @@ class SetTeam extends GLScreen {
 
         PlayMatchButton() {
             setGeometry(game.gui.WIDTH / 2 + 140, game.gui.HEIGHT - 30 - 42, 240, 42);
-            setColors(0xDC0000);
+            setColor(0xDC0000);
             setText(gettext("PLAY MATCH"), CENTER, font14);
         }
 
@@ -726,7 +726,7 @@ class SetTeam extends GLScreen {
 
         ExitButton() {
             setGeometry(game.gui.WIDTH - 150 - 90, game.gui.HEIGHT - 30 - 38 - 2, 150, 38);
-            setColors(0xC84200);
+            setColor(0xC84200);
             setText(gettext("EXIT"), CENTER, font14);
         }
 
@@ -782,57 +782,57 @@ class SetTeam extends GLScreen {
         if (shownTeam == ownTeam) {
             // goalkeeper
             if (pos == 0) {
-                w.setColors(0x0094DE);
+                w.setColor(0x0094DE);
             }
             // other player
             else if (pos < Const.TEAM_SIZE) {
-                w.setColors(0x005DDE);
+                w.setColor(0x005DDE);
             }
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
                 if (pos < Const.TEAM_SIZE + navigation.competition.benchSize) {
-                    w.setColors(0x0046A6);
+                    w.setColor(0x0046A6);
                 }
                 // out
                 else {
-                    w.setColors(0x303030);
+                    w.setColor(0x303030);
                 }
             }
             // void
             else {
-                w.setColors(0x101010);
+                w.setColor(0x101010);
             }
 
             // selected
             if (selectedPos == pos) {
-                w.setColors(0x993333);
+                w.setColor(0x993333);
             }
         }
         // opponent
         else {
             // goalkeeper
             if (pos == 0) {
-                w.setColors(0xEB4141);
+                w.setColor(0xEB4141);
             }
             // other player
             else if (pos < Const.TEAM_SIZE) {
-                w.setColors(0xAC1A1A);
+                w.setColor(0xAC1A1A);
             }
             // bench / out
             else if (pos < shownTeam.players.size()) {
                 // bench
                 if (pos < Const.TEAM_SIZE + navigation.competition.benchSize) {
-                    w.setColors(0x851F1F);
+                    w.setColor(0x851F1F);
                 }
                 // out
                 else {
-                    w.setColors(0x303030);
+                    w.setColor(0x303030);
                 }
             }
             // void
             else {
-                w.setColors(0x101010);
+                w.setColor(0x101010);
             }
         }
     }

@@ -87,7 +87,7 @@ public abstract class Widget {
         }
     }
 
-    public void setColors(int color) {
+    public void setColor(int color) {
         setColors(color, GLColor.brighter(color), GLColor.darker(color, 0.7D));
     }
 

@@ -403,7 +403,7 @@ public abstract class GLScreen implements Screen {
 
         public TitleBar(String text, int color) {
             setGeometry((game.gui.WIDTH - 960) / 2, 30, 960, 40);
-            setColors(color);
+            setColor(color);
             setText(text, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }

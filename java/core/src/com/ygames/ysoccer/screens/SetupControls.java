@@ -140,14 +140,14 @@ class SetupControls extends GLScreen {
 
         @Override
         public void refresh() {
-            setColors(this == selectedInputDeviceButton ? 0x2F2F5E : 0x484891);
+            setColor(this == selectedInputDeviceButton ? 0x2F2F5E : 0x484891);
             switch (config.type) {
                 case KEYBOARD:
                     break;
 
                 case JOYSTICK:
                     if (!((JoystickConfig) config).isConfigured()) {
-                        setColors(this == selectedInputDeviceButton ? 0x800000 : 0xB40000);
+                        setColor(this == selectedInputDeviceButton ? 0x800000 : 0xB40000);
                     }
                     break;
             }
@@ -166,7 +166,7 @@ class SetupControls extends GLScreen {
 
         InputDeviceLabel() {
             setGeometry((game.gui.WIDTH - 760) / 2, 100, 760, 40);
-            setColors(0x404040);
+            setColor(0x404040);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -346,7 +346,7 @@ class SetupControls extends GLScreen {
         LeftLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2 - 150, 340, 200, 40);
             setText(Assets.strings.get("CONTROLS.LEFT"), Font.Align.CENTER, Assets.font14);
-            setColors(0x404040);
+            setColor(0x404040);
             setActive(false);
         }
     }
@@ -366,10 +366,10 @@ class SetupControls extends GLScreen {
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else {
                         setText(Input.Keys.toString(keyboardConfig.keyLeft).toUpperCase());
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
 
@@ -378,13 +378,13 @@ class SetupControls extends GLScreen {
                     int xAxisIndex = joystickConfig.xAxis;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else if (xAxisIndex == -1) {
                         setText(Assets.strings.get("CONTROLS.UNKNOWN"));
-                        setColors(0xB40000);
+                        setColor(0xB40000);
                     } else {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + xAxisIndex);
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
             }
@@ -396,7 +396,7 @@ class SetupControls extends GLScreen {
         RightLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2 + 150, 340, 200, 40);
             setText(Assets.strings.get("CONTROLS.RIGHT"), Font.Align.CENTER, Assets.font14);
-            setColors(0x404040);
+            setColor(0x404040);
             setActive(false);
         }
     }
@@ -416,10 +416,10 @@ class SetupControls extends GLScreen {
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else {
                         setText(Input.Keys.toString(keyboardConfig.keyRight).toUpperCase());
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
 
@@ -428,13 +428,13 @@ class SetupControls extends GLScreen {
                     int xAxisIndex = joystickConfig.xAxis;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else if (xAxisIndex == -1) {
                         setText(Assets.strings.get("CONTROLS.UNKNOWN"));
-                        setColors(0xB40000);
+                        setColor(0xB40000);
                     } else {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + xAxisIndex);
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
             }
@@ -446,7 +446,7 @@ class SetupControls extends GLScreen {
         UpLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2, 180, 200, 40);
             setText(Assets.strings.get("CONTROLS.UP"), Font.Align.CENTER, Assets.font14);
-            setColors(0x404040);
+            setColor(0x404040);
             setActive(false);
         }
     }
@@ -466,10 +466,10 @@ class SetupControls extends GLScreen {
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else {
                         setText(Input.Keys.toString(keyboardConfig.keyUp).toUpperCase());
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
 
@@ -478,13 +478,13 @@ class SetupControls extends GLScreen {
                     int yAxisIndex = joystickConfig.yAxis;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else if (yAxisIndex == -1) {
                         setText(Assets.strings.get("CONTROLS.UNKNOWN"));
-                        setColors(0xB40000);
+                        setColor(0xB40000);
                     } else {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + yAxisIndex);
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
             }
@@ -496,7 +496,7 @@ class SetupControls extends GLScreen {
         DownLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2, 500, 200, 40);
             setText(Assets.strings.get("CONTROLS.DOWN"), Font.Align.CENTER, Assets.font14);
-            setColors(0x404040);
+            setColor(0x404040);
             setActive(false);
         }
     }
@@ -516,10 +516,10 @@ class SetupControls extends GLScreen {
                     KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else {
                         setText(Input.Keys.toString(keyboardConfig.keyDown).toUpperCase());
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
 
@@ -528,13 +528,13 @@ class SetupControls extends GLScreen {
                     int yAxisIndex = joystickConfig.yAxis;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else if (yAxisIndex == -1) {
                         setText(Assets.strings.get("CONTROLS.UNKNOWN"));
-                        setColors(0xB40000);
+                        setColor(0xB40000);
                     } else {
                         setText(Assets.strings.get("CONTROLS.AXIS") + " " + yAxisIndex);
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
             }
@@ -546,7 +546,7 @@ class SetupControls extends GLScreen {
         FireLabel(int buttonNumber) {
             setGeometry((game.gui.WIDTH - 200) / 2 + 420, 240 + (210 * (buttonNumber - 1)), 200, 40);
             setText(Assets.strings.get("CONTROLS.BUTTON") + " " + ((buttonNumber == 1) ? "A" : "B"), Font.Align.CENTER, Assets.font14);
-            setColors(0x404040);
+            setColor(0x404040);
             setActive(false);
         }
     }
@@ -570,10 +570,10 @@ class SetupControls extends GLScreen {
                     int value = (buttonNumber == 1) ? keyboardConfig.button1 : keyboardConfig.button2;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else {
                         setText(Input.Keys.toString(value).toUpperCase());
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
 
@@ -582,13 +582,13 @@ class SetupControls extends GLScreen {
                     int index = (buttonNumber == 1) ? joystickConfig.button1 : joystickConfig.button2;
                     if (entryMode) {
                         setText("?");
-                        setColors(0xEB9532);
+                        setColor(0xEB9532);
                     } else if (index == -1) {
                         setText(Assets.strings.get("CONTROLS.UNKNOWN"));
-                        setColors(0xB40000);
+                        setColor(0xB40000);
                     } else {
                         setText(index);
-                        setColors(0x548854);
+                        setColor(0x548854);
                     }
                     break;
             }
@@ -614,7 +614,7 @@ class SetupControls extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

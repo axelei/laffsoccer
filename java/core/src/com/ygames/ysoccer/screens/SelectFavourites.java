@@ -5,7 +5,6 @@ import com.ygames.ysoccer.competitions.Cup;
 import com.ygames.ysoccer.competitions.League;
 import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -338,7 +337,7 @@ class SelectFavourites extends GLScreen {
 
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setText(gettext("ABORT"), CENTER, font14);
         }
 
@@ -456,7 +455,7 @@ class SelectFavourites extends GLScreen {
         CalendarButton() {
             setGeometry(game.gui.WIDTH / 2 + 490, 660, 40, 36);
             setText("" + (char) 21, CENTER, font14);
-            setColors(0x138B21);
+            setColor(0x138B21);
         }
 
         @Override

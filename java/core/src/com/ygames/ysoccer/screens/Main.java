@@ -118,7 +118,7 @@ public class Main extends GLScreen {
     private class MatchOptionsButton extends Button {
 
         MatchOptionsButton() {
-            setColors(0x3847A3);
+            setColor(0x3847A3);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 315, 350, 36);
             setText(gettext("MATCH OPTIONS"), CENTER, font14);
         }
@@ -132,7 +132,7 @@ public class Main extends GLScreen {
     private class ControlsButton extends Button {
 
         ControlsButton() {
-            setColors(0x83079C);
+            setColor(0x83079C);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 360, 350, 36);
             setText(gettext("CONTROLS"), CENTER, font14);
         }
@@ -146,7 +146,7 @@ public class Main extends GLScreen {
     private class EditTacticsButton extends Button {
 
         EditTacticsButton() {
-            setColors(0xBA9206);
+            setColor(0xBA9206);
             setGeometry(game.gui.WIDTH / 2 - 45 - 350, 405, 350, 36);
             setText(gettext("EDIT TACTICS"), CENTER, font14);
         }
@@ -297,7 +297,7 @@ public class Main extends GLScreen {
     private class LoadOldCompetitionButton extends Button {
 
         LoadOldCompetitionButton(int y) {
-            setColors(0x2898c7);
+            setColor(0x2898c7);
             setGeometry((game.gui.WIDTH - 600) / 2, y, 600, 32);
             setText(gettext("LOAD OLD COMPETITION"), CENTER, font10);
         }
@@ -328,7 +328,7 @@ public class Main extends GLScreen {
     private class DevToolsButton extends Button {
 
         DevToolsButton() {
-            setColors(0x191FB0);
+            setColor(0x191FB0);
             setGeometry((game.gui.WIDTH - 300) / 2, 675, 300, 32);
             setText("DEVELOPMENT TOOLS", CENTER, font10);
         }

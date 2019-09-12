@@ -598,7 +598,7 @@ class DesignDiyTournament extends GLScreen {
         RoundTeamsButton(int round) {
             this.round = round;
             setGeometry(game.gui.WIDTH / 2 - 470, 280 + 62 * round, 48, 32);
-            setColors(0x90217a);
+            setColor(0x90217a);
             setText("", Font.Align.CENTER, Assets.font14);
         }
 
@@ -1213,7 +1213,7 @@ class DesignDiyTournament extends GLScreen {
     private class AbortButton extends Button {
 
         AbortButton() {
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setGeometry(game.gui.WIDTH / 2 + 2, 660, 180, 36);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }

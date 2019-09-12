@@ -138,7 +138,7 @@ class InfoTournament extends GLScreen {
 
         WeatherButton() {
             setGeometry(game.gui.WIDTH / 2 - 470, 145, 236, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get(tournament.getWeatherLabel()), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -148,7 +148,7 @@ class InfoTournament extends GLScreen {
 
         SeasonStartButton() {
             setGeometry(game.gui.WIDTH / 2 - 232, 145, 176, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get(Month.getLabel(tournament.seasonStart)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
             setActive(false);
@@ -170,7 +170,7 @@ class InfoTournament extends GLScreen {
 
         SeasonEndButton() {
             setGeometry(game.gui.WIDTH / 2 - 16, 145, 176, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get(Month.getLabel(tournament.seasonEnd)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.weather == Competition.Weather.BY_SEASON);
             setActive(false);
@@ -181,7 +181,7 @@ class InfoTournament extends GLScreen {
 
         PitchTypeButton() {
             setGeometry(game.gui.WIDTH / 2 - 232, 145, 392, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get(Pitch.names[tournament.pitchType.ordinal()]), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.weather == Competition.Weather.BY_PITCH_TYPE);
             setActive(false);
@@ -192,7 +192,7 @@ class InfoTournament extends GLScreen {
 
         TimeLabel() {
             setGeometry(game.gui.WIDTH / 2 + 170, 145, 140, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get("TIME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -202,7 +202,7 @@ class InfoTournament extends GLScreen {
 
         TimeButton() {
             setGeometry(game.gui.WIDTH / 2 + 312, 145, 158, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get(MatchSettings.getTimeLabel(tournament.time)), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -212,7 +212,7 @@ class InfoTournament extends GLScreen {
 
         SubstitutesLabel() {
             setGeometry(game.gui.WIDTH / 2 - 470, 190, 244, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get("SUBSTITUTES"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -222,7 +222,7 @@ class InfoTournament extends GLScreen {
 
         SubstitutesButton() {
             setGeometry(game.gui.WIDTH / 2 - 224, 190, 52, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(tournament.substitutions, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -232,7 +232,7 @@ class InfoTournament extends GLScreen {
 
         BenchSizeLabel() {
             setGeometry(game.gui.WIDTH / 2 - 170, 190, 94, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get("SUBSTITUTES.FROM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -242,7 +242,7 @@ class InfoTournament extends GLScreen {
 
         BenchSizeButton() {
             setGeometry(game.gui.WIDTH / 2 - 74, 190, 52, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(tournament.benchSize, Font.Align.CENTER, Assets.font14);
             setActive(false);
         }
@@ -252,7 +252,7 @@ class InfoTournament extends GLScreen {
 
         AwayGoalsLabel() {
             setGeometry(game.gui.WIDTH / 2 - 12, 190, 206, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get("AWAY GOALS"), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.hasTwoLegsRound());
             setActive(false);
@@ -263,7 +263,7 @@ class InfoTournament extends GLScreen {
 
         AwayGoalsButton() {
             setGeometry(game.gui.WIDTH / 2 + 196, 190, 274, 36);
-            setColors(0x666666);
+            setColor(0x666666);
             setText(Assets.strings.get(tournament.getAwayGoalsLabel(tournament.awayGoals)), Font.Align.CENTER, Assets.font14);
             setVisible(tournament.hasTwoLegsRound());
             setActive(false);
@@ -307,9 +307,9 @@ class InfoTournament extends GLScreen {
         RoundTeamsButton(int round) {
             setGeometry(game.gui.WIDTH / 2 - 470, 280 + 62 * round, 48, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(tournament.rounds.get(round).numberOfTeams, Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -321,9 +321,9 @@ class InfoTournament extends GLScreen {
         RoundGroupsButton(int round) {
             setGeometry(game.gui.WIDTH / 2 - 420, 280 + 62 * round, 248, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText("", Font.Align.CENTER, Assets.font14);
             int teams = tournament.rounds.get(round).numberOfTeams;
@@ -368,9 +368,9 @@ class InfoTournament extends GLScreen {
         RoundSeededButton(int round) {
             setGeometry(game.gui.WIDTH / 2 - 170, 280 + 62 * round, 42, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(tournament.rounds.get(round).seeded ? "*" : "-", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -382,9 +382,9 @@ class InfoTournament extends GLScreen {
         RoundLegsButton(int round, Knockout knockout) {
             setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 138, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(Assets.strings.get(knockout.numberOfLegs == 1 ? "ONE LEG" : "TWO LEGS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -396,9 +396,9 @@ class InfoTournament extends GLScreen {
         RoundExtraTimeButton(int round, Knockout knockout) {
             setGeometry(game.gui.WIDTH / 2 + 14, 280 + 62 * round, 240, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(Assets.strings.get(Round.getExtraTimeLabel(knockout.extraTime)), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -410,9 +410,9 @@ class InfoTournament extends GLScreen {
         RoundPenaltiesButton(int round, Knockout knockout) {
             setGeometry(game.gui.WIDTH / 2 + 256, 280 + 62 * round, 240, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(Assets.strings.get(Round.getPenaltiesLabel(knockout.penalties)), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -424,9 +424,9 @@ class InfoTournament extends GLScreen {
         RoundPointsForAWinButton(int round, Groups groups) {
             setGeometry(game.gui.WIDTH / 2 - 126, 280 + 62 * round, 310, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(Assets.strings.get("%n POINTS FOR A WIN").replaceFirst("%n", "" + groups.pointsForAWin), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -438,9 +438,9 @@ class InfoTournament extends GLScreen {
         RoundPlayEachTeamButton(int round, Groups groups) {
             setGeometry(game.gui.WIDTH / 2 + 186, 280 + 62 * round, 310, 32);
             if (round == tournament.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(Assets.strings.get("PLAY EACH TEAM ×%n").replaceFirst("%n", "" + groups.rounds), Font.Align.CENTER, Assets.font14);
             setActive(false);

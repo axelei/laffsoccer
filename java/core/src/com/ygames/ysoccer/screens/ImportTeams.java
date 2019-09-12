@@ -213,7 +213,7 @@ class ImportTeams extends GLScreen {
     private class YearLabel extends Button {
 
         YearLabel() {
-            setColors(0xAD8600);
+            setColor(0xAD8600);
             setGeometry(game.gui.WIDTH / 2 - 180 - 5, 360, 180, 36);
             setText("YEAR", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -228,7 +228,7 @@ class ImportTeams extends GLScreen {
     private class YearButton extends Button {
 
         YearButton() {
-            setColors(0x568200);
+            setColor(0x568200);
             setGeometry(game.gui.WIDTH / 2 + 5, 360, 180, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -290,7 +290,7 @@ class ImportTeams extends GLScreen {
     private class WarningLabel extends Button {
 
         WarningLabel() {
-            setColors(0xDC0000);
+            setColor(0xDC0000);
             setGeometry((game.gui.WIDTH - 920) / 2, 420, 920, 60);
             setText("EXISTING FILES IN THE DESTINATION FOLDER WILL BE OVERWRITTEN", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -305,7 +305,7 @@ class ImportTeams extends GLScreen {
     private class StartButton extends Button {
 
         StartButton() {
-            setColors(0x138B21);
+            setColor(0x138B21);
             setGeometry((game.gui.WIDTH - 220) / 2, 498, 220, 42);
             setText("START", Font.Align.CENTER, Assets.font14);
         }
@@ -336,12 +336,12 @@ class ImportTeams extends GLScreen {
             switch (state) {
                 case NO_FILES:
                 case FINISHED:
-                    setColors(0xC84200);
+                    setColor(0xC84200);
                     setText(Assets.strings.get("EXIT"));
                     break;
                 case READY:
                     setText(Assets.strings.get("ABORT"));
-                    setColors(0xC8000E);
+                    setColor(0xC8000E);
                     break;
             }
             setVisible(state != State.IMPORTING);

@@ -78,7 +78,7 @@ class MatchOptions extends GLScreen {
     private class MatchLengthLabel extends Button {
 
         MatchLengthLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 190, 440, 40);
             setText(Assets.strings.get("FRIENDLY/DIY GAME LENGTH"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -91,7 +91,7 @@ class MatchOptions extends GLScreen {
 
         MatchLengthButton() {
             matchLengths = Arrays.asList(Settings.matchLengths);
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 190, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -131,7 +131,7 @@ class MatchOptions extends GLScreen {
     private class WeatherEffectsLabel extends Button {
 
         WeatherEffectsLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 240, 440, 40);
             setText(Assets.strings.get("WEATHER.EFFECTS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -141,7 +141,7 @@ class MatchOptions extends GLScreen {
     private class WeatherEffectsButton extends Button {
 
         WeatherEffectsButton() {
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 240, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -170,7 +170,7 @@ class MatchOptions extends GLScreen {
     private class RadarLabel extends Button {
 
         RadarLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 290, 440, 40);
             setText(Assets.strings.get("RADAR"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -180,7 +180,7 @@ class MatchOptions extends GLScreen {
     private class RadarButton extends Button {
 
         RadarButton() {
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 290, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -209,7 +209,7 @@ class MatchOptions extends GLScreen {
     private class AutoReplaysLabel extends Button {
 
         AutoReplaysLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 340, 440, 40);
             setText(Assets.strings.get("AUTO REPLAYS"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -219,7 +219,7 @@ class MatchOptions extends GLScreen {
     private class AutoReplaysButton extends Button {
 
         AutoReplaysButton() {
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 340, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -248,7 +248,7 @@ class MatchOptions extends GLScreen {
     private class ZoomLabel extends Button {
 
         ZoomLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 390, 440, 40);
             setText(Assets.strings.get("ZOOM"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -258,7 +258,7 @@ class MatchOptions extends GLScreen {
     private class ZoomButton extends Button {
 
         ZoomButton() {
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 390, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -297,7 +297,7 @@ class MatchOptions extends GLScreen {
     private class SfxVolumeLabel extends Button {
 
         SfxVolumeLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 440, 440, 40);
             setText(Assets.strings.get("MATCH OPTIONS.SOUND VOLUME"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -307,7 +307,7 @@ class MatchOptions extends GLScreen {
     private class SfxVolumeButton extends Button {
 
         SfxVolumeButton() {
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 440, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -350,7 +350,7 @@ class MatchOptions extends GLScreen {
     private class CommentaryLabel extends Button {
 
         CommentaryLabel() {
-            setColors(0x76683C);
+            setColor(0x76683C);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 490, 440, 40);
             setText(Assets.strings.get("MATCH OPTIONS.COMMENTARY"), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -360,7 +360,7 @@ class MatchOptions extends GLScreen {
     private class CommentaryButton extends Button {
 
         CommentaryButton() {
-            setColors(0x2B4A61);
+            setColor(0x2B4A61);
             setGeometry(game.gui.WIDTH / 2 + 10, 490, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -389,7 +389,7 @@ class MatchOptions extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

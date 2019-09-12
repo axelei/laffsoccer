@@ -735,7 +735,7 @@ class DesignDiyCup extends GLScreen {
     private class AbortButton extends Button {
 
         AbortButton() {
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }

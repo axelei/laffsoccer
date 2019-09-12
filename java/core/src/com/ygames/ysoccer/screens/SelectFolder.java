@@ -242,7 +242,7 @@ class SelectFolder extends GLScreen {
     private class SearchTeamButton extends Button {
 
         SearchTeamButton() {
-            setColors(0x4444AA);
+            setColor(0x4444AA);
             setText(gettext("SEARCH.SEARCH TEAMS"), CENTER, font14);
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
         }
@@ -261,7 +261,7 @@ class SelectFolder extends GLScreen {
     private class AbortButton extends Button {
 
         AbortButton() {
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setText(gettext("ABORT"), CENTER, font14);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
         }
@@ -379,7 +379,7 @@ class SelectFolder extends GLScreen {
     private class SearchPlayerButton extends Button {
 
         SearchPlayerButton() {
-            setColors(0x4444AA);
+            setColor(0x4444AA);
             setText(gettext("SEARCH.SEARCH PLAYERS"), CENTER, font14);
             setGeometry((game.gui.WIDTH + 180) / 2 + 20, 660, 360, 36);
         }

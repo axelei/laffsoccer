@@ -280,9 +280,9 @@ class InfoCup extends GLScreen {
         RoundNameLabel(int round) {
             setGeometry(game.gui.WIDTH / 2 - 470, 344 + 34 * round, 248, 32);
             if (round == cup.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText("", Font.Align.LEFT, Assets.font14);
             setActive(false);
@@ -298,9 +298,9 @@ class InfoCup extends GLScreen {
         RoundTeamsLabel(int round) {
             setGeometry(game.gui.WIDTH / 2 - 212, 344 + 34 * round, 50, 32);
             if (round == cup.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText(cup.getRoundTeams(round), Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -313,9 +313,9 @@ class InfoCup extends GLScreen {
         RoundLegsButton(int round) {
             setGeometry(game.gui.WIDTH / 2 - 152, 344 + 34 * round, 138, 32);
             if (round == cup.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText("", Font.Align.CENTER, Assets.font14);
             setVisible(round < cup.rounds.size());
@@ -331,9 +331,9 @@ class InfoCup extends GLScreen {
         RoundExtraTimeButton(int round) {
             setGeometry(game.gui.WIDTH / 2 - 12, 344 + 34 * round, 240, 32);
             if (round == cup.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText("", Font.Align.CENTER, Assets.font14);
             setVisible(round < cup.rounds.size());
@@ -349,9 +349,9 @@ class InfoCup extends GLScreen {
         RoundPenaltiesButton(int round) {
             setGeometry(game.gui.WIDTH / 2 + 230, 344 + 34 * round, 240, 32);
             if (round == cup.currentRound) {
-                setColors(0x444444);
+                setColor(0x444444);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
             }
             setText("", Font.Align.CENTER, Assets.font14);
             setVisible(round < cup.rounds.size());

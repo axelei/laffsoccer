@@ -754,7 +754,7 @@ class EditTactics extends GLScreen {
 
         public AbortButton() {
             setGeometry(1120 - 170 / 2, 590, 170, 40);
-            setColors(0xC84200);
+            setColor(0xC84200);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -784,19 +784,19 @@ class EditTactics extends GLScreen {
     private void setPlayerWidgetColor(Widget w, int pos) {
         // selected for swap
         if (selectedForSwap == pos) {
-            w.setColors(0x993333);
+            w.setColor(0x993333);
         }
         // selected for pair
         else if (selectedForPair == pos) {
-            w.setColors(0x339999);
+            w.setColor(0x339999);
         }
         // goalkeeper
         else if (pos == 0) {
-            w.setColors(0x0094DE);
+            w.setColor(0x0094DE);
         }
         // other player
         else if (pos < TEAM_SIZE) {
-            w.setColors(0x005DDE);
+            w.setColor(0x005DDE);
         }
         // bench / out
         else if (pos < team.players.size()) {
@@ -808,16 +808,16 @@ class EditTactics extends GLScreen {
             }
             // bench
             if (pos < TEAM_SIZE + benchSize) {
-                w.setColors(0x0046A6);
+                w.setColor(0x0046A6);
             }
             // out
             else if (pos < team.players.size()) {
-                w.setColors(0x303030);
+                w.setColor(0x303030);
             }
         }
         // void
         else {
-            w.setColors(0x101010);
+            w.setColor(0x101010);
         }
     }
 
@@ -827,23 +827,23 @@ class EditTactics extends GLScreen {
             int ply = Tactics.order[baseTactics][pos];
             switch (game.editedTactics.pairs[ply]) {
                 case 0:
-                    w.setColors(0x5FC24A);
+                    w.setColor(0x5FC24A);
                     break;
 
                 case 1:
-                    w.setColors(0xCC3E4C);
+                    w.setColor(0xCC3E4C);
                     break;
 
                 case 2:
-                    w.setColors(0x9D9A98);
+                    w.setColor(0x9D9A98);
                     break;
 
                 case 3:
-                    w.setColors(0xBE8445);
+                    w.setColor(0xBE8445);
                     break;
 
                 case 4:
-                    w.setColors(0xBD4DB8);
+                    w.setColor(0xBD4DB8);
                     break;
 
                 case 255:

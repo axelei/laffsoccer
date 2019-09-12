@@ -228,7 +228,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         BackButton() {
             setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
-            setColors(0x9A6C9C);
+            setColor(0x9A6C9C);
             setText("BACK", CENTER, font14);
         }
 
@@ -353,23 +353,23 @@ class DiyTournamentCalendar extends GLScreen {
             }
 
             if (done) {
-                setColors(0x666666);
+                setColor(0x666666);
             } else {
                 switch (team.controlMode) {
                     case UNDEFINED:
-                        setColors(0x98691E);
+                        setColor(0x98691E);
                         break;
 
                     case COMPUTER:
-                        setColors(0x981E1E);
+                        setColor(0x981E1E);
                         break;
 
                     case PLAYER:
-                        setColors(0x0000C8);
+                        setColor(0x0000C8);
                         break;
 
                     case COACH:
-                        setColors(0x009BDC);
+                        setColor(0x009BDC);
                         break;
                 }
             }
@@ -436,7 +436,7 @@ class DiyTournamentCalendar extends GLScreen {
 
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setText(gettext("ABORT"), CENTER, font14);
         }
 
@@ -457,16 +457,16 @@ class DiyTournamentCalendar extends GLScreen {
         public void refresh() {
             switch (mode) {
                 case GROUPS_DISTRIBUTION:
-                    setColors(0x666666);
+                    setColor(0x666666);
                     setActive(false);
                     break;
 
                 case GROUP_MATCHES:
                     if (currentGroup == groups.groups.size() && currentMatch == 0) {
-                        setColors(0x138B21);
+                        setColor(0x138B21);
                         setActive(true);
                     } else {
-                        setColors(0x666666);
+                        setColor(0x666666);
                         setActive(false);
                     }
                     break;
@@ -478,10 +478,10 @@ class DiyTournamentCalendar extends GLScreen {
                         if (match.teams[AWAY] != -1) teams++;
                     }
                     if (teams == knockout.numberOfTeams) {
-                        setColors(0x138B21);
+                        setColor(0x138B21);
                         setActive(true);
                     } else {
-                        setColors(0x666666);
+                        setColor(0x666666);
                         setActive(false);
                     }
                     break;

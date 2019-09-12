@@ -41,7 +41,7 @@ class ReplayMatch extends GLScreen {
 
         ReplayButton() {
             setGeometry((game.gui.WIDTH - 240) / 2, 330, 240, 50);
-            setColors(0xDC0000);
+            setColor(0xDC0000);
             setText(Assets.strings.get("REPLAY"), Font.Align.CENTER, Assets.font14);
         }
 
@@ -58,7 +58,7 @@ class ReplayMatch extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
         }

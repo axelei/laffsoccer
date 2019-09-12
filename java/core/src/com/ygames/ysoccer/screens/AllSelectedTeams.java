@@ -230,7 +230,7 @@ class AllSelectedTeams extends GLScreen {
 
         AbortButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setColors(0xC8000E);
+            setColor(0xC8000E);
             setText(gettext("ABORT"), CENTER, font14);
         }
 

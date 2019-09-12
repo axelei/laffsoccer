@@ -110,7 +110,7 @@ class MatchSetup extends GLScreen {
     private class TimeLabel extends Button {
 
         TimeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 130 - 40 / 2, 300, 40);
             setText(gettext("TIME"), CENTER, font14);
             setActive(false);
@@ -120,7 +120,7 @@ class MatchSetup extends GLScreen {
     private class TimePicture extends Button {
 
         TimePicture() {
-            setColors(0x666666);
+            setColor(0x666666);
             setGeometry(game.gui.WIDTH / 2 - 300 - 65, 130 - 50 / 2, 50, 50);
             setActive(false);
         }
@@ -136,9 +136,9 @@ class MatchSetup extends GLScreen {
         TimeButton() {
             if (navigation.competition.type == FRIENDLY ||
                     navigation.competition.type == TEST_MATCH) {
-                setColors(0x1F1F95);
+                setColor(0x1F1F95);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
                 setActive(false);
             }
             setGeometry(game.gui.WIDTH / 2 + 65, 130 - 40 / 2, 300, 40);
@@ -170,7 +170,7 @@ class MatchSetup extends GLScreen {
     private class PitchTypeLabel extends Button {
 
         PitchTypeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 200 - 40 / 2, 300, 40);
             setText(gettext("PITCH TYPE"), CENTER, font14);
             setActive(false);
@@ -180,7 +180,7 @@ class MatchSetup extends GLScreen {
     private class PitchTypePicture extends Button {
 
         PitchTypePicture() {
-            setColors(0x666666);
+            setColor(0x666666);
             setGeometry(game.gui.WIDTH / 2 - 300 - 65, 200 - 50 / 2, 50, 50);
             setActive(false);
         }
@@ -196,9 +196,9 @@ class MatchSetup extends GLScreen {
         PitchTypeButton() {
             if (navigation.competition.type == FRIENDLY ||
                     navigation.competition.type == TEST_MATCH) {
-                setColors(0x1F1F95);
+                setColor(0x1F1F95);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
                 setActive(false);
             }
             setGeometry(game.gui.WIDTH / 2 + 65, 200 - 40 / 2, 300, 40);
@@ -232,7 +232,7 @@ class MatchSetup extends GLScreen {
     private class WeatherLabel extends Button {
 
         WeatherLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 300 + 25, 270 - 40 / 2, 300, 40);
             setText(gettext("WEATHER"), CENTER, font14);
             setActive(false);
@@ -242,7 +242,7 @@ class MatchSetup extends GLScreen {
     private class WeatherPicture extends Button {
 
         WeatherPicture() {
-            setColors(0x666666);
+            setColor(0x666666);
             setGeometry(game.gui.WIDTH / 2 - 300 - 65, 270 - 50 / 2, 50, 50);
             setActive(false);
         }
@@ -265,10 +265,10 @@ class MatchSetup extends GLScreen {
         public void refresh() {
             if (navigation.competition.type == FRIENDLY ||
                     navigation.competition.type == TEST_MATCH) {
-                setColors(0x1F1F95);
+                setColor(0x1F1F95);
                 setActive(true);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
                 setActive(false);
             }
             setText(gettext(matchSettings.getWeatherLabel()));
@@ -287,7 +287,7 @@ class MatchSetup extends GLScreen {
         TeamNameButton(Team team, int teamIndex) {
             int sign = teamIndex == 0 ? -1 : 1;
             setGeometry((game.gui.WIDTH - 500) / 2 + (500 / 2 + 20) * sign, 326, 500, 42);
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setText(team.name, CENTER, font14);
             setActive(false);
         }

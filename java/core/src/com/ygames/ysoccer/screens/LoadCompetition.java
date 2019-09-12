@@ -68,10 +68,10 @@ class LoadCompetition extends GLScreen {
             setSize(540, 30);
             switch (competition.category) {
                 case DIY_COMPETITION:
-                    setColors(0x376E2F);
+                    setColor(0x376E2F);
                     break;
                 case PRESET_COMPETITION:
-                    setColors(0x415600);
+                    setColor(0x415600);
                     break;
             }
             setText(filename, Font.Align.CENTER, Assets.font14);

@@ -84,7 +84,7 @@ class GameOptions extends GLScreen {
     private class TitleBar extends Button {
 
         TitleBar() {
-            setColors(0x536B90);
+            setColor(0x536B90);
             setGeometry((game.gui.WIDTH - 960) / 2, 20, 960, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -99,7 +99,7 @@ class GameOptions extends GLScreen {
     private class LanguageLabel extends Button {
 
         LanguageLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 150, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -114,7 +114,7 @@ class GameOptions extends GLScreen {
     private class LanguageButton extends Button {
 
         LanguageButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 150, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -155,7 +155,7 @@ class GameOptions extends GLScreen {
     private class ScreenModeLabel extends Button {
 
         ScreenModeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 200, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -170,7 +170,7 @@ class GameOptions extends GLScreen {
     private class ScreenModeButton extends Button {
 
         ScreenModeButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 200, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -200,7 +200,7 @@ class GameOptions extends GLScreen {
     private class MouseLabel extends Button {
 
         MouseLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 250, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -215,7 +215,7 @@ class GameOptions extends GLScreen {
     private class MouseButton extends Button {
 
         MouseButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 250, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -245,7 +245,7 @@ class GameOptions extends GLScreen {
     private class MusicModeLabel extends Button {
 
         MusicModeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 300, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -260,7 +260,7 @@ class GameOptions extends GLScreen {
     private class MusicModeButton extends Button {
 
         MusicModeButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 300, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -314,7 +314,7 @@ class GameOptions extends GLScreen {
     private class MusicVolumeLabel extends Button {
 
         MusicVolumeLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 350, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -329,7 +329,7 @@ class GameOptions extends GLScreen {
     private class MusicVolumeButton extends Button {
 
         MusicVolumeButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 350, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -372,7 +372,7 @@ class GameOptions extends GLScreen {
     private class PlayerCountryLabel extends Button {
 
         PlayerCountryLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 400, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -387,7 +387,7 @@ class GameOptions extends GLScreen {
     private class PlayerCountryButton extends Button {
 
         PlayerCountryButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 400, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -416,7 +416,7 @@ class GameOptions extends GLScreen {
     private class MaxPlayerValueLabel extends Button {
 
         MaxPlayerValueLabel() {
-            setColors(0x800000);
+            setColor(0x800000);
             setGeometry(game.gui.WIDTH / 2 - 10 - 440, 450, 440, 40);
             setText("", Font.Align.CENTER, Assets.font14);
             setActive(false);
@@ -431,7 +431,7 @@ class GameOptions extends GLScreen {
     private class MaxPlayerValueButton extends Button {
 
         MaxPlayerValueButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10, 450, 300, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -507,7 +507,7 @@ class GameOptions extends GLScreen {
     private class CurrencyButton extends Button {
 
         CurrencyButton() {
-            setColors(0x1F1F95);
+            setColor(0x1F1F95);
             setGeometry(game.gui.WIDTH / 2 + 10 + 300 + 10, 450, 130, 40);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -542,7 +542,7 @@ class GameOptions extends GLScreen {
     private class ImportButton extends Button {
 
         ImportButton() {
-            setColors(0x762B8E);
+            setColor(0x762B8E);
             setGeometry(game.gui.WIDTH / 2 - 260 - 10, 530, 260, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -561,7 +561,7 @@ class GameOptions extends GLScreen {
     private class ExportButton extends Button {
 
         ExportButton() {
-            setColors(0x762B8E);
+            setColor(0x762B8E);
             setGeometry(game.gui.WIDTH / 2 + 10, 530, 260, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -580,7 +580,7 @@ class GameOptions extends GLScreen {
     private class QuitToOsButton extends Button {
 
         QuitToOsButton() {
-            setColors(0x008080);
+            setColor(0x008080);
             setGeometry((game.gui.WIDTH - 300) / 2, 580, 300, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }
@@ -599,7 +599,7 @@ class GameOptions extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText("", Font.Align.CENTER, Assets.font14);
         }

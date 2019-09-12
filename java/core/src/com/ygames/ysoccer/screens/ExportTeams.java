@@ -109,7 +109,7 @@ class ExportTeams extends GLScreen {
             if (configFile.exists()) {
                 setColors(0x568200, 0x77B400, 0x243E00);
             } else {
-                setColors(0x666666);
+                setColor(0x666666);
                 setActive(false);
             }
             setText(folder.name().replace('_', ' '), CENTER, font14);
@@ -169,12 +169,12 @@ class ExportTeams extends GLScreen {
             switch (state) {
                 case NO_FOLDERS:
                 case FINISHED:
-                    setColors(0xC84200);
+                    setColor(0xC84200);
                     setText(gettext("EXIT"));
                     break;
                 case READY:
                     setText(gettext("ABORT"));
-                    setColors(0xC8000E);
+                    setColor(0xC8000E);
                     break;
             }
             setVisible(state != State.EXPORTING);

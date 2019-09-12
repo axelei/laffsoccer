@@ -195,7 +195,7 @@ class SearchTeams extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton() {
-            setColors(0xC84200);
+            setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
             setText(gettext("EXIT"), Font.Align.CENTER, Assets.font14);
         }
@@ -265,7 +265,7 @@ class SearchTeams extends GLScreen {
         TeamButton(Team team, FileHandle folder) {
             this.team = team;
             this.folder = folder;
-            setColors(0x308C3B);
+            setColor(0x308C3B);
             setSize(604, 19);
             String t = "";
             switch (team.type) {
