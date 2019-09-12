@@ -36,7 +36,7 @@ public class MatchSettings {
         matchLength = gameSettings.matchLength;
         matchLength = Settings.matchLengths[0];
         this.time = randomTime();
-        this.pitchType = Pitch.Type.values()[Emath.rand(Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal())];
+        this.pitchType = Pitch.random();
         this.grass = new Grass();
         this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;

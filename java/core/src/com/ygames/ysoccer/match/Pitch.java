@@ -1,5 +1,8 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.math.Emath;
+
 public class Pitch {
 
     public enum Type {
@@ -73,4 +76,18 @@ public class Pitch {
             {5, 20, 20, 15, 25, 0, 5, 5, 5, 30}, //november
             {10, 20, 20, 10, 15, 0, 5, 10, 10, 40} //december
     };
+
+    public static Type random() {
+
+        int[] pitchProbabilities = probabilityByMonth[Emath.rand(0, 11)];
+
+        float sum = 0;
+        float r = Assets.random.nextFloat();
+        int i = -1;
+        do {
+            i++;
+            sum += pitchProbabilities[i] / 100f;
+        } while (sum < r);
+        return Pitch.Type.values()[i];
+    }
 }

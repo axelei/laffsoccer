@@ -169,11 +169,11 @@ public abstract class Competition {
                 && getTeam(AWAY).controlMode == COMPUTER;
     }
 
-    public boolean playExtraTime()  {
+    public boolean playExtraTime() {
         return false;
     }
 
-    public boolean playPenalties()  {
+    public boolean playPenalties() {
         return false;
     }
 
@@ -246,17 +246,17 @@ public abstract class Competition {
                 p = p + 1;
                 tot = tot + Pitch.probabilityByMonth[currentMonth.ordinal()][p];
             } while (tot <= n);
+
+            return Pitch.Type.values()[p];
         }
         // BY_PITCH_TYPE
         else {
             if (pitchType == Pitch.Type.RANDOM) {
-                p = Emath.rand(Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal());
+                return Pitch.random();
             } else {
-                p = pitchType.ordinal();
+                return pitchType;
             }
         }
-
-        return Pitch.Type.values()[p];
     }
 
     public static Competition load(FileHandle fileHandle) {
