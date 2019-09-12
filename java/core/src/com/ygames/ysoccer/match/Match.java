@@ -607,10 +607,10 @@ public class Match implements Json.Serializable {
         tackle.angleDiff = angleDiff;
     }
 
-    void newFoul() {
+    void newFoul(float x, float y) {
         foul = new Foul();
         foul.time = tackle.time;
-        foul.position = new Vector2(tackle.position);
+        foul.position = new Vector2(x, y);
         foul.player = tackle.player;
         foul.opponent = tackle.opponent;
     }

@@ -208,8 +208,12 @@ class MatchStateMain extends MatchState {
                         opponent.setState(STATE_DOWN);
 
                         if (Assets.random.nextFloat() < foulProbability) {
-                            match.newFoul();
+                            match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y);
+                        } else {
+                            Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " was probably not a foul!");
                         }
+                    } else {
+                        Gdx.app.debug(opponent.shirtName, "avoids the tackle from " + player.shirtName + "!");
                     }
                     match.tackle = null;
                 }
