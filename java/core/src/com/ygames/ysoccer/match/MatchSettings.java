@@ -31,10 +31,11 @@ public class MatchSettings {
     boolean crowdChants;
     public boolean commentary;
 
+    // used in training
     public MatchSettings(Settings gameSettings) {
         matchLength = gameSettings.matchLength;
         matchLength = Settings.matchLengths[0];
-        this.time = MatchSettings.Time.values()[Assets.random.nextInt(2)];
+        this.time = randomTime();
         this.pitchType = Pitch.Type.values()[Emath.rand(Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal())];
         this.grass = new Grass();
         this.wind = new Wind();
@@ -256,5 +257,10 @@ public class MatchSettings {
                     break;
             }
         }
+    }
+
+    public static Time randomTime() {
+        float dayProbability = 0.7f;
+        return Assets.random.nextFloat() < dayProbability ? Time.DAY : Time.NIGHT;
     }
 }

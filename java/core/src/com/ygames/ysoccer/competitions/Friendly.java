@@ -23,6 +23,6 @@ public class Friendly extends Competition {
 
     @Override
     public MatchSettings.Time getTime() {
-        return MatchSettings.Time.values()[Assets.random.nextInt(2)];
+        return MatchSettings.randomTime();
     }
 }
