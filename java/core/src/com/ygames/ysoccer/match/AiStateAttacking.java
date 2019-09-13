@@ -16,7 +16,7 @@ class AiStateAttacking extends AiState {
     void doActions() {
         super.doActions();
 
-        ai.x0 = -Emath.sgn(Math.round(player.match.ball.x / (Const.POST_X + Const.POST_R + Const.BALL_R)));
+        ai.x0 = -Emath.sgn(Math.round(player.ball.x / (Const.POST_X + Const.POST_R + Const.BALL_R)));
         ai.y0 = -player.team.side;
 
         player.searchFacingPlayer(false);
@@ -32,7 +32,7 @@ class AiStateAttacking extends AiState {
         }
 
         // lost the ball
-        if (player.match.ball.owner != player) {
+        if (player.ball.owner != player) {
             return fsm.stateSeeking;
         }
 
@@ -44,10 +44,10 @@ class AiStateAttacking extends AiState {
 
         // near the goal
         if (Emath.isIn(
-                player.match.ball.y,
+                player.ball.y,
                 -player.team.side * (Const.GOAL_LINE - 1.5f * Const.PENALTY_AREA_H),
                 -player.team.side * Const.GOAL_LINE)
-                && (player.match.ball.z < 4)) {
+                && (player.ball.z < 4)) {
             return fsm.stateKicking;
         }
 

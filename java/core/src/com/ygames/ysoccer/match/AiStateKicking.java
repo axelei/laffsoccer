@@ -26,7 +26,7 @@ class AiStateKicking extends AiState {
     void doActions() {
         super.doActions();
 
-        ai.x0 = -Emath.sgn(Math.round(player.match.ball.x / (Const.POST_X + Const.POST_R + Const.BALL_R)));
+        ai.x0 = -Emath.sgn(Math.round(player.ball.x / (Const.POST_X + Const.POST_R + Const.BALL_R)));
         ai.y0 = -player.team.side;
         ai.fire10 = true;
     }

@@ -17,7 +17,7 @@ class AiStateDefending extends AiState {
         super.doActions();
         int d = player.frameDistance;
         if (d < Const.BALL_PREDICTION) {
-            Vector3 b = player.match.ball.prediction[d];
+            Vector3 b = player.ball.prediction[d];
             float a = Emath.aTan2(b.y - player.y, b.x - player.x);
             ai.x0 = Math.round(Emath.cos(a));
             ai.y0 = Math.round(Emath.sin(a));
@@ -34,13 +34,13 @@ class AiStateDefending extends AiState {
         }
 
         // got the ball
-        if (player.match.ball.owner != null) {
+        if (player.ball.owner != null) {
             // self
-            if (player.match.ball.owner == player) {
+            if (player.ball.owner == player) {
                 return fsm.stateAttacking;
             }
             // mate
-            if (player.match.ball.owner.team == player.team) {
+            if (player.ball.owner.team == player.team) {
                 return fsm.statePositioning;
             }
         }

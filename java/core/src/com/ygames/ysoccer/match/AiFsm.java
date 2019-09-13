@@ -23,20 +23,20 @@ public class AiFsm extends Fsm {
 
     Ai ai;
 
-    AiStateIdle stateIdle;
-    AiStateKickingOff stateKickingOff;
-    AiStatePositioning statePositioning;
-    AiStateSeeking stateSeeking;
-    AiStateDefending stateDefending;
-    AiStateAttacking stateAttacking;
-    AiStatePassing statePassing;
-    AiStateKicking stateKicking;
-    AiStateGoalKicking stateGoalKicking;
-    AiStateThrowingIn stateThrowingIn;
-    AiStateCornerKicking stateCornerKicking;
-    AiStateFreeKicking stateFreeKicking;
-    AiStatePenaltyKicking statePenaltyKicking;
-    AiStateKeeperKicking stateKeeperKicking;
+    AiState stateIdle;
+    AiState stateKickingOff;
+    AiState statePositioning;
+    AiState stateSeeking;
+    AiState stateDefending;
+    AiState stateAttacking;
+    AiState statePassing;
+    AiState stateKicking;
+    AiState stateGoalKicking;
+    AiState stateThrowingIn;
+    AiState stateCornerKicking;
+    AiState stateFreeKicking;
+    AiState statePenaltyKicking;
+    AiState stateKeeperKicking;
 
     public AiFsm(Ai ai) {
         this.ai = ai;
