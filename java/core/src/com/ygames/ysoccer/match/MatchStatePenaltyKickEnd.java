@@ -115,11 +115,8 @@ class MatchStatePenaltyKickEnd extends MatchState {
 
             if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
 
-                match.recorder.saveHighlight(matchRenderer);
-
                 match.ball.setPosition(0, -Const.PENALTY_SPOT_Y, 0);
                 match.ball.updatePrediction();
-
 
                 if (haveWinner()) {
                     match.setResult(match.penaltiesScore(HOME), match.penaltiesScore(AWAY), Match.ResultType.AFTER_PENALTIES);
