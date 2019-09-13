@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
@@ -22,6 +23,8 @@ class TrainingStateFree extends TrainingState {
     TrainingStateFree(TrainingFsm fsm) {
         super(fsm);
         id = TrainingFsm.STATE_FREE;
+
+        displayControlledPlayer = true;
     }
 
     @Override
@@ -124,6 +127,11 @@ class TrainingStateFree extends TrainingState {
     void checkConditions() {
         if (Gdx.input.isKeyPressed(ESCAPE)) {
             quitTraining();
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+            replay();
             return;
         }
     }
