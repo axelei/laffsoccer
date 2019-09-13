@@ -1,14 +1,12 @@
 package com.ygames.ysoccer.screens;
 
-import com.strongjoshua.console.CommandExecutor;
 import com.strongjoshua.console.Console;
 import com.strongjoshua.console.GUIConsole;
-import com.strongjoshua.console.annotation.HiddenCommand;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.match.Const;
+import com.ygames.ysoccer.match.ConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
 
@@ -128,49 +126,6 @@ class MatchScreen extends GLScreen {
             case TEST_MATCH:
                 game.setScreen(new DeveloperTools(game));
                 break;
-        }
-    }
-
-    class ConsoleCommandExecutor extends CommandExecutor {
-
-        @HiddenCommand
-        public void gravity() {
-            console.log("gravity " + Const.GRAVITY);
-        }
-        public void gravity(float f) {
-            Const.GRAVITY = f;
-        }
-
-        @HiddenCommand
-        public void airFriction() {
-            console.log("airFriction " + Const.AIR_FRICTION);
-        }
-        public void airFriction(float f) {
-            Const.AIR_FRICTION = f;
-        }
-
-        @HiddenCommand
-        public void spinFactor() {
-            console.log("spinFactor " + Const.SPIN_FACTOR);
-        }
-        public void spinFactor(float f) {
-            Const.SPIN_FACTOR = f;
-        }
-
-        @HiddenCommand
-        public void spinDampening() {
-            console.log("spinDampening " + Const.SPIN_DAMPENING);
-        }
-        public void spinDampening(float f) {
-            Const.SPIN_DAMPENING = f;
-        }
-
-        @HiddenCommand
-        public void bounce() {
-            console.log("bounce " + Const.BOUNCE);
-        }
-        public void bounce(float f) {
-            Const.BOUNCE = f;
         }
     }
 }
