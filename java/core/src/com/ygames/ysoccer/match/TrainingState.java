@@ -1,10 +1,17 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.TrainingFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.TrainingFsm.STATE_REPLAY;
+
 class TrainingState {
 
     protected int timer;
     protected int id;
     protected TrainingFsm fsm;
+
+    boolean displayControlledPlayer;
 
     protected Training training;
     protected final Team team;
@@ -39,6 +46,15 @@ class TrainingState {
 
     boolean checkId(int id) {
         return (this.id == id);
+    }
+
+    void render() {
+    }
+
+    void replay() {
+        fsm.pushAction(FADE_OUT);
+        fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);
+        fsm.pushAction(FADE_IN);
     }
 
     void quitTraining() {

@@ -11,6 +11,7 @@ import static com.badlogic.gdx.Gdx.gl;
 public class TrainingRenderer extends Renderer {
 
     public Training training;
+    private TrainingState trainingState;
 
     TrainingRenderer(GLGraphics glGraphics, Training training) {
         super();
@@ -49,6 +50,8 @@ public class TrainingRenderer extends Renderer {
     }
 
     public void render() {
+        trainingState = training.fsm.getState();
+
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(true, Gdx.graphics.getWidth() * 100f / zoom, Gdx.graphics.getHeight() * 100f / zoom);
@@ -92,7 +95,9 @@ public class TrainingRenderer extends Renderer {
             }
         }
 
-        drawControlledPlayersNumbers();
+        if (trainingState.displayControlledPlayer) {
+            drawControlledPlayersNumbers();
+        }
 
         batch.end();
 
@@ -121,6 +126,12 @@ public class TrainingRenderer extends Renderer {
         if (training.fsm.trainingKeys.messageTimer > 0) {
             batch.setColor(0xFFFFFF, guiAlpha);
             Assets.font10.draw(batch, training.fsm.trainingKeys.message, guiWidth / 2, 1, Font.Align.CENTER);
+        }
+
+        // additional state-specific render
+        TrainingState trainingState = training.fsm.getState();
+        if (trainingState != null) {
+            trainingState.render();
         }
 
         batch.end();

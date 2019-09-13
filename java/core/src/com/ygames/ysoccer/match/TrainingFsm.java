@@ -55,6 +55,7 @@ public class TrainingFsm {
     TrainingKeys trainingKeys;
 
     static final int STATE_FREE = 1;
+    static final int STATE_REPLAY = 2;
 
     TrainingFsm(Training training) {
         this.training = training;
@@ -65,6 +66,11 @@ public class TrainingFsm {
         actions = new ArrayDeque<Action>();
 
         states.add(new TrainingStateFree(this));
+        states.add(new TrainingStateReplay(this));
+    }
+
+    public TrainingState getState() {
+        return currentState;
     }
 
     public Training getTraining() {
