@@ -47,6 +47,18 @@ public class Kit implements Json.Serializable {
             0xCAC47D, // gold
     };
 
+    public Kit() {
+    }
+
+    public Kit(String style, int shirt1, int shirt2, int shirt3, int shorts, int socks) {
+        this.style = style;
+        this.shirt1 = shirt1;
+        this.shirt2 = shirt2;
+        this.shirt3 = shirt3;
+        this.shorts = shorts;
+        this.socks = socks;
+    }
+
     @Override
     public void write(Json json) {
         json.writeValue("style", style);
