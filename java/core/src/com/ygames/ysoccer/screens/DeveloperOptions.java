@@ -1,0 +1,155 @@
+package com.ygames.ysoccer.screens;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
+import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.math.Emath;
+
+import static com.badlogic.gdx.Application.LOG_DEBUG;
+import static com.badlogic.gdx.Application.LOG_ERROR;
+import static com.badlogic.gdx.Application.LOG_INFO;
+import static com.badlogic.gdx.Application.LOG_NONE;
+
+class DeveloperOptions extends GLScreen {
+
+    DeveloperOptions(GLGame game) {
+        super(game);
+        background = new Texture("images/backgrounds/menu_game_options.jpg");
+
+        Widget w;
+
+        w = new TitleBar("DEVELOPER OPTIONS", 0x191FB0);
+        widgets.add(w);
+
+        w = new LogLevelLabel();
+        widgets.add(w);
+
+        w = new LogLevelButton();
+        widgets.add(w);
+
+        w = new BallZonesLabel();
+        widgets.add(w);
+
+        w = new BallZonesButton();
+        widgets.add(w);
+
+        w = new ExitButton();
+        widgets.add(w);
+    }
+
+    private class LogLevelLabel extends Button {
+
+        LogLevelLabel() {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 290, 440, 20);
+            setText("LOG LEVEL", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class LogLevelButton extends Button {
+
+        LogLevelButton() {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, 290, 440, 20);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            switch(game.settings.logLevel) {
+                case LOG_NONE:
+                    setText("0: NONE");
+                    break;
+
+                case LOG_ERROR:
+                    setText("1: ERRORS");
+                    break;
+
+                case LOG_INFO:
+                    setText("2: ERRORS + INFO");
+                    break;
+
+                case LOG_DEBUG:
+                    setText("3: ERRORS + INFO + DEBUG");
+                    break;
+
+            }
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateLogLevel(1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateLogLevel(-1);
+        }
+
+        private void updateLogLevel(int n) {
+            game.settings.logLevel = Emath.rotate(game.settings.logLevel, 0, 3, n);
+            Gdx.app.setLogLevel(game.settings.logLevel);
+            setDirty(true);
+        }
+    }
+
+    private class BallZonesLabel extends Button {
+
+        BallZonesLabel() {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 320, 440, 20);
+            setText("SHOW BALL ZONES", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class BallZonesButton extends Button {
+
+        BallZonesButton() {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, 320, 440, 20);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(game.settings.showBallZones ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleRadar();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleRadar();
+        }
+
+        private void toggleRadar() {
+            game.settings.showBallZones = !game.settings.showBallZones;
+            setDirty(true);
+        }
+    }
+
+    private class ExitButton extends Button {
+
+        ExitButton() {
+            setColor(0xC84200);
+            setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
+            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.settings.save();
+            game.setScreen(new DeveloperTools(game));
+        }
+    }
+}

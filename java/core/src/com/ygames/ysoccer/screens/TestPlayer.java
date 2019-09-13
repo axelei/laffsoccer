@@ -897,7 +897,7 @@ class TestPlayer extends GLScreen {
         public void onFire1Down() {
             hasExited = true;
             Assets.unloadPlayer(player);
-            game.setScreen(new DevTools(game));
+            game.setScreen(new DeveloperTools(game));
         }
     }
 

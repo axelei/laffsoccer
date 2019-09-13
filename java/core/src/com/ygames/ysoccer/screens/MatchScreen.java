@@ -10,7 +10,6 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
-import com.ygames.ysoccer.match.Team;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -126,7 +125,7 @@ class MatchScreen extends GLScreen {
                 break;
 
             case TEST_MATCH:
-                game.setScreen(new DevTools(game));
+                game.setScreen(new DeveloperTools(game));
                 break;
         }
     }
@@ -137,7 +136,6 @@ class MatchScreen extends GLScreen {
         public void gravity() {
             console.log("gravity " + Const.GRAVITY);
         }
-
         public void gravity(float f) {
             Const.GRAVITY = f;
         }
@@ -146,7 +144,6 @@ class MatchScreen extends GLScreen {
         public void airFriction() {
             console.log("airFriction " + Const.AIR_FRICTION);
         }
-
         public void airFriction(float f) {
             Const.AIR_FRICTION = f;
         }
@@ -155,7 +152,6 @@ class MatchScreen extends GLScreen {
         public void spinFactor() {
             console.log("spinFactor " + Const.SPIN_FACTOR);
         }
-
         public void spinFactor(float f) {
             Const.SPIN_FACTOR = f;
         }
@@ -164,7 +160,6 @@ class MatchScreen extends GLScreen {
         public void spinDampening() {
             console.log("spinDampening " + Const.SPIN_DAMPENING);
         }
-
         public void spinDampening(float f) {
             Const.SPIN_DAMPENING = f;
         }
@@ -173,18 +168,8 @@ class MatchScreen extends GLScreen {
         public void bounce() {
             console.log("bounce " + Const.BOUNCE);
         }
-
         public void bounce(float f) {
             Const.BOUNCE = f;
-        }
-
-        @HiddenCommand
-        public void runAnimation() {
-            console.log("runAnimation " + Const.PLAYER_RUN_ANIMATION);
-        }
-
-        public void runAnimation(float f) {
-            Const.PLAYER_RUN_ANIMATION = f;
         }
     }
 }

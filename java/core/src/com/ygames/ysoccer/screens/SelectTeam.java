@@ -16,6 +16,7 @@ import java.util.List;
 import static com.ygames.ysoccer.framework.Assets.favourites;
 import static com.ygames.ysoccer.framework.Assets.font10;
 import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.font6;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.framework.Assets.saveFavourites;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
@@ -281,7 +282,7 @@ class SelectTeam extends GLScreen {
                 v += team.playerAtPosition(i).getValue();
             }
             setGeometry(teamButton.x, teamButton.y, 60, 19);
-            setText("" + v, LEFT, font10);
+            setText("" + v, LEFT, font6);
         }
     }
 

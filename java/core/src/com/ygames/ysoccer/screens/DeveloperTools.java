@@ -22,15 +22,15 @@ import ar.com.hjg.pngj.chunks.ChunkCopyBehaviour;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
-class DevTools extends GLScreen {
+class DeveloperTools extends GLScreen {
 
-    DevTools(GLGame game) {
+    DeveloperTools(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_game_options.jpg");
 
         Widget w;
 
-        w = new TitleBar("DEVELOPMENT TOOLS", 0x191FB0);
+        w = new TitleBar("DEVELOPER TOOLS", 0x191FB0);
         widgets.add(w);
 
         w = new PlayerTestButton();
@@ -39,6 +39,9 @@ class DevTools extends GLScreen {
         setSelectedWidget(w);
 
         w = new MatchTestButton();
+        widgets.add(w);
+
+        w = new OptionsButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -101,6 +104,20 @@ class DevTools extends GLScreen {
 
             navigation.competition = testMatch;
             game.setScreen(new MatchSetup(game));
+        }
+    }
+
+    private class OptionsButton extends Button {
+
+        OptionsButton() {
+            setColor(0x427AA1);
+            setGeometry((game.gui.WIDTH - 260) / 2, 480, 260, 36);
+            setText("OPTIONS", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DeveloperOptions(game));
         }
     }
 

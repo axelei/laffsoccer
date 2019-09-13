@@ -403,7 +403,7 @@ class MatchSetup extends GLScreen {
                     break;
 
                 case TEST_MATCH:
-                    game.setScreen(new DevTools(game));
+                    game.setScreen(new DeveloperTools(game));
                     break;
             }
         }

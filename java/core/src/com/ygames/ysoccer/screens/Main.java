@@ -96,7 +96,7 @@ public class Main extends GLScreen {
         widgets.add(w);
 
         if (game.settings.development) {
-            w = new DevToolsButton();
+            w = new DeveloperToolsButton();
             widgets.add(w);
         }
     }
@@ -325,17 +325,17 @@ public class Main extends GLScreen {
         }
     }
 
-    private class DevToolsButton extends Button {
+    private class DeveloperToolsButton extends Button {
 
-        DevToolsButton() {
+        DeveloperToolsButton() {
             setColor(0x191FB0);
             setGeometry((game.gui.WIDTH - 300) / 2, 675, 300, 32);
-            setText("DEVELOPMENT TOOLS", CENTER, font10);
+            setText("DEVELOPER TOOLS", CENTER, font10);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new DevTools(game));
+            game.setScreen(new DeveloperTools(game));
         }
     }
 }

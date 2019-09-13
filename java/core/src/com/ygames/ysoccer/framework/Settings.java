@@ -19,8 +19,6 @@ public class Settings {
     public final String VERSION = "16";
 
     // game
-    public boolean development;
-    public int logLevel;
     public String locale;
     public boolean fullScreen;
     public boolean showIntro;
@@ -46,6 +44,11 @@ public class Settings {
     private String keyboardConfigs;
     private String joystickConfigs;
 
+    // development
+    public boolean development;
+    public int logLevel;
+    public boolean showBallZones;
+
     Settings() {
         preferences = Gdx.app.getPreferences(APP_NAME + VERSION);
 
@@ -54,8 +57,6 @@ public class Settings {
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
         // game
-        development = preferences.getBoolean("development", false);
-        logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
         locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
         showIntro = preferences.getBoolean("showIntro", true);
@@ -80,12 +81,15 @@ public class Settings {
         // controls
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
         joystickConfigs = preferences.getString("joystickConfigs", "[]");
+
+        // development
+        development = preferences.getBoolean("development", false);
+        logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
+        showBallZones = preferences.getBoolean("showBallZones", false);
     }
 
     public void save() {
         // game
-        preferences.putBoolean("development", development);
-        preferences.putInteger("logLevel", logLevel);
         preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
         preferences.putBoolean("showIntro", showIntro);
@@ -112,6 +116,11 @@ public class Settings {
         // controls
         preferences.putString("keyboardConfigs", keyboardConfigs);
         preferences.putString("joystickConfigs", joystickConfigs);
+
+        // development
+        preferences.putBoolean("development", development);
+        preferences.putInteger("logLevel", logLevel);
+        preferences.putBoolean("showBallZones", showBallZones);
 
         preferences.flush();
     }
