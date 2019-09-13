@@ -13,10 +13,10 @@ class PlayerStateOwnGoalScorer extends PlayerState {
         super.entryActions();
         player.v = 0;
         if (player.role == Player.Role.GOALKEEPER) {
-            player.fmx = 2 + 2 * (1 - player.match.ball.ySide);
+            player.fmx = 2 + 2 * (1 - player.ball.ySide);
             player.fmy = 1;
         } else {
-            player.fmy = 14 + (1 - player.match.ball.ySide) / 2;
+            player.fmy = 14 + (1 - player.ball.ySide) / 2;
             player.fmx = 3;
         }
     }
