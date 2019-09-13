@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.badlogic.gdx.Gdx.gl;
+import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
+import static com.ygames.ysoccer.match.Const.BALL_ZONE_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -81,6 +83,10 @@ public class MatchRenderer extends Renderer {
         batch.begin();
 
         renderBackground();
+
+        if (match.game.settings.development && match.game.settings.showBallZones) {
+            drawBallZones();
+        }
 
         Assets.crowdRenderer.draw(batch);
 
@@ -213,6 +219,22 @@ public class MatchRenderer extends Renderer {
             }
         }
         batch.enableBlending();
+    }
+
+    private void drawBallZones() {
+        batch.end();
+        shapeRenderer.setAutoShapeType(true);
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.begin();
+        shapeRenderer.setColor(0xAAAA00, 0.4f);
+        for (int x = 0; x < 6; x++) {
+            shapeRenderer.line((-2.5f + x) * BALL_ZONE_DX, (-3.5f) * BALL_ZONE_DY, (-2.5f + x) * BALL_ZONE_DX, 3.5f * BALL_ZONE_DY);
+        }
+        for (int y = 0; y < 8; y++) {
+            shapeRenderer.line(-2.5f * BALL_ZONE_DX, (-3.5f + y) * BALL_ZONE_DY, 2.5f * BALL_ZONE_DX, (-3.5f + y) * BALL_ZONE_DY);
+        }
+        shapeRenderer.end();
+        batch.begin();
     }
 
     @Override
