@@ -49,6 +49,7 @@ public class Settings {
     public static int logLevel;
     public static boolean showBallZones;
     public static boolean showPlayerState;
+    public static boolean showPlayerAiState;
 
     Settings() {
         preferences = Gdx.app.getPreferences(APP_NAME + VERSION);
@@ -88,6 +89,7 @@ public class Settings {
         logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
         showBallZones = preferences.getBoolean("showBallZones", false);
         showPlayerState = preferences.getBoolean("showPlayerState", false);
+        showPlayerAiState = preferences.getBoolean("showPlayerAiState", false);
     }
 
     public void save() {
@@ -124,6 +126,7 @@ public class Settings {
         preferences.putInteger("logLevel", logLevel);
         preferences.putBoolean("showBallZones", showBallZones);
         preferences.putBoolean("showPlayerState", showPlayerState);
+        preferences.putBoolean("showPlayerAiState", showPlayerAiState);
 
         preferences.flush();
     }

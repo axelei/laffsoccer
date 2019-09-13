@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
@@ -56,12 +57,16 @@ public class PlayerSprite extends Sprite {
             }
 
             // development
-            if (Settings.development && Settings.showPlayerState) {
-                Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x - 24, d.y - 74 - d.z, CENTER);
+            if (Settings.development) {
+                if (Settings.showPlayerState) {
+                    Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x, d.y - 56 - d.z, CENTER);
+                }
+                if (Settings.showPlayerAiState && player.inputDevice.getClass().isInstance(player.ai)) {
+                    Ai ai = (Ai) player.inputDevice;
+                    Assets.font6.draw(glGraphics.batch, AiFsm.Id.values()[ai.fsm.getState().id].toString(), d.x, d.y - 40 - d.z, CENTER);
+                }
             }
-        }
-
-        else {
+        } else {
             int offsetX = offsets[d.fmy][d.fmx][0];
             int offsetY = offsets[d.fmy][d.fmx][1];
             glGraphics.batch.draw(
@@ -79,8 +84,14 @@ public class PlayerSprite extends Sprite {
             }
 
             // development
-            if (Settings.development && Settings.showPlayerState) {
-                Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x - 24, d.y - 74 - d.z, CENTER);
+            if (Settings.development) {
+                if (Settings.showPlayerState) {
+                    Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x, d.y - 56 - d.z, CENTER);
+                }
+                if (Settings.showPlayerAiState && player.inputDevice.getClass().isInstance(player.ai)) {
+                    Ai ai = (Ai) player.inputDevice;
+                    Assets.font6.draw(glGraphics.batch, AiFsm.Id.values()[ai.fsm.getState().id].toString(), d.x, d.y - 40 - d.z, CENTER);
+                }
             }
         }
     }

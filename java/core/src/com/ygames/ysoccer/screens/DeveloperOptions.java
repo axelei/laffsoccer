@@ -29,24 +29,26 @@ class DeveloperOptions extends GLScreen {
 
         int y = 290;
 
-        y += 30;
         w = new LogLevelLabel(y);
         widgets.add(w);
-
         w = new LogLevelButton(y);
         widgets.add(w);
 
-        y += 60;
+        y += 40;
         w = new PlayerStateLabel(y);
         widgets.add(w);
-
         w = new PlayerStateButton(y);
         widgets.add(w);
 
-        y += 30;
-        w = new BallZonesLabel(y);
+        y += 22;
+        w = new PlayerAiStateLabel(y);
+        widgets.add(w);
+        w = new PlayerAiStateButton(y);
         widgets.add(w);
 
+        y += 22;
+        w = new BallZonesLabel(y);
+        widgets.add(w);
         w = new BallZonesButton(y);
         widgets.add(w);
 
@@ -58,7 +60,7 @@ class DeveloperOptions extends GLScreen {
 
         LogLevelLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
             setText("LOG LEVEL", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -68,13 +70,13 @@ class DeveloperOptions extends GLScreen {
 
         LogLevelButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
-            switch (game.settings.logLevel) {
+            switch (Settings.logLevel) {
                 case LOG_NONE:
                     setText("0: NONE");
                     break;
@@ -105,8 +107,8 @@ class DeveloperOptions extends GLScreen {
         }
 
         private void updateLogLevel(int n) {
-            game.settings.logLevel = Emath.rotate(game.settings.logLevel, 0, 3, n);
-            Gdx.app.setLogLevel(game.settings.logLevel);
+            Settings.logLevel = Emath.rotate(Settings.logLevel, 0, 3, n);
+            Gdx.app.setLogLevel(Settings.logLevel);
             setDirty(true);
         }
     }
@@ -115,7 +117,7 @@ class DeveloperOptions extends GLScreen {
 
         PlayerStateLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
             setText("SHOW PLAYER STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -125,7 +127,7 @@ class DeveloperOptions extends GLScreen {
 
         PlayerStateButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -150,27 +152,27 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class BallZonesLabel extends Button {
+    private class PlayerAiStateLabel extends Button {
 
-        BallZonesLabel(int y) {
+        PlayerAiStateLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 20);
-            setText("SHOW BALL ZONES", Font.Align.CENTER, Assets.font6);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setText("SHOW PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }
 
-    private class BallZonesButton extends Button {
+    private class PlayerAiStateButton extends Button {
 
-        BallZonesButton(int y) {
+        PlayerAiStateButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
-            setText(game.settings.showBallZones ? "ON" : "OFF");
+            setText(Settings.showPlayerAiState ? "ON" : "OFF");
         }
 
         @Override
@@ -184,7 +186,46 @@ class DeveloperOptions extends GLScreen {
         }
 
         private void toggle() {
-            game.settings.showBallZones = !game.settings.showBallZones;
+            Settings.showPlayerAiState = !Settings.showPlayerAiState;
+            setDirty(true);
+        }
+    }
+
+    private class BallZonesLabel extends Button {
+
+        BallZonesLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setText("SHOW BALL ZONES", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class BallZonesButton extends Button {
+
+        BallZonesButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showBallZones ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showBallZones = !Settings.showBallZones;
             setDirty(true);
         }
     }

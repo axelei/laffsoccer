@@ -54,7 +54,7 @@ class DeveloperTools extends GLScreen {
 
         PlayerTestButton() {
             setColor(0x427AA1);
-            setGeometry((game.gui.WIDTH - 260) / 2, 340, 260, 36);
+            setGeometry((game.gui.WIDTH - 260) / 2, 300, 260, 36);
             setText("PLAYER TEST", Font.Align.CENTER, Assets.font14);
         }
 
@@ -68,7 +68,7 @@ class DeveloperTools extends GLScreen {
 
         MatchTestButton() {
             setColor(0x427AA1);
-            setGeometry((game.gui.WIDTH - 260) / 2, 410, 260, 36);
+            setGeometry((game.gui.WIDTH - 260) / 2, 350, 260, 36);
             setText("MATCH TEST", Font.Align.CENTER, Assets.font14);
         }
 
@@ -111,7 +111,7 @@ class DeveloperTools extends GLScreen {
 
         OptionsButton() {
             setColor(0x427AA1);
-            setGeometry((game.gui.WIDTH - 260) / 2, 480, 260, 36);
+            setGeometry((game.gui.WIDTH - 260) / 2, 400, 260, 36);
             setText("OPTIONS", Font.Align.CENTER, Assets.font14);
         }
 

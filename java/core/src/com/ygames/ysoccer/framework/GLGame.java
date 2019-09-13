@@ -29,7 +29,6 @@ public class GLGame extends Game {
     public InputDeviceList inputDevices;
     Mouse mouse;
     MenuInput menuInput;
-    public Player tmpPlayer;
 
     public int tacticsToEdit;
     public Tactics editedTactics;
@@ -53,7 +52,7 @@ public class GLGame extends Game {
     @Override
     public void create() {
         settings = new Settings();
-        Gdx.app.setLogLevel(settings.logLevel);
+        Gdx.app.setLogLevel(Settings.logLevel);
         glGraphics = new GLGraphics();
         gui = new Gui();
         setScreenMode(settings.fullScreen);
