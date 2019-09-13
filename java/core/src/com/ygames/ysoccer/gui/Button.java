@@ -132,19 +132,8 @@ public class Button extends Widget {
                 tx += font.size;
                 break;
         }
-        switch (font.size) {
-            case 14:
-                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 22)), align);
-                break;
 
-            case 10:
-                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 16)), align);
-                break;
-
-            case 6:
-                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 14)), align);
-                break;
-        }
+        font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - font.regionHeight)), align);
     }
 
     public String getText() {

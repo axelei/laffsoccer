@@ -21,20 +21,29 @@ public class Font {
     }
 
     public int size;
+
     private int columnWidth;
     private int rowHeight;
+
+    private int regionWidth;
+    public int regionHeight;
+
     public Texture texture;
+
     private int[] widths = new int[1024];
+
     private TextureRegion[] regions = new TextureRegion[1024];
 
-    public Font(int size, int columnWidth, int rowHeight) {
+    public Font(int size, int columnWidth, int rowHeight, int regionWidth, int regionHeight) {
         this.size = size;
         this.columnWidth = columnWidth;
         this.rowHeight = rowHeight;
+        this.regionWidth = regionWidth;
+        this.regionHeight = regionHeight;
     }
 
-    public Font(int size, RgbPair rgbPair) {
-        this.size = size;
+    public Font(int size, int columnWidth, int rowHeight, int regionWidth, int regionHeight, RgbPair rgbPair) {
+        this(size, columnWidth, rowHeight, regionWidth, regionHeight);
         this.rgbPair = rgbPair;
     }
 
@@ -65,21 +74,11 @@ public class Font {
                     }
             }
         }
+
         loadFontWidths(widths, "font_" + size + ".txt");
+
         for (int i = 0; i < 1024; i++) {
-            switch (size) {
-                case 14:
-                    regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, 16, 22);
-                    break;
-
-                case 10:
-                    regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, 12, 16);
-                    break;
-
-                case 6:
-                    regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, 8, 14);
-                    break;
-            }
+            regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, regionWidth, regionHeight);
             regions[i].flip(false, true);
         }
     }
@@ -174,19 +173,7 @@ public class Font {
                 c = 0;
             }
 
-            switch (size) {
-                case 14:
-                    batch.draw(regions[c], x, y, 16, 22);
-                    break;
-
-                case 10:
-                    batch.draw(regions[c], x, y, 12, 16);
-                    break;
-
-                case 6:
-                    batch.draw(regions[c], x, y, 8, 14);
-                    break;
-            }
+            batch.draw(regions[c], x, y, regionWidth, regionHeight);
 
             x = x + widths[c];
         }

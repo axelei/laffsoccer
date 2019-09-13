@@ -22,7 +22,7 @@ class ViewTeam extends GLScreen {
 
         background = game.stateBackground;
 
-        font10yellow = new Font(10, new RgbPair(0xFCFCFC, 0xFCFC00));
+        font10yellow = new Font(10, 13, 17, 12,16, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();
 
         Widget w;

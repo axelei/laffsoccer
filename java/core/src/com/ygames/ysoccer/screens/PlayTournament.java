@@ -45,7 +45,7 @@ class PlayTournament extends GLScreen {
 
         background = game.stateBackground;
 
-        Font font10green = new Font(10, new RgbPair(0xFCFCFC, 0x21E337));
+        Font font10green = new Font(10, 13, 17, 12,16, new RgbPair(0xFCFCFC, 0x21E337));
         font10green.load();
 
         Widget w;
