@@ -194,11 +194,11 @@ public class Assets {
         hiddenCursor = Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0);
         loadLocales();
         loadStrings(settings);
-        font14 = new Font(14);
+        font14 = new Font(14, 16 , 23);
         font14.load();
-        font10 = new Font(10);
+        font10 = new Font(10, 13, 17);
         font10.load();
-        font6 = new Font(6);
+        font6 = new Font(6, 8, 14);
         font6.load();
 
         // first-time setup of local data for android

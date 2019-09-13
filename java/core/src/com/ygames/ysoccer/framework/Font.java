@@ -21,12 +21,16 @@ public class Font {
     }
 
     public int size;
+    private int columnWidth;
+    private int rowHeight;
     public Texture texture;
     private int[] widths = new int[1024];
     private TextureRegion[] regions = new TextureRegion[1024];
 
-    public Font(int size) {
+    public Font(int size, int columnWidth, int rowHeight) {
         this.size = size;
+        this.columnWidth = columnWidth;
+        this.rowHeight = rowHeight;
     }
 
     public Font(int size, RgbPair rgbPair) {
@@ -65,15 +69,15 @@ public class Font {
         for (int i = 0; i < 1024; i++) {
             switch (size) {
                 case 14:
-                    regions[i] = new TextureRegion(texture, 16 * (i & 0x3F), 23 * (i >> 6), 16, 22);
+                    regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, 16, 22);
                     break;
 
                 case 10:
-                    regions[i] = new TextureRegion(texture, 13 * (i & 0x3F), 17 * (i >> 6), 12, 16);
+                    regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, 12, 16);
                     break;
 
                 case 6:
-                    regions[i] = new TextureRegion(texture, 8 * (i & 0x3F), 14 * (i >> 6), 8, 14);
+                    regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, 8, 14);
                     break;
             }
             regions[i].flip(false, true);
