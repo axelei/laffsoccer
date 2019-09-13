@@ -142,7 +142,7 @@ public class Button extends Widget {
                 break;
 
             case 6:
-                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 12)), align);
+                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 14)), align);
                 break;
         }
     }
