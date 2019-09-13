@@ -45,9 +45,10 @@ public class Settings {
     private String joystickConfigs;
 
     // development
-    public boolean development;
-    public int logLevel;
-    public boolean showBallZones;
+    public static boolean development;
+    public static int logLevel;
+    public static boolean showBallZones;
+    public static boolean showPlayerState;
 
     Settings() {
         preferences = Gdx.app.getPreferences(APP_NAME + VERSION);
@@ -86,6 +87,7 @@ public class Settings {
         development = preferences.getBoolean("development", false);
         logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
         showBallZones = preferences.getBoolean("showBallZones", false);
+        showPlayerState = preferences.getBoolean("showPlayerState", false);
     }
 
     public void save() {
@@ -121,6 +123,7 @@ public class Settings {
         preferences.putBoolean("development", development);
         preferences.putInteger("logLevel", logLevel);
         preferences.putBoolean("showBallZones", showBallZones);
+        preferences.putBoolean("showPlayerState", showPlayerState);
 
         preferences.flush();
     }

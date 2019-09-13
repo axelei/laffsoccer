@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.Settings;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,7 +85,7 @@ public class MatchRenderer extends Renderer {
 
         renderBackground();
 
-        if (match.game.settings.development && match.game.settings.showBallZones) {
+        if (Settings.development && Settings.showBallZones) {
             drawBallZones();
         }
 

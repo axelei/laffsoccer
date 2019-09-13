@@ -165,7 +165,7 @@ public abstract class GLScreen implements Screen {
             batch.end();
         }
 
-        if (game.settings.development) {
+        if (Settings.development) {
             batch.begin();
             Assets.font10.draw(batch, String.format("%,d", Gdx.app.getJavaHeap()), game.gui.WIDTH - 120, 10, Font.Align.LEFT);
             batch.end();

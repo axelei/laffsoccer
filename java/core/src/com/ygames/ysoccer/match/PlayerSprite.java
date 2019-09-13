@@ -2,6 +2,9 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.Settings;
+
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 
 public class PlayerSprite extends Sprite {
 
@@ -42,6 +45,9 @@ public class PlayerSprite extends Sprite {
         }
 
         if (player.role == Player.Role.GOALKEEPER) {
+            if (Settings.development && Settings.showPlayerState) {
+                Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x - 24, d.y - 74 - d.z, CENTER);
+            }
             glGraphics.batch.draw(Assets.keeper[player.team.index][player.skinColor.ordinal()][d.fmx][d.fmy], d.x - 24, d.y - 34 - d.z);
 
             if (Hair.map[d.fmy][d.fmx + 8][2] != 0 || Hair.map[d.fmy][d.fmx + 8][3] != 0) {
@@ -52,6 +58,9 @@ public class PlayerSprite extends Sprite {
                 );
             }
         } else {
+            if (Settings.development && Settings.showPlayerState) {
+                Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x - 24, d.y - 74 - d.z, CENTER);
+            }
             int offsetX = offsets[d.fmy][d.fmx][0];
             int offsetY = offsets[d.fmy][d.fmx][1];
             glGraphics.batch.draw(

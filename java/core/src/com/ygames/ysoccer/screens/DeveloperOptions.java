@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
@@ -26,16 +27,27 @@ class DeveloperOptions extends GLScreen {
         w = new TitleBar("DEVELOPER OPTIONS", 0x191FB0);
         widgets.add(w);
 
-        w = new LogLevelLabel();
+        int y = 290;
+
+        y += 30;
+        w = new LogLevelLabel(y);
         widgets.add(w);
 
-        w = new LogLevelButton();
+        w = new LogLevelButton(y);
         widgets.add(w);
 
-        w = new BallZonesLabel();
+        y += 60;
+        w = new PlayerStateLabel(y);
         widgets.add(w);
 
-        w = new BallZonesButton();
+        w = new PlayerStateButton(y);
+        widgets.add(w);
+
+        y += 30;
+        w = new BallZonesLabel(y);
+        widgets.add(w);
+
+        w = new BallZonesButton(y);
         widgets.add(w);
 
         w = new ExitButton();
@@ -44,9 +56,9 @@ class DeveloperOptions extends GLScreen {
 
     private class LogLevelLabel extends Button {
 
-        LogLevelLabel() {
+        LogLevelLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 290, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 20);
             setText("LOG LEVEL", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -54,15 +66,15 @@ class DeveloperOptions extends GLScreen {
 
     private class LogLevelButton extends Button {
 
-        LogLevelButton() {
+        LogLevelButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, 290, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 20);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
-            switch(game.settings.logLevel) {
+            switch (game.settings.logLevel) {
                 case LOG_NONE:
                     setText("0: NONE");
                     break;
@@ -99,11 +111,50 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
+    private class PlayerStateLabel extends Button {
+
+        PlayerStateLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 20);
+            setText("SHOW PLAYER STATE", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class PlayerStateButton extends Button {
+
+        PlayerStateButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 20);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showPlayerState ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showPlayerState = !Settings.showPlayerState;
+            setDirty(true);
+        }
+    }
+
     private class BallZonesLabel extends Button {
 
-        BallZonesLabel() {
+        BallZonesLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 320, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 20);
             setText("SHOW BALL ZONES", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -111,9 +162,9 @@ class DeveloperOptions extends GLScreen {
 
     private class BallZonesButton extends Button {
 
-        BallZonesButton() {
+        BallZonesButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, 320, 440, 20);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 20);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -124,15 +175,15 @@ class DeveloperOptions extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            toggleRadar();
+            toggle();
         }
 
         @Override
         public void onFire2Down() {
-            toggleRadar();
+            toggle();
         }
 
-        private void toggleRadar() {
+        private void toggle() {
             game.settings.showBallZones = !game.settings.showBallZones;
             setDirty(true);
         }

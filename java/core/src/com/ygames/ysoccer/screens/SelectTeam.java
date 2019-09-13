@@ -4,6 +4,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
@@ -97,7 +98,7 @@ class SelectTeam extends GLScreen {
                     if (game.getState() == EDIT) {
                         w = new FavouriteToggleButton(teamButton);
                         widgets.add(w);
-                        if (game.settings.development) {
+                        if (Settings.development) {
                             w = new PriceLabel(teamButton);
                             widgets.add(w);
                         }

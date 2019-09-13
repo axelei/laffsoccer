@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Picture;
@@ -95,7 +96,7 @@ public class Main extends GLScreen {
         w = new HomePageButton();
         widgets.add(w);
 
-        if (game.settings.development) {
+        if (Settings.development) {
             w = new DeveloperToolsButton();
             widgets.add(w);
         }

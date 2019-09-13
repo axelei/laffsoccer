@@ -7,6 +7,7 @@ import com.ygames.ysoccer.competitions.tournament.Tournament;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
@@ -102,10 +103,6 @@ class SelectFavourites extends GLScreen {
         w = new PlayButton();
         widgets.add(w);
         playButton = w;
-
-        w = new CalendarButton();
-        widgets.add(w);
-        calendarButton = w;
 
         // Breadcrumb
         ArrayList<Widget> breadcrumb = new ArrayList<>();
@@ -446,38 +443,6 @@ class SelectFavourites extends GLScreen {
                     game.setCompetition(navigation.competition);
                     game.setScreen(new PlayTournament(game));
                     break;
-            }
-        }
-    }
-
-    private class CalendarButton extends Button {
-
-        CalendarButton() {
-            setGeometry(game.gui.WIDTH / 2 + 490, 660, 40, 36);
-            setText("" + (char) 21, CENTER, font14);
-            setColor(0x138B21);
-        }
-
-        @Override
-        public void refresh() {
-            setVisible(game.settings.development
-                    && navigation.competition.type != FRIENDLY
-                    && navigation.competition.category == DIY_COMPETITION
-                    && navigation.competition.numberOfTeams == game.teamList.numberOfTeams());
-        }
-
-        @Override
-        public void onFire1Down() {
-            game.teamList.removeNullValues();
-            switch (navigation.competition.type) {
-                case CUP:
-                    game.setScreen(new DiyCupCalendar(game, (Cup) navigation.competition));
-                    break;
-                case LEAGUE:
-                    game.setScreen(new DiyLeagueCalendar(game, (League) navigation.competition));
-                    break;
-                case TOURNAMENT:
-                    game.setScreen(new DiyTournamentCalendar(game, (Tournament) navigation.competition));
             }
         }
     }

@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
@@ -498,7 +499,7 @@ class SelectTeams extends GLScreen {
 
         @Override
         public void refresh() {
-            setVisible(game.settings.development
+            setVisible(Settings.development
                     && navigation.competition.type != Competition.Type.FRIENDLY
                     && navigation.competition.category == Competition.Category.DIY_COMPETITION
                     && navigation.competition.numberOfTeams == game.teamList.numberOfTeams());

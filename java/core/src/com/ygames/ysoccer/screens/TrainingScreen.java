@@ -7,6 +7,7 @@ import com.strongjoshua.console.annotation.HiddenCommand;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Training;
@@ -36,7 +37,7 @@ class TrainingScreen extends GLScreen {
             }
         };
 
-        if (game.settings.development) {
+        if (Settings.development) {
             console = new GUIConsole();
             console.setSizePercent(25, 100);
             console.setPositionPercent(0, 0);
@@ -63,7 +64,7 @@ class TrainingScreen extends GLScreen {
             training.fsm.getTrainingRenderer().render();
         }
 
-        if (game.settings.development) {
+        if (Settings.development) {
             console.draw();
             paused = console.isVisible();
         }
@@ -75,7 +76,7 @@ class TrainingScreen extends GLScreen {
 
         training.fsm.getTrainingRenderer().resize(width, height, training.settings.zoom);
 
-        if (game.settings.development) {
+        if (Settings.development) {
             console.refresh();
         }
     }
@@ -99,13 +100,12 @@ class TrainingScreen extends GLScreen {
         game.setScreen(new SetupTraining(game));
     }
 
-    public class ConsoleCommandExecutor extends CommandExecutor {
+    class ConsoleCommandExecutor extends CommandExecutor {
 
         @HiddenCommand
         public void gravity() {
             console.log("gravity " + Const.GRAVITY);
         }
-
         public void gravity(float f) {
             Const.GRAVITY = f;
         }
@@ -114,7 +114,6 @@ class TrainingScreen extends GLScreen {
         public void airFriction() {
             console.log("airFriction " + Const.AIR_FRICTION);
         }
-
         public void airFriction(float f) {
             Const.AIR_FRICTION = f;
         }
@@ -123,7 +122,6 @@ class TrainingScreen extends GLScreen {
         public void spinFactor() {
             console.log("spinFactor " + Const.SPIN_FACTOR);
         }
-
         public void spinFactor(float f) {
             Const.SPIN_FACTOR = f;
         }
@@ -132,7 +130,6 @@ class TrainingScreen extends GLScreen {
         public void spinDampening() {
             console.log("spinDampening " + Const.SPIN_DAMPENING);
         }
-
         public void spinDampening(float f) {
             Const.SPIN_DAMPENING = f;
         }
@@ -141,7 +138,6 @@ class TrainingScreen extends GLScreen {
         public void bounce() {
             console.log("bounce " + Const.BOUNCE);
         }
-
         public void bounce(float f) {
             Const.BOUNCE = f;
         }

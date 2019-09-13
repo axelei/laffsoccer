@@ -7,6 +7,7 @@ import com.strongjoshua.console.annotation.HiddenCommand;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
@@ -39,7 +40,7 @@ class MatchScreen extends GLScreen {
             }
         };
 
-        if (game.settings.development) {
+        if (Settings.development) {
             console = new GUIConsole();
             console.setSizePercent(25, 100);
             console.setPositionPercent(0, 0);
@@ -66,7 +67,7 @@ class MatchScreen extends GLScreen {
             match.fsm.getMatchRenderer().render();
         }
 
-        if (!matchEnded && game.settings.development) {
+        if (!matchEnded && Settings.development) {
             console.draw();
             matchPaused = console.isVisible();
         }
@@ -78,7 +79,7 @@ class MatchScreen extends GLScreen {
 
         match.fsm.getMatchRenderer().resize(width, height, match.settings.zoom);
 
-        if (game.settings.development) {
+        if (Settings.development) {
             console.refresh();
         }
     }
