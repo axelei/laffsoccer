@@ -53,6 +53,7 @@ public class Assets {
     public static List<String> locales;
     public static Font font14;
     public static Font font10;
+    public static Font font6;
     public static FileHandle teamsRootFolder;
     public static FileHandle competitionsRootFolder;
     public static FileHandle tacticsFolder;
@@ -197,6 +198,8 @@ public class Assets {
         font14.load();
         font10 = new Font(10);
         font10.load();
+        font6 = new Font(6);
+        font6.load();
 
         // first-time setup of local data for android
         if (Gdx.app.getType() == Application.ApplicationType.Android) {

@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
+import com.ygames.ysoccer.math.Emath;
 
 public class Button extends Widget {
 
@@ -91,12 +92,12 @@ public class Button extends Widget {
         shapeRenderer.setColor(topLeftColor, alpha);
         shapeRenderer.triangle(bx + 1, by, bx + bw - 1, by, bx + bw - 1, by + 2);
         shapeRenderer.triangle(bx + bw - 1, by + 2, bx + 1, by + 2, bx + 1, by);
-        shapeRenderer.triangle(bx, by + 1, bx, by + bh -1, bx + 2, by + bh - 1);
+        shapeRenderer.triangle(bx, by + 1, bx, by + bh - 1, bx + 2, by + bh - 1);
         shapeRenderer.triangle(bx + 2, by + bh - 1, bx + 2, by + 2, bx, by + 1);
 
         // bottom right border
         shapeRenderer.setColor(bottomRightColor, alpha);
-        shapeRenderer.triangle(bx + bw - 2, by + 2, bx + bw - 2, by + bh - 1, bx + bw, by + bh -1);
+        shapeRenderer.triangle(bx + bw - 2, by + 2, bx + bw - 2, by + bh - 1, bx + bw, by + bh - 1);
         shapeRenderer.triangle(bx + bw, by + bh, bx + bw, by + 1, bx + bw - 2, by + 2);
         shapeRenderer.triangle(bx + 2, by + bh - 2, bx + bw - 2, by + bh - 2, bx + bw - 1, by + bh);
         shapeRenderer.triangle(bx + bw - 1, by + bh, bx + 1, by + bh, bx + 2, by + bh - 2);
@@ -133,10 +134,15 @@ public class Button extends Widget {
         }
         switch (font.size) {
             case 14:
-                font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 22)), align);
+                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 22)), align);
                 break;
+
             case 10:
-                font.draw(batch, getText(), tx + textOffsetX, y + (int) Math.ceil(0.5f * (h - 17)), align);
+                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 16)), align);
+                break;
+
+            case 6:
+                font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - 12)), align);
                 break;
         }
     }

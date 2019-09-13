@@ -71,6 +71,10 @@ public class Font {
                 case 10:
                     regions[i] = new TextureRegion(texture, 13 * (i & 0x3F), 17 * (i >> 6), 12, 16);
                     break;
+
+                case 6:
+                    regions[i] = new TextureRegion(texture, 8 * (i & 0x3F), 14 * (i >> 6), 8, 12);
+                    break;
             }
             regions[i].flip(false, true);
         }
@@ -173,6 +177,10 @@ public class Font {
 
                 case 10:
                     batch.draw(regions[c], x, y, 12, 16);
+                    break;
+
+                case 6:
+                    batch.draw(regions[c], x, y, 8, 12);
                     break;
             }
 

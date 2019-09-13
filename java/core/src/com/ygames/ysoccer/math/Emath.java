@@ -76,8 +76,8 @@ public class Emath {
         return (int) Math.floor(value);
     }
 
-    public static int ceil(float v) {
-        return 1 + floor(v);
+    public static int ceil(float value) {
+        return (int) Math.ceil(value);
     }
 
     // random integer between min and max (included)
