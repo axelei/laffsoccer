@@ -4,11 +4,11 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.WidgetColor;
-import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
 
@@ -117,16 +117,29 @@ public class GLGame extends Game {
 
     @Override
     public void render() {
+        try {
+            deltaTime += Gdx.graphics.getDeltaTime();
 
-        deltaTime += Gdx.graphics.getDeltaTime();
+            int subFrames = (int) (deltaTime / SUBFRAME_DURATION);
 
-        int subFrames = (int) (deltaTime / SUBFRAME_DURATION);
+            if (screen != null) {
+                screen.render(subFrames * SUBFRAME_DURATION);
+            }
 
-        if (screen != null) {
-            screen.render(subFrames * SUBFRAME_DURATION);
+            deltaTime -= subFrames * SUBFRAME_DURATION;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            FileHandle file = Gdx.files.local("error.log");
+            file.writeString("Exception in thread \"" + Thread.currentThread().getName() + "\" " + e.toString() + "\n", false);
+            for (StackTraceElement s : e.getStackTrace()) {
+                file.writeString("\tat " + s.toString() + "\n", true);
+            }
+            file.writeString("\n\n", true);
+
+            Gdx.app.exit();
         }
-
-        deltaTime -= subFrames * SUBFRAME_DURATION;
     }
 
     @Override
