@@ -7,6 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
 import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
@@ -68,6 +69,14 @@ public class Training {
 
     boolean updatePlayers() {
         return team.updateLineup(true);
+    }
+
+    void resetData() {
+        updatePlayers();
+        for (int f = 0; f < Const.REPLAY_SUBFRAMES; f++) {
+            ball.save(f);
+            team.save(f);
+        }
     }
 
     void setIntroPositions() {

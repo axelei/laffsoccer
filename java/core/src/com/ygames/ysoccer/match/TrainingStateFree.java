@@ -32,6 +32,7 @@ class TrainingStateFree extends TrainingState {
         super.entryActions();
 
         training.setIntroPositions();
+        training.resetData();
 
         lastTrained = team.lineup.get(0);
 

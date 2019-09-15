@@ -30,6 +30,8 @@ class TrainingStateReplay extends TrainingState {
     TrainingStateReplay(TrainingFsm fsm) {
         super(fsm);
         id = STATE_REPLAY;
+
+        displayControlledPlayer = true;
     }
 
     @Override
