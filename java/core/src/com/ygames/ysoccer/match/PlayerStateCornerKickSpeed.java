@@ -64,7 +64,13 @@ class PlayerStateCornerKickSpeed extends PlayerState {
 
                 boolean longRange = (timer > 0.2f * Const.SECOND);
 
-                if (player.searchFacingPlayer(longRange) && angleDiff == 0) {
+                if (longRange) {
+                    player.searchFacingPlayer();
+                } else {
+                    player.searchPassingMate();
+                }
+
+                if (player.facingPlayer != null && angleDiff == 0) {
                     ball.a = 45 * player.fmx + player.facingAngle;
                 } else {
                     switch (Math.round(player.fmx)) {

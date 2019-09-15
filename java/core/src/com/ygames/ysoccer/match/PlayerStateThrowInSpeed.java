@@ -54,8 +54,17 @@ class PlayerStateThrowInSpeed extends PlayerState {
                         ball.a = 45 * player.fmx;
                         break;
                 }
-                if (player.searchFacingPlayer(timer > 0.3f * GLGame.SUBFRAMES_PER_SECOND)) {
-                    ball.a += player.facingAngle;
+
+                boolean longRange = timer > 0.3f * GLGame.SUBFRAMES_PER_SECOND;
+
+                if (longRange) {
+                    if (player.searchFacingPlayer()) {
+                        ball.a += player.facingAngle;
+                    }
+                } else {
+                    if (player.searchPassingMate()) {
+                        ball.a += player.facingAngle;
+                    }
                 }
 
                 player.fmy = 9;

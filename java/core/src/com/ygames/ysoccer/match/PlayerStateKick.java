@@ -37,7 +37,7 @@ class PlayerStateKick extends PlayerState {
                 isPassing = IP_TRUE;
 
                 // automatic angle correction
-                if ((angle_diff == 0) && player.searchFacingPlayer(false)) {
+                if ((angle_diff == 0) && player.searchPassingMate()) {
                     ball.a += player.facingAngle;
                     float d = Emath.dist(player.facingPlayer.x, player.facingPlayer.y, player.x, player.y);
                     ball.v += (0.035f + 0.005f * player.skills.passing) * d;

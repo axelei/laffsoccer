@@ -19,7 +19,7 @@ class AiStateAttacking extends AiState {
         ai.x0 = -Emath.sgn(Math.round(player.ball.x / (Const.POST_X + Const.POST_R + Const.BALL_R)));
         ai.y0 = -player.team.side;
 
-        player.searchFacingPlayer(false);
+        player.searchPassingMate();
     }
 
     @Override

@@ -18,8 +18,13 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 public class Player implements Json.Serializable {
 
@@ -87,7 +92,7 @@ public class Player implements Json.Serializable {
     Match match;
     MatchSettings matchSettings;
     Ball ball;
-    private PlayerFsm fsm;
+    public PlayerFsm fsm;
 
     float speed;
 
@@ -186,6 +191,16 @@ public class Player implements Json.Serializable {
 
     boolean checkState(PlayerFsm.Id id) {
         return fsm.state != null && fsm.getState().checkId(id);
+    }
+
+    boolean checkStates(PlayerFsm.Id... ids) {
+        if (fsm.state == null) return false;
+
+        PlayerState state = fsm.getState();
+        for (PlayerFsm.Id id : ids) {
+            if (state.checkId(id)) return true;
+        }
+        return false;
     }
 
     void think() {
@@ -586,14 +601,14 @@ public class Player implements Json.Serializable {
 
         if (Math.abs(x) > (Const.POST_X + 10)) {
             // top
-            y = Math.max(y, -Const.GOAL_LINE - 50);
+            y = Math.max(y, -GOAL_LINE - 50);
             // bottom
-            y = Math.min(y, +Const.GOAL_LINE + 50);
+            y = Math.min(y, +GOAL_LINE + 50);
         } else {
             // top
-            y = Math.max(y, -Const.GOAL_LINE);
+            y = Math.max(y, -GOAL_LINE);
             // bottom
-            y = Math.min(y, +Const.GOAL_LINE);
+            y = Math.min(y, +GOAL_LINE);
         }
     }
 
@@ -875,14 +890,10 @@ public class Player implements Json.Serializable {
         }
     }
 
-    boolean searchFacingPlayer(boolean longRange) {
+    boolean searchFacingPlayer() {
 
-        float minDistance = 0.0f;
-        float maxDistance = Const.TOUCH_LINE / 2f;
-        if (longRange) {
-            minDistance = Const.TOUCH_LINE / 2f;
-            maxDistance = Const.TOUCH_LINE;
-        }
+        float minDistance = Const.TOUCH_LINE / 2f;
+        float maxDistance = Const.TOUCH_LINE;
 
         float maxAngle = 22.5f;
         float facingDelta = maxDistance * Emath.sin(maxAngle);
@@ -936,5 +947,57 @@ public class Player implements Json.Serializable {
 
     float distanceFrom(Player player) {
         return Emath.dist(x, y, player.x, player.y);
+    }
+
+    boolean searchPassingMate() {
+
+        float maxCorrectionAngle = 22.5f;
+        float maxSearchAngle = maxCorrectionAngle + 5f;
+
+        facingPlayer = null;
+        float minFrameDistance = BALL_PREDICTION;
+
+        for (int i = 0; i < TEAM_SIZE; i++) {
+            Player ply = team.lineup.get(i);
+            if (ply == this) {
+                continue;
+            }
+
+            // player cannot reach the ball
+            if (ply.frameDistance == BALL_PREDICTION) {
+                Gdx.app.debug(numberName(), "skipped because too far");
+                continue;
+            }
+
+            // player cannot receive the ball
+            if (!ply.checkStates(STATE_STAND_RUN, STATE_REACH_TARGET, STATE_IDLE)) {
+                Gdx.app.debug(numberName(), "skipped after state check");
+                continue;
+            }
+
+            if (ply.frameDistance < minFrameDistance) {
+                // calculate best correction for facing player
+                float targetPointX = ply.x + 5 * Emath.cos(ply.a);
+                float targetPointY = ply.y + 5 * Emath.sin(ply.a);
+                float plyAngleCorrection = Emath.signedAngleDiff(Emath.aTan2(targetPointY - ball.y, targetPointX - ball.x), a);
+                if (Math.abs(plyAngleCorrection) < maxSearchAngle) {
+                    facingPlayer = ply;
+                    minFrameDistance = ply.frameDistance;
+                    facingAngle = Math.signum(plyAngleCorrection) * Math.min(Math.abs(plyAngleCorrection), maxCorrectionAngle);
+                }
+            }
+        }
+
+        if (facingPlayer == null) {
+            Gdx.app.debug(numberName(), "has not found a facing player");
+        } else {
+            Gdx.app.debug(numberName(), "has found " + facingPlayer.numberName() + " as facing player with angleCorrection: " + facingAngle);
+        }
+
+        return (facingPlayer != null);
+    }
+
+    String numberName() {
+        return number + "_" + shirtName + " " + (inputDevice == ai ? "(" + ai.fsm.state.getClass().getSimpleName() + ")" : "(controller)");
     }
 }

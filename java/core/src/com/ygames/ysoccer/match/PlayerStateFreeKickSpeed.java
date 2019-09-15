@@ -59,12 +59,18 @@ class PlayerStateFreeKickSpeed extends PlayerState {
                 } else {
                     f = 1.3f;
                 }
-                ball.v = 160 + 160 * f + 300 * timer / Const.SECOND;
-                ball.vz = f * (100 + 400 * timer / Const.SECOND);
+                ball.v = 160 + 160 * f + 300f * timer / Const.SECOND;
+                ball.vz = f * (100 + 400f * timer / Const.SECOND);
 
                 boolean longRange = (timer > 0.2f * Const.SECOND);
 
-                if (player.searchFacingPlayer(longRange) && angleDiff == 0) {
+                if (longRange) {
+                    player.searchFacingPlayer();
+                } else {
+                    player.searchPassingMate();
+                }
+
+                if (player.facingPlayer != null && angleDiff == 0) {
                     ball.a = 45 * player.fmx + player.facingAngle;
                 } else {
                     ball.a = 45 * player.fmx;
