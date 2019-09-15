@@ -36,7 +36,6 @@ class SelectFavourites extends GLScreen {
     private Widget titleButton;
     private Widget viewSelectedTeamsButton;
     private Widget playButton;
-    private Widget calendarButton;
 
     SelectFavourites(GLGame game) {
         super(game);
@@ -268,7 +267,6 @@ class SelectFavourites extends GLScreen {
             updateColors();
             viewSelectedTeamsButton.setDirty(true);
             playButton.setDirty(true);
-            calendarButton.setDirty(true);
             titleButton.setDirty(true);
         }
 
