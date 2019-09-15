@@ -27,6 +27,10 @@ public class Emath {
         return (float) Math.sin(a * TO_RADIANS);
     }
 
+    public static float tan(float a) {
+        return (float) Math.tan(a * TO_RADIANS);
+    }
+
     public static float hypo(float diffX, float diffY) {
         return (float) Math.sqrt(diffX * diffX + diffY * diffY);
     }
