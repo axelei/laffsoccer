@@ -15,7 +15,7 @@ import static com.ygames.ysoccer.match.Renderer.guiAlpha;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.RESTORE_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.STATE_REPLAY;
+import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
 
 class TrainingStateReplay extends TrainingState {
 
@@ -28,8 +28,7 @@ class TrainingStateReplay extends TrainingState {
     private InputDevice inputDevice;
 
     TrainingStateReplay(TrainingFsm fsm) {
-        super(fsm);
-        id = STATE_REPLAY;
+        super(STATE_REPLAY, fsm);
 
         displayControlledPlayer = true;
     }

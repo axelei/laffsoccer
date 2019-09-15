@@ -16,12 +16,12 @@ public class TrainingFsm {
 
     private class Action {
         ActionType type;
-        int stateId;
+        Id stateId;
         int timer;
 
-        Action(ActionType type, int state) {
+        Action(ActionType type, Id stateId) {
             this.type = type;
-            this.stateId = state;
+            this.stateId = stateId;
         }
 
         void update() {
@@ -54,8 +54,10 @@ public class TrainingFsm {
 
     TrainingKeys trainingKeys;
 
-    static final int STATE_FREE = 1;
-    static final int STATE_REPLAY = 2;
+    enum Id {
+        STATE_FREE,
+        STATE_REPLAY
+    }
 
     TrainingFsm(Training training) {
         this.training = training;
@@ -162,7 +164,7 @@ public class TrainingFsm {
         }
     }
 
-    private TrainingState searchState(int id) {
+    private TrainingState searchState(Id id) {
         for (int i = 0; i < states.size(); i++) {
             TrainingState s = states.get(i);
             if (s.checkId(id)) {
@@ -174,10 +176,10 @@ public class TrainingFsm {
     }
 
     public void pushAction(ActionType type) {
-        pushAction(type, 0);
+        pushAction(type, null);
     }
 
-    public void pushAction(ActionType type, int state) {
-        actions.offer(new Action(type, state));
+    public void pushAction(ActionType type, Id stateId) {
+        actions.offer(new Action(type, stateId));
     }
 }

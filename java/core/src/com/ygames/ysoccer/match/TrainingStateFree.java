@@ -15,14 +15,14 @@ import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
+import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
 
 class TrainingStateFree extends TrainingState {
 
     private Player lastTrained;
 
     TrainingStateFree(TrainingFsm fsm) {
-        super(fsm);
-        id = TrainingFsm.STATE_FREE;
+        super(STATE_FREE, fsm);
 
         displayControlledPlayer = true;
     }

@@ -3,12 +3,12 @@ package com.ygames.ysoccer.match;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.STATE_REPLAY;
+import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
 
 class TrainingState {
 
     protected int timer;
-    protected int id;
+    protected final TrainingFsm.Id id;
     protected TrainingFsm fsm;
 
     boolean displayControlledPlayer;
@@ -18,7 +18,8 @@ class TrainingState {
     protected final Ball ball;
     TrainingRenderer trainingRenderer;
 
-    TrainingState(TrainingFsm fsm) {
+    TrainingState(TrainingFsm.Id id, TrainingFsm fsm) {
+        this.id = id;
         this.fsm = fsm;
         this.training = fsm.getTraining();
         this.team = training.team;
@@ -44,7 +45,7 @@ class TrainingState {
     void checkConditions() {
     }
 
-    boolean checkId(int id) {
+    boolean checkId(TrainingFsm.Id id) {
         return (this.id == id);
     }
 

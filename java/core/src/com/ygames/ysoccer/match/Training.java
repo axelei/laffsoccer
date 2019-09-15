@@ -7,14 +7,13 @@ import com.ygames.ysoccer.math.Emath;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
 import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
-import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.TrainingFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.STATE_FREE;
+import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
 
 public class Training {
 
