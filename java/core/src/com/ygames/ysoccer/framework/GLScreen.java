@@ -16,6 +16,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public abstract class GLScreen implements Screen {
 
@@ -165,9 +166,9 @@ public abstract class GLScreen implements Screen {
             batch.end();
         }
 
-        if (Settings.development) {
+        if (Settings.development && Settings.showJavaHeap) {
             batch.begin();
-            Assets.font10.draw(batch, String.format("%,d", Gdx.app.getJavaHeap()), game.gui.WIDTH - 120, 10, Font.Align.LEFT);
+            Assets.font10.draw(batch, String.format(Locale.getDefault(), "%,d", Gdx.app.getJavaHeap()), game.gui.WIDTH - 120, 10, Font.Align.LEFT);
             batch.end();
         }
     }
