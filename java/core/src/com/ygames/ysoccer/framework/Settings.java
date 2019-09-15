@@ -47,6 +47,8 @@ public class Settings {
     // development
     public static boolean development;
     public static int logLevel;
+    public static boolean showJavaHeap;
+
     public static boolean showBallZones;
     public static boolean showPlayerState;
     public static boolean showPlayerAiState;
@@ -87,6 +89,8 @@ public class Settings {
         // development
         development = preferences.getBoolean("development", false);
         logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
+        showJavaHeap = preferences.getBoolean("showJavaHeap", false);
+
         showBallZones = preferences.getBoolean("showBallZones", false);
         showPlayerState = preferences.getBoolean("showPlayerState", false);
         showPlayerAiState = preferences.getBoolean("showPlayerAiState", false);
@@ -124,6 +128,8 @@ public class Settings {
         // development
         preferences.putBoolean("development", development);
         preferences.putInteger("logLevel", logLevel);
+        preferences.putBoolean("showJavaHeap", showJavaHeap);
+
         preferences.putBoolean("showBallZones", showBallZones);
         preferences.putBoolean("showPlayerState", showPlayerState);
         preferences.putBoolean("showPlayerAiState", showPlayerAiState);

@@ -34,6 +34,12 @@ class DeveloperOptions extends GLScreen {
         w = new LogLevelButton(y);
         widgets.add(w);
 
+        y += 22;
+        w = new JavaHeapLabel(y);
+        widgets.add(w);
+        w = new JavaHeapButton(y);
+        widgets.add(w);
+
         y += 40;
         w = new PlayerStateLabel(y);
         widgets.add(w);
@@ -98,17 +104,56 @@ class DeveloperOptions extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            updateLogLevel(1);
+            rotate(1);
         }
 
         @Override
         public void onFire2Down() {
-            updateLogLevel(-1);
+            rotate(-1);
         }
 
-        private void updateLogLevel(int n) {
+        private void rotate(int n) {
             Settings.logLevel = Emath.rotate(Settings.logLevel, 0, 3, n);
             Gdx.app.setLogLevel(Settings.logLevel);
+            setDirty(true);
+        }
+    }
+
+    private class JavaHeapLabel extends Button {
+
+        JavaHeapLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setText("SHOW JAVA HEAP", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class JavaHeapButton extends Button {
+
+        JavaHeapButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showJavaHeap ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showJavaHeap = !Settings.showJavaHeap;
             setDirty(true);
         }
     }
