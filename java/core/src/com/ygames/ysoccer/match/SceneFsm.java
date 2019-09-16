@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.ygames.ysoccer.framework.GLGame;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -43,9 +42,6 @@ abstract class SceneFsm {
 
     private Scene scene;
 
-    // TODO replace with a 'int light' field
-    GLGame game;
-
     private List<SceneState> states;
     private SceneState currentState;
     private SceneState holdState;
@@ -59,7 +55,6 @@ abstract class SceneFsm {
 
     SceneFsm(Scene scene) {
         this.scene = scene;
-        this.game = scene.game;
         states = new ArrayList<>();
         actions = new ArrayDeque<>();
     }
@@ -101,11 +96,11 @@ abstract class SceneFsm {
 
         // fade in/out
         if (currentAction != null && currentAction.type == FADE_OUT) {
-            game.glGraphics.light = 8 * (currentAction.timer - 1);
+            sceneRenderer.light = 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
         if (currentAction != null && currentAction.type == FADE_IN) {
-            game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
+            sceneRenderer.light = 255 - 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
 

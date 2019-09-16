@@ -24,6 +24,7 @@ abstract class Scene {
     }
 
     public void render() {
+        game.glGraphics.light = fsm.getSceneRenderer().light;
         fsm.getSceneRenderer().render();
     }
 

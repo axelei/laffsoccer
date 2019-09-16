@@ -33,6 +33,7 @@ public abstract class SceneRenderer {
     int screenWidth;
     int screenHeight;
     int zoom;
+    int light;
     final int guiWidth = 1280;
     int guiHeight;
 
