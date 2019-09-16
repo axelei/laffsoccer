@@ -52,7 +52,7 @@ class PlayerStateTackle extends PlayerState {
             }
         }
 
-        player.v -= (20 + player.matchSettings.grass.friction) / Const.SECOND * Math.sqrt(Math.abs(player.v));
+        player.v -= (20 + player.sceneSettings.grass.friction) / Const.SECOND * Math.sqrt(Math.abs(player.v));
 
         // animation
         player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;

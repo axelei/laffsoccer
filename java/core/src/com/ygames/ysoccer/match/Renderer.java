@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Renderer {
+public abstract class Renderer {
 
-    public static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
-    public static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
-    public static final float VISIBLE_FIELD_WIDTH_MIN = 0.65f;
+    private static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
+    private static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
+    private static final float VISIBLE_FIELD_WIDTH_MIN = 0.65f;
 
     public static int zoomMin() {
         return 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MAX);
@@ -57,6 +57,8 @@ public class Renderer {
         spriteComparator = new Sprite.SpriteComparator();
     }
 
+    abstract public void render();
+
     public void resize(int width, int height, int newZoom) {
         screenWidth = width;
         screenHeight = height;
@@ -85,10 +87,10 @@ public class Renderer {
     protected void drawShadows(int subframe) {
     }
 
-    void drawRain(MatchSettings matchSettings, int subframe) {
+    void drawRain(SceneSettings sceneSettings, int subframe) {
         batch.setColor(0xFFFFFF, 0.6f);
         Assets.random.setSeed(1);
-        for (int i = 1; i <= 40 * matchSettings.weatherStrength; i++) {
+        for (int i = 1; i <= 40 * sceneSettings.weatherStrength; i++) {
             int x = Assets.random.nextInt(modW);
             int y = Assets.random.nextInt(modH);
             int h = (Assets.random.nextInt(modH) + subframe) % modH;
@@ -109,11 +111,11 @@ public class Renderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    void drawSnow(MatchSettings matchSettings, int subframe) {
+    void drawSnow(SceneSettings sceneSettings, int subframe) {
         batch.setColor(0xFFFFFF, 0.7f);
 
         Assets.random.setSeed(1);
-        for (int i = 1; i <= 30 * matchSettings.weatherStrength; i++) {
+        for (int i = 1; i <= 30 * sceneSettings.weatherStrength; i++) {
             int x = Assets.random.nextInt(modW);
             int y = Assets.random.nextInt(modH);
             int s = i % 3;
@@ -129,8 +131,8 @@ public class Renderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    void drawFog(MatchSettings matchSettings, int subframe) {
-        batch.setColor(0xFFFFFF, 0.25f * matchSettings.weatherStrength);
+    void drawFog(SceneSettings sceneSettings, int subframe) {
+        batch.setColor(0xFFFFFF, 0.25f * sceneSettings.weatherStrength);
 
         int TILE_WIDTH = 256;
         int fogX = -Const.CENTER_X + vcameraX[subframe] - 2 * TILE_WIDTH

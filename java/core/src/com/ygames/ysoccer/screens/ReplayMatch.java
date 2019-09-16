@@ -51,7 +51,7 @@ class ReplayMatch extends GLScreen {
             friendly.getMatch().setTeam(HOME, match.team[HOME]);
             friendly.getMatch().setTeam(AWAY, match.team[AWAY]);
 
-            game.setScreen(new MatchLoading(game, match.settings, friendly));
+            game.setScreen(new MatchLoading(game, match.getSettings(), friendly));
         }
     }
 

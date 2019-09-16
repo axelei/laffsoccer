@@ -6,46 +6,32 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
-public class MatchSettings {
+public class MatchSettings extends SceneSettings {
 
     int matchLength;
 
-    public enum Time {DAY, NIGHT}
-
-    public Time time;
-    float shadowAlpha;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
-    public Pitch.Type pitchType;
 
-    public Grass grass;
-    int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG
-    int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
     private int weatherMaxStrength;
-    public Wind wind;
     public int substitutions;
     public int benchSize;
-    boolean fullScreen;
-    public int zoom;
     boolean autoReplays;
     public boolean radar;
     boolean crowdChants;
-    public boolean commentary;
 
     // used in training
     public MatchSettings(Settings gameSettings) {
+        super(gameSettings);
+
         matchLength = gameSettings.matchLength;
         matchLength = Settings.matchLengths[0];
         this.time = randomTime();
         this.pitchType = Pitch.random();
-        this.grass = new Grass();
-        this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
         for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
             rotateWeather();
         }
         benchSize = gameSettings.benchSize;
-        fullScreen = gameSettings.fullScreen;
-        zoom = gameSettings.zoom;
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
         crowdChants = true;
@@ -53,6 +39,8 @@ public class MatchSettings {
     }
 
     public MatchSettings(Competition competition, Settings gameSettings) {
+        super(gameSettings);
+
         if (competition.type == Competition.Type.FRIENDLY || competition.category == Competition.Category.DIY_COMPETITION) {
             matchLength = gameSettings.matchLength;
         } else {
@@ -60,16 +48,12 @@ public class MatchSettings {
         }
         this.time = competition.getTime();
         this.pitchType = competition.getPitchType();
-        this.grass = new Grass();
-        this.wind = new Wind();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
         for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
             rotateWeather();
         }
         substitutions = competition.substitutions;
         benchSize = competition.benchSize;
-        fullScreen = gameSettings.fullScreen;
-        zoom = gameSettings.zoom;
         autoReplays = gameSettings.autoReplays;
         radar = gameSettings.radar;
         crowdChants = true;
@@ -257,10 +241,5 @@ public class MatchSettings {
                     break;
             }
         }
-    }
-
-    public static Time randomTime() {
-        float dayProbability = 0.7f;
-        return Assets.random.nextFloat() < dayProbability ? Time.DAY : Time.NIGHT;
     }
 }

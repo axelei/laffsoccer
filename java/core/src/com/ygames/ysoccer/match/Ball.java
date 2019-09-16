@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
@@ -44,10 +43,10 @@ class Ball {
     Player goalOwner;
     Player holder;
 
-    MatchSettings matchSettings;
+    SceneSettings sceneSettings;
 
-    Ball(MatchSettings matchSettings) {
-        this.matchSettings = matchSettings;
+    Ball(SceneSettings sceneSettings) {
+        this.sceneSettings = sceneSettings;
 
         for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
             prediction[frm] = new Vector3();
@@ -106,7 +105,7 @@ class Ball {
 
         if (z < 1) {
             // grass friction
-            v -= matchSettings.grass.friction / Const.SECOND * Math.sqrt(Math.abs(v));
+            v -= sceneSettings.grass.friction / Const.SECOND * Math.sqrt(Math.abs(v));
         } else {
             // air friction
             v *= 1 - Const.AIR_FRICTION / Const.SECOND;
@@ -117,8 +116,8 @@ class Ball {
             float vx = v * Emath.cos(a);
             float vy = v * Emath.sin(a);
 
-            float windV = 0.025f * (float) Math.log10(1 + z) * matchSettings.wind.speed;
-            float windA = 45.0f * matchSettings.wind.direction;
+            float windV = 0.025f * (float) Math.log10(1 + z) * sceneSettings.wind.speed;
+            float windA = 45.0f * sceneSettings.wind.direction;
 
             float windVx = windV * Emath.cos(windA);
             float windVy = windV * Emath.sin(windA);
@@ -160,12 +159,12 @@ class Ball {
             } else {
                 // bounce
                 v *= (1 + vz / 1400.0f);
-                vz *= -Const.BOUNCE * matchSettings.grass.bounce;
+                vz *= -Const.BOUNCE * sceneSettings.grass.bounce;
             }
             bouncing_speed = vz;
         }
 
-        if(z > zMax) {
+        if (z > zMax) {
             zMax = z;
         }
 

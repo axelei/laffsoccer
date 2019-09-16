@@ -129,13 +129,13 @@ class TrainingStateReplay extends TrainingState {
 
         int f = Math.round(1f * training.subframe / GLGame.SUBFRAMES) % 32;
         if (f < 16) {
-            Assets.font10.draw(trainingRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
+            Assets.font10.draw(sceneRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
         }
 
-        trainingRenderer.batch.end();
+        sceneRenderer.batch.end();
         float a = position * 360f / Const.REPLAY_SUBFRAMES;
-        GLShapeRenderer shapeRenderer = trainingRenderer.shapeRenderer;
-        shapeRenderer.setProjectionMatrix(trainingRenderer.camera.combined);
+        GLShapeRenderer shapeRenderer = sceneRenderer.shapeRenderer;
+        shapeRenderer.setProjectionMatrix(sceneRenderer.camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(0x242424, guiAlpha);
@@ -143,16 +143,16 @@ class TrainingStateReplay extends TrainingState {
         shapeRenderer.setColor(0xFF0000, guiAlpha);
         shapeRenderer.arc(18, 30, 6, 270 + a, 360 - a);
         shapeRenderer.end();
-        trainingRenderer.batch.begin();
+        sceneRenderer.batch.begin();
 
         if (inputDevice != null) {
             int frameX = 1 + inputDevice.x1;
             int frameY = 1 + inputDevice.y1;
-            trainingRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], trainingRenderer.guiWidth - 50, trainingRenderer.guiHeight - 50);
+            sceneRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], sceneRenderer.guiWidth - 50, sceneRenderer.guiHeight - 50);
         }
 
         if (paused) {
-            Assets.font10.draw(trainingRenderer.batch, gettext("PAUSE"), trainingRenderer.guiWidth / 2, 22, Font.Align.CENTER);
+            Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
         }
     }
 

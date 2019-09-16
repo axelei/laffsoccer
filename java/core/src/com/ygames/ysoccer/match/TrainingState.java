@@ -13,15 +13,15 @@ class TrainingState extends SceneState {
     protected Training training;
     protected final Team team;
     protected final Ball ball;
-    TrainingRenderer trainingRenderer;
+    TrainingRenderer sceneRenderer;
 
-    TrainingState(TrainingFsm.Id id, TrainingFsm fsm) {
-        super(id, fsm);
+    TrainingState(TrainingFsm.Id id, TrainingFsm trainingFsm) {
+        super(id, trainingFsm);
 
-        this.training = fsm.getTraining();
+        this.training = trainingFsm.getTraining();
         this.team = training.team;
         this.ball = training.ball;
-        this.trainingRenderer = fsm.getTrainingRenderer();
+        this.sceneRenderer = trainingFsm.getRenderer();
 
         fsm.addState(this);
     }

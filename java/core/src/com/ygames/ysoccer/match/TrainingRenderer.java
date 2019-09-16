@@ -123,9 +123,9 @@ public class TrainingRenderer extends Renderer {
         }
 
         // messages
-        if (training.fsm.hotKeys.messageTimer > 0) {
+        if (training.fsm.getHotKeys().messageTimer > 0) {
             batch.setColor(0xFFFFFF, guiAlpha);
-            Assets.font10.draw(batch, training.fsm.hotKeys.message, guiWidth / 2, 1, Font.Align.CENTER);
+            Assets.font10.draw(batch, training.fsm.getHotKeys().message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 
         // additional state-specific render

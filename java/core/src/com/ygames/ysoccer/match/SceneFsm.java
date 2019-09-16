@@ -13,7 +13,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
-class SceneFsm {
+abstract class SceneFsm {
 
     enum ActionType {
         NONE,
@@ -44,14 +44,15 @@ class SceneFsm {
     GLGame game;
 
     private List<SceneState> states;
-    SceneState currentState;
+    private SceneState currentState;
     private SceneState holdState;
 
-    ArrayDeque<Action> actions;
-    Action currentAction;
+    private ArrayDeque<Action> actions;
+    private Action currentAction;
 
-    SceneHotKeys hotKeys;
+    private Renderer sceneRenderer;
 
+    private SceneHotKeys hotKeys;
 
     SceneFsm(GLGame game) {
         this.game = game;
@@ -69,6 +70,22 @@ class SceneFsm {
 
     SceneState getHoldState() {
         return holdState;
+    }
+
+    SceneHotKeys getHotKeys() {
+        return hotKeys;
+    }
+
+    void setHotKeys(SceneHotKeys hotKeys) {
+        this.hotKeys = hotKeys;
+    }
+
+    Renderer getSceneRenderer() {
+        return sceneRenderer;
+    }
+
+    void setSceneRenderer(Renderer sceneRenderer) {
+        this.sceneRenderer = sceneRenderer;
     }
 
     void think(float deltaTime) {

@@ -152,7 +152,7 @@ public class MatchRenderer extends Renderer {
         }
 
         // radar
-        if (matchState.displayRadar && match.settings.radar) {
+        if (matchState.displayRadar && match.getSettings().radar) {
             drawRadar(match.subframe);
         }
 
@@ -177,9 +177,9 @@ public class MatchRenderer extends Renderer {
         }
 
         // messages
-        if (match.fsm.hotKeys.messageTimer > 0) {
+        if (match.fsm.getHotKeys().messageTimer > 0) {
             batch.setColor(0xFFFFFF, guiAlpha);
-            Assets.font10.draw(batch, match.fsm.hotKeys.message, guiWidth / 2, 1, Font.Align.CENTER);
+            Assets.font10.draw(batch, match.fsm.getHotKeys().message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 
         // statistics
@@ -959,7 +959,7 @@ public class MatchRenderer extends Renderer {
         shapeRenderer.rect(x + w / 2 - 41, y + 41, 82, 66);
 
         // list
-        drawFrame(x, y + 125, w, match.settings.benchSize * h + 6);
+        drawFrame(x, y + 125, w, match.getSettings().benchSize * h + 6);
 
         // slots
         int color = 0x242424;
@@ -970,7 +970,7 @@ public class MatchRenderer extends Renderer {
 
         fadeRect(x, y + 2, x + w - 2, y + h, 0.6f, color);
 
-        for (int pos = 0; pos < match.settings.benchSize; pos++) {
+        for (int pos = 0; pos < match.getSettings().benchSize; pos++) {
             color = 0x242424;
 
             if (match.getFsm().benchStatus.selectedPosition == pos) {
@@ -989,7 +989,7 @@ public class MatchRenderer extends Renderer {
         drawFrame(x, y, w, h + 2);
 
         // list
-        drawFrame(x, y + 125, w, match.settings.benchSize * h + 6);
+        drawFrame(x, y + 125, w, match.getSettings().benchSize * h + 6);
 
         shapeRenderer.end();
         batch.begin();
@@ -1000,7 +1000,7 @@ public class MatchRenderer extends Renderer {
 
         Assets.font10.draw(batch, Assets.strings.get("BENCH"), x + w / 2, y + 3, Font.Align.CENTER);
 
-        int benchSize = min(match.settings.benchSize, match.getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
+        int benchSize = min(match.getSettings().benchSize, match.getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
         for (int pos = 0; pos < benchSize; pos++) {
             Player player = match.getFsm().benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
 

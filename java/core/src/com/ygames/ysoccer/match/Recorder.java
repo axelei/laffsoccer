@@ -27,7 +27,7 @@ class Recorder {
         return Math.min(recorded, MAX_RECORDS);
     }
 
-    void saveHighlight(MatchRenderer matchRenderer) {
+    void saveHighlight(Renderer sceneRenderer) {
 
         // if more then MAX_RECORDS the oldest ones are overwritten
         int index = (recorded % MAX_RECORDS) * RECORD_SIZE;
@@ -55,8 +55,8 @@ class Recorder {
             }
 
             // camera
-            highlights[index++] = (short) matchRenderer.vcameraX[match.subframe];
-            highlights[index++] = (short) matchRenderer.vcameraY[match.subframe];
+            highlights[index++] = (short) sceneRenderer.vcameraX[match.subframe];
+            highlights[index++] = (short) sceneRenderer.vcameraY[match.subframe];
 
             match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }

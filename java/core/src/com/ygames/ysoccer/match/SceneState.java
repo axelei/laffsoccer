@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-class SceneState {
+abstract class SceneState {
 
     protected int timer;
     protected final Enum id;
@@ -17,7 +17,7 @@ class SceneState {
 
     void doActions(float deltaTime) {
         timer += 1;
-        fsm.hotKeys.update();
+        fsm.getHotKeys().update();
     }
 
     void onResume() {

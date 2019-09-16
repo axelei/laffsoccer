@@ -29,7 +29,7 @@ class MatchHotKeys extends SceneHotKeys {
         super.update();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
-            match.recorder.saveHighlight(match.getFsm().getMatchRenderer());
+            match.recorder.saveHighlight(match.getRenderer());
 
             message = gettext("ACTION RECORDED");
             messageTimer = 60;
@@ -49,12 +49,12 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F5) && !keyCrowdChants) {
-            match.settings.crowdChants = !match.settings.crowdChants;
+            match.getSettings().crowdChants = !match.getSettings().crowdChants;
             Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
             Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
 
             message = gettext("MATCH OPTIONS.CROWD CHANTS") + " ";
-            if (match.settings.crowdChants) {
+            if (match.getSettings().crowdChants) {
                 message += gettext("MATCH OPTIONS.CROWD CHANTS.ON");
             } else {
                 message += gettext("MATCH OPTIONS.CROWD CHANTS.OFF");
@@ -77,7 +77,7 @@ class MatchHotKeys extends SceneHotKeys {
 
         if (Gdx.input.isKeyPressed(Input.Keys.F8) && !keyZoomOut) {
             match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), -5);
-            match.getFsm().getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
+            match.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
             message = gettext("ZOOM") + " " + match.settings.zoom + "%";
 
@@ -86,7 +86,7 @@ class MatchHotKeys extends SceneHotKeys {
 
         if (Gdx.input.isKeyPressed(Input.Keys.F9) && !keyZoomIn) {
             match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), 5);
-            match.getFsm().getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
+            match.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
             message = gettext("ZOOM") + " " + match.settings.zoom + "%";
 
@@ -94,10 +94,10 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F11) && !keyRadar) {
-            match.settings.radar = !match.settings.radar;
+            match.getSettings().radar = !match.getSettings().radar;
 
             message = gettext("RADAR") + " ";
-            if (match.settings.radar) {
+            if (match.getSettings().radar) {
                 message += gettext("RADAR.ON");
             } else {
                 message += gettext("RADAR.OFF");
@@ -107,11 +107,11 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F12) && !keyAutoReplay) {
-            match.settings.autoReplays = !match.settings.autoReplays;
+            match.getSettings().autoReplays = !match.getSettings().autoReplays;
 
             message = gettext("AUTO REPLAYS") + " ";
 
-            if (match.settings.autoReplays) {
+            if (match.getSettings().autoReplays) {
                 message += gettext("AUTO REPLAYS.ON");
             } else {
                 message += gettext("AUTO REPLAYS.OFF");

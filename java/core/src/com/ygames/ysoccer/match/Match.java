@@ -60,7 +60,6 @@ public class Match extends Scene implements Json.Serializable {
     int benchSide; // 1 = home upside, -1 = home downside
 
     public MatchListener listener;
-    public MatchSettings settings;
     public Competition competition;
 
     enum Period {UNDEFINED, FIRST_HALF, SECOND_HALF, FIRST_EXTRA_TIME, SECOND_EXTRA_TIME, PENALTIES}
@@ -109,7 +108,11 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     public MatchFsm getFsm() {
-        return (MatchFsm)fsm;
+        return (MatchFsm) fsm;
+    }
+
+    public MatchSettings getSettings() {
+        return (MatchSettings) settings;
     }
 
     public void setTeam(int side, Team team) {

@@ -115,7 +115,7 @@ class MatchStateGoal extends MatchState {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
                 && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
 
-            if (match.settings.autoReplays && !replayDone) {
+            if (match.getSettings().autoReplays && !replayDone) {
                 replay();
                 replayDone = true;
                 return;

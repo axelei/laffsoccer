@@ -59,10 +59,10 @@ class MatchStateBenchSubstitutions extends MatchState {
 
         // move selection
         if (getFsm().benchStatus.inputDevice.yMoved()) {
-            int substitutes = min(match.settings.benchSize, getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
+            int substitutes = min(match.getSettings().benchSize, getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
 
             // if remaining substitutions
-            if (getFsm().benchStatus.team.substitutionsCount < match.settings.substitutions) {
+            if (getFsm().benchStatus.team.substitutionsCount < match.getSettings().substitutions) {
                 getFsm().benchStatus.selectedPosition = Emath.rotate(getFsm().benchStatus.selectedPosition, -1, substitutes - 1, getFsm().benchStatus.inputDevice.y1);
             }
 

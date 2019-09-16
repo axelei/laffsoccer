@@ -4,8 +4,6 @@ public class TrainingFsm extends SceneFsm {
 
     private Training training;
 
-    private TrainingRenderer trainingRenderer;
-
     enum Id {
         STATE_FREE,
         STATE_REPLAY
@@ -13,9 +11,11 @@ public class TrainingFsm extends SceneFsm {
 
     TrainingFsm(Training training) {
         super(training.game);
+
         this.training = training;
-        this.hotKeys = new TrainingHotKeys(training);
-        trainingRenderer = new TrainingRenderer(training.game.glGraphics, training);
+
+        setHotKeys(new TrainingHotKeys(training));
+        setSceneRenderer(new TrainingRenderer(training.game.glGraphics, training));
 
         new TrainingStateFree(this);
         new TrainingStateReplay(this);
@@ -29,7 +29,7 @@ public class TrainingFsm extends SceneFsm {
         return training;
     }
 
-    public TrainingRenderer getTrainingRenderer() {
-        return trainingRenderer;
+    public TrainingRenderer getRenderer() {
+        return (TrainingRenderer) getSceneRenderer();
     }
 }

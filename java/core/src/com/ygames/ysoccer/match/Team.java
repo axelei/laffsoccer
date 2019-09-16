@@ -184,7 +184,7 @@ public class Team implements Json.Serializable {
     void beforeMatch(Match match) {
         this.match = match;
         lineup = new ArrayList<>();
-        int lineupSize = Math.min(players.size(), TEAM_SIZE + match.settings.benchSize);
+        int lineupSize = Math.min(players.size(), TEAM_SIZE + match.getSettings().benchSize);
         for (int i = 0; i < lineupSize; i++) {
             Player player = players.get(i);
             player.beforeMatch(match);

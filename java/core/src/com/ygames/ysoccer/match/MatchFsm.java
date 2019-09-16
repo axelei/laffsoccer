@@ -11,7 +11,6 @@ public class MatchFsm extends SceneFsm {
 
     private Match match;
     protected boolean matchCompleted;
-    private MatchRenderer matchRenderer;
 
     BenchStatus benchStatus;
     Vector2 throwInPosition;
@@ -61,15 +60,16 @@ public class MatchFsm extends SceneFsm {
 
     MatchFsm(Match match) {
         super(match.game);
+
         this.match = match;
-        this.hotKeys = new MatchHotKeys(match);
-        matchRenderer = new MatchRenderer(match.game.glGraphics, match);
+
+        setHotKeys(new MatchHotKeys(match));
+        setSceneRenderer(new MatchRenderer(match.game.glGraphics, match));
+
         benchStatus = new BenchStatus();
-        benchStatus.targetX = -TOUCH_LINE - 140 + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
+        benchStatus.targetX = -TOUCH_LINE - 140 + getSceneRenderer().screenWidth / (2 * getSceneRenderer().zoom / 100f);
         benchStatus.targetY = -20;
         throwInPosition = new Vector2();
-
-        actions = new ArrayDeque<>();
 
         new MatchStateIntro(this);
         new MatchStateStartingPositions(this);
@@ -122,8 +122,8 @@ public class MatchFsm extends SceneFsm {
         return match;
     }
 
-    public MatchRenderer getMatchRenderer() {
-        return matchRenderer;
+    MatchRenderer getRenderer() {
+        return (MatchRenderer) getSceneRenderer();
     }
 
     class BenchStatus {

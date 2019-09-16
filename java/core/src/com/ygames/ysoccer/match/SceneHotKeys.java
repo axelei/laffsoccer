@@ -6,7 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 
-class SceneHotKeys {
+abstract class SceneHotKeys {
 
     String message;
     long messageTimer;

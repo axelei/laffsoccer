@@ -25,17 +25,16 @@ public class Training extends Scene {
     public Team team;
 
     public TrainingListener listener;
-    public MatchSettings settings;
 
     public Training(Team team) {
         this.team = team;
     }
 
-    public void init(GLGame game, MatchSettings matchSettings) {
+    public void init(GLGame game, SceneSettings sceneSettings) {
         this.game = game;
-        this.settings = matchSettings;
+        this.settings = sceneSettings;
 
-        ball = new Ball(matchSettings);
+        ball = new Ball(sceneSettings);
 
         team.beforeTraining(this);
 
