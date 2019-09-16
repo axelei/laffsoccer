@@ -22,9 +22,9 @@ class MatchStateBenchTactics extends MatchState {
     void entryActions() {
         super.entryActions();
         displayTacticsSwitch = true;
-        fsm.benchStatus.selectedTactics = fsm.benchStatus.team.tactics;
+        getFsm().benchStatus.selectedTactics = getFsm().benchStatus.team.tactics;
 
-        matchRenderer.actionCamera.setTarget(fsm.benchStatus.targetX, fsm.benchStatus.targetY);
+        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY);
         matchRenderer.actionCamera.setSpeedMode(FAST);
     }
 
@@ -52,8 +52,8 @@ class MatchStateBenchTactics extends MatchState {
         }
 
         // change selected tactics
-        if (fsm.benchStatus.inputDevice.yMoved()) {
-            fsm.benchStatus.selectedTactics = Emath.rotate(fsm.benchStatus.selectedTactics, 0, 17, fsm.benchStatus.inputDevice.y1);
+        if (getFsm().benchStatus.inputDevice.yMoved()) {
+            getFsm().benchStatus.selectedTactics = Emath.rotate(getFsm().benchStatus.selectedTactics, 0, 17, getFsm().benchStatus.inputDevice.y1);
         }
     }
 
@@ -61,19 +61,19 @@ class MatchStateBenchTactics extends MatchState {
     void checkConditions() {
 
         // set selected tactics and go back to bench
-        if (fsm.benchStatus.inputDevice.fire1Down()) {
-            if (fsm.benchStatus.selectedTactics != fsm.benchStatus.team.tactics) {
-                Coach coach = fsm.benchStatus.team.coach;
+        if (getFsm().benchStatus.inputDevice.fire1Down()) {
+            if (getFsm().benchStatus.selectedTactics != getFsm().benchStatus.team.tactics) {
+                Coach coach = getFsm().benchStatus.team.coach;
                 coach.status = Coach.Status.CALL;
                 coach.timer = 500;
-                fsm.benchStatus.team.tactics = fsm.benchStatus.selectedTactics;
+                getFsm().benchStatus.team.tactics = getFsm().benchStatus.selectedTactics;
             }
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
             return;
         }
 
         // go back to bench
-        if (fsm.benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         return;
     }

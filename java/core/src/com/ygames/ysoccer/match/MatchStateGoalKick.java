@@ -46,7 +46,7 @@ class MatchStateGoalKick extends MatchState {
 
         isKicking = false;
 
-        goalKickPlayer = fsm.goalKickTeam.lineupAtPosition(0);
+        goalKickPlayer = getFsm().goalKickTeam.lineupAtPosition(0);
         goalKickPlayer.setTarget(match.ball.x, match.ball.y + 6 * match.ball.ySide);
         goalKickPlayer.setState(STATE_REACH_TARGET);
     }
@@ -55,7 +55,7 @@ class MatchStateGoalKick extends MatchState {
     void onPause() {
         super.onPause();
 
-        goalKickPlayer.setTarget(match.ball.x / 4, fsm.goalKickTeam.side * (GOAL_LINE - 8));
+        goalKickPlayer.setTarget(match.ball.x / 4, getFsm().goalKickTeam.side * (GOAL_LINE - 8));
         match.team[HOME].updateTactics(true);
         match.team[AWAY].updateTactics(true);
     }
@@ -124,8 +124,8 @@ class MatchStateGoalKick extends MatchState {
         for (int t = HOME; t <= AWAY; t++) {
             inputDevice = match.team[t].fire2Down();
             if (inputDevice != null) {
-                fsm.benchStatus.team = match.team[t];
-                fsm.benchStatus.inputDevice = inputDevice;
+                getFsm().benchStatus.team = match.team[t];
+                getFsm().benchStatus.inputDevice = inputDevice;
                 fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }

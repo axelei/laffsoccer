@@ -38,7 +38,7 @@ class MatchStateThrowInStop extends MatchState {
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-        fsm.throwInPosition.set(match.ball.xSide * Const.TOUCH_LINE, match.ball.y);
+        getFsm().throwInPosition.set(match.ball.xSide * Const.TOUCH_LINE, match.ball.y);
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(STATE_REACH_TARGET, null);
@@ -46,7 +46,7 @@ class MatchStateThrowInStop extends MatchState {
 
     @Override
     void onResume() {
-        match.setPointOfInterest(fsm.throwInPosition);
+        match.setPointOfInterest(getFsm().throwInPosition);
 
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
         matchRenderer.actionCamera.setLimited(true, true);
@@ -82,7 +82,7 @@ class MatchStateThrowInStop extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            match.ball.setPosition(fsm.throwInPosition);
+            match.ball.setPosition(getFsm().throwInPosition);
             match.ball.updatePrediction();
 
             fsm.pushAction(NEW_FOREGROUND, STATE_THROW_IN);
@@ -108,8 +108,8 @@ class MatchStateThrowInStop extends MatchState {
         for (int t = HOME; t <= AWAY; t++) {
             inputDevice = match.team[t].fire2Down();
             if (inputDevice != null) {
-                fsm.benchStatus.team = match.team[t];
-                fsm.benchStatus.inputDevice = inputDevice;
+                getFsm().benchStatus.team = match.team[t];
+                getFsm().benchStatus.inputDevice = inputDevice;
                 fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }

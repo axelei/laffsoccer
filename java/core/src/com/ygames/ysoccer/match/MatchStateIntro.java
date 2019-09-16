@@ -30,7 +30,7 @@ class MatchStateIntro extends MatchState {
         super.entryActions();
 
         match.clock = 0;
-        fsm.matchCompleted = false;
+        getFsm().matchCompleted = false;
         match.setIntroPositions();
         match.resetData();
 

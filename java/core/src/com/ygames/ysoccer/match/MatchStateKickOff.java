@@ -129,8 +129,8 @@ class MatchStateKickOff extends MatchState {
         for (int t = HOME; t <= AWAY; t++) {
             inputDevice = match.team[t].fire2Down();
             if (inputDevice != null) {
-                fsm.benchStatus.team = match.team[t];
-                fsm.benchStatus.inputDevice = inputDevice;
+                getFsm().benchStatus.team = match.team[t];
+                getFsm().benchStatus.inputDevice = inputDevice;
                 fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 return;
             }

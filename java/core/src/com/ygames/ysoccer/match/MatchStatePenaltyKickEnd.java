@@ -120,7 +120,7 @@ class MatchStatePenaltyKickEnd extends MatchState {
 
                 if (haveWinner()) {
                     match.setResult(match.penaltiesScore(HOME), match.penaltiesScore(AWAY), Match.ResultType.AFTER_PENALTIES);
-                    fsm.matchCompleted = true;
+                    getFsm().matchCompleted = true;
                     fsm.pushAction(NEW_FOREGROUND, STATE_END_POSITIONS);
                 } else {
                     fsm.pushAction(NEW_FOREGROUND, STATE_PENALTIES);

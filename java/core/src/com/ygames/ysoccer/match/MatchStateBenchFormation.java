@@ -28,7 +28,7 @@ class MatchStateBenchFormation extends MatchState {
     void entryActions() {
         super.entryActions();
         displayBenchFormation = true;
-        matchRenderer.actionCamera.setTarget(fsm.benchStatus.targetX, fsm.benchStatus.targetY);
+        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY);
     }
 
     @Override
@@ -55,27 +55,27 @@ class MatchStateBenchFormation extends MatchState {
         }
 
         // change selected position
-        if (fsm.benchStatus.inputDevice.yMoved()) {
-            fsm.benchStatus.selectedPosition = Emath.rotate(fsm.benchStatus.selectedPosition, -1, TEAM_SIZE - 1, fsm.benchStatus.inputDevice.y1);
+        if (getFsm().benchStatus.inputDevice.yMoved()) {
+            getFsm().benchStatus.selectedPosition = Emath.rotate(getFsm().benchStatus.selectedPosition, -1, TEAM_SIZE - 1, getFsm().benchStatus.inputDevice.y1);
         }
     }
 
     @Override
     void checkConditions() {
 
-        if (fsm.benchStatus.inputDevice.fire1Down()) {
+        if (getFsm().benchStatus.inputDevice.fire1Down()) {
 
             // switch to tactics mode
-            if (fsm.benchStatus.selectedPosition == -1) {
+            if (getFsm().benchStatus.selectedPosition == -1) {
 
                 // reset eventually pending swap or substitution
-                fsm.benchStatus.swapPosition = -1;
-                if (fsm.benchStatus.substPosition != -1) {
-                    Player player = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
+                getFsm().benchStatus.swapPosition = -1;
+                if (getFsm().benchStatus.substPosition != -1) {
+                    Player player = getFsm().benchStatus.team.lineup.get(getFsm().benchStatus.substPosition);
                     player.setState(STATE_BENCH_STANDING);
 
-                    fsm.benchStatus.selectedPosition = fsm.benchStatus.substPosition - TEAM_SIZE;
-                    fsm.benchStatus.substPosition = -1;
+                    getFsm().benchStatus.selectedPosition = getFsm().benchStatus.substPosition - TEAM_SIZE;
+                    getFsm().benchStatus.substPosition = -1;
                 }
 
                 fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_TACTICS);
@@ -85,32 +85,32 @@ class MatchStateBenchFormation extends MatchState {
             // swap and substitutions
             else {
                 // if already selected for swap then deselect
-                if (fsm.benchStatus.swapPosition == fsm.benchStatus.selectedPosition) {
-                    fsm.benchStatus.swapPosition = -1;
+                if (getFsm().benchStatus.swapPosition == getFsm().benchStatus.selectedPosition) {
+                    getFsm().benchStatus.swapPosition = -1;
                 }
 
                 // if no swap nor substitution then select for swap
-                else if ((fsm.benchStatus.swapPosition == -1) && (fsm.benchStatus.substPosition == -1)) {
-                    fsm.benchStatus.swapPosition = fsm.benchStatus.selectedPosition;
+                else if ((getFsm().benchStatus.swapPosition == -1) && (getFsm().benchStatus.substPosition == -1)) {
+                    getFsm().benchStatus.swapPosition = getFsm().benchStatus.selectedPosition;
                 }
 
                 // swap or substitution
                 else {
-                    int i1 = fsm.benchStatus.team.playerIndexAtPosition(fsm.benchStatus.selectedPosition);
+                    int i1 = getFsm().benchStatus.team.playerIndexAtPosition(getFsm().benchStatus.selectedPosition);
                     int i2;
 
                     // if substitution
-                    Coach coach = fsm.benchStatus.team.coach;
-                    if (fsm.benchStatus.substPosition != -1) {
+                    Coach coach = getFsm().benchStatus.team.coach;
+                    if (getFsm().benchStatus.substPosition != -1) {
                         coach.status = Coach.Status.CALL;
                         coach.timer = 500;
 
-                        fsm.benchStatus.team.substitutionsCount += 1;
+                        getFsm().benchStatus.team.substitutionsCount += 1;
 
-                        i2 = fsm.benchStatus.team.playerIndexAtPosition(fsm.benchStatus.substPosition);
-                        fsm.benchStatus.team.lineup.get(i1).setState(STATE_OUTSIDE);
-                        fsm.benchStatus.team.lineup.get(i2).setState(STATE_REACH_TARGET);
-                        fsm.benchStatus.substPosition = -1;
+                        i2 = getFsm().benchStatus.team.playerIndexAtPosition(getFsm().benchStatus.substPosition);
+                        getFsm().benchStatus.team.lineup.get(i1).setState(STATE_OUTSIDE);
+                        getFsm().benchStatus.team.lineup.get(i2).setState(STATE_REACH_TARGET);
+                        getFsm().benchStatus.substPosition = -1;
 
                         if (match.settings.commentary) {
                             int size = Assets.Commentary.playerSubstitution.size();
@@ -125,10 +125,10 @@ class MatchStateBenchFormation extends MatchState {
                         coach.status = Coach.Status.SWAP;
                         coach.timer = 500;
 
-                        i2 = fsm.benchStatus.team.playerIndexAtPosition(fsm.benchStatus.swapPosition);
-                        fsm.benchStatus.team.lineup.get(i1).setState(STATE_REACH_TARGET);
-                        fsm.benchStatus.team.lineup.get(i2).setState(STATE_REACH_TARGET);
-                        fsm.benchStatus.swapPosition = -1;
+                        i2 = getFsm().benchStatus.team.playerIndexAtPosition(getFsm().benchStatus.swapPosition);
+                        getFsm().benchStatus.team.lineup.get(i1).setState(STATE_REACH_TARGET);
+                        getFsm().benchStatus.team.lineup.get(i2).setState(STATE_REACH_TARGET);
+                        getFsm().benchStatus.swapPosition = -1;
 
                         if (match.settings.commentary) {
                             int size = Assets.Commentary.playerSwap.size();
@@ -139,11 +139,11 @@ class MatchStateBenchFormation extends MatchState {
                     }
 
                     // swap players
-                    Collections.swap(fsm.benchStatus.team.lineup, i1, i2);
+                    Collections.swap(getFsm().benchStatus.team.lineup, i1, i2);
 
                     // swap positions
-                    Player ply1 = fsm.benchStatus.team.lineup.get(i1);
-                    Player ply2 = fsm.benchStatus.team.lineup.get(i2);
+                    Player ply1 = getFsm().benchStatus.team.lineup.get(i1);
+                    Player ply2 = getFsm().benchStatus.team.lineup.get(i2);
 
                     float tx = ply1.tx;
                     ply1.tx = ply2.tx;
@@ -157,17 +157,17 @@ class MatchStateBenchFormation extends MatchState {
         }
 
         // go back to bench substitutions
-        if (fsm.benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            fsm.benchStatus.selectedPosition = -1;
+        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            getFsm().benchStatus.selectedPosition = -1;
 
             // reset eventually pending swap or substitution
-            fsm.benchStatus.swapPosition = -1;
-            if (fsm.benchStatus.substPosition != -1) {
-                Player player = fsm.benchStatus.team.lineup.get(fsm.benchStatus.substPosition);
+            getFsm().benchStatus.swapPosition = -1;
+            if (getFsm().benchStatus.substPosition != -1) {
+                Player player = getFsm().benchStatus.team.lineup.get(getFsm().benchStatus.substPosition);
                 player.setState(STATE_BENCH_STANDING);
 
-                fsm.benchStatus.selectedPosition = fsm.benchStatus.substPosition - TEAM_SIZE;
-                fsm.benchStatus.substPosition = -1;
+                getFsm().benchStatus.selectedPosition = getFsm().benchStatus.substPosition - TEAM_SIZE;
+                getFsm().benchStatus.substPosition = -1;
             }
 
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);

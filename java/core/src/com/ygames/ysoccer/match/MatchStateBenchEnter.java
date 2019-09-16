@@ -31,11 +31,11 @@ class MatchStateBenchEnter extends MatchState {
         super.entryActions();
 
         // TODO get current observed position from camera
-        fsm.benchStatus.oldTargetX = matchRenderer.vcameraX[match.subframe] - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
-        fsm.benchStatus.oldTargetY = matchRenderer.vcameraY[match.subframe] - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTargetX = matchRenderer.vcameraX[match.subframe] - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTargetY = matchRenderer.vcameraY[match.subframe] - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
-        fsm.benchStatus.selectedPosition = -1;
-        fsm.benchStatus.substPosition = -1;
+        getFsm().benchStatus.selectedPosition = -1;
+        getFsm().benchStatus.substPosition = -1;
 
         for (int t = HOME; t <= AWAY; t++) {
             for (int i = 0; i < TEAM_SIZE; i++) {
@@ -49,7 +49,7 @@ class MatchStateBenchEnter extends MatchState {
 
         cameraX = matchRenderer.actionCamera.x;
         cameraY = matchRenderer.actionCamera.y;
-        matchRenderer.actionCamera.setTarget(fsm.benchStatus.targetX, fsm.benchStatus.targetY);
+        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY);
         matchRenderer.actionCamera.setLimited(false, true);
         matchRenderer.actionCamera.setSpeedMode(WARP);
     }
@@ -84,7 +84,7 @@ class MatchStateBenchEnter extends MatchState {
 
         // TODO: replace with test on speed provided by camera
         if (dx <= 1 && dy <= 1) {
-            Coach coach = fsm.benchStatus.team.coach;
+            Coach coach = getFsm().benchStatus.team.coach;
             coach.status = Coach.Status.STAND;
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
             return;
@@ -93,7 +93,7 @@ class MatchStateBenchEnter extends MatchState {
         cameraX = matchRenderer.actionCamera.x;
         cameraY = matchRenderer.actionCamera.y;
 
-        if (fsm.benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
             return;
         }

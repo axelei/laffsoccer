@@ -5,11 +5,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 
-class MatchState {
-
-    protected int timer;
-    protected final MatchFsm.Id id;
-    protected MatchFsm fsm;
+class MatchState extends SceneState {
 
     boolean displayControlledPlayer;
     boolean displayBallOwner;
@@ -30,37 +26,21 @@ class MatchState {
     protected MatchRenderer matchRenderer;
 
     MatchState(MatchFsm.Id id, MatchFsm fsm) {
-        this.id = id;
-        this.fsm = fsm;
+        super(id, fsm);
+
         this.match = fsm.getMatch();
         this.matchRenderer = fsm.getMatchRenderer();
 
         fsm.addState(this);
     }
 
-    void entryActions() {
-        timer = 0;
-    }
-
-    void onResume() {
-    }
-
-    void onPause() {
+    MatchFsm getFsm() {
+        return (MatchFsm) fsm;
     }
 
     void doActions(float deltaTime) {
         timer += 1;
-        fsm.matchKeys.update();
-    }
-
-    void checkConditions() {
-    }
-
-    boolean checkId(Enum id) {
-        return (this.id == id);
-    }
-
-    void render() {
+        getFsm().matchKeys.update();
     }
 
     void replay() {

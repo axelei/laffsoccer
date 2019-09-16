@@ -24,19 +24,19 @@ class MatchStateBenchExit extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        Coach coach = fsm.benchStatus.team.coach;
+        Coach coach = getFsm().benchStatus.team.coach;
         coach.status = Coach.Status.BENCH;
 
         // reset positions
-        int substitutes = min(match.settings.benchSize, fsm.benchStatus.team.lineup.size() - TEAM_SIZE);
+        int substitutes = min(match.settings.benchSize, getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
         for (int i = 0; i < substitutes; i++) {
-            Player player = fsm.benchStatus.team.lineup.get(TEAM_SIZE + i);
+            Player player = getFsm().benchStatus.team.lineup.get(TEAM_SIZE + i);
             if (!player.getState().checkId(STATE_OUTSIDE)) {
                 player.setState(STATE_BENCH_SITTING);
             }
         }
 
-        matchRenderer.actionCamera.setTarget(fsm.benchStatus.oldTargetX, fsm.benchStatus.oldTargetY);
+        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.oldTargetX, getFsm().benchStatus.oldTargetY);
         matchRenderer.actionCamera.setSpeedMode(WARP);
     }
 
@@ -67,8 +67,8 @@ class MatchStateBenchExit extends MatchState {
     @Override
     void checkConditions() {
 
-        float dx = matchRenderer.actionCamera.x - fsm.benchStatus.oldTargetX - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
-        float dy = matchRenderer.actionCamera.y - fsm.benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
+        float dx = matchRenderer.actionCamera.x - getFsm().benchStatus.oldTargetX - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
+        float dy = matchRenderer.actionCamera.y - getFsm().benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
 
         // TODO: replace with test on speed provided by camera
         if (Emath.hypo(dx, dy) <= 1) {
