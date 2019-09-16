@@ -1,19 +1,11 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
 public class MatchFsm extends SceneFsm {
 
@@ -21,9 +13,6 @@ public class MatchFsm extends SceneFsm {
     protected boolean matchCompleted;
     private MatchRenderer matchRenderer;
 
-    private List<MatchState> states;
-    private MatchState currentState;
-    private MatchState holdState;
     BenchStatus benchStatus;
     Vector2 throwInPosition;
     Team throwInTeam;
@@ -75,7 +64,6 @@ public class MatchFsm extends SceneFsm {
         this.match = match;
         this.hotKeys = new MatchHotKeys(match);
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
-        states = new ArrayList<>();
         benchStatus = new BenchStatus();
         benchStatus.targetX = -TOUCH_LINE - 140 + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
         benchStatus.targetY = -20;
@@ -123,15 +111,11 @@ public class MatchFsm extends SceneFsm {
     }
 
     public MatchState getState() {
-        return currentState;
+        return (MatchState) super.getState();
     }
 
     MatchState getHoldState() {
-        return holdState;
-    }
-
-    void addState(MatchState state) {
-        states.add(state);
+        return (MatchState) super.getHoldState();
     }
 
     public Match getMatch() {
@@ -140,97 +124,6 @@ public class MatchFsm extends SceneFsm {
 
     public MatchRenderer getMatchRenderer() {
         return matchRenderer;
-    }
-
-    void think(float deltaTime) {
-
-        boolean doUpdate = true;
-
-        // fade in/out
-        if (currentAction != null && currentAction.type == FADE_OUT) {
-            game.glGraphics.light = 8 * (currentAction.timer - 1);
-            doUpdate = false;
-        }
-        if (currentAction != null && currentAction.type == FADE_IN) {
-            game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
-            doUpdate = false;
-        }
-
-        // update current state
-        if (currentState != null && doUpdate) {
-            if (currentAction != null
-                    && (currentAction.type == NEW_FOREGROUND || currentAction.type == RESTORE_FOREGROUND)) {
-                currentState.onResume();
-            }
-            if (currentAction != null
-                    && (currentAction.type == HOLD_FOREGROUND)) {
-                holdState.onPause();
-            }
-            currentState.doActions(deltaTime);
-            currentState.checkConditions();
-        }
-
-        // update current action
-        if (currentAction != null) {
-            currentAction.update();
-            if (currentAction.timer == 0) {
-                currentAction = null;
-            }
-        }
-
-        // get new action
-        if (currentAction == null) {
-            if (actions.size() > 0) {
-                pollAction();
-            }
-        }
-    }
-
-    private void pollAction() {
-
-        currentAction = actions.pop();
-
-        switch (currentAction.type) {
-
-            case NONE:
-                break;
-
-            case FADE_IN:
-                currentAction.timer = 32;
-                break;
-
-            case FADE_OUT:
-                currentAction.timer = 32;
-                break;
-
-            case NEW_FOREGROUND:
-                currentState = searchState(currentAction.stateId);
-                Gdx.app.debug("NEW_FOREGROUND", currentState.getClass().getSimpleName());
-                break;
-
-            case HOLD_FOREGROUND:
-                holdState = currentState;
-                currentState = searchState(currentAction.stateId);
-                Gdx.app.debug("HOLD_FOREGROUND", currentState.getClass().getSimpleName());
-                break;
-
-            case RESTORE_FOREGROUND:
-                currentState = holdState;
-                holdState = null;
-                break;
-
-        }
-    }
-
-    private MatchState searchState(Enum id) {
-        for (int i = 0; i < states.size(); i++) {
-            MatchState s = states.get(i);
-            if (s.checkId(id)) {
-                s.entryActions();
-                return s;
-            }
-        }
-        return null;
     }
 
     class BenchStatus {
