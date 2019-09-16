@@ -35,6 +35,7 @@ class TrainingState extends SceneState {
         fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);
         fsm.pushAction(FADE_IN);
     }
+
     void quitTraining() {
         training.quit();
     }

@@ -29,7 +29,7 @@ class MatchHotKeys extends SceneHotKeys {
         super.update();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
-            match.recorder.saveHighlight(match.fsm.getMatchRenderer());
+            match.recorder.saveHighlight(match.getFsm().getMatchRenderer());
 
             message = gettext("ACTION RECORDED");
             messageTimer = 60;
@@ -77,7 +77,7 @@ class MatchHotKeys extends SceneHotKeys {
 
         if (Gdx.input.isKeyPressed(Input.Keys.F8) && !keyZoomOut) {
             match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), -5);
-            match.fsm.getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
+            match.getFsm().getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
 
             message = gettext("ZOOM") + " " + match.settings.zoom + "%";
 
@@ -86,7 +86,7 @@ class MatchHotKeys extends SceneHotKeys {
 
         if (Gdx.input.isKeyPressed(Input.Keys.F9) && !keyZoomIn) {
             match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), 5);
-            match.fsm.getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
+            match.getFsm().getMatchRenderer().resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), match.settings.zoom);
 
             message = gettext("ZOOM") + " " + match.settings.zoom + "%";
 

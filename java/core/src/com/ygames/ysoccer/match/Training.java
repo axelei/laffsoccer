@@ -15,23 +15,17 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
 
-public class Training {
+public class Training extends Scene {
 
     public interface TrainingListener {
         void quitTraining();
     }
-
-    public GLGame game;
-
-    public TrainingFsm fsm;
 
     Ball ball;
     public Team team;
 
     public TrainingListener listener;
     public MatchSettings settings;
-
-    public int subframe;
 
     public Training(Team team) {
         this.team = team;
@@ -50,12 +44,8 @@ public class Training {
         team.side = -1;
     }
 
-    public void update(float deltaTime) {
-        fsm.think(deltaTime);
-    }
-
-    public void nextSubframe() {
-        subframe = (subframe + 1) % Const.REPLAY_SUBFRAMES;
+    public TrainingFsm getFsm() {
+        return (TrainingFsm)fsm;
     }
 
     void updateBall() {
@@ -106,6 +96,7 @@ public class Training {
         team.coach.y = BENCH_Y_UP + 32;
     }
 
+    @Override
     public void start() {
         fsm.pushAction(NEW_FOREGROUND, STATE_FREE);
         fsm.pushAction(FADE_IN);
@@ -119,6 +110,7 @@ public class Training {
         team.updateFrameDistance();
     }
 
+    @Override
     void quit() {
         Assets.Sounds.chant.stop();
 

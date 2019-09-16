@@ -59,7 +59,7 @@ class TrainingScreen extends GLScreen {
         }
 
         if (!ended) {
-            training.fsm.getTrainingRenderer().render();
+            training.getFsm().getTrainingRenderer().render();
         }
 
         if (Settings.development) {
@@ -72,7 +72,7 @@ class TrainingScreen extends GLScreen {
     public void resize(int width, int height) {
         super.resize(width, height);
 
-        training.fsm.getTrainingRenderer().resize(width, height, training.settings.zoom);
+        training.getFsm().getTrainingRenderer().resize(width, height, training.settings.zoom);
 
         if (Settings.development) {
             console.refresh();

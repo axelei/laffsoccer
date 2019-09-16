@@ -73,7 +73,7 @@ public class MatchRenderer extends Renderer {
     }
 
     public void render() {
-        matchState = match.fsm.getState();
+        matchState = match.getFsm().getState();
 
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -205,7 +205,7 @@ public class MatchRenderer extends Renderer {
         }
 
         // additional state-specific render
-        MatchState matchState = match.fsm.getState();
+        MatchState matchState = match.getFsm().getState();
         if (matchState != null) {
             matchState.render();
         }
@@ -964,7 +964,7 @@ public class MatchRenderer extends Renderer {
         // slots
         int color = 0x242424;
 
-        if (match.fsm.benchStatus.selectedPosition == -1) {
+        if (match.getFsm().benchStatus.selectedPosition == -1) {
             color = GLColor.sweepColor(color, 0xFFDD33);
         }
 
@@ -973,7 +973,7 @@ public class MatchRenderer extends Renderer {
         for (int pos = 0; pos < match.settings.benchSize; pos++) {
             color = 0x242424;
 
-            if (match.fsm.benchStatus.selectedPosition == pos) {
+            if (match.getFsm().benchStatus.selectedPosition == pos) {
                 color = GLColor.sweepColor(color, 0xFFDD33);
             }
             fadeRect(x, y + 125 + 4 + pos * h, x + w - 2, y + 125 + 2 + (pos + 1) * h, 0.6f, color);
@@ -1000,9 +1000,9 @@ public class MatchRenderer extends Renderer {
 
         Assets.font10.draw(batch, Assets.strings.get("BENCH"), x + w / 2, y + 3, Font.Align.CENTER);
 
-        int benchSize = min(match.settings.benchSize, match.fsm.benchStatus.team.lineup.size() - TEAM_SIZE);
+        int benchSize = min(match.settings.benchSize, match.getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
         for (int pos = 0; pos < benchSize; pos++) {
-            Player player = match.fsm.benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
+            Player player = match.getFsm().benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
 
             if (!player.getState().checkId(STATE_OUTSIDE)) {
                 Assets.font10.draw(batch, player.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
@@ -1036,9 +1036,9 @@ public class MatchRenderer extends Renderer {
 
         // slots
         int color = 0x242424;
-        if (match.fsm.benchStatus.selectedPosition == -1) {
+        if (match.getFsm().benchStatus.selectedPosition == -1) {
             // substitution - yellow
-            if (match.fsm.benchStatus.substPosition != -1) {
+            if (match.getFsm().benchStatus.substPosition != -1) {
                 color = GLColor.sweepColor(color, 0xFFFF33);
             }
             // swap - blue
@@ -1050,13 +1050,13 @@ public class MatchRenderer extends Renderer {
 
         for (int pos = 0; pos < TEAM_SIZE; pos++) {
             color = 0x242424;
-            if (pos == match.fsm.benchStatus.swapPosition) {
+            if (pos == match.getFsm().benchStatus.swapPosition) {
                 color = 0x33DDFF;
             }
 
-            if (pos == match.fsm.benchStatus.selectedPosition) {
+            if (pos == match.getFsm().benchStatus.selectedPosition) {
                 // substitution - yellow
-                if (match.fsm.benchStatus.substPosition != -1) {
+                if (match.getFsm().benchStatus.substPosition != -1) {
                     color = GLColor.sweepColor(0x242424, 0xFFFF33);
                 }
                 // swap - blue
@@ -1090,7 +1090,7 @@ public class MatchRenderer extends Renderer {
 
         for (int pos = 0; pos < TEAM_SIZE; pos++) {
 
-            Player ply = match.fsm.benchStatus.team.lineupAtPosition(pos);
+            Player ply = match.getFsm().benchStatus.team.lineupAtPosition(pos);
 
             Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
             Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
@@ -1120,10 +1120,10 @@ public class MatchRenderer extends Renderer {
         // slots
         for (int i = 0; i < 18; i++) {
             int color = 0x242424;
-            if (i == match.fsm.benchStatus.team.tactics) {
+            if (i == match.getFsm().benchStatus.team.tactics) {
                 color = 0xFFAA33;
             }
-            if (i == match.fsm.benchStatus.selectedTactics) {
+            if (i == match.getFsm().benchStatus.selectedTactics) {
                 color = GLColor.sweepColor(color, 0xFFAA33);
             }
             fadeRect(x, y + 84 + h * i, x + w - 2, y + 82 + h * (i + 1), 0.6f, color);

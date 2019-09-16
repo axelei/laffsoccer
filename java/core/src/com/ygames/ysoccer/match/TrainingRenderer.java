@@ -50,7 +50,7 @@ public class TrainingRenderer extends Renderer {
     }
 
     public void render() {
-        trainingState = training.fsm.getState();
+        trainingState = training.getFsm().getState();
 
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -129,7 +129,7 @@ public class TrainingRenderer extends Renderer {
         }
 
         // additional state-specific render
-        TrainingState trainingState = training.fsm.getState();
+        TrainingState trainingState = training.getFsm().getState();
         if (trainingState != null) {
             trainingState.render();
         }

@@ -38,7 +38,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.math.Emath.rotate;
 
-public class Match implements Json.Serializable {
+public class Match extends Scene implements Json.Serializable {
 
     public enum ResultType {AFTER_90_MINUTES, AFTER_EXTRA_TIME, AFTER_PENALTIES}
 
@@ -54,10 +54,6 @@ public class Match implements Json.Serializable {
     public int[] resultAfter90;
     public int[] resultAfterExtraTime;
     public int[] resultAfterPenalties;
-
-    public GLGame game;
-
-    public MatchFsm fsm;
 
     Ball ball;
     public Team[] team;
@@ -101,7 +97,6 @@ public class Match implements Json.Serializable {
         }
     }
 
-    public int subframe;
     boolean chantSwitch;
     float nextChant;
 
@@ -111,6 +106,10 @@ public class Match implements Json.Serializable {
 
     public Match() {
         team = new Team[2];
+    }
+
+    public MatchFsm getFsm() {
+        return (MatchFsm)fsm;
     }
 
     public void setTeam(int side, Team team) {
@@ -289,20 +288,12 @@ public class Match implements Json.Serializable {
         }
     }
 
-    public void update(float deltaTime) {
-        fsm.think(deltaTime);
-    }
-
     void updateAi() {
         for (int t = HOME; t <= AWAY; t++) {
             if (team[t] != null) {
                 team[t].updateLineupAi();
             }
         }
-    }
-
-    public void nextSubframe() {
-        subframe = (subframe + 1) % Const.REPLAY_SUBFRAMES;
     }
 
     void updateBall() {
@@ -495,6 +486,7 @@ public class Match implements Json.Serializable {
         }
     }
 
+    @Override
     public void start() {
         fsm.pushAction(NEW_FOREGROUND, STATE_INTRO);
         fsm.pushAction(FADE_IN);
@@ -581,6 +573,7 @@ public class Match implements Json.Serializable {
         team[AWAY].side = -team[AWAY].side;
     }
 
+    @Override
     void quit() {
         Assets.Sounds.chant.stop();
         Assets.Sounds.crowd.stop();
@@ -588,7 +581,7 @@ public class Match implements Json.Serializable {
         Assets.Sounds.homeGoal.stop();
         Assets.Sounds.intro.stop();
 
-        listener.quitMatch(fsm.matchCompleted);
+        listener.quitMatch(getFsm().matchCompleted);
     }
 
     // returns an integer from 0 to 9

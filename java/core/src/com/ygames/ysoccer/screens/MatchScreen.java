@@ -62,7 +62,7 @@ class MatchScreen extends GLScreen {
         }
 
         if (!matchEnded) {
-            match.fsm.getMatchRenderer().render();
+            match.getFsm().getMatchRenderer().render();
         }
 
         if (!matchEnded && Settings.development) {
@@ -75,7 +75,7 @@ class MatchScreen extends GLScreen {
     public void resize(int width, int height) {
         super.resize(width, height);
 
-        match.fsm.getMatchRenderer().resize(width, height, match.settings.zoom);
+        match.getFsm().getMatchRenderer().resize(width, height, match.settings.zoom);
 
         if (Settings.development) {
             console.refresh();
