@@ -8,7 +8,7 @@ import com.ygames.ysoccer.framework.GLGraphics;
 
 import static com.badlogic.gdx.Gdx.gl;
 
-public class TrainingRenderer extends Renderer {
+public class TrainingRenderer extends SceneRenderer {
 
     public Training training;
     private TrainingState trainingState;

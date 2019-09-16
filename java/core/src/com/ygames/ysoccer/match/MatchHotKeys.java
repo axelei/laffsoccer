@@ -76,7 +76,7 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F8) && !keyZoomOut) {
-            match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), -5);
+            match.settings.zoom = Emath.slide(match.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), -5);
             match.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
             message = gettext("ZOOM") + " " + match.settings.zoom + "%";
@@ -85,7 +85,7 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F9) && !keyZoomIn) {
-            match.settings.zoom = Emath.slide(match.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), 5);
+            match.settings.zoom = Emath.slide(match.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5);
             match.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
             message = gettext("ZOOM") + " " + match.settings.zoom + "%";

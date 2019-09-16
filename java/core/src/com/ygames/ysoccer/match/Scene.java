@@ -9,7 +9,7 @@ abstract class Scene {
     protected int subframe;
     protected SceneSettings settings;
 
-    Renderer getRenderer() {
+    SceneRenderer getRenderer() {
         return fsm.getSceneRenderer();
     }
 

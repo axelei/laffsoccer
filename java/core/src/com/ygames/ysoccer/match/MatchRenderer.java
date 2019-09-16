@@ -22,7 +22,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static java.lang.Math.min;
 
-public class MatchRenderer extends Renderer {
+public class MatchRenderer extends SceneRenderer {
 
     public Match match;
     private MatchState matchState;

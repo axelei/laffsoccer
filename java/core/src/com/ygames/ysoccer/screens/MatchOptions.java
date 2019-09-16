@@ -8,7 +8,7 @@ import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.match.Renderer;
+import com.ygames.ysoccer.match.SceneRenderer;
 import com.ygames.ysoccer.match.Weather;
 import com.ygames.ysoccer.math.Emath;
 
@@ -289,7 +289,7 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateZoom(int n) {
-            game.settings.zoom = Emath.slide(game.settings.zoom, Renderer.zoomMin(), Renderer.zoomMax(), 5 * n);
+            game.settings.zoom = Emath.slide(game.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5 * n);
             setDirty(true);
         }
     }

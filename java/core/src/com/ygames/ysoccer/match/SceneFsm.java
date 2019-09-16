@@ -50,7 +50,7 @@ abstract class SceneFsm {
     private ArrayDeque<Action> actions;
     private Action currentAction;
 
-    private Renderer sceneRenderer;
+    private SceneRenderer sceneRenderer;
 
     private SceneHotKeys hotKeys;
 
@@ -80,11 +80,11 @@ abstract class SceneFsm {
         this.hotKeys = hotKeys;
     }
 
-    Renderer getSceneRenderer() {
+    SceneRenderer getSceneRenderer() {
         return sceneRenderer;
     }
 
-    void setSceneRenderer(Renderer sceneRenderer) {
+    void setSceneRenderer(SceneRenderer sceneRenderer) {
         this.sceneRenderer = sceneRenderer;
     }
 

@@ -27,7 +27,7 @@ class Recorder {
         return Math.min(recorded, MAX_RECORDS);
     }
 
-    void saveHighlight(Renderer sceneRenderer) {
+    void saveHighlight(SceneRenderer sceneRenderer) {
 
         // if more then MAX_RECORDS the oldest ones are overwritten
         int index = (recorded % MAX_RECORDS) * RECORD_SIZE;

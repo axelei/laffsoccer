@@ -5,14 +5,13 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Renderer {
+public abstract class SceneRenderer {
 
     private static final float VISIBLE_FIELD_WIDTH_MAX = 1.0f;
     private static final float VISIBLE_FIELD_WIDTH_OPT = 0.75f;
@@ -52,8 +51,8 @@ public abstract class Renderer {
     private final int modX = (int) Math.ceil(Const.PITCH_W / ((float) modW));
     private final int modY = (int) Math.ceil(Const.PITCH_H / ((float) modH));
 
-    Renderer() {
-        allSprites = new ArrayList<Sprite>();
+    SceneRenderer() {
+        allSprites = new ArrayList<>();
         spriteComparator = new Sprite.SpriteComparator();
     }
 

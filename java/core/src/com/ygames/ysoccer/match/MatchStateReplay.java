@@ -12,7 +12,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.Renderer.guiAlpha;
+import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
