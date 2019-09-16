@@ -38,11 +38,6 @@ class MatchState extends SceneState {
         return (MatchFsm) fsm;
     }
 
-    void doActions(float deltaTime) {
-        timer += 1;
-        getFsm().matchKeys.update();
-    }
-
     void replay() {
         fsm.pushAction(FADE_OUT);
         fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);

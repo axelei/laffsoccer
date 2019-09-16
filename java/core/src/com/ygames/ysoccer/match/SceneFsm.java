@@ -11,6 +11,8 @@ class SceneFsm {
     ArrayDeque<Action> actions;
     Action currentAction;
 
+    SceneHotKeys hotKeys;
+
     SceneFsm(GLGame game) {
         this.game = game;
         actions = new ArrayDeque<>();

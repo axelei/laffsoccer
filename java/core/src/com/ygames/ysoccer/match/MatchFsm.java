@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import java.util.ArrayDeque;
@@ -30,8 +29,6 @@ public class MatchFsm extends SceneFsm {
     Team throwInTeam;
     Team cornerKickTeam;
     Team goalKickTeam;
-
-    MatchKeys matchKeys;
 
     enum Id {
         STATE_INTRO,
@@ -76,7 +73,7 @@ public class MatchFsm extends SceneFsm {
     MatchFsm(Match match) {
         super(match.game);
         this.match = match;
-        this.matchKeys = new MatchKeys(match);
+        this.hotKeys = new MatchHotKeys(match);
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
         states = new ArrayList<>();
         benchStatus = new BenchStatus();

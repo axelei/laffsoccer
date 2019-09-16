@@ -15,6 +15,11 @@ class SceneState {
         timer = 0;
     }
 
+    void doActions(float deltaTime) {
+        timer += 1;
+        fsm.hotKeys.update();
+    }
+
     void onResume() {
     }
 

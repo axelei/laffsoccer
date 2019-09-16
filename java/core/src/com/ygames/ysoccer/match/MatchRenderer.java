@@ -177,9 +177,9 @@ public class MatchRenderer extends Renderer {
         }
 
         // messages
-        if (match.fsm.matchKeys.messageTimer > 0) {
+        if (match.fsm.hotKeys.messageTimer > 0) {
             batch.setColor(0xFFFFFF, guiAlpha);
-            Assets.font10.draw(batch, match.fsm.matchKeys.message, guiWidth / 2, 1, Font.Align.CENTER);
+            Assets.font10.draw(batch, match.fsm.hotKeys.message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 
         // statistics

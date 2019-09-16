@@ -30,11 +30,6 @@ class TrainingState extends SceneState {
         return (TrainingFsm) fsm;
     }
 
-    void doActions(float deltaTime) {
-        timer += 1;
-        getFsm().trainingKeys.update();
-    }
-
     void replay() {
         fsm.pushAction(FADE_OUT);
         fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);

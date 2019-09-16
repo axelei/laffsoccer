@@ -7,17 +7,11 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 
-class MatchKeys {
+class MatchHotKeys extends SceneHotKeys {
 
     Match match;
 
-    // onscreen messages
-    String message;
-    long messageTimer;
-
     private boolean keyRecordAction;
-    private boolean keySoundUp;
-    private boolean keySoundDown;
     private boolean keyScreenMode;
     private boolean keyZoomOut;
     private boolean keyZoomIn;
@@ -26,13 +20,13 @@ class MatchKeys {
     private boolean keyRadar;
     private boolean keyAutoReplay;
 
-    MatchKeys(Match match) {
+    MatchHotKeys(Match match) {
         this.match = match;
     }
 
+    @Override
     public void update() {
-
-        if (messageTimer > 0) messageTimer--;
+        super.update();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
             match.recorder.saveHighlight(match.fsm.getMatchRenderer());
@@ -41,23 +35,6 @@ class MatchKeys {
             messageTimer = 60;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.F2) && !keySoundDown) {
-            Assets.Sounds.volume = Math.max(0, Assets.Sounds.volume - 10);
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
-
-            setMessageSoundEffects();
-            messageTimer = 60;
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.F3) && !keySoundUp) {
-            Assets.Sounds.volume = Math.min(100, Assets.Sounds.volume + 10);
-            Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
-
-            setMessageSoundEffects();
-            messageTimer = 60;
-        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F4) && !keyCommentary) {
             match.settings.commentary = !match.settings.commentary;
@@ -144,8 +121,6 @@ class MatchKeys {
         }
 
         keyRecordAction = Gdx.input.isKeyPressed(Input.Keys.SPACE);
-        keySoundDown = Gdx.input.isKeyPressed(Input.Keys.F2);
-        keySoundUp = Gdx.input.isKeyPressed(Input.Keys.F3);
         keyCommentary = Gdx.input.isKeyPressed(Input.Keys.F4);
         keyCrowdChants = Gdx.input.isKeyPressed(Input.Keys.F5);
         keyScreenMode = Gdx.input.isKeyPressed(Input.Keys.F7);
@@ -155,11 +130,12 @@ class MatchKeys {
         keyAutoReplay = Gdx.input.isKeyPressed(Input.Keys.F12);
     }
 
-    private void setMessageSoundEffects() {
-        message = gettext("MATCH OPTIONS.SOUND VOLUME") + " <";
-        for (int i = 10; i <= 100; i += 10) {
-            message += (i <= Assets.Sounds.volume) ? "|" : " ";
-        }
-        message += ">";
+
+    @Override
+    void onChangeVolume() {
+        super.onChangeVolume();
+
+        Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
+        Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
     }
 }

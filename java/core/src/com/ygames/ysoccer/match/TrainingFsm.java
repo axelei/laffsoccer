@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +21,6 @@ public class TrainingFsm extends SceneFsm {
     private TrainingState currentState;
     private TrainingState holdState;
 
-    TrainingKeys trainingKeys;
-
     enum Id {
         STATE_FREE,
         STATE_REPLAY
@@ -32,7 +29,7 @@ public class TrainingFsm extends SceneFsm {
     TrainingFsm(Training training) {
         super(training.game);
         this.training = training;
-        this.trainingKeys = new TrainingKeys(training);
+        this.hotKeys = new TrainingHotKeys(training);
         trainingRenderer = new TrainingRenderer(training.game.glGraphics, training);
         states = new ArrayList<>();
 
