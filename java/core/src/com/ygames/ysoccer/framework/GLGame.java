@@ -242,4 +242,23 @@ public class GLGame extends Game {
             }
         }
     }
+
+    public enum LogType {
+        PASSING,
+        AI
+    }
+
+    public static void debug(LogType type, String tag, String message) {
+        if (Settings.development && isSetLogFilter(type)) {
+            Gdx.app.debug(tag, message);
+        }
+    }
+
+    public static boolean isSetLogFilter(LogType type) {
+        return (Settings.logFilter & (1 << type.ordinal())) != 0;
+    }
+
+    public static void toggleLogFilter(LogType type) {
+        Settings.logFilter = Settings.logFilter ^ (1 << type.ordinal());
+    }
 }

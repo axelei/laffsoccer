@@ -18,6 +18,7 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -965,13 +966,13 @@ public class Player implements Json.Serializable {
 
             // player cannot reach the ball
             if (ply.frameDistance == BALL_PREDICTION) {
-                Gdx.app.debug(numberName(), "skipped because too far");
+                GLGame.debug(PASSING, numberName(), "skipped because too far");
                 continue;
             }
 
             // player cannot receive the ball
             if (!ply.checkStates(STATE_STAND_RUN, STATE_REACH_TARGET, STATE_IDLE)) {
-                Gdx.app.debug(numberName(), "skipped after state check");
+                GLGame.debug(PASSING, numberName(), "skipped after state check");
                 continue;
             }
 
@@ -989,9 +990,9 @@ public class Player implements Json.Serializable {
         }
 
         if (facingPlayer == null) {
-            Gdx.app.debug(numberName(), "has not found a facing player");
+            GLGame.debug(PASSING, numberName(), "has not found a facing player");
         } else {
-            Gdx.app.debug(numberName(), "has found " + facingPlayer.numberName() + " as facing player with angleCorrection: " + facingAngle);
+            GLGame.debug(PASSING, numberName(), "has found " + facingPlayer.numberName() + " as facing player with angleCorrection: " + facingAngle);
         }
 
         return (facingPlayer != null);

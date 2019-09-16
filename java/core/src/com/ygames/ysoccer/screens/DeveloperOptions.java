@@ -15,6 +15,8 @@ import static com.badlogic.gdx.Application.LOG_DEBUG;
 import static com.badlogic.gdx.Application.LOG_ERROR;
 import static com.badlogic.gdx.Application.LOG_INFO;
 import static com.badlogic.gdx.Application.LOG_NONE;
+import static com.ygames.ysoccer.framework.GLGame.LogType.AI;
+import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 
 class DeveloperOptions extends GLScreen {
 
@@ -27,7 +29,7 @@ class DeveloperOptions extends GLScreen {
         w = new TitleBar("DEVELOPER OPTIONS", 0x191FB0);
         widgets.add(w);
 
-        int y = 290;
+        int y = 240;
 
         w = new LogLevelLabel(y);
         widgets.add(w);
@@ -58,6 +60,18 @@ class DeveloperOptions extends GLScreen {
         w = new BallZonesButton(y);
         widgets.add(w);
 
+        y += 40;
+        w = new LogFilterLabel(AI, y);
+        widgets.add(w);
+        w = new LogFilterButton(AI, y);
+        widgets.add(w);
+
+        y += 22;
+        w = new LogFilterLabel(PASSING, y);
+        widgets.add(w);
+        w = new LogFilterButton(PASSING, y);
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
     }
@@ -66,7 +80,7 @@ class DeveloperOptions extends GLScreen {
 
         LogLevelLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
             setText("LOG LEVEL", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -76,7 +90,7 @@ class DeveloperOptions extends GLScreen {
 
         LogLevelButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -123,7 +137,7 @@ class DeveloperOptions extends GLScreen {
 
         JavaHeapLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
             setText("SHOW JAVA HEAP", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -133,7 +147,7 @@ class DeveloperOptions extends GLScreen {
 
         JavaHeapButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -162,7 +176,7 @@ class DeveloperOptions extends GLScreen {
 
         PlayerStateLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
             setText("SHOW PLAYER STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -172,7 +186,7 @@ class DeveloperOptions extends GLScreen {
 
         PlayerStateButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -201,7 +215,7 @@ class DeveloperOptions extends GLScreen {
 
         PlayerAiStateLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
             setText("SHOW PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -211,7 +225,7 @@ class DeveloperOptions extends GLScreen {
 
         PlayerAiStateButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -236,11 +250,53 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
+    private class LogFilterLabel extends Button {
+
+        LogFilterLabel(GLGame.LogType logType, int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
+            setText("LOG " + logType, Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class LogFilterButton extends Button {
+
+        private GLGame.LogType logType;
+
+        LogFilterButton(GLGame.LogType logType, int y) {
+            this.logType = logType;
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(GLGame.isSetLogFilter(logType) ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            GLGame.toggleLogFilter(logType);
+            setDirty(true);
+        }
+    }
+
     private class BallZonesLabel extends Button {
 
         BallZonesLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 440, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
             setText("SHOW BALL ZONES", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -250,7 +306,7 @@ class DeveloperOptions extends GLScreen {
 
         BallZonesButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 440, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
