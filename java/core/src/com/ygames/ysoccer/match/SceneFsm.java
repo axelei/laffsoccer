@@ -41,6 +41,9 @@ abstract class SceneFsm {
         }
     }
 
+    private Scene scene;
+
+    // TODO replace with a 'int light' field
     GLGame game;
 
     private List<SceneState> states;
@@ -54,10 +57,15 @@ abstract class SceneFsm {
 
     private SceneHotKeys hotKeys;
 
-    SceneFsm(GLGame game) {
-        this.game = game;
+    SceneFsm(Scene scene) {
+        this.scene = scene;
+        this.game = scene.game;
         states = new ArrayList<>();
         actions = new ArrayDeque<>();
+    }
+
+    Scene getScene() {
+        return scene;
     }
 
     public SceneState getState() {

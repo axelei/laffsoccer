@@ -3,13 +3,10 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.InputDevice;
 
-import java.util.ArrayDeque;
-
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
 
 public class MatchFsm extends SceneFsm {
 
-    private Match match;
     protected boolean matchCompleted;
 
     BenchStatus benchStatus;
@@ -59,9 +56,7 @@ public class MatchFsm extends SceneFsm {
     }
 
     MatchFsm(Match match) {
-        super(match.game);
-
-        this.match = match;
+        super(match);
 
         setHotKeys(new MatchHotKeys(match));
         setSceneRenderer(new MatchRenderer(match.game.glGraphics, match));
@@ -119,7 +114,7 @@ public class MatchFsm extends SceneFsm {
     }
 
     public Match getMatch() {
-        return match;
+        return (Match) getScene();
     }
 
     MatchRenderer getRenderer() {

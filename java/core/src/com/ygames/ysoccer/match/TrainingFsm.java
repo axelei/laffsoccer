@@ -2,17 +2,13 @@ package com.ygames.ysoccer.match;
 
 public class TrainingFsm extends SceneFsm {
 
-    private Training training;
-
     enum Id {
         STATE_FREE,
         STATE_REPLAY
     }
 
     TrainingFsm(Training training) {
-        super(training.game);
-
-        this.training = training;
+        super(training);
 
         setHotKeys(new TrainingHotKeys(training));
         setSceneRenderer(new TrainingRenderer(training.game.glGraphics, training));
@@ -26,10 +22,10 @@ public class TrainingFsm extends SceneFsm {
     }
 
     public Training getTraining() {
-        return training;
+        return (Training) getScene();
     }
 
-    public TrainingRenderer getRenderer() {
+    TrainingRenderer getRenderer() {
         return (TrainingRenderer) getSceneRenderer();
     }
 }
