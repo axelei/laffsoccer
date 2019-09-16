@@ -15,8 +15,6 @@ import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
@@ -25,6 +23,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BARRIER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateFreeKick extends MatchState {
 

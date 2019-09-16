@@ -9,11 +9,11 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_INTRO;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_STARTING_POSITIONS;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateIntro extends MatchState {
 

@@ -1,9 +1,9 @@
 package com.ygames.ysoccer.match;
 
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 
 class MatchState {
 
@@ -56,7 +56,7 @@ class MatchState {
     void checkConditions() {
     }
 
-    boolean checkId(MatchFsm.Id id) {
+    boolean checkId(Enum id) {
         return (this.id == id);
     }
 

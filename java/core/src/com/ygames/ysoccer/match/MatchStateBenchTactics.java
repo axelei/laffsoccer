@@ -8,9 +8,9 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_TACTICS;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateBenchTactics extends MatchState {
 

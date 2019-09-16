@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import java.util.ArrayDeque;
@@ -9,34 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
-public class MatchFsm {
-
-    private class Action {
-        ActionType type;
-        Id stateId;
-        int timer;
-
-        Action(ActionType type, Id stateId) {
-            this.type = type;
-            this.stateId = stateId;
-        }
-
-        void update() {
-            if (timer > 0) {
-                timer -= 1;
-            }
-        }
-    }
-
-    enum ActionType {
-        NONE,
-        NEW_FOREGROUND,
-        FADE_IN,
-        FADE_OUT,
-        HOLD_FOREGROUND,
-        RESTORE_FOREGROUND
-    }
+public class MatchFsm extends SceneFsm {
 
     private Match match;
     protected boolean matchCompleted;
@@ -50,9 +30,6 @@ public class MatchFsm {
     Team throwInTeam;
     Team cornerKickTeam;
     Team goalKickTeam;
-
-    private ArrayDeque<Action> actions;
-    private Action currentAction;
 
     MatchKeys matchKeys;
 
@@ -97,6 +74,7 @@ public class MatchFsm {
     }
 
     MatchFsm(Match match) {
+        super(match.game);
         this.match = match;
         this.matchKeys = new MatchKeys(match);
         matchRenderer = new MatchRenderer(match.game.glGraphics, match);
@@ -172,23 +150,23 @@ public class MatchFsm {
         boolean doUpdate = true;
 
         // fade in/out
-        if (currentAction != null && currentAction.type == ActionType.FADE_OUT) {
-            match.game.glGraphics.light = 8 * (currentAction.timer - 1);
+        if (currentAction != null && currentAction.type == FADE_OUT) {
+            game.glGraphics.light = 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
-        if (currentAction != null && currentAction.type == ActionType.FADE_IN) {
-            match.game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
+        if (currentAction != null && currentAction.type == FADE_IN) {
+            game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
 
         // update current state
         if (currentState != null && doUpdate) {
             if (currentAction != null
-                    && (currentAction.type == ActionType.NEW_FOREGROUND || currentAction.type == ActionType.RESTORE_FOREGROUND)) {
+                    && (currentAction.type == NEW_FOREGROUND || currentAction.type == RESTORE_FOREGROUND)) {
                 currentState.onResume();
             }
             if (currentAction != null
-                    && (currentAction.type == ActionType.HOLD_FOREGROUND)) {
+                    && (currentAction.type == HOLD_FOREGROUND)) {
                 holdState.onPause();
             }
             currentState.doActions(deltaTime);
@@ -247,7 +225,7 @@ public class MatchFsm {
         }
     }
 
-    private MatchState searchState(Id id) {
+    private MatchState searchState(Enum id) {
         for (int i = 0; i < states.size(); i++) {
             MatchState s = states.get(i);
             if (s.checkId(id)) {
@@ -256,14 +234,6 @@ public class MatchFsm {
             }
         }
         return null;
-    }
-
-    public void pushAction(ActionType type) {
-        pushAction(type, null);
-    }
-
-    public void pushAction(ActionType type, Id stateId) {
-        actions.offer(new Action(type, stateId));
     }
 
     class BenchStatus {

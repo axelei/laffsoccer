@@ -13,8 +13,6 @@ import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK_STOP;
@@ -22,6 +20,8 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateFreeKickStop extends MatchState {
 

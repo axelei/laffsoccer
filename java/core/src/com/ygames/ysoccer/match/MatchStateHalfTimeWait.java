@@ -7,11 +7,11 @@ import com.ygames.ysoccer.framework.GLGame;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_WAIT;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateHalfTimeWait extends MatchState {
 
@@ -31,7 +31,7 @@ class MatchStateHalfTimeWait extends MatchState {
 
         match.kickOffTeam = 1 - match.coinToss;
 
-        matchRenderer.actionCamera.setTarget(0,0);
+        matchRenderer.actionCamera.setTarget(0, 0);
     }
 
     @Override

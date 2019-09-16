@@ -8,13 +8,13 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateEnd extends MatchState {
 
@@ -30,7 +30,7 @@ class MatchStateEnd extends MatchState {
 
         match.period = Match.Period.UNDEFINED;
 
-        matchRenderer.actionCamera.setTarget(0,0);
+        matchRenderer.actionCamera.setTarget(0, 0);
         matchRenderer.actionCamera.setSpeedMode(NORMAL);
     }
 

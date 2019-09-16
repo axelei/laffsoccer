@@ -23,8 +23,6 @@ import static com.ygames.ysoccer.match.Const.PENALTY_AREA_W;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.PenaltyState.SCORED;
 import static com.ygames.ysoccer.match.Match.PenaltyState.TO_KICK;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_INTRO;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_MATE;
@@ -36,6 +34,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OWN_GOAL_SCORER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PHOTO;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.math.Emath.rotate;
 
 public class Match implements Json.Serializable {

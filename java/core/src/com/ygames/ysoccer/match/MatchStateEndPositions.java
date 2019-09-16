@@ -7,15 +7,15 @@ import com.ygames.ysoccer.framework.GLGame;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateEndPositions extends MatchState {
 
@@ -37,7 +37,7 @@ class MatchStateEndPositions extends MatchState {
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();
 
-        matchRenderer.actionCamera.setTarget(0,0);
+        matchRenderer.actionCamera.setTarget(0, 0);
         matchRenderer.actionCamera.setOffset(0, 0);
         matchRenderer.actionCamera.setSpeedMode(FAST);
 

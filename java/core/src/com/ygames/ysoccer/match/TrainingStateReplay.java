@@ -12,9 +12,9 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.Renderer.guiAlpha;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
 
 class TrainingStateReplay extends TrainingState {

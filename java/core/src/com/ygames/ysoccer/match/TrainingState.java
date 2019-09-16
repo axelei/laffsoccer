@@ -1,8 +1,8 @@
 package com.ygames.ysoccer.match;
 
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
 
 class TrainingState {
@@ -25,6 +25,8 @@ class TrainingState {
         this.team = training.team;
         this.ball = training.ball;
         this.trainingRenderer = fsm.getTrainingRenderer();
+
+        fsm.addState(this);
     }
 
     void entryActions() {
@@ -45,7 +47,7 @@ class TrainingState {
     void checkConditions() {
     }
 
-    boolean checkId(TrainingFsm.Id id) {
+    boolean checkId(Enum id) {
         return (this.id == id);
     }
 

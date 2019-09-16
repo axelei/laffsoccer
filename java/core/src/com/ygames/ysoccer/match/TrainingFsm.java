@@ -6,51 +6,21 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
-public class TrainingFsm {
-
-    private class Action {
-        ActionType type;
-        Id stateId;
-        int timer;
-
-        Action(ActionType type, Id stateId) {
-            this.type = type;
-            this.stateId = stateId;
-        }
-
-        void update() {
-            if (timer > 0) {
-                timer -= 1;
-            }
-        }
-    }
-
-    enum ActionType {
-        NONE,
-        NEW_FOREGROUND,
-        FADE_IN,
-        FADE_OUT,
-        HOLD_FOREGROUND,
-        RESTORE_FOREGROUND
-    }
+public class TrainingFsm extends SceneFsm {
 
     private Training training;
 
     private TrainingRenderer trainingRenderer;
-    private int savedSubframe;
 
     private List<TrainingState> states;
     private TrainingState currentState;
     private TrainingState holdState;
-
-    private ArrayDeque<Action> actions;
-    private Action currentAction;
 
     TrainingKeys trainingKeys;
 
@@ -60,19 +30,22 @@ public class TrainingFsm {
     }
 
     TrainingFsm(Training training) {
+        super(training.game);
         this.training = training;
         this.trainingKeys = new TrainingKeys(training);
         trainingRenderer = new TrainingRenderer(training.game.glGraphics, training);
-        states = new ArrayList<TrainingState>();
+        states = new ArrayList<>();
 
-        actions = new ArrayDeque<Action>();
-
-        states.add(new TrainingStateFree(this));
-        states.add(new TrainingStateReplay(this));
+        new TrainingStateFree(this);
+        new TrainingStateReplay(this);
     }
 
     public TrainingState getState() {
         return currentState;
+    }
+
+    void addState(TrainingState state) {
+        states.add(state);
     }
 
     public Training getTraining() {
@@ -88,11 +61,11 @@ public class TrainingFsm {
 
         // fade in/out
         if (currentAction != null && currentAction.type == FADE_OUT) {
-            training.game.glGraphics.light = 8 * (currentAction.timer - 1);
+            game.glGraphics.light = 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
         if (currentAction != null && currentAction.type == FADE_IN) {
-            training.game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
+            game.glGraphics.light = 255 - 8 * (currentAction.timer - 1);
             doUpdate = false;
         }
 
@@ -150,13 +123,11 @@ public class TrainingFsm {
 
             case HOLD_FOREGROUND:
                 holdState = currentState;
-                savedSubframe = training.subframe;
                 currentState = searchState(currentAction.stateId);
                 Gdx.app.debug("HOLD_FOREGROUND", currentState.getClass().getSimpleName());
                 break;
 
             case RESTORE_FOREGROUND:
-                training.subframe = savedSubframe;
                 currentState = holdState;
                 holdState = null;
                 break;
@@ -164,7 +135,7 @@ public class TrainingFsm {
         }
     }
 
-    private TrainingState searchState(Id id) {
+    private TrainingState searchState(Enum id) {
         for (int i = 0; i < states.size(); i++) {
             TrainingState s = states.get(i);
             if (s.checkId(id)) {
@@ -173,13 +144,5 @@ public class TrainingFsm {
             }
         }
         return null;
-    }
-
-    public void pushAction(ActionType type) {
-        pushAction(type, null);
-    }
-
-    public void pushAction(ActionType type, Id stateId) {
-        actions.offer(new Action(type, stateId));
     }
 }

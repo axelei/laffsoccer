@@ -11,8 +11,8 @@ import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.TrainingFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
 
 public class Training {

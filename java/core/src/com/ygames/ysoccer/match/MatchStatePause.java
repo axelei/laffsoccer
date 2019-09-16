@@ -7,13 +7,12 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.MatchFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
 class MatchStatePause extends MatchState {
 
