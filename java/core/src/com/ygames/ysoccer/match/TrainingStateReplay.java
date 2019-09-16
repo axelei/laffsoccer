@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
@@ -30,7 +31,7 @@ class TrainingStateReplay extends TrainingState {
     TrainingStateReplay(TrainingFsm fsm) {
         super(STATE_REPLAY, fsm);
 
-        displayControlledPlayer = true;
+        displayControlledPlayer = Settings.showPlayerNumber;
     }
 
     @Override

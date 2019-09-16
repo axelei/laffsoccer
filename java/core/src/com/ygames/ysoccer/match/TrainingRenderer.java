@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGraphics;
+import com.ygames.ysoccer.framework.Settings;
 
 import static com.badlogic.gdx.Gdx.gl;
 
@@ -203,7 +204,8 @@ public class TrainingRenderer extends SceneRenderer {
             int len = training.team.lineup.size();
             for (int i = 0; i < len; i++) {
                 Player player = training.team.lineup.get(i);
-                if (player.inputDevice != player.ai && player.isVisible) {
+                if ((player.inputDevice != player.ai && player.isVisible)
+                        || (Settings.development && Settings.showPlayerNumber)) {
                     drawPlayerNumber(player);
                 }
             }
@@ -211,12 +213,13 @@ public class TrainingRenderer extends SceneRenderer {
     }
 
     private void drawPlayerNumber(Player player) {
+        Data d = player.data[training.subframe];
 
         int f0 = player.number % 10;
         int f1 = (player.number - f0) / 10 % 10;
 
-        int dx = Math.round(player.x) + 1;
-        int dy = Math.round(player.y) - 40 - Math.round(player.z);
+        int dx = Math.round(d.x) + 1;
+        int dy = Math.round(d.y) - 40 - Math.round(d.z);
 
         int w0 = 6 - ((f0 == 1) ? 2 : 1);
         int w1 = 6 - ((f1 == 1) ? 2 : 1);

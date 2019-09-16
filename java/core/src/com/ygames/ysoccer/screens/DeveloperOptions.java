@@ -43,6 +43,12 @@ class DeveloperOptions extends GLScreen {
         widgets.add(w);
 
         y += 40;
+        w = new PlayerNumberLabel(y);
+        widgets.add(w);
+        w = new PlayerNumberButton(y);
+        widgets.add(w);
+
+        y += 22;
         w = new PlayerStateLabel(y);
         widgets.add(w);
         w = new PlayerStateButton(y);
@@ -54,7 +60,7 @@ class DeveloperOptions extends GLScreen {
         w = new PlayerAiStateButton(y);
         widgets.add(w);
 
-        y += 22;
+        y += 40;
         w = new BallZonesLabel(y);
         widgets.add(w);
         w = new BallZonesButton(y);
@@ -138,7 +144,7 @@ class DeveloperOptions extends GLScreen {
         JavaHeapLabel(int y) {
             setColor(0x4D4D4D);
             setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("SHOW JAVA HEAP", Font.Align.CENTER, Assets.font6);
+            setText("JAVA HEAP", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }
@@ -172,12 +178,51 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
+    private class PlayerNumberLabel extends Button {
+
+        PlayerNumberLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
+            setText("PLAYER NUMBER", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class PlayerNumberButton extends Button {
+
+        PlayerNumberButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showPlayerNumber ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showPlayerNumber = !Settings.showPlayerNumber;
+            setDirty(true);
+        }
+    }
+
     private class PlayerStateLabel extends Button {
 
         PlayerStateLabel(int y) {
             setColor(0x4D4D4D);
             setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("SHOW PLAYER STATE", Font.Align.CENTER, Assets.font6);
+            setText("PLAYER STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }
@@ -216,7 +261,7 @@ class DeveloperOptions extends GLScreen {
         PlayerAiStateLabel(int y) {
             setColor(0x4D4D4D);
             setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("SHOW PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
+            setText("PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }
@@ -297,7 +342,7 @@ class DeveloperOptions extends GLScreen {
         BallZonesLabel(int y) {
             setColor(0x4D4D4D);
             setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("SHOW BALL ZONES", Font.Align.CENTER, Assets.font6);
+            setText("BALL ZONES", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }

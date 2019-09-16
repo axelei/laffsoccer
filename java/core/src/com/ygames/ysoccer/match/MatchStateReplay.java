@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
@@ -31,6 +32,7 @@ class MatchStateReplay extends MatchState {
         super(STATE_REPLAY, fsm);
 
         displayWindVane = true;
+        displayControlledPlayer = Settings.showPlayerNumber;
     }
 
     @Override

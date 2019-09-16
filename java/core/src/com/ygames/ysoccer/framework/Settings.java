@@ -51,6 +51,7 @@ public class Settings {
     public static boolean showJavaHeap;
 
     public static boolean showBallZones;
+    public static boolean showPlayerNumber;
     public static boolean showPlayerState;
     public static boolean showPlayerAiState;
 
@@ -94,6 +95,8 @@ public class Settings {
         showJavaHeap = preferences.getBoolean("showJavaHeap", false);
 
         showBallZones = preferences.getBoolean("showBallZones", false);
+
+        showPlayerNumber = preferences.getBoolean("showPlayerNumber", false);
         showPlayerState = preferences.getBoolean("showPlayerState", false);
         showPlayerAiState = preferences.getBoolean("showPlayerAiState", false);
     }
@@ -134,6 +137,8 @@ public class Settings {
         preferences.putBoolean("showJavaHeap", showJavaHeap);
 
         preferences.putBoolean("showBallZones", showBallZones);
+
+        preferences.putBoolean("showPlayerNumber", showPlayerNumber);
         preferences.putBoolean("showPlayerState", showPlayerState);
         preferences.putBoolean("showPlayerAiState", showPlayerAiState);
 
