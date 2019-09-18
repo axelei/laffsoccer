@@ -20,7 +20,10 @@ import java.util.List;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
+import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.POST_R;
+import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
@@ -125,7 +128,9 @@ public class Player implements Json.Serializable {
     // from 0 to BALL_PREDICTION-1: frames required to reach the ball
     // equal to BALL_PREDICTION: ball too far to be reached
     // should be updated every frame
+    int frameDistanceL;
     int frameDistance;
+    int frameDistanceR;
 
     public Player() {
         skills = new Skills();
@@ -249,11 +254,25 @@ public class Player implements Json.Serializable {
     }
 
     void updateFrameDistance() {
+        frameDistanceL = Const.BALL_PREDICTION;
         frameDistance = Const.BALL_PREDICTION;
+        frameDistanceR = Const.BALL_PREDICTION;
+
+        float dist;
         for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
-            float dist = Emath.dist(x, y, ball.prediction[f].x, ball.prediction[f].y);
+            dist = Emath.dist(x, y, ball.predictionL[f].x, ball.predictionL[f].y);
+            if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
+                frameDistanceL = f;
+            }
+
+            dist = Emath.dist(x, y, ball.prediction[f].x, ball.prediction[f].y);
             if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistance = f;
+            }
+
+            dist = Emath.dist(x, y, ball.predictionR[f].x, ball.predictionR[f].y);
+            if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
+                frameDistanceR = f;
             }
         }
     }
@@ -950,7 +969,21 @@ public class Player implements Json.Serializable {
         return Emath.dist(x, y, player.x, player.y);
     }
 
-    boolean searchPassingMate() {
+    float angleToPoint(float x0, float y0) {
+        return Emath.aTan2(y0 - y, x0 - x);
+    }
+
+    boolean seesTheGoal() {
+        float playerToNearPost = angleToPoint(Math.signum(x) * (POST_X + 2 * POST_R + 2 * BALL_R), Math.signum(y) * GOAL_LINE);
+        float playerToFarPost = angleToPoint(-Math.signum(x) * (POST_X + 2 * POST_R + 2 * BALL_R), Math.signum(y) * GOAL_LINE);
+
+        float nearAngleDiff = Emath.signedAngleDiff(a, playerToNearPost);
+        float farAngleDiff = Emath.signedAngleDiff(a, playerToFarPost);
+
+        return (Math.abs(nearAngleDiff) < 90 && Math.signum(nearAngleDiff) == -Math.signum(farAngleDiff));
+    }
+
+    Player searchPassingMate() {
 
         float maxCorrectionAngle = 22.5f;
         float maxSearchAngle = maxCorrectionAngle + 5f;
@@ -995,10 +1028,10 @@ public class Player implements Json.Serializable {
             GLGame.debug(PASSING, numberName(), "has found " + facingPlayer.numberName() + " as facing player with angleCorrection: " + facingAngle);
         }
 
-        return (facingPlayer != null);
+        return facingPlayer;
     }
 
     String numberName() {
-        return number + "_" + shirtName + " " + (inputDevice == ai ? "(" + ai.fsm.state.getClass().getSimpleName() + ")" : "(controller)");
+        return number + "_" + shirtName + " (" + fsm.getState().getClass().getSimpleName() + ") " + (inputDevice == ai ? "(" + ai.fsm.state.getClass().getSimpleName() + ")" : "(controller)");
     }
 }

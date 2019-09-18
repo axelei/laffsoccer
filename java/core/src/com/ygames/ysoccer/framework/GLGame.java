@@ -245,7 +245,7 @@ public class GLGame extends Game {
 
     public enum LogType {
         PASSING,
-        AI
+        ATTACKING_AI
     }
 
     public static void debug(LogType type, String tag, String message) {

@@ -9,6 +9,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Team;
@@ -92,9 +93,13 @@ class DeveloperTools extends GLScreen {
             homeTeam.releaseNonAiInputDevices();
             awayTeam.setInputDevice(null);
             awayTeam.releaseNonAiInputDevices();
-            if (lastFireInputDevice != null) {
-                homeTeam.setInputDevice(lastFireInputDevice);
-            } else {
+            for (InputDevice id : game.inputDevices) {
+                if (id.type == InputDevice.Type.JOYSTICK) {
+                    homeTeam.inputDevice = id;
+                    break;
+                }
+            }
+            if (homeTeam.inputDevice == null) {
                 homeTeam.inputDevice = game.inputDevices.assignFirstAvailable();
             }
 

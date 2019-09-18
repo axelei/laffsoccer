@@ -39,6 +39,10 @@ public class Emath {
         return hypo(x2 - x1, y2 - y1);
     }
 
+    public static float pow(float v, float v1) {
+        return (float) Math.pow(v, v1);
+    }
+
     public static float angle(float x1, float y1, float x2, float y2) {
         return aTan2(y2 - y1, x2 - x1);
     }
@@ -100,5 +104,21 @@ public class Emath {
 
     public static float roundBy(float value, float step) {
         return step * Math.round(value / step);
+    }
+
+    public static float min(float... values) {
+        float min = values[0];
+        for (float v : values) {
+            if (v < min) min = v;
+        }
+        return min;
+    }
+
+    public static float max(float... values) {
+        float max = values[0];
+        for (float v : values) {
+            if (v > max) max = v;
+        }
+        return max;
     }
 }

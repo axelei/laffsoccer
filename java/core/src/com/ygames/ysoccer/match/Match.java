@@ -628,11 +628,7 @@ public class Match extends Scene implements Json.Serializable {
         }
 
         boolean isDirectShot() {
-            return Math.abs(ball.x) < (PENALTY_AREA_W / 2 + 110)
-                    && Emath.isIn(ball.y,
-                    player.team.side * (GOAL_LINE - PENALTY_AREA_H - 110),
-                    player.team.side * GOAL_LINE
-            );
+            return ball.isDirectShot(player.team.side);
         }
 
         boolean isNearOwnGoal() {

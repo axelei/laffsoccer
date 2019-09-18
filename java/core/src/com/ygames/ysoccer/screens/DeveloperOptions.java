@@ -15,7 +15,7 @@ import static com.badlogic.gdx.Application.LOG_DEBUG;
 import static com.badlogic.gdx.Application.LOG_ERROR;
 import static com.badlogic.gdx.Application.LOG_INFO;
 import static com.badlogic.gdx.Application.LOG_NONE;
-import static com.ygames.ysoccer.framework.GLGame.LogType.AI;
+import static com.ygames.ysoccer.framework.GLGame.LogType.ATTACKING_AI;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 
 class DeveloperOptions extends GLScreen {
@@ -85,9 +85,9 @@ class DeveloperOptions extends GLScreen {
         widgets.add(w);
 
         y += 22;
-        w = new LogFilterLabel(AI, y);
+        w = new LogFilterLabel(ATTACKING_AI, y);
         widgets.add(w);
-        w = new LogFilterButton(AI, y);
+        w = new LogFilterButton(ATTACKING_AI, y);
         widgets.add(w);
 
         y += 22;

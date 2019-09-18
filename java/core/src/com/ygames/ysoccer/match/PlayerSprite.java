@@ -55,17 +55,6 @@ public class PlayerSprite extends Sprite {
                         d.y - 34 - d.z + Hair.map[d.fmy][d.fmx + 8][3]
                 );
             }
-
-            // development
-            if (Settings.development) {
-                if (Settings.showPlayerState) {
-                    Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x, d.y - 56 - d.z, CENTER);
-                }
-                if (Settings.showPlayerAiState && player.inputDevice.getClass().isInstance(player.ai)) {
-                    Ai ai = (Ai) player.inputDevice;
-                    Assets.font6.draw(glGraphics.batch, AiFsm.Id.values()[ai.fsm.getState().id].toString(), d.x, d.y - 40 - d.z, CENTER);
-                }
-            }
         } else {
             int offsetX = offsets[d.fmy][d.fmx][0];
             int offsetY = offsets[d.fmy][d.fmx][1];
@@ -82,16 +71,16 @@ public class PlayerSprite extends Sprite {
                         d.y - offsetY - d.z - 9 + Hair.map[d.fmy][d.fmx][3]
                 );
             }
+        }
 
-            // development
-            if (Settings.development) {
-                if (Settings.showPlayerState) {
-                    Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x, d.y - 56 - d.z, CENTER);
-                }
-                if (Settings.showPlayerAiState && player.inputDevice.getClass().isInstance(player.ai)) {
-                    Ai ai = (Ai) player.inputDevice;
-                    Assets.font6.draw(glGraphics.batch, AiFsm.Id.values()[ai.fsm.getState().id].toString(), d.x, d.y - 40 - d.z, CENTER);
-                }
+        // development
+        if (Settings.development) {
+            if (Settings.showPlayerState) {
+                Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x, d.y - 56 - d.z, CENTER);
+            }
+            if (Settings.showPlayerAiState && player.inputDevice.getClass().isInstance(player.ai)) {
+                Ai ai = (Ai) player.inputDevice;
+                Assets.font6.draw(glGraphics.batch, AiFsm.Id.values()[ai.fsm.getState().id].toString(), d.x, d.y - 40 - d.z, CENTER);
             }
         }
     }

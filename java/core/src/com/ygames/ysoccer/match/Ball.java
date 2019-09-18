@@ -6,6 +6,10 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 import com.ygames.ysoccer.math.Vector3;
 
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
+import static com.ygames.ysoccer.match.Const.PENALTY_AREA_W;
+
 class Ball {
 
     // motion & graphics
@@ -27,7 +31,9 @@ class Ball {
     int xSide; // -1=left, 1=right
     int ySide; // -1=up, 1=down
 
+    Vector3[] predictionL = new Vector3[Const.BALL_PREDICTION];
     Vector3[] prediction = new Vector3[Const.BALL_PREDICTION];
+    Vector3[] predictionR = new Vector3[Const.BALL_PREDICTION];
     Data[] data = new Data[Const.REPLAY_SUBFRAMES];
 
     // tactics
@@ -49,7 +55,9 @@ class Ball {
         this.sceneSettings = sceneSettings;
 
         for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
+            predictionL[frm] = new Vector3();
             prediction[frm] = new Vector3();
+            predictionR[frm] = new Vector3();
         }
 
         for (int i = 0; i < data.length; i++) {
@@ -176,14 +184,19 @@ class Ball {
 
     public void updatePrediction() {
 
-        // save starting values
-        float old_x = x;
-        float old_y = y;
-        float old_z = z;
-        float old_v = v;
-        float old_vz = vz;
-        float old_a = a;
-        float old_s = s;
+        PhysicsSet.saveValues(this);
+        a -= 45f;
+
+        for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
+            predictionL[frm].x = Math.round(x);
+            predictionL[frm].y = Math.round(y);
+            predictionL[frm].z = Math.round(z);
+            for (int subframe = 0; subframe < GLGame.SUBFRAMES; subframe++) {
+                updatePhysics();
+            }
+        }
+
+        PhysicsSet.restoreValues(this);
 
         for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
             prediction[frm].x = Math.round(x);
@@ -194,17 +207,22 @@ class Ball {
             }
         }
 
-        // restore starting values
-        x = old_x;
-        y = old_y;
-        z = old_z;
-        v = old_v;
-        vz = old_vz;
-        a = old_a;
-        s = old_s;
+        PhysicsSet.restoreValues(this);
+        a += 45f;
+
+        for (int frm = 0; frm < Const.BALL_PREDICTION; frm++) {
+            predictionR[frm].x = Math.round(x);
+            predictionR[frm].y = Math.round(y);
+            predictionR[frm].z = Math.round(z);
+            for (int subframe = 0; subframe < GLGame.SUBFRAMES; subframe++) {
+                updatePhysics();
+            }
+        }
+
+        PhysicsSet.restoreValues(this);
     }
 
-    public void updateZone(float x, float y, float v, float a) {
+    void updateZone(float x, float y, float v, float a) {
 
         // zone
         zoneX = Math.round(x / Const.BALL_ZONE_DX);
@@ -260,6 +278,14 @@ class Ball {
             a = (-a) % 360;
             s = -s;
         }
+    }
+
+    boolean isInsidePenaltyArea(int ySide) {
+        return Math.abs(x) < (PENALTY_AREA_W / 2)
+                && Emath.isIn(y,
+                ySide * (GOAL_LINE - PENALTY_AREA_H),
+                ySide * GOAL_LINE
+        );
     }
 
     public boolean collisionGoal() {
@@ -497,5 +523,43 @@ class Ball {
         data[subframe].y = Math.round(y);
         data[subframe].z = Math.round(z);
         data[subframe].fmx = (int) Math.floor(f);
+    }
+
+    boolean isDirectShot(int ySide) {
+        return Math.abs(x) < (PENALTY_AREA_W / 2 + 110)
+                && Emath.isIn(y,
+                ySide * (GOAL_LINE - PENALTY_AREA_H - 110),
+                ySide * GOAL_LINE
+        );
+    }
+
+    static class PhysicsSet {
+        static float x;
+        static float y;
+        static float z;
+        static float v;
+        static float vz;
+        static float a;
+        static float s;
+
+        static void saveValues(Ball ball) {
+            x = ball.x;
+            y = ball.y;
+            z = ball.z;
+            v = ball.v;
+            vz = ball.vz;
+            a = ball.a;
+            s = ball.s;
+        }
+
+        static void restoreValues(Ball ball) {
+            ball.x = x;
+            ball.y = y;
+            ball.z = z;
+            ball.v = v;
+            ball.vz = vz;
+            ball.a = a;
+            ball.s = s;
+        }
     }
 }
