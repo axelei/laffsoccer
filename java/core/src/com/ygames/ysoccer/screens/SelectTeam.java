@@ -98,7 +98,7 @@ class SelectTeam extends GLScreen {
                     if (game.getState() == EDIT) {
                         w = new FavouriteToggleButton(teamButton);
                         widgets.add(w);
-                        if (Settings.development) {
+                        if (Settings.development && Settings.showTeamValues) {
                             w = new PriceLabel(teamButton);
                             widgets.add(w);
                         }

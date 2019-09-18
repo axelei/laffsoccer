@@ -29,11 +29,9 @@ class DeveloperOptions extends GLScreen {
         w = new TitleBar("DEVELOPER OPTIONS", 0x191FB0);
         widgets.add(w);
 
-        int y = 240;
+        int y = 200;
 
-        w = new LogLevelLabel(y);
-        widgets.add(w);
-        w = new LogLevelButton(y);
+        w = new SectionLabel("GUI", y);
         widgets.add(w);
 
         y += 22;
@@ -42,7 +40,17 @@ class DeveloperOptions extends GLScreen {
         w = new JavaHeapButton(y);
         widgets.add(w);
 
-        y += 40;
+        y += 22;
+        w = new TeamValuesLabel(y);
+        widgets.add(w);
+        w = new TeamValuesButton(y);
+        widgets.add(w);
+
+        y += 44;
+        w = new SectionLabel("MATCH", y);
+        widgets.add(w);
+
+        y += 22;
         w = new PlayerNumberLabel(y);
         widgets.add(w);
         w = new PlayerNumberButton(y);
@@ -60,13 +68,23 @@ class DeveloperOptions extends GLScreen {
         w = new PlayerAiStateButton(y);
         widgets.add(w);
 
-        y += 40;
+        y += 22;
         w = new BallZonesLabel(y);
         widgets.add(w);
         w = new BallZonesButton(y);
         widgets.add(w);
 
-        y += 40;
+        y += 44;
+        w = new SectionLabel("LOGS", y);
+        widgets.add(w);
+
+        y += 22;
+        w = new LogLevelLabel(y);
+        widgets.add(w);
+        w = new LogLevelButton(y);
+        widgets.add(w);
+
+        y += 22;
         w = new LogFilterLabel(AI, y);
         widgets.add(w);
         w = new LogFilterButton(AI, y);
@@ -82,11 +100,256 @@ class DeveloperOptions extends GLScreen {
         widgets.add(w);
     }
 
+    private class SectionLabel extends Button {
+
+        SectionLabel(String text, int y) {
+            setColor(0x601D5F);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText(text, Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class JavaHeapLabel extends Button {
+
+        JavaHeapLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("JAVA HEAP", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class JavaHeapButton extends Button {
+
+        JavaHeapButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showJavaHeap ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showJavaHeap = !Settings.showJavaHeap;
+            setDirty(true);
+        }
+    }
+
+    private class TeamValuesLabel extends Button {
+
+        TeamValuesLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("TEAM VALUES", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class TeamValuesButton extends Button {
+
+        TeamValuesButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showTeamValues ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showTeamValues = !Settings.showTeamValues;
+            setDirty(true);
+        }
+    }
+
+    private class PlayerNumberLabel extends Button {
+
+        PlayerNumberLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("PLAYER NUMBER", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class PlayerNumberButton extends Button {
+
+        PlayerNumberButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showPlayerNumber ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showPlayerNumber = !Settings.showPlayerNumber;
+            setDirty(true);
+        }
+    }
+
+    private class PlayerStateLabel extends Button {
+
+        PlayerStateLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("PLAYER STATE", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class PlayerStateButton extends Button {
+
+        PlayerStateButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showPlayerState ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showPlayerState = !Settings.showPlayerState;
+            setDirty(true);
+        }
+    }
+
+    private class PlayerAiStateLabel extends Button {
+
+        PlayerAiStateLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class PlayerAiStateButton extends Button {
+
+        PlayerAiStateButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showPlayerAiState ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showPlayerAiState = !Settings.showPlayerAiState;
+            setDirty(true);
+        }
+    }
+
+    private class BallZonesLabel extends Button {
+
+        BallZonesLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("BALL ZONES", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class BallZonesButton extends Button {
+
+        BallZonesButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showBallZones ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showBallZones = !Settings.showBallZones;
+            setDirty(true);
+        }
+    }
+
+
     private class LogLevelLabel extends Button {
 
         LogLevelLabel(int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
             setText("LOG LEVEL", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -96,7 +359,7 @@ class DeveloperOptions extends GLScreen {
 
         LogLevelButton(int y) {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -139,167 +402,12 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class JavaHeapLabel extends Button {
-
-        JavaHeapLabel(int y) {
-            setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("JAVA HEAP", Font.Align.CENTER, Assets.font6);
-            setActive(false);
-        }
-    }
-
-    private class JavaHeapButton extends Button {
-
-        JavaHeapButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
-            setText("", Font.Align.LEFT, Assets.font6);
-        }
-
-        @Override
-        public void refresh() {
-            setText(Settings.showJavaHeap ? "ON" : "OFF");
-        }
-
-        @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
-            Settings.showJavaHeap = !Settings.showJavaHeap;
-            setDirty(true);
-        }
-    }
-
-    private class PlayerNumberLabel extends Button {
-
-        PlayerNumberLabel(int y) {
-            setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("PLAYER NUMBER", Font.Align.CENTER, Assets.font6);
-            setActive(false);
-        }
-    }
-
-    private class PlayerNumberButton extends Button {
-
-        PlayerNumberButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
-            setText("", Font.Align.LEFT, Assets.font6);
-        }
-
-        @Override
-        public void refresh() {
-            setText(Settings.showPlayerNumber ? "ON" : "OFF");
-        }
-
-        @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
-            Settings.showPlayerNumber = !Settings.showPlayerNumber;
-            setDirty(true);
-        }
-    }
-
-    private class PlayerStateLabel extends Button {
-
-        PlayerStateLabel(int y) {
-            setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("PLAYER STATE", Font.Align.CENTER, Assets.font6);
-            setActive(false);
-        }
-    }
-
-    private class PlayerStateButton extends Button {
-
-        PlayerStateButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
-            setText("", Font.Align.LEFT, Assets.font6);
-        }
-
-        @Override
-        public void refresh() {
-            setText(Settings.showPlayerState ? "ON" : "OFF");
-        }
-
-        @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
-            Settings.showPlayerState = !Settings.showPlayerState;
-            setDirty(true);
-        }
-    }
-
-    private class PlayerAiStateLabel extends Button {
-
-        PlayerAiStateLabel(int y) {
-            setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
-            setActive(false);
-        }
-    }
-
-    private class PlayerAiStateButton extends Button {
-
-        PlayerAiStateButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
-            setText("", Font.Align.LEFT, Assets.font6);
-        }
-
-        @Override
-        public void refresh() {
-            setText(Settings.showPlayerAiState ? "ON" : "OFF");
-        }
-
-        @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
-            Settings.showPlayerAiState = !Settings.showPlayerAiState;
-            setDirty(true);
-        }
-    }
 
     private class LogFilterLabel extends Button {
 
         LogFilterLabel(GLGame.LogType logType, int y) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
             setText("LOG " + logType, Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -312,7 +420,7 @@ class DeveloperOptions extends GLScreen {
         LogFilterButton(GLGame.LogType logType, int y) {
             this.logType = logType;
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -333,45 +441,6 @@ class DeveloperOptions extends GLScreen {
 
         private void toggle() {
             GLGame.toggleLogFilter(logType);
-            setDirty(true);
-        }
-    }
-
-    private class BallZonesLabel extends Button {
-
-        BallZonesLabel(int y) {
-            setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 360, y, 360, 22);
-            setText("BALL ZONES", Font.Align.CENTER, Assets.font6);
-            setActive(false);
-        }
-    }
-
-    private class BallZonesButton extends Button {
-
-        BallZonesButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 360, 22);
-            setText("", Font.Align.LEFT, Assets.font6);
-        }
-
-        @Override
-        public void refresh() {
-            setText(Settings.showBallZones ? "ON" : "OFF");
-        }
-
-        @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
-            Settings.showBallZones = !Settings.showBallZones;
             setDirty(true);
         }
     }
