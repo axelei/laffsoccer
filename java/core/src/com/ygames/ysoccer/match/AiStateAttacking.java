@@ -250,7 +250,7 @@ class AiStateAttacking extends AiState {
             Player ply = opponentTeam.lineup.get(i);
 
             float dist = player.distanceFrom(ply);
-            if (dist > (Parameters.PLAYER_DETECTION_RADIUS ^ 2)) continue;
+            if (dist > Parameters.PLAYER_DETECTION_RADIUS) continue;
 
             float maxFrameDistance = Emath.max(ply.frameDistanceL, ply.frameDistance, ply.frameDistanceR);
 
