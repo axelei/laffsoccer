@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.ToggleButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.math.Emath;
 
@@ -126,7 +127,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class JavaHeapButton extends Button {
+    private class JavaHeapButton extends ToggleButton {
 
         JavaHeapButton(int y) {
             setColor(0x1D6051);
@@ -140,16 +141,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showJavaHeap = !Settings.showJavaHeap;
             setDirty(true);
         }
@@ -165,7 +157,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class TeamValuesButton extends Button {
+    private class TeamValuesButton extends ToggleButton {
 
         TeamValuesButton(int y) {
             setColor(0x1D6051);
@@ -179,16 +171,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showTeamValues = !Settings.showTeamValues;
             setDirty(true);
         }
@@ -204,7 +187,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class PlayerNumberButton extends Button {
+    private class PlayerNumberButton extends ToggleButton {
 
         PlayerNumberButton(int y) {
             setColor(0x1D6051);
@@ -218,16 +201,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showPlayerNumber = !Settings.showPlayerNumber;
             setDirty(true);
         }
@@ -243,7 +217,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class PlayerStateButton extends Button {
+    private class PlayerStateButton extends ToggleButton {
 
         PlayerStateButton(int y) {
             setColor(0x1D6051);
@@ -257,16 +231,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showPlayerState = !Settings.showPlayerState;
             setDirty(true);
         }
@@ -282,7 +247,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class PlayerAiStateButton extends Button {
+    private class PlayerAiStateButton extends ToggleButton {
 
         PlayerAiStateButton(int y) {
             setColor(0x1D6051);
@@ -296,16 +261,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showPlayerAiState = !Settings.showPlayerAiState;
             setDirty(true);
         }
@@ -321,7 +277,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class BallZonesButton extends Button {
+    private class BallZonesButton extends ToggleButton {
 
         BallZonesButton(int y) {
             setColor(0x1D6051);
@@ -335,16 +291,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showBallZones = !Settings.showBallZones;
             setDirty(true);
         }
@@ -360,7 +307,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class BallPredictionsButton extends Button {
+    private class BallPredictionsButton extends ToggleButton {
 
         BallPredictionsButton(int y) {
             setColor(0x1D6051);
@@ -374,16 +321,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             Settings.showBallPredictions = !Settings.showBallPredictions;
             setDirty(true);
         }
@@ -457,7 +395,7 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
-    private class LogFilterButton extends Button {
+    private class LogFilterButton extends ToggleButton {
 
         private GLGame.LogType logType;
 
@@ -474,16 +412,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         @Override
-        public void onFire1Down() {
-            toggle();
-        }
-
-        @Override
-        public void onFire2Down() {
-            toggle();
-        }
-
-        private void toggle() {
+        protected void toggle() {
             GLGame.toggleLogFilter(logType);
             setDirty(true);
         }
