@@ -3,25 +3,23 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 
 class MatchHotKeys extends SceneHotKeys {
 
-    Match match;
-
     private boolean keyRecordAction;
-    private boolean keyScreenMode;
-    private boolean keyZoomOut;
-    private boolean keyZoomIn;
     private boolean keyCommentary;
     private boolean keyCrowdChants;
     private boolean keyRadar;
     private boolean keyAutoReplay;
 
     MatchHotKeys(Match match) {
-        this.match = match;
+        super(match);
+    }
+
+    private Match getMatch() {
+        return (Match) scene;
     }
 
     @Override
@@ -29,7 +27,7 @@ class MatchHotKeys extends SceneHotKeys {
         super.update();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
-            match.recorder.saveHighlight(match.getRenderer());
+            getMatch().recorder.saveHighlight(scene.getRenderer());
 
             message = gettext("ACTION RECORDED");
             messageTimer = 60;
@@ -37,10 +35,10 @@ class MatchHotKeys extends SceneHotKeys {
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.F4) && !keyCommentary) {
-            match.settings.commentary = !match.settings.commentary;
+            scene.settings.commentary = !scene.settings.commentary;
 
             message = gettext("MATCH OPTIONS.COMMENTARY") + " ";
-            if (match.settings.commentary) {
+            if (scene.settings.commentary) {
                 message += gettext("MATCH OPTIONS.COMMENTARY.ON");
             } else {
                 message += gettext("MATCH OPTIONS.COMMENTARY.OFF");
@@ -49,12 +47,12 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F5) && !keyCrowdChants) {
-            match.getSettings().crowdChants = !match.getSettings().crowdChants;
+            getMatch().getSettings().crowdChants = !getMatch().getSettings().crowdChants;
             Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
             Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
 
             message = gettext("MATCH OPTIONS.CROWD CHANTS") + " ";
-            if (match.getSettings().crowdChants) {
+            if (getMatch().getSettings().crowdChants) {
                 message += gettext("MATCH OPTIONS.CROWD CHANTS.ON");
             } else {
                 message += gettext("MATCH OPTIONS.CROWD CHANTS.OFF");
@@ -62,42 +60,12 @@ class MatchHotKeys extends SceneHotKeys {
             messageTimer = 60;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.F7) && !keyScreenMode) {
-            match.settings.fullScreen = !match.settings.fullScreen;
-            match.game.setScreenMode(match.settings.fullScreen);
-
-            if (match.settings.fullScreen) {
-                message = gettext("SCREEN MODE.FULL SCREEN");
-            } else {
-                message = gettext("SCREEN MODE.WINDOW");
-            }
-
-            messageTimer = 120;
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.F8) && !keyZoomOut) {
-            match.settings.zoom = Emath.slide(match.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), -5);
-            match.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
-            message = gettext("ZOOM") + " " + match.settings.zoom + "%";
-
-            messageTimer = 60;
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.F9) && !keyZoomIn) {
-            match.settings.zoom = Emath.slide(match.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5);
-            match.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
-            message = gettext("ZOOM") + " " + match.settings.zoom + "%";
-
-            messageTimer = 60;
-        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F11) && !keyRadar) {
-            match.getSettings().radar = !match.getSettings().radar;
+            getMatch().getSettings().radar = !getMatch().getSettings().radar;
 
             message = gettext("RADAR") + " ";
-            if (match.getSettings().radar) {
+            if (getMatch().getSettings().radar) {
                 message += gettext("RADAR.ON");
             } else {
                 message += gettext("RADAR.OFF");
@@ -107,11 +75,11 @@ class MatchHotKeys extends SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F12) && !keyAutoReplay) {
-            match.getSettings().autoReplays = !match.getSettings().autoReplays;
+            getMatch().getSettings().autoReplays = !getMatch().getSettings().autoReplays;
 
             message = gettext("AUTO REPLAYS") + " ";
 
-            if (match.getSettings().autoReplays) {
+            if (getMatch().getSettings().autoReplays) {
                 message += gettext("AUTO REPLAYS.ON");
             } else {
                 message += gettext("AUTO REPLAYS.OFF");
@@ -123,9 +91,6 @@ class MatchHotKeys extends SceneHotKeys {
         keyRecordAction = Gdx.input.isKeyPressed(Input.Keys.SPACE);
         keyCommentary = Gdx.input.isKeyPressed(Input.Keys.F4);
         keyCrowdChants = Gdx.input.isKeyPressed(Input.Keys.F5);
-        keyScreenMode = Gdx.input.isKeyPressed(Input.Keys.F7);
-        keyZoomOut = Gdx.input.isKeyPressed(Input.Keys.F8);
-        keyZoomIn = Gdx.input.isKeyPressed(Input.Keys.F9);
         keyRadar = Gdx.input.isKeyPressed(Input.Keys.F11);
         keyAutoReplay = Gdx.input.isKeyPressed(Input.Keys.F12);
     }
