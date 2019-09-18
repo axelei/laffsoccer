@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.math.Emath;
-import com.ygames.ysoccer.math.Vector3;
 
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_SEEKING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
