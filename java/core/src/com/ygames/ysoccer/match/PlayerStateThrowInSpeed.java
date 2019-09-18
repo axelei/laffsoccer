@@ -58,7 +58,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
                 boolean longRange = timer > 0.3f * GLGame.SUBFRAMES_PER_SECOND;
 
                 if (longRange) {
-                    player.searchFacingPlayer();
+                    player.searchFarPassingMate();
                 } else {
                     player.searchPassingMate();
                 }

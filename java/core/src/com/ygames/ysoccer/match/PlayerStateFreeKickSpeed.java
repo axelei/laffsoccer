@@ -65,7 +65,7 @@ class PlayerStateFreeKickSpeed extends PlayerState {
                 boolean longRange = (timer > 0.2f * Const.SECOND);
 
                 if (longRange) {
-                    player.searchFacingPlayer();
+                    player.searchFarPassingMate();
                 } else {
                     player.searchPassingMate();
                 }

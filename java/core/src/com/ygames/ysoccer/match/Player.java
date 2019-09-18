@@ -910,7 +910,7 @@ public class Player implements Json.Serializable {
         }
     }
 
-    boolean searchFacingPlayer() {
+    boolean searchFarPassingMate() {
 
         float minDistance = Const.TOUCH_LINE / 2f;
         float maxDistance = Const.TOUCH_LINE;
