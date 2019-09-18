@@ -70,7 +70,7 @@ class AiStateAttacking extends AiState {
 
         if (isMateSearchingTime()) {
             player.searchPassingMate();
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Mate searching, passingMate: " + (player.facingPlayer == null ? "null" : player.facingPlayer.numberName()) + " at passingMateAngle: " + player.facingAngle + ", updating targetAngle: " + targetAngle + ", timer: " + timer);
+            GLGame.debug(ATTACKING_AI, player.numberName(), "Mate searching, passingMate: " + (player.passingMate == null ? "null" : player.passingMate.numberName()) + " at passingMateAngle: " + player.facingAngle + ", updating targetAngle: " + targetAngle + ", timer: " + timer);
         }
 
         if (isTurningTime()) {
@@ -108,7 +108,7 @@ class AiStateAttacking extends AiState {
 
         // passing
         if (isMateSearchingTime()) {
-            if (player.facingPlayer != null && Assets.random.nextFloat() < Parameters.PASSING_PROBABILITY) {
+            if (player.passingMate != null && Assets.random.nextFloat() < Parameters.PASSING_PROBABILITY) {
                 return fsm.statePassing;
             }
         }

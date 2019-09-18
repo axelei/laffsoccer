@@ -91,7 +91,7 @@ public class Player implements Json.Serializable {
     float kickAngle;
     float defendDistance;
 
-    Player facingPlayer;
+    Player passingMate;
     float facingAngle;
     Match match;
     SceneSettings sceneSettings;
@@ -918,7 +918,7 @@ public class Player implements Json.Serializable {
         float maxAngle = 22.5f;
         float facingDelta = maxDistance * Emath.sin(maxAngle);
 
-        facingPlayer = null;
+        passingMate = null;
         facingAngle = 0.0f;
 
         for (int i = 0; i < TEAM_SIZE; i++) {
@@ -935,13 +935,13 @@ public class Player implements Json.Serializable {
             if (Math.abs(plyAngle) < maxAngle && plyDistance > minDistance
                     && plyDistance < maxDistance
                     && Math.abs(plyDelta) < Math.abs(facingDelta)) {
-                facingPlayer = ply;
+                passingMate = ply;
                 facingAngle = plyAngle;
                 facingDelta = plyDelta;
             }
         }
 
-        return (facingPlayer != null);
+        return (passingMate != null);
     }
 
     Player searchNearPlayer() {
@@ -988,7 +988,7 @@ public class Player implements Json.Serializable {
         float maxCorrectionAngle = 22.5f;
         float maxSearchAngle = maxCorrectionAngle + 5f;
 
-        facingPlayer = null;
+        passingMate = null;
         float minFrameDistance = BALL_PREDICTION;
 
         for (int i = 0; i < TEAM_SIZE; i++) {
@@ -1015,20 +1015,20 @@ public class Player implements Json.Serializable {
                 float targetPointY = ply.y + 5 * Emath.sin(ply.a);
                 float plyAngleCorrection = Emath.signedAngleDiff(Emath.aTan2(targetPointY - ball.y, targetPointX - ball.x), a);
                 if (Math.abs(plyAngleCorrection) < maxSearchAngle) {
-                    facingPlayer = ply;
+                    passingMate = ply;
                     minFrameDistance = ply.frameDistance;
                     facingAngle = Math.signum(plyAngleCorrection) * Math.min(Math.abs(plyAngleCorrection), maxCorrectionAngle);
                 }
             }
         }
 
-        if (facingPlayer == null) {
+        if (passingMate == null) {
             GLGame.debug(PASSING, numberName(), "has not found a facing player");
         } else {
-            GLGame.debug(PASSING, numberName(), "has found " + facingPlayer.numberName() + " as facing player with angleCorrection: " + facingAngle);
+            GLGame.debug(PASSING, numberName(), "has found " + passingMate.numberName() + " as facing player with angleCorrection: " + facingAngle);
         }
 
-        return facingPlayer;
+        return passingMate;
     }
 
     String numberName() {

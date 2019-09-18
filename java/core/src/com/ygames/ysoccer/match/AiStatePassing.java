@@ -17,7 +17,7 @@ class AiStatePassing extends AiState {
 
         ai.fire10 = false;
 
-        float d = player.facingPlayer == null ? 300 : player.distanceFrom(player.facingPlayer);
+        float d = player.passingMate == null ? 300 : player.distanceFrom(player.passingMate);
         duration = d < 150 ? 3 : 4;
     }
 

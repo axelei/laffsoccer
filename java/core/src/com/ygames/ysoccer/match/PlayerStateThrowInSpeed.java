@@ -63,7 +63,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
                     player.searchPassingMate();
                 }
 
-                if (player.facingPlayer != null) {
+                if (player.passingMate != null) {
                     ball.a += player.facingAngle;
                 }
 

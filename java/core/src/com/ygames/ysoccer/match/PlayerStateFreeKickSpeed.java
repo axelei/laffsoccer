@@ -70,7 +70,7 @@ class PlayerStateFreeKickSpeed extends PlayerState {
                     player.searchPassingMate();
                 }
 
-                if (player.facingPlayer != null && angleDiff == 0) {
+                if (player.passingMate != null && angleDiff == 0) {
                     ball.a = 45 * player.fmx + player.facingAngle;
                 } else {
                     ball.a = 45 * player.fmx;
