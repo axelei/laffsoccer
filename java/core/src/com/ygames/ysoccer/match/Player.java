@@ -92,7 +92,7 @@ public class Player implements Json.Serializable {
     float defendDistance;
 
     Player passingMate;
-    float facingAngle;
+    float passingMateAngleCorrection;
     Match match;
     SceneSettings sceneSettings;
     Ball ball;
@@ -916,10 +916,10 @@ public class Player implements Json.Serializable {
         float maxDistance = Const.TOUCH_LINE;
 
         float maxAngle = 22.5f;
-        float facingDelta = maxDistance * Emath.sin(maxAngle);
+        float passingDelta = maxDistance * Emath.sin(maxAngle);
 
         passingMate = null;
-        facingAngle = 0.0f;
+        passingMateAngleCorrection = 0.0f;
 
         for (int i = 0; i < TEAM_SIZE; i++) {
             Player ply = team.lineup.get(i);
@@ -934,10 +934,10 @@ public class Player implements Json.Serializable {
 
             if (Math.abs(plyAngle) < maxAngle && plyDistance > minDistance
                     && plyDistance < maxDistance
-                    && Math.abs(plyDelta) < Math.abs(facingDelta)) {
+                    && Math.abs(plyDelta) < Math.abs(passingDelta)) {
                 passingMate = ply;
-                facingAngle = plyAngle;
-                facingDelta = plyDelta;
+                passingMateAngleCorrection = plyAngle;
+                passingDelta = plyDelta;
             }
         }
 
@@ -1010,22 +1010,22 @@ public class Player implements Json.Serializable {
             }
 
             if (ply.frameDistance < minFrameDistance) {
-                // calculate best correction for facing player
+                // calculate best correction for passing mate
                 float targetPointX = ply.x + 5 * Emath.cos(ply.a);
                 float targetPointY = ply.y + 5 * Emath.sin(ply.a);
                 float plyAngleCorrection = Emath.signedAngleDiff(Emath.aTan2(targetPointY - ball.y, targetPointX - ball.x), a);
                 if (Math.abs(plyAngleCorrection) < maxSearchAngle) {
                     passingMate = ply;
                     minFrameDistance = ply.frameDistance;
-                    facingAngle = Math.signum(plyAngleCorrection) * Math.min(Math.abs(plyAngleCorrection), maxCorrectionAngle);
+                    passingMateAngleCorrection = Math.signum(plyAngleCorrection) * Math.min(Math.abs(plyAngleCorrection), maxCorrectionAngle);
                 }
             }
         }
 
         if (passingMate == null) {
-            GLGame.debug(PASSING, numberName(), "has not found a facing player");
+            GLGame.debug(PASSING, numberName(), "has not found a passing mate");
         } else {
-            GLGame.debug(PASSING, numberName(), "has found " + passingMate.numberName() + " as facing player with angleCorrection: " + facingAngle);
+            GLGame.debug(PASSING, numberName(), "has found " + passingMate.numberName() + " as passing mate with angleCorrection: " + passingMateAngleCorrection);
         }
 
         return passingMate;

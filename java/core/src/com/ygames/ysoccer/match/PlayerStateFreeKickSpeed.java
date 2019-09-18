@@ -71,7 +71,7 @@ class PlayerStateFreeKickSpeed extends PlayerState {
                 }
 
                 if (player.passingMate != null && angleDiff == 0) {
-                    ball.a = 45 * player.fmx + player.facingAngle;
+                    ball.a = 45 * player.fmx + player.passingMateAngleCorrection;
                 } else {
                     ball.a = 45 * player.fmx;
                 }

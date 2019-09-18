@@ -71,7 +71,7 @@ class PlayerStateCornerKickSpeed extends PlayerState {
                 }
 
                 if (player.passingMate != null && angleDiff == 0) {
-                    ball.a = 45 * player.fmx + player.facingAngle;
+                    ball.a = 45 * player.fmx + player.passingMateAngleCorrection;
                 } else {
                     switch (Math.round(player.fmx)) {
                         case 0:

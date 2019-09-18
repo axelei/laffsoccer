@@ -64,7 +64,7 @@ class PlayerStateThrowInSpeed extends PlayerState {
                 }
 
                 if (player.passingMate != null) {
-                    ball.a += player.facingAngle;
+                    ball.a += player.passingMateAngleCorrection;
                 }
 
                 player.fmy = 9;
