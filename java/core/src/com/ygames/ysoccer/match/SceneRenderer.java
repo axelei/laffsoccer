@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
 import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.math.Vector3;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -149,5 +150,33 @@ public abstract class SceneRenderer {
             x = x + TILE_WIDTH;
         }
         batch.setColor(0xFFFFFF, 1f);
+    }
+
+    void drawBallPredictions(Ball ball) {
+        batch.end();
+        shapeRenderer.setAutoShapeType(true);
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.begin();
+
+        shapeRenderer.setColor(255, 255, 255, 255);
+        for (int frm = 0; frm < Const.BALL_PREDICTION; frm += 10) {
+            Vector3 p = ball.predictionL[frm];
+            shapeRenderer.circle(p.x, p.y, 1);
+        }
+
+        shapeRenderer.setColor(255, 255, 0, 255);
+        for (int frm = 0; frm < Const.BALL_PREDICTION; frm += 10) {
+            Vector3 p = ball.prediction[frm];
+            shapeRenderer.circle(p.x, p.y, 1);
+        }
+
+        shapeRenderer.setColor(255, 0, 0, 255);
+        for (int frm = 0; frm < Const.BALL_PREDICTION; frm += 10) {
+            Vector3 p = ball.predictionR[frm];
+            shapeRenderer.circle(p.x, p.y, 1);
+        }
+
+        shapeRenderer.end();
+        batch.begin();
     }
 }

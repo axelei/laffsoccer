@@ -63,6 +63,10 @@ public class TrainingRenderer extends SceneRenderer {
 
         renderBackground();
 
+        if (Settings.development && Settings.showBallPredictions) {
+            drawBallPredictions(ball);
+        }
+
         renderSprites(training.subframe);
 
         // redraw bottom goal

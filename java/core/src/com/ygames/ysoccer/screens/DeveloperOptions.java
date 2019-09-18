@@ -74,6 +74,12 @@ class DeveloperOptions extends GLScreen {
         w = new BallZonesButton(y);
         widgets.add(w);
 
+        y += 22;
+        w = new BallPredictionsLabel(y);
+        widgets.add(w);
+        w = new BallPredictionsButton(y);
+        widgets.add(w);
+
         y += 44;
         w = new SectionLabel("LOGS", y);
         widgets.add(w);
@@ -344,6 +350,44 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
+    private class BallPredictionsLabel extends Button {
+
+        BallPredictionsLabel(int y) {
+            setColor(0x4D4D4D);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setText("BALL PREDICTIONS", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class BallPredictionsButton extends Button {
+
+        BallPredictionsButton(int y) {
+            setColor(0x1D6051);
+            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Settings.showBallPredictions ? "ON" : "OFF");
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggle();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggle();
+        }
+
+        private void toggle() {
+            Settings.showBallPredictions = !Settings.showBallPredictions;
+            setDirty(true);
+        }
+    }
 
     private class LogLevelLabel extends Button {
 

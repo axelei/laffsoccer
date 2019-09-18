@@ -54,6 +54,7 @@ public class Settings {
     public static boolean showTeamValues;
 
     public static boolean showBallZones;
+    public static boolean showBallPredictions;
     public static boolean showPlayerNumber;
     public static boolean showPlayerState;
     public static boolean showPlayerAiState;
@@ -104,6 +105,7 @@ public class Settings {
 
         // (match)
         showBallZones = preferences.getBoolean("showBallZones", false);
+        showBallPredictions = preferences.getBoolean("showBallPredictions", false);
         showPlayerNumber = preferences.getBoolean("showPlayerNumber", false);
         showPlayerState = preferences.getBoolean("showPlayerState", false);
         showPlayerAiState = preferences.getBoolean("showPlayerAiState", false);
@@ -151,6 +153,7 @@ public class Settings {
 
         // (match)
         preferences.putBoolean("showBallZones", showBallZones);
+        preferences.putBoolean("showBallPredictions", showBallPredictions);
         preferences.putBoolean("showPlayerNumber", showPlayerNumber);
         preferences.putBoolean("showPlayerState", showPlayerState);
         preferences.putBoolean("showPlayerAiState", showPlayerAiState);

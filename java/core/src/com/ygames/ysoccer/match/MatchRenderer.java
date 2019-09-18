@@ -89,6 +89,10 @@ public class MatchRenderer extends SceneRenderer {
             drawBallZones();
         }
 
+        if (Settings.development && Settings.showBallPredictions) {
+            drawBallPredictions(ball);
+        }
+
         Assets.crowdRenderer.draw(batch);
 
         renderSprites(match.subframe);
@@ -300,7 +304,7 @@ public class MatchRenderer extends SceneRenderer {
                 for (int i = 0; i < len; i++) {
                     Player player = match.team[t].lineup.get(i);
                     if ((player.inputDevice != player.ai && player.isVisible)
-                     || (Settings.development && Settings.showPlayerNumber)){
+                            || (Settings.development && Settings.showPlayerNumber)) {
                         drawPlayerNumber(player);
                     }
                 }
