@@ -10,7 +10,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 class Recorder {
 
     private static final int MAX_RECORDS = 12;
-    private static final int RECORD_SIZE = (4 + 2 * Const.TEAM_SIZE * 5 + 2) * 2 * Const.REPLAY_SUBFRAMES;
 
     private Match match;
     ArrayList<short[]> highlights = new ArrayList<>();
@@ -31,7 +30,9 @@ class Recorder {
 
     void saveHighlight(SceneRenderer sceneRenderer) {
 
-        short[] record = new short[RECORD_SIZE];
+        int recordSize = (4 + 5 * (match.team[HOME].lineup.size() + match.team[AWAY].lineup.size()) + 2) * 2 * Const.REPLAY_SUBFRAMES;
+
+        short[] record = new short[recordSize];
 
         int index = 0;
 
@@ -46,8 +47,7 @@ class Recorder {
 
             // players
             for (int t = HOME; t <= AWAY; t++) {
-                for (int j = 0; j < Const.TEAM_SIZE; j++) {
-                    Player player = match.team[t].players.get(j);
+                for (Player player : match.team[t].lineup) {
                     Data playerData = player.data[match.subframe];
                     record[index++] = (short) playerData.x;
                     record[index++] = (short) playerData.y;
@@ -106,8 +106,7 @@ class Recorder {
 
             // players
             for (int t = HOME; t <= AWAY; t++) {
-                for (int i = 0; i < Const.TEAM_SIZE; i++) {
-                    Player player = match.team[t].players.get(i);
+                for (Player player : match.team[t].lineup) {
                     Data playerData = player.data[match.subframe];
                     playerData.x = record[offset++];
                     playerData.y = record[offset++];
