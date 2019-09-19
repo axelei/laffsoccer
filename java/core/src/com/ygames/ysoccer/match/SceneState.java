@@ -17,6 +17,9 @@ abstract class SceneState {
         timer = 0;
     }
 
+    void exitActions() {
+    }
+
     void doActions(float deltaTime) {
         timer += 1;
         fsm.getHotKeys().update();

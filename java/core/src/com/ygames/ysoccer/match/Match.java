@@ -654,7 +654,6 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     void setPointOfInterest(Vector2 v) {
-        Gdx.app.debug(this.getClass().getSimpleName(), "Setting point of interest at: " + v.x + ", " + v.y);
         pointOfInterest.set(v);
     }
 }

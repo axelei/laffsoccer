@@ -175,8 +175,9 @@ public class GLGame extends Game {
     }
 
     public void setState(State state, Competition.Category category) {
+
         this.state = state;
-        Gdx.app.debug("Setting state", state.toString());
+
         switch (state) {
             case COMPETITION:
                 stateBackground = new Texture("images/backgrounds/menu_competition.jpg");

@@ -108,6 +108,9 @@ abstract class SceneFsm {
         if (currentState != null && doUpdate) {
             if (currentAction != null
                     && (currentAction.type == NEW_FOREGROUND || currentAction.type == RESTORE_FOREGROUND)) {
+                if (holdState != null) {
+                    holdState.exitActions();
+                }
                 currentState.onResume();
             }
             if (currentAction != null

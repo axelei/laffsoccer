@@ -55,6 +55,11 @@ class MatchStateReplay extends MatchState {
     }
 
     @Override
+    void exitActions() {
+        match.subframe = subframe0;
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
