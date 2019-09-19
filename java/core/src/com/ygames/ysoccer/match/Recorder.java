@@ -2,6 +2,8 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
 
+import java.util.ArrayList;
+
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 
@@ -11,7 +13,7 @@ class Recorder {
     private static final int RECORD_SIZE = (4 + 2 * Const.TEAM_SIZE * 5 + 2) * 2 * Const.REPLAY_SUBFRAMES;
 
     private Match match;
-    private short[] highlights = new short[MAX_RECORDS * RECORD_SIZE];
+    ArrayList<short[]> highlights = new ArrayList<>();
     private int current;
     private int recorded;
 
@@ -29,36 +31,44 @@ class Recorder {
 
     void saveHighlight(SceneRenderer sceneRenderer) {
 
-        // if more then MAX_RECORDS the oldest ones are overwritten
-        int index = (recorded % MAX_RECORDS) * RECORD_SIZE;
+        short[] record = new short[RECORD_SIZE];
+
+        int index = 0;
 
         for (int i = 1; i <= 2 * Const.REPLAY_SUBFRAMES; i++) {
 
             // ball
             Data ballData = match.ball.data[match.subframe];
-            highlights[index++] = (short) ballData.x;
-            highlights[index++] = (short) ballData.y;
-            highlights[index++] = (short) ballData.z;
-            highlights[index++] = (short) ballData.fmx;
+            record[index++] = (short) ballData.x;
+            record[index++] = (short) ballData.y;
+            record[index++] = (short) ballData.z;
+            record[index++] = (short) ballData.fmx;
 
             // players
             for (int t = HOME; t <= AWAY; t++) {
                 for (int j = 0; j < Const.TEAM_SIZE; j++) {
                     Player player = match.team[t].players.get(j);
                     Data playerData = player.data[match.subframe];
-                    highlights[index++] = (short) playerData.x;
-                    highlights[index++] = (short) playerData.y;
-                    highlights[index++] = (short) playerData.fmx;
-                    highlights[index++] = (short) playerData.fmy;
-                    highlights[index++] = (short) (playerData.isVisible ? 1 : 0);
+                    record[index++] = (short) playerData.x;
+                    record[index++] = (short) playerData.y;
+                    record[index++] = (short) playerData.fmx;
+                    record[index++] = (short) playerData.fmy;
+                    record[index++] = (short) (playerData.isVisible ? 1 : 0);
                 }
             }
 
             // camera
-            highlights[index++] = (short) sceneRenderer.vcameraX[match.subframe];
-            highlights[index++] = (short) sceneRenderer.vcameraY[match.subframe];
+            record[index++] = (short) sceneRenderer.vcameraX[match.subframe];
+            record[index++] = (short) sceneRenderer.vcameraY[match.subframe];
 
             match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
+        }
+
+        // if more then MAX_RECORDS the oldest ones are overwritten
+        if (recorded < MAX_RECORDS) {
+            highlights.add(record);
+        } else {
+            highlights.set(recorded % MAX_RECORDS, record);
         }
 
         recorded += 1;
@@ -67,45 +77,49 @@ class Recorder {
     void loadHighlight(SceneRenderer sceneRenderer) {
 
         // copy highlights data into objects
-        int offset = current * RECORD_SIZE;
+        int index = current;
 
         // if more than MAX_RECORDS actions have been recorded
         // then the oldest have been overwritten
         // and we start from the middle of the array
         if (recorded > MAX_RECORDS) {
-            offset = ((recorded + current) % MAX_RECORDS) * RECORD_SIZE;
+            index = (recorded + current) % MAX_RECORDS;
         }
 
         // if the end of the bank has been reached, then restart
-        if (offset == MAX_RECORDS * RECORD_SIZE) {
-            offset = 0;
+        if (index == MAX_RECORDS) {
+            index = 0;
         }
+
+        short[] record = highlights.get(index);
+
+        int offset = 0;
 
         for (int j = 1; j <= 2 * Const.REPLAY_SUBFRAMES; j++) {
 
             // ball
             Data ballData = match.ball.data[match.subframe];
-            ballData.x = highlights[offset++];
-            ballData.y = highlights[offset++];
-            ballData.z = highlights[offset++];
-            ballData.fmx = highlights[offset++];
+            ballData.x = record[offset++];
+            ballData.y = record[offset++];
+            ballData.z = record[offset++];
+            ballData.fmx = record[offset++];
 
             // players
             for (int t = HOME; t <= AWAY; t++) {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     Player player = match.team[t].players.get(i);
                     Data playerData = player.data[match.subframe];
-                    playerData.x = highlights[offset++];
-                    playerData.y = highlights[offset++];
-                    playerData.fmx = highlights[offset++];
-                    playerData.fmy = highlights[offset++];
-                    playerData.isVisible = (highlights[offset++] == 1);
+                    playerData.x = record[offset++];
+                    playerData.y = record[offset++];
+                    playerData.fmx = record[offset++];
+                    playerData.fmy = record[offset++];
+                    playerData.isVisible = (record[offset++] == 1);
                 }
             }
 
             // camera
-            sceneRenderer.vcameraX[match.subframe] = highlights[offset++];
-            sceneRenderer.vcameraY[match.subframe] = highlights[offset++];
+            sceneRenderer.vcameraX[match.subframe] = record[offset++];
+            sceneRenderer.vcameraY[match.subframe] = record[offset++];
 
             match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }
