@@ -54,7 +54,7 @@ class MatchStateHighlights extends MatchState {
 
         inputDevice = null;
 
-        match.recorder.loadHighlight(matchRenderer);
+        match.recorder.loadHighlight(sceneRenderer);
     }
 
     @Override
@@ -142,13 +142,13 @@ class MatchStateHighlights extends MatchState {
 
         int f = Math.round(1f * match.subframe / GLGame.SUBFRAMES) % 32;
         if (f < 16) {
-            Assets.font10.draw(matchRenderer.batch, (match.recorder.getCurrent() + 1) + "/" + match.recorder.getRecorded(), 30, 22, Font.Align.LEFT);
+            Assets.font10.draw(sceneRenderer.batch, (match.recorder.getCurrent() + 1) + "/" + match.recorder.getRecorded(), 30, 22, Font.Align.LEFT);
         }
 
-        matchRenderer.batch.end();
+        sceneRenderer.batch.end();
         float a = position * 360f / Const.REPLAY_SUBFRAMES;
-        GLShapeRenderer shapeRenderer = matchRenderer.shapeRenderer;
-        shapeRenderer.setProjectionMatrix(matchRenderer.camera.combined);
+        GLShapeRenderer shapeRenderer = sceneRenderer.shapeRenderer;
+        shapeRenderer.setProjectionMatrix(sceneRenderer.camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(0x242424, guiAlpha);
@@ -156,20 +156,20 @@ class MatchStateHighlights extends MatchState {
         shapeRenderer.setColor(0xFF0000, guiAlpha);
         shapeRenderer.arc(18, 30, 6, 270 + a, 360 - a);
         shapeRenderer.end();
-        matchRenderer.batch.begin();
+        sceneRenderer.batch.begin();
 
         if (inputDevice != null) {
             int frameX = 1 + inputDevice.x1;
             int frameY = 1 + inputDevice.y1;
-            matchRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
+            sceneRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], sceneRenderer.guiWidth - 50, sceneRenderer.guiHeight - 50);
         }
 
         if (paused) {
-            Assets.font10.draw(matchRenderer.batch, gettext("PAUSE"), matchRenderer.guiWidth / 2, 22, Font.Align.CENTER);
+            Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
         }
     }
 
-    void quit() {
+    private void quit() {
         fsm.pushAction(FADE_OUT);
         fsm.pushAction(NEW_FOREGROUND, STATE_END);
         fsm.pushAction(FADE_IN);

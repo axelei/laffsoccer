@@ -36,8 +36,9 @@ class MatchStateBenchExit extends MatchState {
             }
         }
 
-        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.oldTargetX, getFsm().benchStatus.oldTargetY);
-        matchRenderer.actionCamera.setSpeedMode(WARP);
+        sceneRenderer.actionCamera
+                .setTarget(getFsm().benchStatus.oldTargetX, getFsm().benchStatus.oldTargetY)
+                .setSpeedMode(WARP);
     }
 
     @Override
@@ -56,9 +57,9 @@ class MatchStateBenchExit extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(REACH_TARGET);
+            sceneRenderer.actionCamera.update(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -67,8 +68,8 @@ class MatchStateBenchExit extends MatchState {
     @Override
     void checkConditions() {
 
-        float dx = matchRenderer.actionCamera.x - getFsm().benchStatus.oldTargetX - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
-        float dy = matchRenderer.actionCamera.y - getFsm().benchStatus.oldTargetY - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
+        float dx = sceneRenderer.actionCamera.x - getFsm().benchStatus.oldTargetX - CENTER_X + sceneRenderer.screenWidth / (2 * sceneRenderer.zoom / 100f);
+        float dy = sceneRenderer.actionCamera.y - getFsm().benchStatus.oldTargetY - CENTER_Y + sceneRenderer.screenHeight / (2 * sceneRenderer.zoom / 100f);
 
         // TODO: replace with test on speed provided by camera
         if (Emath.hypo(dx, dy) <= 1) {

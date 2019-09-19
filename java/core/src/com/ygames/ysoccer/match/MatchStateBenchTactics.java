@@ -24,8 +24,9 @@ class MatchStateBenchTactics extends MatchState {
         displayTacticsSwitch = true;
         getFsm().benchStatus.selectedTactics = getFsm().benchStatus.team.tactics;
 
-        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY);
-        matchRenderer.actionCamera.setSpeedMode(FAST);
+        sceneRenderer.actionCamera
+                .setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY)
+                .setSpeedMode(FAST);
     }
 
     @Override
@@ -44,9 +45,9 @@ class MatchStateBenchTactics extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(REACH_TARGET);
+            sceneRenderer.actionCamera.update(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

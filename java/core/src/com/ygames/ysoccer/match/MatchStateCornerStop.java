@@ -64,8 +64,9 @@ class MatchStateCornerStop extends MatchState {
     void onResume() {
         match.setPointOfInterest(cornerPosition);
 
-        matchRenderer.actionCamera.setSpeedMode(NORMAL);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setSpeedMode(NORMAL)
+                .setLimited(true, true);
     }
 
     @Override
@@ -89,9 +90,9 @@ class MatchStateCornerStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

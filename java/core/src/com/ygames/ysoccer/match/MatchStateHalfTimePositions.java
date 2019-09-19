@@ -32,9 +32,10 @@ class MatchStateHalfTimePositions extends MatchState {
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();
 
-        matchRenderer.actionCamera.setTarget(0, 0);
-        matchRenderer.actionCamera.setOffset(0, 0);
-        matchRenderer.actionCamera.setSpeedMode(FAST);
+        sceneRenderer.actionCamera
+                .setTarget(0, 0)
+                .setOffset(0, 0)
+                .setSpeedMode(FAST);
 
         match.period = Match.Period.UNDEFINED;
         match.clock = match.length * 45 / 90;
@@ -58,9 +59,9 @@ class MatchStateHalfTimePositions extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(REACH_TARGET);
+            sceneRenderer.actionCamera.update(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -51,9 +51,9 @@ class MatchStateHalfExtraTimeStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -65,7 +65,7 @@ class MatchStateHalfExtraTimeStop extends MatchState {
             match.ball.setPosition(0, 0, 0);
             match.ball.updatePrediction();
 
-            matchRenderer.actionCamera.setOffset(0, 0);
+            sceneRenderer.actionCamera.setOffset(0, 0);
 
             match.swapTeamSides();
 

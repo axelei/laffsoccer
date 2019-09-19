@@ -13,7 +13,6 @@ class TrainingState extends SceneState {
     protected Training training;
     protected final Team team;
     protected final Ball ball;
-    TrainingRenderer sceneRenderer;
 
     TrainingState(TrainingFsm.Id id, TrainingFsm trainingFsm) {
         super(id, trainingFsm);

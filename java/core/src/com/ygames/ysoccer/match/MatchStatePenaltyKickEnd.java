@@ -95,9 +95,9 @@ class MatchStatePenaltyKickEnd extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(STILL);
+            sceneRenderer.actionCamera.update(STILL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

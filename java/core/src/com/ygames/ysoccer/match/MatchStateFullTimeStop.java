@@ -54,9 +54,9 @@ class MatchStateFullTimeStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

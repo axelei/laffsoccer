@@ -83,7 +83,7 @@ class MatchStatePause extends MatchState {
     @Override
     void render() {
         super.render();
-        Assets.font10.draw(matchRenderer.batch, gettext("PAUSE"), matchRenderer.guiWidth / 2, 22, Font.Align.CENTER);
+        Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
     }
 
     private void useHoldStateDisplayFlags() {

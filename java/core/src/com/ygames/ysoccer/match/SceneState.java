@@ -5,10 +5,12 @@ abstract class SceneState {
     protected int timer;
     protected final Enum id;
     protected SceneFsm fsm;
+    protected SceneRenderer sceneRenderer;
 
     SceneState(Enum id, SceneFsm fsm) {
         this.id = id;
         this.fsm = fsm;
+        this.sceneRenderer = fsm.getSceneRenderer();
     }
 
     void entryActions() {

@@ -49,8 +49,9 @@ class MatchStateThrowIn extends MatchState {
         throwInPlayer.setTarget(match.ball.x, match.ball.y);
         throwInPlayer.setState(STATE_REACH_TARGET);
 
-        matchRenderer.actionCamera.setSpeedMode(FAST);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setSpeedMode(FAST)
+                .setLimited(true, true);
     }
 
     @Override
@@ -82,9 +83,9 @@ class MatchStateThrowIn extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

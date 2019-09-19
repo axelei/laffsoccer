@@ -37,9 +37,10 @@ class MatchStateEndPositions extends MatchState {
         match.ball.setPosition(0, 0, 0);
         match.ball.updatePrediction();
 
-        matchRenderer.actionCamera.setTarget(0, 0);
-        matchRenderer.actionCamera.setOffset(0, 0);
-        matchRenderer.actionCamera.setSpeedMode(FAST);
+        sceneRenderer.actionCamera
+                .setTarget(0, 0)
+                .setOffset(0, 0)
+                .setSpeedMode(FAST);
 
         match.setLineupTarget(Const.TOUCH_LINE + 80, 0);
         match.setLineupState(STATE_OUTSIDE);
@@ -60,9 +61,9 @@ class MatchStateEndPositions extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(REACH_TARGET);
+            sceneRenderer.actionCamera.update(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

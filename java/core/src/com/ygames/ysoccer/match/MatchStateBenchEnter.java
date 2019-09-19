@@ -31,8 +31,8 @@ class MatchStateBenchEnter extends MatchState {
         super.entryActions();
 
         // TODO get current observed position from camera
-        getFsm().benchStatus.oldTargetX = matchRenderer.vcameraX[match.subframe] - CENTER_X + matchRenderer.screenWidth / (2 * matchRenderer.zoom / 100f);
-        getFsm().benchStatus.oldTargetY = matchRenderer.vcameraY[match.subframe] - CENTER_Y + matchRenderer.screenHeight / (2 * matchRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTargetX = sceneRenderer.vcameraX[match.subframe] - CENTER_X + sceneRenderer.screenWidth / (2 * sceneRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTargetY = sceneRenderer.vcameraY[match.subframe] - CENTER_Y + sceneRenderer.screenHeight / (2 * sceneRenderer.zoom / 100f);
 
         getFsm().benchStatus.selectedPosition = -1;
         getFsm().benchStatus.substPosition = -1;
@@ -47,11 +47,12 @@ class MatchStateBenchEnter extends MatchState {
             }
         }
 
-        cameraX = matchRenderer.actionCamera.x;
-        cameraY = matchRenderer.actionCamera.y;
-        matchRenderer.actionCamera.setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY);
-        matchRenderer.actionCamera.setLimited(false, true);
-        matchRenderer.actionCamera.setSpeedMode(WARP);
+        cameraX = sceneRenderer.actionCamera.x;
+        cameraY = sceneRenderer.actionCamera.y;
+        sceneRenderer.actionCamera
+                .setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY)
+                .setLimited(false, true)
+                .setSpeedMode(WARP);
     }
 
     @Override
@@ -68,9 +69,9 @@ class MatchStateBenchEnter extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(REACH_TARGET);
+            sceneRenderer.actionCamera.update(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -79,8 +80,8 @@ class MatchStateBenchEnter extends MatchState {
     @Override
     void checkConditions() {
 
-        float dx = cameraX - matchRenderer.actionCamera.x;
-        float dy = cameraY - matchRenderer.actionCamera.y;
+        float dx = cameraX - sceneRenderer.actionCamera.x;
+        float dy = cameraY - sceneRenderer.actionCamera.y;
 
         // TODO: replace with test on speed provided by camera
         if (dx <= 1 && dy <= 1) {
@@ -90,8 +91,8 @@ class MatchStateBenchEnter extends MatchState {
             return;
         }
 
-        cameraX = matchRenderer.actionCamera.x;
-        cameraY = matchRenderer.actionCamera.y;
+        cameraX = sceneRenderer.actionCamera.x;
+        cameraY = sceneRenderer.actionCamera.y;
 
         if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_EXIT);

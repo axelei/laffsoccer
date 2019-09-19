@@ -53,9 +53,9 @@ class MatchStateExtraTimeStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -67,7 +67,7 @@ class MatchStateExtraTimeStop extends MatchState {
             match.ball.setPosition(0, 0, 0);
             match.ball.updatePrediction();
 
-            matchRenderer.actionCamera.setOffset(0, 0);
+            sceneRenderer.actionCamera.setOffset(0, 0);
 
             // redo coin toss
             match.coinToss = Assets.random.nextInt(2); // 0 = home begins, 1 = away begins

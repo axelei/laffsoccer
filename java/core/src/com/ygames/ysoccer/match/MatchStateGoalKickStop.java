@@ -68,8 +68,9 @@ class MatchStateGoalKickStop extends MatchState {
 
     @Override
     void onResume() {
-        matchRenderer.actionCamera.setSpeedMode(NORMAL);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setSpeedMode(NORMAL)
+                .setLimited(true, true);
 
         match.setPointOfInterest(goalKickPosition);
     }
@@ -95,9 +96,9 @@ class MatchStateGoalKickStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

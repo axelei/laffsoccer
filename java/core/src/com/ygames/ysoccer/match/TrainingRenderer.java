@@ -239,10 +239,7 @@ public class TrainingRenderer extends SceneRenderer {
         }
     }
 
-    void updateCamera(ActionCamera.Mode mode) {
-        actionCamera.update(mode);
-    }
-
+    @Override
     void save() {
         ball.save(training.subframe);
         training.team.save(training.subframe);

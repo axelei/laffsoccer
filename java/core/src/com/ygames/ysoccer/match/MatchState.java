@@ -23,13 +23,11 @@ class MatchState extends SceneState {
 
     // convenience references
     protected Match match;
-    protected MatchRenderer matchRenderer;
 
     MatchState(MatchFsm.Id id, MatchFsm matchFsm) {
         super(id, matchFsm);
 
         this.match = matchFsm.getMatch();
-        this.matchRenderer = matchFsm.getRenderer();
 
         fsm.addState(this);
     }

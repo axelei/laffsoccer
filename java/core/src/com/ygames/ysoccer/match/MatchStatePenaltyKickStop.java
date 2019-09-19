@@ -88,9 +88,10 @@ class MatchStatePenaltyKickStop extends MatchState {
 
     @Override
     void onResume() {
-        matchRenderer.actionCamera.setTarget(penaltyKickPosition.x, penaltyKickPosition.y);
-        matchRenderer.actionCamera.setSpeedMode(NORMAL);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setTarget(penaltyKickPosition.x, penaltyKickPosition.y)
+                .setSpeedMode(NORMAL)
+                .setLimited(true, true);
 
         match.setPointOfInterest(penaltyKickPosition);
     }
@@ -132,9 +133,9 @@ class MatchStatePenaltyKickStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(REACH_TARGET);
+            sceneRenderer.actionCamera.update(REACH_TARGET);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

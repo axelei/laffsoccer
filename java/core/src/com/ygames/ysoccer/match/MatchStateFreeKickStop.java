@@ -72,8 +72,9 @@ class MatchStateFreeKickStop extends MatchState {
     void onResume() {
         match.setPointOfInterest(match.foul.position);
 
-        matchRenderer.actionCamera.setSpeedMode(NORMAL);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setSpeedMode(NORMAL)
+                .setLimited(true, true);
     }
 
     @Override
@@ -109,9 +110,9 @@ class MatchStateFreeKickStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(STILL);
+            sceneRenderer.actionCamera.update(STILL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

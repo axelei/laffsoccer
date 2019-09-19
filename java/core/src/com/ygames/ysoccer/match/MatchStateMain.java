@@ -55,7 +55,7 @@ class MatchStateMain extends MatchState {
 
         event = Event.NONE;
 
-        matchRenderer.actionCamera.setSpeedMode(NORMAL);
+        sceneRenderer.actionCamera.setSpeedMode(NORMAL);
     }
 
     @Override
@@ -248,9 +248,9 @@ class MatchStateMain extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

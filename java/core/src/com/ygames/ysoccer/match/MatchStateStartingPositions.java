@@ -40,8 +40,9 @@ class MatchStateStartingPositions extends MatchState {
 
     @Override
     void onResume() {
-        matchRenderer.actionCamera.setSpeedMode(FAST);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setSpeedMode(FAST)
+                .setLimited(true, true);
     }
 
     @Override
@@ -55,9 +56,9 @@ class MatchStateStartingPositions extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

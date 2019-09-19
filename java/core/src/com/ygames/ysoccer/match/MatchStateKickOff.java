@@ -55,7 +55,7 @@ class MatchStateKickOff extends MatchState {
             kickOffPlayer.inputDevice = kickOffTeam.inputDevice;
         }
 
-        matchRenderer.actionCamera.setSpeedMode(FAST);
+        sceneRenderer.actionCamera.setSpeedMode(FAST);
     }
 
     @Override
@@ -82,9 +82,9 @@ class MatchStateKickOff extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

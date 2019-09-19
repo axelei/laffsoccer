@@ -49,9 +49,9 @@ class MatchStatePenaltiesStop extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
-            matchRenderer.updateCamera(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(FOLLOW_BALL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -63,7 +63,7 @@ class MatchStatePenaltiesStop extends MatchState {
             match.ball.setPosition(0, -Const.PENALTY_SPOT_Y, 0);
             match.ball.updatePrediction();
 
-            matchRenderer.actionCamera.setOffset(0, 0);
+            sceneRenderer.actionCamera.setOffset(0, 0);
 
             match.penaltyKickingTeam = Assets.random.nextInt(2);
 

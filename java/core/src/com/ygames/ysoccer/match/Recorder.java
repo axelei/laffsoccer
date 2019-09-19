@@ -64,7 +64,7 @@ class Recorder {
         recorded += 1;
     }
 
-    void loadHighlight(MatchRenderer matchRenderer) {
+    void loadHighlight(SceneRenderer sceneRenderer) {
 
         // copy highlights data into objects
         int offset = current * RECORD_SIZE;
@@ -104,8 +104,8 @@ class Recorder {
             }
 
             // camera
-            matchRenderer.vcameraX[match.subframe] = highlights[offset++];
-            matchRenderer.vcameraY[match.subframe] = highlights[offset++];
+            sceneRenderer.vcameraX[match.subframe] = highlights[offset++];
+            sceneRenderer.vcameraY[match.subframe] = highlights[offset++];
 
             match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }

@@ -57,8 +57,9 @@ class MatchStatePenaltyKick extends MatchState {
         match.penalty.kicker.setTarget(match.ball.x, match.ball.y - 7 * match.ball.ySide);
         match.penalty.kicker.setState(STATE_REACH_TARGET);
 
-        matchRenderer.actionCamera.setSpeedMode(FAST);
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setSpeedMode(FAST)
+                .setLimited(true, true);
     }
 
     @Override
@@ -87,12 +88,12 @@ class MatchStatePenaltyKick extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
             if (match.period == PENALTIES) {
-                matchRenderer.updateCamera(STILL);
+                sceneRenderer.actionCamera.update(STILL);
             } else {
-                matchRenderer.updateCamera(FOLLOW_BALL);
+                sceneRenderer.actionCamera.update(FOLLOW_BALL);
             }
 
             timeLeft -= GLGame.SUBFRAME_DURATION;

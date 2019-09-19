@@ -66,7 +66,7 @@ class MatchStateGoal extends MatchState {
 
         match.setPointOfInterest(match.ball.x, match.ball.y);
 
-        matchRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera.setLimited(true, true);
     }
 
     @Override
@@ -95,16 +95,17 @@ class MatchStateGoal extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
             if ((match.ball.v > 0) || (match.ball.vz != 0)) {
                 // follow ball
-                matchRenderer.updateCamera(FOLLOW_BALL);
+                sceneRenderer.actionCamera.update(FOLLOW_BALL);
             } else {
                 // follow scorer
-                matchRenderer.actionCamera.setSpeedMode(FAST);
-                matchRenderer.actionCamera.setTarget(goal.player.data[match.subframe].x, goal.player.data[match.subframe].y);
-                matchRenderer.updateCamera(REACH_TARGET);
+                sceneRenderer.actionCamera
+                        .setSpeedMode(FAST)
+                        .setTarget(goal.player.data[match.subframe].x, goal.player.data[match.subframe].y)
+                        .update(REACH_TARGET);
             }
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -120,11 +121,11 @@ class MatchStateGoal extends MatchState {
                 replayDone = true;
                 return;
             } else {
-                match.recorder.saveHighlight(matchRenderer);
+                match.recorder.saveHighlight(sceneRenderer);
 
                 match.ball.setPosition(0, 0, 0);
                 match.ball.updatePrediction();
-                matchRenderer.actionCamera.setOffset(0, 0);
+                sceneRenderer.actionCamera.setOffset(0, 0);
 
                 fsm.pushAction(NEW_FOREGROUND, STATE_STARTING_POSITIONS);
                 return;

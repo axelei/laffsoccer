@@ -13,10 +13,10 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 
 class MatchStateReplay extends MatchState {
 
@@ -131,13 +131,14 @@ class MatchStateReplay extends MatchState {
 
         int f = Math.round(1f * match.subframe / GLGame.SUBFRAMES) % 32;
         if (f < 16) {
-            Assets.font10.draw(matchRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
+            Assets.font10.draw(sceneRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
         }
 
-        matchRenderer.batch.end();
         float a = position * 360f / Const.REPLAY_SUBFRAMES;
-        GLShapeRenderer shapeRenderer = matchRenderer.shapeRenderer;
-        shapeRenderer.setProjectionMatrix(matchRenderer.camera.combined);
+
+        sceneRenderer.batch.end();
+        GLShapeRenderer shapeRenderer = sceneRenderer.shapeRenderer;
+        shapeRenderer.setProjectionMatrix(sceneRenderer.camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(0x242424, guiAlpha);
@@ -145,16 +146,16 @@ class MatchStateReplay extends MatchState {
         shapeRenderer.setColor(0xFF0000, guiAlpha);
         shapeRenderer.arc(18, 30, 6, 270 + a, 360 - a);
         shapeRenderer.end();
-        matchRenderer.batch.begin();
+        sceneRenderer.batch.begin();
 
         if (inputDevice != null) {
             int frameX = 1 + inputDevice.x1;
             int frameY = 1 + inputDevice.y1;
-            matchRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], matchRenderer.guiWidth - 50, matchRenderer.guiHeight - 50);
+            sceneRenderer.batch.draw(Assets.replaySpeed[frameX][frameY], sceneRenderer.guiWidth - 50, sceneRenderer.guiHeight - 50);
         }
 
         if (paused) {
-            Assets.font10.draw(matchRenderer.batch, gettext("PAUSE"), matchRenderer.guiWidth / 2, 22, Font.Align.CENTER);
+            Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
         }
     }
 

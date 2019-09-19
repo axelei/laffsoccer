@@ -1153,10 +1153,7 @@ public class MatchRenderer extends SceneRenderer {
         }
     }
 
-    void updateCamera(ActionCamera.Mode mode) {
-        actionCamera.update(mode);
-    }
-
+    @Override
     void save() {
         ball.save(match.subframe);
         match.team[HOME].save(match.subframe);

@@ -53,12 +53,12 @@ class MatchStateIntro extends MatchState {
 
             match.nextSubframe();
 
-            matchRenderer.save();
+            sceneRenderer.save();
 
             if (timer < GLGame.VIRTUAL_REFRESH_RATE) {
-                matchRenderer.updateCamera(STILL);
+                sceneRenderer.actionCamera.update(STILL);
             } else {
-                matchRenderer.updateCamera(FOLLOW_BALL);
+                sceneRenderer.actionCamera.update(FOLLOW_BALL);
             }
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
