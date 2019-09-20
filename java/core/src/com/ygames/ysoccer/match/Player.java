@@ -977,10 +977,10 @@ public class Player implements Json.Serializable {
         float playerToNearPost = angleToPoint(Math.signum(x) * (POST_X + 2 * POST_R + 2 * BALL_R), Math.signum(y) * GOAL_LINE);
         float playerToFarPost = angleToPoint(-Math.signum(x) * (POST_X + 2 * POST_R + 2 * BALL_R), Math.signum(y) * GOAL_LINE);
 
-        float nearAngleDiff = Emath.signedAngleDiff(a, playerToNearPost);
-        float farAngleDiff = Emath.signedAngleDiff(a, playerToFarPost);
+        float nearAngleDiff = Emath.angleDiff(a, playerToNearPost);
+        float farAngleDiff = Emath.angleDiff(a, playerToFarPost);
 
-        return (Math.abs(nearAngleDiff) < 90 && Math.signum(nearAngleDiff) == -Math.signum(farAngleDiff));
+        return (nearAngleDiff < 22.5f || farAngleDiff < 22.5f);
     }
 
     Player searchPassingMate() {
