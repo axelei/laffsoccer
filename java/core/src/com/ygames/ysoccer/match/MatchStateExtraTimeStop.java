@@ -74,8 +74,8 @@ class MatchStateExtraTimeStop extends MatchState {
             match.kickOffTeam = match.coinToss;
 
             // reassign teams sides
-            match.team[HOME].side = 1 - 2 * Assets.random.nextInt(2); // -1 = up, 1 = down
-            match.team[AWAY].side = -match.team[HOME].side;
+            match.team[HOME].setSide(1 - 2 * Assets.random.nextInt(2)); // -1 = up, 1 = down
+            match.team[AWAY].setSide(-match.team[HOME].side);
 
             match.period = Match.Period.FIRST_EXTRA_TIME;
             match.clock = match.length;

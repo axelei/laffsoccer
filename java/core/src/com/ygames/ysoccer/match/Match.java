@@ -135,8 +135,8 @@ public class Match extends Scene implements Json.Serializable {
 
         fsm = new MatchFsm(this);
 
-        team[HOME].side = 1 - 2 * Assets.random.nextInt(2); // -1 = up, 1 = down
-        team[AWAY].side = -team[HOME].side;
+        team[HOME].setSide(1 - 2 * Assets.random.nextInt(2)); // -1 = up, 1 = down
+        team[AWAY].setSide(-team[HOME].side);
 
         benchSide = 1 - 2 * Assets.random.nextInt(2);
 
@@ -572,8 +572,8 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     void swapTeamSides() {
-        team[HOME].side = -team[HOME].side;
-        team[AWAY].side = -team[AWAY].side;
+        team[HOME].setSide(-team[HOME].side);
+        team[AWAY].setSide(-team[AWAY].side);
     }
 
     @Override

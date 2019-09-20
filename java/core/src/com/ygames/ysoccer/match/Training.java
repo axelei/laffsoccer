@@ -40,11 +40,18 @@ public class Training extends Scene {
 
         fsm = new TrainingFsm(this);
 
-        team.side = -1;
+        team.setSide(-1);
+
+        // override player side
+        for (Player player : team.lineup) {
+            if (player.role != GOALKEEPER) {
+                player.side = 1;
+            }
+        }
     }
 
     public TrainingFsm getFsm() {
-        return (TrainingFsm)fsm;
+        return (TrainingFsm) fsm;
     }
 
     void updateBall() {

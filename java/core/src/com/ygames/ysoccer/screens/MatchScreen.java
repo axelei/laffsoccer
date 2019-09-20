@@ -1,14 +1,18 @@
 package com.ygames.ysoccer.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.strongjoshua.console.Console;
 import com.strongjoshua.console.GUIConsole;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.match.ConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Player;
+
+import java.util.Locale;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -68,6 +72,12 @@ class MatchScreen extends GLScreen {
         if (!matchEnded && Settings.development) {
             console.draw();
             matchPaused = console.isVisible();
+        }
+
+        if (Settings.development && Settings.showJavaHeap) {
+            batch.begin();
+            Assets.font10.draw(batch, String.format(Locale.getDefault(), "%,d", Gdx.app.getJavaHeap()), game.gui.WIDTH - 120, 10, Font.Align.LEFT);
+            batch.end();
         }
     }
 

@@ -162,6 +162,13 @@ public class Team implements Json.Serializable {
         this.inputDevice = inputDevice;
     }
 
+    void setSide(int side) {
+        this.side = side;
+        for (Player player : lineup) {
+            player.side = side;
+        }
+    }
+
     public Player newPlayer() {
         if (players.size() == Const.FULL_TEAM) {
             return null;

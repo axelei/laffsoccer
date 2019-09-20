@@ -88,6 +88,7 @@ public class Player implements Json.Serializable {
     public InputDevice inputDevice;
     public Ai ai;
 
+    int side;
     float kickAngle;
     float defendDistance;
 

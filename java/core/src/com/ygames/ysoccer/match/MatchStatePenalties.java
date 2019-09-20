@@ -36,8 +36,8 @@ class MatchStatePenalties extends MatchState {
 
         // swap penalty kicking team
         match.penaltyKickingTeam = 1 - match.penaltyKickingTeam;
-        match.team[match.penaltyKickingTeam].side = 1;
-        match.team[1 - match.penaltyKickingTeam].side = -1;
+        match.team[match.penaltyKickingTeam].setSide(1);
+        match.team[1 - match.penaltyKickingTeam].setSide(-1);
 
         // add another round
         if (match.penaltiesLeft(HOME) == 0 && match.penaltiesLeft(AWAY) == 0) {
