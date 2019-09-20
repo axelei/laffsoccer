@@ -1,20 +1,30 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Const.PASSING_SPEED_FACTOR;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK;
 
 class PlayerStateKick extends PlayerState {
 
-    private int isPassing;
+    enum Mode {UNKNOWN, PASSING, KICKING, SHOOTING}
 
-    private static int IP_UNKNOWN = -1;
-    private static int IP_FALSE = 0;
-    private static int IP_TRUE = 1;
+    private Mode mode;
+    private boolean startedShooting;
 
     PlayerStateKick(PlayerFsm fsm) {
         super(STATE_KICK, fsm);
+    }
+
+    @Override
+    void entryActions() {
+        super.entryActions();
+
+        mode = Mode.UNKNOWN;
+        startedShooting = false;
+
+        ball.a = player.kickAngle;
     }
 
     @Override
@@ -29,52 +39,139 @@ class PlayerStateKick extends PlayerState {
         }
         float angle_diff = ((angle - player.kickAngle + 540.0f) % 360.0f) - 180.0f;
 
-        // detect passing
-        if (timer > 0.1 * Const.SECOND && isPassing == IP_UNKNOWN) {
-            if (player.inputDevice.fire11) {
-                isPassing = IP_FALSE;
-            } else {
-                isPassing = IP_TRUE;
+        switch (mode) {
+            case UNKNOWN:
+                if (timer > 0.15 * Const.SECOND) {
+                    if (player.inputDevice.fire11) {
+                        if (ball.isDirectShot(-player.side) && player.seesTheGoal()) {
+                            mode = Mode.SHOOTING;
 
-                // automatic angle correction
-                if (angle_diff == 0) {
-                    player.searchPassingMate();
-                    if (player.passingMate != null) {
-                        ball.a += player.passingMateAngleCorrection;
-                        float d = Emath.dist(player.passingMate.x, player.passingMate.y, player.x, player.y);
-                        ball.v += (0.035f + 0.005f * player.skills.passing) * d;
+                            Assets.Sounds.kick.play(Assets.Sounds.volume / 100f);
+                        } else {
+                            mode = Mode.KICKING;
+                            ball.v = 250.0f;
+
+                            Assets.Sounds.kick.play(0.8f * Assets.Sounds.volume / 100f);
+                        }
+
+                    } else {
+                        mode = Mode.PASSING;
+                        ball.v = 240f;
+
+                        // automatic angle correction
+                        if (angle_diff == 0) {
+                            player.searchPassingMate();
+                            if (player.passingMate != null) {
+                                ball.a += player.passingMateAngleCorrection;
+                                ball.v += PASSING_SPEED_FACTOR * player.passingMate.distanceFrom(player);
+                            }
+                        }
+
+                        Assets.Sounds.kick.play(0.6f * Assets.Sounds.volume / 100f);
                     }
                 }
-            }
-        }
+                break;
 
-        // speed
-        if (timer < 0.2 * Const.SECOND) {
-            // horizontal
-            if (player.inputDevice.fire11) {
-                ball.v += (960.0f + 2 * player.skills.shooting) / Const.SECOND;
-            }
+            case PASSING:
+                if (timer < 0.25 * Const.SECOND) {
+                    // horizontal
+                    if (player.inputDevice.fire11) {
+                        ball.v += (960.0f + 2 * player.skills.shooting) / Const.SECOND;
+                    }
 
-            // vertical
-            float f = 1.0f;
-            if (player.inputDevice.value) {
-                if (Math.abs(angle_diff) < 67.5f) {
-                    f = (isPassing == IP_FALSE) ? 0.5f : 0;
-                } else if (Math.abs(angle_diff) < 112.5f) {
-                    f = 1.0f;
-                } else {
-                    f = 1.33f;
+                    // vertical
+                    float f = 1.0f; // medium shoots
+                    if (player.inputDevice.value) {
+                        // low shoots
+                        if (Math.abs(angle_diff) < 67.5f) {
+                            f = 0;
+                        }
+                        // high shoots
+                        else if (Math.abs(angle_diff) > 112.5f) {
+                            f = 1.33f;
+                        }
+                    }
+                    ball.vz = f * (120.0f + ball.v * (1 - 0.05f * player.skills.shooting) * timer / Const.SECOND);
+
+                    // spin
+                    if (player.inputDevice.value) {
+                        if ((Math.abs(angle_diff) > 22.5f) && (Math.abs(angle_diff) < 157.5f)) {
+                            ball.s += 130.0f / Const.SECOND * Math.signum(angle_diff);
+                        }
+                    }
                 }
-            }
+                break;
 
-            ball.vz = f * (120.0f + ball.v * (1 - 0.05f * player.skills.shooting) * timer / Const.SECOND);
+            case KICKING:
+                if (timer < 0.25 * Const.SECOND) {
+                    // horizontal
+                    if (player.inputDevice.fire11) {
+                        ball.v += (960.0f + 2 * player.skills.shooting) / Const.SECOND;
+                    }
 
-            // spin
-            if (player.inputDevice.value) {
-                if ((Math.abs(angle_diff) > 22.5f) && (Math.abs(angle_diff) < 157.5f)) {
-                    ball.s += 130.0f / Const.SECOND * Math.signum(angle_diff);
+                    // vertical
+                    float base = 120f;
+                    float factor = 0.9f; //medium shoots
+                    if (player.inputDevice.value) {
+                        // low shoots
+                        if (Math.abs(angle_diff) < 67.5f) {
+                            base = 120f;
+                            factor = 0.4f;
+                        }
+                        // high shoots
+                        else if (Math.abs(angle_diff) > 112.5f) {
+                            base = 120f;
+                            factor = 1.4f;
+                        }
+                    }
+                    ball.vz = factor * (base + ball.v * (1 - 0.05f * player.skills.shooting) * timer / Const.SECOND);
+
+                    // spin
+                    if (player.inputDevice.value) {
+                        if ((Math.abs(angle_diff) > 22.5f) && (Math.abs(angle_diff) < 157.5f)) {
+                            ball.s += 130.0f / Const.SECOND * Math.signum(angle_diff);
+                        }
+                    }
                 }
-            }
+                break;
+
+            case SHOOTING:
+                if (timer > 0.20f * SECOND && timer < 0.30f * SECOND) {
+                    if (!startedShooting) {
+                        ball.v = 270f;
+                        startedShooting = true;
+                    }
+
+                    // horizontal speed
+                    if (player.inputDevice.fire11) {
+                        ball.v += (960.0f + 2 * player.skills.shooting) / SECOND;
+                    }
+
+                    // vertical speed
+                    float base = 110.0f;    // medium shoots
+                    float factor = 0.8f;
+                    if (player.inputDevice.value) {
+                        // low shoots
+                        if (Math.abs(angle_diff) < 67.5f) {
+                            base = 120.0f;
+                            factor = 0.35f;
+                        }
+                        // high shoots
+                        else if (Math.abs(angle_diff) > 112.5f) {
+                            base = 100.0f;
+                            factor = 1.2f;
+                        }
+                    }
+                    ball.vz = factor * (base + ball.v * (1 - 0.05f * player.skills.shooting) * timer / SECOND);
+
+                    // spin
+                    if (player.inputDevice.value) {
+                        if ((Math.abs(angle_diff) > 22.5f) && (Math.abs(angle_diff) < 157.5f)) {
+                            ball.s += 130.0f / SECOND * Math.signum(angle_diff);
+                        }
+                    }
+                }
+                break;
         }
 
         player.animationStandRun();
@@ -86,17 +183,6 @@ class PlayerStateKick extends PlayerState {
             return fsm.stateStandRun;
         }
         return null;
-    }
-
-    @Override
-    void entryActions() {
-        super.entryActions();
-        isPassing = IP_UNKNOWN;
-
-        ball.v = 190.0f;
-        ball.a = player.kickAngle;
-
-        Assets.Sounds.kick.play(Assets.Sounds.volume / 100f);
     }
 
     @Override

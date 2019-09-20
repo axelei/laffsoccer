@@ -162,7 +162,7 @@ class Ball {
         float bouncing_speed = 0;
         if (z < 0 && vz < 0) {
             z = 0;
-            if (vz > -50) {
+            if (vz > -40) {
                 vz = 0;
             } else {
                 // bounce

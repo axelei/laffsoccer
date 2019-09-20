@@ -7,31 +7,31 @@
         "name": "FIRST ROUND",
         "numberOfLegs": 1,
         "extraTime": "ON",
-        "penalties": "OFF"
+        "penalties": "ON"
       },
       {
         "name": "SECOND ROUND",
         "numberOfLegs": 1,
         "extraTime": "ON",
-        "penalties": "OFF"
+        "penalties": "ON"
       },
       {
         "name": "QUARTER-FINAL",
         "numberOfLegs": 1,
         "extraTime": "ON",
-        "penalties": "OFF"
+        "penalties": "ON"
       },
       {
         "name": "SEMI-FINAL",
         "numberOfLegs": 1,
         "extraTime": "ON",
-        "penalties": "OFF"
+        "penalties": "ON"
       },
       {
         "name": "FINAL",
         "numberOfLegs": 1,
         "extraTime": "ON",
-        "penalties": "OFF"
+        "penalties": "ON"
       }
     ],
     "substitutions": 3,
