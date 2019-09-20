@@ -7,4 +7,5 @@ public class Data {
     public int fmx;
     public int fmy;
     public boolean isVisible;
+    public boolean isHumanControlled;
 }

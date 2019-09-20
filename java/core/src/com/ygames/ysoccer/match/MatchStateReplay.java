@@ -32,7 +32,7 @@ class MatchStateReplay extends MatchState {
         super(STATE_REPLAY, fsm);
 
         displayWindVane = true;
-        displayControlledPlayer = Settings.showPlayerNumber;
+        displayControlledPlayer = Settings.development;
     }
 
     @Override

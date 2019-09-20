@@ -303,7 +303,8 @@ public class MatchRenderer extends SceneRenderer {
                 int len = match.team[t].lineup.size();
                 for (int i = 0; i < len; i++) {
                     Player player = match.team[t].lineup.get(i);
-                    if ((player.inputDevice != player.ai && player.isVisible)
+                    Data d = player.data[match.subframe];
+                    if ((d.isHumanControlled && d.isVisible)
                             || (Settings.development && Settings.showPlayerNumber)) {
                         drawPlayerNumber(player);
                     }

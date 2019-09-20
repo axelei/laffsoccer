@@ -441,6 +441,7 @@ public class Player implements Json.Serializable {
         data[subframe].fmx = Math.round(fmx);
         data[subframe].fmy = (int) Math.abs(Math.floor(fmy));
         data[subframe].isVisible = isVisible;
+        data[subframe].isHumanControlled = (inputDevice != ai);
     }
 
     float targetDistance() {
