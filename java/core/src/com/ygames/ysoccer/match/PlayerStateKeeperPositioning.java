@@ -23,10 +23,13 @@ class PlayerStateKeeperPositioning extends PlayerState {
     }
 
     private void updateTarget() {
-        // default value
-        float new_tx = ball.x * 12 / Math.max((Math.abs(ball.y - Math.signum(player.y) * GOAL_LINE)), 1);
-        new_tx = Math.signum(new_tx) * Math.min(Math.abs(new_tx), Const.POST_X + 5);
-        float new_ty = player.team.side * (GOAL_LINE - 8);
+
+        float referenceY = player.side * (GOAL_LINE + 22);
+        float deltaX = ball.x * 30 / Math.abs(ball.y - referenceY);
+
+        // default positioning
+        float new_tx = Math.signum(deltaX) * Math.min(Math.abs(deltaX), 50);
+        float new_ty = player.side * (GOAL_LINE - 8);
 
         // penalty area positioning
         if ((Math.abs(ball.x) < Const.PENALTY_AREA_W / 2)
