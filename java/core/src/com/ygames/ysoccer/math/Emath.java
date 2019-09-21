@@ -114,11 +114,25 @@ public class Emath {
         return min;
     }
 
+    public static int min(int... values) {
+        int min = values[0];
+        for (int v : values) {
+            if (v < min) min = v;
+        }
+        return min;
+    }
+
     public static float max(float... values) {
         float max = values[0];
         for (float v : values) {
             if (v > max) max = v;
         }
         return max;
+    }
+
+    public static float clamp(float value, float limit1, float limit2) {
+        float diff1 = value - limit1;
+        float diff2 = value - limit2;
+        return (Math.signum(diff1) != Math.signum(diff2)) ? value : (Math.abs(diff1) < Math.abs(diff2) ? limit1 : limit2);
     }
 }
