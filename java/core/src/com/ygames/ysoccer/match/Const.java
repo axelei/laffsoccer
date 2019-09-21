@@ -6,14 +6,14 @@ public class Const {
 
     static final int SECOND = GLGame.SUBFRAMES_PER_SECOND;
     static final int BALL_R = 4;
-    public static float GRAVITY = 332.8f / SECOND;
-    public static float AIR_FRICTION = 0.28f;
-    public static float SPIN_FACTOR = 10.0f;
-    public static float SPIN_DAMPENING = 7.0f;
-    public static float BOUNCE = 0.9f;
-    public static float PLAYER_RUN_ANIMATION = 0.18f;
-    public static float PASSING_THRESHOLD = 0.1f;
-    public static float PASSING_SPEED_FACTOR = 0.2f;
+    static float GRAVITY = 332.8f / SECOND;
+    static float AIR_FRICTION = 0.28f;
+    static float SPIN_FACTOR = 10.0f;
+    static float SPIN_DAMPENING = 7.0f;
+    static float BOUNCE = 0.9f;
+    static float PLAYER_RUN_ANIMATION = 0.18f;
+    static float PASSING_THRESHOLD = 0.1f;
+    static float PASSING_SPEED_FACTOR = 0.2f;
 
     static final int REPLAY_DURATION = 8; // seconds
     static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRESH_RATE;

@@ -9,6 +9,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void gravity() {
         console.log("gravity " + Const.GRAVITY);
     }
+
     public void gravity(float f) {
         Const.GRAVITY = f;
     }
@@ -17,6 +18,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void airFriction() {
         console.log("airFriction " + Const.AIR_FRICTION);
     }
+
     public void airFriction(float f) {
         Const.AIR_FRICTION = f;
     }
@@ -25,6 +27,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void spinFactor() {
         console.log("spinFactor " + Const.SPIN_FACTOR);
     }
+
     public void spinFactor(float f) {
         Const.SPIN_FACTOR = f;
     }
@@ -33,6 +36,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void spinDampening() {
         console.log("spinDampening " + Const.SPIN_DAMPENING);
     }
+
     public void spinDampening(float f) {
         Const.SPIN_DAMPENING = f;
     }
@@ -41,6 +45,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void bounce() {
         console.log("bounce " + Const.BOUNCE);
     }
+
     public void bounce(float f) {
         Const.BOUNCE = f;
     }
@@ -49,6 +54,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void passingThreshold() {
         console.log("passingThreshold " + Const.PASSING_THRESHOLD);
     }
+
     public void passingThreshold(float f) {
         Const.PASSING_THRESHOLD = f;
     }
@@ -57,6 +63,7 @@ public class ConsoleCommandExecutor extends CommandExecutor {
     public void passingSpeedFactor() {
         console.log("passingSpeedFactor " + Const.PASSING_SPEED_FACTOR);
     }
+
     public void passingSpeedFactor(float f) {
         Const.PASSING_SPEED_FACTOR = f;
     }
