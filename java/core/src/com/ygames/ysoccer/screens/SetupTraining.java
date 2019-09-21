@@ -31,7 +31,7 @@ class SetupTraining extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(navigation.team.name + " - " + Assets.strings.get("TRAINING"), game.stateColor.body);
+        w = new TitleBar(Assets.strings.get("TRAINING") + " - " + navigation.team.name, game.stateColor.body);
         widgets.add(w);
 
         w = new TimeLabel();

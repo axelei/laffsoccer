@@ -109,11 +109,11 @@ public class Training extends Scene {
     }
 
     void findNearest() {
-        team.findNearest();
+        team.findNearest(team.lineup.size());
     }
 
     void updateFrameDistance() {
-        team.updateFrameDistance();
+        team.updateFrameDistance(team.lineup.size());
     }
 
     @Override

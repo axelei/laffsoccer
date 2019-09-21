@@ -223,11 +223,15 @@ public class Team implements Json.Serializable {
     }
 
     void findNearest() {
+        findNearest(TEAM_SIZE);
+    }
+
+    void findNearest(int count) {
         // step 1: search using frame_distance,
         // which takes into account both the speed of the player and the speed
         // and direction of the ball
         near1 = null;
-        for (int i = 0; i < TEAM_SIZE; i++) {
+        for (int i = 0; i < count; i++) {
             Player player = lineup.get(i);
 
             // discard those players which cannot reach the ball in less than
@@ -243,7 +247,7 @@ public class Team implements Json.Serializable {
         // step 2: if not found, repeat using pixel distance
         if (near1 == null) {
             near1 = lineup.get(0);
-            for (int i = 1; i < TEAM_SIZE; i++) {
+            for (int i = 1; i < count; i++) {
                 Player player = lineup.get(i);
 
                 if (player.ballDistance < near1.ballDistance) {
@@ -364,7 +368,11 @@ public class Team implements Json.Serializable {
     }
 
     void updateFrameDistance() {
-        for (int i = 0; i < TEAM_SIZE; i++) {
+        updateFrameDistance(TEAM_SIZE);
+    }
+
+    void updateFrameDistance(int count) {
+        for (int i = 0; i < count; i++) {
             lineup.get(i).updateFrameDistance();
         }
     }
