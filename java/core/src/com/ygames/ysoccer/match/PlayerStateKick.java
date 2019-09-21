@@ -104,24 +104,23 @@ class PlayerStateKick extends PlayerState {
 
             case KICKING:
                 if (timer < 0.25 * Const.SECOND) {
-                    // horizontal
+                    // horizontal speed
                     if (player.inputDevice.fire11) {
                         ball.v += (960.0f + 2 * player.skills.shooting) / Const.SECOND;
                     }
 
-                    // vertical
+                    // vertical speed
+                    // medium shots
                     float base = 120f;
-                    float factor = 0.9f; //medium shoots
+                    float factor = 0.8f;
                     if (player.inputDevice.value) {
-                        // low shoots
+                        // low shots
                         if (Math.abs(angle_diff) < 67.5f) {
-                            base = 120f;
                             factor = 0.4f;
                         }
-                        // high shoots
+                        // high shots
                         else if (Math.abs(angle_diff) > 112.5f) {
-                            base = 120f;
-                            factor = 1.4f;
+                            factor = 1.2f;
                         }
                     }
                     ball.vz = factor * (base + ball.v * (1 - 0.05f * player.skills.shooting) * timer / Const.SECOND);
@@ -137,26 +136,32 @@ class PlayerStateKick extends PlayerState {
 
             case SHOOTING:
                 if (timer > 0.20f * SECOND && timer < 0.30f * SECOND) {
+                    // horizontal speed
                     if (!startedShooting) {
                         ball.v = 270f;
                         startedShooting = true;
                     }
 
-                    // horizontal speed
+                    // no shooting skill
+                    // 270 + (0 : 51) * 650 / 512 = 270 + 0 : 64 = 270 : 334
+
+                    // top shooting skill
+                    // 270 + (0 : 51) * 1000 / 512 = 270 + 0 : 97 = 270 : 367
                     if (player.inputDevice.fire11) {
-                        ball.v += (960.0f + 2 * player.skills.shooting) / SECOND;
+                        ball.v += (650.0f + 50 * player.skills.shooting) / SECOND;
                     }
 
                     // vertical speed
-                    float base = 110.0f;    // medium shoots
-                    float factor = 0.8f;
+                    // medium shots
+                    float base = 110.0f;
+                    float factor = 0.85f;
                     if (player.inputDevice.value) {
-                        // low shoots
+                        // low shots
                         if (Math.abs(angle_diff) < 67.5f) {
                             base = 120.0f;
                             factor = 0.35f;
                         }
-                        // high shoots
+                        // high shots
                         else if (Math.abs(angle_diff) > 112.5f) {
                             base = 100.0f;
                             factor = 1.2f;

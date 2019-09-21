@@ -93,8 +93,8 @@ public class Emath {
         return min + Assets.random.nextInt(max + 1 - min);
     }
 
-    public static <T extends Enum<T>> T randomPick(T... element) {
-        return element[Assets.random.nextInt(element.length)];
+    public static <T> T randomPick(T... elements) {
+        return elements[Assets.random.nextInt(elements.length)];
     }
 
     public static <T extends Enum<T>> T randomPick(Class<T> c) {
