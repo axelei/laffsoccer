@@ -36,6 +36,7 @@ class MatchStateGoal extends MatchState {
         super.entryActions();
 
         replayDone = false;
+        recordingDone = false;
 
         Assets.Sounds.homeGoal.play(Assets.Sounds.volume / 100f);
 
