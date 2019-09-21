@@ -106,8 +106,9 @@ class MatchStatePenalties extends MatchState {
             for (int i = 0; i < len; i++) {
                 Player player = team.lineupAtPosition(i);
                 if (!player.checkState(STATE_OUTSIDE)) {
+                    int side = 2 * t - 1;
                     player.tx = 18 * (-team.lineup.size() + 2 * i) + 8 * Emath.cos(70 * (player.number));
-                    player.ty = -100 + team.side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));
+                    player.ty = -(i == 0 ? 300 : 100) + side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));
                     player.setState(STATE_REACH_TARGET);
                 }
             }
