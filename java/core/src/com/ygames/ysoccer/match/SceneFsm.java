@@ -108,9 +108,6 @@ abstract class SceneFsm {
         if (currentState != null && doUpdate) {
             if (currentAction != null
                     && (currentAction.type == NEW_FOREGROUND || currentAction.type == RESTORE_FOREGROUND)) {
-                if (holdState != null) {
-                    holdState.exitActions();
-                }
                 currentState.onResume();
             }
             if (currentAction != null
@@ -155,6 +152,9 @@ abstract class SceneFsm {
                 break;
 
             case NEW_FOREGROUND:
+                if (currentState != null) {
+                    currentState.exitActions();
+                }
                 currentState = searchState(currentAction.stateId);
                 Gdx.app.debug("NEW_FOREGROUND", currentState.getClass().getSimpleName());
                 break;
@@ -166,6 +166,7 @@ abstract class SceneFsm {
                 break;
 
             case RESTORE_FOREGROUND:
+                currentState.exitActions();
                 currentState = holdState;
                 holdState = null;
                 break;
