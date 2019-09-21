@@ -281,7 +281,7 @@ public class Player implements Json.Serializable {
     void getPossession() {
         if ((ballDistance <= 8)
                 && Emath.dist(x0, y0, ball.x0, ball.y0) > 8
-                && (ball.z < (Const.PLAYER_H + Const.BALL_R))) {
+                && (ball.z < Const.PLAYER_H)) {
 
             float smoothedBallV = ball.v * 0.5f;
             Vector2 ballVec = new Vector2(smoothedBallV, 0);
