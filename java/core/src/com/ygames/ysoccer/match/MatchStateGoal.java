@@ -20,6 +20,7 @@ class MatchStateGoal extends MatchState {
 
     private Goal goal;
     private boolean replayDone;
+    private boolean recordingDone;
 
     MatchStateGoal(MatchFsm fsm) {
         super(STATE_GOAL, fsm);
@@ -116,13 +117,16 @@ class MatchStateGoal extends MatchState {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
                 && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
 
+            if (!recordingDone) {
+                match.recorder.saveHighlight(sceneRenderer);
+                recordingDone = true;
+            }
+
             if (match.getSettings().autoReplays && !replayDone) {
                 replay();
                 replayDone = true;
                 return;
             } else {
-                match.recorder.saveHighlight(sceneRenderer);
-
                 match.ball.setPosition(0, 0, 0);
                 match.ball.updatePrediction();
                 sceneRenderer.actionCamera.setOffset(0, 0);
