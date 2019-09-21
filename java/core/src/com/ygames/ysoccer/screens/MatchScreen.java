@@ -8,8 +8,8 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.match.ConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.MatchConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Player;
 
 import java.util.Locale;
@@ -48,7 +48,7 @@ class MatchScreen extends GLScreen {
             console.setPositionPercent(0, 0);
             console.setHoverAlpha(0.9f);
             console.setNoHoverAlpha(0.9f);
-            console.setCommandExecutor(new ConsoleCommandExecutor());
+            console.setCommandExecutor(new MatchConsoleCommandExecutor(match));
         }
     }
 
