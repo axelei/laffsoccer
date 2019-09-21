@@ -22,7 +22,7 @@ class AiStateAttacking extends AiState {
 
     static class Parameters {
         static int URGENT_TARGET_UPDATE_INTERVAL = 10;
-        static int STANDARD_TARGET_UPDATE_INTERVAL = 30;
+        static int TARGET_UPDATE_INTERVAL = 30;
         static int CONTROLS_UPDATE_INTERVAL = 5;
         static int MATE_SEARCH_INTERVAL = 8;
         static float PASSING_PROBABILITY = 0.3f;
@@ -32,8 +32,9 @@ class AiStateAttacking extends AiState {
 
         static float MATE_FACTOR = 1f;
         static float OPPONENT_FACTOR = 1.5f;
-        static float OWN_GOAL_FACTOR = 2f;
-        static float GOAL_FACTOR = 2f;
+        static float OWN_GOAL_FACTOR = 3f;
+        static float GOAL_FACTOR = 2.5f;
+        static float GOAL_FACTOR_INSIDE_PENALTY_AREA = 3.5f;
     }
 
     private float controlsAngle;
@@ -63,9 +64,9 @@ class AiStateAttacking extends AiState {
             GLGame.debug(ATTACKING_AI, player.numberName(), "Urgent target update time, targetAngle: " + targetAngle);
         }
 
-        if (isStandardNormalTargetUpdateTime()) {
-            targetAngle += getStandardAngleCorrection();
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Standard target update, targetAngle: " + targetAngle);
+        if (isTargetUpdateTime()) {
+            targetAngle += getAngleCorrection();
+            GLGame.debug(ATTACKING_AI, player.numberName(), "Target update, targetAngle: " + targetAngle);
         }
 
         if (isMateSearchingTime()) {
@@ -91,8 +92,8 @@ class AiStateAttacking extends AiState {
         return (timer - 1) % (Parameters.URGENT_TARGET_UPDATE_INTERVAL) == 0;
     }
 
-    private boolean isStandardNormalTargetUpdateTime() {
-        return (timer - 1) % Parameters.STANDARD_TARGET_UPDATE_INTERVAL == 0;
+    private boolean isTargetUpdateTime() {
+        return (timer - 1) % Parameters.TARGET_UPDATE_INTERVAL == 0;
     }
 
     private boolean isMateSearchingTime() {
@@ -172,7 +173,7 @@ class AiStateAttacking extends AiState {
         }
     }
 
-    private float getStandardAngleCorrection() {
+    private float getAngleCorrection() {
 
         // Vector3(left, center, right)
         Vector3 totalWeights = new Vector3();
@@ -189,13 +190,19 @@ class AiStateAttacking extends AiState {
 
         // 3. push toward/away goals
         Vector3 goalWeights;
+        float GOAL_FACTOR;
         if (player.ball.isInsidePenaltyArea(player.team.side)) {
             goalWeights = getOwnGoalWeights();
-            totalWeights.add(goalWeights.scl(Parameters.OWN_GOAL_FACTOR));
+            GOAL_FACTOR = Parameters.OWN_GOAL_FACTOR;
         } else {
             goalWeights = getGoalWeights();
-            totalWeights.add(goalWeights.scl(Parameters.GOAL_FACTOR));
+            if (player.ball.isInsidePenaltyArea(-player.side)) {
+                GOAL_FACTOR = Parameters.GOAL_FACTOR_INSIDE_PENALTY_AREA;
+            } else {
+                GOAL_FACTOR = Parameters.GOAL_FACTOR;
+            }
         }
+        totalWeights.add(goalWeights.scl(GOAL_FACTOR));
         GLGame.debug(ATTACKING_AI, player.numberName(), "Goal weights: " + goalWeights);
 
         GLGame.debug(ATTACKING_AI, player.numberName(), "TotalWeights: " + totalWeights);
