@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.math.Emath;
 
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_SPEED;
 
 class PlayerStatePenaltyKickSpeed extends PlayerState {
@@ -28,36 +29,34 @@ class PlayerStatePenaltyKickSpeed extends PlayerState {
 
         if (!endOfAfterEffect) {
 
-            if (timer > 0.15f * Const.SECOND && !player.inputDevice.fire11) {
+            if (timer > 0.15f * SECOND && !player.inputDevice.fire11) {
                 endOfAfterEffect = true;
             }
-            if (timer > 0.3f * Const.SECOND) {
+            if (timer > 0.3f * SECOND) {
                 endOfAfterEffect = true;
             }
 
-            float angleDiff;
-            float powerFactor;
+            float factor = 0.8f; // medium shots
             if (player.inputDevice.value) {
-                angleDiff = ((player.inputDevice.angle - kickAngle + 540) % 360) - 180;
+                float angleDiff = ((player.inputDevice.angle - kickAngle + 540) % 360) - 180;
+                // low shots
                 if (Math.abs(angleDiff) < 67.5f) {
-                    powerFactor = 0;
-                } else if (Math.abs(angleDiff) < 112.5f) {
-                    powerFactor = 0.6f;
-                } else {
-                    powerFactor = 1.0f;
+                    factor = 0.35f;
+                }
+                // high shots
+                else if (Math.abs(angleDiff) > 112.5f) {
+                    factor = 1.0f;
                 }
 
                 // spin
                 if ((Math.abs(angleDiff) > 22.5f) && (Math.abs(angleDiff) < 157.5f)) {
-                    kickSpin += 50.0f / Const.SECOND * Emath.sgn(angleDiff);
+                    kickSpin += 50.0f / SECOND * Emath.sgn(angleDiff);
                 }
-            } else {
-                powerFactor = 0.6f;
             }
 
             if (endOfAfterEffect) {
-                ball.v = 160 + 120 * powerFactor + 300f * timer / Const.SECOND;
-                ball.vz = powerFactor * (100 + 350f * timer / Const.SECOND);
+                ball.v = 160 + 120 * factor + 300f * timer / SECOND;
+                ball.vz = factor * (100 + 350f * timer / SECOND);
 
                 ball.a = player.a;
                 ball.s = kickSpin;
@@ -67,7 +66,7 @@ class PlayerStatePenaltyKickSpeed extends PlayerState {
 
     @Override
     PlayerState checkConditions() {
-        if (timer > 0.35f * Const.SECOND) {
+        if (timer > 0.35f * SECOND) {
             return fsm.stateStandRun;
         }
         return null;
