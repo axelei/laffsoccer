@@ -13,15 +13,16 @@ import com.ygames.ysoccer.math.Emath;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
-import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 
 class MatchStateHighlights extends MatchState {
 
     private int subframe0;
     private boolean paused;
+    private boolean showCurrentRecord;
     private boolean slowMotion;
     private boolean keySlow;
     private boolean keyPause;
@@ -43,6 +44,7 @@ class MatchStateHighlights extends MatchState {
         subframe0 = match.subframe;
 
         paused = false;
+        showCurrentRecord = true;
         slowMotion = false;
 
         // control keys
@@ -128,9 +130,7 @@ class MatchStateHighlights extends MatchState {
                 quit();
                 return;
             } else {
-                fsm.pushAction(FADE_OUT);
-                fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
-                fsm.pushAction(FADE_IN);
+                nextHighlight();
                 return;
             }
         }
@@ -141,7 +141,7 @@ class MatchStateHighlights extends MatchState {
         super.render();
 
         int f = Math.round(1f * match.subframe / GLGame.SUBFRAMES) % 32;
-        if (f < 16) {
+        if (showCurrentRecord && f < 16) {
             Assets.font10.draw(sceneRenderer.batch, (match.recorder.getCurrent() + 1) + "/" + match.recorder.getRecorded(), 30, 22, Font.Align.LEFT);
         }
 
@@ -169,7 +169,15 @@ class MatchStateHighlights extends MatchState {
         }
     }
 
+    private void nextHighlight() {
+        showCurrentRecord = false;
+        fsm.pushAction(FADE_OUT);
+        fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
+        fsm.pushAction(FADE_IN);
+    }
+
     private void quit() {
+        showCurrentRecord = false;
         fsm.pushAction(FADE_OUT);
         fsm.pushAction(NEW_FOREGROUND, STATE_END);
         fsm.pushAction(FADE_IN);
