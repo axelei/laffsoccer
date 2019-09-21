@@ -685,6 +685,9 @@ public class Player implements Json.Serializable {
         skills.control = player.skills.control;
         skills.speed = player.skills.speed;
         skills.finishing = player.skills.finishing;
+
+        bestSkills.clear();
+        bestSkills.addAll(player.bestSkills);
     }
 
     public int getSkillValue(Skill skill) {
