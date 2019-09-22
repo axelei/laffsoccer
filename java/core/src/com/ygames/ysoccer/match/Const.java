@@ -80,6 +80,8 @@ public class Const {
     static final float PENALTY_DISTANCE = GOAL_LINE - PENALTY_SPOT_Y;
     static final float YARD = PENALTY_DISTANCE / 12f;
     static final float FREE_KICK_DISTANCE = 10f * YARD;
+    static final float DIRECT_SHOT_AREA_W = PENALTY_AREA_W + 200;
+    static final float DIRECT_SHOT_AREA_H = PENALTY_AREA_H + 120;
 
     // goals
     static final int GOAL_BTM_X = -72;
@@ -136,9 +138,9 @@ public class Const {
     }
 
     static boolean isDirectShot(float x, float y, int ySide) {
-        return Math.abs(x) < (PENALTY_AREA_W / 2 + 110)
+        return Math.abs(x) < (DIRECT_SHOT_AREA_W / 2)
                 && Emath.isIn(y,
-                ySide * (GOAL_LINE - PENALTY_AREA_H - 110),
+                ySide * (GOAL_LINE - DIRECT_SHOT_AREA_H),
                 ySide * GOAL_LINE
         );
     }
