@@ -64,7 +64,7 @@ class AiStateFreeKicking extends AiState {
 
             // CASE C: PASS TO MATE
             if (nearPlayer != null && nearPlayerDistance < 350) {
-                targetDistance = nearPlayerDistance;
+                targetDistance = 0.7f * nearPlayerDistance;
                 targetAngle = Emath.angle(player.x, player.y, nearPlayer.x, nearPlayer.y);
                 Gdx.app.debug(player.shirtName, "Passing to mate");
             }
