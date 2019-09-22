@@ -262,10 +262,10 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
     private void setCoveringTarget() {
         float referenceY = player.side * GOAL_LINE;
-        float deltaX = ball.x * GOAL_AREA_H / Math.abs(ball.y - referenceY);
+        float deltaX = ball.x * (GOAL_AREA_H - 20) / Math.abs(ball.y - referenceY);
 
-        float tx = Math.signum(deltaX) * Math.min(Math.abs(deltaX), GOAL_AREA_W / 2f);
-        float ty = player.side * Emath.clamp(Math.abs(ball.y), GOAL_LINE - GOAL_AREA_H, GOAL_LINE);
+        float tx = Math.signum(deltaX) * Math.min(Math.abs(deltaX), (GOAL_AREA_W / 2f - 10));
+        float ty = player.side * Emath.clamp(Math.abs(ball.y), GOAL_LINE - (GOAL_AREA_H - 20), GOAL_LINE);
 
         if (Emath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
             player.tx = tx;
