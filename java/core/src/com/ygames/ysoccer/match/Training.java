@@ -10,6 +10,7 @@ import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -100,6 +101,12 @@ public class Training extends Scene {
 
         team.coach.x = BENCH_X;
         team.coach.y = BENCH_Y_UP + 32;
+    }
+
+    void resetPosition(Player player) {
+        player.tx = 18 * (-team.lineup.size() + 2 * player.index) + 8 * Emath.cos(70 * (player.number));
+        player.ty = team.side * (15 + 5 * (player.index % 2)) + 8 * Emath.sin(70 * (player.number));
+        player.setState(STATE_REACH_TARGET);
     }
 
     @Override

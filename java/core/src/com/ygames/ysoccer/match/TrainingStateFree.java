@@ -5,8 +5,6 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
-import java.util.Collections;
-
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
@@ -95,14 +93,21 @@ class TrainingStateFree extends TrainingState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
 
+        // control swap / keeper swap
         if ((ball.owner == null) && (ball.ownerLast != null)) {
             if (team.near1.ballDistance < ball.ownerLast.ballDistance && team.near1.ballDistance < 20) {
                 if (team.near1 != team.lineup.get(0)) {
                     if ((ball.ownerLast.inputDevice != ball.ownerLast.ai)
                             && (team.near1.inputDevice == team.near1.ai)) {
                         if (team.near1.role == GOALKEEPER) {
+                            // TODO enable after pointOfInterest is moved to Scene
+                            /*
                             // swap goalkeepers
+                            team.lineup.get(team.near1.index).setState(STATE_KEEPER_POSITIONING);
+                            training.resetPosition(team.lineup.get(0));
+                            team.lineup.get(0).setState(STATE_REACH_TARGET);
                             Collections.swap(team.lineup, 0, team.near1.index);
+                            */
                         } else {
                             // transfer input device
                             team.near1.setInputDevice(ball.ownerLast.inputDevice);
