@@ -60,7 +60,7 @@ public abstract class SceneRenderer {
 
     abstract public void render();
 
-    public void resize(int width, int height, int newZoom) {
+    void resize(int width, int height, int newZoom) {
         screenWidth = width;
         screenHeight = height;
         float zoomMin = width / (VISIBLE_FIELD_WIDTH_MAX * 2 * Const.TOUCH_LINE);
@@ -111,6 +111,7 @@ public abstract class SceneRenderer {
                 }
             }
         }
+        Assets.random.setSeed(System.currentTimeMillis());
         batch.setColor(0xFFFFFF, 1f);
     }
 
@@ -131,6 +132,7 @@ public abstract class SceneRenderer {
                 }
             }
         }
+        Assets.random.setSeed(System.currentTimeMillis());
         batch.setColor(0xFFFFFF, 1f);
     }
 
