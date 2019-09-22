@@ -16,7 +16,7 @@ class PlayerStateOutside extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        v = 180 + Emath.rand(0, 20);
+        v = 180 + Emath.rand(0, 30);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.math.Emath;
 
@@ -21,8 +20,10 @@ class PlayerStateTackle extends PlayerState {
         hit = false;
 
         player.v = 1.4f * (player.speed) * (1 + 0.02f * player.skills.tackling);
-        player.x += 8 * Emath.cos(player.a);
-        player.y += 8 * Emath.sin(player.a);
+        player.x += 10 * Emath.cos(player.a);
+        player.y += 10 * Emath.sin(player.a);
+        player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;
+        player.fmy = 4;
     }
 
     @Override
@@ -30,7 +31,8 @@ class PlayerStateTackle extends PlayerState {
         super.doActions();
 
         if (!hit) {
-            if ((ball.z < 5) && (player.ballDistance < 9)) {
+            float bodyDistance = Emath.dist(player.x - 9 * Emath.cos(player.a), player.y - 9 * Emath.sin(player.a), ball.x, ball.y);
+            if ((ball.z < 5) && (player.ballDistance < 9 || bodyDistance < 9)) {
                 float angle = Emath.aTan2(ball.y - player.y, ball.x - player.x);
                 float angleDiff = Math.abs((((angle - player.a + 540) % 360)) - 180);
                 if ((angleDiff <= 90)
