@@ -93,7 +93,7 @@ class AiStatePenaltyKicking extends AiState {
 
         switch (step) {
             case TURNING:
-                if (timer > 5) {
+                if (timer > 10) {
                     ai.x0 = Math.round(Emath.cos(controlsAngle));
                     ai.y0 = Math.round(Emath.sin(controlsAngle));
                     Gdx.app.debug(
