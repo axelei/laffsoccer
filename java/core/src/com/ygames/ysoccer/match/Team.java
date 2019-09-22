@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -490,6 +491,7 @@ public class Team implements Json.Serializable {
     }
 
     void automaticInputDeviceSelection() {
+        Ball ball = match.ball;
 
         // search controlled player
         Player controlled = null;
@@ -501,47 +503,66 @@ public class Team implements Json.Serializable {
             }
         }
 
-        if (controlled == null) {
+        if (ball.owner != null) {
+            if (ball.owner.team.index == index) {
+                if (ball.owner != controlled) {
+                    if (controlled != null) {
+                        controlled.inputDevice = controlled.ai;
+                    }
+                    ball.owner.inputDevice = inputDevice;
+                }
+            } else {
+                if (near1 != controlled
+                        && near1.index != 0
+                        && near1betterThan(controlled)
+                ) {
+                    if (controlled != null) {
+                        controlled.inputDevice = controlled.ai;
+                    }
+                    near1.inputDevice = inputDevice;
+                }
+            }
+        } else if (controlled == null) {
 
-            // assign input device
-            if (near1.getState().checkId(STATE_STAND_RUN)) {
+            if (bestDefender != null && !attacking()) {
+                bestDefender.inputDevice = inputDevice;
+            } else {
                 near1.inputDevice = inputDevice;
             }
 
-        } else if (match.ball.owner == null) {
+        } else if (controlled.checkState(STATE_STAND_RUN)) {
 
-            // move input_device to nearest
-            if ((controlled != near1)
-                    && (controlled.frameDistance == Const.BALL_PREDICTION)) {
-
-                if (controlled.getState().checkId(STATE_STAND_RUN)
-                        && near1.getState().checkId(STATE_STAND_RUN)) {
-                    near1.inputDevice = inputDevice;
+            if (attacking()) {
+                if (controlled.frameDistance == BALL_PREDICTION
+                        && near1.frameDistance < BALL_PREDICTION) {
                     controlled.inputDevice = controlled.ai;
+                    near1.inputDevice = inputDevice;
                 }
-            }
-
-        } else if (match.ball.owner.team.index == index) {
-
-            // move input_device to ball owner
-            if ((controlled != match.ball.owner)
-                    && controlled.getState().checkId(STATE_STAND_RUN)
-                    && near1.getState().checkId(STATE_STAND_RUN)) {
-                match.ball.owner.inputDevice = inputDevice;
+            } else if (bestDefender != null
+                    && bestDefender.frameDistance < BALL_PREDICTION) {
                 controlled.inputDevice = controlled.ai;
-            }
-
-        } else {
-
-            if ((bestDefender != null)
-                    && (bestDefender != controlled)
-                    && (bestDefender.defendDistance < 0.95f * controlled.defendDistance)
-                    && controlled.getState().checkId(STATE_STAND_RUN)
-                    && bestDefender.getState().checkId(STATE_STAND_RUN)) {
                 bestDefender.inputDevice = inputDevice;
-                controlled.inputDevice = controlled.ai;
             }
         }
+    }
+
+    private boolean attacking() {
+        return Math.signum(Emath.sin(match.ball.a)) == -side
+                && match.ball.ownerLast.team.index == index;
+    }
+
+    private boolean near1betterThan(Player controlled) {
+        if (controlled == null) return true;
+
+        if(controlled.frameDistance == BALL_PREDICTION
+        && near1.frameDistance < BALL_PREDICTION) return true;
+
+        if(controlled.checkState(STATE_STAND_RUN)
+                && near1.frameDistance < 0.25 * controlled.frameDistance) {
+            return true;
+        }
+
+        return false;
     }
 
     InputDevice fire1Down() {
