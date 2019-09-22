@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.math.Emath;
 
 public class Const {
 
@@ -124,4 +125,21 @@ public class Const {
     // width and height of each ball zone
     static final int BALL_ZONE_DX = 206;
     static final int BALL_ZONE_DY = 184;
+
+
+    static boolean isInsidePenaltyArea(float x, float y, int ySide) {
+        return Math.abs(x) < (PENALTY_AREA_W / 2)
+                && Emath.isIn(y,
+                ySide * (GOAL_LINE - PENALTY_AREA_H),
+                ySide * GOAL_LINE
+        );
+    }
+
+    static boolean isDirectShot(float x, float y, int ySide) {
+        return Math.abs(x) < (PENALTY_AREA_W / 2 + 110)
+                && Emath.isIn(y,
+                ySide * (GOAL_LINE - PENALTY_AREA_H - 110),
+                ySide * GOAL_LINE
+        );
+    }
 }

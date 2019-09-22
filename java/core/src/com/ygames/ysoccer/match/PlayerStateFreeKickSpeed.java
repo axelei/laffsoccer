@@ -51,16 +51,26 @@ class PlayerStateFreeKickSpeed extends PlayerState {
 
             if (thrown) {
 
-                float f;
+                float factor;
+
+                // low shots
                 if (Math.abs(angleDiff) < 67.5f) {
-                    f = 0;
-                } else if (Math.abs(angleDiff) < 112.5f) {
-                    f = 1.0f;
-                } else {
-                    f = 1.3f;
+                    factor = 0.35f;
                 }
-                ball.v = 160 + 160 * f + 300f * timer / Const.SECOND;
-                ball.vz = f * (100 + 400f * timer / Const.SECOND);
+                // medium shots
+                else if (Math.abs(angleDiff) < 112.5f) {
+                    factor = 1.0f;
+                }
+                // high shots
+                else {
+                    factor = 1.3f;
+                }
+
+                // 240 + 7 + 37 : 96 = 284 : 343 (low)
+                // 240 + 20 + 37 : 96 = 297 : 356 (medium)
+                // 240 + 26 + 37 : 96 = 303 : 362 (high)
+                ball.v = 240 + 20 * factor + (250f + 10 * player.skills.shooting) * timer / Const.SECOND;
+                ball.vz = factor * (100 + 400f * timer / Const.SECOND);
 
                 boolean longRange = (timer > 0.2f * Const.SECOND);
 

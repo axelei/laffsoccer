@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_FREE_KICKING;
@@ -30,7 +29,7 @@ class AiStateFreeKicking extends AiState {
     private Step step;
 
     enum KickType {
-        SHORT,
+        PASS,
         MEDIUM,
         LONG
     }
@@ -55,6 +54,7 @@ class AiStateFreeKicking extends AiState {
 
         // CASE B: DIRECT SHOT
         else if (player.match.foul.isDirectShot() && playerHasShootingConfidence) {
+            // goal target distance range: 174 (PENALTY_AREA_H) .. 450
             setGoalTarget();
             Gdx.app.debug(player.shirtName, "Kicking to goal");
         } else {
@@ -64,7 +64,7 @@ class AiStateFreeKicking extends AiState {
 
             // CASE C: PASS TO MATE
             if (nearPlayer != null && nearPlayerDistance < 350) {
-                targetDistance = 0.7f * nearPlayerDistance;
+                targetDistance = nearPlayerDistance;
                 targetAngle = Emath.angle(player.x, player.y, nearPlayer.x, nearPlayer.y);
                 Gdx.app.debug(player.shirtName, "Passing to mate");
             }
@@ -77,17 +77,29 @@ class AiStateFreeKicking extends AiState {
             }
         }
 
-        if (targetDistance <= 250) {
-            kickType = KickType.SHORT;
-            kickDuration = (250 + targetDistance) / 10000 * GLGame.VIRTUAL_REFRESH_RATE;
+        if (targetDistance <= 150) {
+            kickType = KickType.PASS;
+
+            // targetDistance:  0 .. 250
+            // kickDuration:    3 + 0 .. 1 = 3 .. 4
+            // timer:           77 .. ?
+            kickDuration = 3 + targetDistance / 150;
             preparingTime = 20;
-        } else if (targetDistance < 500) {
+        } else if (targetDistance < 300) {
             kickType = KickType.MEDIUM;
-            kickDuration = (100 + targetDistance) / 10000 * GLGame.VIRTUAL_REFRESH_RATE;
+
+            // targetDistance:  150 .. 300
+            // kickDuration:    8 .. 11 + 2 .. 5 = 10 .. 17
+            // timer:           77 .. 136
+            kickDuration = Emath.rand(8, 11) + targetDistance / 60;
             preparingTime = 30;
         } else {
             kickType = KickType.LONG;
-            kickDuration = targetDistance / 30000 * GLGame.VIRTUAL_REFRESH_RATE;
+
+            // targetDistance:  300 .. 450
+            // kickDuration:    11 .. 13 + 2 .. 3 = 13 .. 16
+            // timer:           ? .. ?
+            kickDuration = Emath.rand(11, 13) + targetDistance / 120;
             preparingTime = 40;
         }
         Gdx.app.debug(player.shirtName,
@@ -126,7 +138,7 @@ class AiStateFreeKicking extends AiState {
 
             case KICKING:
                 switch (kickType) {
-                    case SHORT:
+                    case PASS:
                         ai.x0 = Math.round(Emath.cos(player.a));
                         ai.y0 = Math.round(Emath.sin(player.a));
                         if (kickSpin != 0 && player.getState().checkId(STATE_FREE_KICK_SPEED)) {
@@ -181,30 +193,25 @@ class AiStateFreeKicking extends AiState {
                         ", nearPostCorrection: " + nearPostCorrection +
                         ", farPostCorrection: " + farPostCorrection);
 
-        float distance;
-        float targetMultiplier = Emath.rand(15, 20) / 10f;
-
         // CASE A: LAUNCH TO PENALTY AREA
         if (nearPostCorrection > 12 && farPostCorrection > 12) {
-            distance = Emath.dist(player.ball.x, player.ball.y, 0, -player.team.side * PENALTY_SPOT_Y);
+            targetDistance = Emath.dist(player.ball.x, player.ball.y, 0, -player.team.side * PENALTY_SPOT_Y);
             targetAngle = Emath.angle(player.ball.x, player.ball.y, 0, -player.team.side * PENALTY_SPOT_Y);
-            Gdx.app.debug(player.shirtName, "Penalty spot post distance: " + distance + ", angle: " + targetAngle + " targetMultiplier:" + targetMultiplier);
+            Gdx.app.debug(player.shirtName, "Penalty spot post distance: " + targetDistance + ", angle: " + targetAngle);
         }
 
         // CASE B: TARGET NEAR POST
         else if (nearPostCorrection < farPostCorrection) {
-            distance = Emath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+            targetDistance = Emath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
             targetAngle = Emath.angle(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-            Gdx.app.debug(player.shirtName, "Near post distance: " + distance + ", angle: " + targetAngle + " targetMultiplier:" + targetMultiplier);
+            Gdx.app.debug(player.shirtName, "Near post distance: " + targetDistance + ", angle: " + targetAngle);
         }
 
         // CASE C: TARGET FAR POST
         else {
-            distance = Emath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+            targetDistance = Emath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
             targetAngle = Emath.angle(player.ball.x, player.ball.y, -player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-            Gdx.app.debug(player.shirtName, "Far post distance: " + distance + ", angle: " + targetAngle + " targetMultiplier:" + targetMultiplier);
+            Gdx.app.debug(player.shirtName, "Far post distance: " + targetDistance + ", angle: " + targetAngle);
         }
-
-        targetDistance = targetMultiplier * distance;
     }
 }

@@ -281,11 +281,7 @@ class Ball {
     }
 
     boolean isInsidePenaltyArea(int ySide) {
-        return Math.abs(x) < (PENALTY_AREA_W / 2)
-                && Emath.isIn(y,
-                ySide * (GOAL_LINE - PENALTY_AREA_H),
-                ySide * GOAL_LINE
-        );
+        return Const.isInsidePenaltyArea(x, y, ySide);
     }
 
     public boolean collisionGoal() {
@@ -526,11 +522,7 @@ class Ball {
     }
 
     boolean isDirectShot(int ySide) {
-        return Math.abs(x) < (PENALTY_AREA_W / 2 + 110)
-                && Emath.isIn(y,
-                ySide * (GOAL_LINE - PENALTY_AREA_H - 110),
-                ySide * GOAL_LINE
-        );
+        return Const.isDirectShot(x,y,ySide);
     }
 
     static class PhysicsSet {
