@@ -30,11 +30,11 @@ class PlayerStateTackle extends PlayerState {
     void doActions() {
         super.doActions();
 
+        // feet collision
         if (!hit) {
-            float bodyDistance = Emath.dist(player.x - 9 * Emath.cos(player.a), player.y - 9 * Emath.sin(player.a), ball.x, ball.y);
-            if ((ball.z < 5) && (player.ballDistance < 9 || bodyDistance < 9)) {
+            if (ball.z < 5 && player.ballDistance < 7) {
                 float angle = Emath.aTan2(ball.y - player.y, ball.x - player.x);
-                float angleDiff = Math.abs((((angle - player.a + 540) % 360)) - 180);
+                float angleDiff = Emath.angleDiff(angle, player.a);
                 if ((angleDiff <= 90)
                         && (player.ballDistance * Emath.sin(angleDiff) <= (8 + 0.3f * player.skills.tackling))) {
 
@@ -51,6 +51,19 @@ class PlayerStateTackle extends PlayerState {
 
                     Assets.Sounds.kick.play(0.1f * (1 + 0.03f * timer) * Assets.Sounds.volume / 100f);
                 }
+            }
+        }
+
+        // body collision
+        if (!hit) {
+            float bodyX = player.x - 9 * Emath.cos(player.a);
+            float bodyY = player.y - 9 * Emath.sin(player.a);
+            if (ball.z < 7 && Emath.dist(ball.x, ball.y, bodyX, bodyY) < 9) {
+                float angle = Emath.aTan2(ball.y - bodyY, ball.x - bodyX);
+                float angleDiff = Emath.angleDiff(angle, player.a);
+                ball.v = player.v * Math.abs(Emath.cos(angleDiff));
+                ball.a = angle;
+                hit = true;
             }
         }
 

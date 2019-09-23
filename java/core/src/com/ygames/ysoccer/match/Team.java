@@ -69,14 +69,14 @@ public class Team implements Json.Serializable {
 
     public List<Player> players;
     public List<Player> lineup;
-    public int substitutionsCount;
+    int substitutionsCount;
     int kickerIndex;
     ArrayList<Player> barrier;
 
     private static Map<Player.Role, Player.Role[]> substitutionRules;
 
     static {
-        Map<Player.Role, Player.Role[]> aMap = new HashMap<Player.Role, Player.Role[]>();
+        Map<Player.Role, Player.Role[]> aMap = new HashMap<>();
         aMap.put(GOALKEEPER, new Player.Role[]{GOALKEEPER, GOALKEEPER});
         aMap.put(RIGHT_BACK, new Player.Role[]{LEFT_BACK, DEFENDER});
         aMap.put(LEFT_BACK, new Player.Role[]{RIGHT_BACK, DEFENDER});
@@ -100,8 +100,8 @@ public class Team implements Json.Serializable {
 
     public Team() {
         controlMode = ControlMode.UNDEFINED;
-        kits = new ArrayList<Kit>();
-        players = new ArrayList<Player>();
+        kits = new ArrayList<>();
+        players = new ArrayList<>();
     }
 
     @Override
@@ -561,14 +561,6 @@ public class Team implements Json.Serializable {
         }
     }
 
-    boolean attacking() {
-        if (match.ball.owner == null) {
-            return match.ball.ownerLast != null && match.ball.ownerLast.team.index == index;
-        } else {
-            return match.ball.owner.team.index == index;
-        }
-    }
-
     private boolean near1betterThan(Player controlled) {
         if (near1 == controlled || near1.index == 0) return false;
 
@@ -642,7 +634,7 @@ public class Team implements Json.Serializable {
         return playerAtPosition(pos, null);
     }
 
-    public Player playerAtPosition(int pos, Tactics tcs) {
+    Player playerAtPosition(int pos, Tactics tcs) {
         if (tcs == null) {
             tcs = Assets.tactics[tactics];
         }
@@ -654,11 +646,11 @@ public class Team implements Json.Serializable {
         }
     }
 
-    public Player lineupAtPosition(int pos) {
+    Player lineupAtPosition(int pos) {
         return lineupAtPosition(pos, null);
     }
 
-    public Player lineupAtPosition(int pos, Tactics tcs) {
+    private Player lineupAtPosition(int pos, Tactics tcs) {
         if (tcs == null) {
             tcs = Assets.tactics[tactics];
         }
@@ -720,7 +712,7 @@ public class Team implements Json.Serializable {
         }
     }
 
-    public int defenseRating() {
+    int defenseRating() {
         int defense = 0;
         for (int p = 0; p < 11; p++) {
             defense += playerAtPosition(p).getDefenseRating();
@@ -728,7 +720,7 @@ public class Team implements Json.Serializable {
         return defense;
     }
 
-    public int offenseRating() {
+    int offenseRating() {
         int offense = 0;
         for (int p = 0; p < 11; p++) {
             offense += playerAtPosition(p).getOffenseRating();
@@ -840,7 +832,7 @@ public class Team implements Json.Serializable {
         String kitPath = path.replaceFirst("/team.", "/kit.").replaceFirst(".json", ".png");
         FileHandle file = Assets.teamsRootFolder.child(kitPath);
         if (file.exists()) {
-            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            List<RgbPair> rgbPairs = new ArrayList<>();
             kits.get(index).addKitColors(rgbPairs);
             return Assets.loadTextureRegion(file.path(), rgbPairs);
         }
@@ -850,7 +842,7 @@ public class Team implements Json.Serializable {
         kitPath = path.replaceFirst("/team.", "/kit_" + names[index] + ".").replaceFirst(".json", ".png");
         file = Assets.teamsRootFolder.child(kitPath);
         if (file.exists()) {
-            List<RgbPair> rgbPairs = new ArrayList<RgbPair>();
+            List<RgbPair> rgbPairs = new ArrayList<>();
             kits.get(index).addKitColors(rgbPairs);
             return Assets.loadTextureRegion(file.path(), rgbPairs);
         }
@@ -863,10 +855,12 @@ public class Team implements Json.Serializable {
         return controlModeColors[controlMode.ordinal()];
     }
 
-    Player searchPlayerNearTo(Player other, float maxDistance) {
-        for (int j = 0; j < TEAM_SIZE; j++) {
-            Player ply = lineup.get(j);
-            if (Emath.dist(ply.x, ply.y, other.x, other.y) < maxDistance) {
+    Player searchPlayerTackledBy(Player tackler) {
+        for (int i = 0; i < TEAM_SIZE; i++) {
+            Player ply = lineup.get(i);
+            float feetDistance = Emath.dist(ply.x, ply.y, tackler.x, tackler.y);
+            float bodyDistance = Emath.dist(ply.x, ply.y, tackler.x - 9 * Emath.cos(tackler.a), tackler.y - 9 * Emath.sin(tackler.a));
+            if (feetDistance < 7 || bodyDistance < 9) {
                 return ply;
             }
         }

@@ -154,7 +154,7 @@ class MatchStateMain extends MatchState {
 
                             // search near opponents
                             Team opponentTeam = match.team[1 - player.team.index];
-                            Player opponent = opponentTeam.searchPlayerNearTo(player, 8);
+                            Player opponent = opponentTeam.searchPlayerTackledBy(player);
 
                             if (opponent != null && !opponent.checkState(STATE_DOWN)) {
                                 float strength = (4f + player.v / 260f) / 5f;

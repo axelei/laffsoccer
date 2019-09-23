@@ -48,8 +48,7 @@ public class Emath {
     }
 
     public static float angleDiff(float a1, float a2) {
-        float d = Math.abs(a2 - a1) % 360;
-        return d > 180 ? 360 - d : d;
+        return Math.abs((((a1 - a2 + 540) % 360)) - 180);
     }
 
     public static float signedAngleDiff(float a1, float a2) {
