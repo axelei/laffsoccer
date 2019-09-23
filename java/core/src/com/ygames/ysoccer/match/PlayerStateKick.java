@@ -187,13 +187,15 @@ class PlayerStateKick extends PlayerState {
         if (timer > 0.35 * Const.SECOND) {
             return fsm.stateStandRun;
         }
+
+        if (ballLost()) {
+            return fsm.stateStandRun;
+        }
+
         return null;
     }
 
-    @Override
-    void exitActions() {
-        if (player.team.usesAutomaticInputDevice()) {
-            player.inputDevice = player.ai;
-        }
+    private boolean ballLost() {
+        return ball.owner != null && ball.owner.team.side != player.team.side;
     }
 }

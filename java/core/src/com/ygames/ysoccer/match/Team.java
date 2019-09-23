@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.framework.TeamList;
@@ -19,8 +20,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.PLAYER_H;
 import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
@@ -504,65 +507,90 @@ public class Team implements Json.Serializable {
         }
 
         if (ball.owner != null) {
+            // ball owned: attacking
             if (ball.owner.team.index == index) {
                 if (ball.owner != controlled) {
                     if (controlled != null) {
                         controlled.inputDevice = controlled.ai;
                     }
                     ball.owner.inputDevice = inputDevice;
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + ball.owner.numberName() + " because is ball owner (attacking)");
                 }
-            } else {
-                if (near1 != controlled
-                        && near1.index != 0
-                        && near1betterThan(controlled)
-                ) {
+            }
+            // ball owned by opponent: defending
+            else {
+                if (bestDefenderBetterThan(controlled)) {
+                    if (controlled != null) {
+                        controlled.inputDevice = controlled.ai;
+                    }
+                    bestDefender.inputDevice = inputDevice;
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is best defender (defending)");
+                } else if (near1betterThan(controlled)) {
                     if (controlled != null) {
                         controlled.inputDevice = controlled.ai;
                     }
                     near1.inputDevice = inputDevice;
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (defending)");
                 }
             }
-        } else if (controlled == null) {
-
-            if (bestDefender != null && !attacking()) {
-                bestDefender.inputDevice = inputDevice;
-            } else {
-                near1.inputDevice = inputDevice;
-            }
-
-        } else if (controlled.checkState(STATE_STAND_RUN)) {
-
-            if (attacking()) {
-                if (controlled.frameDistance == BALL_PREDICTION
-                        && near1.frameDistance < BALL_PREDICTION) {
-                    controlled.inputDevice = controlled.ai;
+        } else {
+            // owned last ball: attacking
+            if (match.ball.ownerLast != null && match.ball.ownerLast.team.index == index) {
+                if (ball.z > 2 * PLAYER_H && near1betterThan(controlled)) {
+                    if (controlled != null) {
+                        controlled.inputDevice = controlled.ai;
+                    }
                     near1.inputDevice = inputDevice;
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (attacking)");
                 }
-            } else if (bestDefender != null
-                    && bestDefender.frameDistance < BALL_PREDICTION) {
-                controlled.inputDevice = controlled.ai;
+            }
+            // defending
+            else if (bestDefenderBetterThan(controlled)) {
+                if (controlled != null) {
+                    controlled.inputDevice = controlled.ai;
+                }
                 bestDefender.inputDevice = inputDevice;
+                GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is best defender (defending)");
+            } else if (near1betterThan(controlled)) {
+                if (controlled != null) {
+                    controlled.inputDevice = controlled.ai;
+                }
+                near1.inputDevice = inputDevice;
+                GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (defending without best defender)");
             }
         }
     }
 
-    private boolean attacking() {
-        return Math.signum(Emath.sin(match.ball.a)) == -side
-                && match.ball.ownerLast.team.index == index;
+    boolean attacking() {
+        if (match.ball.owner == null) {
+            return match.ball.ownerLast != null && match.ball.ownerLast.team.index == index;
+        } else {
+            return match.ball.owner.team.index == index;
+        }
     }
 
     private boolean near1betterThan(Player controlled) {
+        if (near1 == controlled || near1.index == 0) return false;
+
         if (controlled == null) return true;
 
-        if(controlled.frameDistance == BALL_PREDICTION
-        && near1.frameDistance < BALL_PREDICTION) return true;
+        if (!controlled.checkState(STATE_STAND_RUN)) return false;
 
-        if(controlled.checkState(STATE_STAND_RUN)
-                && near1.frameDistance < 0.25 * controlled.frameDistance) {
-            return true;
-        }
+        if (controlled.frameDistance == BALL_PREDICTION
+                && near1.frameDistance < BALL_PREDICTION) return true;
 
-        return false;
+        return near1.frameDistance < 0.1 * controlled.frameDistance;
+    }
+
+    private boolean bestDefenderBetterThan(Player controlled) {
+        if (bestDefender == null) return false;
+
+        if (controlled == null) return true;
+
+        return !controlled.checkState(STATE_STAND_RUN)
+                && bestDefender != controlled
+                && bestDefender.frameDistance < BALL_PREDICTION
+                && bestDefender.frameDistance < 0.25 * controlled.frameDistance;
     }
 
     InputDevice fire1Down() {

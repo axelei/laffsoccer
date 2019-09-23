@@ -14,7 +14,7 @@ public class Const {
     static float BOUNCE = 0.9f;
     static float PLAYER_RUN_ANIMATION = 0.18f;
     static float PASSING_THRESHOLD = 0.1f;
-    static float PASSING_SPEED_FACTOR = 0.2f;
+    static float PASSING_SPEED_FACTOR = 0.3f;
 
     static final int REPLAY_DURATION = 8; // seconds
     static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRESH_RATE;

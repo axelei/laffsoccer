@@ -18,6 +18,7 @@ import static com.badlogic.gdx.Application.LOG_INFO;
 import static com.badlogic.gdx.Application.LOG_NONE;
 import static com.ygames.ysoccer.framework.GLGame.LogType.ATTACKING_AI;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
+import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
 
 class DeveloperOptions extends GLScreen {
 
@@ -30,7 +31,7 @@ class DeveloperOptions extends GLScreen {
         w = new TitleBar("DEVELOPER OPTIONS", 0x191FB0);
         widgets.add(w);
 
-        int y = 200;
+        int y = 180;
 
         w = new SectionLabel("GUI", y);
         widgets.add(w);
@@ -101,6 +102,12 @@ class DeveloperOptions extends GLScreen {
         w = new LogFilterLabel(PASSING, y);
         widgets.add(w);
         w = new LogFilterButton(PASSING, y);
+        widgets.add(w);
+
+        y += 22;
+        w = new LogFilterLabel(PLAYER_SELECTION, y);
+        widgets.add(w);
+        w = new LogFilterButton(PLAYER_SELECTION, y);
         widgets.add(w);
 
         w = new ExitButton();
@@ -390,7 +397,7 @@ class DeveloperOptions extends GLScreen {
         LogFilterLabel(GLGame.LogType logType, int y) {
             setColor(0x4D4D4D);
             setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
-            setText("LOG " + logType, Font.Align.CENTER, Assets.font6);
+            setText(logType.toString().replace("_","-"), Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }
