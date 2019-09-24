@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.GLGame;
 
 abstract class Scene {
@@ -8,6 +9,8 @@ abstract class Scene {
     protected SceneFsm fsm;
     protected int subframe;
     protected SceneSettings settings;
+
+    Vector2 pointOfInterest;
 
     SceneRenderer getRenderer() {
         return fsm.getSceneRenderer();
@@ -30,6 +33,14 @@ abstract class Scene {
 
     public void resize(int width, int height) {
         fsm.getSceneRenderer().resize(width, height, settings.zoom);
+    }
+
+    void setPointOfInterest(float x, float y) {
+        pointOfInterest.set(x, y);
+    }
+
+    void setPointOfInterest(Vector2 v) {
+        pointOfInterest.set(v);
     }
 
     abstract void quit();

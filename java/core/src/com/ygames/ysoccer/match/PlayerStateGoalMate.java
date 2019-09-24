@@ -15,7 +15,7 @@ class PlayerStateGoalMate extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        goal = player.match.goals.get(player.match.goals.size() - 1);
+        goal = player.getMatch().goals.get(player.getMatch().goals.size() - 1);
     }
 
     @Override

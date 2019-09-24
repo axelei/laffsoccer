@@ -94,8 +94,7 @@ public class Player implements Json.Serializable {
 
     Player passingMate;
     float passingMateAngleCorrection;
-    Match match;
-    SceneSettings sceneSettings;
+    Scene scene;
     Ball ball;
     public PlayerFsm fsm;
 
@@ -162,12 +161,15 @@ public class Player implements Json.Serializable {
         }
     }
 
+    public Match getMatch() {
+        return (Match) scene;
+    }
+
     void beforeMatch(Match match) {
         this.ball = match.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
-        this.match = match;
-        this.sceneSettings = match.settings;
+        scene = match;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
@@ -177,7 +179,7 @@ public class Player implements Json.Serializable {
         this.ball = training.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
-        this.sceneSettings = training.settings;
+        scene = training;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
@@ -216,6 +218,10 @@ public class Player implements Json.Serializable {
 
     public void setInputDevice(InputDevice inputDevice) {
         this.inputDevice = inputDevice;
+    }
+
+    boolean isAiControlled() {
+        return inputDevice == ai;
     }
 
     void setAi(Ai ai) {
@@ -414,7 +420,7 @@ public class Player implements Json.Serializable {
         }
 
         if (collisionType == KeeperCollision.CATCH) {
-            if (sceneSettings.commentary) {
+            if (scene.settings.commentary) {
                 int size = Assets.Commentary.keeperSave.size();
                 if (size > 0) {
                     Assets.Commentary.keeperSave.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);

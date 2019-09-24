@@ -98,8 +98,6 @@ public class Match extends Scene implements Json.Serializable {
 
     Recorder recorder;
 
-    Vector2 pointOfInterest;
-
     public Match() {
         team = new Team[2];
     }
@@ -644,13 +642,5 @@ public class Match extends Scene implements Json.Serializable {
         public Player opponent;
         float strength;
         float angleDiff;
-    }
-
-    void setPointOfInterest(float x, float y) {
-        pointOfInterest.set(x, y);
-    }
-
-    void setPointOfInterest(Vector2 v) {
-        pointOfInterest.set(v);
     }
 }

@@ -43,11 +43,11 @@ class PlayerStateThrowInSpeed extends PlayerState {
                 ball.vz = 500 * timer / GLGame.SUBFRAMES_PER_SECOND;
                 switch (Math.round(player.fmx)) {
                     case 2:
-                        ball.a = 90 + (10 + 5 * player.match.settings.wind.speed) * ball.xSide;
+                        ball.a = 90 + (10 + 5 * player.scene.settings.wind.speed) * ball.xSide;
                         break;
 
                     case 6:
-                        ball.a = 270 - (10 + 5 * player.match.settings.wind.speed) * ball.xSide;
+                        ball.a = 270 - (10 + 5 * player.scene.settings.wind.speed) * ball.xSide;
                         break;
 
                     default:

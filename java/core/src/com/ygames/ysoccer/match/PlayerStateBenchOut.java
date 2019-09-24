@@ -28,6 +28,6 @@ class PlayerStateBenchOut extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        player.setTarget(BENCH_X + 16, 12 * (2 * player.team.index - 1) * player.match.benchSide);
+        player.setTarget(BENCH_X + 16, 12 * (2 * player.team.index - 1) * player.getMatch().benchSide);
     }
 }

@@ -31,7 +31,7 @@ class PlayerStateBenchSitting extends PlayerState {
         super.entryActions();
 
         player.tx = Const.BENCH_X;
-        if ((1 - 2 * player.team.index) == player.match.benchSide) {
+        if ((1 - 2 * player.team.index) == player.getMatch().benchSide) {
             player.ty = BENCH_Y_UP + 14 * (player.index - TEAM_SIZE) + 46;
         } else {
             player.ty = BENCH_Y_DOWN + 14 * (player.index - TEAM_SIZE) + 46;

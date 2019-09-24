@@ -6,6 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
+import java.util.Collections;
+
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
@@ -20,7 +22,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
 
@@ -61,7 +63,7 @@ class TrainingStateFree extends TrainingState {
             }
 
             training.updatePlayers(true);
-            training.updatePlayersSide();
+            training.updateStatesAndSide();
             training.findNearest();
             training.updateBall();
 
@@ -94,7 +96,7 @@ class TrainingStateFree extends TrainingState {
                         if (player.checkState(STATE_KEEPER_KICK_ANGLE)) {
                             player.setState(STATE_KEEPER_POSITIONING);
                             ball.a = player.angleToPoint(lastTrained.x, lastTrained.y);
-                            ball.v = 240;
+                            ball.v = 180;
                         }
                     }
                 }
@@ -113,27 +115,38 @@ class TrainingStateFree extends TrainingState {
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
 
-        // control swap / keeper swap
-        if ((ball.owner == null) && (ball.ownerLast != null)) {
-            Player nearestOfAll = training.getNearestOfAll();
-            if (nearestOfAll != null
-                    && nearestOfAll.ballDistance < ball.ownerLast.ballDistance
-                    && nearestOfAll.ballDistance < 20) {
-                if ((ball.ownerLast.inputDevice != ball.ownerLast.ai)
-                        && (nearestOfAll.inputDevice == nearestOfAll.ai)) {
-                    if (nearestOfAll.role == GOALKEEPER
-                            && nearestOfAll != keepers[nearestOfAll.team.index]) {
-                        // TODO enable after pointOfInterest is moved to Scene
-//                        // swap goalkeepers
-//                        resetTargetPosition(keepers[nearestOfAll.team.index]);
-//                        keepers[nearestOfAll.team.index].setState(STATE_REACH_TARGET);
-//                        nearestOfAll.setState(STATE_KEEPER_POSITIONING);
-                    } else {
-                        // transfer input device
-                        nearestOfAll.setInputDevice(ball.ownerLast.inputDevice);
-                        ball.ownerLast.setInputDevice(ball.ownerLast.ai);
-                    }
+        if ((ball.owner != null) && (ball.owner != lastTrained)) {
+
+            // swap goalkeepers
+            if (ball.owner.role == GOALKEEPER) {
+                if (ball.owner != keepers[ball.owner.team.index]) {
+                    Team team = ball.owner.team;
+                    Player newKeeper = ball.owner;
+                    Player oldKeeper = keepers[team.index];
+
+                    newKeeper.setState(STATE_KEEPER_POSITIONING);
+
+                    resetTargetPosition(oldKeeper);
+                    oldKeeper.setState(STATE_REACH_TARGET);
+
+                    Collections.swap(team.lineup, oldKeeper.index, newKeeper.index);
+                    keepers[team.index] = newKeeper;
+
+                    ball.a = newKeeper.angleToPoint(lastTrained.x, lastTrained.y);
+                    ball.v = 180;
                 }
+            }
+
+            // swap controls
+            else if ((ball.owner.inputDevice == ball.owner.ai)
+                    && (lastTrained.inputDevice != lastTrained.ai)) {
+
+                ball.owner.setInputDevice(lastTrained.inputDevice);
+                ball.owner.setState(STATE_STAND_RUN);
+
+                lastTrained.setInputDevice(lastTrained.ai);
+                resetTargetPosition(lastTrained);
+                lastTrained.setState(STATE_REACH_TARGET);
             }
         }
 
@@ -186,7 +199,6 @@ class TrainingStateFree extends TrainingState {
         int len = team.lineup.size();
         for (int i = 0; i < len; i++) {
             Player player = team.lineup.get(i);
-            player.setState(STATE_OUTSIDE);
 
             Vector2 target = getDefaultTarget(player);
             player.x = target.x;
@@ -198,8 +210,8 @@ class TrainingStateFree extends TrainingState {
 
             // set states
             if (player.role == GOALKEEPER && keepers[team.index] == null) {
-                keepers[team.index] = player;
                 player.setState(STATE_KEEPER_POSITIONING);
+                keepers[team.index] = player;
             } else {
                 player.setState(STATE_STAND_RUN);
             }
