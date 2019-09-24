@@ -54,7 +54,7 @@ class MatchStatePenaltyKick extends MatchState {
 
         isKicking = false;
 
-        match.penalty.kicker.setTarget(match.ball.x, match.ball.y - 7 * match.ball.ySide);
+        match.penalty.kicker.setTarget(0, match.penalty.side * (Const.PENALTY_SPOT_Y - 7));
         match.penalty.kicker.setState(STATE_REACH_TARGET);
 
         sceneRenderer.actionCamera

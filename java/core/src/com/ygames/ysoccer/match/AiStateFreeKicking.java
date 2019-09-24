@@ -46,14 +46,14 @@ class AiStateFreeKicking extends AiState {
         boolean playerHasShootingConfidence = (Assets.random.nextFloat() < (0.13f * player.skills.shooting));
 
         // CASE A: CLEAN AREA
-        if (player.match.foul.isNearOwnGoal()) {
+        if (player.getMatch().foul.isNearOwnGoal()) {
             targetDistance = 500;
             targetAngle = -90 * player.team.side;
             Gdx.app.debug(player.shirtName, "Cleaning area");
         }
 
         // CASE B: DIRECT SHOT
-        else if (player.match.foul.isDirectShot() && playerHasShootingConfidence) {
+        else if (player.getMatch().foul.isDirectShot() && playerHasShootingConfidence) {
             // goal target distance range: 174 (PENALTY_AREA_H) .. 450
             setGoalTarget();
             Gdx.app.debug(player.shirtName, "Kicking to goal");

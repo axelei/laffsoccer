@@ -32,6 +32,7 @@ class PlayerFsm extends Fsm {
         STATE_OWN_GOAL_SCORER,
 
         STATE_KEEPER_POSITIONING,
+        STATE_KEEPER_PENALTY_POSITIONING,
         STATE_KEEPER_DIVING_LOW_SINGLE,
         STATE_KEEPER_DIVING_LOW_DOUBLE,
         STATE_KEEPER_DIVING_MIDDLE_ONE,
@@ -74,6 +75,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateKeeperKickAngle;
 
     PlayerState stateKeeperPositioning;
+    PlayerState stateKeeperPenaltyPositioning;
     PlayerState stateKeeperDivingLowSingle;
     PlayerState stateKeeperDivingLowDouble;
     PlayerState stateKeeperDivingMiddleOne;
@@ -113,6 +115,7 @@ class PlayerFsm extends Fsm {
         stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this);
 
         stateKeeperPositioning = new PlayerStateKeeperPositioning(this);
+        stateKeeperPenaltyPositioning = new PlayerStateKeeperPenaltyPositioning(this);
         stateKeeperDivingLowSingle = new PlayerStateKeeperDivingLowSingle(this);
         stateKeeperDivingLowDouble = new PlayerStateKeeperDivingLowDouble(this);
         stateKeeperDivingMiddleOne = new PlayerStateKeeperDivingMiddleOne(this);

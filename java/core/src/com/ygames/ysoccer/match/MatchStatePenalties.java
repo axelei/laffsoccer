@@ -13,7 +13,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_PENALTY_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -22,7 +22,6 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 class MatchStatePenalties extends MatchState {
 
     private boolean move;
-    private Player penaltyKeeper;
 
     MatchStatePenalties(MatchFsm fsm) {
         super(STATE_PENALTIES, fsm);
@@ -46,13 +45,11 @@ class MatchStatePenalties extends MatchState {
 
         match.nextPenalty();
 
-        penaltyKeeper = match.team[1 - match.penaltyKickingTeam].lineupAtPosition(0);
-
         match.setPointOfInterest(0, match.penalty.side * PENALTY_SPOT_Y);
 
         setPlayersTargetPositions();
-        match.penalty.kicker.setTarget(-40 * match.ball.ySide, match.penalty.side * (PENALTY_SPOT_Y - 45));
-        penaltyKeeper.setTarget(0, penaltyKeeper.team.side * (GOAL_LINE - 8));
+        match.penalty.kicker.setTarget(-40 * match.penalty.side, match.penalty.side * (PENALTY_SPOT_Y - 45));
+        match.penalty.keeper.setTarget(0, match.penalty.side * (GOAL_LINE - 4));
     }
 
     @Override
@@ -77,7 +74,7 @@ class MatchStatePenalties extends MatchState {
     @Override
     void checkConditions() {
         if (!move) {
-            penaltyKeeper.setState(STATE_KEEPER_POSITIONING);
+            match.penalty.keeper.setState(STATE_KEEPER_PENALTY_POSITIONING);
             fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK);
             return;
         }

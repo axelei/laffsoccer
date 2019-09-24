@@ -20,6 +20,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_PENALTY_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -59,8 +60,9 @@ class MatchStatePenaltyKickStop extends MatchState {
         }
 
         Player penaltyKicker = match.foul.opponent.team.lastOfLineup();
+        Player penaltyKeeper = match.foul.player.team.lineupAtPosition(0);
         match.foul = null;
-        match.createPenalty(penaltyKicker, match.ball.ySide);
+        match.createPenalty(penaltyKicker, penaltyKeeper, match.ball.ySide);
 
 
         // set the player targets relative to penalty
@@ -144,6 +146,7 @@ class MatchStatePenaltyKickStop extends MatchState {
     @Override
     void checkConditions() {
         if (allPlayersReachingTarget && !move) {
+            match.penalty.keeper.setState(STATE_KEEPER_PENALTY_POSITIONING);
             match.ball.setPosition(penaltyKickPosition.x, penaltyKickPosition.y, 0);
             match.ball.updatePrediction();
 

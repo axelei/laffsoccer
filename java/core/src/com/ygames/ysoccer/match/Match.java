@@ -81,11 +81,13 @@ public class Match extends Scene implements Json.Serializable {
     class Penalty {
         PenaltyState state;
         Player kicker;
+        Player keeper;
         int side;
 
-        Penalty(Player kicker, int side) {
+        Penalty(Player kicker, Player keeper, int side) {
             this.state = TO_KICK;
             this.kicker = kicker;
+            this.keeper = keeper;
             this.side = side;
         }
 
@@ -149,8 +151,8 @@ public class Match extends Scene implements Json.Serializable {
         pointOfInterest = new Vector2();
     }
 
-    void createPenalty(Player player, int side) {
-        this.penalty = new Penalty(player, side);
+    void createPenalty(Player player, Player keeper, int side) {
+        this.penalty = new Penalty(player, keeper, side);
     }
 
     void addPenalties(int n) {
@@ -158,8 +160,9 @@ public class Match extends Scene implements Json.Serializable {
             int newSize = penalties[t].size() + n;
             while (penalties[t].size() < newSize) {
                 Player kicker = team[t].lineupAtPosition(team[t].kickerIndex);
+                Player keeper = team[1 - t].lineupAtPosition(0);
                 if (!kicker.checkState(STATE_OUTSIDE)) {
-                    penalties[t].add(new Penalty(kicker, -1));
+                    penalties[t].add(new Penalty(kicker, keeper, -1));
                 }
                 team[t].kickerIndex = rotate(team[t].kickerIndex, 0, team[t].lineup.size() - 1, -1);
             }
