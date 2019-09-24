@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.strongjoshua.console.annotation.HiddenCommand;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
@@ -16,6 +17,15 @@ public class MatchConsoleCommandExecutor extends ConsoleCommandExecutor {
 
     public MatchConsoleCommandExecutor(Match match) {
         this.match = match;
+    }
+
+    @HiddenCommand
+    public void ballPosition() {
+        console.log("(" + match.ball.x + ", " + match.ball.y + ", " + match.ball.z + ")");
+    }
+
+    public void ballPosition(float x, float y, float z) {
+        match.ball.setPosition(x, y, z);
     }
 
     public void homePenalty() {

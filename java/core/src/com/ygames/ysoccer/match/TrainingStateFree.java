@@ -44,6 +44,7 @@ class TrainingStateFree extends TrainingState {
         super.entryActions();
 
         setIntroPositions();
+        training.findNearest();
         training.resetData();
 
         lastTrained = team[HOME].lineup.get(0);
@@ -63,7 +64,7 @@ class TrainingStateFree extends TrainingState {
             }
 
             training.updatePlayers(true);
-            training.updateStatesAndSide();
+            training.updateStates();
             training.findNearest();
             training.updateBall();
 
@@ -93,10 +94,13 @@ class TrainingStateFree extends TrainingState {
                         if (player.checkState(STATE_STAND_RUN)) {
                             player.watchPosition(ball.x, ball.y);
                         }
-                        if (player.checkState(STATE_KEEPER_KICK_ANGLE)) {
-                            player.setState(STATE_KEEPER_POSITIONING);
-                            ball.a = player.angleToPoint(lastTrained.x, lastTrained.y);
-                            ball.v = 180;
+                        if (player.checkState(STATE_KEEPER_KICK_ANGLE)
+                                && !Const.isInsideGoalArea(lastTrained.x, lastTrained.y, player.side)) {
+                            if (player.getState().timer > Const.SECOND) {
+                                player.setState(STATE_KEEPER_POSITIONING);
+                                ball.a = player.angleToPoint(lastTrained.x, lastTrained.y);
+                                ball.v = 180;
+                            }
                         }
                     }
                 }
@@ -221,7 +225,7 @@ class TrainingStateFree extends TrainingState {
     private Vector2 getDefaultTarget(Player player) {
         return new Vector2(
                 -280 + 16 * (-player.team.lineup.size() + 2 * player.index) + 6 * Emath.cos(70 * (player.number)),
-                player.team.side * (150 + 5 * (player.index % 2)) + 8 * Emath.sin(70 * (player.number))
+                -player.team.side * (150 + 5 * (player.index % 2)) + 8 * Emath.sin(70 * (player.number))
         );
     }
 

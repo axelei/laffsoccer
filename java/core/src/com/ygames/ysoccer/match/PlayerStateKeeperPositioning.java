@@ -18,7 +18,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
     enum Mode {DEFAULT, COVER_SHOOTING_ANGLE, RECOVER_BALL}
 
-    private Mode mode;
+    Mode mode;
     private int dangerTime;
     private float reactivity;
 
@@ -88,7 +88,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
             return fsm.stateStandRun;
         }
 
-        Player nearestOfAll = getNearestOfAll();
+        Player nearestOfAll = player.scene.getNearestOfAll();
 
         // update mode
         switch (mode) {
@@ -123,12 +123,12 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
             case COVER_SHOOTING_ANGLE:
                 if (ball.isInsidePenaltyArea(player.side)) {
-                    if (nearestOfAll == player) {
-                        mode = Mode.RECOVER_BALL;
-                    } else {
-                        if (ball.owner != null && ball.owner.team == player.team) {
-                            mode = Mode.DEFAULT;
+                    if (ball.owner == null) {
+                        if (nearestOfAll == player) {
+                            mode = Mode.RECOVER_BALL;
                         }
+                    } else if (ball.owner.team == player.team) {
+                        mode = Mode.DEFAULT;
                     }
                 } else {
                     mode = Mode.DEFAULT;
@@ -147,21 +147,21 @@ class PlayerStateKeeperPositioning extends PlayerState {
                 break;
         }
 
-
         return null;
     }
 
     private PlayerState getSaves() {
 
         boolean danger = false;
-        if (ball.isInsideDirectShotArea(player.side) && (ball.owner == null)) {
+        if (ball.isInsideDirectShotArea(player.side)
+                && (ball.owner == null || mode == Mode.COVER_SHOOTING_ANGLE)) {
             for (int frm = 0; frm < BALL_PREDICTION; frm++) {
                 float x = ball.prediction[frm].x;
                 float y = ball.prediction[frm].y;
                 float z = ball.prediction[frm].z;
                 if ((Math.abs(x) < GOAL_AREA_W / 2)
                         && (Math.abs(z) < 2 * CROSSBAR_H)
-                        && ((Math.abs(y) > GOAL_LINE) && (Math.abs(y) < GOAL_LINE + 15))) {
+                        && ((Math.abs(y) > Math.abs(player.y)) && (Math.abs(y) < Math.abs(player.y) + 15))) {
                     danger = true;
                     break;
                 }
@@ -285,20 +285,5 @@ class PlayerStateKeeperPositioning extends PlayerState {
             player.tx = tx;
             player.ty = ty;
         }
-    }
-
-    private Player getNearestOfAll() {
-        // hack for training mode
-        if (player.team.match == null) return player.team.near1;
-
-        Player player0 = player.team.near1;
-        Player player1 = player.team.match.team[1 - player.team.index].near1;
-
-        int distance0 = Emath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
-        int distance1 = Emath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
-
-        if (distance0 == BALL_PREDICTION && distance1 == BALL_PREDICTION) return null;
-
-        return distance0 < distance1 ? player0 : player1;
     }
 }

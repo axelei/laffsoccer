@@ -11,6 +11,7 @@ import com.ygames.ysoccer.math.Emath;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
@@ -493,6 +494,18 @@ public class Match extends Scene implements Json.Serializable {
     void findNearest() {
         team[HOME].findNearest();
         team[AWAY].findNearest();
+    }
+
+    Player getNearestOfAll() {
+        Player player0 = team[HOME].near1;
+        Player player1 = team[AWAY].near1;
+
+        int distance0 = Emath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
+        int distance1 = Emath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
+
+        if (distance0 == BALL_PREDICTION && distance1 == BALL_PREDICTION) return null;
+
+        return distance0 < distance1 ? player0 : player1;
     }
 
     void updateFrameDistance() {

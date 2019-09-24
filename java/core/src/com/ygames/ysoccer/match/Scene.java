@@ -43,5 +43,7 @@ abstract class Scene {
         pointOfInterest.set(v);
     }
 
+    abstract Player getNearestOfAll();
+
     abstract void quit();
 }

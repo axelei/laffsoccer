@@ -60,7 +60,7 @@ public class Training extends Scene {
         for (int t = HOME; t <= AWAY; t++) {
             team[t].index = t;
             team[t].beforeTraining(this);
-            team[t].setSide(-1 + 2 * t);
+            team[t].setSide(1 - 2 * t);
         }
 
         fsm = new TrainingFsm(this);
@@ -84,13 +84,12 @@ public class Training extends Scene {
         team[AWAY].updateLineup(limit);
     }
 
-    void updateStatesAndSide() {
+    void updateStates() {
         for (int t = HOME; t <= AWAY; t++) {
             for (Player player : team[t].lineup) {
                 if (player.checkState(STATE_IDLE)) {
                     player.setState(STATE_STAND_RUN);
                 }
-                player.side = (player.role == GOALKEEPER ? 1 : -1) * Emath.sgn(player.y);
             }
         }
     }

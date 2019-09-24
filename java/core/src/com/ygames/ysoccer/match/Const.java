@@ -137,6 +137,14 @@ public class Const {
         );
     }
 
+    static boolean isInsideGoalArea(float x, float y, int ySide) {
+        return Math.abs(x) < (GOAL_AREA_W / 2)
+                && Emath.isIn(y,
+                ySide * (GOAL_LINE - GOAL_AREA_H),
+                ySide * GOAL_LINE
+        );
+    }
+
     static boolean isInsideDirectShotArea(float x, float y, int ySide) {
         return Math.abs(x) < (DIRECT_SHOT_AREA_W / 2)
                 && Emath.isIn(y,
