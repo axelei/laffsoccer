@@ -8,6 +8,8 @@ import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
 
 import static com.badlogic.gdx.Gdx.gl;
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 
 public class TrainingRenderer extends SceneRenderer {
 
@@ -33,12 +35,15 @@ public class TrainingRenderer extends SceneRenderer {
         }
 
         allSprites.add(new BallSprite(glGraphics, training.ball));
-        CoachSprite coachSprite = new CoachSprite(glGraphics, training.team.coach);
+        CoachSprite coachSprite = new CoachSprite(glGraphics, training.team[HOME].coach);
         allSprites.add(coachSprite);
-        int len = training.team.lineup.size();
-        for (int i = 0; i < len; i++) {
-            PlayerSprite playerSprite = new PlayerSprite(glGraphics, training.team.lineup.get(i));
-            allSprites.add(playerSprite);
+
+        for (int t = HOME; t <= AWAY; t++) {
+            int len = training.team[t].lineup.size();
+            for (int i = 0; i < len; i++) {
+                PlayerSprite playerSprite = new PlayerSprite(glGraphics, training.team[t].lineup.get(i));
+                allSprites.add(playerSprite);
+            }
         }
 
         cornerFlagSprites = new CornerFlagSprite[4];
@@ -169,16 +174,18 @@ public class TrainingRenderer extends SceneRenderer {
         }
 
         // keepers
-        for (Player player : training.team.lineup) {
-            if (player.role == Player.Role.GOALKEEPER) {
-                d = player.data[subframe];
-                if (d.isVisible) {
-                    batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
-                    if (training.settings.time == MatchSettings.Time.NIGHT) {
-                        // TODO activate after getting keeper shadows
-                        // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
-                        // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
-                        // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+        for (int t = HOME; t <= AWAY; t++) {
+            for (Player player : training.team[t].lineup) {
+                if (player.role == Player.Role.GOALKEEPER) {
+                    d = player.data[subframe];
+                    if (d.isVisible) {
+                        batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                        if (training.settings.time == MatchSettings.Time.NIGHT) {
+                            // TODO activate after getting keeper shadows
+                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                        }
                     }
                 }
             }
@@ -186,15 +193,17 @@ public class TrainingRenderer extends SceneRenderer {
 
         // players
         for (int i = 0; i < (training.settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
-            for (Player player : training.team.lineup) {
-                if (player.role != Player.Role.GOALKEEPER) {
-                    d = player.data[subframe];
-                    if (d.isVisible) {
-                        float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
-                        float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
-                        float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
-                        float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
-                        batch.draw(Assets.playerShadow[d.fmx][d.fmy][i], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+            for (int t = HOME; t <= AWAY; t++) {
+                for (Player player : training.team[t].lineup) {
+                    if (player.role != Player.Role.GOALKEEPER) {
+                        d = player.data[subframe];
+                        if (d.isVisible) {
+                            float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
+                            float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
+                            float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
+                            float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
+                            batch.draw(Assets.playerShadow[d.fmx][d.fmy][i], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+                        }
                     }
                 }
             }
@@ -204,13 +213,15 @@ public class TrainingRenderer extends SceneRenderer {
     }
 
     private void drawControlledPlayersNumbers() {
-        if (training.team != null) {
-            int len = training.team.lineup.size();
-            for (int i = 0; i < len; i++) {
-                Player player = training.team.lineup.get(i);
-                if ((player.inputDevice != player.ai && player.isVisible)
-                        || (Settings.development && Settings.showPlayerNumber)) {
-                    drawPlayerNumber(player);
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            if (training.team[t] != null) {
+                int len = training.team[t].lineup.size();
+                for (int i = 0; i < len; i++) {
+                    Player player = training.team[t].lineup.get(i);
+                    if ((player.inputDevice != player.ai && player.isVisible)
+                            || (Settings.development && Settings.showPlayerNumber)) {
+                        drawPlayerNumber(player);
+                    }
                 }
             }
         }
@@ -242,7 +253,8 @@ public class TrainingRenderer extends SceneRenderer {
     @Override
     void save() {
         ball.save(training.subframe);
-        training.team.save(training.subframe);
+        training.team[HOME].save(training.subframe);
+        training.team[AWAY].save(training.subframe);
         vcameraX[training.subframe] = Math.round(actionCamera.x);
         vcameraY[training.subframe] = Math.round(actionCamera.y);
     }

@@ -11,6 +11,8 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Training;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 
 class TrainingLoading extends GLScreen {
@@ -21,31 +23,36 @@ class TrainingLoading extends GLScreen {
         super(game);
         playMenuMusic = false;
 
-        Team team = navigation.team;
+        Team trainingTeam = navigation.team;
         MatchSettings matchSettings = navigation.matchSettings;
 
         matchSettings.setup();
 
-        training = new Training(team);
+        training = new Training(trainingTeam);
         training.init(game, matchSettings);
-        setPlayersInputDevices();
+        assignInputDevices();
 
         game.unsetMouse();
 
         Assets.loadStadium(matchSettings);
-        Assets.loadCrowd(team);
+        Assets.loadCrowd(trainingTeam);
         Assets.loadBall(matchSettings);
         Assets.loadCornerFlags(matchSettings);
-        team.loadImage();
-        Assets.loadCoach(team);
-        Kit trainingKit = new Kit("PLAIN", 0xBFED6C, 0x264293, 0x264293, 0x264293, 0xBFED6C);
-        for (Player player : team.players) {
-            if (player.role == GOALKEEPER) {
-                Assets.loadKeeper(player);
-            } else {
-                Assets.loadPlayer(player, trainingKit);
+        Assets.loadCoach(trainingTeam);
+        Kit[] trainingKits = {
+                new Kit("PLAIN", 0xBFED6C, 0x264293, 0x264293, 0x264293, 0xBFED6C),
+                new Kit("PLAIN", 0xED7B5D, 0xEEEEEC, 0xEEEEEC, 0xEEEEEC, 0xED7B5D)
+        };
+        for (int t = HOME; t <= AWAY; t++) {
+            Team team = training.team[t];
+            for (Player player : team.lineup) {
+                if (player.role == GOALKEEPER) {
+                    Assets.loadKeeper(player);
+                } else {
+                    Assets.loadPlayer(player, trainingKits[t]);
+                }
+                Assets.loadHair(player);
             }
-            Assets.loadHair(player);
         }
     }
 
@@ -59,27 +66,24 @@ class TrainingLoading extends GLScreen {
         game.setScreen(new TrainingScreen(game, training));
     }
 
-    private void setPlayersInputDevices() {
+    private void assignInputDevices() {
         int assigned_devices = 0;
-        int i = 10;
-        while (i < training.team.lineup.size()) {
-            Player ply = training.team.lineup.get(i);
-            if (assigned_devices < game.inputDevices.size()) {
-                if (ply.role != GOALKEEPER) {
-                    ply.setInputDevice(game.inputDevices.get(assigned_devices));
-                    assigned_devices = assigned_devices + 1;
+        int[] i = {training.team[HOME].lineup.size() - 1, training.team[AWAY].lineup.size() - 1};
+        int t = HOME;
+        while (i[HOME] >= 0 || i[AWAY] >= 0) {
+            if (i[t] >= 0) {
+                Player ply = training.team[t].lineup.get(i[t]);
+                if (assigned_devices < game.inputDevices.size()) {
+                    if (ply.role != GOALKEEPER) {
+                        ply.setInputDevice(game.inputDevices.get(assigned_devices));
+                        assigned_devices = assigned_devices + 1;
+                    }
+                } else {
+                    ply.setInputDevice(ply.ai);
                 }
-            } else {
-                ply.setInputDevice(ply.ai);
+                i[t]--;
             }
-            if (i <= 10) {
-                i = i - 1;
-                if (i == 0) {
-                    i = 11;
-                }
-            } else {
-                i = i + 1;
-            }
+            t = 1 - t;
         }
     }
 }

@@ -76,7 +76,7 @@ public class Emath {
     }
 
     public static int sgn(float value) {
-        return value > 0 ? 1 : (value < 0 ? -1 : 0);
+        return (int) Math.signum(value);
     }
 
     public static int floor(double value) {

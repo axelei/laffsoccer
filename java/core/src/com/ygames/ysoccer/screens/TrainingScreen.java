@@ -10,6 +10,9 @@ import com.ygames.ysoccer.match.ConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Training;
 
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+
 class TrainingScreen extends GLScreen {
 
     private Training training;
@@ -83,17 +86,19 @@ class TrainingScreen extends GLScreen {
         ended = true;
         game.setMouse();
 
-        int len = training.team.lineup.size();
-        for (int i = 0; i < len; i++) {
-            Player player = training.team.lineup.get(i);
-            if (player.role == Player.Role.GOALKEEPER) {
-                Assets.unloadKeeper(player);
-            } else {
-                Assets.unloadPlayer(player);
+        for (int t = HOME; t <= AWAY; t++) {
+            int len = training.team[t].lineup.size();
+            for (int i = 0; i < len; i++) {
+                Player player = training.team[t].lineup.get(i);
+                if (player.role == Player.Role.GOALKEEPER) {
+                    Assets.unloadKeeper(player);
+                } else {
+                    Assets.unloadPlayer(player);
+                }
+                Assets.unloadHair(player);
             }
-            Assets.unloadHair(player);
+            training.team[t].lineup.clear();
         }
-        training.team.lineup.clear();
 
         game.setScreen(new SetupTraining(game));
     }

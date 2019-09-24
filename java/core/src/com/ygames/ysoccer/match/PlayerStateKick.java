@@ -43,7 +43,7 @@ class PlayerStateKick extends PlayerState {
             case UNKNOWN:
                 if (timer > 0.15 * Const.SECOND) {
                     if (player.inputDevice.fire11) {
-                        if (ball.isDirectShot(-player.side) && player.seesTheGoal()) {
+                        if (ball.isInsideDirectShotArea(-player.side) && player.seesTheGoal()) {
                             mode = Mode.SHOOTING;
 
                             Assets.Sounds.kick.play(Assets.Sounds.volume / 100f);

@@ -45,7 +45,7 @@ public class MatchConsoleCommandExecutor extends ConsoleCommandExecutor {
             d = Emath.rand(PENALTY_AREA_H, (int) Emath.hypo(PENALTY_AREA_H + 110, PENALTY_AREA_W / 2 + POST_X + 110));
             x = d * Emath.cos(a);
             y = side * GOAL_LINE + d * Emath.sin(a);
-        } while (Const.isInsidePenaltyArea(x, y, side) || !Const.isDirectShot(x, y, side));
+        } while (Const.isInsidePenaltyArea(x, y, side) || !Const.isInsideDirectShotArea(x, y, side));
         match.newFoul(x, y);
     }
 }

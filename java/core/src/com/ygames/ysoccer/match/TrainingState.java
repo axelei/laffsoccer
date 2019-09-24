@@ -11,7 +11,7 @@ class TrainingState extends SceneState {
 
     // convenience references
     protected Training training;
-    protected final Team team;
+    protected final Team[] team;
     protected final Ball ball;
 
     TrainingState(TrainingFsm.Id id, TrainingFsm trainingFsm) {

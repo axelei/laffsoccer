@@ -1,6 +1,5 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
@@ -18,8 +17,6 @@ import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
 import static com.ygames.ysoccer.match.Const.GOAL_AREA_H;
 import static com.ygames.ysoccer.match.Const.GOAL_AREA_W;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
-import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
-import static com.ygames.ysoccer.match.Const.PENALTY_AREA_W;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.PenaltyState.SCORED;
 import static com.ygames.ysoccer.match.Match.PenaltyState.TO_KICK;
@@ -628,7 +625,7 @@ public class Match extends Scene implements Json.Serializable {
         }
 
         boolean isDirectShot() {
-            return ball.isDirectShot(player.team.side);
+            return ball.isInsideDirectShotArea(player.team.side);
         }
 
         boolean isNearOwnGoal() {

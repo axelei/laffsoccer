@@ -996,7 +996,8 @@ public class Player implements Json.Serializable {
         passingMate = null;
         float minFrameDistance = BALL_PREDICTION;
 
-        for (int i = 0; i < TEAM_SIZE; i++) {
+        int count = Math.min(TEAM_SIZE, team.lineup.size()); // training may use less than TEAM_SIZE lineups
+        for (int i = 0; i < count; i++) {
             Player ply = team.lineup.get(i);
             if (ply == this) {
                 continue;
@@ -1037,6 +1038,6 @@ public class Player implements Json.Serializable {
     }
 
     String numberName() {
-        return number + "_" + shirtName + " (" + fsm.getState().getClass().getSimpleName() + ") " + (inputDevice == ai ? "(" + ai.fsm.state.getClass().getSimpleName() + ")" : "(controller)");
+        return number + "_" + shirtName + " (" + fsm.getState().getClass().getSimpleName() + ", " + (inputDevice == ai ? ai.fsm.state.getClass().getSimpleName() : "Controlled") + ")";
     }
 }

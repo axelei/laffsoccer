@@ -16,9 +16,9 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 
 class PlayerStateKeeperPositioning extends PlayerState {
 
-    enum Positioning {DEFAULT, COVER_SHOOTING_ANGLE, RECOVER_BALL}
+    enum Mode {DEFAULT, COVER_SHOOTING_ANGLE, RECOVER_BALL}
 
-    private Positioning positioning;
+    private Mode mode;
     private int dangerTime;
     private float reactivity;
 
@@ -32,7 +32,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        positioning = Positioning.DEFAULT;
+        mode = Mode.DEFAULT;
         dangerTime = 0;
     }
 
@@ -40,7 +40,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
     void doActions() {
         super.doActions();
 
-        switch (positioning) {
+        switch (mode) {
             case DEFAULT:
                 if ((timer % 100) == 0) {
                     setDefaultTarget();
@@ -62,13 +62,13 @@ class PlayerStateKeeperPositioning extends PlayerState {
         }
 
         // distance from target position
-        float dx = Math.round(player.tx - player.x);
-        float dy = Math.round(player.ty - player.y);
+        float dx = player.tx - player.x;
+        float dy = player.ty - player.y;
 
         if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
             // reach target position
             player.v = (0.25f + 0.60f * ((Emath.hypo(dx, dy) > 4) ? 1 : 0)) * player.speed;
-            player.a = (Emath.aTan2(dy, dx) + 360.0f) % 360.0f;
+            player.a = Emath.angle(player.x, player.y, player.tx, player.ty);
         } else {
             // position reached
             dx = ball.x - player.x;
@@ -90,15 +90,16 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
         Player nearestOfAll = getNearestOfAll();
 
-        switch (positioning) {
+        // update mode
+        switch (mode) {
             case DEFAULT:
                 if (ball.isInsidePenaltyArea(player.side)) {
                     if (player == nearestOfAll) {
-                        positioning = Positioning.RECOVER_BALL;
-                    } else if (nearestOfAll != null && nearestOfAll.team != player.team
+                        mode = Mode.RECOVER_BALL;
+                    } else if (nearestOfAll != null && nearestOfAll.side != player.side
                             && player == player.team.near1
                             && ball.owner != null) {
-                        positioning = Positioning.COVER_SHOOTING_ANGLE;
+                        mode = Mode.COVER_SHOOTING_ANGLE;
                     }
                 }
                 break;
@@ -106,16 +107,16 @@ class PlayerStateKeeperPositioning extends PlayerState {
             case RECOVER_BALL:
                 if (nearestOfAll == player) {
                     if (!ball.isInsidePenaltyArea(player.side)) {
-                        positioning = Positioning.DEFAULT;
+                        mode = Mode.DEFAULT;
                     }
                 } else {
                     if (ball.isInsidePenaltyArea(player.side)
                             && nearestOfAll != null
                             && nearestOfAll.team != player.team
                             && player == player.team.near1) {
-                        positioning = Positioning.COVER_SHOOTING_ANGLE;
+                        mode = Mode.COVER_SHOOTING_ANGLE;
                     } else {
-                        positioning = Positioning.DEFAULT;
+                        mode = Mode.DEFAULT;
                     }
                 }
                 break;
@@ -123,25 +124,37 @@ class PlayerStateKeeperPositioning extends PlayerState {
             case COVER_SHOOTING_ANGLE:
                 if (ball.isInsidePenaltyArea(player.side)) {
                     if (nearestOfAll == player) {
-                        positioning = Positioning.RECOVER_BALL;
+                        mode = Mode.RECOVER_BALL;
                     } else {
                         if (ball.owner != null && ball.owner.team == player.team) {
-                            positioning = Positioning.DEFAULT;
+                            mode = Mode.DEFAULT;
                         }
                     }
                 } else {
-                    positioning = Positioning.DEFAULT;
+                    mode = Mode.DEFAULT;
                 }
                 break;
 
         }
 
-        // detect danger
-        boolean found = false;
-        if ((Math.abs(ball.y) < GOAL_LINE)
-                && (Math.abs(ball.y) > 0.5f * GOAL_LINE)
-                && (Math.signum(ball.y) == Math.signum(player.y))
-                && (ball.owner == null)) {
+        // take action
+        switch (mode) {
+            case DEFAULT:
+            case RECOVER_BALL:
+            case COVER_SHOOTING_ANGLE:
+                PlayerState save = getSaves();
+                if (save != null) return save;
+                break;
+        }
+
+
+        return null;
+    }
+
+    private PlayerState getSaves() {
+
+        boolean danger = false;
+        if (ball.isInsideDirectShotArea(player.side) && (ball.owner == null)) {
             for (int frm = 0; frm < BALL_PREDICTION; frm++) {
                 float x = ball.prediction[frm].x;
                 float y = ball.prediction[frm].y;
@@ -149,12 +162,13 @@ class PlayerStateKeeperPositioning extends PlayerState {
                 if ((Math.abs(x) < GOAL_AREA_W / 2)
                         && (Math.abs(z) < 2 * CROSSBAR_H)
                         && ((Math.abs(y) > GOAL_LINE) && (Math.abs(y) < GOAL_LINE + 15))) {
-                    found = true;
+                    danger = true;
+                    break;
                 }
             }
         }
 
-        if (found) {
+        if (danger) {
             dangerTime = dangerTime + 1;
         } else {
             dangerTime = 0;
@@ -164,7 +178,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
             float predX = 0;
             float predZ = 0;
 
-            //intersection with keeper diving surface
+            // intersection with keeper diving surface
             int frm;
             boolean found2 = false;
             for (frm = 0; frm < BALL_PREDICTION; frm++) {
@@ -182,33 +196,33 @@ class PlayerStateKeeperPositioning extends PlayerState {
             }
             float diffX = predX - player.x;
 
-            //kind of save
+            // kind of save
             if (predZ < 2 * CROSSBAR_H) {
                 float r = Emath.hypo(diffX, predZ);
 
                 if (r < 88) {
                     if (Math.abs(diffX) < 4) {
                         if (predZ > 30) {
-                            //CATCH HIGH
+                            // CATCH HIGH
                             if (frm * GLGame.SUBFRAMES < 0.6f * SECOND) {
                                 return fsm.stateKeeperCatchingHigh;
                             }
                         } else {
-                            //CATCH LOW
+                            // CATCH LOW
                             if (frm * GLGame.SUBFRAMES < 0.6f * SECOND) {
                                 return fsm.stateKeeperCatchingLow;
                             }
                         }
                     } else if (predZ < 7) {
                         if (Math.abs(diffX) > POST_X) {
-                            //LOW - ONE HAND
+                            // LOW - ONE HAND
                             if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                                 player.thrustX = (Math.abs(diffX) - POST_X) / (GOAL_AREA_W / 2f - POST_X);
                                 player.a = (diffX < 0) ? 180 : 0;
                                 return fsm.stateKeeperDivingLowSingle;
                             }
                         } else {
-                            //LOW - TWO HANDS
+                            // LOW - TWO HANDS
                             if (frm * GLGame.SUBFRAMES < 0.5f * SECOND) {
                                 player.thrustX = (Math.abs(diffX) - 8) / (POST_X - 8);
                                 player.a = (diffX < 0) ? 180 : 0;
@@ -216,7 +230,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             }
                         }
                     } else if (predZ < 21) {
-                        //MIDDLE - TWO HANDS
+                        // MIDDLE - TWO HANDS
                         if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (POST_X - 8);
                             player.thrustZ = (predZ - 7) / 14.0f;
@@ -224,7 +238,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             return fsm.stateKeeperDivingMiddleTwo;
                         }
                     } else if ((predZ < 27) && (Math.abs(diffX) < POST_X + 16)) {
-                        //MIDDLE - ONE HAND
+                        // MIDDLE - ONE HAND
                         if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (POST_X + 8);
                             player.thrustZ = (predZ - 17) / 6.0f;
@@ -232,7 +246,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                             return fsm.stateKeeperDivingMiddleOne;
                         }
                     } else if ((predZ < 44) && (Math.abs(diffX) < POST_X + 16)) {
-                        //HIGH - ONE HAND
+                        // HIGH - ONE HAND
                         if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (POST_X + 8);
                             player.thrustZ = (float) Math.min((predZ - 27) / 8.0, 1);

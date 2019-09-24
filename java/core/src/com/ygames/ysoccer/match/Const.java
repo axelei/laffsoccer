@@ -137,7 +137,7 @@ public class Const {
         );
     }
 
-    static boolean isDirectShot(float x, float y, int ySide) {
+    static boolean isInsideDirectShotArea(float x, float y, int ySide) {
         return Math.abs(x) < (DIRECT_SHOT_AREA_W / 2)
                 && Emath.isIn(y,
                 ySide * (GOAL_LINE - DIRECT_SHOT_AREA_H),

@@ -6,10 +6,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
-import static com.ygames.ysoccer.match.Const.GOAL_LINE;
-import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
-import static com.ygames.ysoccer.match.Const.PENALTY_AREA_W;
-
 class Ball {
 
     // motion & graphics
@@ -521,8 +517,8 @@ class Ball {
         data[subframe].fmx = (int) Math.floor(f);
     }
 
-    boolean isDirectShot(int ySide) {
-        return Const.isDirectShot(x,y,ySide);
+    boolean isInsideDirectShotArea(int ySide) {
+        return Const.isInsideDirectShotArea(x, y, ySide);
     }
 
     static class PhysicsSet {

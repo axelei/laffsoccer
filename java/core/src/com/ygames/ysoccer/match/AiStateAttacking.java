@@ -119,7 +119,7 @@ class AiStateAttacking extends AiState {
         //     return fsm.autoPassing;
         // }
 
-        if (player.ball.isDirectShot(-player.team.side)) {
+        if (player.ball.isInsideDirectShotArea(-player.team.side)) {
             if (player.seesTheGoal()) {
                 return fsm.stateKicking;
             }

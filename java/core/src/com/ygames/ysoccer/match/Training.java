@@ -4,14 +4,10 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
-import static com.ygames.ysoccer.match.Const.BENCH_X;
-import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
-import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
+import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
@@ -23,12 +19,33 @@ public class Training extends Scene {
     }
 
     Ball ball;
-    public Team team;
+    public Team[] team;
 
     public TrainingListener listener;
 
-    public Training(Team team) {
-        this.team = team;
+    public Training(Team trainingTeam) {
+        this.team = new Team[2];
+
+        for (int t = Match.HOME; t <= Match.AWAY; t++) {
+            team[t] = new Team();
+        }
+        team[HOME].coach = trainingTeam.coach;
+
+        // split into two teams
+        int keepers = 0;
+        int players = 0;
+        for (int i = 0; i < trainingTeam.players.size(); i++) {
+            Player ply = trainingTeam.players.get(i);
+            if (ply.role == GOALKEEPER) {
+                ply.team = team[keepers % 2];
+                team[keepers % 2].players.add(ply);
+                keepers++;
+            } else {
+                ply.team = team[players % 2];
+                team[players % 2].players.add(ply);
+                players++;
+            }
+        }
     }
 
     public void init(GLGame game, SceneSettings sceneSettings) {
@@ -37,18 +54,13 @@ public class Training extends Scene {
 
         ball = new Ball(sceneSettings);
 
-        team.beforeTraining(this);
+        for (int t = HOME; t <= AWAY; t++) {
+            team[t].index = t;
+            team[t].beforeTraining(this);
+            team[t].setSide(-1 + 2 * t);
+        }
 
         fsm = new TrainingFsm(this);
-
-        team.setSide(-1);
-
-        // override player side
-        for (Player player : team.lineup) {
-            if (player.role != GOALKEEPER) {
-                player.side = 1;
-            }
-        }
     }
 
     public TrainingFsm getFsm() {
@@ -63,50 +75,26 @@ public class Training extends Scene {
         ball.inFieldKeep();
     }
 
-    boolean updatePlayers() {
-        return team.updateLineup(true);
+    void updatePlayers(boolean limit) {
+        team[HOME].updateLineup(limit);
+        team[AWAY].updateLineup(limit);
+    }
+
+    void updatePlayersSide() {
+        for (int t = HOME; t <= AWAY; t++) {
+            for (Player player : team[t].lineup) {
+                player.side = (player.role == GOALKEEPER ? 1 : -1) * Emath.sgn(player.y);
+            }
+        }
     }
 
     void resetData() {
-        updatePlayers();
+        updatePlayers(true);
         for (int f = 0; f < Const.REPLAY_SUBFRAMES; f++) {
             ball.save(f);
-            team.save(f);
+            team[HOME].save(f);
+            team[AWAY].save(f);
         }
-    }
-
-    void setIntroPositions() {
-
-        ball.setPosition(0, team.side * PENALTY_AREA_H, 0);
-
-        int len = team.lineup.size();
-        for (int i = 0; i < len; i++) {
-            Player player = team.lineup.get(i);
-            player.setState(STATE_OUTSIDE);
-
-            player.x = 18 * (-team.lineup.size() + 2 * i) + 8 * Emath.cos(70 * (player.number));
-            player.y = team.side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));
-            player.z = 0;
-
-            player.tx = player.x;
-            player.ty = player.y;
-
-            // set states
-            if (i == 0 && player.role == GOALKEEPER) {
-                player.setState(STATE_KEEPER_POSITIONING);
-            } else {
-                player.setState(STATE_STAND_RUN);
-            }
-        }
-
-        team.coach.x = BENCH_X;
-        team.coach.y = BENCH_Y_UP + 32;
-    }
-
-    void resetPosition(Player player) {
-        player.tx = 18 * (-team.lineup.size() + 2 * player.index) + 8 * Emath.cos(70 * (player.number));
-        player.ty = team.side * (15 + 5 * (player.index % 2)) + 8 * Emath.sin(70 * (player.number));
-        player.setState(STATE_REACH_TARGET);
     }
 
     @Override
@@ -116,11 +104,25 @@ public class Training extends Scene {
     }
 
     void findNearest() {
-        team.findNearest(team.lineup.size());
+        team[HOME].findNearest(team[HOME].lineup.size());
+        team[AWAY].findNearest(team[AWAY].lineup.size());
+    }
+
+    Player getNearestOfAll() {
+        Player player0 = team[HOME].near1;
+        Player player1 = team[AWAY].near1;
+
+        int distance0 = Emath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
+        int distance1 = Emath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
+
+        if (distance0 == BALL_PREDICTION && distance1 == BALL_PREDICTION) return null;
+
+        return distance0 < distance1 ? player0 : player1;
     }
 
     void updateFrameDistance() {
-        team.updateFrameDistance(team.lineup.size());
+        team[HOME].updateFrameDistance(team[HOME].lineup.size());
+        team[AWAY].updateFrameDistance(team[AWAY].lineup.size());
     }
 
     @Override
