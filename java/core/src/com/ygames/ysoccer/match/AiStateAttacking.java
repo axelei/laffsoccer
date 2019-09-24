@@ -32,7 +32,7 @@ class AiStateAttacking extends AiState {
 
         static float MATE_FACTOR = 1f;
         static float OPPONENT_FACTOR = 1.5f;
-        static float OWN_GOAL_FACTOR = 3f;
+        static float OWN_GOAL_FACTOR = 3.5f;
         static float GOAL_FACTOR = 2.5f;
         static float GOAL_FACTOR_INSIDE_PENALTY_AREA = 3.5f;
     }
@@ -141,6 +141,8 @@ class AiStateAttacking extends AiState {
     }
 
     private float getUrgentAngleCorrection() {
+
+        GLGame.debug(ATTACKING_AI, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle);
 
         // Vector3(left, center, right)
         Vector3 totalWeights = new Vector3(1, 1, 1);
@@ -304,31 +306,44 @@ class AiStateAttacking extends AiState {
 
     private Vector3 getInFieldMap() {
 
-        boolean left = insideField(
-                player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle - 45),
-                player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle - 45)
-        );
+        boolean includeGoal = Const.isInsideGoalArea(player.x, player.y, -player.side);
 
-        boolean center = insideField(
-                player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle),
-                player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle)
-        );
+        float leftX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle - 45);
+        float leftY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle - 45);
+        boolean left = insideField(leftX, leftY, includeGoal);
 
-        boolean right = insideField(
-                player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle + 45),
-                player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle + 45)
-        );
+        float centerX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle);
+        float centerY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle);
+        boolean center = insideField(centerX, centerY, includeGoal);
 
-        return new Vector3(
+        float rightX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle + 45);
+        float rightY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle + 45);
+        boolean right = insideField(rightX, rightY, includeGoal);
+
+        Vector3 map = new Vector3(
                 left ? 1 : 0,
                 (center && left && right) ? 1 : 0,
                 right ? 1 : 0
         );
+
+        // if choosing between left and right in own goal area, remove the nearest to the goal
+        if (map.len2() == 2 && Const.isInsideGoalArea(player.x, player.y, player.side)) {
+            if (Emath.dist(0, player.side * GOAL_LINE, leftX, leftY) < Emath.dist(0, player.side * GOAL_LINE, rightX, rightY)) {
+                map.x = 0;
+            } else {
+                map.z = 0;
+            }
+        }
+
+        return map;
     }
 
-    private boolean insideField(float x, float y) {
-        return (Math.abs(x) < TOUCH_LINE && Math.abs(y) < GOAL_LINE)
-                || (Math.abs(x) < POST_X && Math.abs(y) < (GOAL_LINE + Parameters.OUTSIDE_DETECTION_RADIUS));
+    private boolean insideField(float x, float y, boolean includeGoal) {
+        if (Math.abs(x) < TOUCH_LINE && Math.abs(y) < GOAL_LINE) {
+            return true;
+        }
+
+        return includeGoal && (Math.abs(x) < POST_X && Math.abs(y) < (GOAL_LINE + Parameters.OUTSIDE_DETECTION_RADIUS));
     }
 
     private float weightByDistance(float dist) {
@@ -337,7 +352,7 @@ class AiStateAttacking extends AiState {
 
     private float emergencyAngle() {
         float playerToCenterAngle = player.angleToPoint(0, 0);
-        float angle = 90 * Math.signum(Emath.signedAngleDiff(playerToCenterAngle, controlsAngle));
+        float angle = 90 * Math.signum(Emath.signedAngleDiff(controlsAngle, playerToCenterAngle));
 
         GLGame.debug(ATTACKING_AI, player.numberName(), "Emergency turn by: " + angle);
         return angle;
