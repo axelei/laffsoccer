@@ -985,13 +985,12 @@ public class Player implements Json.Serializable {
     }
 
     boolean seesTheGoal() {
-        float playerToNearPost = angleToPoint(Math.signum(x) * (POST_X + 2 * POST_R + 2 * BALL_R), Math.signum(y) * GOAL_LINE);
-        float playerToFarPost = angleToPoint(-Math.signum(x) * (POST_X + 2 * POST_R + 2 * BALL_R), Math.signum(y) * GOAL_LINE);
+        return Const.seesTheGoal(x, y, a);
+    }
 
-        float nearAngleDiff = Emath.angleDiff(a, playerToNearPost);
-        float farAngleDiff = Emath.angleDiff(a, playerToFarPost);
-
-        return (nearAngleDiff < 22.5f || farAngleDiff < 22.5f);
+    float goalSignedAngleDiff() {
+        float playerToGoal = angleToPoint(0, Math.signum(y) * GOAL_LINE);
+        return Emath.signedAngleDiff(playerToGoal, a);
     }
 
     Player searchPassingMate() {

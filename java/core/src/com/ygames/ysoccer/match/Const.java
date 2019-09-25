@@ -15,6 +15,7 @@ public class Const {
     static float PLAYER_RUN_ANIMATION = 0.18f;
     static float PASSING_THRESHOLD = 0.1f;
     static float PASSING_SPEED_FACTOR = 0.3f;
+    static float SHOOTING_ANGLE_TOLERANCE = 22.5f;
 
     static final int REPLAY_DURATION = 8; // seconds
     static final int REPLAY_FRAMES = REPLAY_DURATION * GLGame.VIRTUAL_REFRESH_RATE;
@@ -151,5 +152,23 @@ public class Const {
                 ySide * (GOAL_LINE - DIRECT_SHOT_AREA_H),
                 ySide * GOAL_LINE
         );
+    }
+
+    static boolean seesTheGoal(float x, float y, float a) {
+        int ySide = Emath.sgn(y);
+
+        if (Emath.angleDiff(a, ySide * 90) > 90) return false;
+
+        float x0 = -POST_X + (2 * POST_R + 2 * BALL_R);
+        float y0 = ySide * GOAL_LINE;
+        float m0 = Emath.tan(a - ySide * SHOOTING_ANGLE_TOLERANCE);
+        float s0 = Emath.sgn(Emath.cos(a - ySide * SHOOTING_ANGLE_TOLERANCE));
+        float b0 = y0 - m0 * x0;
+        float x1 = +POST_X - (2 * POST_R + 2 * BALL_R);
+        float y1 = ySide * GOAL_LINE;
+        float m1 = Emath.tan(a + ySide * SHOOTING_ANGLE_TOLERANCE);
+        float s1 = Emath.sgn(Emath.cos(a + ySide * SHOOTING_ANGLE_TOLERANCE));
+        float b1 = y1 - m1 * x1;
+        return s0 * ySide * y < s0 * ySide * (m0 * x + b0) && s1 * ySide * y > s1 * ySide * (m1 * x + b1);
     }
 }

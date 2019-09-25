@@ -162,6 +162,21 @@ class AiStateAttacking extends AiState {
             return emergencyAngle();
         }
 
+        // if very near to goal area turn immediately to see the goal
+        if (Math.abs(player.x) < (POST_X + 10)
+                && Emath.isIn(player.y, -player.side * (GOAL_LINE - GOAL_AREA_H - 10), -player.side * GOAL_LINE)
+                && !player.seesTheGoal()) {
+            float signedAngleDiff = player.goalSignedAngleDiff();
+            if (signedAngleDiff < -Const.SHOOTING_ANGLE_TOLERANCE) {
+                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing left to see the goal");
+                totalWeights.scl(2, 0, 0);
+            }
+            if (signedAngleDiff > Const.SHOOTING_ANGLE_TOLERANCE) {
+                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing right to see the goal");
+                totalWeights.scl(0, 0, 2);
+            }
+        }
+
         // finally decide
         if (totalWeights.x > Math.max(totalWeights.y, totalWeights.z)) {
             GLGame.debug(ATTACKING_AI, player.numberName(), "Turning left: -45");
