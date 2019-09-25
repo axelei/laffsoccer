@@ -53,6 +53,7 @@ public class Settings {
     public static boolean showJavaHeap;
     public static boolean showTeamValues;
 
+    public static boolean showDevelopmentInfo;
     public static boolean showBallZones;
     public static boolean showBallPredictions;
     public static boolean showPlayerNumber;

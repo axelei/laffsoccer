@@ -74,8 +74,8 @@ public class PlayerSprite extends Sprite {
         }
 
         // development
-        if (Settings.development) {
-            if (Settings.showPlayerState) {
+        if (Settings.development && Settings.showDevelopmentInfo) {
+            if (Settings.showPlayerState && player.fsm != null) {
                 Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[player.fsm.getState().id].toString(), d.x, d.y - 56 - d.z, CENTER);
             }
             if (Settings.showPlayerAiState && player.inputDevice.getClass().isInstance(player.ai)) {

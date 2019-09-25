@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
@@ -19,6 +20,7 @@ abstract class SceneHotKeys {
     private boolean keyScreenMode;
     private boolean keyZoomOut;
     private boolean keyZoomIn;
+    private boolean keyDevelopmentInfo;
 
     SceneHotKeys(Scene scene) {
         this.scene = scene;
@@ -76,11 +78,20 @@ abstract class SceneHotKeys {
             messageTimer = 60;
         }
 
+        if (Settings.development && Gdx.input.isKeyPressed(Input.Keys.F12) && !keyDevelopmentInfo) {
+            Settings.showDevelopmentInfo = !Settings.showDevelopmentInfo;
+
+            message = "DEVELOPMENT INFO " + (Settings.showDevelopmentInfo ? "ON" : "OFF");
+
+            messageTimer = 60;
+        }
+
         keySoundDown = Gdx.input.isKeyPressed(Input.Keys.F2);
         keySoundUp = Gdx.input.isKeyPressed(Input.Keys.F3);
         keyScreenMode = Gdx.input.isKeyPressed(Input.Keys.F7);
         keyZoomOut = Gdx.input.isKeyPressed(Input.Keys.F8);
         keyZoomIn = Gdx.input.isKeyPressed(Input.Keys.F9);
+        keyDevelopmentInfo = Gdx.input.isKeyPressed(Input.Keys.F12);
     }
 
     void onChangeVolume() {

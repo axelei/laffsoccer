@@ -8,6 +8,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
+import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
@@ -143,6 +144,9 @@ class MatchStateHighlights extends MatchState {
         int f = Math.round(1f * match.subframe / GLGame.SUBFRAMES) % 32;
         if (showCurrentRecord && f < 16) {
             Assets.font10.draw(sceneRenderer.batch, (match.recorder.getCurrent() + 1) + "/" + match.recorder.getRecorded(), 30, 22, Font.Align.LEFT);
+        }
+        if (Settings.development && Settings.showDevelopmentInfo) {
+            Assets.font10.draw(sceneRenderer.batch, "(" + match.subframe + "/" + Const.REPLAY_SUBFRAMES + ")", 30, 42, Font.Align.LEFT);
         }
 
         sceneRenderer.batch.end();

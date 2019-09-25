@@ -11,8 +11,8 @@ class MatchHotKeys extends SceneHotKeys {
     private boolean keyRecordAction;
     private boolean keyCommentary;
     private boolean keyCrowdChants;
-    private boolean keyRadar;
     private boolean keyAutoReplay;
+    private boolean keyRadar;
 
     MatchHotKeys(Match match) {
         super(match);
@@ -32,7 +32,6 @@ class MatchHotKeys extends SceneHotKeys {
             message = gettext("ACTION RECORDED");
             messageTimer = 60;
         }
-
 
         if (Gdx.input.isKeyPressed(Input.Keys.F4) && !keyCommentary) {
             scene.settings.commentary = !scene.settings.commentary;
@@ -60,6 +59,19 @@ class MatchHotKeys extends SceneHotKeys {
             messageTimer = 60;
         }
 
+        if (Gdx.input.isKeyPressed(Input.Keys.F10) && !keyAutoReplay) {
+            getMatch().getSettings().autoReplays = !getMatch().getSettings().autoReplays;
+
+            message = gettext("AUTO REPLAYS") + " ";
+
+            if (getMatch().getSettings().autoReplays) {
+                message += gettext("AUTO REPLAYS.ON");
+            } else {
+                message += gettext("AUTO REPLAYS.OFF");
+            }
+
+            messageTimer = 60;
+        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F11) && !keyRadar) {
             getMatch().getSettings().radar = !getMatch().getSettings().radar;
@@ -74,25 +86,11 @@ class MatchHotKeys extends SceneHotKeys {
             messageTimer = 60;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.F12) && !keyAutoReplay) {
-            getMatch().getSettings().autoReplays = !getMatch().getSettings().autoReplays;
-
-            message = gettext("AUTO REPLAYS") + " ";
-
-            if (getMatch().getSettings().autoReplays) {
-                message += gettext("AUTO REPLAYS.ON");
-            } else {
-                message += gettext("AUTO REPLAYS.OFF");
-            }
-
-            messageTimer = 60;
-        }
-
         keyRecordAction = Gdx.input.isKeyPressed(Input.Keys.SPACE);
         keyCommentary = Gdx.input.isKeyPressed(Input.Keys.F4);
         keyCrowdChants = Gdx.input.isKeyPressed(Input.Keys.F5);
+        keyAutoReplay = Gdx.input.isKeyPressed(Input.Keys.F10);
         keyRadar = Gdx.input.isKeyPressed(Input.Keys.F11);
-        keyAutoReplay = Gdx.input.isKeyPressed(Input.Keys.F12);
     }
 
 

@@ -138,6 +138,9 @@ class MatchStateReplay extends MatchState {
         if (f < 16) {
             Assets.font10.draw(sceneRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
         }
+        if (Settings.development && Settings.showDevelopmentInfo) {
+            Assets.font10.draw(sceneRenderer.batch, "(" + match.subframe + "/" + Const.REPLAY_SUBFRAMES + ")", 30, 42, Font.Align.LEFT);
+        }
 
         float a = position * 360f / Const.REPLAY_SUBFRAMES;
 
