@@ -30,7 +30,7 @@ class Recorder {
 
     void saveHighlight(SceneRenderer sceneRenderer) {
 
-        int recordSize = (4 + 6 * (match.team[HOME].lineup.size() + match.team[AWAY].lineup.size()) + 2) * 2 * Const.REPLAY_SUBFRAMES;
+        int recordSize = (4 + 10 * (match.team[HOME].lineup.size() + match.team[AWAY].lineup.size()) + 2) * 2 * Const.REPLAY_SUBFRAMES;
 
         short[] record = new short[recordSize];
 
@@ -55,6 +55,10 @@ class Recorder {
                     record[index++] = (short) playerData.fmy;
                     record[index++] = (short) (playerData.isVisible ? 1 : 0);
                     record[index++] = (short) (playerData.isHumanControlled ? 1 : 0);
+                    record[index++] = (short) (playerData.isBestDefender ? 1 : 0);
+                    record[index++] = (short) playerData.frameDistance;
+                    record[index++] = (short) playerData.playerState;
+                    record[index++] = (short) playerData.playerAiState;
                 }
             }
 
@@ -115,6 +119,10 @@ class Recorder {
                     playerData.fmy = record[offset++];
                     playerData.isVisible = (record[offset++] == 1);
                     playerData.isHumanControlled = (record[offset++] == 1);
+                    playerData.isBestDefender = (record[offset++] == 1);
+                    playerData.frameDistance = record[offset++];
+                    playerData.playerState = record[offset++];
+                    playerData.playerAiState = record[offset++];
                 }
             }
 

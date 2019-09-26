@@ -132,6 +132,10 @@ class TrainingStateReplay extends TrainingState {
         if (f < 16) {
             Assets.font10.draw(sceneRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
         }
+        if (Settings.showDevelopmentInfo) {
+            Assets.font10.draw(sceneRenderer.batch, "FRAME: " + (training.subframe / 8) + " / " + Const.REPLAY_FRAMES, 30, 42, Font.Align.LEFT);
+            Assets.font10.draw(sceneRenderer.batch, "SUBFRAME: " + training.subframe + " / " + Const.REPLAY_SUBFRAMES, 30, 62, Font.Align.LEFT);
+        }
 
         sceneRenderer.batch.end();
         float a = position * 360f / Const.REPLAY_SUBFRAMES;

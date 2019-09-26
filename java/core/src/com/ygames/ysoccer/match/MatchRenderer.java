@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.badlogic.gdx.Gdx.gl;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -85,11 +86,11 @@ public class MatchRenderer extends SceneRenderer {
 
         renderBackground();
 
-        if (Settings.development && Settings.showBallZones) {
+        if (Settings.showDevelopmentInfo && Settings.showBallZones) {
             drawBallZones();
         }
 
-        if (Settings.development && Settings.showBallPredictions) {
+        if (Settings.showDevelopmentInfo && Settings.showBallPredictions) {
             drawBallPredictions(ball);
         }
 
@@ -304,9 +305,12 @@ public class MatchRenderer extends SceneRenderer {
                 for (int i = 0; i < len; i++) {
                     Player player = match.team[t].lineup.get(i);
                     Data d = player.data[match.subframe];
-                    if ((d.isHumanControlled && d.isVisible)
-                            || (Settings.development && Settings.showPlayerNumber)) {
-                        drawPlayerNumber(player);
+                    if (d.isVisible) {
+                        if (d.isHumanControlled) {
+                            drawPlayerNumber(player);
+                        } else if (Settings.showDevelopmentInfo && Settings.showPlayerNumber) {
+                            Assets.font6.draw(batch, player.number, d.x, d.y - 40 - d.z, CENTER);
+                        }
                     }
                 }
             }

@@ -16,11 +16,14 @@ import static com.badlogic.gdx.Application.LOG_DEBUG;
 import static com.badlogic.gdx.Application.LOG_ERROR;
 import static com.badlogic.gdx.Application.LOG_INFO;
 import static com.badlogic.gdx.Application.LOG_NONE;
-import static com.ygames.ysoccer.framework.GLGame.LogType.ATTACKING_AI;
+import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
+import static com.ygames.ysoccer.framework.GLGame.LogType.AI_KICKING;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
 
 class DeveloperOptions extends GLScreen {
+
+    int x0, y0, labelWidth;
 
     DeveloperOptions(GLGame game) {
         super(game);
@@ -31,83 +34,103 @@ class DeveloperOptions extends GLScreen {
         w = new TitleBar("DEVELOPER OPTIONS", 0x191FB0);
         widgets.add(w);
 
-        int y = 180;
+        labelWidth = 180;
+        x0 = (game.gui.WIDTH) / 2 - 185;
+        y0 = 160;
 
-        w = new SectionLabel("GUI", y);
-        widgets.add(w);
-
-        y += 22;
-        w = new JavaHeapLabel(y);
-        widgets.add(w);
-        w = new JavaHeapButton(y);
+        w = new SectionLabel("GUI");
         widgets.add(w);
 
-        y += 22;
-        w = new TeamValuesLabel(y);
+        y0 += 22;
+        w = new JavaHeapLabel();
         widgets.add(w);
-        w = new TeamValuesButton(y);
-        widgets.add(w);
-
-        y += 44;
-        w = new SectionLabel("MATCH", y);
+        w = new JavaHeapButton();
         widgets.add(w);
 
-        y += 22;
-        w = new PlayerNumberLabel(y);
+        y0 += 22;
+        w = new TeamValuesLabel();
         widgets.add(w);
-        w = new PlayerNumberButton(y);
-        widgets.add(w);
-
-        y += 22;
-        w = new PlayerStateLabel(y);
-        widgets.add(w);
-        w = new PlayerStateButton(y);
+        w = new TeamValuesButton();
         widgets.add(w);
 
-        y += 22;
-        w = new PlayerAiStateLabel(y);
-        widgets.add(w);
-        w = new PlayerAiStateButton(y);
+        y0 += 44;
+        w = new SectionLabel("MATCH");
         widgets.add(w);
 
-        y += 22;
-        w = new BallZonesLabel(y);
+        y0 += 22;
+        w = new PlayerNumberLabel();
         widgets.add(w);
-        w = new BallZonesButton(y);
-        widgets.add(w);
-
-        y += 22;
-        w = new BallPredictionsLabel(y);
-        widgets.add(w);
-        w = new BallPredictionsButton(y);
+        w = new PlayerNumberButton();
         widgets.add(w);
 
-        y += 44;
-        w = new SectionLabel("LOGS", y);
+        y0 += 22;
+        w = new BestDefenderLabel();
+        widgets.add(w);
+        w = new BestDefenderButton();
         widgets.add(w);
 
-        y += 22;
-        w = new LogLevelLabel(y);
+        y0 += 22;
+        w = new FrameDistanceLabel();
         widgets.add(w);
-        w = new LogLevelButton(y);
-        widgets.add(w);
-
-        y += 22;
-        w = new LogFilterLabel(ATTACKING_AI, y);
-        widgets.add(w);
-        w = new LogFilterButton(ATTACKING_AI, y);
+        w = new FrameDistanceButton();
         widgets.add(w);
 
-        y += 22;
-        w = new LogFilterLabel(PASSING, y);
+        y0 += 22;
+        w = new PlayerStateLabel();
         widgets.add(w);
-        w = new LogFilterButton(PASSING, y);
+        w = new PlayerStateButton();
         widgets.add(w);
 
-        y += 22;
-        w = new LogFilterLabel(PLAYER_SELECTION, y);
+        y0 += 22;
+        w = new PlayerAiStateLabel();
         widgets.add(w);
-        w = new LogFilterButton(PLAYER_SELECTION, y);
+        w = new PlayerAiStateButton();
+        widgets.add(w);
+
+        y0 += 22;
+        w = new BallZonesLabel();
+        widgets.add(w);
+        w = new BallZonesButton();
+        widgets.add(w);
+
+        y0 += 22;
+        w = new BallPredictionsLabel();
+        widgets.add(w);
+        w = new BallPredictionsButton();
+        widgets.add(w);
+
+        y0 += 44;
+        w = new SectionLabel("LOGS");
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogLevelLabel();
+        widgets.add(w);
+        w = new LogLevelButton();
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(PASSING);
+        widgets.add(w);
+        w = new LogFilterButton(PASSING);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(PLAYER_SELECTION);
+        widgets.add(w);
+        w = new LogFilterButton(PLAYER_SELECTION);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(AI_ATTACKING);
+        widgets.add(w);
+        w = new LogFilterButton(AI_ATTACKING);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(AI_KICKING);
+        widgets.add(w);
+        w = new LogFilterButton(AI_KICKING);
         widgets.add(w);
 
         w = new ExitButton();
@@ -116,9 +139,9 @@ class DeveloperOptions extends GLScreen {
 
     private class SectionLabel extends Button {
 
-        SectionLabel(String text, int y) {
+        SectionLabel(String text) {
             setColor(0x601D5F);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText(text, Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -126,9 +149,9 @@ class DeveloperOptions extends GLScreen {
 
     private class JavaHeapLabel extends Button {
 
-        JavaHeapLabel(int y) {
+        JavaHeapLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("JAVA HEAP", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -136,14 +159,14 @@ class DeveloperOptions extends GLScreen {
 
     private class JavaHeapButton extends ToggleButton {
 
-        JavaHeapButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        JavaHeapButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showJavaHeap ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showJavaHeap ? "ON" : "OFF");
         }
 
@@ -156,9 +179,9 @@ class DeveloperOptions extends GLScreen {
 
     private class TeamValuesLabel extends Button {
 
-        TeamValuesLabel(int y) {
+        TeamValuesLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("TEAM VALUES", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -166,14 +189,14 @@ class DeveloperOptions extends GLScreen {
 
     private class TeamValuesButton extends ToggleButton {
 
-        TeamValuesButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        TeamValuesButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showTeamValues ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showTeamValues ? "ON" : "OFF");
         }
 
@@ -186,9 +209,9 @@ class DeveloperOptions extends GLScreen {
 
     private class PlayerNumberLabel extends Button {
 
-        PlayerNumberLabel(int y) {
+        PlayerNumberLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("PLAYER NUMBER", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -196,14 +219,14 @@ class DeveloperOptions extends GLScreen {
 
     private class PlayerNumberButton extends ToggleButton {
 
-        PlayerNumberButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        PlayerNumberButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showPlayerNumber ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showPlayerNumber ? "ON" : "OFF");
         }
 
@@ -214,11 +237,71 @@ class DeveloperOptions extends GLScreen {
         }
     }
 
+    private class BestDefenderLabel extends Button {
+
+        BestDefenderLabel() {
+            setColor(0x4D4D4D);
+            setGeometry(x0, y0, labelWidth, 22);
+            setText("BEST DEFENDER", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class BestDefenderButton extends ToggleButton {
+
+        BestDefenderButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setColor(Settings.showBestDefender ? 0x1D6051 : 0x4D4D4D);
+            setText(Settings.showBestDefender ? "ON" : "OFF");
+        }
+
+        @Override
+        protected void toggle() {
+            Settings.showBestDefender = !Settings.showBestDefender;
+            setDirty(true);
+        }
+    }
+
+    private class FrameDistanceLabel extends Button {
+
+        FrameDistanceLabel() {
+            setColor(0x4D4D4D);
+            setGeometry(x0, y0, labelWidth, 22);
+            setText("FRAME DISTANCE", Font.Align.CENTER, Assets.font6);
+            setActive(false);
+        }
+    }
+
+    private class FrameDistanceButton extends ToggleButton {
+
+        FrameDistanceButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
+            setText("", Font.Align.LEFT, Assets.font6);
+        }
+
+        @Override
+        public void refresh() {
+            setColor(Settings.showFrameDistance ? 0x1D6051 : 0x4D4D4D);
+            setText(Settings.showFrameDistance ? "ON" : "OFF");
+        }
+
+        @Override
+        protected void toggle() {
+            Settings.showFrameDistance = !Settings.showFrameDistance;
+            setDirty(true);
+        }
+    }
+
     private class PlayerStateLabel extends Button {
 
-        PlayerStateLabel(int y) {
+        PlayerStateLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("PLAYER STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -226,14 +309,14 @@ class DeveloperOptions extends GLScreen {
 
     private class PlayerStateButton extends ToggleButton {
 
-        PlayerStateButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        PlayerStateButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showPlayerState ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showPlayerState ? "ON" : "OFF");
         }
 
@@ -246,9 +329,9 @@ class DeveloperOptions extends GLScreen {
 
     private class PlayerAiStateLabel extends Button {
 
-        PlayerAiStateLabel(int y) {
+        PlayerAiStateLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("PLAYER AI STATE", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -256,14 +339,14 @@ class DeveloperOptions extends GLScreen {
 
     private class PlayerAiStateButton extends ToggleButton {
 
-        PlayerAiStateButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        PlayerAiStateButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showPlayerAiState ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showPlayerAiState ? "ON" : "OFF");
         }
 
@@ -276,9 +359,9 @@ class DeveloperOptions extends GLScreen {
 
     private class BallZonesLabel extends Button {
 
-        BallZonesLabel(int y) {
+        BallZonesLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("BALL ZONES", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -286,14 +369,14 @@ class DeveloperOptions extends GLScreen {
 
     private class BallZonesButton extends ToggleButton {
 
-        BallZonesButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        BallZonesButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showBallZones ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showBallZones ? "ON" : "OFF");
         }
 
@@ -306,9 +389,9 @@ class DeveloperOptions extends GLScreen {
 
     private class BallPredictionsLabel extends Button {
 
-        BallPredictionsLabel(int y) {
+        BallPredictionsLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("BALL PREDICTIONS", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -316,14 +399,14 @@ class DeveloperOptions extends GLScreen {
 
     private class BallPredictionsButton extends ToggleButton {
 
-        BallPredictionsButton(int y) {
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+        BallPredictionsButton() {
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(Settings.showBallPredictions ? 0x1D6051 : 0x4D4D4D);
             setText(Settings.showBallPredictions ? "ON" : "OFF");
         }
 
@@ -336,9 +419,9 @@ class DeveloperOptions extends GLScreen {
 
     private class LogLevelLabel extends Button {
 
-        LogLevelLabel(int y) {
+        LogLevelLabel() {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
+            setGeometry(x0, y0, labelWidth, 22);
             setText("LOG LEVEL", Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
@@ -346,9 +429,9 @@ class DeveloperOptions extends GLScreen {
 
     private class LogLevelButton extends Button {
 
-        LogLevelButton(int y) {
+        LogLevelButton() {
             setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
@@ -394,10 +477,10 @@ class DeveloperOptions extends GLScreen {
 
     private class LogFilterLabel extends Button {
 
-        LogFilterLabel(GLGame.LogType logType, int y) {
+        LogFilterLabel(GLGame.LogType logType) {
             setColor(0x4D4D4D);
-            setGeometry(game.gui.WIDTH / 2 - 10 - 240, y, 240, 22);
-            setText(logType.toString().replace("_","-"), Font.Align.CENTER, Assets.font6);
+            setGeometry(x0, y0, labelWidth, 22);
+            setText(logType.toString().replace("_", "-"), Font.Align.CENTER, Assets.font6);
             setActive(false);
         }
     }
@@ -406,15 +489,15 @@ class DeveloperOptions extends GLScreen {
 
         private GLGame.LogType logType;
 
-        LogFilterButton(GLGame.LogType logType, int y) {
+        LogFilterButton(GLGame.LogType logType) {
             this.logType = logType;
-            setColor(0x1D6051);
-            setGeometry(game.gui.WIDTH / 2 + 10, y, 220, 22);
+            setGeometry(x0 + 10 + labelWidth, y0, 180, 22);
             setText("", Font.Align.LEFT, Assets.font6);
         }
 
         @Override
         public void refresh() {
+            setColor(GLGame.isSetLogFilter(logType) ? 0x1D6051 : 0x4D4D4D);
             setText(GLGame.isSetLogFilter(logType) ? "ON" : "OFF");
         }
 

@@ -448,6 +448,10 @@ public class Player implements Json.Serializable {
         data[subframe].fmy = (int) Math.abs(Math.floor(fmy));
         data[subframe].isVisible = isVisible;
         data[subframe].isHumanControlled = (inputDevice != ai);
+        data[subframe].isBestDefender = (team.bestDefender == this);
+        data[subframe].frameDistance = frameDistance;
+        data[subframe].playerState = fsm.state.id;
+        data[subframe].playerAiState = (inputDevice == ai) ? ai.fsm.state.id : -1;
     }
 
     float targetDistance() {
