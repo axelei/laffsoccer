@@ -15,12 +15,15 @@ class AiStateSeeking extends AiState {
     @Override
     void doActions() {
         super.doActions();
-        int d = player.frameDistance;
-        if (d < Const.BALL_PREDICTION) {
-            Vector3 b = player.ball.prediction[d];
-            float a = Emath.aTan2(b.y - player.y, b.x - player.x);
-            ai.x0 = Math.round(Emath.cos(a));
-            ai.y0 = Math.round(Emath.sin(a));
+
+        if (player.ballDistance > Const.BALL_R) {
+            int d = player.frameDistance;
+            if (d < Const.BALL_PREDICTION) {
+                Vector3 b = player.ball.prediction[d];
+                float a = Emath.aTan2(b.y - player.y, b.x - player.x);
+                ai.x0 = Math.round(Emath.cos(a));
+                ai.y0 = Math.round(Emath.sin(a));
+            }
         }
     }
 
