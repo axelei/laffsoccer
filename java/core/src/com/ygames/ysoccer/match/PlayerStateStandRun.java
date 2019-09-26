@@ -80,7 +80,9 @@ class PlayerStateStandRun extends PlayerState {
                 }
 
                 if (ball.prediction[player.frameDistance].z < 6) {
-                    if ((player.v > 0) && (player.ballDistance < 100)) {
+                    if ((player.v > 0)
+                            && (player.ballDistance < 100)
+                            && player.ballDistance > 12) {
                         float angle = Emath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
                         float angleDiff = Emath.angleDiff(angle, player.a);
                         if (angleDiff < 90f) {
