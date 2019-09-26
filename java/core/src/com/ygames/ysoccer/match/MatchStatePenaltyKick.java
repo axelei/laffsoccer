@@ -141,14 +141,16 @@ class MatchStatePenaltyKick extends MatchState {
             return;
         }
 
-        InputDevice inputDevice;
-        for (int t = HOME; t <= AWAY; t++) {
-            inputDevice = match.team[t].fire2Down();
-            if (inputDevice != null) {
-                getFsm().benchStatus.team = match.team[t];
-                getFsm().benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-                return;
+        if (match.period != PENALTIES) {
+            InputDevice inputDevice;
+            for (int t = HOME; t <= AWAY; t++) {
+                inputDevice = match.team[t].fire2Down();
+                if (inputDevice != null) {
+                    getFsm().benchStatus.team = match.team[t];
+                    getFsm().benchStatus.inputDevice = inputDevice;
+                    fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
+                    return;
+                }
             }
         }
     }
