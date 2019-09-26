@@ -16,7 +16,7 @@ public class Settings {
     private Json json;
 
     public final String APP_NAME = "YSoccer";
-    public final String VERSION = "16";
+    public final String VERSION = "19";
 
     // game
     public String locale;

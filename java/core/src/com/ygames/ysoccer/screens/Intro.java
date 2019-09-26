@@ -23,7 +23,7 @@ public class Intro extends GLScreen {
 
         BitmapFont font = new BitmapFont(true);
         String[] lines = {
-                "YSoccer 16, Copyright (C) 2016",
+                "YSoccer 19, Copyright (C) 2019",
                 "by Massimo Modica, Daniele Giannarini, Marco Modica",
                 "",
                 "YSoccer comes with ABSOLUTELY NO WARRANTY; for details press 'W'.",
