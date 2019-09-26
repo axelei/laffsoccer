@@ -9,7 +9,7 @@ public class Const {
     static final int BALL_R = 4;
     static float GRAVITY = 332.8f / SECOND;
     static float AIR_FRICTION = 0.28f;
-    static float SPIN_FACTOR = 10.0f;
+    static float SPIN_FACTOR = 11.0f;
     static float SPIN_DAMPENING = 7.0f;
     static float BOUNCE = 0.9f;
     static float PLAYER_RUN_ANIMATION = 0.18f;

@@ -246,8 +246,13 @@ public class GLGame extends Game {
 
     public enum LogType {
         PASSING,
-        ATTACKING_AI,
-        PLAYER_SELECTION
+        PLAYER_SELECTION,
+        AI_ATTACKING,
+        AI_KICKING
+    }
+
+    public static void debug(LogType type, Object Object, String message) {
+        debug(type, Object.getClass().getSimpleName(), message);
     }
 
     public static void debug(LogType type, String tag, String message) {

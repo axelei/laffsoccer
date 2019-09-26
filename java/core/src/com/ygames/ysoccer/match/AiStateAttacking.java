@@ -5,7 +5,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.math.Emath;
 
-import static com.ygames.ysoccer.framework.GLGame.LogType.ATTACKING_AI;
+import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_ATTACKING;
 import static com.ygames.ysoccer.match.Const.DIRECT_SHOT_DISTANCE;
 import static com.ygames.ysoccer.match.Const.GOAL_AREA_H;
@@ -51,37 +51,37 @@ class AiStateAttacking extends AiState {
 
         targetAngle = controlsAngle;
 
-        GLGame.debug(ATTACKING_AI, player.numberName(), "Enters attacking state, player.a: " + player.a + ", controlsAngle: " + controlsAngle + ", targetAngle: " + targetAngle);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "Enters attacking state, player.a: " + player.a + ", controlsAngle: " + controlsAngle + ", targetAngle: " + targetAngle);
     }
 
     @Override
     void doActions() {
         super.doActions();
 
-        GLGame.debug(ATTACKING_AI, player.numberName(), "[TIMER: " + timer + "] controlsAngle: " + controlsAngle + ", player.a: " + player.a);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "[TIMER: " + timer + "] controlsAngle: " + controlsAngle + ", player.a: " + player.a);
 
         if (isUrgentTargetUpdateTime()) {
             targetAngle += getUrgentAngleCorrection();
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Urgent target update time, targetAngle: " + targetAngle);
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Urgent target update time, targetAngle: " + targetAngle);
         }
 
         if (isTargetUpdateTime()) {
             targetAngle += getAngleCorrection();
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Target update, targetAngle: " + targetAngle);
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Target update, targetAngle: " + targetAngle);
         }
 
         if (isMateSearchingTime()) {
             player.searchPassingMate();
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Mate searching, passingMate: " + (player.passingMate == null ? "null" : player.passingMate.numberName()) + " with passingMateAngleCorrection: " + player.passingMateAngleCorrection + ", updating targetAngle: " + targetAngle + ", timer: " + timer);
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Mate searching, passingMate: " + (player.passingMate == null ? "null" : player.passingMate.numberName()) + " with passingMateAngleCorrection: " + player.passingMateAngleCorrection + ", updating targetAngle: " + targetAngle + ", timer: " + timer);
         }
 
         if (isTurningTime()) {
             float signedAngleDiff = Emath.signedAngleDiff(targetAngle, player.a);
             if (Math.abs(signedAngleDiff) > 22.5f) {
                 controlsAngle += 45f * Math.signum(signedAngleDiff);
-                GLGame.debug(ATTACKING_AI, player.numberName(), "Turning, signedAngleDiff: " + signedAngleDiff + ", correction: " + (45f * Math.signum(signedAngleDiff)) + ", new controlsAngle: " + controlsAngle);
+                GLGame.debug(AI_ATTACKING, player.numberName(), "Turning, signedAngleDiff: " + signedAngleDiff + ", correction: " + (45f * Math.signum(signedAngleDiff)) + ", new controlsAngle: " + controlsAngle);
             } else {
-                GLGame.debug(ATTACKING_AI, player.numberName(), "No turning needed");
+                GLGame.debug(AI_ATTACKING, player.numberName(), "No turning needed");
             }
         }
 
@@ -128,7 +128,7 @@ class AiStateAttacking extends AiState {
             float probabilityByDistance = probabilityByDistance(distance, 0.1f, DIRECT_SHOT_DISTANCE);
 
             float probability = (probabilityByVisualWidth + probabilityByDistance * probabilityByDistance) / 2;
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Inside direct shot area, visualWidth: " + visualWidth
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Inside direct shot area, visualWidth: " + visualWidth
                     + ", probabilityByVisualWidth: " + probabilityByVisualWidth
                     + ", distance: " + distance
                     + ", probabilityByDistance: " + probabilityByDistance
@@ -155,19 +155,19 @@ class AiStateAttacking extends AiState {
 
     private float getUrgentAngleCorrection() {
 
-        GLGame.debug(ATTACKING_AI, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle);
 
         // Vector3(left, center, right)
         Vector3 totalWeights = new Vector3(1, 1, 1);
 
         // avoid exiting
         Vector3 inFieldMap = getInFieldMap();
-        GLGame.debug(ATTACKING_AI, player.numberName(), "In field map: " + inFieldMap);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "In field map: " + inFieldMap);
 
         // sum all weights
         totalWeights.scl(inFieldMap);
 
-        GLGame.debug(ATTACKING_AI, player.numberName(), "TotalWeights: " + totalWeights);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "TotalWeights: " + totalWeights);
 
         // whenever players picks the ball near goal or touch lines
         // he needs to turn more than normal 45 degrees
@@ -181,24 +181,24 @@ class AiStateAttacking extends AiState {
                 && !player.seesTheGoal()) {
             float signedAngleDiff = player.goalSignedAngleDiff();
             if (signedAngleDiff < -Const.SHOOTING_ANGLE_TOLERANCE) {
-                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing left turn to see the goal");
+                GLGame.debug(AI_ATTACKING, player.numberName(), "Forcing left turn to see the goal");
                 totalWeights.scl(2, 0, 0);
             }
             if (signedAngleDiff > Const.SHOOTING_ANGLE_TOLERANCE) {
-                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing right turn to see the goal");
+                GLGame.debug(AI_ATTACKING, player.numberName(), "Forcing right turn to see the goal");
                 totalWeights.scl(0, 0, 2);
             }
         }
 
         // finally decide
         if (totalWeights.x > Math.max(totalWeights.y, totalWeights.z)) {
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Turning left: -45");
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Turning left: -45");
             return -45;
         } else if (totalWeights.y >= totalWeights.z) {
-            GLGame.debug(ATTACKING_AI, player.numberName(), "No turning: 0");
+            GLGame.debug(AI_ATTACKING, player.numberName(), "No turning: 0");
             return 0;
         } else {
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Turning right: +45");
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Turning right: +45");
             return 45;
         }
     }
@@ -210,12 +210,12 @@ class AiStateAttacking extends AiState {
 
         // 1. minimize mates frame distance
         Vector3 mateWeights = getMateWeights();
-        GLGame.debug(ATTACKING_AI, player.numberName(), "Mates weights: " + mateWeights);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "Mates weights: " + mateWeights);
         totalWeights.add(mateWeights.scl(Parameters.MATE_FACTOR));
 
         // 2. maximize opponent frame distance
         Vector3 opponentWeights = getOpponentWeights();
-        GLGame.debug(ATTACKING_AI, player.numberName(), "Opponents weights: " + opponentWeights);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "Opponents weights: " + opponentWeights);
         totalWeights.add(opponentWeights.scl(Parameters.OPPONENT_FACTOR));
 
         // 3. push toward/away goals
@@ -233,19 +233,19 @@ class AiStateAttacking extends AiState {
             }
         }
         totalWeights.add(goalWeights.scl(GOAL_FACTOR));
-        GLGame.debug(ATTACKING_AI, player.numberName(), "Goal weights: " + goalWeights);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "Goal weights: " + goalWeights);
 
-        GLGame.debug(ATTACKING_AI, player.numberName(), "TotalWeights: " + totalWeights);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "TotalWeights: " + totalWeights);
 
         // finally decide
         if (totalWeights.x > Math.max(totalWeights.y, totalWeights.z)) {
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Turning left: -45");
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Turning left: -45");
             return -45;
         } else if (totalWeights.y >= totalWeights.z) {
-            GLGame.debug(ATTACKING_AI, player.numberName(), "No turning: 0");
+            GLGame.debug(AI_ATTACKING, player.numberName(), "No turning: 0");
             return 0;
         } else {
-            GLGame.debug(ATTACKING_AI, player.numberName(), "Turning right: +45");
+            GLGame.debug(AI_ATTACKING, player.numberName(), "Turning right: +45");
             return 45;
         }
     }
@@ -316,7 +316,7 @@ class AiStateAttacking extends AiState {
                 1 - Emath.angleDiff(ownGoalToPlayerAngle, controlsAngle) / 360,
                 1 - Emath.angleDiff(ownGoalToPlayerAngle, controlsAngle + 45) / 360
         );
-        GLGame.debug(ATTACKING_AI, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle + ", ownGoalToPlayerAngle: " + ownGoalToPlayerAngle);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle + ", ownGoalToPlayerAngle: " + ownGoalToPlayerAngle);
         return weights;
     }
 
@@ -328,7 +328,7 @@ class AiStateAttacking extends AiState {
                 1 - Emath.angleDiff(playerToGoalAngle, controlsAngle) / 360,
                 1 - Emath.angleDiff(playerToGoalAngle, controlsAngle + 45) / 360
         );
-        GLGame.debug(ATTACKING_AI, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle + ", playerToGoalAngle: " + playerToGoalAngle);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle + ", playerToGoalAngle: " + playerToGoalAngle);
         return weights;
     }
 
@@ -382,7 +382,7 @@ class AiStateAttacking extends AiState {
         float playerToCenterAngle = player.angleToPoint(0, 0);
         float angle = 90 * Math.signum(Emath.signedAngleDiff(controlsAngle, playerToCenterAngle));
 
-        GLGame.debug(ATTACKING_AI, player.numberName(), "Emergency turn by: " + angle);
+        GLGame.debug(AI_ATTACKING, player.numberName(), "Emergency turn by: " + angle);
         return angle;
     }
 
