@@ -7,6 +7,7 @@ import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.ATTACKING_AI;
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_ATTACKING;
+import static com.ygames.ysoccer.match.Const.DIRECT_SHOT_DISTANCE;
 import static com.ygames.ysoccer.match.Const.GOAL_AREA_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.POST_X;
@@ -119,8 +120,20 @@ class AiStateAttacking extends AiState {
         //     return fsm.autoPassing;
         // }
 
-        if (player.ball.isInsideDirectShotArea(-player.team.side)) {
-            if (player.seesTheGoal()) {
+        if (player.ball.isInsideDirectShotArea(-player.team.side) && player.seesTheGoal()) {
+            float visualWidth = goalVisualWidth(player.x, player.y);
+            float probabilityByVisualWidth = probabilityByVisualWidth(visualWidth, 180);
+
+            float distance = Emath.dist(player.x, player.y, POST_X * Emath.sgn(player.x), GOAL_LINE * Emath.sgn(player.y));
+            float probabilityByDistance = probabilityByDistance(distance, 0.1f, DIRECT_SHOT_DISTANCE);
+
+            float probability = (probabilityByVisualWidth + probabilityByDistance * probabilityByDistance) / 2;
+            GLGame.debug(ATTACKING_AI, player.numberName(), "Inside direct shot area, visualWidth: " + visualWidth
+                    + ", probabilityByVisualWidth: " + probabilityByVisualWidth
+                    + ", distance: " + distance
+                    + ", probabilityByDistance: " + probabilityByDistance
+                    + ", probability: " + probability);
+            if (Assets.random.nextFloat() < probability) {
                 return fsm.stateKicking;
             }
         }
@@ -168,11 +181,11 @@ class AiStateAttacking extends AiState {
                 && !player.seesTheGoal()) {
             float signedAngleDiff = player.goalSignedAngleDiff();
             if (signedAngleDiff < -Const.SHOOTING_ANGLE_TOLERANCE) {
-                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing left to see the goal");
+                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing left turn to see the goal");
                 totalWeights.scl(2, 0, 0);
             }
             if (signedAngleDiff > Const.SHOOTING_ANGLE_TOLERANCE) {
-                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing right to see the goal");
+                GLGame.debug(ATTACKING_AI, player.numberName(), "Forcing right turn to see the goal");
                 totalWeights.scl(0, 0, 2);
             }
         }
@@ -371,5 +384,20 @@ class AiStateAttacking extends AiState {
 
         GLGame.debug(ATTACKING_AI, player.numberName(), "Emergency turn by: " + angle);
         return angle;
+    }
+
+    private float probabilityByVisualWidth(float value, float maxValue) {
+        return -value * value / (maxValue * maxValue) + 2f * value / maxValue;
+    }
+
+    private float probabilityByDistance(float value, float minProb, float maxValue) {
+        return (minProb - 1) * value * value / (maxValue * maxValue) + 1;
+    }
+
+    private float goalVisualWidth(float x, float y) {
+        int side = Emath.sgn(y);
+        float angle1 = Emath.angle(x, y, -POST_X, side * GOAL_LINE);
+        float angle2 = Emath.angle(x, y, +POST_X, side * GOAL_LINE);
+        return Emath.angleDiff(angle1, angle2);
     }
 }
