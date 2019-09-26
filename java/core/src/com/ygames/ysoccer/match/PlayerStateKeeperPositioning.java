@@ -93,7 +93,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
         // update mode
         switch (mode) {
             case DEFAULT:
-                if (ball.isInsidePenaltyArea(player.side)) {
+                if (ball.isInsidePenaltyArea(player.side) || ball.ySide * ball.y > GOAL_LINE) {
                     if (player == nearestOfAll) {
                         mode = Mode.RECOVER_BALL;
                     } else if (nearestOfAll != null && nearestOfAll.side != player.side
@@ -147,7 +147,28 @@ class PlayerStateKeeperPositioning extends PlayerState {
                 break;
         }
 
+        // TODO: accept to play the ball instead of catching it if no opponents in penalty area
+        if ((player.ballDistance <= 8)
+                && Emath.dist(player.x0, player.y0, ball.x0, ball.y0) > 8
+                && (ball.z < Const.PLAYER_H)) {
+            ball.v = 0;
+            ball.vz = 0;
+            ball.s = 0;
+
+            ball.setOwner(player);
+            ball.setHolder(player);
+
+            return fsm.stateKeeperKickAngle;
+        }
+
         return null;
+    }
+
+    @Override
+    void exitActions() {
+        if (ball.holder == player) {
+            ball.setHolder(null);
+        }
     }
 
     private PlayerState getSaves() {
