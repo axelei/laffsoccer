@@ -8,6 +8,7 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -61,15 +62,14 @@ class MatchStateKeeperStop extends MatchState {
         while (timeLeft > GLGame.SUBFRAME_DURATION) {
 
             if (match.subframe % GLGame.SUBFRAMES == 0) {
+                match.ball.updatePrediction();
+                match.updateFrameDistance();
                 match.updateAi();
             }
 
             match.updateBall();
             match.updatePlayers(true);
-
-            if ((match.subframe % GLGame.VIRTUAL_REFRESH_RATE) == 0) {
-                match.ball.updatePrediction();
-            }
+            match.findNearest();
 
             match.nextSubframe();
 
@@ -83,7 +83,7 @@ class MatchStateKeeperStop extends MatchState {
 
     @Override
     void checkConditions() {
-        if (match.ball.holder == null) {
+        if (keeper.checkState(STATE_STAND_RUN) || keeper.checkState(STATE_KEEPER_POSITIONING)) {
             keeperTeam.setPlayersState(STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(STATE_STAND_RUN, null);
             fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);

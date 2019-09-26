@@ -74,11 +74,14 @@ class MatchStateKickOff extends MatchState {
         while (timeLeft >= GLGame.SUBFRAME_DURATION) {
 
             if (match.subframe % GLGame.SUBFRAMES == 0) {
+                match.ball.updatePrediction();
+                match.updateFrameDistance();
                 match.updateAi();
             }
 
             match.updateBall();
             move = match.updatePlayers(true);
+            match.findNearest();
 
             match.nextSubframe();
 

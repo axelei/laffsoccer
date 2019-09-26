@@ -23,7 +23,6 @@ import java.util.Map;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
-import static com.ygames.ysoccer.match.Const.PLAYER_H;
 import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
@@ -262,23 +261,26 @@ public class Team implements Json.Serializable {
     }
 
     private void findBestDefender() {
-        bestDefender = null;
+        Player newBestDefender = null;
 
-        if ((match.ball.owner != null) && (match.ball.owner.team != this)) {
-            float attackerGoalDistance = Emath.dist(match.ball.owner.x, match.ball.owner.y, 0, -Const.GOAL_LINE * match.ball.owner.team.side);
+        float minBallDistance = 2 * Const.GOAL_LINE;
+        if ((match.ball.ownerLast != null) && (match.ball.ownerLast.team != this)) {
+            float ballToGoalDistance = Emath.dist(match.ball.x, match.ball.y, 0, Const.GOAL_LINE * side);
 
-            float bestDistance = 2 * Const.GOAL_LINE;
             for (int i = 1; i < TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
-                player.defendDistance = Emath.dist(player.x, player.y, match.ball.owner.x, match.ball.owner.y);
 
-                float playerGoalDistance = Emath.dist(player.x, player.y, 0, -Const.GOAL_LINE * match.ball.owner.team.side);
-                if ((playerGoalDistance < 0.95f * attackerGoalDistance)
-                        && (player.defendDistance < bestDistance)) {
-                    bestDefender = player;
-                    bestDistance = player.defendDistance;
+                float playerGoalDistance = Emath.dist(player.x, player.y, 0, Const.GOAL_LINE * side);
+                if ((playerGoalDistance < 0.95f * ballToGoalDistance)
+                        && (player.ballDistance < minBallDistance)) {
+                    newBestDefender = player;
+                    minBallDistance = player.ballDistance;
                 }
             }
+        }
+
+        if (bestDefender == null || minBallDistance < 0.9f * bestDefender.ballDistance) {
+            bestDefender = newBestDefender;
         }
     }
 
@@ -384,7 +386,8 @@ public class Team implements Json.Serializable {
     boolean updatePlayers(boolean limit) {
         findNearest();
 
-        findBestDefender();
+        // TODO: move to the main update loop
+        if (match.subframe % GLGame.SUBFRAMES == 0) findBestDefender();
 
         boolean move = updateLineup(limit);
 
@@ -510,53 +513,66 @@ public class Team implements Json.Serializable {
             // ball owned: attacking
             if (ball.owner.team.index == index) {
                 if (ball.owner != controlled) {
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + ball.owner.numberName() + " because is ball owner (attacking)");
                     if (controlled != null) {
                         controlled.inputDevice = controlled.ai;
+                    } else {
+                        controlled = ball.owner;
                     }
                     ball.owner.inputDevice = inputDevice;
-                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + ball.owner.numberName() + " because is ball owner (attacking)");
                 }
             }
-            // ball owned by opponent: defending
+            // ball owned by opponent: pressing
             else {
                 if (bestDefenderBetterThan(controlled)) {
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + bestDefender.numberName() + " because is best defender (defending)");
                     if (controlled != null) {
                         controlled.inputDevice = controlled.ai;
+                    } else {
+                        controlled = bestDefender;
                     }
                     bestDefender.inputDevice = inputDevice;
-                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is best defender (defending)");
-                } else if (near1betterThan(controlled)) {
-                    if (controlled != null) {
-                        controlled.inputDevice = controlled.ai;
-                    }
+                } else if (controlled == null) {
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), " > " + near1.numberName() + " because of no best defender and no controlled (defending)");
+                    controlled = near1;
                     near1.inputDevice = inputDevice;
-                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (defending)");
                 }
             }
         } else {
             // owned last ball: attacking
             if (match.ball.ownerLast != null && match.ball.ownerLast.team.index == index) {
-                if (ball.z > 2 * PLAYER_H && near1betterThan(controlled)) {
+                //if (ball.z > 2 * PLAYER_H && near1betterThan(controlled)) {
+                if (near1betterThan(controlled)) {
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (attacking)");
                     if (controlled != null) {
                         controlled.inputDevice = controlled.ai;
+                    } else {
+                        controlled = near1;
                     }
                     near1.inputDevice = inputDevice;
-                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (attacking)");
                 }
             }
-            // defending
+            // recovering ball
             else if (bestDefenderBetterThan(controlled)) {
+                GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + bestDefender.numberName() + " because is best defender (recovering ball)");
                 if (controlled != null) {
                     controlled.inputDevice = controlled.ai;
+                } else {
+                    controlled = bestDefender;
                 }
                 bestDefender.inputDevice = inputDevice;
-                GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is best defender (defending)");
-            } else if (near1betterThan(controlled)) {
-                if (controlled != null) {
-                    controlled.inputDevice = controlled.ai;
-                }
+            } else if (controlled == null) {
+                GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), " > " + near1.numberName() + " because is nearest (recovering ball without best defender)");
+                controlled = near1;
                 near1.inputDevice = inputDevice;
-                GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (defending without best defender)");
+            }
+        }
+
+        if (controlled == null) {
+            GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), " > " + near1.numberName() + " because of last option");
+
+            if (near1.getState().checkId(STATE_STAND_RUN)) {
+                near1.inputDevice = inputDevice;
             }
         }
     }
@@ -581,8 +597,7 @@ public class Team implements Json.Serializable {
 
         return !controlled.checkState(STATE_STAND_RUN)
                 && bestDefender != controlled
-                && bestDefender.frameDistance < BALL_PREDICTION
-                && bestDefender.frameDistance < 0.25 * controlled.frameDistance;
+                && bestDefender.frameDistance < BALL_PREDICTION;
     }
 
     InputDevice fire1Down() {

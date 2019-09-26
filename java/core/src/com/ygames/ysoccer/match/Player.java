@@ -90,7 +90,6 @@ public class Player implements Json.Serializable {
 
     int side;
     float kickAngle;
-    float defendDistance;
 
     Player passingMate;
     float passingMateAngleCorrection;
