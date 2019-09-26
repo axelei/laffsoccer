@@ -8,19 +8,36 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateDefending extends AiState {
 
+    private static int MIN_UPDATE_INTERVAL = 12;
+    private static int MAX_UPDATE_INTERVAL = 24;
+
+    private int nextUpdate;
+
     AiStateDefending(AiFsm fsm) {
         super(STATE_DEFENDING, fsm);
     }
 
     @Override
+    void entryActions() {
+        super.entryActions();
+
+        nextUpdate = Emath.rand(MIN_UPDATE_INTERVAL, MAX_UPDATE_INTERVAL);
+    }
+
+    @Override
     void doActions() {
         super.doActions();
-        int d = player.frameDistance;
-        if (d < Const.BALL_PREDICTION) {
-            Vector3 b = player.ball.prediction[d];
-            float a = Emath.aTan2(b.y - player.y, b.x - player.x);
-            ai.x0 = Math.round(Emath.cos(a));
-            ai.y0 = Math.round(Emath.sin(a));
+
+        if (timer > nextUpdate) {
+            int d = player.frameDistance;
+            if (d < Const.BALL_PREDICTION) {
+                Vector3 b = player.ball.prediction[d];
+                float a = Emath.aTan2(b.y - player.y, b.x - player.x);
+                ai.x0 = Math.round(Emath.cos(a));
+                ai.y0 = Math.round(Emath.sin(a));
+            }
+
+            nextUpdate += Emath.rand(MIN_UPDATE_INTERVAL, MAX_UPDATE_INTERVAL);
         }
     }
 
