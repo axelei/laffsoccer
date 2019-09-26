@@ -16,9 +16,7 @@ class AiStatePassing extends AiState {
         super.entryActions();
 
         ai.fire10 = false;
-
-        float d = player.passingMate == null ? 300 : player.distanceFrom(player.passingMate);
-        duration = d < 150 ? 3 : 4;
+        duration = 8;
     }
 
     @Override
