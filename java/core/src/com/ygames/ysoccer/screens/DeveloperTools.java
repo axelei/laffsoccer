@@ -45,6 +45,9 @@ class DeveloperTools extends GLScreen {
         w = new OptionsButton();
         widgets.add(w);
 
+        w = new InfoButton();
+        widgets.add(w);
+
         w = new ExitButton();
         widgets.add(w);
 
@@ -123,6 +126,20 @@ class DeveloperTools extends GLScreen {
         @Override
         public void onFire1Down() {
             game.setScreen(new DeveloperOptions(game));
+        }
+    }
+
+    private class InfoButton extends Button {
+
+        InfoButton() {
+            setColor(0x427AA1);
+            setGeometry((game.gui.WIDTH - 260) / 2, 450, 260, 36);
+            setText("INFO", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new DeveloperInfo(game));
         }
     }
 
