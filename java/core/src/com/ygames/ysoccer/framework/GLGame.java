@@ -262,7 +262,7 @@ public class GLGame extends Game {
     }
 
     public static boolean isSetLogFilter(LogType type) {
-        return (Settings.logFilter & (1 << type.ordinal())) != 0;
+        return (type == null) || (Settings.logFilter & (1 << type.ordinal())) != 0;
     }
 
     public static void toggleLogFilter(LogType type) {

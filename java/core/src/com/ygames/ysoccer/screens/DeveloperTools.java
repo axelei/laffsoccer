@@ -39,6 +39,9 @@ class DeveloperTools extends GLScreen {
 
         setSelectedWidget(w);
 
+        w = new KeeperTestButton();
+        widgets.add(w);
+
         w = new MatchTestButton();
         widgets.add(w);
 
@@ -57,8 +60,8 @@ class DeveloperTools extends GLScreen {
     private class PlayerTestButton extends Button {
 
         PlayerTestButton() {
-            setColor(0x427AA1);
-            setGeometry((game.gui.WIDTH - 260) / 2, 300, 260, 36);
+            setColor(0x7D42A1);
+            setGeometry((game.gui.WIDTH - 260) / 2, 250, 260, 36);
             setText("PLAYER TEST", Font.Align.CENTER, Assets.font14);
         }
 
@@ -68,12 +71,26 @@ class DeveloperTools extends GLScreen {
         }
     }
 
+    private class KeeperTestButton extends Button {
+
+        KeeperTestButton() {
+            setColor(0x7D42A1);
+            setGeometry((game.gui.WIDTH - 260) / 2, 300, 260, 36);
+            setText("KEEPER TEST", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new TestKeeper(game));
+        }
+    }
+
     private class MatchTestButton extends Button {
 
         MatchTestButton() {
             setColor(0x427AA1);
             setGeometry((game.gui.WIDTH - 260) / 2, 350, 260, 36);
-            setText("MATCH TEST", Font.Align.CENTER, Assets.font14);
+            setText("QUICK MATCH", Font.Align.CENTER, Assets.font14);
         }
 
         @Override
@@ -118,7 +135,7 @@ class DeveloperTools extends GLScreen {
     private class OptionsButton extends Button {
 
         OptionsButton() {
-            setColor(0x427AA1);
+            setColor(0x8AA142);
             setGeometry((game.gui.WIDTH - 260) / 2, 400, 260, 36);
             setText("OPTIONS", Font.Align.CENTER, Assets.font14);
         }
@@ -132,7 +149,7 @@ class DeveloperTools extends GLScreen {
     private class InfoButton extends Button {
 
         InfoButton() {
-            setColor(0x427AA1);
+            setColor(0x8AA142);
             setGeometry((game.gui.WIDTH - 260) / 2, 450, 260, 36);
             setText("INFO", Font.Align.CENTER, Assets.font14);
         }
