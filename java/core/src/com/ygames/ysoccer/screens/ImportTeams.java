@@ -142,7 +142,7 @@ class ImportTeams extends GLScreen {
         exitButton = new ExitButton();
         widgets.add(exitButton);
 
-        if (selectedWidget == null) {
+        if (getSelectedWidget() == null) {
             setSelectedWidget(exitButton);
         }
     }

@@ -26,7 +26,7 @@ public abstract class GLScreen implements Screen {
 
     protected Texture background;
     protected List<Widget> widgets;
-    protected Widget selectedWidget;
+    private Widget selectedWidget;
     protected boolean playMenuMusic;
     protected InputDevice lastFireInputDevice;
 
@@ -151,6 +151,9 @@ public abstract class GLScreen implements Screen {
         }
     }
 
+    public Widget getSelectedWidget() {
+        return selectedWidget;
+    }
 
     public boolean setSelectedWidget(Widget widget) {
         if (widget == null || widget == selectedWidget || !widget.visible || !widget.active) {

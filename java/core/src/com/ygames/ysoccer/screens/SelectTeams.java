@@ -155,7 +155,7 @@ class SelectTeams extends GLScreen {
 
         w = new AbortButton();
         widgets.add(w);
-        if (selectedWidget == null) {
+        if (getSelectedWidget() == null) {
             setSelectedWidget(w);
         }
 

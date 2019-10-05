@@ -112,9 +112,11 @@ class MenuInput {
             }
         }
 
+        // mouse buttons
+        Widget selectedWidget = screen.getSelectedWidget();
         if (game.mouse.enabled
-                && screen.selectedWidget != null
-                && screen.selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
+                && selectedWidget != null
+                && selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
             if (game.mouse.buttonLeft) {
                 fire1 = true;
                 screen.lastFireInputDevice = null;
@@ -127,9 +129,9 @@ class MenuInput {
 
         // up / down
         int bias = 1;
-        if (screen.selectedWidget != null) {
+        if (selectedWidget != null) {
             if (y == -1 && yTimer == 0) {
-                Widget current = screen.selectedWidget;
+                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
@@ -141,7 +143,7 @@ class MenuInput {
                     }
                 }
             } else if (y == 1 && yTimer == 0) {
-                Widget current = screen.selectedWidget;
+                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
@@ -157,9 +159,9 @@ class MenuInput {
 
         // left / right
         bias = 9;
-        if (screen.selectedWidget != null) {
+        if (selectedWidget != null) {
             if (x == -1 && xTimer == 0) {
-                Widget current = screen.selectedWidget;
+                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
@@ -171,7 +173,7 @@ class MenuInput {
                     }
                 }
             } else if (x == 1 && xTimer == 0) {
-                Widget current = screen.selectedWidget;
+                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {

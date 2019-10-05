@@ -26,8 +26,8 @@ class SelectTactics extends GLScreen {
         for (int t = 12; t < 18; t++) {
             w = new TacticsButton(t);
             widgets.add(w);
-            if (selectedWidget == null) {
-                selectedWidget = w;
+            if (getSelectedWidget() == null) {
+                setSelectedWidget(w);
             }
         }
 

@@ -277,6 +277,7 @@ class SetupControls extends GLScreen {
                 }
             }
             entryMode = false;
+            listeningConfigButton = null;
             Gdx.input.setInputProcessor(null);
             setKeyboardConfigs();
             game.reloadInputDevices();
@@ -683,7 +684,7 @@ class SetupControls extends GLScreen {
     private class SetupInputProcessor extends InputAdapter {
 
         public boolean keyUp(int keycode) {
-            ((ConfigButton) selectedWidget).setKeyCode(keycode);
+            listeningConfigButton.setKeyCode(keycode);
             return false;
         }
     }
