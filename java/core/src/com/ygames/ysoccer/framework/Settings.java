@@ -22,7 +22,6 @@ public class Settings {
     public String locale;
     public boolean fullScreen;
     public boolean showIntro;
-    public boolean mouseEnabled;
     public int musicMode;
     public int musicVolume;
 
@@ -48,7 +47,7 @@ public class Settings {
     public static boolean development;
 
     public static int logLevel;
-    public static int logFilter;
+    static int logFilter;
 
     public static boolean showJavaHeap;
     public static boolean showTeamValues;
@@ -73,7 +72,6 @@ public class Settings {
         locale = preferences.getString("locale", "en");
         fullScreen = preferences.getBoolean("fullScreen", false);
         showIntro = preferences.getBoolean("showIntro", true);
-        mouseEnabled = preferences.getBoolean("mouseEnabled", true);
         musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);
         musicVolume = preferences.getInteger("musicVolume", 40);
         useFlags = preferences.getBoolean("useFlags", true);
@@ -121,7 +119,6 @@ public class Settings {
         preferences.putString("locale", locale);
         preferences.putBoolean("fullScreen", fullScreen);
         preferences.putBoolean("showIntro", showIntro);
-        preferences.putBoolean("mouseEnabled", mouseEnabled);
         preferences.putInteger("musicMode", musicMode);
         preferences.putInteger("musicVolume", musicVolume);
         preferences.putBoolean("useFlags", useFlags);
@@ -169,14 +166,14 @@ public class Settings {
     }
 
     private String defaultKeyboardConfigs() {
-        ArrayList<KeyboardConfig> keyboardConfigs = new ArrayList<KeyboardConfig>();
+        ArrayList<KeyboardConfig> keyboardConfigs = new ArrayList<>();
         keyboardConfigs.add(new KeyboardConfig(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.M, Input.Keys.N));
         keyboardConfigs.add(new KeyboardConfig(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.V, Input.Keys.B));
         return json.toJson(keyboardConfigs);
     }
 
     public ArrayList<KeyboardConfig> getKeyboardConfigs() {
-        return new ArrayList<KeyboardConfig>(Arrays.asList(json.fromJson(KeyboardConfig[].class, keyboardConfigs)));
+        return new ArrayList<>(Arrays.asList(json.fromJson(KeyboardConfig[].class, keyboardConfigs)));
     }
 
     public void setKeyboardConfigs(ArrayList<KeyboardConfig> keyboardConfigs) {
@@ -184,7 +181,7 @@ public class Settings {
     }
 
     private ArrayList<JoystickConfig> getJoystickConfigs() {
-        return new ArrayList<JoystickConfig>(Arrays.asList(json.fromJson(JoystickConfig[].class, joystickConfigs)));
+        return new ArrayList<>(Arrays.asList(json.fromJson(JoystickConfig[].class, joystickConfigs)));
     }
 
     public JoystickConfig getJoystickConfigByName(String name) {
