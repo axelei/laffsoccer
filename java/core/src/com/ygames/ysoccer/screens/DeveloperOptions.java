@@ -46,6 +46,7 @@ class DeveloperOptions extends GLScreen {
         widgets.add(w);
         w = new JavaHeapButton();
         widgets.add(w);
+        setSelectedWidget(w);
 
         y0 += 22;
         w = new TeamValuesLabel();

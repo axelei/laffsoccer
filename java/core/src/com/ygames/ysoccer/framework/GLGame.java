@@ -61,7 +61,7 @@ public class GLGame extends Game {
         inputDevices = new InputDeviceList();
         reloadInputDevices();
 
-        menuInput = new MenuInput();
+        menuInput = new MenuInput(this);
 
         mouse = new Mouse();
         setMouse();
@@ -101,8 +101,18 @@ public class GLGame extends Game {
         }
     }
 
+    void enableMouse() {
+        mouse.enabled = true;
+        setMouse();
+    }
+
+    void disableMouse() {
+        unsetMouse();
+        mouse.enabled = false;
+    }
+
     public void setMouse() {
-        if (settings.mouseEnabled) {
+        if (mouse.enabled) {
             Gdx.graphics.setCursor(Assets.customCursor);
         } else {
             Gdx.graphics.setCursor(Assets.hiddenCursor);
@@ -110,7 +120,7 @@ public class GLGame extends Game {
     }
 
     public void unsetMouse() {
-        if (settings.mouseEnabled) {
+        if (mouse.enabled) {
             Gdx.graphics.setCursor(Assets.hiddenCursor);
         }
     }
@@ -152,26 +162,6 @@ public class GLGame extends Game {
     public void dispose() {
         super.dispose();
         glGraphics.dispose();
-    }
-
-    class MenuInput {
-        // values
-        protected int x;
-        protected int y;
-        boolean fire1;
-        boolean fire2;
-
-        // old values
-        int xOld;
-        int yOld;
-        boolean fire1Old;
-        boolean fire2Old;
-
-        // timers
-        int xTimer;
-        int yTimer;
-        int fire1Timer;
-        int fire2Timer;
     }
 
     public void setState(State state, Competition.Category category) {

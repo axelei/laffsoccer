@@ -41,7 +41,7 @@ public abstract class Widget {
     private boolean dirty;
 
     public enum Event {
-        NONE, FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
+        FIRE1_DOWN, FIRE1_HOLD, FIRE1_UP, FIRE2_DOWN, FIRE2_HOLD, FIRE2_UP
     }
 
     public Widget() {
@@ -164,10 +164,6 @@ public abstract class Widget {
 
             case FIRE2_UP:
                 onFire2Up();
-                break;
-
-            case NONE:
-                //do nothing
                 break;
         }
     }

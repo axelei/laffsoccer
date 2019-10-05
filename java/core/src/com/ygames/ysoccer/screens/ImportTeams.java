@@ -39,7 +39,7 @@ class ImportTeams extends GLScreen {
 
     private State state = State.NO_FILES;
 
-    private int year = 2016;
+    private int year = 2019;
 
     private final String[] divisions = {
             "PREMIER DIVISION",

@@ -12,7 +12,6 @@ import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +76,7 @@ public abstract class GLScreen implements Screen {
         camera.translate(-game.gui.originX, -game.gui.originY);
         camera.update();
 
-        if (game.settings.mouseEnabled) {
+        if (game.mouse.enabled) {
             game.mouse.read(camera);
 
             int len = widgets.size();
@@ -87,13 +86,15 @@ public abstract class GLScreen implements Screen {
                     setSelectedWidget(widget);
                 }
             }
+        } else if (game.mouse.actioned()) {
+            game.enableMouse();
         }
 
         for (InputDevice inputDevice : game.inputDevices) {
             inputDevice.update();
         }
 
-        readMenuInput();
+        game.menuInput.read(this);
 
         int len = widgets.size();
         for (int i = 0; i < len; i++) {
@@ -104,32 +105,9 @@ public abstract class GLScreen implements Screen {
             widget.setDirty(false);
         }
 
-        GLGame.MenuInput menuInput = game.menuInput;
-        Widget.Event widgetEvent = Widget.Event.NONE;
+        Widget.Event widgetEvent = game.menuInput.getWidgetEvent();
 
-        // fire 1 events
-        if (!menuInput.fire1Old && menuInput.fire1) {
-            widgetEvent = Widget.Event.FIRE1_DOWN;
-        }
-        if (menuInput.fire1 && menuInput.fire1Old && menuInput.fire1Timer == 0) {
-            widgetEvent = Widget.Event.FIRE1_HOLD;
-        }
-        if (menuInput.fire1Old && !menuInput.fire1) {
-            widgetEvent = Widget.Event.FIRE1_UP;
-        }
-
-        // fire 2 events
-        if (!menuInput.fire2Old && menuInput.fire2) {
-            widgetEvent = Widget.Event.FIRE2_DOWN;
-        }
-        if (menuInput.fire2 && menuInput.fire2Old && menuInput.fire2Timer == 0) {
-            widgetEvent = Widget.Event.FIRE2_HOLD;
-        }
-        if (menuInput.fire2Old && !menuInput.fire2) {
-            widgetEvent = Widget.Event.FIRE2_UP;
-        }
-
-        if (selectedWidget != null) {
+        if (widgetEvent != null && selectedWidget != null) {
             selectedWidget.fireEvent(widgetEvent);
         }
 
@@ -173,183 +151,6 @@ public abstract class GLScreen implements Screen {
         }
     }
 
-    private void readMenuInput() {
-        GLGame.MenuInput menuInput = game.menuInput;
-
-        // fire 1 delay
-        if (menuInput.fire1) {
-            if (!menuInput.fire1Old) {
-                menuInput.fire1Timer = 20;
-            } else if (menuInput.fire1Timer == 0) {
-                menuInput.fire1Timer = 6;
-            }
-        } else {
-            if (!menuInput.fire1Old) {
-                menuInput.fire1Timer = 0;
-            }
-        }
-
-        if (menuInput.fire1Timer > 0) {
-            menuInput.fire1Timer -= 1;
-        }
-
-        // fire 2 delay
-        if (menuInput.fire2) {
-            if (!menuInput.fire2Old) {
-                menuInput.fire2Timer = 20;
-            } else if (menuInput.fire2Timer == 0) {
-                menuInput.fire2Timer = 6;
-            }
-        } else {
-            if (!menuInput.fire2Old) {
-                menuInput.fire2Timer = 0;
-            }
-        }
-
-        if (menuInput.fire2Timer > 0) {
-            menuInput.fire2Timer -= 1;
-        }
-
-        // old values
-        menuInput.xOld = menuInput.x;
-        menuInput.yOld = menuInput.y;
-        menuInput.fire1Old = menuInput.fire1;
-        menuInput.fire2Old = menuInput.fire2;
-
-        menuInput.x = 0;
-        menuInput.y = 0;
-        menuInput.fire1 = false;
-        menuInput.fire2 = false;
-
-        int len = game.inputDevices.size();
-        for (int i = 0; i < len; i++) {
-            InputDevice inputDevice = game.inputDevices.get(i);
-
-            // x movement
-            int x = inputDevice.x1;
-            if (x != 0) {
-                menuInput.x = x;
-            }
-
-            // y movement
-            int y = inputDevice.y1;
-            if (y != 0) {
-                menuInput.y = y;
-            }
-
-            // fire 1
-            if (inputDevice.fire11) {
-                menuInput.fire1 = true;
-                lastFireInputDevice = inputDevice;
-            }
-
-            // fire 2
-            if (inputDevice.fire21) {
-                menuInput.fire2 = true;
-                lastFireInputDevice = inputDevice;
-            }
-        }
-
-        if (game.settings.mouseEnabled
-                && selectedWidget != null
-                && selectedWidget.contains(game.mouse.position.x, game.mouse.position.y)) {
-            if (game.mouse.button1) {
-                menuInput.fire1 = true;
-                lastFireInputDevice = null;
-            }
-            if (game.mouse.button2) {
-                menuInput.fire2 = true;
-                lastFireInputDevice = null;
-            }
-        }
-
-        // up/down
-        int bias = 1;
-        if (selectedWidget != null) {
-            if (menuInput.y == -1 && menuInput.yTimer == 0) {
-                Widget current = selectedWidget;
-                float distMin = 50000;
-                float distance;
-                for (Widget w : widgets) {
-                    if ((w.y + w.h) <= current.y) {
-                        distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
-                        if (distance < distMin && setSelectedWidget(w)) {
-                            distMin = distance;
-                        }
-                    }
-                }
-            } else if (menuInput.y == 1 && menuInput.yTimer == 0) {
-                Widget current = selectedWidget;
-                float distMin = 50000;
-                float distance;
-                for (Widget w : widgets) {
-                    if (w.y >= (current.y + current.h)) {
-                        distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
-                        if (distance < distMin && setSelectedWidget(w)) {
-                            distMin = distance;
-                        }
-                    }
-                }
-            }
-        }
-
-        // left/right
-        bias = 9;
-        if (selectedWidget != null) {
-            if (menuInput.x == -1 && menuInput.xTimer == 0) {
-                Widget current = selectedWidget;
-                float distMin = 50000;
-                float distance;
-                for (Widget w : widgets) {
-                    if ((w.x + w.w) <= current.x) {
-                        distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
-                        if (distance < distMin && setSelectedWidget(w)) {
-                            distMin = distance;
-                        }
-                    }
-                }
-            } else if (menuInput.x == 1 && menuInput.xTimer == 0) {
-                Widget current = selectedWidget;
-                float distMin = 50000;
-                float distance;
-                for (Widget w : widgets) {
-                    if (w.x >= (current.x + current.w)) {
-                        distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
-                        if (distance < distMin && setSelectedWidget(w)) {
-                            distMin = distance;
-                        }
-                    }
-                }
-            }
-        }
-
-        // x-y delays
-        if (menuInput.x != 0) {
-            if (menuInput.xOld == 0) {
-                menuInput.xTimer = 8;
-            } else if (menuInput.xTimer == 0) {
-                menuInput.xTimer = 2;
-            }
-        } else {
-            menuInput.xTimer = 0;
-        }
-        if (menuInput.y != 0) {
-            if (menuInput.yOld == 0) {
-                menuInput.yTimer = 8;
-            } else if (menuInput.yTimer == 0) {
-                menuInput.yTimer = 2;
-            }
-        } else {
-            menuInput.yTimer = 0;
-        }
-
-        if (menuInput.xTimer > 0) {
-            menuInput.xTimer -= 1;
-        }
-        if (menuInput.yTimer > 0) {
-            menuInput.yTimer -= 1;
-        }
-    }
 
     public boolean setSelectedWidget(Widget widget) {
         if (widget == null || widget == selectedWidget || !widget.visible || !widget.active) {
