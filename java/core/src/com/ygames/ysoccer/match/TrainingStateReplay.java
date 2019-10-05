@@ -9,7 +9,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
@@ -94,7 +94,7 @@ class TrainingStateReplay extends TrainingState {
 
         // set position
         if (!paused) {
-            position = Emath.slide(position, 1, Const.REPLAY_SUBFRAMES, speed);
+            position = EMath.slide(position, 1, Const.REPLAY_SUBFRAMES, speed);
 
             training.subframe = (subframe0 + position) % Const.REPLAY_SUBFRAMES;
         }

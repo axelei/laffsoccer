@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
@@ -43,15 +43,15 @@ class PlayerStateKeeperPenaltyPositioning extends PlayerState {
 
         if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
             // reach target position
-            player.v = (0.25f + 0.60f * ((Emath.hypo(dx, dy) > 4) ? 1 : 0)) * player.speed;
-            player.a = Emath.angle(player.x, player.y, player.tx, player.ty);
+            player.v = (0.25f + 0.60f * ((EMath.hypo(dx, dy) > 4) ? 1 : 0)) * player.speed;
+            player.a = EMath.angle(player.x, player.y, player.tx, player.ty);
         } else {
             // position reached
             dx = ball.x - player.x;
             dy = ball.y - player.y;
             player.v = 0;
             if (timer > 0.5f * SECOND) {
-                player.a = Emath.aTan2(dy, dx);
+                player.a = EMath.aTan2(dy, dx);
             }
         }
 
@@ -115,7 +115,7 @@ class PlayerStateKeeperPenaltyPositioning extends PlayerState {
 
             // kind of save
             if (predZ < 2 * CROSSBAR_H) {
-                float r = Emath.hypo(diffX, predZ);
+                float r = EMath.hypo(diffX, predZ);
 
                 if (r < 88) {
                     if (Math.abs(diffX) < 4) {
@@ -182,7 +182,7 @@ class PlayerStateKeeperPenaltyPositioning extends PlayerState {
         float tx = 0;
         float ty = player.side * (GOAL_LINE - 4);
 
-        if (Emath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
+        if (EMath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
             player.tx = tx;
             player.ty = ty;
         }

@@ -22,7 +22,7 @@ import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -267,7 +267,7 @@ class ImportTeams extends GLScreen {
         }
 
         private void updateYear(int n) {
-            year = Emath.slide(year, 1863, 2100, n);
+            year = EMath.slide(year, 1863, 2100, n);
             updateConfigFile();
             setDirty(true);
             warningLabel.setDirty(true);

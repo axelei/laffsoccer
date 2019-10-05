@@ -16,7 +16,7 @@ import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -454,7 +454,7 @@ class EditTeam extends GLScreen {
             if (i == -1) {
                 i = 0; // not found, start from 0
             } else {
-                i = Emath.rotate(i, 0, leagues.size() - 1, n);
+                i = EMath.rotate(i, 0, leagues.size() - 1, n);
             }
             team.league = leagues.get(i);
             setDirty(true);
@@ -592,7 +592,7 @@ class EditTeam extends GLScreen {
         }
 
         private void updateKitStyle(int n) {
-            kitIndex = Emath.rotate(kitIndex, 0, Assets.kits.size() - 1, n);
+            kitIndex = EMath.rotate(kitIndex, 0, Assets.kits.size() - 1, n);
             team.kits.get(selectedKit).style = Assets.kits.get(kitIndex);
             setDirty(true);
             kitWidget.setDirty(true);
@@ -644,7 +644,7 @@ class EditTeam extends GLScreen {
         }
 
         private void updateColor(int n) {
-            colorIndex = Emath.rotate(colorIndex, 0, Kit.colors.length - 1, n);
+            colorIndex = EMath.rotate(colorIndex, 0, Kit.colors.length - 1, n);
             int color = Kit.colors[colorIndex];
             switch (field) {
                 case SHIRT1:

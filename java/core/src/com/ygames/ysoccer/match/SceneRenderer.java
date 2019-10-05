@@ -6,7 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -126,7 +126,7 @@ public abstract class SceneRenderer {
             int a = Assets.random.nextInt(360);
             for (int fx = 0; fx <= modX; fx++) {
                 for (int fy = 0; fy <= modY; fy++) {
-                    int px = (int) (((x + modW + 30 * Emath.sin(360 * subframe / ((float) Const.REPLAY_SUBFRAMES) + a)) % modW) + modW * (fx - 1));
+                    int px = (int) (((x + modW + 30 * EMath.sin(360 * subframe / ((float) Const.REPLAY_SUBFRAMES) + a)) % modW) + modW * (fx - 1));
                     int py = ((y + 2 * Math.round(subframe / GLGame.SUBFRAMES)) % modH) + modH * (fy - 1);
                     batch.draw(Assets.snow[s], -Const.CENTER_X + px, -Const.CENTER_Y + py);
                 }

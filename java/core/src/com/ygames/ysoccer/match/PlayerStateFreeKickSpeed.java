@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_SPEED;
 
@@ -45,7 +45,7 @@ class PlayerStateFreeKickSpeed extends PlayerState {
             // spin
             if (player.inputDevice.value) {
                 if ((Math.abs(angleDiff) > 22.5f) && (Math.abs(angleDiff) < 157.5f)) {
-                    kickSpin += 50.0f / Const.SECOND * Emath.sgn(angleDiff);
+                    kickSpin += 50.0f / Const.SECOND * EMath.sgn(angleDiff);
                 }
             }
 

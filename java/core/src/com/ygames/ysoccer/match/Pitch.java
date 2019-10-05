@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 public class Pitch {
 
@@ -79,7 +79,7 @@ public class Pitch {
 
     public static Type random() {
 
-        int[] pitchProbabilities = probabilityByMonth[Emath.rand(0, 11)];
+        int[] pitchProbabilities = probabilityByMonth[EMath.rand(0, 11)];
 
         float sum = 0;
         float r = Assets.random.nextFloat();

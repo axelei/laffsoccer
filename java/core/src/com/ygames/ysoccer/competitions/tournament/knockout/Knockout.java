@@ -8,7 +8,7 @@ import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -215,7 +215,7 @@ public class Knockout extends Round implements Json.Serializable {
 
         for (int i = 0; i < qualifiedTeams.size() / 2; i++) {
             Match match = new Match();
-            int shuffle = Emath.rand(0, 1);
+            int shuffle = EMath.rand(0, 1);
             match.teams[HOME] = qualifiedTeams.get(teamsMapping.get(i + shuffle * (qualifiedTeams.size() / 2)));
             match.teams[AWAY] = qualifiedTeams.get(teamsMapping.get(i + (1 - shuffle) * (qualifiedTeams.size() / 2)));
             getLeg().matches.add(match);
@@ -267,8 +267,8 @@ public class Knockout extends Round implements Json.Serializable {
 
         if (playPenalties()) {
             do {
-                homeGoals = Emath.floor(6 * Math.random());
-                awayGoals = Emath.floor(6 * Math.random());
+                homeGoals = EMath.floor(6 * Math.random());
+                awayGoals = EMath.floor(6 * Math.random());
             } while (homeGoals == awayGoals);
             match.setResult(homeGoals, awayGoals, AFTER_PENALTIES);
         }

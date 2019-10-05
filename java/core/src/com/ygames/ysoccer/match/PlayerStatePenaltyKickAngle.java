@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 
@@ -30,8 +30,8 @@ class PlayerStatePenaltyKickAngle extends PlayerState {
         } else {
             returnToDefaultAngle(turningSpeed);
         }
-        player.x = ball.x - 7 * Emath.cos(player.a);
-        player.y = ball.y - 7 * Emath.sin(player.a);
+        player.x = ball.x - 7 * EMath.cos(player.a);
+        player.y = ball.y - 7 * EMath.sin(player.a);
         player.animationStandRun();
     }
 

@@ -10,7 +10,7 @@ import com.ygames.ysoccer.framework.Settings;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.ToggleButton;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.badlogic.gdx.Application.LOG_DEBUG;
 import static com.badlogic.gdx.Application.LOG_ERROR;
@@ -469,7 +469,7 @@ class DeveloperOptions extends GLScreen {
         }
 
         private void rotate(int n) {
-            Settings.logLevel = Emath.rotate(Settings.logLevel, 0, 3, n);
+            Settings.logLevel = EMath.rotate(Settings.logLevel, 0, 3, n);
             Gdx.app.setLogLevel(Settings.logLevel);
             setDirty(true);
         }

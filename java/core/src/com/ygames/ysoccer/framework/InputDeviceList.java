@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 
@@ -56,7 +55,7 @@ public class InputDeviceList extends ArrayList<InputDevice> {
         }
         inputDevice.available = true;
         do {
-            index = Emath.rotate(index, 0, this.size() - 1, n);
+            index = EMath.rotate(index, 0, this.size() - 1, n);
             inputDevice = this.get(index);
         } while (!inputDevice.available);
 

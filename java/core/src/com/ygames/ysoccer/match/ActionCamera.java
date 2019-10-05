@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.math.Vector2;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
@@ -95,27 +95,27 @@ class ActionCamera {
 
             case FOLLOW_BALL:
                 // "remember" last direction of movement
-                if (ball.v * Emath.cos(ball.a) != 0) {
-                    offsetX = screenWidth / 20.0f * Emath.cos(ball.a);
+                if (ball.v * EMath.cos(ball.a) != 0) {
+                    offsetX = screenWidth / 20.0f * EMath.cos(ball.a);
                 }
-                if (ball.v * Emath.sin(ball.a) != 0) {
-                    offsetY = screenHeight / 20.0f * Emath.sin(ball.a);
+                if (ball.v * EMath.sin(ball.a) != 0) {
+                    offsetY = screenHeight / 20.0f * EMath.sin(ball.a);
                 }
 
                 // speed
-                if (Math.abs(vx) > Math.abs(ball.v * Emath.cos(ball.a))) {
+                if (Math.abs(vx) > Math.abs(ball.v * EMath.cos(ball.a))) {
                     // decelerate
                     vx = (1 - 5.0f / SECOND) * vx;
                 } else {
                     // accelerate
-                    vx = vx + (2.5f / SECOND) * Math.signum(offsetX) * Math.abs(vx - ball.v * Emath.cos(ball.a));
+                    vx = vx + (2.5f / SECOND) * Math.signum(offsetX) * Math.abs(vx - ball.v * EMath.cos(ball.a));
                 }
-                if (Math.abs(vy) > Math.abs(ball.v * Emath.sin(ball.a))) {
+                if (Math.abs(vy) > Math.abs(ball.v * EMath.sin(ball.a))) {
                     // decelerate
                     vy = (1 - 5.0f / SECOND) * vy;
                 } else {
                     // accelerate
-                    vy = vy + (2.5f / SECOND) * Math.signum(offsetY) * Math.abs(vy - ball.v * Emath.sin(ball.a));
+                    vy = vy + (2.5f / SECOND) * Math.signum(offsetY) * Math.abs(vy - ball.v * EMath.sin(ball.a));
                 }
 
                 x = x + vx / SECOND;
@@ -135,10 +135,10 @@ class ActionCamera {
             case REACH_TARGET:
                 float x0 = target.x - (x - dx);
                 float y0 = target.y - (y - dy);
-                float a = Emath.aTan2(y0, x0);
+                float a = EMath.aTan2(y0, x0);
                 double v = Math.sqrt(Math.abs(x0) + Math.abs(y0));
-                x += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * Emath.cos(a);
-                y += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * Emath.sin(a);
+                x += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * EMath.cos(a);
+                y += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * EMath.sin(a);
                 break;
         }
 

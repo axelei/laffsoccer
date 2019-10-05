@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.math.Emath.rotate;
+import static com.ygames.ysoccer.framework.EMath.rotate;
 
 public class Match extends Scene implements Json.Serializable {
 
@@ -436,7 +436,7 @@ public class Match extends Scene implements Json.Serializable {
                     player.ty = player.y;
                     if ((t == goal.player.team.index) && (player == goal.player)) {
                         player.setState(STATE_GOAL_SCORER);
-                    } else if ((t == goal.player.team.index) && (Emath.dist(player.x, player.y, goal.player.x, goal.player.y) < 150 * Assets.random.nextInt(4))) {
+                    } else if ((t == goal.player.team.index) && (EMath.dist(player.x, player.y, goal.player.x, goal.player.y) < 150 * Assets.random.nextInt(4))) {
                         player.setState(STATE_GOAL_MATE);
                     } else {
                         player.setState(STATE_REACH_TARGET);
@@ -503,8 +503,8 @@ public class Match extends Scene implements Json.Serializable {
         Player player0 = team[HOME].near1;
         Player player1 = team[AWAY].near1;
 
-        int distance0 = Emath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
-        int distance1 = Emath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
+        int distance0 = EMath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
+        int distance1 = EMath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
 
         if (distance0 == BALL_PREDICTION && distance1 == BALL_PREDICTION) return null;
 
@@ -631,7 +631,7 @@ public class Match extends Scene implements Json.Serializable {
         public boolean isPenalty() {
             return (Math.abs(position.x) < Const.PENALTY_AREA_W / 2)
                     &&
-                    Emath.isIn(
+                    EMath.isIn(
                             position.y,
                             player.team.side * (Const.GOAL_LINE - Const.PENALTY_AREA_H),
                             player.team.side * Const.GOAL_LINE
@@ -644,7 +644,7 @@ public class Match extends Scene implements Json.Serializable {
 
         boolean isNearOwnGoal() {
             return Math.abs(ball.x) < (GOAL_AREA_W / 2 + 50)
-                    && Emath.isIn(ball.y,
+                    && EMath.isIn(ball.y,
                     -player.team.side * (GOAL_LINE - GOAL_AREA_H - 50),
                     -player.team.side * GOAL_LINE
             );

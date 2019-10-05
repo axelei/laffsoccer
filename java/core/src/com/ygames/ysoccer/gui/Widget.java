@@ -5,7 +5,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Comparator;
 import java.util.List;
@@ -208,7 +208,7 @@ public abstract class Widget {
                 w.y = centerY - rowHeight * len / 2 + rowHeight * i;
             }
         } else if (len <= 2 * maxRows) {
-            int col1 = Emath.floor((len + 1) / 2.0);
+            int col1 = EMath.floor((len + 1) / 2.0);
             for (int i = 0; i < len; i++) {
                 w = widgetList.get(i);
                 if (i < col1) {
@@ -220,8 +220,8 @@ public abstract class Widget {
                 }
             }
         } else {
-            int col1 = Emath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
-            int col2 = Emath.floor(len / 3.0) + ((len % 3) > 0 ? 1 : 0);
+            int col1 = EMath.floor(len / 3.0) + ((len % 3) == 2 ? 1 : 0);
+            int col2 = EMath.floor(len / 3.0) + ((len % 3) > 0 ? 1 : 0);
             for (int i = 0; i < len; i++) {
                 w = widgetList.get(i);
                 if (i < col1) {
@@ -241,7 +241,7 @@ public abstract class Widget {
 
     public static int getRows(List<Widget> widgetList) {
         int len = widgetList.size();
-        return len <= 8 ? len : Emath.floor(len / 3.0) + 1;
+        return len <= 8 ? len : EMath.floor(len / 3.0) + 1;
     }
 
     public boolean contains(float x0, float y0) {

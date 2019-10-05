@@ -1,7 +1,5 @@
 package com.ygames.ysoccer.framework;
 
-import com.ygames.ysoccer.math.Emath;
-
 public abstract class InputDevice {
 
     public enum Type {COMPUTER, KEYBOARD, JOYSTICK}
@@ -51,7 +49,7 @@ public abstract class InputDevice {
         }
 
         value = (x1 != 0) || (y1 != 0);
-        angle = Math.round(Emath.aTan2(y1, x1));
+        angle = Math.round(EMath.aTan2(y1, x1));
     }
 
     abstract void read();

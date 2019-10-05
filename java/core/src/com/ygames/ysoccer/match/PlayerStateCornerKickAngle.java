@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CORNER_KICK_ANGLE;
 
@@ -27,14 +27,14 @@ class PlayerStateCornerKickAngle extends PlayerState {
         // prevent kicking out
         if ((x != ball.xSide) && (y != ball.ySide)) {
             boolean value = (x != 0) || (y != 0);
-            float angle = Emath.aTan2(y, x);
+            float angle = EMath.aTan2(y, x);
 
             if (value) {
                 player.a = angle;
             }
         }
-        player.x = ball.x - 7 * Emath.cos(player.a);
-        player.y = ball.y - 7 * Emath.sin(player.a);
+        player.x = ball.x - 7 * EMath.cos(player.a);
+        player.y = ball.y - 7 * EMath.sin(player.a);
         player.animationStandRun();
     }
 

@@ -16,7 +16,7 @@ import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Collections;
 
@@ -188,7 +188,7 @@ class EditPlayers extends GLScreen {
             Player player = team.playerAtPosition(pos);
 
             int color = player.hairColor.ordinal();
-            color = Emath.rotate(color, Hair.Color.BLACK.ordinal(), Hair.Color.PUNK_BLOND.ordinal(), n);
+            color = EMath.rotate(color, Hair.Color.BLACK.ordinal(), Hair.Color.PUNK_BLOND.ordinal(), n);
             player.hairColor = Hair.Color.values()[color];
 
             setDirty(true);
@@ -247,7 +247,7 @@ class EditPlayers extends GLScreen {
             if (i == -1) {
                 i = 0; // not found, start from 0
             } else {
-                i = Emath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
+                i = EMath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
             }
             player.hairStyle = Assets.hairStyles.get(i);
             setDirty(true);
@@ -300,7 +300,7 @@ class EditPlayers extends GLScreen {
 
         private void updateSkinColor(int n) {
             Player player = team.playerAtPosition(pos);
-            player.skinColor = Skin.Color.values()[Emath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
+            player.skinColor = Skin.Color.values()[EMath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
 
             setDirty(true);
             selectButtons[pos].setDirty(true);
@@ -547,7 +547,7 @@ class EditPlayers extends GLScreen {
 
         private void updateRole(int n) {
             Player player = team.playerAtPosition(pos);
-            player.role = Player.Role.values()[Emath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
+            player.role = Player.Role.values()[EMath.rotate(player.role.ordinal(), Player.Role.GOALKEEPER.ordinal(), Player.Role.ATTACKER.ordinal(), n)];
             refreshAllWidgets();
             setModifiedFlag();
         }
@@ -599,7 +599,7 @@ class EditPlayers extends GLScreen {
 
         private void updateSkill() {
             Player player = team.playerAtPosition(pos);
-            int value = Emath.rotate(player.getSkillValue(skill), 0, 7, 1);
+            int value = EMath.rotate(player.getSkillValue(skill), 0, 7, 1);
             player.setSkillValue(skill, value);
             setDirty(true);
             priceButtons[pos].setDirty(true);
@@ -659,7 +659,7 @@ class EditPlayers extends GLScreen {
 
         private void updatePrice(int n) {
             Player player = team.playerAtPosition(pos);
-            player.value = Emath.slide(player.value, 0, 49, n);
+            player.value = EMath.slide(player.value, 0, 49, n);
             setDirty(true);
             setModifiedFlag();
         }

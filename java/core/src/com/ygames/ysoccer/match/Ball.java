@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 class Ball {
 
@@ -87,8 +87,8 @@ class Ball {
         z0 = z;
 
         // side
-        xSide = Emath.sgn(x);
-        ySide = Emath.sgn(y);
+        xSide = EMath.sgn(x);
+        ySide = EMath.sgn(y);
 
         float bouncing_speed = updatePhysics();
 
@@ -104,8 +104,8 @@ class Ball {
         s *= 1 - Const.SPIN_DAMPENING / Const.SECOND;
 
         // position & speed
-        x += v / Const.SECOND * Emath.cos(a);
-        y += v / Const.SECOND * Emath.sin(a);
+        x += v / Const.SECOND * EMath.cos(a);
+        y += v / Const.SECOND * EMath.sin(a);
 
         if (z < 1) {
             // grass friction
@@ -117,20 +117,20 @@ class Ball {
 
         // wind
         if (v > 0 && z > 0) {
-            float vx = v * Emath.cos(a);
-            float vy = v * Emath.sin(a);
+            float vx = v * EMath.cos(a);
+            float vy = v * EMath.sin(a);
 
             float windV = 0.025f * (float) Math.log10(1 + z) * sceneSettings.wind.speed;
             float windA = 45.0f * sceneSettings.wind.direction;
 
-            float windVx = windV * Emath.cos(windA);
-            float windVy = windV * Emath.sin(windA);
+            float windVx = windV * EMath.cos(windA);
+            float windVy = windV * EMath.sin(windA);
 
             vx += windVx;
             vy += windVy;
 
-            v = Emath.hypo(vx, vy);
-            a = Emath.aTan2(vy, vx);
+            v = EMath.hypo(vx, vy);
+            a = EMath.aTan2(vy, vx);
         }
 
         // back to zero!
@@ -222,10 +222,10 @@ class Ball {
 
         // zone
         zoneX = Math.round(x / Const.BALL_ZONE_DX);
-        zoneX = Emath.bound(zoneX, -2, +2);
+        zoneX = EMath.bound(zoneX, -2, +2);
 
         zoneY = Math.round(y / Const.BALL_ZONE_DY);
-        zoneY = Emath.bound(zoneY, -3, +3);
+        zoneY = EMath.bound(zoneY, -3, +3);
 
         // mx / my
         mx = (((x % Const.BALL_ZONE_DX) / Const.BALL_ZONE_DX + 1.5f) % 1) - 0.5f;
@@ -233,11 +233,11 @@ class Ball {
 
         // zone_next
         if (v > 0) {
-            nextZoneX = zoneX + Math.round(Emath.cos(a));
-            nextZoneX = Emath.bound(nextZoneX, -2, +2);
+            nextZoneX = zoneX + Math.round(EMath.cos(a));
+            nextZoneX = EMath.bound(nextZoneX, -2, +2);
 
-            nextZoneY = zoneY + Math.round(Emath.sin(a));
-            nextZoneY = Emath.bound(nextZoneY, -3, +3);
+            nextZoneY = zoneY + Math.round(EMath.sin(a));
+            nextZoneY = EMath.bound(nextZoneY, -3, +3);
         }
     }
 
@@ -290,13 +290,13 @@ class Ball {
 
         // "sette" **
         if ((ySide * y < Const.GOAL_LINE)
-                && (Emath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 6)
-                && (Emath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 6)
-                && ((Emath.dist(x, y, -Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6)
-                || (Emath.dist(x, y, Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
+                && (EMath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 6)
+                && (EMath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 6)
+                && ((EMath.dist(x, y, -Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6)
+                || (EMath.dist(x, y, Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
 
             // real ball x-y angle (when spinned, it is different from ball.a)
-            float ballAxy = Emath.aTan2(y - y0, x - x0);
+            float ballAxy = EMath.aTan2(y - y0, x - x0);
 
             v = 0.5f * v;
             a = (-ballAxy + 360) % 360;
@@ -308,34 +308,34 @@ class Ball {
         }
 
         // crossbar
-        else if ((Emath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 5)
-                && (Emath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 5)
+        else if ((EMath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 5)
+                && (EMath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 5)
                 && (-(Const.POST_X + Const.POST_R) < x && x < (Const.POST_X + Const.POST_R))) {
 
             // cartesian coordinates
             // real ball x-y angle (when spinned, it is different from ball.a)
-            float ballAxy = Emath.aTan2(y - y0, x - x0);
+            float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float ballVx = v * Emath.cos(ballAxy);
-            float ballVy = v * Emath.sin(ballAxy);
+            float ballVx = v * EMath.cos(ballAxy);
+            float ballVy = v * EMath.sin(ballAxy);
 
             // collision y-z angle
-            float angle = Emath.aTan2(z - Const.CROSSBAR_H, y - ySide * Const.GOAL_LINE);
+            float angle = EMath.aTan2(z - Const.CROSSBAR_H, y - ySide * Const.GOAL_LINE);
 
             // ball y-z speed and angle
             float ballVyz = (float) Math.sqrt(ballVy * ballVy + vz * vz);
-            float ballAyz = Emath.aTan2(vz, ballVy);
+            float ballAyz = EMath.aTan2(vz, ballVy);
 
             // new angle
             ballAyz = (2 * angle - ballAyz + 180);
 
             // new y-z speeds
-            ballVy = 0.5f * ballVyz * Emath.cos(ballAyz);
-            vz = 0.5f * ballVyz * Emath.sin(ballAyz);
+            ballVy = 0.5f * ballVyz * EMath.cos(ballAyz);
+            vz = 0.5f * ballVyz * EMath.sin(ballAyz);
 
             // new speed, angle & spin
             v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
-            a = Emath.aTan2(ballVy, ballVx);
+            a = EMath.aTan2(ballVy, ballVx);
             s = 0;
             y = y0;
             z = z0;
@@ -345,14 +345,14 @@ class Ball {
         }
 
         // posts
-        else if ((Emath.dist(x0, y0, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) > 5)
-                && (Emath.dist(x, y, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 5)
+        else if ((EMath.dist(x0, y0, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) > 5)
+                && (EMath.dist(x, y, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 5)
                 && (z <= (Const.CROSSBAR_H + Const.POST_R))) {
 
             // real ball x-y angle (when spinned, it is different from ball.a)
-            float ballAxy = Emath.aTan2(y - y0, x - x0);
+            float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float angle = Emath.aTan2(y - ySide * (Const.GOAL_LINE + 1), x - xSide * Const.POST_X);
+            float angle = EMath.aTan2(y - ySide * (Const.GOAL_LINE + 1), x - xSide * Const.POST_X);
 
             // new speed, angle & spin
             v = 0.5f * v;
@@ -378,11 +378,11 @@ class Ball {
             return;
         }
 
-        if ((Emath.dist(x, y, xSide * Const.TOUCH_LINE, ySide * Const.GOAL_LINE) <= 5) && (z <= Const.FLAGPOST_H)) {
+        if ((EMath.dist(x, y, xSide * Const.TOUCH_LINE, ySide * Const.GOAL_LINE) <= 5) && (z <= Const.FLAGPOST_H)) {
             // real ball x-y angle (when spinned, it is different from ball.a)
-            float ballAxy = Emath.aTan2(y - y0, x - x0);
+            float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float angle = Emath.aTan2(y - ySide * Const.GOAL_LINE, x - (xSide * Const.TOUCH_LINE));
+            float angle = EMath.aTan2(y - ySide * Const.GOAL_LINE, x - (xSide * Const.TOUCH_LINE));
             v = 0.3f * v;
             a = (2 * angle - ballAxy + 180) % 360;
             s = 0;
@@ -398,15 +398,15 @@ class Ball {
         boolean sfx = false;
 
         if (ySide * y > Const.GOAL_LINE) {
-            if ((Emath.hypo(1.6f * (y - ySide * Const.GOAL_LINE), z) >= Const.CROSSBAR_H)
-                    && (Emath.hypo((1.6f * (y0 - ySide * Const.GOAL_LINE)), z0) < Const.CROSSBAR_H)) {
+            if ((EMath.hypo(1.6f * (y - ySide * Const.GOAL_LINE), z) >= Const.CROSSBAR_H)
+                    && (EMath.hypo((1.6f * (y0 - ySide * Const.GOAL_LINE)), z0) < Const.CROSSBAR_H)) {
 
                 if (v > 200) {
                     sfx = true;
                 }
                 v = v / 10;
                 vz = 0;
-                a = Emath.aTan2(-Emath.sin(a) / 4, Emath.cos(a));
+                a = EMath.aTan2(-EMath.sin(a) / 4, EMath.cos(a));
                 s = 0;
             }
 
@@ -417,7 +417,7 @@ class Ball {
                 }
                 v = v / 10.0f;
                 vz = 0;
-                a = Emath.aTan2(Emath.sin(a), -Emath.cos(a) / 4.0f);
+                a = EMath.aTan2(EMath.sin(a), -EMath.cos(a) / 4.0f);
                 s = 0;
             }
 
@@ -430,48 +430,48 @@ class Ball {
     public void collisionNetOut() {
 
         // back-top
-        if ((Emath.dist(y0, z0, ySide * Const.GOAL_LINE, 0) <= Const.CROSSBAR_H)
+        if ((EMath.dist(y0, z0, ySide * Const.GOAL_LINE, 0) <= Const.CROSSBAR_H)
                 && (-Const.POST_X < x && x < Const.POST_X)) {
 
-            float ballVx = v * Emath.cos(a); // cartesian coord.
-            float ballVy = v * Emath.sin(a);
+            float ballVx = v * EMath.cos(a); // cartesian coord.
+            float ballVy = v * EMath.sin(a);
 
-            float angle = Emath.aTan2(z, y - ySide * Const.GOAL_LINE); // y-z
+            float angle = EMath.aTan2(z, y - ySide * Const.GOAL_LINE); // y-z
             // angle
             float ballVyz = (float) Math.sqrt(ballVy * ballVy + vz * vz); // y-z
             // speed
-            float ballAyz = Emath.aTan2(vz, -ballVy); // y-z angle
+            float ballAyz = EMath.aTan2(vz, -ballVy); // y-z angle
 
             ballVyz = ballVyz / 10.0f; // net friction
 
             ballAyz = (2 * angle - ballAyz + 180) % 360; // new angle
-            ballVy = ballVyz * Emath.cos(angle); // new y-z speeds
-            vz = ballVyz * Emath.sin(angle);
+            ballVy = ballVyz * EMath.cos(angle); // new y-z speeds
+            vz = ballVyz * EMath.sin(angle);
 
-            v = Emath.hypo(ballVx, ballVy); // back to polar coord.
-            a = Emath.aTan2(ballVy, ballVx);
+            v = EMath.hypo(ballVx, ballVy); // back to polar coord.
+            a = EMath.aTan2(ballVy, ballVx);
             s = -s;
         }
 
         // left/right
         if ((x0 * xSide > Const.POST_X) && (x * xSide <= Const.POST_X)
                 && (z < Const.CROSSBAR_H + Const.BALL_R)) {
-            if (Emath.isIn(ySide * y, (Const.GOAL_LINE + Const.BALL_R),
+            if (EMath.isIn(ySide * y, (Const.GOAL_LINE + Const.BALL_R),
                     (Const.GOAL_LINE + Const.GOAL_DEPTH + Const.BALL_R))) {
                 v = (float) Math.sqrt(v);
-                a = Emath.aTan2(Emath.sin(a), -Emath.cos(a) / 4);
+                a = EMath.aTan2(EMath.sin(a), -EMath.cos(a) / 4);
             }
         }
     }
 
     public void collisionJumpers() {
 
-        if ((Emath.dist(x, y, xSide * Const.JUMPER_X, ySide * Const.JUMPER_Y) <= 5) && (z <= Const.JUMPER_H)) {
+        if ((EMath.dist(x, y, xSide * Const.JUMPER_X, ySide * Const.JUMPER_Y) <= 5) && (z <= Const.JUMPER_H)) {
 
             // real ball x-y angle (when spinned, it is different from ball.a)
-            float ballAxy = Emath.aTan2(y - y0, x - x0);
+            float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float angle = Emath.aTan2(y - ySide * Const.JUMPER_Y, x - (xSide * Const.JUMPER_X));
+            float angle = EMath.aTan2(y - ySide * Const.JUMPER_Y, x - (xSide * Const.JUMPER_X));
             v = 0.3f * v;
             a = (2 * angle - ballAxy + 180) % 360;
             s = 0;
@@ -484,7 +484,7 @@ class Ball {
 
     void collisionPlayer(float newV) {
         // real ball x-y angle (when spinned, it is different from ball.a)
-        float ballAxy = Emath.aTan2(y - y0, x - x0);
+        float ballAxy = EMath.aTan2(y - y0, x - x0);
         v = newV;
         a = (ballAxy + 180) % 360;
         s = 0;

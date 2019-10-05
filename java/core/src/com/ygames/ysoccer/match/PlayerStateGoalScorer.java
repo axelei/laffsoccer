@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_GOAL_SCORER;
 
@@ -87,21 +87,21 @@ class PlayerStateGoalScorer extends PlayerState {
         float d = 500;
 
         //check x limits
-        if (Math.abs(Emath.cos(player.a)) > 0.002f) {
-            float tx = player.x + d * Emath.cos(player.a);
-            tx = Emath.sgn(tx) * Math.min(Math.abs(tx), Const.TOUCH_LINE + 20 - 2 * player.number);
-            d = Math.min(d, (tx - player.x) / Emath.cos(player.a));
+        if (Math.abs(EMath.cos(player.a)) > 0.002f) {
+            float tx = player.x + d * EMath.cos(player.a);
+            tx = EMath.sgn(tx) * Math.min(Math.abs(tx), Const.TOUCH_LINE + 20 - 2 * player.number);
+            d = Math.min(d, (tx - player.x) / EMath.cos(player.a));
         }
 
         //check y limits
-        if (Math.abs(Emath.sin(player.a)) > 0.002f) {
-            float ty = player.y + d * Emath.sin(player.a);
-            ty = Emath.sgn(ty) * Math.min(Math.abs(ty), Const.GOAL_LINE + 10 - player.number);
-            d = Math.min(d, (ty - player.y) / Emath.sin(player.a));
+        if (Math.abs(EMath.sin(player.a)) > 0.002f) {
+            float ty = player.y + d * EMath.sin(player.a);
+            ty = EMath.sgn(ty) * Math.min(Math.abs(ty), Const.GOAL_LINE + 10 - player.number);
+            d = Math.min(d, (ty - player.y) / EMath.sin(player.a));
         }
 
-        player.tx = player.x + d * Emath.cos(player.a);
-        player.ty = player.y + d * Emath.sin(player.a);
+        player.tx = player.x + d * EMath.cos(player.a);
+        player.ty = player.y + d * EMath.sin(player.a);
     }
 
     @Override

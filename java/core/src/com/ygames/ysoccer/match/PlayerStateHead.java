@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_HEAD;
 
@@ -20,7 +20,7 @@ class PlayerStateHead extends PlayerState {
         super.doActions();
 
         if (!hit) {
-            if (Emath.isIn(ball.z, player.z + Const.PLAYER_H - Const.BALL_R,
+            if (EMath.isIn(ball.z, player.z + Const.PLAYER_H - Const.BALL_R,
                     player.z + Const.PLAYER_H + Const.BALL_R)) {
                 if (player.ballDistance < 2 * Const.BALL_R) {
 

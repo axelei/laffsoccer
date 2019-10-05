@@ -14,7 +14,7 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 class DesignDiyCup extends GLScreen {
 
@@ -165,7 +165,7 @@ class DesignDiyCup extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            cup.weather = Competition.Weather.values()[Emath.rotate(cup.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
+            cup.weather = Competition.Weather.values()[EMath.rotate(cup.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
@@ -208,7 +208,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateSeasonStart(int n) {
-            cup.seasonStart = Month.values()[Emath.rotate(cup.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
+            cup.seasonStart = Month.values()[EMath.rotate(cup.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
@@ -263,7 +263,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateSeasonEnd(int n) {
-            cup.seasonEnd = Month.values()[Emath.rotate(cup.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
+            cup.seasonEnd = Month.values()[EMath.rotate(cup.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
@@ -303,7 +303,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updatePitchType(int n) {
-            cup.pitchType = Pitch.Type.values()[Emath.rotate(cup.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
+            cup.pitchType = Pitch.Type.values()[EMath.rotate(cup.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
             setDirty(true);
         }
 
@@ -343,7 +343,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateTime(int n) {
-            cup.time = MatchSettings.Time.values()[Emath.rotate(cup.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
+            cup.time = MatchSettings.Time.values()[EMath.rotate(cup.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
             setDirty(true);
         }
 
@@ -392,7 +392,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateSubstitutes(int n) {
-            cup.substitutions = Emath.slide(cup.substitutions, 2, cup.benchSize, n);
+            cup.substitutions = EMath.slide(cup.substitutions, 2, cup.benchSize, n);
             setDirty(true);
         }
 
@@ -441,7 +441,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateBenchSize(int n) {
-            cup.benchSize = Emath.slide(cup.benchSize, 2, 12, n);
+            cup.benchSize = EMath.slide(cup.benchSize, 2, 12, n);
             cup.substitutions = Math.min(cup.substitutions, cup.benchSize);
             setDirty(true);
             substitutesButton.setDirty(true);
@@ -543,7 +543,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateAwayGoals(int n) {
-            cup.awayGoals = Competition.AwayGoals.values()[Emath.rotate(cup.awayGoals.ordinal(), 0, 2, n)];
+            cup.awayGoals = Competition.AwayGoals.values()[EMath.rotate(cup.awayGoals.ordinal(), 0, 2, n)];
             setDirty(true);
         }
 
@@ -632,7 +632,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateLegs(int n) {
-            cup.rounds.get(round).numberOfLegs = Emath.rotate(cup.rounds.get(round).numberOfLegs, 1, 2, n);
+            cup.rounds.get(round).numberOfLegs = EMath.rotate(cup.rounds.get(round).numberOfLegs, 1, 2, n);
             setDirty(true);
             awayGoalsButton.setDirty(true);
         }
@@ -668,7 +668,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updateExtraTime(int n) {
-            cup.rounds.get(round).extraTime = Round.ExtraTime.values()[Emath.rotate(cup.rounds.get(round).extraTime.ordinal(), 0, 2, n)];
+            cup.rounds.get(round).extraTime = Round.ExtraTime.values()[EMath.rotate(cup.rounds.get(round).extraTime.ordinal(), 0, 2, n)];
             setDirty(true);
         }
 
@@ -703,7 +703,7 @@ class DesignDiyCup extends GLScreen {
         }
 
         private void updatePenalties(int n) {
-            cup.rounds.get(round).penalties = Round.Penalties.values()[Emath.rotate(cup.rounds.get(round).penalties.ordinal(), 0, 2, n)];
+            cup.rounds.get(round).penalties = Round.Penalties.values()[EMath.rotate(cup.rounds.get(round).penalties.ordinal(), 0, 2, n)];
             setDirty(true);
         }
 

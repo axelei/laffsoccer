@@ -4,7 +4,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
@@ -54,7 +54,7 @@ class MatchStateBenchTactics extends MatchState {
 
         // change selected tactics
         if (getFsm().benchStatus.inputDevice.yMoved()) {
-            getFsm().benchStatus.selectedTactics = Emath.rotate(getFsm().benchStatus.selectedTactics, 0, 17, getFsm().benchStatus.inputDevice.y1);
+            getFsm().benchStatus.selectedTactics = EMath.rotate(getFsm().benchStatus.selectedTactics, 0, 17, getFsm().benchStatus.inputDevice.y1);
         }
     }
 

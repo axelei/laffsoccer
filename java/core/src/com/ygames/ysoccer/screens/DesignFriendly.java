@@ -7,7 +7,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 class DesignFriendly extends GLScreen {
 
@@ -93,7 +93,7 @@ class DesignFriendly extends GLScreen {
         }
 
         private void updateSubstitutes(int n) {
-            friendly.substitutions = Emath.slide(friendly.substitutions, 2, friendly.benchSize, n);
+            friendly.substitutions = EMath.slide(friendly.substitutions, 2, friendly.benchSize, n);
             setDirty(true);
         }
     }
@@ -142,7 +142,7 @@ class DesignFriendly extends GLScreen {
         }
 
         private void updateBenchSize(int n) {
-            friendly.benchSize = Emath.slide(friendly.benchSize, 2, 12, n);
+            friendly.benchSize = EMath.slide(friendly.benchSize, 2, 12, n);
             friendly.substitutions = Math.min(friendly.substitutions, friendly.benchSize);
             setDirty(true);
             substitutesButton.setDirty(true);

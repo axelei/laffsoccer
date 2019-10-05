@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Collections;
 
@@ -75,7 +75,7 @@ class TrainingStateFree extends TrainingState {
             if (ball.y * ball.ySide >= (GOAL_LINE + BALL_R)) {
                 ball.collisionNet();
 
-                if (!Emath.isIn(ball.x, -POST_X, POST_X) && (ball.z <= CROSSBAR_H)) {
+                if (!EMath.isIn(ball.x, -POST_X, POST_X) && (ball.z <= CROSSBAR_H)) {
                     ball.collisionJumpers();
                     ball.collisionNetOut();
                 }
@@ -181,8 +181,8 @@ class TrainingStateFree extends TrainingState {
     }
 
     private void resetBall() {
-        ball.x = lastTrained.x + (BALL_R - 1) * Emath.cos(lastTrained.a);
-        ball.y = lastTrained.y + (BALL_R - 1) * Emath.sin(lastTrained.a);
+        ball.x = lastTrained.x + (BALL_R - 1) * EMath.cos(lastTrained.a);
+        ball.y = lastTrained.y + (BALL_R - 1) * EMath.sin(lastTrained.a);
         ball.z = 0;
         ball.vMax = 0;
     }
@@ -224,8 +224,8 @@ class TrainingStateFree extends TrainingState {
 
     private Vector2 getDefaultTarget(Player player) {
         return new Vector2(
-                -280 + 16 * (-player.team.lineup.size() + 2 * player.index) + 6 * Emath.cos(70 * (player.number)),
-                -player.team.side * (150 + 5 * (player.index % 2)) + 8 * Emath.sin(70 * (player.number))
+                -280 + 16 * (-player.team.lineup.size() + 2 * player.index) + 6 * EMath.cos(70 * (player.number)),
+                -player.team.side * (150 + 5 * (player.index % 2)) + 8 * EMath.sin(70 * (player.number))
         );
     }
 

@@ -3,7 +3,6 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.files.FileHandle;
-import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -87,7 +86,7 @@ public class MenuMusic {
                 // track not loaded or finished
                 if (music == null || !music.isPlaying()) {
 
-                    currentTrack = Emath.rotate(currentTrack, 0, playList.size() - 1, +1);
+                    currentTrack = EMath.rotate(currentTrack, 0, playList.size() - 1, +1);
                     music = Gdx.audio.newMusic(playList.get(currentTrack));
 
                     if (music == null) {

@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -60,7 +60,7 @@ class MatchStatePenaltyKickEnd extends MatchState {
             match.updateBall();
             if (!goalLineCrossed && !isGoal
                     && match.ball.y * match.ball.ySide >= (Const.GOAL_LINE + Const.BALL_R)
-                    && Emath.isIn(match.ball.x, -Const.POST_X, Const.POST_X)
+                    && EMath.isIn(match.ball.x, -Const.POST_X, Const.POST_X)
                     && (match.ball.z <= Const.CROSSBAR_H)) {
                 isGoal = true;
                 Assets.Sounds.homeGoal.play(Assets.Sounds.volume / 100f);
@@ -71,7 +71,7 @@ class MatchStatePenaltyKickEnd extends MatchState {
             }
 
             // if ball crosses the goal line or comes back, keeper has nothing more to do
-            if (goalLineCrossed || Emath.sin(match.ball.a) > 0) {
+            if (goalLineCrossed || EMath.sin(match.ball.a) > 0) {
                 if (keeper.checkState(STATE_KEEPER_POSITIONING)) {
                     keeper.setState(STATE_IDLE);
                 }

@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 public class Button extends Widget {
 
@@ -133,7 +133,7 @@ public class Button extends Widget {
                 break;
         }
 
-        font.draw(batch, getText(), tx + textOffsetX, y + Emath.ceil(0.5f * (h - font.regionHeight)), align);
+        font.draw(batch, getText(), tx + textOffsetX, y + EMath.ceil(0.5f * (h - font.regionHeight)), align);
     }
 
     public String getText() {

@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 
@@ -14,7 +14,7 @@ class PlayerStateReachTarget extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        player.v = 180 + Emath.rand(0, 30);
+        player.v = 180 + EMath.rand(0, 30);
     }
 
     @Override

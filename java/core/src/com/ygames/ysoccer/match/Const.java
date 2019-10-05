@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 public class Const {
 
@@ -131,7 +131,7 @@ public class Const {
 
     static boolean isInsidePenaltyArea(float x, float y, int ySide) {
         return Math.abs(x) < (PENALTY_AREA_W / 2)
-                && Emath.isIn(y,
+                && EMath.isIn(y,
                 ySide * (GOAL_LINE - PENALTY_AREA_H),
                 ySide * GOAL_LINE
         );
@@ -139,7 +139,7 @@ public class Const {
 
     static boolean isInsideGoalArea(float x, float y, int ySide) {
         return Math.abs(x) < (GOAL_AREA_W / 2)
-                && Emath.isIn(y,
+                && EMath.isIn(y,
                 ySide * (GOAL_LINE - GOAL_AREA_H),
                 ySide * GOAL_LINE
         );
@@ -147,24 +147,24 @@ public class Const {
 
     static boolean isInsideDirectShotArea(float x, float y, int ySide) {
         return ySide * y < GOAL_LINE
-                && (Emath.dist(x, ySide * y, -POST_X, GOAL_LINE) < DIRECT_SHOT_DISTANCE
-                || Emath.dist(x, ySide * y, POST_X, GOAL_LINE) < DIRECT_SHOT_DISTANCE);
+                && (EMath.dist(x, ySide * y, -POST_X, GOAL_LINE) < DIRECT_SHOT_DISTANCE
+                || EMath.dist(x, ySide * y, POST_X, GOAL_LINE) < DIRECT_SHOT_DISTANCE);
     }
 
     static boolean seesTheGoal(float x, float y, float a) {
-        int ySide = Emath.sgn(y);
+        int ySide = EMath.sgn(y);
 
-        if (Emath.angleDiff(a, ySide * 90) > 90) return false;
+        if (EMath.angleDiff(a, ySide * 90) > 90) return false;
 
         float x0 = -POST_X + (2 * POST_R + 2 * BALL_R);
         float y0 = ySide * GOAL_LINE;
-        float m0 = Emath.tan(a - ySide * SHOOTING_ANGLE_TOLERANCE);
-        float s0 = Emath.sgn(Emath.cos(a - ySide * SHOOTING_ANGLE_TOLERANCE));
+        float m0 = EMath.tan(a - ySide * SHOOTING_ANGLE_TOLERANCE);
+        float s0 = EMath.sgn(EMath.cos(a - ySide * SHOOTING_ANGLE_TOLERANCE));
         float b0 = y0 - m0 * x0;
         float x1 = +POST_X - (2 * POST_R + 2 * BALL_R);
         float y1 = ySide * GOAL_LINE;
-        float m1 = Emath.tan(a + ySide * SHOOTING_ANGLE_TOLERANCE);
-        float s1 = Emath.sgn(Emath.cos(a + ySide * SHOOTING_ANGLE_TOLERANCE));
+        float m1 = EMath.tan(a + ySide * SHOOTING_ANGLE_TOLERANCE);
+        float s1 = EMath.sgn(EMath.cos(a + ySide * SHOOTING_ANGLE_TOLERANCE));
         float b1 = y1 - m1 * x1;
         return s0 * ySide * y < s0 * ySide * (m0 * x + b0) && s1 * ySide * y > s1 * ySide * (m1 * x + b1);
     }

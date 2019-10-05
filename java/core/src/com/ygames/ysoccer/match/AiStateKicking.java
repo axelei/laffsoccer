@@ -2,7 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.AI_KICKING;
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KICKING;
@@ -27,19 +27,19 @@ class AiStateKicking extends AiState {
     void entryActions() {
         super.entryActions();
 
-        ai.x0 = Math.round(Emath.cos(player.a));
-        ai.y0 = Math.round(Emath.sin(player.a));
+        ai.x0 = Math.round(EMath.cos(player.a));
+        ai.y0 = Math.round(EMath.sin(player.a));
 
         setGoalTarget();
 
         // targetDistance:  150 .. 300
         // kickDuration:    8 .. 11 + 2 .. 5 = 10 .. 17
         // timer:           77 .. 136
-        kickDuration = Emath.rand(8, 11) + targetDistance / 60;
+        kickDuration = EMath.rand(8, 11) + targetDistance / 60;
 
-        float signedAngleDiff = Emath.signedAngleDiff(targetAngle, player.a);
+        float signedAngleDiff = EMath.signedAngleDiff(targetAngle, player.a);
         if (Math.abs(signedAngleDiff) > 3) {
-            spinSign = Emath.sgn(signedAngleDiff);
+            spinSign = EMath.sgn(signedAngleDiff);
         } else {
             spinSign = 0;
         }
@@ -63,8 +63,8 @@ class AiStateKicking extends AiState {
         ai.x0 = 0;
         ai.y0 = 0;
         if (spinSign != 0 && player.getState().checkId(STATE_KICK)) {
-            ai.x0 = Math.round(Emath.cos(player.a + spinSign * 90));
-            ai.y0 = Math.round(Emath.sin(player.a + spinSign * 90));
+            ai.x0 = Math.round(EMath.cos(player.a + spinSign * 90));
+            ai.y0 = Math.round(EMath.sin(player.a + spinSign * 90));
         }
         ai.fire10 = timer < kickDuration;
     }
@@ -79,8 +79,8 @@ class AiStateKicking extends AiState {
 
     private void setGoalTarget() {
         final float TARGET_X = POST_X - 3 * BALL_R;
-        float nearPostAngle = Emath.angle(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-        float farPostAngle = Emath.angle(player.ball.x, player.ball.y, -player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+        float nearPostAngle = EMath.angle(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+        float farPostAngle = EMath.angle(player.ball.x, player.ball.y, -player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
         float nearPostCorrection = Math.abs((nearPostAngle - player.a));
         float farPostCorrection = Math.abs((farPostAngle - player.a));
 
@@ -92,12 +92,12 @@ class AiStateKicking extends AiState {
         );
 
         if (nearPostCorrection < farPostCorrection) {
-            targetDistance = Emath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-            targetAngle = Emath.angle(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+            targetDistance = EMath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+            targetAngle = EMath.angle(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
             Gdx.app.debug(player.shirtName, "Near post angle: " + targetAngle);
         } else {
-            targetDistance = Emath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-            targetAngle = Emath.angle(player.ball.x, player.ball.y, -player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+            targetDistance = EMath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
+            targetAngle = EMath.angle(player.ball.x, player.ball.y, -player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
             Gdx.app.debug(player.shirtName, "Far post angle: " + targetAngle);
         }
     }

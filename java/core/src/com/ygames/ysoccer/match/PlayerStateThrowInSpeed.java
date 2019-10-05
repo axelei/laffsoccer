@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_SPEED;
 
@@ -37,8 +37,8 @@ class PlayerStateThrowInSpeed extends PlayerState {
             }
 
             if (thrown) {
-                ball.x = player.x + 6 * Emath.cos(player.a);
-                ball.y = player.y + 6 * Emath.sin(player.a);
+                ball.x = player.x + 6 * EMath.cos(player.a);
+                ball.y = player.y + 6 * EMath.sin(player.a);
                 ball.v = 30 + 1000 * timer / GLGame.SUBFRAMES_PER_SECOND;
                 ball.vz = 500 * timer / GLGame.SUBFRAMES_PER_SECOND;
                 switch (Math.round(player.fmx)) {

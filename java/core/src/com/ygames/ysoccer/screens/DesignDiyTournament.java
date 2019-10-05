@@ -18,7 +18,7 @@ import com.ygames.ysoccer.gui.Picture;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static java.lang.Math.min;
 
@@ -206,7 +206,7 @@ class DesignDiyTournament extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            tournament.weather = Competition.Weather.values()[Emath.rotate(tournament.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
+            tournament.weather = Competition.Weather.values()[EMath.rotate(tournament.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
@@ -249,7 +249,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updateSeasonStart(int n) {
-            tournament.seasonStart = Month.values()[Emath.rotate(tournament.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
+            tournament.seasonStart = Month.values()[EMath.rotate(tournament.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
@@ -304,7 +304,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updateSeasonEnd(int n) {
-            tournament.seasonEnd = Month.values()[Emath.rotate(tournament.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
+            tournament.seasonEnd = Month.values()[EMath.rotate(tournament.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
@@ -344,7 +344,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updatePitchType(int n) {
-            tournament.pitchType = Pitch.Type.values()[Emath.rotate(tournament.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
+            tournament.pitchType = Pitch.Type.values()[EMath.rotate(tournament.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
             setDirty(true);
         }
 
@@ -384,7 +384,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updateTime(int n) {
-            tournament.time = MatchSettings.Time.values()[Emath.rotate(tournament.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
+            tournament.time = MatchSettings.Time.values()[EMath.rotate(tournament.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
             setDirty(true);
         }
 
@@ -433,7 +433,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updateSubstitutes(int n) {
-            tournament.substitutions = Emath.slide(tournament.substitutions, 2, tournament.benchSize, n);
+            tournament.substitutions = EMath.slide(tournament.substitutions, 2, tournament.benchSize, n);
             setDirty(true);
         }
 
@@ -482,7 +482,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updateBenchSize(int n) {
-            tournament.benchSize = Emath.slide(tournament.benchSize, 2, 12, n);
+            tournament.benchSize = EMath.slide(tournament.benchSize, 2, 12, n);
             tournament.substitutions = min(tournament.substitutions, tournament.benchSize);
             setDirty(true);
             substitutesButton.setDirty(true);
@@ -534,7 +534,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void updateAwayGoals(int n) {
-            tournament.awayGoals = Competition.AwayGoals.values()[Emath.rotate(tournament.awayGoals.ordinal(), 0, 2, n)];
+            tournament.awayGoals = Competition.AwayGoals.values()[EMath.rotate(tournament.awayGoals.ordinal(), 0, 2, n)];
             setDirty(true);
         }
 
@@ -767,7 +767,7 @@ class DesignDiyTournament extends GLScreen {
             // search next value
             boolean found = false;
             do {
-                groups = Emath.rotate(groups, 0, maxGroups, 1);
+                groups = EMath.rotate(groups, 0, maxGroups, 1);
 
                 if (groups == 0) {
                     // knockouts
@@ -778,7 +778,7 @@ class DesignDiyTournament extends GLScreen {
                 } else {
                     // round teams are divisible in groups from 2 to 24 teams
                     if (roundTeams[round] % groups == 0
-                            && Emath.isIn(roundTeams[round] / groups, 2, 24)) {
+                            && EMath.isIn(roundTeams[round] / groups, 2, 24)) {
                         found = true;
                         break;
                     }
@@ -883,7 +883,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotateLegs() {
-            knockouts[round].numberOfLegs = Emath.rotate(knockouts[round].numberOfLegs, 1, 2, 1);
+            knockouts[round].numberOfLegs = EMath.rotate(knockouts[round].numberOfLegs, 1, 2, 1);
             setDirty(true);
             awayGoalsLabel.setDirty(true);
             awayGoalsButton.setDirty(true);
@@ -921,7 +921,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotateExtraTime() {
-            knockouts[round].extraTime = Round.ExtraTime.values()[Emath.rotate(knockouts[round].extraTime.ordinal(), 0, 2, 1)];
+            knockouts[round].extraTime = Round.ExtraTime.values()[EMath.rotate(knockouts[round].extraTime.ordinal(), 0, 2, 1)];
             setDirty(true);
         }
 
@@ -956,7 +956,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotatePenalties() {
-            knockouts[round].penalties = Round.Penalties.values()[Emath.rotate(knockouts[round].penalties.ordinal(), 0, 2, 1)];
+            knockouts[round].penalties = Round.Penalties.values()[EMath.rotate(knockouts[round].penalties.ordinal(), 0, 2, 1)];
             setDirty(true);
         }
 
@@ -991,7 +991,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotatePointsForAWin() {
-            groups[round].pointsForAWin = Emath.rotate(groups[round].pointsForAWin, 2, 3, 1);
+            groups[round].pointsForAWin = EMath.rotate(groups[round].pointsForAWin, 2, 3, 1);
             setDirty(true);
         }
 
@@ -1026,7 +1026,7 @@ class DesignDiyTournament extends GLScreen {
         }
 
         private void rotatePlayEachTeam() {
-            groups[round].rounds = Emath.rotate(groups[round].rounds, 1, 4, 1);
+            groups[round].rounds = EMath.rotate(groups[round].rounds, 1, 4, 1);
             setDirty(true);
         }
 

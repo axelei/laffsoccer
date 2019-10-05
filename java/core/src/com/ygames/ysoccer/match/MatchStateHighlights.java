@@ -9,7 +9,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
@@ -101,7 +101,7 @@ class MatchStateHighlights extends MatchState {
 
         // set position
         if (!paused) {
-            position = Emath.slide(position, GLGame.SUBFRAMES / 2, Const.REPLAY_SUBFRAMES, speed);
+            position = EMath.slide(position, GLGame.SUBFRAMES / 2, Const.REPLAY_SUBFRAMES, speed);
 
             match.subframe = (subframe0 + position) % Const.REPLAY_SUBFRAMES;
         }

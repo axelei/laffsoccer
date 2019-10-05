@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_SPEED;
@@ -50,7 +50,7 @@ class PlayerStatePenaltyKickSpeed extends PlayerState {
 
                 // spin
                 if ((Math.abs(angleDiff) > 22.5f) && (Math.abs(angleDiff) < 157.5f)) {
-                    kickSpin += 50.0f / SECOND * Emath.sgn(angleDiff);
+                    kickSpin += 50.0f / SECOND * EMath.sgn(angleDiff);
                 }
             }
 

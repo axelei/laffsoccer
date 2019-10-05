@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KICKING_OFF;
 
@@ -14,7 +14,7 @@ class AiStateKickingOff extends AiState {
     void doActions() {
         super.doActions();
         ai.x0 = player.team.side;
-        ai.fire10 = Emath.isIn(timer, 50, 56);
+        ai.fire10 = EMath.isIn(timer, 50, 56);
     }
 
     @Override

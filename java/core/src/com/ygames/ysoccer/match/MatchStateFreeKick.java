@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.P;
@@ -62,9 +62,9 @@ class MatchStateFreeKick extends MatchState {
         freeKickTeam.findNearest();
         freeKickPlayer = freeKickTeam.near1;
 
-        float ballToGoal = Emath.roundBy(Emath.angle(match.ball.x, match.ball.y, 0, defendingTeam.side * GOAL_LINE), 45f);
-        freeKickPlayer.tx = match.ball.x - 7 * Emath.cos(ballToGoal);
-        freeKickPlayer.ty = match.ball.y - 7 * Emath.sin(ballToGoal);
+        float ballToGoal = EMath.roundBy(EMath.angle(match.ball.x, match.ball.y, 0, defendingTeam.side * GOAL_LINE), 45f);
+        freeKickPlayer.tx = match.ball.x - 7 * EMath.cos(ballToGoal);
+        freeKickPlayer.ty = match.ball.y - 7 * EMath.sin(ballToGoal);
         freeKickPlayer.setState(STATE_REACH_TARGET);
 
         for (Player ply : defendingTeam.lineup) {

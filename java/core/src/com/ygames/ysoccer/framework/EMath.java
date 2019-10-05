@@ -1,8 +1,6 @@
-package com.ygames.ysoccer.math;
+package com.ygames.ysoccer.framework;
 
-import com.ygames.ysoccer.framework.Assets;
-
-public class Emath {
+public class EMath {
 
     private static final float TO_RADIANS = (float) Math.PI / 180.0f;
     private static final float TO_DEGREES = 180.0f / (float) Math.PI;
@@ -103,14 +101,6 @@ public class Emath {
 
     public static float roundBy(float value, float step) {
         return step * Math.round(value / step);
-    }
-
-    public static float min(float... values) {
-        float min = values[0];
-        for (float v : values) {
-            if (v < min) min = v;
-        }
-        return min;
     }
 
     public static int min(int... values) {

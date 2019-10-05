@@ -16,7 +16,7 @@ import com.ygames.ysoccer.framework.JoystickConfig;
 import com.ygames.ysoccer.framework.KeyboardConfig;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -655,7 +655,7 @@ class SetupControls extends GLScreen {
                 return false;
             }
 
-            if (Emath.isAmong(listeningConfigButton.configParam, buttonParams)) {
+            if (EMath.isAmong(listeningConfigButton.configParam, buttonParams)) {
                 JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
                 if (controller.getName().equals(joystickConfig.name)) {
                     listeningConfigButton.setJoystickConfigParam(-1, buttonIndex);
@@ -670,7 +670,7 @@ class SetupControls extends GLScreen {
                 return false;
             }
 
-            if (Emath.isAmong(listeningConfigButton.configParam, axisParams)) {
+            if (EMath.isAmong(listeningConfigButton.configParam, axisParams)) {
                 JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
                 if (controller.getName().equals(joystickConfig.name)) {
                     listeningConfigButton.setJoystickConfigParam(axisIndex, -1);

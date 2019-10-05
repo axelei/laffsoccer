@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.strongjoshua.console.annotation.HiddenCommand;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.PENALTY_AREA_H;
@@ -51,10 +51,10 @@ public class MatchConsoleCommandExecutor extends ConsoleCommandExecutor {
     private void newFoul(int side) {
         float a, d, x, y;
         do {
-            a = Emath.rand(-90, 90) - 90 * side;
-            d = Emath.rand(PENALTY_AREA_H, (int) Emath.hypo(PENALTY_AREA_H + 110, PENALTY_AREA_W / 2 + POST_X + 110));
-            x = d * Emath.cos(a);
-            y = side * GOAL_LINE + d * Emath.sin(a);
+            a = EMath.rand(-90, 90) - 90 * side;
+            d = EMath.rand(PENALTY_AREA_H, (int) EMath.hypo(PENALTY_AREA_H + 110, PENALTY_AREA_W / 2 + POST_X + 110));
+            x = d * EMath.cos(a);
+            y = side * GOAL_LINE + d * EMath.sin(a);
         } while (Const.isInsidePenaltyArea(x, y, side) || !Const.isInsideDirectShotArea(x, y, side));
         match.newFoul(x, y);
     }

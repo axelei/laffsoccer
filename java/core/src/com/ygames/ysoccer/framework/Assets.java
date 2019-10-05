@@ -25,7 +25,6 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -63,7 +62,7 @@ public class Assets {
     public static int[] calendars = new int[4600];
     public static List<String> associations;
     public static FileHandle favouritesFile;
-    public static ArrayList<String> favourites;
+    public static List<String> favourites;
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
     public static List<String> hairStyles;
@@ -194,11 +193,11 @@ public class Assets {
         hiddenCursor = Gdx.graphics.newCursor(new Pixmap(1, 1, Pixmap.Format.RGBA8888), 0, 0);
         loadLocales();
         loadStrings(settings);
-        font14 = new Font(14, 16 , 23, 16, 22);
+        font14 = new Font(14, 16, 23, 16, 22);
         font14.load();
-        font10 = new Font(10, 13, 17, 12,16);
+        font10 = new Font(10, 13, 17, 12, 16);
         font10.load();
-        font6 = new Font(6, 8, 14, 8,14);
+        font6 = new Font(6, 8, 14, 8, 14);
         font6.load();
 
         // first-time setup of local data for android
@@ -308,9 +307,9 @@ public class Assets {
         }
     }
 
-    private static ArrayList<String> loadFavourites() {
+    private static List<String> loadFavourites() {
         if (favouritesFile.exists()) {
-            return Assets.json.fromJson(ArrayList.class, String.class, favouritesFile.readString("UTF-8"));
+            return Arrays.asList(Assets.json.fromJson(String[].class, favouritesFile.readString("UTF-8")));
         } else {
             return new ArrayList<>();
         }
@@ -375,7 +374,7 @@ public class Assets {
 
     public static String moneyFormat(double p) {
         String suffix = "";
-        int e3 = Emath.floor(Math.log10(p) / 3);
+        int e3 = EMath.floor(Math.log10(p) / 3);
         switch (e3) {
             case 0:
                 // no suffix
@@ -394,9 +393,9 @@ public class Assets {
                 break;
         }
 
-        int e = Emath.floor(Math.log10(p));
+        int e = EMath.floor(Math.log10(p));
         double div = Math.pow(10, e - 1);
-        p = Emath.floor(p / div);
+        p = EMath.floor(p / div);
 
         int mul = e - 1 - 3 * e3;
         if (mul >= 0) {

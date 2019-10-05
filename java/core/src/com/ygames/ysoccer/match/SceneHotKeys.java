@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 
@@ -61,7 +61,7 @@ abstract class SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F8) && !keyZoomOut) {
-            scene.settings.zoom = Emath.slide(scene.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), -5);
+            scene.settings.zoom = EMath.slide(scene.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), -5);
             scene.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
             message = gettext("ZOOM") + " " + scene.settings.zoom + "%";
@@ -70,7 +70,7 @@ abstract class SceneHotKeys {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F9) && !keyZoomIn) {
-            scene.settings.zoom = Emath.slide(scene.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5);
+            scene.settings.zoom = EMath.slide(scene.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5);
             scene.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
             message = gettext("ZOOM") + " " + scene.settings.zoom + "%";

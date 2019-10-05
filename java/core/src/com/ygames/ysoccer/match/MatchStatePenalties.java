@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
@@ -104,8 +104,8 @@ class MatchStatePenalties extends MatchState {
                 Player player = team.lineupAtPosition(i);
                 if (!player.checkState(STATE_OUTSIDE)) {
                     int side = 2 * t - 1;
-                    player.tx = 18 * (-team.lineup.size() + 2 * i) + 8 * Emath.cos(70 * (player.number));
-                    player.ty = -(i == 0 ? 300 : 100) + side * (15 + 5 * (i % 2)) + 8 * Emath.sin(70 * (player.number));
+                    player.tx = 18 * (-team.lineup.size() + 2 * i) + 8 * EMath.cos(70 * (player.number));
+                    player.ty = -(i == 0 ? 300 : 100) + side * (15 + 5 * (i % 2)) + 8 * EMath.sin(70 * (player.number));
                     player.setState(STATE_REACH_TARGET);
                 }
             }

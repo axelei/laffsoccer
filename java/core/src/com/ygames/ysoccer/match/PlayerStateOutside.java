@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 
@@ -16,7 +16,7 @@ class PlayerStateOutside extends PlayerState {
     void entryActions() {
         super.entryActions();
 
-        v = 180 + Emath.rand(0, 30);
+        v = 180 + EMath.rand(0, 30);
     }
 
     @Override

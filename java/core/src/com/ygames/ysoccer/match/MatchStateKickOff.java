@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
@@ -100,7 +100,7 @@ class MatchStateKickOff extends MatchState {
 
     @Override
     void checkConditions() {
-        if (Emath.dist(match.ball.x, match.ball.y, 0, 0) > 10) {
+        if (EMath.dist(match.ball.x, match.ball.y, 0, 0) > 10) {
             for (int t = HOME; t <= AWAY; t++) {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
                     Player player = match.team[t].lineup.get(i);

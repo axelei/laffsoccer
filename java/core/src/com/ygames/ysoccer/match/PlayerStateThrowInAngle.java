@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
 
@@ -38,7 +38,7 @@ class PlayerStateThrowInAngle extends PlayerState {
         // prevent throwing outside
         if (x != ball.xSide) {
             boolean value = (x != 0) || (y != 0);
-            int angle = Math.round(Emath.aTan2(y, x));
+            int angle = Math.round(EMath.aTan2(y, x));
 
             if (value) {
                 // stop animation
@@ -57,8 +57,8 @@ class PlayerStateThrowInAngle extends PlayerState {
         }
 
         player.fmy = 8 + a;
-        ball.x = player.x + 6 * Emath.cos(player.a) * a;
-        ball.y = player.y + 6 * Emath.sin(player.a) * a;
+        ball.x = player.x + 6 * EMath.cos(player.a) * a;
+        ball.y = player.y + 6 * EMath.sin(player.a) * a;
         ball.z = Const.PLAYER_H + 2 + 0 * a;
     }
 

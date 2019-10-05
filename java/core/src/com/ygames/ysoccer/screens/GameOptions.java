@@ -9,7 +9,7 @@ import com.ygames.ysoccer.framework.MenuMusic;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.ToggleButton;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;
@@ -150,7 +150,7 @@ class GameOptions extends GLScreen {
 
         private void updateLanguage(int direction) {
             int index = Assets.locales.indexOf(game.settings.locale);
-            game.settings.locale = Assets.locales.get(Emath.rotate(index, 0, Assets.locales.size() - 1, direction));
+            game.settings.locale = Assets.locales.get(EMath.rotate(index, 0, Assets.locales.size() - 1, direction));
             Assets.loadStrings(game.settings);
             refreshAllWidgets();
         }
@@ -299,7 +299,7 @@ class GameOptions extends GLScreen {
         }
 
         private void updateMusicMode(int n) {
-            game.settings.musicMode = Emath.rotate(game.settings.musicMode, game.menuMusic.getModeMin(), game.menuMusic.getModeMax(), n);
+            game.settings.musicMode = EMath.rotate(game.settings.musicMode, game.menuMusic.getModeMin(), game.menuMusic.getModeMax(), n);
             game.menuMusic.setMode(game.settings.musicMode);
             setDirty(true);
         }
@@ -358,7 +358,7 @@ class GameOptions extends GLScreen {
         }
 
         private void updateMusicVolume(int n) {
-            game.settings.musicVolume = Emath.slide(game.settings.musicVolume, 0, 100, 10 * n);
+            game.settings.musicVolume = EMath.slide(game.settings.musicVolume, 0, 100, 10 * n);
             setDirty(true);
         }
     }
@@ -526,7 +526,7 @@ class GameOptions extends GLScreen {
             if (i == -1) {
                 i = 0; // not found, start from 0
             } else {
-                i = Emath.rotate(i, 0, Assets.currencies.size() - 1, direction);
+                i = EMath.rotate(i, 0, Assets.currencies.size() - 1, direction);
             }
             game.settings.currency = Assets.currencies.get(i);
             setDirty(true);

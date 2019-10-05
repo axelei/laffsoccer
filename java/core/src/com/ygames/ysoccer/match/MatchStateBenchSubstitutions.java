@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
@@ -64,7 +64,7 @@ class MatchStateBenchSubstitutions extends MatchState {
 
             // if remaining substitutions
             if (getFsm().benchStatus.team.substitutionsCount < match.getSettings().substitutions) {
-                getFsm().benchStatus.selectedPosition = Emath.rotate(getFsm().benchStatus.selectedPosition, -1, substitutes - 1, getFsm().benchStatus.inputDevice.y1);
+                getFsm().benchStatus.selectedPosition = EMath.rotate(getFsm().benchStatus.selectedPosition, -1, substitutes - 1, getFsm().benchStatus.inputDevice.y1);
             }
 
             // reset positions

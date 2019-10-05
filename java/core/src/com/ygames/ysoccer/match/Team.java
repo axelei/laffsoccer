@@ -12,7 +12,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.framework.TeamList;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -265,12 +265,12 @@ public class Team implements Json.Serializable {
 
         float minBallDistance = 2 * Const.GOAL_LINE;
         if ((match.ball.ownerLast != null) && (match.ball.ownerLast.team != this)) {
-            float ballToGoalDistance = Emath.dist(match.ball.x, match.ball.y, 0, Const.GOAL_LINE * side);
+            float ballToGoalDistance = EMath.dist(match.ball.x, match.ball.y, 0, Const.GOAL_LINE * side);
 
             for (int i = 1; i < TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
 
-                float playerGoalDistance = Emath.dist(player.x, player.y, 0, Const.GOAL_LINE * side);
+                float playerGoalDistance = EMath.dist(player.x, player.y, 0, Const.GOAL_LINE * side);
                 if ((playerGoalDistance < 0.95f * ballToGoalDistance)
                         && (player.ballDistance < minBallDistance)) {
                     newBestDefender = player;
@@ -324,17 +324,17 @@ public class Team implements Json.Serializable {
         barrier.clear();
 
         // angle to cover
-        float nearPostAngle = Emath.angle(match.foul.position.x, match.foul.position.y, Math.signum(match.foul.position.x) * POST_X, side * GOAL_LINE);
-        float goalCenterAngle = Emath.angle(match.foul.position.x, match.foul.position.y, 0, side * GOAL_LINE);
-        float angleToCover = Emath.signedAngleDiff(goalCenterAngle, nearPostAngle);
+        float nearPostAngle = EMath.angle(match.foul.position.x, match.foul.position.y, Math.signum(match.foul.position.x) * POST_X, side * GOAL_LINE);
+        float goalCenterAngle = EMath.angle(match.foul.position.x, match.foul.position.y, 0, side * GOAL_LINE);
+        float angleToCover = EMath.signedAngleDiff(goalCenterAngle, nearPostAngle);
 
         // angle step
         Vector2 foulToGoal = new Vector2(0, side * GOAL_LINE).sub(match.foul.position);
         Vector2 foulToBarrier = new Vector2(foulToGoal).setLength(Const.FREE_KICK_DISTANCE + Const.PLAYER_W / 2f);
-        float angleStep = Emath.aTan2(Const.PLAYER_W, foulToBarrier.len()) * Math.signum(angleToCover);
+        float angleStep = EMath.aTan2(Const.PLAYER_W, foulToBarrier.len()) * Math.signum(angleToCover);
 
         // barrier size
-        int size = Emath.ceil(angleToCover / angleStep);
+        int size = EMath.ceil(angleToCover / angleStep);
 
         float angle = nearPostAngle;
         Vector2 barrierPosition = new Vector2();
@@ -348,7 +348,7 @@ public class Team implements Json.Serializable {
             for (int i = 1; i < TEAM_SIZE; i++) {
                 Player player = lineup.get(i);
                 if (!barrier.contains(player)) {
-                    float goalDistance = Emath.dist(player.tx, player.ty, 0, player.team.side * GOAL_LINE);
+                    float goalDistance = EMath.dist(player.tx, player.ty, 0, player.team.side * GOAL_LINE);
                     if ((goalDistance > goalToBarrierDistance) && (goalDistance < minDistance)) {
                         nearest = player;
                         minDistance = goalDistance;
@@ -807,7 +807,7 @@ public class Team implements Json.Serializable {
     public void rotatePlayerNumber(Player player, int direction) {
         boolean used;
         do {
-            player.number = Emath.rotate(player.number, 1, 99, direction);
+            player.number = EMath.rotate(player.number, 1, 99, direction);
             used = false;
             for (Player ply : players) {
                 if (ply != player && ply.number == player.number) {
@@ -909,8 +909,8 @@ public class Team implements Json.Serializable {
     Player searchPlayerTackledBy(Player tackler) {
         for (int i = 0; i < TEAM_SIZE; i++) {
             Player ply = lineup.get(i);
-            float feetDistance = Emath.dist(ply.x, ply.y, tackler.x, tackler.y);
-            float bodyDistance = Emath.dist(ply.x, ply.y, tackler.x - 9 * Emath.cos(tackler.a), tackler.y - 9 * Emath.sin(tackler.a));
+            float feetDistance = EMath.dist(ply.x, ply.y, tackler.x, tackler.y);
+            float bodyDistance = EMath.dist(ply.x, ply.y, tackler.x - 9 * EMath.cos(tackler.a), tackler.y - 9 * EMath.sin(tackler.a));
             if (feetDistance < 7 || bodyDistance < 9) {
                 return ply;
             }

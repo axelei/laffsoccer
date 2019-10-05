@@ -12,7 +12,7 @@ import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -240,7 +240,7 @@ public abstract class Competition {
 
         if (weather == Weather.BY_SEASON) {
             p = -1;
-            int n = Emath.rand(0, 99);
+            int n = EMath.rand(0, 99);
             int tot = 0;
             do {
                 p = p + 1;
@@ -345,7 +345,7 @@ public abstract class Competition {
         }
 
         for (int i = 0; i < goals; i++) {
-            int target = 1 + Emath.floor(teamWeight * Math.random());
+            int target = 1 + EMath.floor(teamWeight * Math.random());
             int sum = teamWeight;
             for (int playerIndex = 0; playerIndex < teamSize; playerIndex++) {
                 Player player = team.players.get(playerIndex);

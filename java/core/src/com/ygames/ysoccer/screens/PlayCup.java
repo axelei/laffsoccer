@@ -11,7 +11,7 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 
@@ -240,7 +240,7 @@ class PlayCup extends GLScreen {
         }
 
         private void scroll(int direction) {
-            offset = Emath.slide(offset, 0, matches.size() - 8, direction);
+            offset = EMath.slide(offset, 0, matches.size() - 8, direction);
             updateResultWidgets();
         }
     }

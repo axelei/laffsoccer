@@ -2,12 +2,12 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_PENALTY_KICKING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_SPEED;
-import static com.ygames.ysoccer.math.Emath.randomPick;
+import static com.ygames.ysoccer.framework.EMath.randomPick;
 
 class AiStatePenaltyKicking extends AiState {
 
@@ -50,17 +50,17 @@ class AiStatePenaltyKicking extends AiState {
         KickAngle[] kickAngles = {KickAngle.LEFT, KickAngle.RIGHT};
         switch (kickType) {
             case LOW:
-                kickDuration = Emath.rand(100, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
+                kickDuration = EMath.rand(100, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
                 kickAngle = randomPick(kickAngles);
                 break;
 
             case MEDIUM:
-                kickDuration = Emath.rand(50, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
+                kickDuration = EMath.rand(50, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
                 kickAngle = randomPick(kickAngles);
                 break;
 
             case HIGH:
-                kickDuration = Emath.rand(10, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
+                kickDuration = EMath.rand(10, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
                 kickAngle = randomPick(kickAngles);
                 break;
         }
@@ -68,7 +68,7 @@ class AiStatePenaltyKicking extends AiState {
         switch (kickAngle) {
             case LEFT:
                 controlsAngle = 90 * player.ball.ySide - 45;
-                targetAngle = 90 * player.ball.ySide - Emath.rand(10, 30);
+                targetAngle = 90 * player.ball.ySide - EMath.rand(10, 30);
                 break;
 
             case CENTER:
@@ -78,7 +78,7 @@ class AiStatePenaltyKicking extends AiState {
 
             case RIGHT:
                 controlsAngle = 90 * player.ball.ySide + 45;
-                targetAngle = 90 * player.ball.ySide + Emath.rand(10, 30);
+                targetAngle = 90 * player.ball.ySide + EMath.rand(10, 30);
                 break;
         }
         Gdx.app.debug(player.shirtName,
@@ -95,15 +95,15 @@ class AiStatePenaltyKicking extends AiState {
         switch (step) {
             case TURNING:
                 if (timer > 10) {
-                    ai.x0 = Math.round(Emath.cos(controlsAngle));
-                    ai.y0 = Math.round(Emath.sin(controlsAngle));
+                    ai.x0 = Math.round(EMath.cos(controlsAngle));
+                    ai.y0 = Math.round(EMath.sin(controlsAngle));
                     Gdx.app.debug(
                             player.shirtName,
                             "angle: " + player.a +
                                     ", controlsAngle: " + (controlsAngle + 360) % 360 +
                                     ", targetAngle: " + (targetAngle + 360) % 360
                     );
-                    if (Emath.angleDiff(player.a, targetAngle) < 3) {
+                    if (EMath.angleDiff(player.a, targetAngle) < 3) {
                         step = Step.KICKING;
                         timer = 0;
                     }
@@ -113,8 +113,8 @@ class AiStatePenaltyKicking extends AiState {
             case KICKING:
                 switch (kickType) {
                     case LOW:
-                        ai.x0 = Math.round(Emath.cos(controlsAngle));
-                        ai.y0 = Math.round(Emath.sin(controlsAngle));
+                        ai.x0 = Math.round(EMath.cos(controlsAngle));
+                        ai.y0 = Math.round(EMath.sin(controlsAngle));
                         break;
 
                     case MEDIUM:
@@ -123,8 +123,8 @@ class AiStatePenaltyKicking extends AiState {
                         break;
 
                     case HIGH:
-                        ai.x0 = Math.round(Emath.cos(controlsAngle + 180));
-                        ai.y0 = Math.round(Emath.sin(controlsAngle + 180));
+                        ai.x0 = Math.round(EMath.cos(controlsAngle + 180));
+                        ai.y0 = Math.round(EMath.sin(controlsAngle + 180));
                 }
                 ai.fire10 = timer < kickDuration;
                 break;

@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -16,8 +16,8 @@ class AiStatePositioning extends AiState {
         super.doActions();
         if (player.targetDistance() > 20) {
             float a = player.targetAngle();
-            ai.x0 = Math.round(Emath.cos(a));
-            ai.y0 = Math.round(Emath.sin(a));
+            ai.x0 = Math.round(EMath.cos(a));
+            ai.y0 = Math.round(EMath.sin(a));
         } else {
             ai.x0 = 0;
             ai.y0 = 0;

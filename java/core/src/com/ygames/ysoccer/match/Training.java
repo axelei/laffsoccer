@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -118,8 +118,8 @@ public class Training extends Scene {
         Player player0 = team[HOME].near1;
         Player player1 = team[AWAY].near1;
 
-        int distance0 = Emath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
-        int distance1 = Emath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
+        int distance0 = EMath.min(player0.frameDistanceL, player0.frameDistance, player0.frameDistanceR);
+        int distance1 = EMath.min(player1.frameDistanceL, player1.frameDistance, player1.frameDistanceR);
 
         if (distance0 == BALL_PREDICTION && distance1 == BALL_PREDICTION) return null;
 

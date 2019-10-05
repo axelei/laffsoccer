@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 
@@ -20,8 +20,8 @@ class PlayerStateTackle extends PlayerState {
         hit = false;
 
         player.v = 1.4f * (player.speed) * (1 + 0.02f * player.skills.tackling);
-        player.x += 10 * Emath.cos(player.a);
-        player.y += 10 * Emath.sin(player.a);
+        player.x += 10 * EMath.cos(player.a);
+        player.y += 10 * EMath.sin(player.a);
         player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;
         player.fmy = 4;
     }
@@ -33,10 +33,10 @@ class PlayerStateTackle extends PlayerState {
         // feet collision
         if (!hit) {
             if (ball.z < 5 && player.ballDistance < 7) {
-                float angle = Emath.aTan2(ball.y - player.y, ball.x - player.x);
-                float angleDiff = Emath.angleDiff(angle, player.a);
+                float angle = EMath.aTan2(ball.y - player.y, ball.x - player.x);
+                float angleDiff = EMath.angleDiff(angle, player.a);
                 if ((angleDiff <= 90)
-                        && (player.ballDistance * Emath.sin(angleDiff) <= (8 + 0.3f * player.skills.tackling))) {
+                        && (player.ballDistance * EMath.sin(angleDiff) <= (8 + 0.3f * player.skills.tackling))) {
 
                     ball.setOwner(player);
                     ball.v = player.v * (1 + 0.02f * player.skills.tackling);
@@ -56,12 +56,12 @@ class PlayerStateTackle extends PlayerState {
 
         // body collision
         if (!hit) {
-            float bodyX = player.x - 9 * Emath.cos(player.a);
-            float bodyY = player.y - 9 * Emath.sin(player.a);
-            if (ball.z < 7 && Emath.dist(ball.x, ball.y, bodyX, bodyY) < 9) {
-                float angle = Emath.aTan2(ball.y - bodyY, ball.x - bodyX);
-                float angleDiff = Emath.angleDiff(angle, player.a);
-                ball.v = player.v * Math.abs(Emath.cos(angleDiff));
+            float bodyX = player.x - 9 * EMath.cos(player.a);
+            float bodyY = player.y - 9 * EMath.sin(player.a);
+            if (ball.z < 7 && EMath.dist(ball.x, ball.y, bodyX, bodyY) < 9) {
+                float angle = EMath.aTan2(ball.y - bodyY, ball.x - bodyX);
+                float angleDiff = EMath.angleDiff(angle, player.a);
+                ball.v = player.v * Math.abs(EMath.cos(angleDiff));
                 ball.a = angle;
                 hit = true;
             }

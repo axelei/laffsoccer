@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.framework;
 
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.math.Emath;
 
 import static com.ygames.ysoccer.gui.Widget.Event.FIRE1_DOWN;
 import static com.ygames.ysoccer.gui.Widget.Event.FIRE1_HOLD;
@@ -135,7 +134,7 @@ class MenuInput {
                 float distance;
                 for (Widget w : screen.widgets) {
                     if ((w.y + w.h) <= current.y) {
-                        distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
+                        distance = EMath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
@@ -147,7 +146,7 @@ class MenuInput {
                 float distance;
                 for (Widget w : screen.widgets) {
                     if (w.y >= (current.y + current.h)) {
-                        distance = Emath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
+                        distance = EMath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
@@ -165,7 +164,7 @@ class MenuInput {
                 float distance;
                 for (Widget w : screen.widgets) {
                     if ((w.x + w.w) <= current.x) {
-                        distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
+                        distance = EMath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
@@ -177,7 +176,7 @@ class MenuInput {
                 float distance;
                 for (Widget w : screen.widgets) {
                     if (w.x >= (current.x + current.w)) {
-                        distance = Emath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
+                        distance = EMath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }

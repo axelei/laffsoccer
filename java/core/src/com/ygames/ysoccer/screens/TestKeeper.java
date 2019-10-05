@@ -16,7 +16,7 @@ import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.PlayerSprite;
 import com.ygames.ysoccer.match.Skin;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 class TestKeeper extends GLScreen {
 
@@ -197,7 +197,7 @@ class TestKeeper extends GLScreen {
 
             case HORIZONTAL:
                 if (Gdx.graphics.getFrameId() % (6 - animationSpeed) == 0) {
-                    fmx2 = Emath.rotate(fmx2, 0, 5 * animationLength - 1, 1);
+                    fmx2 = EMath.rotate(fmx2, 0, 5 * animationLength - 1, 1);
                 }
                 fmy2 = 0;
                 break;
@@ -205,7 +205,7 @@ class TestKeeper extends GLScreen {
             case VERTICAL:
                 fmx2 = 0;
                 if (Gdx.graphics.getFrameId() % (6 - animationSpeed) == 0) {
-                    fmy2 = Emath.rotate(fmy2, 0, 5 * animationLength - 1, 1);
+                    fmy2 = EMath.rotate(fmy2, 0, 5 * animationLength - 1, 1);
                 }
                 break;
         }
@@ -213,8 +213,8 @@ class TestKeeper extends GLScreen {
         // selected player (x2)
         player.x = 572;
         player.y = 120;
-        player.fmx = (fmx + Emath.floor(fmx2 / 5f)) % 8;
-        player.fmy = (fmy + Emath.floor(fmy2 / 5f)) % getPlayerRows();
+        player.fmx = (fmx + EMath.floor(fmx2 / 5f)) % 8;
+        player.fmy = (fmy + EMath.floor(fmy2 / 5f)) % getPlayerRows();
         player.save(0);
         drawKeeperShadow();
         playerSprite.draw(0);
@@ -306,7 +306,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateSkinColor(int n) {
-            player.skinColor = Skin.Color.values()[Emath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
+            player.skinColor = Skin.Color.values()[EMath.rotate(player.skinColor.ordinal(), Skin.Color.PINK.ordinal(), Skin.Color.RED.ordinal(), n)];
 
             setDirty(true);
 
@@ -348,7 +348,7 @@ class TestKeeper extends GLScreen {
 
         private void updateHairColor(int n) {
             int color = player.hairColor.ordinal();
-            color = Emath.rotate(color, Hair.Color.BLACK.ordinal(), Hair.Color.PUNK_BLOND.ordinal(), n);
+            color = EMath.rotate(color, Hair.Color.BLACK.ordinal(), Hair.Color.PUNK_BLOND.ordinal(), n);
             player.hairColor = Hair.Color.values()[color];
 
             setDirty(true);
@@ -395,7 +395,7 @@ class TestKeeper extends GLScreen {
             if (i == -1) {
                 i = 0; // not found, start from 0
             } else {
-                i = Emath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
+                i = EMath.rotate(i, 0, Assets.hairStyles.size() - 1, n);
             }
             player.hairStyle = Assets.hairStyles.get(i);
 
@@ -438,7 +438,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateColumn(int n) {
-            fmx = Emath.rotate(fmx, 0, 7, n);
+            fmx = EMath.rotate(fmx, 0, 7, n);
             refreshAllWidgets();
         }
     }
@@ -476,7 +476,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateRow(int n) {
-            fmy = Emath.slide(fmy, 0, getPlayerRows() - 1, n);
+            fmy = EMath.slide(fmy, 0, getPlayerRows() - 1, n);
             refreshAllWidgets();
         }
     }
@@ -514,7 +514,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateRow(int n) {
-            animation = Animation.values()[Emath.rotate(animation, Animation.ANIMATION_OFF, Animation.VERTICAL, n)];
+            animation = Animation.values()[EMath.rotate(animation, Animation.ANIMATION_OFF, Animation.VERTICAL, n)];
             setDirty(true);
         }
     }
@@ -552,7 +552,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateRow(int n) {
-            animationLength = Emath.slide(animationLength, 2, 8, n);
+            animationLength = EMath.slide(animationLength, 2, 8, n);
             setDirty(true);
         }
     }
@@ -590,7 +590,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateRow(int n) {
-            animationSpeed = Emath.slide(animationSpeed, 1, 5, n);
+            animationSpeed = EMath.slide(animationSpeed, 1, 5, n);
             setDirty(true);
         }
     }
@@ -618,7 +618,7 @@ class TestKeeper extends GLScreen {
         }
 
         private void updateRow(int n) {
-            shadows = Emath.rotate(shadows, Shadows.class, n);
+            shadows = EMath.rotate(shadows, Shadows.class, n);
             setDirty(true);
         }
     }
@@ -698,7 +698,7 @@ class TestKeeper extends GLScreen {
 
         @Override
         public boolean scrolled(int n) {
-            offsetY = Emath.slide(offsetY, displayedRows - getPlayerRows(), 0, -n);
+            offsetY = EMath.slide(offsetY, displayedRows - getPlayerRows(), 0, -n);
             refreshAllWidgets();
             return true;
         }

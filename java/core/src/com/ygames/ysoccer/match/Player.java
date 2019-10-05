@@ -13,17 +13,14 @@ import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
-import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
-import static com.ygames.ysoccer.match.Const.POST_R;
-import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
@@ -266,17 +263,17 @@ public class Player implements Json.Serializable {
 
         float dist;
         for (int f = Const.BALL_PREDICTION - 1; f >= 0; f--) {
-            dist = Emath.dist(x, y, ball.predictionL[f].x, ball.predictionL[f].y);
+            dist = EMath.dist(x, y, ball.predictionL[f].x, ball.predictionL[f].y);
             if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistanceL = f;
             }
 
-            dist = Emath.dist(x, y, ball.prediction[f].x, ball.prediction[f].y);
+            dist = EMath.dist(x, y, ball.prediction[f].x, ball.prediction[f].y);
             if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistance = f;
             }
 
-            dist = Emath.dist(x, y, ball.predictionR[f].x, ball.predictionR[f].y);
+            dist = EMath.dist(x, y, ball.predictionR[f].x, ball.predictionR[f].y);
             if (dist < speed * f / GLGame.VIRTUAL_REFRESH_RATE) {
                 frameDistanceR = f;
             }
@@ -285,7 +282,7 @@ public class Player implements Json.Serializable {
 
     void getPossession() {
         if ((ballDistance <= 8)
-                && Emath.dist(x0, y0, ball.x0, ball.y0) > 8
+                && EMath.dist(x0, y0, ball.x0, ball.y0) > 8
                 && (ball.z < Const.PLAYER_H)) {
 
             float smoothedBallV = ball.v * 0.5f;
@@ -298,8 +295,8 @@ public class Player implements Json.Serializable {
 
             if (differenceVec.len() < 250 + 20 * skills.control) {
                 ball.setOwner(this);
-                ball.x = x + (Const.BALL_R - 1) * Emath.cos(a);
-                ball.y = y + (Const.BALL_R - 1) * Emath.sin(a);
+                ball.x = x + (Const.BALL_R - 1) * EMath.cos(a);
+                ball.y = y + (Const.BALL_R - 1) * EMath.sin(a);
                 ball.v = v;
                 ball.a = a;
             } else {
@@ -362,19 +359,19 @@ public class Player implements Json.Serializable {
                         Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
                     }
                     // real ball x-y angle (when spinning, it is different from ball.a)
-                    float ballAxy = Emath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
+                    float ballAxy = EMath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
 
-                    float ballVx = ball.v * Emath.cos(ballAxy);
-                    float ballVy = ball.v * Emath.sin(ballAxy);
+                    float ballVx = ball.v * EMath.cos(ballAxy);
+                    float ballVy = ball.v * EMath.sin(ballAxy);
 
-                    ballVx = Math.signum(Emath.cos(a))
+                    ballVx = Math.signum(EMath.cos(a))
                             * (0.2f * Math.abs(ballVx) + 0.55f * Math.abs(ballVy))
-                            + Math.min(100, v) * Emath.cos(a);
-                    ballVy = -Emath.rand(5, 20) * 0.01f * ballVy;
+                            + Math.min(100, v) * EMath.cos(a);
+                    ballVy = -EMath.rand(5, 20) * 0.01f * ballVy;
 
                     ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
                     ball.vz = 2 * vz;
-                    ball.a = Emath.aTan2(ballVy, ballVx);
+                    ball.a = EMath.aTan2(ballVy, ballVx);
                     ball.s = -ball.s;
 
                     ball.setOwner(this, false);
@@ -398,19 +395,19 @@ public class Player implements Json.Serializable {
                         Assets.Sounds.deflect.play(0.5f * Assets.Sounds.volume / 100f);
                     }
                     // real ball x-y angle (when spinning, it is different from ball.a)
-                    ballAxy = Emath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
+                    ballAxy = EMath.aTan2(ball.y - ball.y0, ball.x - ball.x0);
 
-                    ballVx = ball.v * Emath.cos(ballAxy);
-                    ballVy = ball.v * Emath.sin(ballAxy);
+                    ballVx = ball.v * EMath.cos(ballAxy);
+                    ballVy = ball.v * EMath.sin(ballAxy);
 
-                    ballVx = Math.signum(Emath.cos(a))
+                    ballVx = Math.signum(EMath.cos(a))
                             * (0.5f * Math.abs(ballVx) + 0.25f * Math.abs(ballVy))
-                            + Math.min(100, v) * Emath.cos(a);
+                            + Math.min(100, v) * EMath.cos(a);
                     ballVy = 0.7f * ballVy;
 
                     ball.v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
                     ball.vz = 1.5f * vz;
-                    ball.a = Emath.aTan2(ballVy, ballVx);
+                    ball.a = EMath.aTan2(ballVy, ballVx);
 
                     ball.setOwner(this, false);
                     ball.setOwner(null);
@@ -455,19 +452,19 @@ public class Player implements Json.Serializable {
     }
 
     float targetDistance() {
-        return Emath.dist(tx, ty, x, y);
+        return EMath.dist(tx, ty, x, y);
     }
 
     float targetAngle() {
-        return Emath.aTan2(ty - y, tx - x);
+        return EMath.aTan2(ty - y, tx - x);
     }
 
     void watchPosition(Vector2 pos) {
-        a = Emath.roundBy((Emath.aTan2(y - pos.y, x - pos.x) + 180), 45.0f);
+        a = EMath.roundBy((EMath.aTan2(y - pos.y, x - pos.x) + 180), 45.0f);
     }
 
     void watchPosition(float x0, float y0) {
-        a = Emath.roundBy((Emath.aTan2(y - y0, x - x0) + 180), 45.0f);
+        a = EMath.roundBy((EMath.aTan2(y - y0, x - x0) + 180), 45.0f);
     }
 
     public String getRoleLabel() {
@@ -600,8 +597,8 @@ public class Player implements Json.Serializable {
         z0 = z;
 
         // update position
-        x += v / Const.SECOND * Emath.cos(a);
-        y += v / Const.SECOND * Emath.sin(a);
+        x += v / Const.SECOND * EMath.cos(a);
+        y += v / Const.SECOND * EMath.sin(a);
         z += vz / Const.SECOND;
 
         // gravity
@@ -619,7 +616,7 @@ public class Player implements Json.Serializable {
             limitInsideField();
         }
 
-        ballDistance = Emath.dist(x, y, ball.x, ball.y);
+        ballDistance = EMath.dist(x, y, ball.x, ball.y);
 
         return ((v > 0) || (vz != 0));
     }
@@ -930,7 +927,7 @@ public class Player implements Json.Serializable {
         float maxDistance = Const.TOUCH_LINE;
 
         float maxAngle = 22.5f;
-        float passingDelta = maxDistance * Emath.sin(maxAngle);
+        float passingDelta = maxDistance * EMath.sin(maxAngle);
 
         passingMate = null;
         passingMateAngleCorrection = 0.0f;
@@ -941,10 +938,10 @@ public class Player implements Json.Serializable {
                 continue;
             }
 
-            float plyDistance = Emath.dist(x, y, ply.x, ply.y);
-            float plyAngle = ((Emath.aTan2(ply.y + 5 * Emath.sin(ply.a) - y,
-                    ply.x + 5 * Emath.cos(ply.a) - x) - a + 540.0f) % 360.0f) - 180.0f;
-            float plyDelta = plyDistance * Emath.sin(plyAngle);
+            float plyDistance = EMath.dist(x, y, ply.x, ply.y);
+            float plyAngle = ((EMath.aTan2(ply.y + 5 * EMath.sin(ply.a) - y,
+                    ply.x + 5 * EMath.cos(ply.a) - x) - a + 540.0f) % 360.0f) - 180.0f;
+            float plyDelta = plyDistance * EMath.sin(plyAngle);
 
             if (Math.abs(plyAngle) < maxAngle && plyDistance > minDistance
                     && plyDistance < maxDistance
@@ -980,11 +977,11 @@ public class Player implements Json.Serializable {
     }
 
     float distanceFrom(Player player) {
-        return Emath.dist(x, y, player.x, player.y);
+        return EMath.dist(x, y, player.x, player.y);
     }
 
     float angleToPoint(float x0, float y0) {
-        return Emath.aTan2(y0 - y, x0 - x);
+        return EMath.aTan2(y0 - y, x0 - x);
     }
 
     boolean seesTheGoal() {
@@ -993,7 +990,7 @@ public class Player implements Json.Serializable {
 
     float goalSignedAngleDiff() {
         float playerToGoal = angleToPoint(0, Math.signum(y) * GOAL_LINE);
-        return Emath.signedAngleDiff(playerToGoal, a);
+        return EMath.signedAngleDiff(playerToGoal, a);
     }
 
     Player searchPassingMate() {
@@ -1025,9 +1022,9 @@ public class Player implements Json.Serializable {
 
             if (ply.frameDistance < minFrameDistance) {
                 // calculate best correction for passing mate
-                float targetPointX = ply.x + 5 * Emath.cos(ply.a);
-                float targetPointY = ply.y + 5 * Emath.sin(ply.a);
-                float plyAngleCorrection = Emath.signedAngleDiff(Emath.aTan2(targetPointY - ball.y, targetPointX - ball.x), a);
+                float targetPointX = ply.x + 5 * EMath.cos(ply.a);
+                float targetPointY = ply.y + 5 * EMath.sin(ply.a);
+                float plyAngleCorrection = EMath.signedAngleDiff(EMath.aTan2(targetPointY - ball.y, targetPointX - ball.x), a);
                 if (Math.abs(plyAngleCorrection) < maxSearchAngle) {
                     passingMate = ply;
                     minFrameDistance = ply.frameDistance;

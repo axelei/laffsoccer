@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Collections;
 
@@ -56,7 +56,7 @@ class MatchStateBenchFormation extends MatchState {
 
         // change selected position
         if (getFsm().benchStatus.inputDevice.yMoved()) {
-            getFsm().benchStatus.selectedPosition = Emath.rotate(getFsm().benchStatus.selectedPosition, -1, TEAM_SIZE - 1, getFsm().benchStatus.inputDevice.y1);
+            getFsm().benchStatus.selectedPosition = EMath.rotate(getFsm().benchStatus.selectedPosition, -1, TEAM_SIZE - 1, getFsm().benchStatus.inputDevice.y1);
         }
     }
 

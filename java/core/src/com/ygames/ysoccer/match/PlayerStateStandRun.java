@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
@@ -20,7 +20,7 @@ class PlayerStateStandRun extends PlayerState {
         if ((ball.owner == player) && (ball.z < Const.PLAYER_H)) {
 
             // ball2player angle
-            float angle = Emath.aTan2(ball.y - player.y, ball.x - player.x);
+            float angle = EMath.aTan2(ball.y - player.y, ball.x - player.x);
 
             // player - ball angle difference
             float angle_diff = Math.abs(((angle - player.a + 540.0f) % 360.0f) - 180.0f);
@@ -34,8 +34,8 @@ class PlayerStateStandRun extends PlayerState {
                 // if changing direction keep control only if ball if near
             } else if (((angle_diff <= 67.5) && (player.ballDistance < 11))
                     || (player.ballDistance < 6)) {
-                ball.x = player.x + (1.06f - 0.01f * player.skills.control) * player.ballDistance * Emath.cos(player.a);
-                ball.y = player.y + (1.06f - 0.01f * player.skills.control) * player.ballDistance * Emath.sin(player.a);
+                ball.x = player.x + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.cos(player.a);
+                ball.y = player.y + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.sin(player.a);
             }
         }
 
@@ -72,8 +72,8 @@ class PlayerStateStandRun extends PlayerState {
                 // else head or tackle
             } else if (player.frameDistance < Const.BALL_PREDICTION) {
                 if (ball.prediction[player.frameDistance].z > 18) {
-                    float angle = Emath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
-                    float angleDiff = Emath.angleDiff(angle, player.a);
+                    float angle = EMath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
+                    float angleDiff = EMath.angleDiff(angle, player.a);
                     if (angleDiff < 90f) {
                         return fsm.stateHead;
                     }
@@ -83,8 +83,8 @@ class PlayerStateStandRun extends PlayerState {
                     if ((player.v > 0)
                             && (player.ballDistance < 100)
                             && player.ballDistance > 12) {
-                        float angle = Emath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
-                        float angleDiff = Emath.angleDiff(angle, player.a);
+                        float angle = EMath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
+                        float angleDiff = EMath.angleDiff(angle, player.a);
                         if (angleDiff < 90f) {
                             return fsm.stateTackle;
                         }

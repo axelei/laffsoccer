@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
@@ -109,7 +109,7 @@ class MatchStateMain extends MatchState {
             // goal/corner/goal-kick
             if (match.ball.y * match.ball.ySide >= (Const.GOAL_LINE + Const.BALL_R)) {
                 // goal
-                if (Emath.isIn(match.ball.x, -Const.POST_X, Const.POST_X)
+                if (EMath.isIn(match.ball.x, -Const.POST_X, Const.POST_X)
                         && (match.ball.z <= Const.CROSSBAR_H)) {
                     match.stats[attackingTeam].goals += 1;
                     match.stats[attackingTeam].overallShots += 1;
@@ -125,7 +125,7 @@ class MatchStateMain extends MatchState {
                         getFsm().cornerKickTeam = match.team[1 - match.ball.ownerLast.team.index];
                         return;
                     } else {
-                        if (Emath.isIn(match.ball.x, -Const.GOAL_AREA_W / 2f, Const.GOAL_AREA_W / 2f)) {
+                        if (EMath.isIn(match.ball.x, -Const.GOAL_AREA_W / 2f, Const.GOAL_AREA_W / 2f)) {
                             match.stats[attackingTeam].overallShots += 1;
                         }
                         event = Event.GOAL_KICK;
@@ -158,7 +158,7 @@ class MatchStateMain extends MatchState {
 
                             if (opponent != null && !opponent.checkState(STATE_DOWN)) {
                                 float strength = (4f + player.v / 260f) / 5f;
-                                float angleDiff = Emath.angleDiff(player.a, opponent.a);
+                                float angleDiff = EMath.angleDiff(player.a, opponent.a);
                                 match.newTackle(player, opponent, strength, angleDiff);
                                 Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at speed: " + player.v + " (strenght = " + strength + ") and angle: " + angleDiff);
                             }
@@ -166,7 +166,7 @@ class MatchStateMain extends MatchState {
                     }
                 }
             } else {
-                if (Emath.dist(match.tackle.player.x, match.tackle.player.y, match.tackle.opponent.x, match.tackle.opponent.y) >= 8) {
+                if (EMath.dist(match.tackle.player.x, match.tackle.player.y, match.tackle.opponent.x, match.tackle.opponent.y) >= 8) {
 
                     // tackle is finished, eventually generate a foul
                     Player player = match.tackle.player;

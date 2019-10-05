@@ -10,7 +10,7 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.SceneRenderer;
 import com.ygames.ysoccer.match.Weather;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Arrays;
 import java.util.List;
@@ -123,7 +123,7 @@ class MatchOptions extends GLScreen {
 
         private void updateMatchLength(int n) {
             int index = matchLengths.indexOf(game.settings.matchLength);
-            game.settings.matchLength = matchLengths.get(Emath.slide(index, 0, matchLengths.size() - 1, n));
+            game.settings.matchLength = matchLengths.get(EMath.slide(index, 0, matchLengths.size() - 1, n));
             setDirty(true);
         }
     }
@@ -162,7 +162,7 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateWeatherMaxStrength(int n) {
-            game.settings.weatherMaxStrength = Emath.rotate(game.settings.weatherMaxStrength, Weather.Strength.NONE, Weather.Strength.STRONG, n);
+            game.settings.weatherMaxStrength = EMath.rotate(game.settings.weatherMaxStrength, Weather.Strength.NONE, Weather.Strength.STRONG, n);
             setDirty(true);
         }
     }
@@ -289,7 +289,7 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateZoom(int n) {
-            game.settings.zoom = Emath.slide(game.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5 * n);
+            game.settings.zoom = EMath.slide(game.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), 5 * n);
             setDirty(true);
         }
     }
@@ -342,7 +342,7 @@ class MatchOptions extends GLScreen {
         }
 
         private void updateSfxVolume(int n) {
-            game.settings.soundVolume = Emath.slide(game.settings.soundVolume, 0, 100, 10 * n);
+            game.settings.soundVolume = EMath.slide(game.settings.soundVolume, 0, 100, 10 * n);
             setDirty(true);
         }
     }

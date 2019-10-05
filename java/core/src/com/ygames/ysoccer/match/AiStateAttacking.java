@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_ATTACKING;
@@ -46,8 +46,8 @@ class AiStateAttacking extends AiState {
         super.entryActions();
 
         controlsAngle = player.a;
-        ai.x0 = Math.round(Emath.cos(controlsAngle));
-        ai.y0 = Math.round(Emath.sin(controlsAngle));
+        ai.x0 = Math.round(EMath.cos(controlsAngle));
+        ai.y0 = Math.round(EMath.sin(controlsAngle));
 
         targetAngle = controlsAngle;
 
@@ -76,7 +76,7 @@ class AiStateAttacking extends AiState {
         }
 
         if (isTurningTime()) {
-            float signedAngleDiff = Emath.signedAngleDiff(targetAngle, player.a);
+            float signedAngleDiff = EMath.signedAngleDiff(targetAngle, player.a);
             if (Math.abs(signedAngleDiff) > 22.5f) {
                 controlsAngle += 45f * Math.signum(signedAngleDiff);
                 GLGame.debug(AI_ATTACKING, player.numberName(), "Turning, signedAngleDiff: " + signedAngleDiff + ", correction: " + (45f * Math.signum(signedAngleDiff)) + ", new controlsAngle: " + controlsAngle);
@@ -85,8 +85,8 @@ class AiStateAttacking extends AiState {
             }
         }
 
-        ai.x0 = Math.round(Emath.cos(controlsAngle));
-        ai.y0 = Math.round(Emath.sin(controlsAngle));
+        ai.x0 = Math.round(EMath.cos(controlsAngle));
+        ai.y0 = Math.round(EMath.sin(controlsAngle));
     }
 
     private boolean isUrgentTargetUpdateTime() {
@@ -124,7 +124,7 @@ class AiStateAttacking extends AiState {
             float visualWidth = goalVisualWidth(player.x, player.y);
             float probabilityByVisualWidth = probabilityByVisualWidth(visualWidth, 180);
 
-            float distance = Emath.dist(player.x, player.y, POST_X * Emath.sgn(player.x), GOAL_LINE * Emath.sgn(player.y));
+            float distance = EMath.dist(player.x, player.y, POST_X * EMath.sgn(player.x), GOAL_LINE * EMath.sgn(player.y));
             float probabilityByDistance = probabilityByDistance(distance, 0.1f, DIRECT_SHOT_DISTANCE);
 
             float probability = (probabilityByVisualWidth + probabilityByDistance * probabilityByDistance) / 2;
@@ -177,7 +177,7 @@ class AiStateAttacking extends AiState {
 
         // if very near to goal area turn immediately to see the goal
         if (Math.abs(player.x) < (POST_X + 10)
-                && Emath.isIn(player.y, -player.side * (GOAL_LINE - GOAL_AREA_H - 10), -player.side * GOAL_LINE)
+                && EMath.isIn(player.y, -player.side * (GOAL_LINE - GOAL_AREA_H - 10), -player.side * GOAL_LINE)
                 && !player.seesTheGoal()) {
             float signedAngleDiff = player.goalSignedAngleDiff();
             if (signedAngleDiff < -Const.SHOOTING_ANGLE_TOLERANCE) {
@@ -260,7 +260,7 @@ class AiStateAttacking extends AiState {
             float dist = player.distanceFrom(ply);
             if (dist > Parameters.PLAYER_DETECTION_RADIUS) continue;
 
-            float minFrameDistance = Emath.min(ply.frameDistanceL, ply.frameDistance, ply.frameDistanceR);
+            float minFrameDistance = EMath.min(ply.frameDistanceL, ply.frameDistance, ply.frameDistanceR);
 
             // mate weight decay with distance
             float w = weightByDistance(dist);
@@ -289,7 +289,7 @@ class AiStateAttacking extends AiState {
             float dist = player.distanceFrom(ply);
             if (dist > Parameters.PLAYER_DETECTION_RADIUS) continue;
 
-            float maxFrameDistance = Emath.max(ply.frameDistanceL, ply.frameDistance, ply.frameDistanceR);
+            float maxFrameDistance = EMath.max(ply.frameDistanceL, ply.frameDistance, ply.frameDistanceR);
 
             // opponent weight decay with distance
             float w = weightByDistance(dist);
@@ -310,11 +310,11 @@ class AiStateAttacking extends AiState {
 
     private Vector3 getOwnGoalWeights() {
         Vector3 weights = new Vector3();
-        float ownGoalToPlayerAngle = Emath.aTan2(player.y - GOAL_LINE * player.team.side, player.x);
+        float ownGoalToPlayerAngle = EMath.aTan2(player.y - GOAL_LINE * player.team.side, player.x);
         weights.set(
-                1 - Emath.angleDiff(ownGoalToPlayerAngle, controlsAngle - 45) / 360,
-                1 - Emath.angleDiff(ownGoalToPlayerAngle, controlsAngle) / 360,
-                1 - Emath.angleDiff(ownGoalToPlayerAngle, controlsAngle + 45) / 360
+                1 - EMath.angleDiff(ownGoalToPlayerAngle, controlsAngle - 45) / 360,
+                1 - EMath.angleDiff(ownGoalToPlayerAngle, controlsAngle) / 360,
+                1 - EMath.angleDiff(ownGoalToPlayerAngle, controlsAngle + 45) / 360
         );
         GLGame.debug(AI_ATTACKING, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle + ", ownGoalToPlayerAngle: " + ownGoalToPlayerAngle);
         return weights;
@@ -322,11 +322,11 @@ class AiStateAttacking extends AiState {
 
     private Vector3 getGoalWeights() {
         Vector3 weights = new Vector3();
-        float playerToGoalAngle = Emath.aTan2(-(GOAL_LINE - GOAL_AREA_H) * player.team.side - player.y, -player.x);
+        float playerToGoalAngle = EMath.aTan2(-(GOAL_LINE - GOAL_AREA_H) * player.team.side - player.y, -player.x);
         weights.set(
-                1 - Emath.angleDiff(playerToGoalAngle, controlsAngle - 45) / 360,
-                1 - Emath.angleDiff(playerToGoalAngle, controlsAngle) / 360,
-                1 - Emath.angleDiff(playerToGoalAngle, controlsAngle + 45) / 360
+                1 - EMath.angleDiff(playerToGoalAngle, controlsAngle - 45) / 360,
+                1 - EMath.angleDiff(playerToGoalAngle, controlsAngle) / 360,
+                1 - EMath.angleDiff(playerToGoalAngle, controlsAngle + 45) / 360
         );
         GLGame.debug(AI_ATTACKING, player.numberName(), "player.x: " + player.x + ", player.y: " + player.y + ", controlsAngle: " + controlsAngle + ", playerToGoalAngle: " + playerToGoalAngle);
         return weights;
@@ -336,16 +336,16 @@ class AiStateAttacking extends AiState {
 
         boolean includeGoal = Const.isInsideGoalArea(player.x, player.y, -player.side);
 
-        float leftX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle - 45);
-        float leftY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle - 45);
+        float leftX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * EMath.cos(controlsAngle - 45);
+        float leftY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * EMath.sin(controlsAngle - 45);
         boolean left = insideField(leftX, leftY, includeGoal);
 
-        float centerX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle);
-        float centerY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle);
+        float centerX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * EMath.cos(controlsAngle);
+        float centerY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * EMath.sin(controlsAngle);
         boolean center = insideField(centerX, centerY, includeGoal);
 
-        float rightX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.cos(controlsAngle + 45);
-        float rightY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * Emath.sin(controlsAngle + 45);
+        float rightX = player.x + Parameters.OUTSIDE_DETECTION_RADIUS * EMath.cos(controlsAngle + 45);
+        float rightY = player.y + Parameters.OUTSIDE_DETECTION_RADIUS * EMath.sin(controlsAngle + 45);
         boolean right = insideField(rightX, rightY, includeGoal);
 
         Vector3 map = new Vector3(
@@ -356,7 +356,7 @@ class AiStateAttacking extends AiState {
 
         // if choosing between left and right in own goal area, remove the nearest to the goal
         if (map.len2() == 2 && Const.isInsideGoalArea(player.x, player.y, player.side)) {
-            if (Emath.dist(0, player.side * GOAL_LINE, leftX, leftY) < Emath.dist(0, player.side * GOAL_LINE, rightX, rightY)) {
+            if (EMath.dist(0, player.side * GOAL_LINE, leftX, leftY) < EMath.dist(0, player.side * GOAL_LINE, rightX, rightY)) {
                 map.x = 0;
             } else {
                 map.z = 0;
@@ -375,12 +375,12 @@ class AiStateAttacking extends AiState {
     }
 
     private float weightByDistance(float dist) {
-        return Emath.pow(dist / Parameters.PLAYER_DETECTION_RADIUS, 2) - 2 * dist / Parameters.PLAYER_DETECTION_RADIUS + 1;
+        return EMath.pow(dist / Parameters.PLAYER_DETECTION_RADIUS, 2) - 2 * dist / Parameters.PLAYER_DETECTION_RADIUS + 1;
     }
 
     private float emergencyAngle() {
         float playerToCenterAngle = player.angleToPoint(0, 0);
-        float angle = 90 * Math.signum(Emath.signedAngleDiff(controlsAngle, playerToCenterAngle));
+        float angle = 90 * Math.signum(EMath.signedAngleDiff(controlsAngle, playerToCenterAngle));
 
         GLGame.debug(AI_ATTACKING, player.numberName(), "Emergency turn by: " + angle);
         return angle;
@@ -395,9 +395,9 @@ class AiStateAttacking extends AiState {
     }
 
     private float goalVisualWidth(float x, float y) {
-        int side = Emath.sgn(y);
-        float angle1 = Emath.angle(x, y, -POST_X, side * GOAL_LINE);
-        float angle2 = Emath.angle(x, y, +POST_X, side * GOAL_LINE);
-        return Emath.angleDiff(angle1, angle2);
+        int side = EMath.sgn(y);
+        float angle1 = EMath.angle(x, y, -POST_X, side * GOAL_LINE);
+        float angle2 = EMath.angle(x, y, +POST_X, side * GOAL_LINE);
+        return EMath.angleDiff(angle1, angle2);
     }
 }

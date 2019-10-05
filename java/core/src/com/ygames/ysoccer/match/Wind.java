@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class Wind {
         speed = weatherStrenght;
         direction = rand.nextInt(8);
         angle = 45 * direction;
-        dirX = Math.round(Emath.cos(angle));
-        dirY = Math.round(Emath.sin(angle));
+        dirX = Math.round(EMath.cos(angle));
+        dirY = Math.round(EMath.sin(angle));
     }
 }

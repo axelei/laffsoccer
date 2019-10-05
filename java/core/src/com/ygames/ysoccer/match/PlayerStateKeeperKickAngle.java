@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 
@@ -21,7 +21,7 @@ class PlayerStateKeeperKickAngle extends PlayerState {
             }
         }
 
-        ball.setPosition(player.x + 5 * Emath.cos(player.a), player.y + 5 * Emath.sin(player.a), 12);
+        ball.setPosition(player.x + 5 * EMath.cos(player.a), player.y + 5 * EMath.sin(player.a), 12);
 
         player.animationStandRun();
     }

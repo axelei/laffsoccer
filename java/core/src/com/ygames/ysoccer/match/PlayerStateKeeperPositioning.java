@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
@@ -49,8 +49,8 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
             case RECOVER_BALL:
                 if (player.frameDistance < BALL_PREDICTION) {
-                    player.tx = Emath.clamp(ball.prediction[player.frameDistance].x, 0, ball.xSide * PENALTY_AREA_W / 2f);
-                    player.ty = Emath.clamp(ball.prediction[player.frameDistance].y, player.side * (GOAL_LINE - PENALTY_AREA_H), player.side * GOAL_LINE);
+                    player.tx = EMath.clamp(ball.prediction[player.frameDistance].x, 0, ball.xSide * PENALTY_AREA_W / 2f);
+                    player.ty = EMath.clamp(ball.prediction[player.frameDistance].y, player.side * (GOAL_LINE - PENALTY_AREA_H), player.side * GOAL_LINE);
                 }
                 break;
 
@@ -67,15 +67,15 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
         if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
             // reach target position
-            player.v = (0.25f + 0.60f * ((Emath.hypo(dx, dy) > 4) ? 1 : 0)) * player.speed;
-            player.a = Emath.angle(player.x, player.y, player.tx, player.ty);
+            player.v = (0.25f + 0.60f * ((EMath.hypo(dx, dy) > 4) ? 1 : 0)) * player.speed;
+            player.a = EMath.angle(player.x, player.y, player.tx, player.ty);
         } else {
             // position reached
             dx = ball.x - player.x;
             dy = ball.y - player.y;
             player.v = 0;
             if (timer > 0.5f * SECOND) {
-                player.a = Emath.aTan2(dy, dx);
+                player.a = EMath.aTan2(dy, dx);
             }
         }
 
@@ -149,7 +149,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
         // TODO: accept to play the ball instead of catching it if no opponents in penalty area
         if ((player.ballDistance <= 8)
-                && Emath.dist(player.x0, player.y0, ball.x0, ball.y0) > 8
+                && EMath.dist(player.x0, player.y0, ball.x0, ball.y0) > 8
                 && (ball.z < Const.PLAYER_H)) {
             ball.v = 0;
             ball.vz = 0;
@@ -219,7 +219,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
             // kind of save
             if (predZ < 2 * CROSSBAR_H) {
-                float r = Emath.hypo(diffX, predZ);
+                float r = EMath.hypo(diffX, predZ);
 
                 if (r < 88) {
                     if (Math.abs(diffX) < 4) {
@@ -289,7 +289,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
         float tx = Math.signum(deltaX) * Math.min(Math.abs(deltaX), 50);
         float ty = player.side * (GOAL_LINE - 8);
 
-        if (Emath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
+        if (EMath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
             player.tx = tx;
             player.ty = ty;
         }
@@ -300,9 +300,9 @@ class PlayerStateKeeperPositioning extends PlayerState {
         float deltaX = ball.x * (GOAL_AREA_H - 20) / Math.abs(ball.y - referenceY);
 
         float tx = Math.signum(deltaX) * Math.min(Math.abs(deltaX), (GOAL_AREA_W / 2f - 10));
-        float ty = player.side * Emath.clamp(Math.abs(ball.y), GOAL_LINE - (GOAL_AREA_H - 20), GOAL_LINE);
+        float ty = player.side * EMath.clamp(Math.abs(ball.y), GOAL_LINE - (GOAL_AREA_H - 20), GOAL_LINE);
 
-        if (Emath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
+        if (EMath.dist(tx, ty, player.tx, player.ty) > 1.5f) {
             player.tx = tx;
             player.ty = ty;
         }

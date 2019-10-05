@@ -7,7 +7,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -238,8 +238,8 @@ public class Cup extends Competition implements Json.Serializable {
 
         if (playPenalties()) {
             do {
-                homeGoals = Emath.floor(6 * Math.random());
-                awayGoals = Emath.floor(6 * Math.random());
+                homeGoals = EMath.floor(6 * Math.random());
+                awayGoals = EMath.floor(6 * Math.random());
             } while (homeGoals == awayGoals);
             match.setResult(homeGoals, awayGoals, AFTER_PENALTIES);
         }

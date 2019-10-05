@@ -4,7 +4,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 public class MatchSettings extends SceneSettings {
 
@@ -28,7 +28,7 @@ public class MatchSettings extends SceneSettings {
         this.time = randomTime();
         this.pitchType = Pitch.random();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
-        for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
+        for (int i = EMath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
             rotateWeather();
         }
         benchSize = gameSettings.benchSize;
@@ -49,7 +49,7 @@ public class MatchSettings extends SceneSettings {
         this.time = competition.getTime();
         this.pitchType = competition.getPitchType();
         this.weatherMaxStrength = gameSettings.weatherMaxStrength;
-        for (int i = Emath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
+        for (int i = EMath.rand(0, 2 + 4 * weatherMaxStrength); i >= 0; i--) {
             rotateWeather();
         }
         substitutions = competition.substitutions;
@@ -61,11 +61,11 @@ public class MatchSettings extends SceneSettings {
     }
 
     public void rotateTime(int direction) {
-        time = MatchSettings.Time.values()[Emath.rotate(time, MatchSettings.Time.DAY, Time.NIGHT, direction)];
+        time = MatchSettings.Time.values()[EMath.rotate(time, MatchSettings.Time.DAY, Time.NIGHT, direction)];
     }
 
     public void rotatePitchType(int direction) {
-        pitchType = Pitch.Type.values()[Emath.rotate(pitchType.ordinal(), Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal(), direction)];
+        pitchType = Pitch.Type.values()[EMath.rotate(pitchType.ordinal(), Pitch.Type.FROZEN.ordinal(), Pitch.Type.WHITE.ordinal(), direction)];
         weatherEffect = Weather.WIND;
         weatherStrength = Weather.Strength.NONE;
         sky = Sky.CLEAR;
@@ -81,7 +81,7 @@ public class MatchSettings extends SceneSettings {
                 if (weatherStrength < Weather.Strength.STRONG) {
                     weatherStrength = weatherStrength + 1;
                 } else {
-                    weatherEffect = Emath.rotate(weatherEffect, Weather.WIND, Weather.FOG, 1);
+                    weatherEffect = EMath.rotate(weatherEffect, Weather.WIND, Weather.FOG, 1);
                     if (weatherEffect == Weather.WIND) {
                         weatherStrength = Weather.Strength.NONE;
                     } else {

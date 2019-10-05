@@ -12,7 +12,7 @@ import com.ygames.ysoccer.gui.InputButton;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
-import com.ygames.ysoccer.math.Emath;
+import com.ygames.ysoccer.framework.EMath;
 
 class DesignDiyLeague extends GLScreen {
 
@@ -130,7 +130,7 @@ class DesignDiyLeague extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            league.weather = Competition.Weather.values()[Emath.rotate(league.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
+            league.weather = Competition.Weather.values()[EMath.rotate(league.weather, Competition.Weather.BY_SEASON, Competition.Weather.BY_PITCH_TYPE, 1)];
             setDirty(true);
             seasonStartButton.setDirty(true);
             seasonSeparatorButton.setDirty(true);
@@ -173,7 +173,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updateSeasonStart(int n) {
-            league.seasonStart = Month.values()[Emath.rotate(league.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
+            league.seasonStart = Month.values()[EMath.rotate(league.seasonStart, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
@@ -228,7 +228,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updateSeasonEnd(int n) {
-            league.seasonEnd = Month.values()[Emath.rotate(league.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
+            league.seasonEnd = Month.values()[EMath.rotate(league.seasonEnd, Month.JANUARY, Month.DECEMBER, n)];
             setDirty(true);
         }
 
@@ -268,7 +268,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updatePitchType(int n) {
-            league.pitchType = Pitch.Type.values()[Emath.rotate(league.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
+            league.pitchType = Pitch.Type.values()[EMath.rotate(league.pitchType, Pitch.Type.FROZEN, Pitch.Type.RANDOM, n)];
             setDirty(true);
         }
 
@@ -308,7 +308,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updateTime(int n) {
-            league.time = MatchSettings.Time.values()[Emath.rotate(league.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
+            league.time = MatchSettings.Time.values()[EMath.rotate(league.time, MatchSettings.Time.DAY, MatchSettings.Time.NIGHT, n)];
             setDirty(true);
         }
 
@@ -357,7 +357,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updateNumberOfTeams(int n) {
-            league.numberOfTeams = Emath.slide(league.numberOfTeams, 2, 24, n);
+            league.numberOfTeams = EMath.slide(league.numberOfTeams, 2, 24, n);
             setDirty(true);
         }
 
@@ -406,7 +406,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updatePlayEachTeam(int n) {
-            league.rounds = Emath.slide(league.rounds, 1, 10, n);
+            league.rounds = EMath.slide(league.rounds, 1, 10, n);
             setDirty(true);
         }
 
@@ -445,7 +445,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updatePointsForAWin(int n) {
-            league.pointsForAWin = Emath.rotate(league.pointsForAWin, 2, 3, n);
+            league.pointsForAWin = EMath.rotate(league.pointsForAWin, 2, 3, n);
             setDirty(true);
         }
 
@@ -494,7 +494,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updateSubstitutes(int n) {
-            league.substitutions = Emath.slide(league.substitutions, 2, league.benchSize, n);
+            league.substitutions = EMath.slide(league.substitutions, 2, league.benchSize, n);
             setDirty(true);
         }
 
@@ -543,7 +543,7 @@ class DesignDiyLeague extends GLScreen {
         }
 
         private void updateBenchSize(int n) {
-            league.benchSize = Emath.slide(league.benchSize, 2, 12, n);
+            league.benchSize = EMath.slide(league.benchSize, 2, 12, n);
             league.substitutions = Math.min(league.substitutions, league.benchSize);
             setDirty(true);
             substitutesButton.setDirty(true);
