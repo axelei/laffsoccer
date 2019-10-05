@@ -29,6 +29,9 @@ class SetupControls extends GLScreen {
 
     private enum ConfigParam {KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, BUTTON_1, BUTTON_2}
 
+    private ConfigParam[] buttonParams = {ConfigParam.BUTTON_1, ConfigParam.BUTTON_2};
+    private ConfigParam[] axisParams = {ConfigParam.KEY_LEFT, ConfigParam.KEY_RIGHT, ConfigParam.KEY_UP, ConfigParam.KEY_DOWN};
+
     private InputDeviceButton selectedInputDeviceButton;
     private ArrayList<JoystickConfig> joystickConfigs;
     private ArrayList<KeyboardConfig> keyboardConfigs;
@@ -652,7 +655,7 @@ class SetupControls extends GLScreen {
                 return false;
             }
 
-            if (Emath.isAmong(listeningConfigButton.configParam, ConfigParam.BUTTON_1, ConfigParam.BUTTON_2)) {
+            if (Emath.isAmong(listeningConfigButton.configParam, buttonParams)) {
                 JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
                 if (controller.getName().equals(joystickConfig.name)) {
                     listeningConfigButton.setJoystickConfigParam(-1, buttonIndex);
@@ -667,7 +670,7 @@ class SetupControls extends GLScreen {
                 return false;
             }
 
-            if (Emath.isAmong(listeningConfigButton.configParam, ConfigParam.KEY_LEFT, ConfigParam.KEY_RIGHT, ConfigParam.KEY_UP, ConfigParam.KEY_DOWN)) {
+            if (Emath.isAmong(listeningConfigButton.configParam, axisParams)) {
                 JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
                 if (controller.getName().equals(joystickConfig.name)) {
                     listeningConfigButton.setJoystickConfigParam(axisIndex, -1);

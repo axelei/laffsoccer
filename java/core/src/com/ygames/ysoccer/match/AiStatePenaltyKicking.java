@@ -47,20 +47,21 @@ class AiStatePenaltyKicking extends AiState {
         step = Step.TURNING;
 
         kickType = randomPick(KickType.class);
+        KickAngle[] kickAngles = {KickAngle.LEFT, KickAngle.RIGHT};
         switch (kickType) {
             case LOW:
                 kickDuration = Emath.rand(100, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
-                kickAngle = randomPick(KickAngle.LEFT, KickAngle.RIGHT);
+                kickAngle = randomPick(kickAngles);
                 break;
 
             case MEDIUM:
                 kickDuration = Emath.rand(50, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
-                kickAngle = randomPick(KickAngle.LEFT, KickAngle.RIGHT);
+                kickAngle = randomPick(kickAngles);
                 break;
 
             case HIGH:
                 kickDuration = Emath.rand(10, 200) / 640f * GLGame.VIRTUAL_REFRESH_RATE;
-                kickAngle = randomPick(KickAngle.LEFT, KickAngle.RIGHT);
+                kickAngle = randomPick(kickAngles);
                 break;
         }
 

@@ -4,8 +4,8 @@ import com.ygames.ysoccer.framework.Assets;
 
 public class Emath {
 
-    private static float TO_RADIANS = (float) Math.PI / 180.0f;
-    private static float TO_DEGREES = 180.0f / (float) Math.PI;
+    private static final float TO_RADIANS = (float) Math.PI / 180.0f;
+    private static final float TO_DEGREES = 180.0f / (float) Math.PI;
 
     public static boolean isIn(float v, float a, float b) {
         return (b > a) ? (a <= v) && (v <= b) : (b <= v) && (v <= a);
@@ -92,7 +92,7 @@ public class Emath {
         return min + Assets.random.nextInt(max + 1 - min);
     }
 
-    public static <T> T randomPick(T... elements) {
+    public static <T> T randomPick(T[] elements) {
         return elements[Assets.random.nextInt(elements.length)];
     }
 
@@ -135,7 +135,7 @@ public class Emath {
         return (Math.signum(diff1) != Math.signum(diff2)) ? value : (Math.abs(diff1) < Math.abs(diff2) ? limit1 : limit2);
     }
 
-    public static <T> boolean isAmong(T value, T... elements) {
+    public static <T> boolean isAmong(T value, T[] elements) {
         for (T element : elements) {
             if (value == element) return true;
         }
