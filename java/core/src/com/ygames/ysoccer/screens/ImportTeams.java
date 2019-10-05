@@ -11,7 +11,6 @@ import com.ygames.ysoccer.export.Config;
 import com.ygames.ysoccer.export.FileConfig;
 import com.ygames.ysoccer.export.TeamConfig;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.gui.Button;
@@ -32,6 +31,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 
 class ImportTeams extends GLScreen {
 
@@ -75,17 +78,17 @@ class ImportTeams extends GLScreen {
             "HORIZONTAL"
     };
 
-    private List<Integer> position = new ArrayList<Integer>();
+    private List<Integer> position = new ArrayList<>();
     FileHandle[] files;
     private int fileIndex;
     private int importedTeams, failedTeams, skippedFiles;
-    private Widget exitButton;
+    private Widget warningLabel, exitButton;
 
     private Json json;
     private FileHandle configFile;
     private Config exportConfigs;
 
-    private Map<String, List<String>> leagues = new HashMap<String, List<String>>();
+    private Map<String, List<String>> leagues = new HashMap<>();
 
     ImportTeams(GLGame game) {
         super(game);
@@ -107,7 +110,7 @@ class ImportTeams extends GLScreen {
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("IMPORT"), 0x762B8E);
+        w = new TitleBar(gettext("IMPORT"), 0x762B8E);
         widgets.add(w);
 
         w = new InfoLabel();
@@ -123,16 +126,16 @@ class ImportTeams extends GLScreen {
         if (files.length > 0) {
             state = State.READY;
 
-            w = new WarningLabel();
-            widgets.add(w);
+            warningLabel = new WarningLabel();
+            widgets.add(warningLabel);
 
             w = new StartButton();
             widgets.add(w);
 
-            w = new YearLabel();
+            w = new FolderLabel();
             widgets.add(w);
 
-            w = new YearButton();
+            w = new FolderButton();
             widgets.add(w);
         }
 
@@ -168,7 +171,7 @@ class ImportTeams extends GLScreen {
                 }
                 for (String folder : leagues.keySet()) {
                     FileHandle fileHandle = Assets.teamsRootFolder.child(folder).child("leagues.json");
-                    List<String> names = new ArrayList<String>(leagues.get(folder));
+                    List<String> names = new ArrayList<>(leagues.get(folder));
                     fileHandle.writeString(Assets.json.toJson(names, String[].class, String.class), false, "UTF-8");
                 }
                 refreshAllWidgets();
@@ -183,7 +186,7 @@ class ImportTeams extends GLScreen {
 
         InfoLabel() {
             setGeometry((game.gui.WIDTH - 400) / 2, 300, 400, 40);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             setActive(false);
         }
 
@@ -191,18 +194,22 @@ class ImportTeams extends GLScreen {
         public void refresh() {
             switch (state) {
                 case NO_FILES:
-                    setText("NO FILES");
+                    setText(gettext("IMPORT.NO FILES"));
                     break;
                 case READY:
-                    setText(files.length + " FILES FOUND");
+                    setText(gettext("IMPORT.%n FILES FOUND").replaceFirst("%n", "" + files.length));
                     break;
                 case IMPORTING:
-                    setText("IMPORTING " + (fileIndex + 1) + "/" + files.length);
+                    setText(gettext("IMPORT.IMPORTING") + " " + (fileIndex + 1) + "/" + files.length);
                     break;
                 case FINISHED:
-                    String message = importedTeams + " TEAMS IMPORTED";
-                    if (failedTeams > 0) message += " - " + failedTeams + " TEAMS FAILED";
-                    if (skippedFiles > 0) message += " - " + skippedFiles + " FILES SKIPPED";
+                    String message = gettext("IMPORT.%n TEAMS IMPORTED").replaceFirst("%n", "" + importedTeams);
+                    if (failedTeams > 0) {
+                        message += " - " + gettext("IMPORT.%n TEAMS NOT IMPORTED").replaceFirst("%n", "" + failedTeams);
+                    }
+                    if (skippedFiles > 0) {
+                        message += " - " + gettext("IMPORT.%n FILES IGNORED").replaceFirst("5n", "" + skippedFiles);
+                    }
                     setText(message);
                     setSelectedWidget(exitButton);
                     break;
@@ -210,12 +217,12 @@ class ImportTeams extends GLScreen {
         }
     }
 
-    private class YearLabel extends Button {
+    private class FolderLabel extends Button {
 
-        YearLabel() {
+        FolderLabel() {
             setColor(0xAD8600);
-            setGeometry(game.gui.WIDTH / 2 - 180 - 5, 360, 180, 36);
-            setText("YEAR", Font.Align.CENTER, Assets.font14);
+            setGeometry(game.gui.WIDTH / 2 - 280, 360, 420, 36);
+            setText(gettext("IMPORT.DESTINATION FOLDER"), CENTER, font14);
             setActive(false);
         }
 
@@ -225,12 +232,12 @@ class ImportTeams extends GLScreen {
         }
     }
 
-    private class YearButton extends Button {
+    private class FolderButton extends Button {
 
-        YearButton() {
+        FolderButton() {
             setColor(0x568200);
-            setGeometry(game.gui.WIDTH / 2 + 5, 360, 180, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setGeometry(game.gui.WIDTH / 2 + 150, 360, 160, 36);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -263,6 +270,7 @@ class ImportTeams extends GLScreen {
             year = Emath.slide(year, 1863, 2100, n);
             updateConfigFile();
             setDirty(true);
+            warningLabel.setDirty(true);
         }
     }
 
@@ -291,14 +299,15 @@ class ImportTeams extends GLScreen {
 
         WarningLabel() {
             setColor(0xDC0000);
-            setGeometry((game.gui.WIDTH - 920) / 2, 420, 920, 60);
-            setText("EXISTING FILES IN THE DESTINATION FOLDER WILL BE OVERWRITTEN", Font.Align.CENTER, Assets.font14);
+            setGeometry((game.gui.WIDTH - 1020) / 2, 430, 1020, 80);
+            setText(gettext("IMPORT.EXISTING FILES IN THE DESTINATION FOLDER WILL BE OVERWRITTEN"), CENTER, font14);
             setActive(false);
         }
 
         @Override
         public void refresh() {
-            setVisible(state == State.READY);
+            FileHandle fh = Assets.teamsRootFolder.child(getYearFolder());
+            setVisible(fh.isDirectory() && state == State.READY);
         }
     }
 
@@ -306,8 +315,8 @@ class ImportTeams extends GLScreen {
 
         StartButton() {
             setColor(0x138B21);
-            setGeometry((game.gui.WIDTH - 220) / 2, 498, 220, 42);
-            setText("START", Font.Align.CENTER, Assets.font14);
+            setGeometry((game.gui.WIDTH - 220) / 2, 538, 220, 50);
+            setText(gettext("IMPORT.START"), CENTER, font14);
         }
 
         @Override
@@ -328,7 +337,7 @@ class ImportTeams extends GLScreen {
 
         ExitButton() {
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -337,10 +346,10 @@ class ImportTeams extends GLScreen {
                 case NO_FILES:
                 case FINISHED:
                     setColor(0xC84200);
-                    setText(Assets.strings.get("EXIT"));
+                    setText(gettext("EXIT"));
                     break;
                 case READY:
-                    setText(Assets.strings.get("ABORT"));
+                    setText(gettext("ABORT"));
                     setColor(0xC8000E);
                     break;
             }
@@ -408,13 +417,15 @@ class ImportTeams extends GLScreen {
         // skip unused byte
         pos++;
 
-        team.name = "";
+        // team name
+        StringBuilder teamNameBuilder = new StringBuilder();
         for (int i = 0; i < 19; i++) {
             int b = bytes[pos++] & 0xFF;
             if (b > 0) {
-                team.name += (char) (b);
+                teamNameBuilder.append((char) b);
             }
         }
+        team.name = teamNameBuilder.toString();
 
         // tactics
         team.tactics = bytes[pos++] & 0xFF;
@@ -431,7 +442,7 @@ class ImportTeams extends GLScreen {
         }
 
         // main kit
-        team.kits = new ArrayList<Kit>();
+        team.kits = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Kit kit = new Kit();
             int styleIndex = bytes[pos++] & 0xFF;
@@ -464,14 +475,15 @@ class ImportTeams extends GLScreen {
 
         // coach name
         team.coach = new Coach();
-        team.coach.name = "";
-        team.coach.nationality = "";
+        StringBuilder coachNameBuilder = new StringBuilder();
         for (int i = 0; i < 24; i++) {
             int b = bytes[pos++] & 0xFF;
             if (b > 0) {
-                team.coach.name += (char) (b);
+                coachNameBuilder.append((char) b);
             }
         }
+        team.coach.name = coachNameBuilder.toString();
+        team.coach.nationality = "";
 
         // player vector
         // tell which player is stored in 'pos' position
@@ -489,7 +501,7 @@ class ImportTeams extends GLScreen {
         }
 
         // read players
-        team.players = new ArrayList<Player>();
+        team.players = new ArrayList<>();
         for (int i = 0; i < 16; i++) {
             team.players.add(new Player());
         }
@@ -514,8 +526,8 @@ class ImportTeams extends GLScreen {
 
             // name
             boolean surnameFound = false;
-            String surname = "";
-            String name = "";
+            StringBuilder surnameBuilder = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
             for (int j = 1; j <= 22; j++) {
                 int b = bytes[pos++] & 0xFF;
                 if (b == 32 && !surnameFound) {
@@ -523,19 +535,20 @@ class ImportTeams extends GLScreen {
                 } else {
                     if (b > 0) {
                         if (surnameFound) {
-                            surname += (char) (b);
+                            surnameBuilder.append((char) b);
                         } else {
-                            name += (char) (b);
+                            nameBuilder.append((char) b);
                         }
                     }
                 }
             }
-            if (surname.equals("")) {
-                player.shirtName = name;
-                player.name = name;
+            if (surnameBuilder.length() == 0) {
+                player.shirtName = nameBuilder.toString();
+                player.name = nameBuilder.toString();
             } else {
-                player.shirtName = surname;
-                player.name = name + " " + surname;
+                player.shirtName = surnameBuilder.toString();
+                nameBuilder.append(" ").append(surnameBuilder);
+                player.name = nameBuilder.toString();
             }
 
             // skip cards and injures
@@ -637,15 +650,15 @@ class ImportTeams extends GLScreen {
             if (importConfig.leagues != null) {
                 leagues.put(folder, Arrays.asList(importConfig.leagues));
             } else if (leagues.get(folder) == null) {
-                List<String> l = new ArrayList<String>();
-                l.add(team.league);
-                leagues.put(folder, l);
+                List<String> list = new ArrayList<>();
+                list.add(team.league);
+                leagues.put(folder, list);
             } else {
-                List<String> l = leagues.get(folder);
-                if (!l.contains(team.league)) {
-                    l.add(team.league);
+                List<String> list = leagues.get(folder);
+                if (!list.contains(team.league)) {
+                    list.add(team.league);
                 }
-                leagues.put(folder, l);
+                leagues.put(folder, list);
             }
         }
 
