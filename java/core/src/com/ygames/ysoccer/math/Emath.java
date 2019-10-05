@@ -134,4 +134,11 @@ public class Emath {
         float diff2 = value - limit2;
         return (Math.signum(diff1) != Math.signum(diff2)) ? value : (Math.abs(diff1) < Math.abs(diff2) ? limit1 : limit2);
     }
+
+    public static <T> boolean isAmong(T value, T... elements) {
+        for (T element : elements) {
+            if (value == element) return true;
+        }
+        return false;
+    }
 }

@@ -8,18 +8,22 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerAdapter;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.Texture;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.InputDeviceConfig;
 import com.ygames.ysoccer.framework.JoystickConfig;
 import com.ygames.ysoccer.framework.KeyboardConfig;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
+import com.ygames.ysoccer.math.Emath;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 
 class SetupControls extends GLScreen {
 
@@ -30,18 +34,21 @@ class SetupControls extends GLScreen {
     private ArrayList<KeyboardConfig> keyboardConfigs;
     private InputProcessor inputProcessor;
     private JoystickListener joystickListener;
+    private ConfigButton listeningConfigButton;
 
     SetupControls(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_controls.jpg");
 
         inputProcessor = new SetupInputProcessor();
-        joystickConfigs = new ArrayList<JoystickConfig>();
+        joystickConfigs = new ArrayList<>();
         joystickListener = new JoystickListener();
+        Controllers.addListener(joystickListener);
+        listeningConfigButton = null;
 
         Widget w;
 
-        w = new TitleBar(Assets.strings.get("CONTROLS"), 0x83079C);
+        w = new TitleBar(gettext("CONTROLS"), 0x83079C);
         widgets.add(w);
 
         int pos = 0;
@@ -68,7 +75,10 @@ class SetupControls extends GLScreen {
 
             joystickConfigs.add(joystickConfig);
 
-            w = new InputDeviceButton(joystickConfig, port, pos);
+            InputDeviceButton inputDeviceButton = new InputDeviceButton(joystickConfig, port, pos);
+            widgets.add(inputDeviceButton);
+
+            w = new ResetJoystickButton(inputDeviceButton);
             widgets.add(w);
 
             port++;
@@ -129,11 +139,11 @@ class SetupControls extends GLScreen {
             setGeometry(game.gui.WIDTH / 2 - 560, 180 + 46 * pos, 240, 42);
             switch (config.type) {
                 case KEYBOARD:
-                    setText(Assets.strings.get("KEYBOARD") + " " + (port + 1), Font.Align.CENTER, Assets.font14);
+                    setText(gettext("KEYBOARD") + " " + (port + 1), CENTER, font14);
                     break;
 
                 case JOYSTICK:
-                    setText(Assets.strings.get("JOYSTICK") + " " + (port + 1), Font.Align.CENTER, Assets.font14);
+                    setText(gettext("JOYSTICK") + " " + (port + 1), CENTER, font14);
                     break;
             }
         }
@@ -162,12 +172,35 @@ class SetupControls extends GLScreen {
         }
     }
 
+    private class ResetJoystickButton extends Button {
+
+        InputDeviceButton inputDeviceButton;
+
+        ResetJoystickButton(InputDeviceButton inputDeviceButton) {
+            this.inputDeviceButton = inputDeviceButton;
+            setGeometry(inputDeviceButton.x + inputDeviceButton.w + 2, inputDeviceButton.y, 38, 42);
+            setColor(0xB40000);
+            setText("" + (char) 19, CENTER, font14);
+        }
+
+        @Override
+        public void refresh() {
+            setVisible(inputDeviceButton == selectedInputDeviceButton && ((JoystickConfig) inputDeviceButton.config).isConfigured());
+        }
+
+        @Override
+        public void onFire1Down() {
+            ((JoystickConfig) inputDeviceButton.config).reset();
+            refreshAllWidgets();
+        }
+    }
+
     private class InputDeviceLabel extends Button {
 
         InputDeviceLabel() {
             setGeometry((game.gui.WIDTH - 760) / 2, 100, 760, 40);
             setColor(0x404040);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
             setActive(false);
         }
 
@@ -193,49 +226,52 @@ class SetupControls extends GLScreen {
 
         void setKeyCode(int keyCode) {
             if (isKeyCodeReserved(keyCode)) return;
-            KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
-            switch (configParam) {
-                case KEY_LEFT:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
-                        return;
-                    }
-                    keyboardConfig.keyLeft = keyCode;
-                    break;
 
-                case KEY_RIGHT:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
-                        return;
-                    }
-                    keyboardConfig.keyRight = keyCode;
-                    break;
+            if (keyCode != Input.Keys.ESCAPE && selectedInputDeviceButton.config.type == InputDevice.Type.KEYBOARD) {
+                KeyboardConfig keyboardConfig = (KeyboardConfig) selectedInputDeviceButton.config;
+                switch (configParam) {
+                    case KEY_LEFT:
+                        if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
+                            return;
+                        }
+                        keyboardConfig.keyLeft = keyCode;
+                        break;
 
-                case KEY_UP:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
-                        return;
-                    }
-                    keyboardConfig.keyUp = keyCode;
-                    break;
+                    case KEY_RIGHT:
+                        if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
+                            return;
+                        }
+                        keyboardConfig.keyRight = keyCode;
+                        break;
 
-                case KEY_DOWN:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
-                        return;
-                    }
-                    keyboardConfig.keyDown = keyCode;
-                    break;
+                    case KEY_UP:
+                        if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
+                            return;
+                        }
+                        keyboardConfig.keyUp = keyCode;
+                        break;
 
-                case BUTTON_1:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
-                        return;
-                    }
-                    keyboardConfig.button1 = keyCode;
-                    break;
+                    case KEY_DOWN:
+                        if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
+                            return;
+                        }
+                        keyboardConfig.keyDown = keyCode;
+                        break;
 
-                case BUTTON_2:
-                    if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
-                        return;
-                    }
-                    keyboardConfig.button2 = keyCode;
-                    break;
+                    case BUTTON_1:
+                        if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
+                            return;
+                        }
+                        keyboardConfig.button1 = keyCode;
+                        break;
+
+                    case BUTTON_2:
+                        if (isKeyCodeAssigned(keyCode, configParam, selectedInputDeviceButton.port)) {
+                            return;
+                        }
+                        keyboardConfig.button2 = keyCode;
+                        break;
+                }
             }
             entryMode = false;
             Gdx.input.setInputProcessor(null);
@@ -244,7 +280,7 @@ class SetupControls extends GLScreen {
             refreshAllWidgets();
         }
 
-        void setConfigParamIndex(int axisIndex, int buttonIndex) {
+        void setJoystickConfigParam(int axisIndex, int buttonIndex) {
             JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
             switch (configParam) {
                 case KEY_LEFT:
@@ -274,25 +310,22 @@ class SetupControls extends GLScreen {
                     break;
             }
             entryMode = false;
-            Controllers.removeListener(joystickListener);
-            setJoystickConfigs();
+            listeningConfigButton = null;
+            if (joystickConfig.isConfigured()) {
+                setJoystickConfigs();
+            }
             game.reloadInputDevices();
             refreshAllWidgets();
         }
 
         @Override
-        public void onFire1Up() {
-            entryMode = true;
-            game.inputDevices.clear();
-            refreshAllWidgets();
-            switch (selectedInputDeviceButton.config.type) {
-                case KEYBOARD:
-                    Gdx.input.setInputProcessor(inputProcessor);
-                    break;
-
-                case JOYSTICK:
-                    Controllers.addListener(joystickListener);
-                    break;
+        public void onFire1Down() {
+            if (!entryMode) {
+                entryMode = true;
+                listeningConfigButton = this;
+                game.inputDevices.clear();
+                refreshAllWidgets();
+                Gdx.input.setInputProcessor(inputProcessor);
             }
         }
     }
@@ -302,7 +335,7 @@ class SetupControls extends GLScreen {
     }
 
     private void setJoystickConfigs() {
-        ArrayList<JoystickConfig> configuredConfigs = new ArrayList<JoystickConfig>();
+        ArrayList<JoystickConfig> configuredConfigs = new ArrayList<>();
         for (JoystickConfig joystickConfig : joystickConfigs) {
             if (joystickConfig.isConfigured()) {
                 configuredConfigs.add(joystickConfig);
@@ -333,7 +366,7 @@ class SetupControls extends GLScreen {
 
     private boolean isKeyCodeReserved(int keyCode) {
         Integer[] reservedKeyCodes = {
-                Input.Keys.ESCAPE, Input.Keys.SPACE, Input.Keys.R, Input.Keys.P, Input.Keys.H,
+                Input.Keys.SPACE, Input.Keys.R, Input.Keys.P, Input.Keys.H,
                 Input.Keys.F1, Input.Keys.F2, Input.Keys.F3, Input.Keys.F4,
                 Input.Keys.F5, Input.Keys.F6, Input.Keys.F7, Input.Keys.F8,
                 Input.Keys.F9, Input.Keys.F10, Input.Keys.F11, Input.Keys.F12
@@ -345,7 +378,7 @@ class SetupControls extends GLScreen {
 
         LeftLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2 - 150, 340, 200, 40);
-            setText(Assets.strings.get("CONTROLS.LEFT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("CONTROLS.LEFT"), CENTER, font14);
             setColor(0x404040);
             setActive(false);
         }
@@ -356,7 +389,7 @@ class SetupControls extends GLScreen {
         LeftButton() {
             configParam = ConfigParam.KEY_LEFT;
             setGeometry((game.gui.WIDTH - 200) / 2 - 150, 380, 200, 46);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -380,10 +413,10 @@ class SetupControls extends GLScreen {
                         setText("?");
                         setColor(0xEB9532);
                     } else if (xAxisIndex == -1) {
-                        setText(Assets.strings.get("CONTROLS.UNKNOWN"));
+                        setText(gettext("CONTROLS.UNKNOWN"));
                         setColor(0xB40000);
                     } else {
-                        setText(Assets.strings.get("CONTROLS.AXIS") + " " + xAxisIndex);
+                        setText(gettext("CONTROLS.AXIS") + " " + xAxisIndex);
                         setColor(0x548854);
                     }
                     break;
@@ -395,7 +428,7 @@ class SetupControls extends GLScreen {
 
         RightLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2 + 150, 340, 200, 40);
-            setText(Assets.strings.get("CONTROLS.RIGHT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("CONTROLS.RIGHT"), CENTER, font14);
             setColor(0x404040);
             setActive(false);
         }
@@ -406,7 +439,7 @@ class SetupControls extends GLScreen {
         RightButton() {
             configParam = ConfigParam.KEY_RIGHT;
             setGeometry((game.gui.WIDTH - 200) / 2 + 150, 380, 200, 46);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -430,10 +463,10 @@ class SetupControls extends GLScreen {
                         setText("?");
                         setColor(0xEB9532);
                     } else if (xAxisIndex == -1) {
-                        setText(Assets.strings.get("CONTROLS.UNKNOWN"));
+                        setText(gettext("CONTROLS.UNKNOWN"));
                         setColor(0xB40000);
                     } else {
-                        setText(Assets.strings.get("CONTROLS.AXIS") + " " + xAxisIndex);
+                        setText(gettext("CONTROLS.AXIS") + " " + xAxisIndex);
                         setColor(0x548854);
                     }
                     break;
@@ -445,7 +478,7 @@ class SetupControls extends GLScreen {
 
         UpLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2, 180, 200, 40);
-            setText(Assets.strings.get("CONTROLS.UP"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("CONTROLS.UP"), CENTER, font14);
             setColor(0x404040);
             setActive(false);
         }
@@ -456,7 +489,7 @@ class SetupControls extends GLScreen {
         UpButton() {
             configParam = ConfigParam.KEY_UP;
             setGeometry((game.gui.WIDTH - 200) / 2, 220, 200, 46);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -480,10 +513,10 @@ class SetupControls extends GLScreen {
                         setText("?");
                         setColor(0xEB9532);
                     } else if (yAxisIndex == -1) {
-                        setText(Assets.strings.get("CONTROLS.UNKNOWN"));
+                        setText(gettext("CONTROLS.UNKNOWN"));
                         setColor(0xB40000);
                     } else {
-                        setText(Assets.strings.get("CONTROLS.AXIS") + " " + yAxisIndex);
+                        setText(gettext("CONTROLS.AXIS") + " " + yAxisIndex);
                         setColor(0x548854);
                     }
                     break;
@@ -495,7 +528,7 @@ class SetupControls extends GLScreen {
 
         DownLabel() {
             setGeometry((game.gui.WIDTH - 200) / 2, 500, 200, 40);
-            setText(Assets.strings.get("CONTROLS.DOWN"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("CONTROLS.DOWN"), CENTER, font14);
             setColor(0x404040);
             setActive(false);
         }
@@ -506,7 +539,7 @@ class SetupControls extends GLScreen {
         DownButton() {
             configParam = ConfigParam.KEY_DOWN;
             setGeometry((game.gui.WIDTH - 200) / 2, 540, 200, 46);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -530,10 +563,10 @@ class SetupControls extends GLScreen {
                         setText("?");
                         setColor(0xEB9532);
                     } else if (yAxisIndex == -1) {
-                        setText(Assets.strings.get("CONTROLS.UNKNOWN"));
+                        setText(gettext("CONTROLS.UNKNOWN"));
                         setColor(0xB40000);
                     } else {
-                        setText(Assets.strings.get("CONTROLS.AXIS") + " " + yAxisIndex);
+                        setText(gettext("CONTROLS.AXIS") + " " + yAxisIndex);
                         setColor(0x548854);
                     }
                     break;
@@ -545,7 +578,7 @@ class SetupControls extends GLScreen {
 
         FireLabel(int buttonNumber) {
             setGeometry((game.gui.WIDTH - 200) / 2 + 420, 240 + (210 * (buttonNumber - 1)), 200, 40);
-            setText(Assets.strings.get("CONTROLS.BUTTON") + " " + ((buttonNumber == 1) ? "A" : "B"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("CONTROLS.BUTTON") + " " + ((buttonNumber == 1) ? "A" : "B"), CENTER, font14);
             setColor(0x404040);
             setActive(false);
         }
@@ -559,7 +592,7 @@ class SetupControls extends GLScreen {
             this.buttonNumber = buttonNumber;
             configParam = (buttonNumber == 1) ? ConfigParam.BUTTON_1 : ConfigParam.BUTTON_2;
             setGeometry((game.gui.WIDTH - 200) / 2 + 420, 280 + (210 * (buttonNumber - 1)), 200, 46);
-            setText("", Font.Align.CENTER, Assets.font14);
+            setText("", CENTER, font14);
         }
 
         @Override
@@ -584,28 +617,12 @@ class SetupControls extends GLScreen {
                         setText("?");
                         setColor(0xEB9532);
                     } else if (index == -1) {
-                        setText(Assets.strings.get("CONTROLS.UNKNOWN"));
+                        setText(gettext("CONTROLS.UNKNOWN"));
                         setColor(0xB40000);
                     } else {
                         setText(index);
                         setColor(0x548854);
                     }
-                    break;
-            }
-        }
-
-        @Override
-        public void onFire1Up() {
-            entryMode = true;
-            game.inputDevices.clear();
-            refreshAllWidgets();
-            switch (selectedInputDeviceButton.config.type) {
-                case KEYBOARD:
-                    Gdx.input.setInputProcessor(inputProcessor);
-                    break;
-
-                case JOYSTICK:
-                    Controllers.addListener(joystickListener);
                     break;
             }
         }
@@ -616,11 +633,12 @@ class SetupControls extends GLScreen {
         ExitButton() {
             setColor(0xC84200);
             setGeometry((game.gui.WIDTH - 180) / 2, 660, 180, 36);
-            setText(Assets.strings.get("EXIT"), Font.Align.CENTER, Assets.font14);
+            setText(gettext("EXIT"), CENTER, font14);
         }
 
         @Override
         public void onFire1Up() {
+            Controllers.removeListener(joystickListener);
             game.settings.save();
             game.setScreen(new Main(game));
         }
@@ -630,18 +648,30 @@ class SetupControls extends GLScreen {
 
         @Override
         public boolean buttonUp(Controller controller, int buttonIndex) {
-            JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
-            if (controller.getName().equals(joystickConfig.name)) {
-                ((ConfigButton) selectedWidget).setConfigParamIndex(-1, buttonIndex);
+            if (selectedInputDeviceButton.config.type != InputDevice.Type.JOYSTICK || listeningConfigButton == null) {
+                return false;
+            }
+
+            if (Emath.isAmong(listeningConfigButton.configParam, ConfigParam.BUTTON_1, ConfigParam.BUTTON_2)) {
+                JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
+                if (controller.getName().equals(joystickConfig.name)) {
+                    listeningConfigButton.setJoystickConfigParam(-1, buttonIndex);
+                }
             }
             return false;
         }
 
         @Override
         public boolean axisMoved(Controller controller, int axisIndex, float value) {
-            JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
-            if (controller.getName().equals(joystickConfig.name)) {
-                ((ConfigButton) selectedWidget).setConfigParamIndex(axisIndex, -1);
+            if (selectedInputDeviceButton.config.type != InputDevice.Type.JOYSTICK || listeningConfigButton == null) {
+                return false;
+            }
+
+            if (Emath.isAmong(listeningConfigButton.configParam, ConfigParam.KEY_LEFT, ConfigParam.KEY_RIGHT, ConfigParam.KEY_UP, ConfigParam.KEY_DOWN)) {
+                JoystickConfig joystickConfig = (JoystickConfig) selectedInputDeviceButton.config;
+                if (controller.getName().equals(joystickConfig.name)) {
+                    listeningConfigButton.setJoystickConfigParam(axisIndex, -1);
+                }
             }
             return false;
         }

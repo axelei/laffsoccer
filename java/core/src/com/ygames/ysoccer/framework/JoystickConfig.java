@@ -20,4 +20,11 @@ public class JoystickConfig extends InputDeviceConfig {
     public boolean isConfigured() {
         return xAxis != -1 && yAxis != -1 && button1 != -1 && button2 != -1;
     }
+
+    public void reset() {
+        xAxis = -1;
+        yAxis = -1;
+        button1 = -1;
+        button2 = -1;
+    }
 }
