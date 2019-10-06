@@ -40,6 +40,7 @@ public class MatchFsm extends SceneFsm {
         STATE_END,
         STATE_REPLAY,
         STATE_PAUSE,
+        STATE_HELP,
         STATE_HIGHLIGHTS,
         STATE_BENCH_ENTER,
         STATE_BENCH_EXIT,
@@ -90,6 +91,7 @@ public class MatchFsm extends SceneFsm {
         new MatchStateEnd(this);
         new MatchStateReplay(this);
         new MatchStatePause(this);
+        new MatchStateHelp(this);
         new MatchStateHighlights(this);
         new MatchStateBenchEnter(this);
         new MatchStateBenchExit(this);

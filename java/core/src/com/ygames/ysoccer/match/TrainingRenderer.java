@@ -13,11 +13,10 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 public class TrainingRenderer extends SceneRenderer {
 
-    public Training training;
+    private final Training training;
     private TrainingState trainingState;
 
     TrainingRenderer(GLGraphics glGraphics, Training training) {
-        super();
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
         this.camera = glGraphics.camera;
@@ -30,8 +29,8 @@ public class TrainingRenderer extends SceneRenderer {
         actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
         actionCamera.y = 0.5f * (Const.PITCH_H - screenHeight / (zoom / 100.0f));
         for (int i = 0; i < Const.REPLAY_SUBFRAMES; i++) {
-            vcameraX[i] = Math.round(actionCamera.x);
-            vcameraY[i] = Math.round(actionCamera.y);
+            vCameraX[i] = Math.round(actionCamera.x);
+            vCameraY[i] = Math.round(actionCamera.y);
         }
 
         allSprites.add(new BallSprite(glGraphics, training.ball));
@@ -61,7 +60,7 @@ public class TrainingRenderer extends SceneRenderer {
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(true, Gdx.graphics.getWidth() * 100f / zoom, Gdx.graphics.getHeight() * 100f / zoom);
-        camera.translate(-Const.CENTER_X + vcameraX[training.subframe], -Const.CENTER_Y + vcameraY[training.subframe], 0);
+        camera.translate(-Const.CENTER_X + vCameraX[training.subframe], -Const.CENTER_Y + vCameraY[training.subframe], 0);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
@@ -246,7 +245,7 @@ public class TrainingRenderer extends SceneRenderer {
             dx = dx + w1 + 2;
             batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
         } else {
-            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2, dy, 6, 10);
+            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
         }
     }
 
@@ -255,8 +254,8 @@ public class TrainingRenderer extends SceneRenderer {
         ball.save(training.subframe);
         training.team[HOME].save(training.subframe);
         training.team[AWAY].save(training.subframe);
-        vcameraX[training.subframe] = Math.round(actionCamera.x);
-        vcameraY[training.subframe] = Math.round(actionCamera.y);
+        vCameraX[training.subframe] = Math.round(actionCamera.x);
+        vCameraY[training.subframe] = Math.round(actionCamera.y);
     }
 
     private void drawPlayerNumberAndName(Player player) {

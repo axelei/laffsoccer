@@ -31,8 +31,8 @@ class MatchStateBenchEnter extends MatchState {
         super.entryActions();
 
         // TODO get current observed position from camera
-        getFsm().benchStatus.oldTargetX = sceneRenderer.vcameraX[match.subframe] - CENTER_X + sceneRenderer.screenWidth / (2 * sceneRenderer.zoom / 100f);
-        getFsm().benchStatus.oldTargetY = sceneRenderer.vcameraY[match.subframe] - CENTER_Y + sceneRenderer.screenHeight / (2 * sceneRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTargetX = sceneRenderer.vCameraX[match.subframe] - CENTER_X + sceneRenderer.screenWidth / (2 * sceneRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTargetY = sceneRenderer.vCameraY[match.subframe] - CENTER_Y + sceneRenderer.screenHeight / (2 * sceneRenderer.zoom / 100f);
 
         getFsm().benchStatus.selectedPosition = -1;
         getFsm().benchStatus.substPosition = -1;

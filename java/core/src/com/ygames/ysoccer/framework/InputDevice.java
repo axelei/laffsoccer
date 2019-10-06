@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.framework;
 
+import com.badlogic.gdx.Input;
+
 public abstract class InputDevice {
 
     public enum Type {COMPUTER, KEYBOARD, JOYSTICK}
@@ -72,5 +74,9 @@ public abstract class InputDevice {
 
     public boolean yMoved() {
         return (y1 != 0) && (y0 == 0);
+    }
+
+    public static String keyDescription(int keyCode) {
+        return Input.Keys.toString(keyCode).toUpperCase();
     }
 }

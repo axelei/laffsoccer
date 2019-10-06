@@ -3,9 +3,10 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
+import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -20,6 +21,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_EXTRA_TIME_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
@@ -209,7 +211,7 @@ class MatchStateMain extends MatchState {
 
                         if (Assets.random.nextFloat() < foulProbability) {
                             match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y);
-                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x +", "+  match.tackle.opponent.y);
+                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
                         }
@@ -349,6 +351,11 @@ class MatchStateMain extends MatchState {
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
             fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(F1)) {
+            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
             return;
         }
     }

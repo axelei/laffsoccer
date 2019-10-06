@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
+import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -14,6 +15,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -126,6 +128,11 @@ class MatchStateGoalKickStop extends MatchState {
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
             fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(F1)) {
+            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
             return;
         }
 

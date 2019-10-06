@@ -11,8 +11,8 @@ class Recorder {
 
     private static final int MAX_RECORDS = 12;
 
-    private Match match;
-    ArrayList<short[]> highlights = new ArrayList<>();
+    private final Match match;
+    private final ArrayList<short[]> highlights = new ArrayList<>();
     private int current;
     private int recorded;
 
@@ -63,8 +63,8 @@ class Recorder {
             }
 
             // camera
-            record[index++] = (short) sceneRenderer.vcameraX[match.subframe];
-            record[index++] = (short) sceneRenderer.vcameraY[match.subframe];
+            record[index++] = (short) sceneRenderer.vCameraX[match.subframe];
+            record[index++] = (short) sceneRenderer.vCameraY[match.subframe];
 
             match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }
@@ -127,8 +127,8 @@ class Recorder {
             }
 
             // camera
-            sceneRenderer.vcameraX[match.subframe] = record[offset++];
-            sceneRenderer.vcameraY[match.subframe] = record[offset++];
+            sceneRenderer.vCameraX[match.subframe] = record[offset++];
+            sceneRenderer.vCameraY[match.subframe] = record[offset++];
 
             match.subframe = (match.subframe + GLGame.SUBFRAMES / 2) % Const.REPLAY_SUBFRAMES;
         }

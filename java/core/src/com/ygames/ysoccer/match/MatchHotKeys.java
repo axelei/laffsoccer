@@ -4,18 +4,43 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 
+import static com.badlogic.gdx.Input.Keys.F10;
+import static com.badlogic.gdx.Input.Keys.F11;
+import static com.badlogic.gdx.Input.Keys.F4;
+import static com.badlogic.gdx.Input.Keys.F5;
+import static com.badlogic.gdx.Input.Keys.P;
+import static com.badlogic.gdx.Input.Keys.SPACE;
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.InputDevice.keyDescription;
 
 class MatchHotKeys extends SceneHotKeys {
 
-    private boolean keyRecordAction;
     private boolean keyCommentary;
     private boolean keyCrowdChants;
     private boolean keyAutoReplay;
     private boolean keyRadar;
+    private boolean keyRecordAction;
 
     MatchHotKeys(Match match) {
         super(match);
+
+        String[] matchCommentary = {keyDescription(F4), gettext("HELP.MATCH COMMENTARY")};
+        keyMap.put(4, matchCommentary);
+
+        String[] crowdChants = {keyDescription(F5), gettext("HELP.CROWD CHANTS")};
+        keyMap.put(5, crowdChants);
+
+        String[] autoReplay = {keyDescription(F10), gettext("HELP.AUTO REPLAYS")};
+        keyMap.put(10, autoReplay);
+
+        String[] radar = {keyDescription(F11), gettext("HELP.RADAR")};
+        keyMap.put(11, radar);
+
+        String[] recordAction = {keyDescription(SPACE), gettext("HELP.RECORD ACTION")};
+        keyMap.put(13, recordAction);
+
+        String[] pause = {keyDescription(P), gettext("HELP.PAUSE")};
+        keyMap.put(14, pause);
     }
 
     private Match getMatch() {
@@ -25,13 +50,6 @@ class MatchHotKeys extends SceneHotKeys {
     @Override
     public void update() {
         super.update();
-
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
-            getMatch().recorder.saveHighlight(scene.getRenderer());
-
-            message = gettext("ACTION RECORDED");
-            messageTimer = 60;
-        }
 
         if (Gdx.input.isKeyPressed(Input.Keys.F4) && !keyCommentary) {
             scene.settings.commentary = !scene.settings.commentary;
@@ -86,11 +104,18 @@ class MatchHotKeys extends SceneHotKeys {
             messageTimer = 60;
         }
 
-        keyRecordAction = Gdx.input.isKeyPressed(Input.Keys.SPACE);
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && !keyRecordAction) {
+            getMatch().recorder.saveHighlight(scene.getRenderer());
+
+            message = gettext("ACTION RECORDED");
+            messageTimer = 60;
+        }
+
         keyCommentary = Gdx.input.isKeyPressed(Input.Keys.F4);
         keyCrowdChants = Gdx.input.isKeyPressed(Input.Keys.F5);
         keyAutoReplay = Gdx.input.isKeyPressed(Input.Keys.F10);
         keyRadar = Gdx.input.isKeyPressed(Input.Keys.F11);
+        keyRecordAction = Gdx.input.isKeyPressed(Input.Keys.SPACE);
     }
 
 

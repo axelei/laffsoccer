@@ -30,7 +30,6 @@ public class MatchRenderer extends SceneRenderer {
     private List<PlayerSprite> radarPlayers;
 
     MatchRenderer(GLGraphics glGraphics, Match match) {
-        super();
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
         this.camera = glGraphics.camera;
@@ -43,8 +42,8 @@ public class MatchRenderer extends SceneRenderer {
         actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
         actionCamera.y = 0;
         for (int i = 0; i < Const.REPLAY_SUBFRAMES; i++) {
-            vcameraX[i] = Math.round(actionCamera.x);
-            vcameraY[i] = Math.round(actionCamera.y);
+            vCameraX[i] = Math.round(actionCamera.x);
+            vCameraY[i] = Math.round(actionCamera.y);
         }
 
         radarPlayers = new ArrayList<>();
@@ -79,7 +78,7 @@ public class MatchRenderer extends SceneRenderer {
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(true, Gdx.graphics.getWidth() * 100f / zoom, Gdx.graphics.getHeight() * 100f / zoom);
-        camera.translate(-Const.CENTER_X + vcameraX[match.subframe], -Const.CENTER_Y + vcameraY[match.subframe], 0);
+        camera.translate(-Const.CENTER_X + vCameraX[match.subframe], -Const.CENTER_Y + vCameraY[match.subframe], 0);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
@@ -903,52 +902,6 @@ public class MatchRenderer extends SceneRenderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    private void fadeRect(int x0, int y0, int x1, int y1, float alpha, int color) {
-        shapeRenderer.setColor(color, alpha);
-        shapeRenderer.rect(x0, y0, x1 - x0, y1 - y0);
-    }
-
-    private void drawFrame(int x, int y, int w, int h) {
-        int r = x + w;
-        int b = y + h;
-
-        // top
-        shapeRenderer.rect(x + 5, y, w - 8, 1);
-        shapeRenderer.rect(x + 3, y + 1, w - 4, 1);
-
-        // top-left
-        shapeRenderer.rect(x + 2, y + 2, 4, 1);
-        shapeRenderer.rect(x + 2, y + 3, 1, 3);
-        shapeRenderer.rect(x + 3, y + 3, 1, 1);
-
-        // top-right
-        shapeRenderer.rect(r - 4, y + 2, 4, 1);
-        shapeRenderer.rect(r - 1, y + 3, 1, 3);
-        shapeRenderer.rect(r - 2, y + 3, 1, 1);
-
-        // left
-        shapeRenderer.rect(x, y + 5, 1, h - 8);
-        shapeRenderer.rect(x + 1, y + 3, 1, h - 4);
-
-        // right
-        shapeRenderer.rect(r + 1, y + 5, 1, h - 8);
-        shapeRenderer.rect(r, y + 3, 1, h - 4);
-
-        // bottom-left
-        shapeRenderer.rect(x + 2, b - 4, 1, 3);
-        shapeRenderer.rect(x + 2, b - 1, 4, 1);
-        shapeRenderer.rect(x + 3, b - 2, 1, 1);
-
-        // bottom-right
-        shapeRenderer.rect(r - 1, b - 4, 1, 3);
-        shapeRenderer.rect(r - 4, b - 1, 4, 1);
-        shapeRenderer.rect(r - 2, b - 2, 1, 1);
-
-        // bottom
-        shapeRenderer.rect(x + 5, b + 1, w - 8, 1);
-        shapeRenderer.rect(x + 3, b, w - 4, 1);
-    }
-
     private void drawBenchPlayers() {
         int w = 250;
         int h = 18;
@@ -1163,8 +1116,8 @@ public class MatchRenderer extends SceneRenderer {
         ball.save(match.subframe);
         match.team[HOME].save(match.subframe);
         match.team[AWAY].save(match.subframe);
-        vcameraX[match.subframe] = Math.round(actionCamera.x);
-        vcameraY[match.subframe] = Math.round(actionCamera.y);
+        vCameraX[match.subframe] = Math.round(actionCamera.x);
+        vCameraY[match.subframe] = Math.round(actionCamera.y);
     }
 
     private void drawPlayerNumberAndName(Player player) {

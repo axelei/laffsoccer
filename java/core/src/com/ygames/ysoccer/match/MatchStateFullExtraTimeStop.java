@@ -5,9 +5,11 @@ import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FULL_EXTRA_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -81,6 +83,11 @@ class MatchStateFullExtraTimeStop extends MatchState {
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
             fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
+            return;
+        }
+
+        if (Gdx.input.isKeyPressed(F1)) {
+            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
             return;
         }
     }

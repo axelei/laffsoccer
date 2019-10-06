@@ -130,7 +130,7 @@ class TrainingStateReplay extends TrainingState {
 
         int f = Math.round(1f * training.subframe / GLGame.SUBFRAMES) % 32;
         if (f < 16) {
-            Assets.font10.draw(sceneRenderer.batch, gettext("REPLAY"), 30, 22, Font.Align.LEFT);
+            Assets.font10.draw(sceneRenderer.batch, gettext("ACTION REPLAY"), 30, 22, Font.Align.LEFT);
         }
         if (Settings.showDevelopmentInfo) {
             Assets.font10.draw(sceneRenderer.batch, "FRAME: " + (training.subframe / 8) + " / " + Const.REPLAY_FRAMES, 30, 42, Font.Align.LEFT);
