@@ -29,14 +29,14 @@ class SetupControls extends GLScreen {
 
     private enum ConfigParam {KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, BUTTON_1, BUTTON_2}
 
-    private ConfigParam[] buttonParams = {ConfigParam.BUTTON_1, ConfigParam.BUTTON_2};
-    private ConfigParam[] axisParams = {ConfigParam.KEY_LEFT, ConfigParam.KEY_RIGHT, ConfigParam.KEY_UP, ConfigParam.KEY_DOWN};
+    private final ConfigParam[] buttonParams = {ConfigParam.BUTTON_1, ConfigParam.BUTTON_2};
+    private final ConfigParam[] axisParams = {ConfigParam.KEY_LEFT, ConfigParam.KEY_RIGHT, ConfigParam.KEY_UP, ConfigParam.KEY_DOWN};
 
     private InputDeviceButton selectedInputDeviceButton;
-    private ArrayList<JoystickConfig> joystickConfigs;
-    private ArrayList<KeyboardConfig> keyboardConfigs;
-    private InputProcessor inputProcessor;
-    private JoystickListener joystickListener;
+    private final ArrayList<JoystickConfig> joystickConfigs;
+    private final ArrayList<KeyboardConfig> keyboardConfigs;
+    private final InputProcessor inputProcessor;
+    private final JoystickListener joystickListener;
     private ConfigButton listeningConfigButton;
 
     SetupControls(GLGame game) {
@@ -133,8 +133,8 @@ class SetupControls extends GLScreen {
 
     private class InputDeviceButton extends Button {
 
-        private InputDeviceConfig config;
-        private int port;
+        private final InputDeviceConfig config;
+        private final int port;
 
         InputDeviceButton(InputDeviceConfig config, int port, int pos) {
             this.config = config;
@@ -177,7 +177,7 @@ class SetupControls extends GLScreen {
 
     private class ResetJoystickButton extends Button {
 
-        InputDeviceButton inputDeviceButton;
+        final InputDeviceButton inputDeviceButton;
 
         ResetJoystickButton(InputDeviceButton inputDeviceButton) {
             this.inputDeviceButton = inputDeviceButton;
@@ -276,12 +276,8 @@ class SetupControls extends GLScreen {
                         break;
                 }
             }
-            entryMode = false;
-            listeningConfigButton = null;
-            Gdx.input.setInputProcessor(null);
             setKeyboardConfigs();
-            game.reloadInputDevices();
-            refreshAllWidgets();
+            quitEntryMode();
         }
 
         void setJoystickConfigParam(int axisIndex, int buttonIndex) {
@@ -313,12 +309,17 @@ class SetupControls extends GLScreen {
                     joystickConfig.button2 = buttonIndex;
                     break;
             }
-            entryMode = false;
-            listeningConfigButton = null;
             if (joystickConfig.isConfigured()) {
                 setJoystickConfigs();
             }
+            quitEntryMode();
+        }
+
+        private void quitEntryMode() {
+            entryMode = false;
+            listeningConfigButton = null;
             game.reloadInputDevices();
+            Gdx.input.setInputProcessor(null);
             refreshAllWidgets();
         }
 
@@ -328,8 +329,8 @@ class SetupControls extends GLScreen {
                 entryMode = true;
                 listeningConfigButton = this;
                 game.inputDevices.clear();
-                refreshAllWidgets();
                 Gdx.input.setInputProcessor(inputProcessor);
+                refreshAllWidgets();
             }
         }
     }
@@ -590,7 +591,7 @@ class SetupControls extends GLScreen {
 
     private class FireButton extends ConfigButton {
 
-        int buttonNumber;
+        final int buttonNumber;
 
         FireButton(int buttonNumber) {
             this.buttonNumber = buttonNumber;
