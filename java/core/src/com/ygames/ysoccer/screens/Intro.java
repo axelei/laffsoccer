@@ -16,7 +16,9 @@ public class Intro extends GLScreen {
     public Intro(GLGame game) {
         super(game);
 
-        game.unsetMouse();
+        usesMouse = false;
+
+        game.disableMouse();
         Gdx.input.setInputProcessor(new IntroInputProcessor());
 
         Widget w;
@@ -65,7 +67,7 @@ public class Intro extends GLScreen {
 
         private void setMainMenu() {
             Gdx.input.setInputProcessor(null);
-            game.setMouse();
+            game.enableMouse();
             game.menuMusic.setMode(game.settings.musicMode);
             game.setScreen(new Main(game));
         }

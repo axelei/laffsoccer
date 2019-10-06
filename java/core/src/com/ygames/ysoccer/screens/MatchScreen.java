@@ -19,7 +19,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchScreen extends GLScreen {
 
-    Match match;
+    private final Match match;
     private boolean matchStarted;
     private boolean matchPaused;
     private boolean matchEnded;
@@ -28,8 +28,10 @@ class MatchScreen extends GLScreen {
 
     MatchScreen(GLGame game, Match match) {
         super(game);
-        playMenuMusic = false;
         this.match = match;
+
+        playMenuMusic = false;
+        usesMouse = false;
 
         matchStarted = false;
         matchPaused = false;
@@ -94,7 +96,6 @@ class MatchScreen extends GLScreen {
 
     private void quit(boolean matchCompleted) {
         matchEnded = true;
-        game.setMouse();
 
         for (int t = HOME; t <= AWAY; t++) {
             int len = match.team[t].lineup.size();
@@ -116,6 +117,7 @@ class MatchScreen extends GLScreen {
             match.competition.matchInterrupted();
         }
 
+        game.enableMouse();
         switch (match.competition.type) {
             case FRIENDLY:
                 game.setScreen(new ReplayMatch(game, match));

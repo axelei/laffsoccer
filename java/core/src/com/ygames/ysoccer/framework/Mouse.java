@@ -7,10 +7,24 @@ import com.badlogic.gdx.math.Vector3;
 
 class Mouse {
 
-    Vector3 position = new Vector3();
+    final Vector3 position = new Vector3();
     boolean buttonLeft;
     boolean buttonRight;
-    boolean enabled = true;
+    boolean enabled;
+
+    Mouse() {
+        enable();
+    }
+
+    void enable() {
+        enabled = true;
+        Gdx.graphics.setCursor(Assets.customCursor);
+    }
+
+    void disable() {
+        enabled = false;
+        Gdx.graphics.setCursor(Assets.hiddenCursor);
+    }
 
     public void read(Camera camera) {
         position.x = Gdx.input.getX();
@@ -22,7 +36,7 @@ class Mouse {
         buttonRight = Gdx.input.isButtonPressed(Input.Buttons.RIGHT);
     }
 
-    boolean actioned() {
+    boolean isActioned() {
         return Gdx.input.isButtonPressed(Input.Buttons.LEFT)
                 || Gdx.input.isButtonPressed(Input.Buttons.RIGHT)
                 || Gdx.input.getDeltaX() != 0

@@ -19,14 +19,15 @@ import java.util.Locale;
 
 public abstract class GLScreen implements Screen {
 
-    protected GLGame game;
-    protected OrthographicCamera camera;
-    protected GLSpriteBatch batch;
-    protected GLShapeRenderer shapeRenderer;
+    protected final GLGame game;
+    protected final OrthographicCamera camera;
+    protected final GLSpriteBatch batch;
+    protected final GLShapeRenderer shapeRenderer;
 
     protected Texture background;
-    protected List<Widget> widgets;
+    protected final List<Widget> widgets;
     private Widget selectedWidget;
+    protected boolean usesMouse;
     protected boolean playMenuMusic;
     protected InputDevice lastFireInputDevice;
 
@@ -64,6 +65,7 @@ public abstract class GLScreen implements Screen {
         shapeRenderer = game.glGraphics.shapeRenderer;
 
         widgets = new ArrayList<>();
+        usesMouse = true;
         playMenuMusic = true;
     }
 
@@ -86,8 +88,8 @@ public abstract class GLScreen implements Screen {
                     setSelectedWidget(widget);
                 }
             }
-        } else if (game.mouse.actioned()) {
-            game.enableMouse();
+        } else if (usesMouse && game.mouse.isActioned()) {
+            game.mouse.enable();
         }
 
         for (InputDevice inputDevice : game.inputDevices) {

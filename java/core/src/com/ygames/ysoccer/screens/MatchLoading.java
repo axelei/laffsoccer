@@ -15,18 +15,20 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchLoading extends GLScreen {
 
-    Match match;
+    private final Match match;
 
     MatchLoading(GLGame game, MatchSettings matchSettings, Competition competition) {
         super(game);
+
         playMenuMusic = false;
+        usesMouse = false;
 
         matchSettings.setup();
 
         match = competition.getMatch();
         match.init(game, matchSettings, competition);
 
-        game.unsetMouse();
+        game.disableMouse();
 
         Assets.loadStadium(matchSettings);
         Assets.loadCrowd(match.team[Match.HOME]);

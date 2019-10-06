@@ -15,7 +15,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class TrainingScreen extends GLScreen {
 
-    private Training training;
+    private final Training training;
     private boolean started;
     private boolean paused;
     private boolean ended;
@@ -26,6 +26,7 @@ class TrainingScreen extends GLScreen {
         super(game);
 
         this.training = training;
+        usesMouse = false;
 
         started = false;
         paused = false;
@@ -84,7 +85,7 @@ class TrainingScreen extends GLScreen {
 
     private void quit() {
         ended = true;
-        game.setMouse();
+        game.enableMouse();
 
         for (int t = HOME; t <= AWAY; t++) {
             int len = training.team[t].lineup.size();

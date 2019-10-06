@@ -17,11 +17,12 @@ import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 
 class TrainingLoading extends GLScreen {
 
-    Training training;
+    private final Training training;
 
     TrainingLoading(GLGame game) {
         super(game);
         playMenuMusic = false;
+        usesMouse = false;
 
         Team trainingTeam = navigation.team;
         MatchSettings matchSettings = navigation.matchSettings;
@@ -32,7 +33,7 @@ class TrainingLoading extends GLScreen {
         training.init(game, matchSettings);
         assignInputDevices();
 
-        game.unsetMouse();
+        game.disableMouse();
 
         Assets.loadStadium(matchSettings);
         Assets.loadCrowd(trainingTeam);

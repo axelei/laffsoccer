@@ -26,7 +26,7 @@ class MenuInput {
     private int fire1Timer;
     private int fire2Timer;
 
-    private GLGame game;
+    private final GLGame game;
 
     MenuInput(GLGame game) {
         this.game = game;
@@ -131,24 +131,22 @@ class MenuInput {
         int bias = 1;
         if (selectedWidget != null) {
             if (y == -1 && yTimer == 0) {
-                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
-                    if ((w.y + w.h) <= current.y) {
-                        distance = EMath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
+                    if ((w.y + w.h) <= selectedWidget.y) {
+                        distance = EMath.hypo(bias * ((w.x + 0.5f * w.w) - (selectedWidget.x + 0.5f * selectedWidget.w)), (w.y + 0.5f * w.h) - (selectedWidget.y + 0.5f * selectedWidget.h));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
                     }
                 }
             } else if (y == 1 && yTimer == 0) {
-                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
-                    if (w.y >= (current.y + current.h)) {
-                        distance = EMath.hypo(bias * ((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w)), (w.y + 0.5f * w.h) - (current.y + 0.5f * current.h));
+                    if (w.y >= (selectedWidget.y + selectedWidget.h)) {
+                        distance = EMath.hypo(bias * ((w.x + 0.5f * w.w) - (selectedWidget.x + 0.5f * selectedWidget.w)), (w.y + 0.5f * w.h) - (selectedWidget.y + 0.5f * selectedWidget.h));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
@@ -161,24 +159,22 @@ class MenuInput {
         bias = 9;
         if (selectedWidget != null) {
             if (x == -1 && xTimer == 0) {
-                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
-                    if ((w.x + w.w) <= current.x) {
-                        distance = EMath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
+                    if ((w.x + w.w) <= selectedWidget.x) {
+                        distance = EMath.hypo((w.x + 0.5f * w.w) - (selectedWidget.x + 0.5f * selectedWidget.w), bias * ((w.y + 0.5f * w.h) - (selectedWidget.y + 0.5f * selectedWidget.h)));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
                     }
                 }
             } else if (x == 1 && xTimer == 0) {
-                Widget current = selectedWidget;
                 float distMin = 50000;
                 float distance;
                 for (Widget w : screen.widgets) {
-                    if (w.x >= (current.x + current.w)) {
-                        distance = EMath.hypo((w.x + 0.5f * w.w) - (current.x + 0.5f * current.w), bias * ((w.y + 0.5f * w.h) - (current.y + 0.5f * current.h)));
+                    if (w.x >= (selectedWidget.x + selectedWidget.w)) {
+                        distance = EMath.hypo((w.x + 0.5f * w.w) - (selectedWidget.x + 0.5f * selectedWidget.w), bias * ((w.y + 0.5f * w.h) - (selectedWidget.y + 0.5f * selectedWidget.h)));
                         if (distance < distMin && screen.setSelectedWidget(w)) {
                             distMin = distance;
                         }
