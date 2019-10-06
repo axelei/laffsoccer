@@ -2,8 +2,8 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -11,9 +11,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Player.Role.GOALKEEPER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_FREE;
 
 public class Training extends Scene {
 
@@ -101,12 +98,6 @@ public class Training extends Scene {
             team[HOME].save(f);
             team[AWAY].save(f);
         }
-    }
-
-    @Override
-    public void start() {
-        fsm.pushAction(NEW_FOREGROUND, STATE_FREE);
-        fsm.pushAction(FADE_IN);
     }
 
     void findNearest() {

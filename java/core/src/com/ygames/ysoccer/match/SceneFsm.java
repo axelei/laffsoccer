@@ -75,6 +75,8 @@ abstract class SceneFsm {
         states.add(state);
     }
 
+    public abstract void start();
+
     SceneState getHoldState() {
         return holdState;
     }
@@ -121,8 +123,8 @@ abstract class SceneFsm {
             currentState.doActions(deltaTime);
 
             Action[] newActions = currentState.checkConditions();
-            if(newActions != null) {
-                for(Action action : newActions) {
+            if (newActions != null) {
+                for (Action action : newActions) {
                     actions.offer(action);
                 }
             }

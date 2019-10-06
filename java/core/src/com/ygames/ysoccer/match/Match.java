@@ -488,12 +488,6 @@ public class Match extends Scene implements Json.Serializable {
         }
     }
 
-    @Override
-    public void start() {
-        fsm.pushAction(NEW_FOREGROUND, STATE_INTRO);
-        fsm.pushAction(FADE_IN);
-    }
-
     void findNearest() {
         team[HOME].findNearest();
         team[AWAY].findNearest();

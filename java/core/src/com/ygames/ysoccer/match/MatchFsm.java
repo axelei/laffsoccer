@@ -4,6 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 public class MatchFsm extends SceneFsm {
 
@@ -105,6 +107,12 @@ public class MatchFsm extends SceneFsm {
         new MatchStatePenaltyKickEnd(this);
         new MatchStatePenaltiesStop(this);
         new MatchStatePenalties(this);
+    }
+
+    @Override
+    public void start() {
+        pushAction(NEW_FOREGROUND, Id.STATE_INTRO);
+        pushAction(FADE_IN);
     }
 
     public MatchState getState() {

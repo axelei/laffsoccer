@@ -1,5 +1,8 @@
 package com.ygames.ysoccer.match;
 
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
+import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
+
 public class TrainingFsm extends SceneFsm {
 
     enum Id {
@@ -15,6 +18,12 @@ public class TrainingFsm extends SceneFsm {
 
         new TrainingStateFree(this);
         new TrainingStateReplay(this);
+    }
+
+    @Override
+    public void start() {
+        pushAction(NEW_FOREGROUND, Id.STATE_FREE);
+        pushAction(FADE_IN);
     }
 
     public TrainingState getState() {

@@ -16,7 +16,9 @@ abstract class Scene {
         return fsm.getSceneRenderer();
     }
 
-    abstract public void start();
+    public void start() {
+        fsm.start();
+    }
 
     public void update(float deltaTime) {
         fsm.think(deltaTime);
