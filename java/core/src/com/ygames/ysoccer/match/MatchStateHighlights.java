@@ -4,12 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
@@ -29,7 +29,6 @@ class MatchStateHighlights extends MatchState {
     private boolean keyPause;
     private int position;
     private InputDevice inputDevice;
-    int speed;
 
     MatchStateHighlights(MatchFsm fsm) {
         super(STATE_HIGHLIGHTS, fsm);
@@ -108,33 +107,34 @@ class MatchStateHighlights extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         // quit on ESC
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quit();
-            return;
+            showCurrentRecord = false;
+            return newFadedAction(NEW_FOREGROUND, STATE_END);
         }
 
         // quit on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
-                quit();
-                return;
+                showCurrentRecord = false;
+                return newFadedAction(NEW_FOREGROUND, STATE_END);
             }
         }
 
         // quit on finish
         if (position == Const.REPLAY_SUBFRAMES) {
             match.recorder.nextHighlight();
+            showCurrentRecord = false;
             if (match.recorder.hasEnded()) {
-                quit();
-                return;
+                return newFadedAction(NEW_FOREGROUND, STATE_END);
             } else {
-                nextHighlight();
-                return;
+                return newFadedAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
             }
         }
+
+        return null;
     }
 
     @Override
@@ -172,19 +172,5 @@ class MatchStateHighlights extends MatchState {
         if (paused) {
             Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
         }
-    }
-
-    private void nextHighlight() {
-        showCurrentRecord = false;
-        fsm.pushAction(FADE_OUT);
-        fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
-        fsm.pushAction(FADE_IN);
-    }
-
-    private void quit() {
-        showCurrentRecord = false;
-        fsm.pushAction(FADE_OUT);
-        fsm.pushAction(NEW_FOREGROUND, STATE_END);
-        fsm.pushAction(FADE_IN);
     }
 }

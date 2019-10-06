@@ -59,7 +59,7 @@ class MatchStateBenchTactics extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         // set selected tactics and go back to bench
         if (getFsm().benchStatus.inputDevice.fire1Down()) {
@@ -69,13 +69,14 @@ class MatchStateBenchTactics extends MatchState {
                 coach.timer = 500;
                 getFsm().benchStatus.team.tactics = getFsm().benchStatus.selectedTactics;
             }
-            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
 
         // go back to bench
-        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
-            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
-        return;
+        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
+        }
+
+        return null;
     }
 }

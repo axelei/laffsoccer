@@ -43,20 +43,20 @@ class MatchStateHelp extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         if (resume) {
-            fsm.pushAction(RESTORE_FOREGROUND);
-            return;
+            return newAction(RESTORE_FOREGROUND);
         }
 
         // resume on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
-                fsm.pushAction(RESTORE_FOREGROUND);
-                return;
+                return newAction(RESTORE_FOREGROUND);
             }
         }
+
+        return null;
     }
 
     @Override

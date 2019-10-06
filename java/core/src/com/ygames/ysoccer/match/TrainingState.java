@@ -1,16 +1,11 @@
 package com.ygames.ysoccer.match;
 
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
-import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
-
-class TrainingState extends SceneState {
+abstract class TrainingState extends SceneState {
 
     boolean displayControlledPlayer;
 
     // convenience references
-    protected Training training;
+    protected final Training training;
     protected final Team[] team;
     protected final Ball ball;
 
@@ -25,14 +20,8 @@ class TrainingState extends SceneState {
         fsm.addState(this);
     }
 
-    TrainingFsm getFsm() {
-        return (TrainingFsm) fsm;
-    }
-
-    void replay() {
-        fsm.pushAction(FADE_OUT);
-        fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);
-        fsm.pushAction(FADE_IN);
+    SceneFsm.Action[] newFadedAction(SceneFsm.ActionType type, Enum stateId) {
+        return fsm.newFadedAction(type, stateId);
     }
 
     void quitTraining() {

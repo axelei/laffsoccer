@@ -13,8 +13,6 @@ import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 
@@ -107,27 +105,21 @@ class MatchStateReplay extends MatchState {
     }
 
     @Override
-    void checkConditions() {
-
-        // quit on ESC
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quit();
-            return;
-        }
+    SceneFsm.Action[] checkConditions() {
 
         // quit on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
-                quit();
-                return;
+                return quitAction();
             }
         }
 
         // quit on last position
         if ((position == Const.REPLAY_SUBFRAMES) && (inputDevice == null)) {
-            quit();
-            return;
+            return quitAction();
         }
+
+        return null;
     }
 
     @Override
@@ -168,17 +160,12 @@ class MatchStateReplay extends MatchState {
         }
     }
 
-    private void quit() {
-        // if final frame is different from starting frame then fade out
+    private SceneFsm.Action[] quitAction() {
+        // if final frame is different from starting frame then add fading
         if (position != Const.REPLAY_SUBFRAMES) {
-            fsm.pushAction(FADE_OUT);
-        }
-
-        fsm.pushAction(RESTORE_FOREGROUND);
-
-        // if final frame is different from starting frame then fade in
-        if (position != Const.REPLAY_SUBFRAMES) {
-            fsm.pushAction(FADE_IN);
+            return newFadedAction(RESTORE_FOREGROUND);
+        } else {
+            return newAction(RESTORE_FOREGROUND);
         }
     }
 }

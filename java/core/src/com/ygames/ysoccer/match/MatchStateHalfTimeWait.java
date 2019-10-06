@@ -54,28 +54,27 @@ class MatchStateHalfTimeWait extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (match.team[HOME].fire1Down() != null
                 || match.team[AWAY].fire1Down() != null
                 || (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
             match.period = Match.Period.SECOND_HALF;
-            fsm.pushAction(NEW_FOREGROUND, STATE_HALF_TIME_ENTER);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_HALF_TIME_ENTER);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
+
+        return null;
     }
 }

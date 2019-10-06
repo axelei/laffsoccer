@@ -24,13 +24,17 @@ abstract class SceneFsm {
     }
 
     class Action {
-        ActionType type;
-        Enum stateId;
+        final ActionType type;
+        final Enum stateId;
         int timer;
 
         Action(ActionType type, Enum stateId) {
             this.type = type;
             this.stateId = stateId;
+        }
+
+        Action(ActionType type) {
+            this(type, null);
         }
 
         void update() {
@@ -40,13 +44,13 @@ abstract class SceneFsm {
         }
     }
 
-    private Scene scene;
+    private final Scene scene;
 
-    private List<SceneState> states;
+    private final List<SceneState> states;
     private SceneState currentState;
     private SceneState holdState;
 
-    private ArrayDeque<Action> actions;
+    private final ArrayDeque<Action> actions;
     private Action currentAction;
 
     private SceneRenderer sceneRenderer;
@@ -115,7 +119,13 @@ abstract class SceneFsm {
                 holdState.onPause();
             }
             currentState.doActions(deltaTime);
-            currentState.checkConditions();
+
+            Action[] newActions = currentState.checkConditions();
+            if(newActions != null) {
+                for(Action action : newActions) {
+                    actions.offer(action);
+                }
+            }
         }
 
         // update current action
@@ -156,13 +166,13 @@ abstract class SceneFsm {
                     currentState.exitActions();
                 }
                 currentState = searchState(currentAction.stateId);
-                Gdx.app.debug("NEW_FOREGROUND", currentState.getClass().getSimpleName());
+                Gdx.app.debug("NEW_FOREGROUND", currentState == null ? "null" : currentState.getClass().getSimpleName());
                 break;
 
             case HOLD_FOREGROUND:
                 holdState = currentState;
                 currentState = searchState(currentAction.stateId);
-                Gdx.app.debug("HOLD_FOREGROUND", currentState.getClass().getSimpleName());
+                Gdx.app.debug("HOLD_FOREGROUND", currentState == null ? "null" : currentState.getClass().getSimpleName());
                 break;
 
             case RESTORE_FOREGROUND:
@@ -185,12 +195,23 @@ abstract class SceneFsm {
         return null;
     }
 
-    public void pushAction(ActionType type) {
+    void pushAction(ActionType type) {
         pushAction(type, null);
     }
 
-    public void pushAction(ActionType type, Enum stateId) {
+    void pushAction(ActionType type, Enum stateId) {
         actions.offer(new Action(type, stateId));
     }
 
+    Action[] newAction(ActionType type, Enum stateId) {
+        return new Action[]{new Action(type, stateId)};
+    }
+
+    Action[] newFadedAction(ActionType type, Enum stateId) {
+        return new Action[]{
+                new Action(FADE_OUT),
+                new Action(type, stateId),
+                new Action(FADE_IN)
+        };
+    }
 }

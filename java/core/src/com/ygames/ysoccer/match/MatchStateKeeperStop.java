@@ -10,6 +10,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -84,32 +85,30 @@ class MatchStateKeeperStop extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (keeper.checkState(STATE_STAND_RUN) || keeper.checkState(STATE_KEEPER_POSITIONING)) {
             keeperTeam.setPlayersState(STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(STATE_STAND_RUN, null);
-            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
+
+        return null;
     }
 }

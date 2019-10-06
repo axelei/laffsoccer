@@ -9,8 +9,6 @@ import com.ygames.ysoccer.framework.InputDevice;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
@@ -50,34 +48,25 @@ class MatchStatePause extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         if (resume) {
-            fsm.pushAction(RESTORE_FOREGROUND);
-            return;
+            return newAction(RESTORE_FOREGROUND);
         }
 
         // resume on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
-                fsm.pushAction(RESTORE_FOREGROUND);
-                return;
+                return newAction(RESTORE_FOREGROUND);
             }
         }
 
         // hand over to replay
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            fsm.pushAction(FADE_OUT);
-            fsm.pushAction(NEW_FOREGROUND, STATE_REPLAY);
-            fsm.pushAction(FADE_IN);
-            return;
+            return newFadedAction(NEW_FOREGROUND, STATE_REPLAY);
         }
 
-        // resume on 'Esc'
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            fsm.pushAction(RESTORE_FOREGROUND);
-            return;
-        }
+        return null;
     }
 
     @Override

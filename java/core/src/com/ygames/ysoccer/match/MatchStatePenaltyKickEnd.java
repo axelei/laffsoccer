@@ -3,8 +3,8 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
@@ -17,6 +17,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_END;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
@@ -106,7 +107,7 @@ class MatchStatePenaltyKickEnd extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         if ((match.ball.v == 0) && (match.ball.vz == 0)) {
             if (isGoal) {
@@ -123,33 +124,31 @@ class MatchStatePenaltyKickEnd extends MatchState {
                 if (haveWinner()) {
                     match.setResult(match.penaltiesScore(HOME), match.penaltiesScore(AWAY), Match.ResultType.AFTER_PENALTIES);
                     getFsm().matchCompleted = true;
-                    fsm.pushAction(NEW_FOREGROUND, STATE_END_POSITIONS);
+                    return newAction(NEW_FOREGROUND, STATE_END_POSITIONS);
                 } else {
-                    fsm.pushAction(NEW_FOREGROUND, STATE_PENALTIES);
+                    return newAction(NEW_FOREGROUND, STATE_PENALTIES);
                 }
-                return;
             }
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
+
+        return null;
     }
 
     private boolean haveWinner() {
@@ -160,9 +159,8 @@ class MatchStatePenaltyKickEnd extends MatchState {
         if (match.penaltiesScore(AWAY) > match.penaltiesPotentialScore(HOME)) return true;
 
         // 3) all penalties have been kicked and score is not the same
-        if (match.penaltiesLeft(HOME) == 0 && match.penaltiesLeft(AWAY) == 0
-                && match.penaltiesScore(HOME) != match.penaltiesScore(AWAY)) return true;
-
-        return false;
+        return match.penaltiesLeft(HOME) == 0
+                && match.penaltiesLeft(AWAY) == 0
+                && match.penaltiesScore(HOME) != match.penaltiesScore(AWAY);
     }
 }

@@ -17,15 +17,14 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateGoalKickStop extends MatchState {
 
-    private int xSide;
-    private int ySide;
-    private Vector2 goalKickPosition;
+    private final Vector2 goalKickPosition = new Vector2();
 
     MatchStateGoalKickStop(MatchFsm fsm) {
         super(STATE_GOAL_KICK_STOP, fsm);
@@ -33,8 +32,6 @@ class MatchStateGoalKickStop extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
-
-        goalKickPosition = new Vector2();
     }
 
     @Override
@@ -42,9 +39,6 @@ class MatchStateGoalKickStop extends MatchState {
         super.entryActions();
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
-
-        xSide = match.ball.xSide;
-        ySide = match.ball.ySide;
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(STATE_REACH_TARGET, null);
@@ -63,8 +57,8 @@ class MatchStateGoalKickStop extends MatchState {
         opponentTeam.updateTactics(true);
 
         goalKickPosition.set(
-                (Const.GOAL_AREA_W / 2f) * xSide,
-                (Const.GOAL_LINE - Const.GOAL_AREA_H) * ySide
+                (Const.GOAL_AREA_W / 2f) * match.ball.xSide,
+                (Const.GOAL_LINE - Const.GOAL_AREA_H) *  match.ball.ySide
         );
     }
 
@@ -107,33 +101,29 @@ class MatchStateGoalKickStop extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if ((match.ball.v < 5) && (match.ball.vz < 5)) {
             match.ball.setPosition(goalKickPosition.x, goalKickPosition.y, 0);
             match.ball.updatePrediction();
 
-            fsm.pushAction(NEW_FOREGROUND, STATE_GOAL_KICK);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_GOAL_KICK);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         InputDevice inputDevice;
@@ -142,9 +132,10 @@ class MatchStateGoalKickStop extends MatchState {
             if (inputDevice != null) {
                 getFsm().benchStatus.team = match.team[t];
                 getFsm().benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-                return;
+                return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
             }
         }
+
+        return null;
     }
 }

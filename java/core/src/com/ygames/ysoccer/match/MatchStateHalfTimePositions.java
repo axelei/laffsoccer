@@ -11,6 +11,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_POSITIONS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_WAIT;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -40,7 +41,7 @@ class MatchStateHalfTimePositions extends MatchState {
                 .setSpeedMode(FAST);
 
         match.period = Match.Period.UNDEFINED;
-        match.clock = match.length * 45 / 90;
+        match.clock = match.length * 45f / 90f;
 
         match.setPlayersTarget(Const.TOUCH_LINE + 80, 0);
         match.setPlayersState(STATE_OUTSIDE, null);
@@ -70,30 +71,28 @@ class MatchStateHalfTimePositions extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (!move) {
-            fsm.pushAction(NEW_FOREGROUND, STATE_HALF_TIME_WAIT);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_HALF_TIME_WAIT);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
+
+        return null;
     }
 }

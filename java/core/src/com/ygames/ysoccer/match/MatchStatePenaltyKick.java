@@ -21,6 +21,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_END;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
@@ -114,38 +115,33 @@ class MatchStatePenaltyKick extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (match.ball.v > 0) {
             if (match.period == PENALTIES) {
                 match.penalty.kicker.setState(STATE_IDLE);
-                fsm.pushAction(NEW_FOREGROUND, STATE_PENALTY_KICK_END);
-                return;
+                return newAction(NEW_FOREGROUND, STATE_PENALTY_KICK_END);
             } else {
                 match.setPlayersState(STATE_STAND_RUN, match.penalty.kicker);
                 match.penalty = null;
-                fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
-                return;
+                return newAction(NEW_FOREGROUND, STATE_MAIN);
             }
         }
 
         if (Gdx.input.isKeyPressed(ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         if (match.period != PENALTIES) {
@@ -155,10 +151,11 @@ class MatchStatePenaltyKick extends MatchState {
                 if (inputDevice != null) {
                     getFsm().benchStatus.team = match.team[t];
                     getFsm().benchStatus.inputDevice = inputDevice;
-                    fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-                    return;
+                    return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
                 }
             }
         }
+
+        return null;
     }
 }

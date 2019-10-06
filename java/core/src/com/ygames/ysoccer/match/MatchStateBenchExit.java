@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.WARP;
@@ -66,15 +66,16 @@ class MatchStateBenchExit extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         float dx = sceneRenderer.actionCamera.x - getFsm().benchStatus.oldTargetX - CENTER_X + sceneRenderer.screenWidth / (2 * sceneRenderer.zoom / 100f);
         float dy = sceneRenderer.actionCamera.y - getFsm().benchStatus.oldTargetY - CENTER_Y + sceneRenderer.screenHeight / (2 * sceneRenderer.zoom / 100f);
 
         // TODO: replace with test on speed provided by camera
         if (EMath.hypo(dx, dy) <= 1) {
-            fsm.pushAction(RESTORE_FOREGROUND);
-            return;
+            return newAction(RESTORE_FOREGROUND);
         }
+
+        return null;
     }
 }

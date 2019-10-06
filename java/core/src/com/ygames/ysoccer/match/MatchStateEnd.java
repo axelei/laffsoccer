@@ -13,8 +13,6 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -55,13 +53,10 @@ class MatchStateEnd extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (Gdx.input.isKeyPressed(Input.Keys.H) && match.recorder.hasHighlights()) {
             match.recorder.restart();
-            fsm.pushAction(FADE_OUT);
-            fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
-            fsm.pushAction(FADE_IN);
-            return;
+            return newFadedAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
         }
 
         if (match.team[HOME].fire1Up() != null
@@ -69,16 +64,17 @@ class MatchStateEnd extends MatchState {
                 || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
             quitMatch();
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
+
+        return null;
     }
 }

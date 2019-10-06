@@ -78,7 +78,7 @@ class MatchStateBenchEnter extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         float dx = cameraX - sceneRenderer.actionCamera.x;
         float dy = cameraY - sceneRenderer.actionCamera.y;
@@ -87,16 +87,16 @@ class MatchStateBenchEnter extends MatchState {
         if (dx <= 1 && dy <= 1) {
             Coach coach = getFsm().benchStatus.team.coach;
             coach.status = Coach.Status.STAND;
-            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
 
         cameraX = sceneRenderer.actionCamera.x;
         cameraY = sceneRenderer.actionCamera.y;
 
         if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
         }
+
+        return null;
     }
 }

@@ -1,11 +1,6 @@
 package com.ygames.ysoccer.match;
 
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
-
-class MatchState extends SceneState {
+abstract class MatchState extends SceneState {
 
     boolean displayControlledPlayer;
     boolean displayBallOwner;
@@ -34,12 +29,6 @@ class MatchState extends SceneState {
 
     MatchFsm getFsm() {
         return (MatchFsm) fsm;
-    }
-
-    void replay() {
-        fsm.pushAction(FADE_OUT);
-        fsm.pushAction(HOLD_FOREGROUND, STATE_REPLAY);
-        fsm.pushAction(FADE_IN);
     }
 
     void quitMatch() {

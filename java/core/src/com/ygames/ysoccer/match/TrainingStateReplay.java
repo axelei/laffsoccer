@@ -4,18 +4,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
+import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
 
 class TrainingStateReplay extends TrainingState {
@@ -101,27 +99,26 @@ class TrainingStateReplay extends TrainingState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         // quit on ESC
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quit();
-            return;
+            return quitAction();
         }
 
         // quit on fire button
         for (InputDevice d : training.game.inputDevices) {
             if (d.fire1Down()) {
-                quit();
-                return;
+                return quitAction();
             }
         }
 
         // quit on last position
         if ((position == Const.REPLAY_SUBFRAMES) && (inputDevice == null)) {
-            quit();
-            return;
+            return quitAction();
         }
+
+        return null;
     }
 
     @Override
@@ -161,17 +158,12 @@ class TrainingStateReplay extends TrainingState {
         }
     }
 
-    private void quit() {
+    private SceneFsm.Action[] quitAction() {
         // if final frame is different from starting frame then fade out
         if (position != Const.REPLAY_SUBFRAMES) {
-            fsm.pushAction(FADE_OUT);
-        }
-
-        fsm.pushAction(RESTORE_FOREGROUND);
-
-        // if final frame is different from starting frame then fade in
-        if (position != Const.REPLAY_SUBFRAMES) {
-            fsm.pushAction(FADE_IN);
+            return newFadedAction(RESTORE_FOREGROUND);
+        } else {
+            return newAction(RESTORE_FOREGROUND);
         }
     }
 }

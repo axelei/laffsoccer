@@ -13,15 +13,14 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateEndPositions extends MatchState {
 
-    boolean move;
+    private boolean move;
 
     MatchStateEndPositions(MatchFsm fsm) {
         super(STATE_END_POSITIONS, fsm);
@@ -72,38 +71,33 @@ class MatchStateEndPositions extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (!move) {
             if (match.recorder.hasHighlights()) {
                 match.recorder.restart();
-                fsm.pushAction(FADE_OUT);
-                fsm.pushAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
-                fsm.pushAction(FADE_IN);
-                return;
+                return newFadedAction(NEW_FOREGROUND, STATE_HIGHLIGHTS);
             } else {
-                fsm.pushAction(NEW_FOREGROUND, STATE_END);
-                return;
+                return newAction(NEW_FOREGROUND, STATE_END);
             }
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
+
+        return null;
     }
 }

@@ -3,9 +3,9 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
-import com.ygames.ysoccer.framework.EMath;
 
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
@@ -17,6 +17,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KICK_OFF;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -101,7 +102,7 @@ class MatchStateKickOff extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (EMath.dist(match.ball.x, match.ball.y, 0, 0) > 10) {
             for (int t = HOME; t <= AWAY; t++) {
                 for (int i = 0; i < Const.TEAM_SIZE; i++) {
@@ -111,28 +112,24 @@ class MatchStateKickOff extends MatchState {
                     }
                 }
             }
-            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         InputDevice inputDevice;
@@ -141,9 +138,10 @@ class MatchStateKickOff extends MatchState {
             if (inputDevice != null) {
                 getFsm().benchStatus.team = match.team[t];
                 getFsm().benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-                return;
+                return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
             }
         }
+
+        return null;
     }
 }

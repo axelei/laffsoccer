@@ -21,6 +21,7 @@ import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BARRIER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
@@ -77,11 +78,6 @@ class MatchStateFreeKick extends MatchState {
     }
 
     @Override
-    void onPause() {
-        super.onPause();
-    }
-
-    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -117,7 +113,7 @@ class MatchStateFreeKick extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
         if (match.ball.v > 0) {
             freeKickTeam.setPlayersState(STATE_STAND_RUN, freeKickPlayer);
             for (int i = 0; i < TEAM_SIZE; i++) {
@@ -128,28 +124,24 @@ class MatchStateFreeKick extends MatchState {
             }
 
             match.foul = null;
-            fsm.pushAction(NEW_FOREGROUND, STATE_MAIN);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
 
         if (Gdx.input.isKeyPressed(ESCAPE)) {
             quitMatch();
-            return;
+            return null;
         }
 
         if (Gdx.input.isKeyPressed(R)) {
-            replay();
-            return;
+            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
 
         if (Gdx.input.isKeyPressed(P)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_PAUSE);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
-            fsm.pushAction(HOLD_FOREGROUND, STATE_HELP);
-            return;
+            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         InputDevice inputDevice;
@@ -158,9 +150,10 @@ class MatchStateFreeKick extends MatchState {
             if (inputDevice != null) {
                 getFsm().benchStatus.team = match.team[t];
                 getFsm().benchStatus.inputDevice = inputDevice;
-                fsm.pushAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-                return;
+                return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
             }
         }
+
+        return null;
     }
 }

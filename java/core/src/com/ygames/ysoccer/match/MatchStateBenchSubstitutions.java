@@ -91,12 +91,11 @@ class MatchStateBenchSubstitutions extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         if (getFsm().benchStatus.inputDevice.fire1Down()) {
             if (getFsm().benchStatus.selectedPosition == -1) {
-                fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_FORMATION);
-                return;
+                return newAction(NEW_FOREGROUND, STATE_BENCH_FORMATION);
             } else {
                 // if no previous selection
                 if (getFsm().benchStatus.substPosition == -1) {
@@ -111,16 +110,16 @@ class MatchStateBenchSubstitutions extends MatchState {
                         getFsm().benchStatus.substPosition = TEAM_SIZE + getFsm().benchStatus.selectedPosition;
                         getFsm().benchStatus.selectedPosition = getFsm().benchStatus.team.nearestBenchPlayerByRole(player.role);
 
-                        fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_FORMATION);
-                        return;
+                        return newAction(NEW_FOREGROUND, STATE_BENCH_FORMATION);
                     }
                 }
             }
         }
 
         if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
         }
+
+        return null;
     }
 }

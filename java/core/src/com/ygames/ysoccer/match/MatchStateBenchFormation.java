@@ -61,7 +61,7 @@ class MatchStateBenchFormation extends MatchState {
     }
 
     @Override
-    void checkConditions() {
+    SceneFsm.Action[] checkConditions() {
 
         if (getFsm().benchStatus.inputDevice.fire1Down()) {
 
@@ -78,8 +78,7 @@ class MatchStateBenchFormation extends MatchState {
                     getFsm().benchStatus.substPosition = -1;
                 }
 
-                fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_TACTICS);
-                return;
+                return newAction(NEW_FOREGROUND, STATE_BENCH_TACTICS);
             }
 
             // swap and substitutions
@@ -170,8 +169,9 @@ class MatchStateBenchFormation extends MatchState {
                 getFsm().benchStatus.substPosition = -1;
             }
 
-            fsm.pushAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
-            return;
+            return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
+
+        return null;
     }
 }

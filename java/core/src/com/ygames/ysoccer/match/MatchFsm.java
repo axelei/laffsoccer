@@ -9,8 +9,8 @@ public class MatchFsm extends SceneFsm {
 
     protected boolean matchCompleted;
 
-    BenchStatus benchStatus;
-    Vector2 throwInPosition;
+    final BenchStatus benchStatus;
+    final Vector2 throwInPosition;
     Team throwInTeam;
     Team cornerKickTeam;
     Team goalKickTeam;
@@ -117,10 +117,6 @@ public class MatchFsm extends SceneFsm {
 
     public Match getMatch() {
         return (Match) getScene();
-    }
-
-    MatchRenderer getRenderer() {
-        return (MatchRenderer) getSceneRenderer();
     }
 
     class BenchStatus {
