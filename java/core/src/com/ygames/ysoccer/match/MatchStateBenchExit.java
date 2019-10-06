@@ -76,6 +76,6 @@ class MatchStateBenchExit extends MatchState {
             return newAction(RESTORE_FOREGROUND);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

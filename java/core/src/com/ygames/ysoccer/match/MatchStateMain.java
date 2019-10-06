@@ -330,11 +330,6 @@ class MatchStateMain extends MatchState {
                 break;
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
@@ -347,6 +342,6 @@ class MatchStateMain extends MatchState {
             return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

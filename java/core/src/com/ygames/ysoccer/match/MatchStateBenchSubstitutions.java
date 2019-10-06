@@ -1,9 +1,7 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
@@ -116,10 +114,10 @@ class MatchStateBenchSubstitutions extends MatchState {
             }
         }
 
-        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (getFsm().benchStatus.inputDevice.xReleased()) {
             return newAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

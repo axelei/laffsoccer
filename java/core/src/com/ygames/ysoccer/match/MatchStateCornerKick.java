@@ -5,7 +5,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
-import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
@@ -121,11 +120,6 @@ class MatchStateCornerKick extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
 
-        if (Gdx.input.isKeyPressed(ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(R)) {
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
@@ -148,6 +142,6 @@ class MatchStateCornerKick extends MatchState {
             }
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

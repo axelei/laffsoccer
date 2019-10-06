@@ -127,11 +127,6 @@ class MatchStateFreeKick extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
 
-        if (Gdx.input.isKeyPressed(ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(R)) {
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
@@ -154,6 +149,6 @@ class MatchStateFreeKick extends MatchState {
             }
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

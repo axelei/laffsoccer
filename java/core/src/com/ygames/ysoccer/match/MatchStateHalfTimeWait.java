@@ -62,11 +62,6 @@ class MatchStateHalfTimeWait extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_HALF_TIME_ENTER);
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.P)) {
             return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
@@ -75,6 +70,6 @@ class MatchStateHalfTimeWait extends MatchState {
             return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

@@ -109,11 +109,6 @@ class MatchStateGoalKickStop extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_GOAL_KICK);
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
@@ -136,6 +131,6 @@ class MatchStateGoalKickStop extends MatchState {
             }
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

@@ -138,11 +138,6 @@ class MatchStateGoal extends MatchState {
             }
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             replayDone = true;
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
@@ -156,6 +151,6 @@ class MatchStateGoal extends MatchState {
             return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

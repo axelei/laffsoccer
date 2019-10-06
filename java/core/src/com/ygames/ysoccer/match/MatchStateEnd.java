@@ -61,7 +61,6 @@ class MatchStateEnd extends MatchState {
 
         if (match.team[HOME].fire1Up() != null
                 || match.team[AWAY].fire1Up() != null
-                || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
             quitMatch();
             return null;
@@ -75,6 +74,6 @@ class MatchStateEnd extends MatchState {
             return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

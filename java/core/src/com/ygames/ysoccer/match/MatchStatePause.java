@@ -66,7 +66,7 @@ class MatchStatePause extends MatchState {
             return newFadedAction(NEW_FOREGROUND, STATE_REPLAY);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 
     @Override

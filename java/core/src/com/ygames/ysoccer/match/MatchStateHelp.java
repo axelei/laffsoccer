@@ -56,7 +56,7 @@ class MatchStateHelp extends MatchState {
             }
         }
 
-        return null;
+        return checkCommonConditions();
     }
 
     @Override

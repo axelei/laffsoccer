@@ -73,10 +73,10 @@ class MatchStateBenchTactics extends MatchState {
         }
 
         // go back to bench
-        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (getFsm().benchStatus.inputDevice.xReleased()) {
             return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

@@ -77,11 +77,6 @@ class MatchStatePenaltiesStop extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_PENALTIES);
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            quitMatch();
-            return null;
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
         }
@@ -94,6 +89,6 @@ class MatchStatePenaltiesStop extends MatchState {
             return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

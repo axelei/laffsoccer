@@ -1,5 +1,10 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+
+import static com.badlogic.gdx.Input.Keys.ESCAPE;
+
 abstract class MatchState extends SceneState {
 
     boolean displayControlledPlayer;
@@ -29,6 +34,16 @@ abstract class MatchState extends SceneState {
 
     MatchFsm getFsm() {
         return (MatchFsm) fsm;
+    }
+
+    SceneFsm.Action[] checkCommonConditions() {
+
+        if (Gdx.input.isKeyPressed(ESCAPE)) {
+            quitMatch();
+            return null;
+        }
+
+        return null;
     }
 
     void quitMatch() {

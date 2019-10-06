@@ -93,10 +93,10 @@ class MatchStateBenchEnter extends MatchState {
         cameraX = sceneRenderer.actionCamera.x;
         cameraY = sceneRenderer.actionCamera.y;
 
-        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (getFsm().benchStatus.inputDevice.xReleased()) {
             return newAction(NEW_FOREGROUND, STATE_BENCH_EXIT);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

@@ -1,10 +1,8 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import java.util.Collections;
 
@@ -156,7 +154,7 @@ class MatchStateBenchFormation extends MatchState {
         }
 
         // go back to bench substitutions
-        if (getFsm().benchStatus.inputDevice.xReleased() || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+        if (getFsm().benchStatus.inputDevice.xReleased()) {
             getFsm().benchStatus.selectedPosition = -1;
 
             // reset eventually pending swap or substitution
@@ -172,6 +170,6 @@ class MatchStateBenchFormation extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
 
-        return null;
+        return checkCommonConditions();
     }
 }

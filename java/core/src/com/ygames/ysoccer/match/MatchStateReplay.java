@@ -4,12 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
@@ -119,7 +119,16 @@ class MatchStateReplay extends MatchState {
             return quitAction();
         }
 
-        return null;
+        return checkCommonConditions();
+    }
+
+    private SceneFsm.Action[] quitAction() {
+        // if final frame is different from starting frame then add fading
+        if (position != Const.REPLAY_SUBFRAMES) {
+            return newFadedAction(RESTORE_FOREGROUND);
+        } else {
+            return newAction(RESTORE_FOREGROUND);
+        }
     }
 
     @Override
@@ -157,15 +166,6 @@ class MatchStateReplay extends MatchState {
 
         if (paused) {
             Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
-        }
-    }
-
-    private SceneFsm.Action[] quitAction() {
-        // if final frame is different from starting frame then add fading
-        if (position != Const.REPLAY_SUBFRAMES) {
-            return newFadedAction(RESTORE_FOREGROUND);
-        } else {
-            return newAction(RESTORE_FOREGROUND);
         }
     }
 }

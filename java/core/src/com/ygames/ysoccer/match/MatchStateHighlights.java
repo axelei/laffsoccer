@@ -109,12 +109,6 @@ class MatchStateHighlights extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
 
-        // quit on ESC
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            showCurrentRecord = false;
-            return newFadedAction(NEW_FOREGROUND, STATE_END);
-        }
-
         // quit on fire button
         for (InputDevice d : match.game.inputDevices) {
             if (d.fire1Down()) {
@@ -134,7 +128,7 @@ class MatchStateHighlights extends MatchState {
             }
         }
 
-        return null;
+        return checkCommonConditions();
     }
 
     @Override
