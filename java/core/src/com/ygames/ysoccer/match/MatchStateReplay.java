@@ -31,6 +31,8 @@ class MatchStateReplay extends MatchState {
 
         displayWindVane = true;
         displayControlledPlayer = Settings.development;
+
+        checkReplayKey = false;
     }
 
     @Override

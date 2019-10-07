@@ -15,6 +15,8 @@ class MatchStateHelp extends MatchState {
 
     MatchStateHelp(MatchFsm fsm) {
         super(STATE_HELP, fsm);
+
+        checkReplayKey = false;
     }
 
     @Override

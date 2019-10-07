@@ -18,6 +18,8 @@ class MatchStateBenchExit extends MatchState {
 
     MatchStateBenchExit(MatchFsm fsm) {
         super(STATE_BENCH_EXIT, fsm);
+
+        checkReplayKey = false;
     }
 
     @Override

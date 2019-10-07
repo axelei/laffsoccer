@@ -20,6 +20,8 @@ class MatchStatePause extends MatchState {
 
     MatchStatePause(MatchFsm fsm) {
         super(STATE_PAUSE, fsm);
+
+        checkReplayKey = false;
     }
 
     @Override

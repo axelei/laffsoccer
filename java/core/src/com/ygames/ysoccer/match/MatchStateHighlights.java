@@ -34,6 +34,8 @@ class MatchStateHighlights extends MatchState {
         super(STATE_HIGHLIGHTS, fsm);
 
         displayWindVane = true;
+
+        checkReplayKey = false;
     }
 
     @Override

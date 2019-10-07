@@ -21,6 +21,8 @@ class MatchStateBenchSubstitutions extends MatchState {
 
     MatchStateBenchSubstitutions(MatchFsm fsm) {
         super(STATE_BENCH_SUBSTITUTIONS, fsm);
+
+        checkReplayKey = false;
     }
 
     @Override

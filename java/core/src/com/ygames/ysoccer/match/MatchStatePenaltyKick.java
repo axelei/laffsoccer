@@ -127,10 +127,6 @@ class MatchStatePenaltyKick extends MatchState {
             }
         }
 
-        if (Gdx.input.isKeyPressed(R)) {
-            return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
-        }
-
         if (Gdx.input.isKeyPressed(P)) {
             return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }

@@ -32,6 +32,8 @@ class MatchStateGoal extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+
+        checkReplayKey = false;
     }
 
     @Override

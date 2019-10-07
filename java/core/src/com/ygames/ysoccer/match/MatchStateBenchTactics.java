@@ -1,10 +1,8 @@
 package com.ygames.ysoccer.match;
 
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
@@ -16,6 +14,8 @@ class MatchStateBenchTactics extends MatchState {
 
     MatchStateBenchTactics(MatchFsm fsm) {
         super(STATE_BENCH_TACTICS, fsm);
+
+        checkReplayKey = false;
     }
 
     @Override

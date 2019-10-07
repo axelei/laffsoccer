@@ -20,6 +20,8 @@ class MatchStateBenchFormation extends MatchState {
 
     MatchStateBenchFormation(MatchFsm fsm) {
         super(STATE_BENCH_FORMATION, fsm);
+
+        checkReplayKey = false;
     }
 
     @Override

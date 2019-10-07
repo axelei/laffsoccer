@@ -22,6 +22,8 @@ class MatchStateEnd extends MatchState {
         super(STATE_END, fsm);
 
         displayStatistics = true;
+
+        checkReplayKey = false;
     }
 
     @Override
