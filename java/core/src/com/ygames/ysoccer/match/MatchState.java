@@ -1,11 +1,10 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.R;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 
 abstract class MatchState extends SceneState {
@@ -24,19 +23,14 @@ abstract class MatchState extends SceneState {
     boolean displayBenchFormation;
     boolean displayTacticsSwitch;
 
-    boolean checkReplayKey;
+    boolean checkReplayKey = true;
 
-    // convenience references
-    protected Match match;
+    Match match;
 
-    MatchState(MatchFsm.Id id, MatchFsm matchFsm) {
-        super(id, matchFsm);
+    MatchState(MatchFsm matchFsm) {
+        super(matchFsm);
 
         this.match = matchFsm.getMatch();
-
-        fsm.addState(this);
-
-        checkReplayKey = true;
     }
 
     MatchFsm getFsm() {

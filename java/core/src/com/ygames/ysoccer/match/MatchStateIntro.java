@@ -10,11 +10,9 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_INTRO;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_STARTING_POSITIONS;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_STARTING_POSITIONS;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -23,7 +21,7 @@ class MatchStateIntro extends MatchState {
     private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
 
     MatchStateIntro(MatchFsm fsm) {
-        super(STATE_INTRO, fsm);
+        super(fsm);
 
         displayRosters = true;
     }

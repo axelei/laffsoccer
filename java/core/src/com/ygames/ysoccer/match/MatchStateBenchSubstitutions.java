@@ -7,9 +7,8 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Coach.Status.LOOK_BENCH;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_EXIT;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_FORMATION;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_EXIT;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_FORMATION;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_OUT;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_STANDING;
@@ -20,7 +19,7 @@ import static java.lang.Math.min;
 class MatchStateBenchSubstitutions extends MatchState {
 
     MatchStateBenchSubstitutions(MatchFsm fsm) {
-        super(STATE_BENCH_SUBSTITUTIONS, fsm);
+        super(fsm);
 
         checkReplayKey = false;
     }

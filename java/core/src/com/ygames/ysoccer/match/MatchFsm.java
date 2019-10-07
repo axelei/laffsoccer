@@ -9,7 +9,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 public class MatchFsm extends SceneFsm {
 
-    protected boolean matchCompleted;
+    boolean matchCompleted;
 
     final BenchStatus benchStatus;
     final Vector2 throwInPosition;
@@ -17,46 +17,45 @@ public class MatchFsm extends SceneFsm {
     Team cornerKickTeam;
     Team goalKickTeam;
 
-    enum Id {
-        STATE_INTRO,
-        STATE_STARTING_POSITIONS,
-        STATE_KICK_OFF,
-        STATE_MAIN,
-        STATE_THROW_IN_STOP,
-        STATE_THROW_IN,
-        STATE_GOAL_KICK_STOP,
-        STATE_GOAL_KICK,
-        STATE_CORNER_STOP,
-        STATE_CORNER_KICK,
-        STATE_KEEPER_STOP,
-        STATE_GOAL,
-        STATE_HALF_TIME_STOP,
-        STATE_HALF_TIME_POSITIONS,
-        STATE_HALF_TIME_WAIT,
-        STATE_HALF_TIME_ENTER,
-        STATE_FULL_TIME_STOP,
-        STATE_EXTRA_TIME_STOP,
-        STATE_HALF_EXTRA_TIME_STOP,
-        STATE_FULL_EXTRA_TIME_STOP,
-        STATE_END_POSITIONS,
-        STATE_END,
-        STATE_REPLAY,
-        STATE_PAUSE,
-        STATE_HELP,
-        STATE_HIGHLIGHTS,
-        STATE_BENCH_ENTER,
-        STATE_BENCH_EXIT,
-        STATE_BENCH_SUBSTITUTIONS,
-        STATE_BENCH_FORMATION,
-        STATE_BENCH_TACTICS,
-        STATE_FREE_KICK_STOP,
-        STATE_FREE_KICK,
-        STATE_PENALTY_KICK_STOP,
-        STATE_PENALTY_KICK,
-        STATE_PENALTY_KICK_END,
-        STATE_PENALTIES_STOP,
-        STATE_PENALTIES
-    }
+    static int STATE_BENCH_ENTER;
+    static int STATE_BENCH_EXIT;
+    static int STATE_BENCH_FORMATION;
+    static int STATE_BENCH_SUBSTITUTIONS;
+    static int STATE_BENCH_TACTICS;
+    static int STATE_CORNER_KICK;
+    static int STATE_CORNER_STOP;
+    static int STATE_END;
+    static int STATE_END_POSITIONS;
+    static int STATE_EXTRA_TIME_STOP;
+    static int STATE_FREE_KICK;
+    static int STATE_FREE_KICK_STOP;
+    static int STATE_FULL_EXTRA_TIME_STOP;
+    static int STATE_FULL_TIME_STOP;
+    static int STATE_GOAL;
+    static int STATE_GOAL_KICK;
+    static int STATE_GOAL_KICK_STOP;
+    static int STATE_HALF_EXTRA_TIME_STOP;
+    static int STATE_HALF_TIME_ENTER;
+    static int STATE_HALF_TIME_POSITIONS;
+    static int STATE_HALF_TIME_STOP;
+    static int STATE_HALF_TIME_WAIT;
+    static int STATE_HELP;
+    static int STATE_HIGHLIGHTS;
+    private static int STATE_INTRO;
+    static int STATE_KEEPER_STOP;
+    static int STATE_KICK_OFF;
+    static int STATE_MAIN;
+    static int STATE_PAUSE;
+    static int STATE_PENALTIES;
+    static int STATE_PENALTIES_STOP;
+    static int STATE_PENALTY_KICK;
+    static int STATE_PENALTY_KICK_END;
+    static int STATE_PENALTY_KICK_STOP;
+    static int STATE_REPLAY;
+    static int STATE_STARTING_POSITIONS;
+    static int STATE_THROW_IN;
+    static int STATE_THROW_IN_STOP;
+
 
     MatchFsm(Match match) {
         super(match);
@@ -69,49 +68,49 @@ public class MatchFsm extends SceneFsm {
         benchStatus.targetY = -20;
         throwInPosition = new Vector2();
 
-        new MatchStateIntro(this);
-        new MatchStateStartingPositions(this);
-        new MatchStateKickOff(this);
-        new MatchStateMain(this);
-        new MatchStateThrowInStop(this);
-        new MatchStateThrowIn(this);
-        new MatchStateGoalKickStop(this);
-        new MatchStateGoalKick(this);
-        new MatchStateCornerStop(this);
-        new MatchStateCornerKick(this);
-        new MatchStateKeeperStop(this);
-        new MatchStateGoal(this);
-        new MatchStateHalfTimeStop(this);
-        new MatchStateHalfTimePositions(this);
-        new MatchStateHalfTimeWait(this);
-        new MatchStateHalfTimeEnter(this);
-        new MatchStateFullTimeStop(this);
-        new MatchStateExtraTimeStop(this);
-        new MatchStateHalfExtraTimeStop(this);
-        new MatchStateFullExtraTimeStop(this);
-        new MatchStateEndPositions(this);
-        new MatchStateEnd(this);
-        new MatchStateReplay(this);
-        new MatchStatePause(this);
-        new MatchStateHelp(this);
-        new MatchStateHighlights(this);
-        new MatchStateBenchEnter(this);
-        new MatchStateBenchExit(this);
-        new MatchStateBenchSubstitutions(this);
-        new MatchStateBenchFormation(this);
-        new MatchStateBenchTactics(this);
-        new MatchStateFreeKickStop(this);
-        new MatchStateFreeKick(this);
-        new MatchStatePenaltyKickStop(this);
-        new MatchStatePenaltyKick(this);
-        new MatchStatePenaltyKickEnd(this);
-        new MatchStatePenaltiesStop(this);
-        new MatchStatePenalties(this);
+        STATE_BENCH_ENTER = addState(new MatchStateBenchEnter(this));
+        STATE_BENCH_EXIT = addState(new MatchStateBenchExit(this));
+        STATE_BENCH_FORMATION = addState(new MatchStateBenchFormation(this));
+        STATE_BENCH_SUBSTITUTIONS = addState(new MatchStateBenchSubstitutions(this));
+        STATE_BENCH_TACTICS = addState(new MatchStateBenchTactics(this));
+        STATE_CORNER_KICK = addState(new MatchStateCornerKick(this));
+        STATE_CORNER_STOP = addState(new MatchStateCornerStop(this));
+        STATE_END = addState(new MatchStateEnd(this));
+        STATE_END_POSITIONS = addState(new MatchStateEndPositions(this));
+        STATE_EXTRA_TIME_STOP = addState(new MatchStateExtraTimeStop(this));
+        STATE_FREE_KICK = addState(new MatchStateFreeKick(this));
+        STATE_FREE_KICK_STOP = addState(new MatchStateFreeKickStop(this));
+        STATE_FULL_EXTRA_TIME_STOP = addState(new MatchStateFullExtraTimeStop(this));
+        STATE_FULL_TIME_STOP = addState(new MatchStateFullTimeStop(this));
+        STATE_GOAL = addState(new MatchStateGoal(this));
+        STATE_GOAL_KICK = addState(new MatchStateGoalKick(this));
+        STATE_GOAL_KICK_STOP = addState(new MatchStateGoalKickStop(this));
+        STATE_HALF_EXTRA_TIME_STOP = addState(new MatchStateHalfExtraTimeStop(this));
+        STATE_HALF_TIME_ENTER = addState(new MatchStateHalfTimeEnter(this));
+        STATE_HALF_TIME_POSITIONS = addState(new MatchStateHalfTimePositions(this));
+        STATE_HALF_TIME_STOP = addState(new MatchStateHalfTimeStop(this));
+        STATE_HALF_TIME_WAIT = addState(new MatchStateHalfTimeWait(this));
+        STATE_HELP = addState(new MatchStateHelp(this));
+        STATE_HIGHLIGHTS = addState(new MatchStateHighlights(this));
+        STATE_INTRO = addState(new MatchStateIntro(this));
+        STATE_KEEPER_STOP = addState(new MatchStateKeeperStop(this));
+        STATE_KICK_OFF = addState(new MatchStateKickOff(this));
+        STATE_MAIN = addState(new MatchStateMain(this));
+        STATE_PAUSE = addState(new MatchStatePause(this));
+        STATE_PENALTIES = addState(new MatchStatePenalties(this));
+        STATE_PENALTIES_STOP = addState(new MatchStatePenaltiesStop(this));
+        STATE_PENALTY_KICK = addState(new MatchStatePenaltyKick(this));
+        STATE_PENALTY_KICK_END = addState(new MatchStatePenaltyKickEnd(this));
+        STATE_PENALTY_KICK_STOP = addState(new MatchStatePenaltyKickStop(this));
+        STATE_REPLAY = addState(new MatchStateReplay(this));
+        STATE_STARTING_POSITIONS = addState(new MatchStateStartingPositions(this));
+        STATE_THROW_IN = addState(new MatchStateThrowIn(this));
+        STATE_THROW_IN_STOP = addState(new MatchStateThrowInStop(this));
     }
 
     @Override
     public void start() {
-        pushAction(NEW_FOREGROUND, Id.STATE_INTRO);
+        pushAction(NEW_FOREGROUND, STATE_INTRO);
         pushAction(FADE_IN);
     }
 

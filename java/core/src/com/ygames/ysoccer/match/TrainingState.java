@@ -5,22 +5,19 @@ abstract class TrainingState extends SceneState {
     boolean displayControlledPlayer;
 
     // convenience references
-    protected final Training training;
-    protected final Team[] team;
-    protected final Ball ball;
+    final Training training;
+    final Team[] team;
+    final Ball ball;
 
-    TrainingState(TrainingFsm.Id id, TrainingFsm trainingFsm) {
-        super(id, trainingFsm);
+    TrainingState(TrainingFsm trainingFsm) {
+        super(trainingFsm);
 
         this.training = trainingFsm.getTraining();
         this.team = training.team;
         this.ball = training.ball;
-        this.sceneRenderer = trainingFsm.getRenderer();
-
-        fsm.addState(this);
     }
 
-    SceneFsm.Action[] newFadedAction(SceneFsm.ActionType type, Enum stateId) {
+    SceneFsm.Action[] newFadedAction(SceneFsm.ActionType type, int stateId) {
         return fsm.newFadedAction(type, stateId);
     }
 

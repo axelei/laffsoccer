@@ -12,7 +12,6 @@ import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 
@@ -27,7 +26,7 @@ class MatchStateReplay extends MatchState {
     private InputDevice inputDevice;
 
     MatchStateReplay(MatchFsm fsm) {
-        super(STATE_REPLAY, fsm);
+        super(fsm);
 
         displayWindVane = true;
         displayControlledPlayer = Settings.development;
@@ -125,7 +124,7 @@ class MatchStateReplay extends MatchState {
     }
 
     private SceneFsm.Action[] quitAction() {
-        // if final frame is different from starting frame then add fading
+        // if final frame is different from starting frame then fade out
         if (position != Const.REPLAY_SUBFRAMES) {
             return newFadedAction(RESTORE_FOREGROUND);
         } else {

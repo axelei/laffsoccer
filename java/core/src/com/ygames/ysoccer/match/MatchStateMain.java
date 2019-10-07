@@ -12,23 +12,21 @@ import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_CORNER_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_EXTRA_TIME_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FULL_EXTRA_TIME_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FULL_TIME_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_GOAL_KICK_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_EXTRA_TIME_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_KEEPER_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_THROW_IN_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_CORNER_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_EXTRA_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_FREE_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_FULL_EXTRA_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_FULL_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_GOAL;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_GOAL_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_EXTRA_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_KEEPER_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_THROW_IN_STOP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -43,7 +41,7 @@ class MatchStateMain extends MatchState {
     private Event event;
 
     MatchStateMain(MatchFsm fsm) {
-        super(STATE_MAIN, fsm);
+        super(fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

@@ -9,17 +9,16 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateEnd extends MatchState {
 
     MatchStateEnd(MatchFsm fsm) {
-        super(STATE_END, fsm);
+        super(fsm);
 
         displayStatistics = true;
 

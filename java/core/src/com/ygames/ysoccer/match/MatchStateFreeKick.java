@@ -2,26 +2,22 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
-import com.ygames.ysoccer.framework.EMath;
 
-import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.badlogic.gdx.Input.Keys.P;
-import static com.badlogic.gdx.Input.Keys.R;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_FREE_KICK;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_MAIN;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BARRIER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FREE_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
@@ -37,7 +33,7 @@ class MatchStateFreeKick extends MatchState {
     private boolean isKicking;
 
     MatchStateFreeKick(MatchFsm fsm) {
-        super(STATE_FREE_KICK, fsm);
+        super(fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

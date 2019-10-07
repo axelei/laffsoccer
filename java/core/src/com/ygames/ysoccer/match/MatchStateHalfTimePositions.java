@@ -7,11 +7,9 @@ import com.ygames.ysoccer.framework.GLGame;
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_POSITIONS;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_WAIT;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_WAIT;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -21,7 +19,7 @@ class MatchStateHalfTimePositions extends MatchState {
     private boolean move;
 
     MatchStateHalfTimePositions(MatchFsm fsm) {
-        super(STATE_HALF_TIME_POSITIONS, fsm);
+        super(fsm);
 
         displayTime = true;
         displayWindVane = true;

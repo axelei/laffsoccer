@@ -11,12 +11,10 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_ENTER;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_THROW_IN;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_THROW_IN_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_THROW_IN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -26,7 +24,7 @@ class MatchStateThrowInStop extends MatchState {
     private boolean move;
 
     MatchStateThrowInStop(MatchFsm fsm) {
-        super(STATE_THROW_IN_STOP, fsm);
+        super(fsm);
 
         displayControlledPlayer = true;
         displayBallOwner = true;

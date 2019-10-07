@@ -8,17 +8,16 @@ import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_ENTER;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HALF_TIME_WAIT;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_ENTER;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateHalfTimeWait extends MatchState {
 
     MatchStateHalfTimeWait(MatchFsm fsm) {
-        super(STATE_HALF_TIME_WAIT, fsm);
+        super(fsm);
 
         displayTime = true;
         displayWindVane = true;

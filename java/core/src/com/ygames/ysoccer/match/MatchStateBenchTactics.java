@@ -6,14 +6,13 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_SUBSTITUTIONS;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_TACTICS;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateBenchTactics extends MatchState {
 
     MatchStateBenchTactics(MatchFsm fsm) {
-        super(STATE_BENCH_TACTICS, fsm);
+        super(fsm);
 
         checkReplayKey = false;
     }

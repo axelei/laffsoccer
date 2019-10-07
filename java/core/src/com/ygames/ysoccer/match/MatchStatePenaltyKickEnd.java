@@ -12,12 +12,10 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Match.PenaltyState.MISSED;
 import static com.ygames.ysoccer.match.Match.PenaltyState.SCORED;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTIES;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PENALTY_KICK_END;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_END_POSITIONS;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
@@ -31,7 +29,7 @@ class MatchStatePenaltyKickEnd extends MatchState {
     private Player keeper;
 
     MatchStatePenaltyKickEnd(MatchFsm fsm) {
-        super(STATE_PENALTY_KICK_END, fsm);
+        super(fsm);
 
         displayWindVane = true;
         displayPenaltiesScore = true;

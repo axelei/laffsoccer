@@ -7,8 +7,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 
@@ -19,7 +18,7 @@ class MatchStatePause extends MatchState {
     private boolean resume;
 
     MatchStatePause(MatchFsm fsm) {
-        super(STATE_PAUSE, fsm);
+        super(fsm);
 
         checkReplayKey = false;
     }

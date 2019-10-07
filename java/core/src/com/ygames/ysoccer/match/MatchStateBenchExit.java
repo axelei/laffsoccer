@@ -8,7 +8,6 @@ import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.WARP;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_BENCH_EXIT;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
@@ -17,7 +16,7 @@ import static java.lang.Math.min;
 class MatchStateBenchExit extends MatchState {
 
     MatchStateBenchExit(MatchFsm fsm) {
-        super(STATE_BENCH_EXIT, fsm);
+        super(fsm);
 
         checkReplayKey = false;
     }

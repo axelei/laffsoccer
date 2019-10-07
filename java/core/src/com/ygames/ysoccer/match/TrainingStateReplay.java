@@ -14,7 +14,6 @@ import com.ygames.ysoccer.framework.Settings;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
-import static com.ygames.ysoccer.match.TrainingFsm.Id.STATE_REPLAY;
 
 class TrainingStateReplay extends TrainingState {
 
@@ -27,7 +26,7 @@ class TrainingStateReplay extends TrainingState {
     private InputDevice inputDevice;
 
     TrainingStateReplay(TrainingFsm fsm) {
-        super(STATE_REPLAY, fsm);
+        super(fsm);
 
         displayControlledPlayer = Settings.showPlayerNumber;
     }
@@ -49,6 +48,11 @@ class TrainingStateReplay extends TrainingState {
         position = 0;
 
         inputDevice = null;
+    }
+
+    @Override
+    void exitActions() {
+        training.subframe = subframe0;
     }
 
     @Override
@@ -121,6 +125,15 @@ class TrainingStateReplay extends TrainingState {
         return null;
     }
 
+    private SceneFsm.Action[] quitAction() {
+        // if final frame is different from starting frame then fade out
+        if (position != Const.REPLAY_SUBFRAMES) {
+            return newFadedAction(RESTORE_FOREGROUND);
+        } else {
+            return newAction(RESTORE_FOREGROUND);
+        }
+    }
+
     @Override
     void render() {
         super.render();
@@ -134,8 +147,9 @@ class TrainingStateReplay extends TrainingState {
             Assets.font10.draw(sceneRenderer.batch, "SUBFRAME: " + training.subframe + " / " + Const.REPLAY_SUBFRAMES, 30, 62, Font.Align.LEFT);
         }
 
-        sceneRenderer.batch.end();
         float a = position * 360f / Const.REPLAY_SUBFRAMES;
+
+        sceneRenderer.batch.end();
         GLShapeRenderer shapeRenderer = sceneRenderer.shapeRenderer;
         shapeRenderer.setProjectionMatrix(sceneRenderer.camera.combined);
         shapeRenderer.setAutoShapeType(true);
@@ -155,15 +169,6 @@ class TrainingStateReplay extends TrainingState {
 
         if (paused) {
             Assets.font10.draw(sceneRenderer.batch, gettext("PAUSE"), sceneRenderer.guiWidth / 2, 22, Font.Align.CENTER);
-        }
-    }
-
-    private SceneFsm.Action[] quitAction() {
-        // if final frame is different from starting frame then fade out
-        if (position != Const.REPLAY_SUBFRAMES) {
-            return newFadedAction(RESTORE_FOREGROUND);
-        } else {
-            return newAction(RESTORE_FOREGROUND);
         }
     }
 }

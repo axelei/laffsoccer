@@ -25,16 +25,16 @@ abstract class SceneFsm {
 
     class Action {
         final ActionType type;
-        final Enum stateId;
+        final int stateId;
         int timer;
 
-        Action(ActionType type, Enum stateId) {
+        Action(ActionType type, int stateId) {
             this.type = type;
             this.stateId = stateId;
         }
 
         Action(ActionType type) {
-            this(type, null);
+            this(type, -1);
         }
 
         void update() {
@@ -67,12 +67,14 @@ abstract class SceneFsm {
         return scene;
     }
 
-    public SceneState getState() {
+    SceneState getState() {
         return currentState;
     }
 
-    void addState(SceneState state) {
+    int addState(SceneState state) {
+        state.setId(states.size());
         states.add(state);
+        return state.getId();
     }
 
     public abstract void start();
@@ -186,7 +188,7 @@ abstract class SceneFsm {
         }
     }
 
-    private SceneState searchState(Enum id) {
+    private SceneState searchState(int id) {
         for (int i = 0; i < states.size(); i++) {
             SceneState s = states.get(i);
             if (s.checkId(id)) {
@@ -198,18 +200,18 @@ abstract class SceneFsm {
     }
 
     void pushAction(ActionType type) {
-        pushAction(type, null);
+        pushAction(type, -1);
     }
 
-    void pushAction(ActionType type, Enum stateId) {
+    void pushAction(ActionType type, int stateId) {
         actions.offer(new Action(type, stateId));
     }
 
-    Action[] newAction(ActionType type, Enum stateId) {
+    Action[] newAction(ActionType type, int stateId) {
         return new Action[]{new Action(type, stateId)};
     }
 
-    Action[] newFadedAction(ActionType type, Enum stateId) {
+    Action[] newFadedAction(ActionType type, int stateId) {
         return new Action[]{
                 new Action(FADE_OUT),
                 new Action(type, stateId),

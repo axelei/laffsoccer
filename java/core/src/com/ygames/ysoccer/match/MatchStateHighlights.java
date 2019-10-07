@@ -12,10 +12,8 @@ import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.Settings;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_IN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.FADE_OUT;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_END;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
 
@@ -31,7 +29,7 @@ class MatchStateHighlights extends MatchState {
     private InputDevice inputDevice;
 
     MatchStateHighlights(MatchFsm fsm) {
-        super(STATE_HIGHLIGHTS, fsm);
+        super(fsm);
 
         displayWindVane = true;
 

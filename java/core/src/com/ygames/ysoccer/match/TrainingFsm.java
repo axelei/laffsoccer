@@ -5,10 +5,8 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 public class TrainingFsm extends SceneFsm {
 
-    enum Id {
-        STATE_FREE,
-        STATE_REPLAY
-    }
+    private static int STATE_FREE;
+    static int STATE_REPLAY;
 
     TrainingFsm(Training training) {
         super(training);
@@ -16,13 +14,13 @@ public class TrainingFsm extends SceneFsm {
         setHotKeys(new TrainingHotKeys(training));
         setSceneRenderer(new TrainingRenderer(training.game.glGraphics, training));
 
-        new TrainingStateFree(this);
-        new TrainingStateReplay(this);
+        STATE_FREE = addState(new TrainingStateFree(this));
+        STATE_REPLAY = addState(new TrainingStateReplay(this));
     }
 
     @Override
     public void start() {
-        pushAction(NEW_FOREGROUND, Id.STATE_FREE);
+        pushAction(NEW_FOREGROUND, STATE_FREE);
         pushAction(FADE_IN);
     }
 

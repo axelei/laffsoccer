@@ -8,12 +8,10 @@ import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_END_POSITIONS;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_HIGHLIGHTS;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_PAUSE;
-import static com.ygames.ysoccer.match.MatchFsm.Id.STATE_REPLAY;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_END;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -23,7 +21,7 @@ class MatchStateEndPositions extends MatchState {
     private boolean move;
 
     MatchStateEndPositions(MatchFsm fsm) {
-        super(STATE_END_POSITIONS, fsm);
+        super(fsm);
     }
 
     @Override

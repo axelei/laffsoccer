@@ -2,15 +2,22 @@ package com.ygames.ysoccer.match;
 
 abstract class SceneState {
 
-    private final Enum id;
+    private int id;
     final SceneFsm fsm;
-    protected SceneRenderer sceneRenderer;
-    protected int timer;
+    SceneRenderer sceneRenderer;
+    int timer;
 
-    SceneState(Enum id, SceneFsm fsm) {
-        this.id = id;
+    SceneState(SceneFsm fsm) {
         this.fsm = fsm;
         this.sceneRenderer = fsm.getSceneRenderer();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     void entryActions() {
@@ -25,20 +32,20 @@ abstract class SceneState {
         fsm.getHotKeys().update();
     }
 
-    SceneFsm.Action[] newAction(SceneFsm.ActionType type, Enum stateId) {
+    SceneFsm.Action[] newAction(SceneFsm.ActionType type, int stateId) {
         return fsm.newAction(type, stateId);
     }
 
     SceneFsm.Action[] newAction(SceneFsm.ActionType type) {
-        return newAction(type, null);
+        return newAction(type, -1);
     }
 
-    SceneFsm.Action[] newFadedAction(SceneFsm.ActionType type, Enum stateId) {
+    SceneFsm.Action[] newFadedAction(SceneFsm.ActionType type, int stateId) {
         return fsm.newFadedAction(type, stateId);
     }
 
     SceneFsm.Action[] newFadedAction(SceneFsm.ActionType type) {
-        return newFadedAction(type, null);
+        return newFadedAction(type, -1);
     }
 
     void onResume() {
@@ -49,7 +56,7 @@ abstract class SceneState {
 
     abstract SceneFsm.Action[] checkConditions();
 
-    boolean checkId(Enum id) {
+    boolean checkId(int id) {
         return (this.id == id);
     }
 
