@@ -58,6 +58,7 @@ class DeveloperInfo extends GLScreen {
 
         w = new ExitButton();
         widgets.add(w);
+        setSelectedWidget(w);
     }
 
     private class ExitButton extends Button {

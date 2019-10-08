@@ -256,7 +256,9 @@ public class MatchRenderer extends SceneRenderer {
                 if (player.role == Player.Role.GOALKEEPER) {
                     d = player.data[subframe];
                     if (d.isVisible) {
-                        batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - 24 + 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                        float offsetX = PlayerSprite.keeperOffsets[d.fmy][d.fmx][0];
+                        float offsetY = PlayerSprite.keeperOffsets[d.fmy][d.fmx][1];
+                        batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - offsetX + 0.65f * d.z, d.y - offsetY + 0.46f * d.z);
                         if (match.settings.time == MatchSettings.Time.NIGHT) {
                             // TODO activate after getting keeper shadows
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
@@ -275,8 +277,8 @@ public class MatchRenderer extends SceneRenderer {
                     if (player.role != Player.Role.GOALKEEPER) {
                         d = player.data[subframe];
                         if (d.isVisible) {
-                            float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
-                            float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
+                            float offsetX = PlayerSprite.playerOffsets[d.fmy][d.fmx][0];
+                            float offsetY = PlayerSprite.playerOffsets[d.fmy][d.fmx][1];
                             float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
                             float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
                             batch.draw(Assets.playerShadow[d.fmx][d.fmy][i], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);

@@ -321,8 +321,8 @@ public class Player implements Json.Serializable {
             int fmy = Math.abs((int) Math.floor(this.fmy));
 
             // offset
-            int offX = +24 + Math.round(ball.x - x);
-            int offY = +34 + Math.round(-ball.z - Const.BALL_R + z);
+            int offX = PlayerSprite.keeperOffsets[fmy][fmx][0] + Math.round(ball.x - x);
+            int offY = PlayerSprite.keeperOffsets[fmy][fmx][1] + Math.round(-ball.z - Const.BALL_R + z);
 
             // verify if the pixel is inside the frame
             if ((offX < 0) || (offX >= 50)) {

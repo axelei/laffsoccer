@@ -29,7 +29,7 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 
 class EditTactics extends GLScreen {
 
-    boolean copyMode;
+    private boolean copyMode;
     private Team team;
     private int selectedForSwap;
     private int selectedForPair;
@@ -355,16 +355,16 @@ class EditTactics extends GLScreen {
         protected void drawImage(GLSpriteBatch batch) {
             Player player = team.players.get(ply);
             if (player != null) {
-                player.x = x + w / 2 - 1;
-                player.y = y + h / 2;
+                player.x = x + w / 2f - 1;
+                player.y = y + h / 2f;
 
                 batch.begin();
 
                 player.save(0);
 
                 Data d = player.data[0];
-                float offsetX = PlayerSprite.offsets[d.fmy][d.fmx][0];
-                float offsetY = PlayerSprite.offsets[d.fmy][d.fmx][1];
+                float offsetX = PlayerSprite.playerOffsets[d.fmy][d.fmx][0];
+                float offsetY = PlayerSprite.playerOffsets[d.fmy][d.fmx][1];
                 float mX = 0.65f;
                 float mY = 0.46f;
                 batch.draw(Assets.playerShadow[d.fmx][d.fmy][0], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
@@ -387,7 +387,7 @@ class EditTactics extends GLScreen {
                     dx = dx + w1 + 2;
                     batch.draw(Assets.playerNumbers[f0][0], dx, dy);
                 } else {
-                    batch.draw(Assets.playerNumbers[f0][0], dx - w0 / 2, dy);
+                    batch.draw(Assets.playerNumbers[f0][0], dx - w0 / 2f, dy);
                 }
                 batch.end();
             }
@@ -752,7 +752,7 @@ class EditTactics extends GLScreen {
 
     private class AbortButton extends Button {
 
-        public AbortButton() {
+        AbortButton() {
             setGeometry(1120 - 170 / 2, 590, 170, 40);
             setColor(0xC84200);
             setText(Assets.strings.get("ABORT"), Font.Align.CENTER, Assets.font14);
@@ -811,7 +811,7 @@ class EditTactics extends GLScreen {
                 w.setColor(0x0046A6);
             }
             // out
-            else if (pos < team.players.size()) {
+            else {
                 w.setColor(0x303030);
             }
         }
