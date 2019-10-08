@@ -27,6 +27,8 @@ class MatchStatePenaltiesEnd extends MatchState {
 
         displayWindVane = true;
         displayPenaltiesScore = true;
+
+        checkBenchCall = false;
     }
 
     @Override

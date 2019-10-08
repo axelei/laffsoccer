@@ -2,7 +2,6 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.InputDevice;
 
 import java.util.ArrayList;
 
@@ -11,12 +10,10 @@ import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_FREE_KICK;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateFreeKickStop extends MatchState {
@@ -121,17 +118,6 @@ class MatchStateFreeKickStop extends MatchState {
             match.ball.updatePrediction();
 
             return newAction(NEW_FOREGROUND, STATE_FREE_KICK);
-        }
-
-        InputDevice inputDevice;
-        for (int t = HOME; t <= AWAY; t++) {
-            inputDevice = match.team[t].fire2Down();
-            if (inputDevice != null) {
-                getFsm().benchStatus.team = match.team[t];
-                getFsm().benchStatus.inputDevice = inputDevice;
-
-                return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-            }
         }
 
         return checkCommonConditions();

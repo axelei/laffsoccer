@@ -21,7 +21,10 @@ class MatchStatePenalties extends MatchState {
     MatchStatePenalties(MatchFsm fsm) {
         super(fsm);
 
+        displayWindVane = true;
         displayPenaltiesScore = true;
+
+        checkBenchCall = false;
     }
 
     @Override

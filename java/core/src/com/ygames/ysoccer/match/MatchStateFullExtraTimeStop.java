@@ -16,6 +16,8 @@ class MatchStateFullExtraTimeStop extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+
+        checkBenchCall = false;
     }
 
     @Override

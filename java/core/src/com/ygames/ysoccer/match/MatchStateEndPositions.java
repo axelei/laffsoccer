@@ -16,6 +16,11 @@ class MatchStateEndPositions extends MatchState {
 
     MatchStateEndPositions(MatchFsm fsm) {
         super(fsm);
+
+        checkReplayKey = false;
+        checkPauseKey = false;
+        checkHelpKey = false;
+        checkBenchCall = false;
     }
 
     @Override

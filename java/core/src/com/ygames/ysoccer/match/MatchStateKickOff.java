@@ -108,16 +108,6 @@ class MatchStateKickOff extends MatchState {
             return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
 
-        InputDevice inputDevice;
-        for (int t = HOME; t <= AWAY; t++) {
-            inputDevice = match.team[t].fire2Down();
-            if (inputDevice != null) {
-                getFsm().benchStatus.team = match.team[t];
-                getFsm().benchStatus.inputDevice = inputDevice;
-                return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-            }
-        }
-
         return checkCommonConditions();
     }
 }

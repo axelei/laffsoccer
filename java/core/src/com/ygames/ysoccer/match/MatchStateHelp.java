@@ -18,6 +18,7 @@ class MatchStateHelp extends MatchState {
         checkReplayKey = false;
         checkPauseKey = false;
         checkHelpKey = false;
+        checkBenchCall = false;
     }
 
     @Override

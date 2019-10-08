@@ -14,6 +14,8 @@ class MatchStatePenaltiesStop extends MatchState {
         super(fsm);
 
         displayWindVane = true;
+
+        checkBenchCall = false;
     }
 
     @Override

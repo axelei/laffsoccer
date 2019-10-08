@@ -18,6 +18,8 @@ class MatchStateIntro extends MatchState {
         super(fsm);
 
         displayRosters = true;
+
+        checkBenchCall = false;
     }
 
     @Override

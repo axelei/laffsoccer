@@ -21,6 +21,8 @@ class MatchStatePenaltiesKick extends MatchState {
         displayControlledPlayer = true;
         displayBallOwner = true;
         displayWindVane = true;
+
+        checkBenchCall = false;
     }
 
     @Override

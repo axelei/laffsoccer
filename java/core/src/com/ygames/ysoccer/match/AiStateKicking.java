@@ -1,8 +1,7 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.AI_KICKING;
 import static com.ygames.ysoccer.match.AiFsm.Id.STATE_KICKING;
@@ -94,11 +93,11 @@ class AiStateKicking extends AiState {
         if (nearPostCorrection < farPostCorrection) {
             targetDistance = EMath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
             targetAngle = EMath.angle(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-            Gdx.app.debug(player.shirtName, "Near post angle: " + targetAngle);
+            GLGame.debug(AI_KICKING, player.shirtName, "Near post angle: " + targetAngle);
         } else {
             targetDistance = EMath.dist(player.ball.x, player.ball.y, player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
             targetAngle = EMath.angle(player.ball.x, player.ball.y, -player.ball.xSide * TARGET_X, -player.team.side * GOAL_LINE);
-            Gdx.app.debug(player.shirtName, "Far post angle: " + targetAngle);
+            GLGame.debug(AI_KICKING, player.shirtName, "Far post angle: " + targetAngle);
         }
     }
 }

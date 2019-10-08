@@ -1,11 +1,15 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.ygames.ysoccer.framework.InputDevice;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
+import static com.ygames.ysoccer.match.Match.AWAY;
+import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
@@ -30,6 +34,7 @@ abstract class MatchState extends SceneState {
     boolean checkReplayKey = true;
     boolean checkPauseKey = true;
     boolean checkHelpKey = true;
+    boolean checkBenchCall = true;
 
     Match match;
 
@@ -55,6 +60,17 @@ abstract class MatchState extends SceneState {
 
         if (checkHelpKey && Gdx.input.isKeyPressed(F1)) {
             return newAction(HOLD_FOREGROUND, STATE_HELP);
+        }
+
+        if (checkBenchCall) {
+            for (int t = HOME; t <= AWAY; t++) {
+                InputDevice inputDevice = match.team[t].fire2Down();
+                if (inputDevice != null) {
+                    getFsm().benchStatus.team = match.team[t];
+                    getFsm().benchStatus.inputDevice = inputDevice;
+                    return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
+                }
+            }
         }
 
         if (Gdx.input.isKeyPressed(ESCAPE)) {
