@@ -1,15 +1,11 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_END_POSITIONS;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateFullExtraTimeStop extends MatchState {
@@ -65,10 +61,6 @@ class MatchStateFullExtraTimeStop extends MatchState {
     SceneFsm.Action[] checkConditions() {
         if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
             return newAction(NEW_FOREGROUND, STATE_END_POSITIONS);
-        }
-
-        if (Gdx.input.isKeyPressed(F1)) {
-            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         return checkCommonConditions();

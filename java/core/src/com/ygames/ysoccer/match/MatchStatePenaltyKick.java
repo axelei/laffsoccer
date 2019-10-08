@@ -1,11 +1,9 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 
-import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
@@ -13,7 +11,6 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_END;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
@@ -119,10 +116,6 @@ class MatchStatePenaltyKick extends MatchState {
                 match.penalty = null;
                 return newAction(NEW_FOREGROUND, STATE_MAIN);
             }
-        }
-
-        if (Gdx.input.isKeyPressed(F1)) {
-            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         if (match.period != PENALTIES) {

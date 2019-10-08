@@ -1,17 +1,13 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_STARTING_POSITIONS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateExtraTimeStop extends MatchState {
@@ -80,10 +76,6 @@ class MatchStateExtraTimeStop extends MatchState {
             match.clock = match.length;
 
             return newAction(NEW_FOREGROUND, STATE_STARTING_POSITIONS);
-        }
-
-        if (Gdx.input.isKeyPressed(F1)) {
-            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         return checkCommonConditions();

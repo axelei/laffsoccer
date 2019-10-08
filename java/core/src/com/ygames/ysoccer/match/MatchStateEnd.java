@@ -4,14 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateEnd extends MatchState {
@@ -23,6 +20,7 @@ class MatchStateEnd extends MatchState {
 
         checkReplayKey = false;
         checkPauseKey = false;
+        checkHelpKey = false;
     }
 
     @Override
@@ -65,10 +63,6 @@ class MatchStateEnd extends MatchState {
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
             quitMatch();
             return null;
-        }
-
-        if (Gdx.input.isKeyPressed(F1)) {
-            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         return checkCommonConditions();

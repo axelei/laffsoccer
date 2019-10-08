@@ -5,7 +5,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -20,14 +19,12 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_GOAL;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_GOAL_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_EXTRA_TIME_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_STOP;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_THROW_IN_STOP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateMain extends MatchState {
@@ -324,10 +321,6 @@ class MatchStateMain extends MatchState {
                     }
                 }
                 break;
-        }
-
-        if (Gdx.input.isKeyPressed(F1)) {
-            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         return checkCommonConditions();

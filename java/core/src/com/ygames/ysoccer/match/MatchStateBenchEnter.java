@@ -24,6 +24,7 @@ class MatchStateBenchEnter extends MatchState {
 
         checkReplayKey = false;
         checkPauseKey = false;
+        checkHelpKey = false;
     }
 
     @Override

@@ -1,17 +1,13 @@
 package com.ygames.ysoccer.match;
 
-import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_END;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateEndPositions extends MatchState {
@@ -75,10 +71,6 @@ class MatchStateEndPositions extends MatchState {
             } else {
                 return newAction(NEW_FOREGROUND, STATE_END);
             }
-        }
-
-        if (Gdx.input.isKeyPressed(F1)) {
-            return newAction(HOLD_FOREGROUND, STATE_HELP);
         }
 
         return checkCommonConditions();

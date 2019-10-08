@@ -20,6 +20,7 @@ class MatchStateBenchExit extends MatchState {
 
         checkReplayKey = false;
         checkPauseKey = false;
+        checkHelpKey = false;
     }
 
     @Override
