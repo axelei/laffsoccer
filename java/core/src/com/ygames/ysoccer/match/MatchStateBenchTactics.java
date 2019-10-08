@@ -15,6 +15,7 @@ class MatchStateBenchTactics extends MatchState {
         super(fsm);
 
         checkReplayKey = false;
+        checkPauseKey = false;
     }
 
     @Override

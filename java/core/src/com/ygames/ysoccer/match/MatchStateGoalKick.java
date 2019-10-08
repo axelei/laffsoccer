@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
@@ -15,7 +14,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -104,10 +102,6 @@ class MatchStateGoalKick extends MatchState {
         if (match.ball.v > 0) {
             match.setPlayersState(STATE_STAND_RUN, goalKickPlayer);
             return newAction(NEW_FOREGROUND, STATE_MAIN);
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {

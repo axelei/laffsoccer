@@ -12,7 +12,6 @@ import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_STARTING_POSITIONS;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
@@ -142,10 +141,6 @@ class MatchStateGoal extends MatchState {
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             replayDone = true;
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {

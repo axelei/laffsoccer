@@ -22,6 +22,7 @@ class MatchStateBenchSubstitutions extends MatchState {
         super(fsm);
 
         checkReplayKey = false;
+        checkPauseKey = false;
     }
 
     @Override

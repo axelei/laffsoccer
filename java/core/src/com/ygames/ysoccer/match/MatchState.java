@@ -3,7 +3,9 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
+import static com.badlogic.gdx.Input.Keys.P;
 import static com.badlogic.gdx.Input.Keys.R;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 
@@ -24,6 +26,7 @@ abstract class MatchState extends SceneState {
     boolean displayTacticsSwitch;
 
     boolean checkReplayKey = true;
+    boolean checkPauseKey = true;
 
     Match match;
 
@@ -38,6 +41,10 @@ abstract class MatchState extends SceneState {
     }
 
     SceneFsm.Action[] checkCommonConditions() {
+
+        if (checkPauseKey && Gdx.input.isKeyPressed(P)) {
+            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
+        }
 
         if (checkReplayKey && Gdx.input.isKeyPressed(R)) {
             return newFadedAction(HOLD_FOREGROUND, STATE_REPLAY);

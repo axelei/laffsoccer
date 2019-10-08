@@ -23,6 +23,7 @@ class MatchStateBenchEnter extends MatchState {
         super(fsm);
 
         checkReplayKey = false;
+        checkPauseKey = false;
     }
 
     @Override

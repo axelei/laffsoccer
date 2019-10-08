@@ -34,6 +34,7 @@ class MatchStateHighlights extends MatchState {
         displayWindVane = true;
 
         checkReplayKey = false;
+        checkPauseKey = false;
     }
 
     @Override

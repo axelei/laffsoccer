@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.badlogic.gdx.Input.Keys.F1;
@@ -10,7 +9,6 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -59,10 +57,6 @@ class MatchStateHalfTimeWait extends MatchState {
                 || (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
             match.period = Match.Period.SECOND_HALF;
             return newAction(NEW_FOREGROUND, STATE_HALF_TIME_ENTER);
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {

@@ -32,6 +32,7 @@ class MatchStateReplay extends MatchState {
         displayControlledPlayer = Settings.development;
 
         checkReplayKey = false;
+        checkPauseKey = false;
     }
 
     @Override

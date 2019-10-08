@@ -11,7 +11,6 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -23,6 +22,7 @@ class MatchStateEnd extends MatchState {
         displayStatistics = true;
 
         checkReplayKey = false;
+        checkPauseKey = false;
     }
 
     @Override
@@ -65,10 +65,6 @@ class MatchStateEnd extends MatchState {
                 || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
             quitMatch();
             return null;
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {

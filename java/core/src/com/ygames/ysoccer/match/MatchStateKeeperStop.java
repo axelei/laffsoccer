@@ -1,14 +1,12 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.badlogic.gdx.Input.Keys.F1;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -88,10 +86,6 @@ class MatchStateKeeperStop extends MatchState {
             keeperTeam.setPlayersState(STATE_STAND_RUN, keeper);
             opponentTeam.setPlayersState(STATE_STAND_RUN, null);
             return newAction(NEW_FOREGROUND, STATE_MAIN);
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {

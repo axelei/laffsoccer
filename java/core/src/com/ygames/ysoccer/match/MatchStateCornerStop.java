@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
@@ -15,7 +14,6 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_CORNER_KICK;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HELP;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PAUSE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -106,10 +104,6 @@ class MatchStateCornerStop extends MatchState {
             match.ball.updatePrediction();
 
             return newAction(NEW_FOREGROUND, STATE_CORNER_KICK);
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            return newAction(HOLD_FOREGROUND, STATE_PAUSE);
         }
 
         if (Gdx.input.isKeyPressed(F1)) {
