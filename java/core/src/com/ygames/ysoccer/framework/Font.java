@@ -75,7 +75,7 @@ public class Font {
             }
         }
 
-        loadFontWidths(widths, "font_" + size + ".txt");
+        loadFontWidths(widths, "configs/font_" + size + ".txt");
 
         for (int i = 0; i < 1024; i++) {
             regions[i] = new TextureRegion(texture, (i & 0x3F) * columnWidth, (i >> 6) * rowHeight, regionWidth, regionHeight);

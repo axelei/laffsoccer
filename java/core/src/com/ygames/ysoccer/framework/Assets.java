@@ -66,6 +66,8 @@ public class Assets {
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
     public static List<String> hairStyles;
+    public static Integer[][][] playerHairMap;    // row, column, (frameX, frameY, posX, posY)
+    public static Integer[][][] keeperHairMap;    // row, column, (frameX, frameY, posX, posY)
     public static List<String> currencies;
     public static TextureRegion[] scroll = new TextureRegion[2];
     public static TextureRegion shortArrow;
@@ -230,7 +232,9 @@ public class Assets {
         loadTactics();
         loadKits();
         hairStyles = loadHairStyles();
-        currencies = new ArrayList<>(Arrays.asList(loadJsonFile(String[].class, "currencies.json")));
+        playerHairMap = loadHairMap("configs/player_hair_map.json");
+        keeperHairMap = loadHairMap("configs/keeper_hair_map.json");
+        currencies = new ArrayList<>(Arrays.asList(loadJsonFile(String[].class, "configs/currencies.json")));
         loadScroll();
         shortArrow = loadTextureRegion("images/short_arrow.png");
         loadStars();
@@ -290,7 +294,7 @@ public class Assets {
     private static void loadCalendars() {
         InputStream in = null;
         try {
-            in = Gdx.files.internal("calendars.bin").read();
+            in = Gdx.files.internal("configs/calendars.bin").read();
             byte[] buffer = new byte[1];
             for (int i = 0; i < calendars.length; i++) {
                 in.read(buffer);
@@ -370,6 +374,10 @@ public class Assets {
         }
         Collections.sort(hairStyles);
         return hairStyles;
+    }
+
+    private static Integer[][][] loadHairMap(String path) {
+        return Assets.json.fromJson(Integer[][][].class, Gdx.files.internal(path).readString("UTF-8"));
     }
 
     public static String moneyFormat(double p) {

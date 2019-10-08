@@ -51,7 +51,7 @@ public class PlayerSprite extends Sprite {
                     d.y - 34 - d.z
             );
 
-            int[] hairMap = Hair.keeperMap[d.fmy][d.fmx];
+            Integer[] hairMap = Assets.keeperHairMap[d.fmy][d.fmx];
             if (hairMap[2] != 0 || hairMap[3] != 0) {
                 glGraphics.batch.draw(
                         Assets.hairs.get(player.hair)[hairMap[0]][hairMap[1]],
@@ -68,7 +68,7 @@ public class PlayerSprite extends Sprite {
                     d.y - offsetY - d.z
             );
 
-            int[] hairMap = Hair.playerMap[d.fmy][d.fmx];
+            Integer[] hairMap = Assets.playerHairMap[d.fmy][d.fmx];
             if (hairMap[2] != 0 || hairMap[3] != 0) {
                 glGraphics.batch.draw(
                         Assets.hairs.get(player.hair)[hairMap[0]][hairMap[1]],
