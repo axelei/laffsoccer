@@ -9,10 +9,6 @@ import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGraphics;
 import com.ygames.ysoccer.framework.Settings;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
@@ -20,14 +16,14 @@ import static com.ygames.ysoccer.match.Const.BALL_ZONE_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static java.lang.Math.min;
 
 public class MatchRenderer extends SceneRenderer {
 
-    public Match match;
+    private final Match match;
     private MatchState matchState;
-    private List<PlayerSprite> radarPlayers;
 
     MatchRenderer(GLGraphics glGraphics, Match match) {
         this.batch = glGraphics.batch;
@@ -46,7 +42,6 @@ public class MatchRenderer extends SceneRenderer {
             vCameraY[i] = Math.round(actionCamera.y);
         }
 
-        radarPlayers = new ArrayList<>();
         allSprites.add(new BallSprite(glGraphics, match.ball));
         for (int t = HOME; t <= AWAY; t++) {
             CoachSprite coachSprite = new CoachSprite(glGraphics, match.team[t].coach);
@@ -55,9 +50,6 @@ public class MatchRenderer extends SceneRenderer {
             for (int i = 0; i < len; i++) {
                 PlayerSprite playerSprite = new PlayerSprite(glGraphics, match.team[t].lineup.get(i));
                 allSprites.add(playerSprite);
-                if (i < Const.TEAM_SIZE) {
-                    radarPlayers.add(playerSprite);
-                }
             }
         }
 
@@ -335,11 +327,11 @@ public class MatchRenderer extends SceneRenderer {
             dx = dx + w1 + 2;
             batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
         } else {
-            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2, dy, 6, 10);
+            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
         }
     }
 
-    void drawRosters() {
+    private void drawRosters() {
 
         int l = 13 + (guiWidth - 360) / 5 + 2;
         int r = guiWidth - l + 2;
@@ -498,13 +490,12 @@ public class MatchRenderer extends SceneRenderer {
         shapeRenderer.setColor(0x000000, 1f);
         shapeRenderer.rect(RX, RY, 1, RH);
         shapeRenderer.rect(RX + 1, RY, RW - 2, 1);
-        shapeRenderer.rect(RX + 1, RY + RH / 2, RW - 2, 1);
+        shapeRenderer.rect(RX + 1, RY + RH / 2f, RW - 2, 1);
         shapeRenderer.rect(RX + 1, RY + RH - 1, RW - 2, 1);
         shapeRenderer.rect(RX + RW - 1, RY, 1, RH);
 
         // prepare y-sorted list
         spriteComparator.subframe = subframe;
-        Collections.sort(radarPlayers, spriteComparator);
 
         // shirt colors
         int[] shirt1 = new int[2];
@@ -516,24 +507,29 @@ public class MatchRenderer extends SceneRenderer {
         }
 
         // placeholders
-        for (PlayerSprite playerSprite : radarPlayers) {
-            Player player = playerSprite.player;
-            Data d = player.data[subframe];
-            if (d.isVisible) {
-                int dx = RX + RW / 2 + d.x / 8;
-                int dy = RY + RH / 2 + d.y / 8;
+        for (Sprite sprite : allSprites) {
+            if (sprite.getClass() == PlayerSprite.class) {
+                Player player = ((PlayerSprite) sprite).player;
+                if (player.checkState(STATE_BENCH_SITTING) || player.checkState(STATE_OUTSIDE)) {
+                    continue;
+                }
+                Data d = player.data[subframe];
+                if (d.isVisible) {
+                    int dx = RX + RW / 2 + d.x / 8;
+                    int dy = RY + RH / 2 + d.y / 8;
 
-                shapeRenderer.setColor(0x242424, 1f);
-                shapeRenderer.rect(dx - 3, dy - 3, 6, 1);
-                shapeRenderer.rect(dx - 4, dy - 2, 1, 4);
-                shapeRenderer.rect(dx - 3, dy + 2, 6, 1);
-                shapeRenderer.rect(dx + 3, dy - 2, 1, 4);
+                    shapeRenderer.setColor(0x242424, 1f);
+                    shapeRenderer.rect(dx - 3, dy - 3, 6, 1);
+                    shapeRenderer.rect(dx - 4, dy - 2, 1, 4);
+                    shapeRenderer.rect(dx - 3, dy + 2, 6, 1);
+                    shapeRenderer.rect(dx + 3, dy - 2, 1, 4);
 
-                shapeRenderer.setColor(shirt1[player.team.index], 1f);
-                shapeRenderer.rect(dx - 3, dy - 2, 3, 4);
+                    shapeRenderer.setColor(shirt1[player.team.index], 1f);
+                    shapeRenderer.rect(dx - 3, dy - 2, 3, 4);
 
-                shapeRenderer.setColor(shirt2[player.team.index], 1f);
-                shapeRenderer.rect(dx, dy - 2, 3, 4);
+                    shapeRenderer.setColor(shirt2[player.team.index], 1f);
+                    shapeRenderer.rect(dx, dy - 2, 3, 4);
+                }
             }
         }
 
@@ -543,28 +539,33 @@ public class MatchRenderer extends SceneRenderer {
 
         // controlled players numbers
         if (matchState.displayControlledPlayer) {
-            for (PlayerSprite playerSprite : radarPlayers) {
-                Player player = playerSprite.player;
-                Data d = player.data[subframe];
-                if ((d.isVisible) && (player.inputDevice != player.ai)) {
-                    int dx = RX + RW / 2 + d.x / 8 + 1;
-                    int dy = RY + RH / 2 + d.y / 8 - 10;
+            for (Sprite sprite : allSprites) {
+                if (sprite.getClass() == PlayerSprite.class) {
+                    Player player = ((PlayerSprite) sprite).player;
+                    if (player.checkState(STATE_BENCH_SITTING) || player.checkState(STATE_OUTSIDE)) {
+                        continue;
+                    }
+                    Data d = player.data[subframe];
+                    if ((d.isVisible) && (player.inputDevice != player.ai)) {
+                        int dx = RX + RW / 2 + d.x / 8 + 1;
+                        int dy = RY + RH / 2 + d.y / 8 - 10;
 
-                    int f0 = player.number % 10;
-                    int f1 = (player.number - f0) / 10 % 10;
+                        int f0 = player.number % 10;
+                        int f1 = (player.number - f0) / 10 % 10;
 
-                    int w0, w1;
-                    if (f1 > 0) {
-                        w0 = 4 - (f0 == 1 ? 2 : 0);
-                        w1 = 4 - (f1 == 1 ? 2 : 0);
-                        dx = dx - (w0 + w1) / 2;
-                        batch.draw(Assets.tinyNumbers[f1], dx, dy);
-                        dx = dx + w1;
-                        batch.draw(Assets.tinyNumbers[f0], dx, dy);
-                    } else {
-                        w0 = 4 - (f0 == 1 ? 2 : 0);
-                        dx = dx - w0 / 2;
-                        batch.draw(Assets.tinyNumbers[f0], dx, dy);
+                        int w0, w1;
+                        if (f1 > 0) {
+                            w0 = 4 - (f0 == 1 ? 2 : 0);
+                            w1 = 4 - (f1 == 1 ? 2 : 0);
+                            dx = dx - (w0 + w1) / 2;
+                            batch.draw(Assets.tinyNumbers[f1], dx, dy);
+                            dx = dx + w1;
+                            batch.draw(Assets.tinyNumbers[f0], dx, dy);
+                        } else {
+                            w0 = 4 - (f0 == 1 ? 2 : 0);
+                            dx = dx - w0 / 2;
+                            batch.draw(Assets.tinyNumbers[f0], dx, dy);
+                        }
                     }
                 }
             }
@@ -919,7 +920,7 @@ public class MatchRenderer extends SceneRenderer {
         drawFrame(x, y, w, h + 2);
 
         // image
-        shapeRenderer.rect(x + w / 2 - 41, y + 41, 82, 66);
+        shapeRenderer.rect(x + w / 2f - 41, y + 41, 82, 66);
 
         // list
         drawFrame(x, y + 125, w, match.getSettings().benchSize * h + 6);
@@ -959,7 +960,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.setColor(0xFFFFFF, guiAlpha);
 
         // image
-        batch.draw(Assets.bench[0], x + w / 2 - 41, y + 41);
+        batch.draw(Assets.bench[0], x + w / 2f - 41, y + 41);
 
         Assets.font10.draw(batch, Assets.strings.get("BENCH"), x + w / 2, y + 3, Font.Align.CENTER);
 
@@ -992,7 +993,7 @@ public class MatchRenderer extends SceneRenderer {
         drawFrame(x, y, w, h + 2);
 
         // image
-        shapeRenderer.rect(x + w / 2 - 41, y + 41, 82, 66);
+        shapeRenderer.rect(x + w / 2f - 41, y + 41, 82, 66);
 
         // list
         drawFrame(x, y + 125, w, TEAM_SIZE * h + 6);
@@ -1047,7 +1048,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.setColor(0xFFFFFF, guiAlpha);
 
         // image
-        batch.draw(Assets.bench[1], x + w / 2 - 41, y + 41);
+        batch.draw(Assets.bench[1], x + w / 2f - 41, y + 41);
 
         Assets.font10.draw(batch, Assets.strings.get("FORMATION"), x + w / 2, y + 3, Font.Align.CENTER);
 
@@ -1075,7 +1076,7 @@ public class MatchRenderer extends SceneRenderer {
         shapeRenderer.setColor(0x242424, guiAlpha);
 
         // image
-        shapeRenderer.rect(x + w / 2 - 41, y, 82, 66);
+        shapeRenderer.rect(x + w / 2f - 41, y, 82, 66);
 
         // frame
         drawFrame(x, y + 80, w, 18 * h + 6);
@@ -1104,7 +1105,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.begin();
         batch.setColor(0xFFFFFF, guiAlpha);
 
-        batch.draw(Assets.bench[1], x + w / 2 - 41, y);
+        batch.draw(Assets.bench[1], x + w / 2f - 41, y);
 
         for (int i = 0; i < 18; i++) {
             Assets.font10.draw(batch, Tactics.codes[i], x + w / 2, y + 85 + h * i, Font.Align.CENTER);
