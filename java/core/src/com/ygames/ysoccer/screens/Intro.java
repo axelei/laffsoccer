@@ -39,6 +39,15 @@ public class Intro extends GLScreen {
         widgets.add(w);
     }
 
+    @Override
+    public void render(float delta) {
+        super.render(delta);
+
+        if (widgetEvent == Widget.Event.FIRE1_UP || widgetEvent == Widget.Event.FIRE2_UP) {
+            setMainMenu();
+        }
+    }
+
     private class IntroInputProcessor extends InputAdapter {
 
         @Override
@@ -64,12 +73,12 @@ public class Intro extends GLScreen {
             }
             return true;
         }
+    }
 
-        private void setMainMenu() {
-            Gdx.input.setInputProcessor(null);
-            game.enableMouse();
-            game.menuMusic.setMode(game.settings.musicMode);
-            game.setScreen(new Main(game));
-        }
+    private void setMainMenu() {
+        Gdx.input.setInputProcessor(null);
+        game.enableMouse();
+        game.menuMusic.setMode(game.settings.musicMode);
+        game.setScreen(new Main(game));
     }
 }

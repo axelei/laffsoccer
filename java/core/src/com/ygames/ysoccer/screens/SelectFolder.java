@@ -55,11 +55,6 @@ class SelectFolder extends GLScreen {
 
         // Folders buttons
         ArrayList<Widget> list = new ArrayList<>();
-        if (navigation.folder.equals(Assets.teamsRootFolder) && Assets.favourites.size() > 0) {
-            w = new FavouritesButton();
-            list.add(w);
-            widgets.add(w);
-        }
 
         ArrayList<FileHandle> files = new ArrayList<>(Arrays.asList(navigation.folder.list()));
         Collections.sort(files, fileComparatorByName);
@@ -71,6 +66,11 @@ class SelectFolder extends GLScreen {
             }
         }
 
+        if (navigation.folder.equals(Assets.teamsRootFolder) && Assets.favourites.size() > 0) {
+            w = new FavouritesButton();
+            list.add(w);
+            widgets.add(w);
+        }
 
         if (list.size() > 0) {
             Widget.arrange(game.gui.WIDTH, 380, 34, 20, list);

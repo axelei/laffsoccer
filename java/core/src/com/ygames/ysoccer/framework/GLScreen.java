@@ -27,6 +27,7 @@ public abstract class GLScreen implements Screen {
     protected Texture background;
     protected final List<Widget> widgets;
     private Widget selectedWidget;
+    protected Widget.Event widgetEvent;
     protected boolean usesMouse;
     protected boolean playMenuMusic;
     protected InputDevice lastFireInputDevice;
@@ -107,7 +108,7 @@ public abstract class GLScreen implements Screen {
             widget.setDirty(false);
         }
 
-        Widget.Event widgetEvent = game.menuInput.getWidgetEvent();
+        widgetEvent = game.menuInput.getWidgetEvent();
 
         if (widgetEvent != null && selectedWidget != null) {
             selectedWidget.fireEvent(widgetEvent);
