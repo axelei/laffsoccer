@@ -8,11 +8,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
 import com.ygames.ysoccer.framework.TeamList;
-import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,13 +45,12 @@ public class Team implements Json.Serializable {
     private final int[] controlModeColors = {0x666666, 0x981E1E, 0x123FC8, 0x009BDC};
 
     public Match match;
-    public Training training;
 
     public String name;
     public Type type;
     public String path;
     public String country;
-    public String confederation;
+    private String confederation;
     public String league;
     public String city;
     public String stadium;
@@ -72,7 +71,7 @@ public class Team implements Json.Serializable {
     int kickerIndex;
     ArrayList<Player> barrier;
 
-    private static Map<Player.Role, Player.Role[]> substitutionRules;
+    private final static Map<Player.Role, Player.Role[]> substitutionRules;
 
     static {
         Map<Player.Role, Player.Role[]> aMap = new HashMap<>();
@@ -207,7 +206,6 @@ public class Team implements Json.Serializable {
     }
 
     void beforeTraining(Training training) {
-        this.training = training;
         lineup = new ArrayList<>();
         int lineupSize = players.size();
         for (int i = 0; i < lineupSize; i++) {
@@ -389,9 +387,7 @@ public class Team implements Json.Serializable {
         // TODO: move to the main update loop
         if (match.subframe % GLGame.SUBFRAMES == 0) findBestDefender();
 
-        boolean move = updateLineup(limit);
-
-        return move;
+        return updateLineup(limit);
     }
 
     boolean updateLineup(boolean limit) {
@@ -427,11 +423,10 @@ public class Team implements Json.Serializable {
         return n;
     }
 
-    public boolean deletePlayer(Player player) {
+    public void deletePlayer(Player player) {
         if (players.size() > Const.BASE_TEAM) {
-            return players.remove(player);
+            players.remove(player);
         }
-        return false;
     }
 
     public Kit newKit() {
@@ -456,9 +451,9 @@ public class Team implements Json.Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) return false;
-        Team t = (Team) obj;
-        return Assets.teamsRootFolder.child(path).equals(Assets.teamsRootFolder.child(t.path));
+        if (obj == null || obj.getClass() != Team.class) return false;
+
+        return Assets.teamsRootFolder.child(path).equals(Assets.teamsRootFolder.child(((Team) obj).path));
     }
 
     public void releaseNonAiInputDevices() {
@@ -637,7 +632,7 @@ public class Team implements Json.Serializable {
     }
 
     InputDevice fire1Down() {
-        if (usesAutomaticInputDevice()) {
+        if (inputDevice != null) {
             if (inputDevice.fire1Down()) {
                 return inputDevice;
             }
@@ -652,7 +647,7 @@ public class Team implements Json.Serializable {
     }
 
     InputDevice fire1Up() {
-        if (usesAutomaticInputDevice()) {
+        if (inputDevice != null) {
             if (inputDevice.fire1Up()) {
                 return inputDevice;
             }
@@ -667,7 +662,7 @@ public class Team implements Json.Serializable {
     }
 
     InputDevice fire2Down() {
-        if (usesAutomaticInputDevice()) {
+        if (inputDevice != null) {
             if (inputDevice.fire2Down()) {
                 return inputDevice;
             }
@@ -685,7 +680,7 @@ public class Team implements Json.Serializable {
         return playerAtPosition(pos, null);
     }
 
-    Player playerAtPosition(int pos, Tactics tcs) {
+    private Player playerAtPosition(int pos, Tactics tcs) {
         if (tcs == null) {
             tcs = Assets.tactics[tactics];
         }
