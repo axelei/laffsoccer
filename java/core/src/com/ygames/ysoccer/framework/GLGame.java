@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.files.FileHandle;
@@ -73,6 +74,12 @@ public class GLGame extends Game {
         menuMusic = new MenuMusic("music");
 
         restoreSaveGame();
+    }
+
+    @Override
+    public void setScreen (Screen screen) {
+        GLGame.debug(LogType.GUI, "setScreen", screen.getClass().getSimpleName());
+        super.setScreen(screen);
     }
 
     private void createSaveGame() {
@@ -218,6 +225,7 @@ public class GLGame extends Game {
     }
 
     public enum LogType {
+        GUI,
         PASSING,
         PLAYER_SELECTION,
         AI_ATTACKING,
