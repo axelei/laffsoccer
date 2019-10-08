@@ -39,11 +39,11 @@ class SelectTeam extends GLScreen {
 
         List<Widget> list = new ArrayList<>();
 
-        List<String> leagues = new ArrayList<>();
+        ArrayList<String> leagues = new ArrayList<>();
         boolean singleLeague = false;
         FileHandle leaguesFile = navigation.folder.child("leagues.json");
         if (leaguesFile.exists()) {
-            leagues = Assets.json.fromJson(ArrayList.class, String.class, leaguesFile.readString("UTF-8"));
+            Collections.addAll(leagues, Assets.json.fromJson(String[].class, leaguesFile.readString("UTF-8")));
             if (leagues.size() == 1) {
                 singleLeague = true;
             }
@@ -134,6 +134,11 @@ class SelectTeam extends GLScreen {
         }
         widgets.addAll(breadcrumb);
 
+        if (leagues.size() > 1 && game.getState() == EDIT) {
+            w = new SearchTeamButton();
+            widgets.add(w);
+        }
+
         w = new AbortButton();
         widgets.add(w);
         if (getSelectedWidget() == null) {
@@ -174,7 +179,7 @@ class SelectTeam extends GLScreen {
 
     private class BreadCrumbButton extends Button {
 
-        private FileHandle folder;
+        private final FileHandle folder;
 
         BreadCrumbButton(FileHandle folder, boolean isDataRoot, boolean disabled) {
             this.folder = folder;
@@ -219,7 +224,7 @@ class SelectTeam extends GLScreen {
 
     private class TeamButton extends Button {
 
-        private Team team;
+        private final Team team;
 
         TeamButton(Team team) {
             this.team = team;
@@ -245,7 +250,7 @@ class SelectTeam extends GLScreen {
 
     private class FavouriteToggleButton extends Button {
 
-        private String teamPath;
+        private final String teamPath;
         private boolean isFavourite;
 
         FavouriteToggleButton(Widget teamButton) {
@@ -284,6 +289,20 @@ class SelectTeam extends GLScreen {
             }
             setGeometry(teamButton.x, teamButton.y, 60, 19);
             setText("" + v, LEFT, font6);
+        }
+    }
+
+    private class SearchTeamButton extends Button {
+
+        SearchTeamButton() {
+            setColor(0x4444AA);
+            setText(gettext("SEARCH.SEARCH TEAMS"), CENTER, font14);
+            setGeometry((game.gui.WIDTH - 180) / 2 - 360 - 20, 660, 360, 36);
+        }
+
+        @Override
+        public void onFire1Down() {
+            game.setScreen(new SearchTeams(game));
         }
     }
 
