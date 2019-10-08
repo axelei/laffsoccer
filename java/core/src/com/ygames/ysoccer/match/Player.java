@@ -9,11 +9,11 @@ import com.ygames.ysoccer.framework.Ai;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Color2;
 import com.ygames.ysoccer.framework.Color3;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLColor;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.InputDevice;
 import com.ygames.ysoccer.framework.RgbPair;
-import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -413,6 +413,11 @@ public class Player implements Json.Serializable {
                     ball.setOwner(null);
                     break;
             }
+        }
+
+        if (collisionType != KeeperCollision.NONE) {
+            getMatch().stats[1 - team.index].overallShots += 1;
+            getMatch().stats[1 - team.index].centeredShots += 1;
         }
 
         if (collisionType == KeeperCollision.CATCH) {
