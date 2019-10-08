@@ -33,7 +33,7 @@ public class Intro extends GLScreen {
                 "under certain conditions; press 'C' for details.",
                 "",
                 "",
-                "Press any key to continue"
+                "Press any key or button to continue"
         };
         w = new TextBox(font, Arrays.asList(lines), game.gui.WIDTH / 2, 270);
         widgets.add(w);
