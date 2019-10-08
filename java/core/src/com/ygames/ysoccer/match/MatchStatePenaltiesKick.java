@@ -2,25 +2,20 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.InputDevice;
 
-import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
-import static com.ygames.ysoccer.match.Match.AWAY;
-import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_ENTER;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_END;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
-import static com.ygames.ysoccer.match.SceneFsm.ActionType.HOLD_FOREGROUND;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
-class MatchStatePenaltyKick extends MatchState {
+class MatchStatePenaltiesKick extends MatchState {
 
     private boolean isKicking;
 
-    MatchStatePenaltyKick(MatchFsm fsm) {
+    MatchStatePenaltiesKick(MatchFsm fsm) {
         super(fsm);
 
         displayControlledPlayer = true;
@@ -32,8 +27,7 @@ class MatchStatePenaltyKick extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        displayTime = true;
-        displayScore = true;
+        displayPenaltiesScore = true;
     }
 
     @Override
@@ -78,7 +72,7 @@ class MatchStatePenaltyKick extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update(STILL);
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -98,19 +92,8 @@ class MatchStatePenaltyKick extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
         if (match.ball.v > 0) {
-            match.setPlayersState(STATE_STAND_RUN, match.penalty.kicker);
-            match.penalty = null;
-            return newAction(NEW_FOREGROUND, STATE_MAIN);
-        }
-
-        InputDevice inputDevice;
-        for (int t = HOME; t <= AWAY; t++) {
-            inputDevice = match.team[t].fire2Down();
-            if (inputDevice != null) {
-                getFsm().benchStatus.team = match.team[t];
-                getFsm().benchStatus.inputDevice = inputDevice;
-                return newAction(HOLD_FOREGROUND, STATE_BENCH_ENTER);
-            }
+            match.penalty.kicker.setState(STATE_IDLE);
+            return newAction(NEW_FOREGROUND, STATE_PENALTY_KICK_END);
         }
 
         return checkCommonConditions();
