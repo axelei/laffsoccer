@@ -16,13 +16,13 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_KICK_ANGLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
-class MatchStatePenaltyKickEnd extends MatchState {
+class MatchStatePenaltiesEnd extends MatchState {
 
     private boolean goalLineCrossed;
     private boolean isGoal;
     private Player keeper;
 
-    MatchStatePenaltyKickEnd(MatchFsm fsm) {
+    MatchStatePenaltiesEnd(MatchFsm fsm) {
         super(fsm);
 
         displayWindVane = true;

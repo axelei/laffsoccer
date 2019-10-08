@@ -8,7 +8,7 @@ import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.PENALTY_SPOT_Y;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
-import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_KICK;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_PENALTY_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
@@ -70,7 +70,7 @@ class MatchStatePenalties extends MatchState {
     SceneFsm.Action[] checkConditions() {
         if (!move) {
             match.penalty.keeper.setState(STATE_KEEPER_PENALTY_POSITIONING);
-            return newAction(NEW_FOREGROUND, STATE_PENALTY_KICK);
+            return newAction(NEW_FOREGROUND, STATE_PENALTIES_KICK);
         }
 
         return checkCommonConditions();
