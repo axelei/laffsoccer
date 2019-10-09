@@ -228,8 +228,8 @@ class TestPlayer extends GLScreen {
             for (int i = 0; i < 8; i++) {
                 player.fmx = i;
                 player.fmy = j + fmy - cursorY;
-                player.x = x0 + 7 + 50 * i + PlayerSprite.playerOffsets[(int) Math.abs(Math.floor(player.fmy))][Math.round(player.fmx)][0];
-                player.y = y0 + 10 + 50 * j + PlayerSprite.playerOffsets[(int) Math.abs(Math.floor(player.fmy))][Math.round(player.fmx)][1];
+                player.x = x0 + 7 + 50 * i + Assets.playerOffsets[(int) Math.abs(Math.floor(player.fmy))][Math.round(player.fmx)][0];
+                player.y = y0 + 10 + 50 * j + Assets.playerOffsets[(int) Math.abs(Math.floor(player.fmy))][Math.round(player.fmx)][1];
                 player.save(0);
                 drawPlayerShadow();
                 playerSprite.draw(0);
@@ -298,8 +298,8 @@ class TestPlayer extends GLScreen {
             for (int s = 0; s < (shadows == Shadows.NIGHT ? 4 : 1); s++) {
                 Data d = player.data[0];
                 if (d.isVisible) {
-                    float offsetX = PlayerSprite.playerOffsets[d.fmy][d.fmx][0];
-                    float offsetY = PlayerSprite.playerOffsets[d.fmy][d.fmx][1];
+                    float offsetX = Assets.playerOffsets[d.fmy][d.fmx][0];
+                    float offsetY = Assets.playerOffsets[d.fmy][d.fmx][1];
                     float mX = (s == 0 || s == 3) ? 0.65f : -0.65f;
                     float mY = (s == 0 || s == 1) ? 0.46f : -0.46f;
                     batch.setColor(0xFFFFFF, 0.5f);

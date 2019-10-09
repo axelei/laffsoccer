@@ -252,8 +252,8 @@ class TestKeeper extends GLScreen {
             for (int s = 0; s < (shadows == Shadows.NIGHT ? 4 : 1); s++) {
                 Data d = player.data[0];
                 if (d.isVisible) {
-                    float offsetX = PlayerSprite.keeperOffsets[d.fmy][d.fmx][0];
-                    float offsetY = PlayerSprite.keeperOffsets[d.fmy][d.fmx][1];
+                    float offsetX = Assets.keeperOffsets[d.fmy][d.fmx][0];
+                    float offsetY = Assets.keeperOffsets[d.fmy][d.fmx][1];
                     float mX = (s == 0 || s == 3) ? 0.65f : -0.65f;
                     float mY = (s == 0 || s == 1) ? 0.46f : -0.46f;
                     batch.setColor(0xFFFFFF, 0.5f);

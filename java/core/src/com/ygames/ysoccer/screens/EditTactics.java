@@ -363,8 +363,8 @@ class EditTactics extends GLScreen {
                 player.save(0);
 
                 Data d = player.data[0];
-                float offsetX = PlayerSprite.playerOffsets[d.fmy][d.fmx][0];
-                float offsetY = PlayerSprite.playerOffsets[d.fmy][d.fmx][1];
+                float offsetX = Assets.playerOffsets[d.fmy][d.fmx][0];
+                float offsetY = Assets.playerOffsets[d.fmy][d.fmx][1];
                 float mX = 0.65f;
                 float mY = 0.46f;
                 batch.draw(Assets.playerShadow[d.fmx][d.fmy][0], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
