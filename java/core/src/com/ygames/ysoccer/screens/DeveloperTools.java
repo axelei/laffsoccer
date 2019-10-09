@@ -34,12 +34,12 @@ class DeveloperTools extends GLScreen {
         w = new TitleBar("DEVELOPER TOOLS", 0x191FB0);
         widgets.add(w);
 
-        w = new PlayerTestButton();
+        w = new PlayerButton();
         widgets.add(w);
 
         setSelectedWidget(w);
 
-        w = new KeeperTestButton();
+        w = new KeeperButton();
         widgets.add(w);
 
         w = new MatchTestButton();
@@ -57,31 +57,31 @@ class DeveloperTools extends GLScreen {
         //convert("arrow.png", "arrow2.png");
     }
 
-    private class PlayerTestButton extends Button {
+    private class PlayerButton extends Button {
 
-        PlayerTestButton() {
+        PlayerButton() {
             setColor(0x7D42A1);
             setGeometry((game.gui.WIDTH - 260) / 2, 250, 260, 36);
-            setText("PLAYER TEST", Font.Align.CENTER, Assets.font14);
+            setText("PLAYER", Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new TestPlayer(game));
+            game.setScreen(new DeveloperPlayer(game));
         }
     }
 
-    private class KeeperTestButton extends Button {
+    private class KeeperButton extends Button {
 
-        KeeperTestButton() {
+        KeeperButton() {
             setColor(0x7D42A1);
             setGeometry((game.gui.WIDTH - 260) / 2, 300, 260, 36);
-            setText("KEEPER TEST", Font.Align.CENTER, Assets.font14);
+            setText("KEEPER", Font.Align.CENTER, Assets.font14);
         }
 
         @Override
         public void onFire1Down() {
-            game.setScreen(new TestKeeper(game));
+            game.setScreen(new DeveloperKeeper(game));
         }
     }
 

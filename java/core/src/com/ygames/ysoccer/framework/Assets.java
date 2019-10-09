@@ -65,8 +65,8 @@ public class Assets {
     public static List<String> favourites;
     public static Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
-    public static Integer[][][] playerOffsets;
-    public static Integer[][][] keeperOffsets;
+    public static Integer[][][] playerOrigins;
+    public static Integer[][][] keeperOrigins;
     public static List<String> hairStyles;
     public static Integer[][][] playerHairMap;    // row, column, (frameX, frameY, posX, posY)
     public static Integer[][][] keeperHairMap;    // row, column, (frameX, frameY, posX, posY)
@@ -233,8 +233,8 @@ public class Assets {
         associations = new ArrayList<>(Arrays.asList(Const.associations));
         loadTactics();
         loadKits();
-        playerOffsets = loadIntegerArray3("configs/player_offsets.json");
-        keeperOffsets = loadIntegerArray3("configs/keeper_offsets.json");
+        loadPlayerOrigins();
+        loadKeeperOrigins();
         hairStyles = loadHairStyles();
         playerHairMap = loadIntegerArray3("configs/player_hair_map.json");
         keeperHairMap = loadIntegerArray3("configs/keeper_hair_map.json");
@@ -381,7 +381,27 @@ public class Assets {
     }
 
     private static Integer[][][] loadIntegerArray3(String path) {
-        return Assets.json.fromJson(Integer[][][].class, Gdx.files.internal(path).readString("UTF-8"));
+        return Assets.json.fromJson(Integer[][][].class, Gdx.files.local(path).readString("UTF-8"));
+    }
+
+    public static void loadPlayerOrigins() {
+        playerOrigins = loadIntegerArray3("configs/player_origins.json");
+    }
+
+    public static void loadKeeperOrigins() {
+        keeperOrigins = loadIntegerArray3("configs/keeper_origins.json");
+    }
+
+    private static void saveIntegerArray3(Integer[][][] array3, String path) {
+        Gdx.files.local(path).writeString(Assets.json.prettyPrint(array3), false, "UTF-8");
+    }
+
+    public static void savePlayerOrigins() {
+        saveIntegerArray3(playerOrigins, "configs/player_origins.json");
+    }
+
+    public static void saveKeeperOrigins() {
+        saveIntegerArray3(keeperOrigins, "configs/keeper_origins.json");
     }
 
     public static String moneyFormat(double p) {

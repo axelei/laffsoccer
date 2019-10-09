@@ -81,7 +81,7 @@ class EditTactics extends GLScreen {
             playerSprite[ply] = new PlayerSprite(game.glGraphics, player);
         }
 
-        font10yellow = new Font(10, 13, 17, 12,16, new RgbPair(0xFCFCFC, 0xFCFC00));
+        font10yellow = new Font(10, 13, 17, 12, 16, new RgbPair(0xFCFCFC, 0xFCFC00));
         font10yellow.load();
 
         Widget w;
@@ -363,11 +363,10 @@ class EditTactics extends GLScreen {
                 player.save(0);
 
                 Data d = player.data[0];
-                float offsetX = Assets.playerOffsets[d.fmy][d.fmx][0];
-                float offsetY = Assets.playerOffsets[d.fmy][d.fmx][1];
+                Integer[] origin = Assets.playerOrigins[d.fmy][d.fmx];
                 float mX = 0.65f;
                 float mY = 0.46f;
-                batch.draw(Assets.playerShadow[d.fmx][d.fmy][0], d.x - offsetX + mX * d.z, d.y - offsetY + 5 + mY * d.z);
+                batch.draw(Assets.playerShadow[d.fmx][d.fmy][0], d.x - origin[0] + mX * d.z, d.y - origin[1] + 5 + mY * d.z);
 
                 playerSprite[ply].draw(0);
 

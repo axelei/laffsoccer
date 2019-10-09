@@ -158,7 +158,7 @@ public class Player implements Json.Serializable {
     }
 
     public Match getMatch() {
-        return (Match) scene;
+        return (scene.getClass() == Match.class) ? (Match) scene : null;
     }
 
     void beforeMatch(Match match) {
@@ -320,20 +320,20 @@ public class Player implements Json.Serializable {
             int fmx = Math.round(this.fmx);
             int fmy = Math.abs((int) Math.floor(this.fmy));
 
-            // offset
-            int offX = Assets.keeperOffsets[fmy][fmx][0] + Math.round(ball.x - x);
-            int offY = Assets.keeperOffsets[fmy][fmx][1] + Math.round(-ball.z - Const.BALL_R + z);
+            // origin
+            int originX = Assets.keeperOrigins[fmy][fmx][0] + Math.round(ball.x - x);
+            int originY = Assets.keeperOrigins[fmy][fmx][1] + Math.round(-ball.z - Const.BALL_R + z);
 
             // verify if the pixel is inside the frame
-            if ((offX < 0) || (offX >= 50)) {
+            if ((originX < 0) || (originX >= 50)) {
                 return false;
             }
-            if ((offY < 0) || (offY >= 50)) {
+            if ((originY < 0) || (originY >= 50)) {
                 return false;
             }
 
-            int det_x = Math.round(50 * (fmx % 24) + offX);
-            int det_y = Math.round(50 * (fmy % 24) + offY);
+            int det_x = Math.round(50 * (fmx % 24) + originX);
+            int det_y = Math.round(50 * (fmy % 24) + originY);
 
             int rgb = Assets.keeperCollisionDetection.getPixel(det_x, det_y) >>> 8;
 
@@ -415,7 +415,7 @@ public class Player implements Json.Serializable {
             }
         }
 
-        if (collisionType != KeeperCollision.NONE) {
+        if (collisionType != KeeperCollision.NONE && getMatch() != null) {
             getMatch().stats[1 - team.index].overallShots += 1;
             getMatch().stats[1 - team.index].centeredShots += 1;
         }

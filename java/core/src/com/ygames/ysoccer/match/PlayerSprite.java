@@ -23,37 +23,35 @@ public class PlayerSprite extends Sprite {
         }
 
         if (player.role == Player.Role.GOALKEEPER) {
-            int offsetX = Assets.keeperOffsets[d.fmy][d.fmx][0];
-            int offsetY = Assets.keeperOffsets[d.fmy][d.fmx][1];
+            Integer[] origin = Assets.keeperOrigins[d.fmy][d.fmx];
             glGraphics.batch.draw(
                     Assets.keeper[player.team.index][player.skinColor.ordinal()][d.fmx][d.fmy],
-                    d.x - offsetX,
-                    d.y - offsetY - d.z
+                    d.x - origin[0],
+                    d.y - origin[1] - d.z
             );
 
             Integer[] hairMap = Assets.keeperHairMap[d.fmy][d.fmx];
             if (hairMap[2] != 0 || hairMap[3] != 0) {
                 glGraphics.batch.draw(
                         Assets.hairs.get(player.hair)[hairMap[0]][hairMap[1]],
-                        d.x - offsetX + hairMap[2],
-                        d.y - offsetY - d.z + hairMap[3]
+                        d.x - origin[0] + hairMap[2],
+                        d.y - origin[1] - d.z + hairMap[3]
                 );
             }
         } else {
-            int offsetX = Assets.playerOffsets[d.fmy][d.fmx][0];
-            int offsetY = Assets.playerOffsets[d.fmy][d.fmx][1];
+            Integer[] origin = Assets.playerOrigins[d.fmy][d.fmx];
             glGraphics.batch.draw(
                     Assets.player[player.team.index][player.skinColor.ordinal()][d.fmx][d.fmy],
-                    d.x - offsetX,
-                    d.y - offsetY - d.z
+                    d.x - origin[0],
+                    d.y - origin[1] - d.z
             );
 
             Integer[] hairMap = Assets.playerHairMap[d.fmy][d.fmx];
             if (hairMap[2] != 0 || hairMap[3] != 0) {
                 glGraphics.batch.draw(
                         Assets.hairs.get(player.hair)[hairMap[0]][hairMap[1]],
-                        d.x - offsetX - 9 + hairMap[2],
-                        d.y - offsetY - d.z - 9 + hairMap[3]
+                        d.x - origin[0] - 9 + hairMap[2],
+                        d.y - origin[1] - d.z - 9 + hairMap[3]
                 );
             }
         }
