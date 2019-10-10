@@ -59,8 +59,8 @@ class AiStateKicking extends AiState {
     void doActions() {
         super.doActions();
 
-        ai.x0 = 0;
-        ai.y0 = 0;
+        ai.x0 = Math.round(EMath.cos(player.a));
+        ai.y0 = Math.round(EMath.sin(player.a));
         if (spinSign != 0 && player.getState().checkId(STATE_KICK)) {
             ai.x0 = Math.round(EMath.cos(player.a + spinSign * 90));
             ai.y0 = Math.round(EMath.sin(player.a + spinSign * 90));

@@ -45,10 +45,10 @@ class PlayerStateKeeperDivingLowDouble extends PlayerState {
             player.v = 10;
             active = frames[0];
         } else if (timer < 0.5f * Const.SECOND) {
-            player.v = 20 + (140 + player.getSkillKeeper()) * player.thrustX;
+            player.v = 20 + (145 + 0.5f * player.getSkillKeeper()) * player.thrustX;
             active = frames[1];
         } else if (timer < 0.55f * Const.SECOND) {
-            player.v = 20;
+            player.v = player.v * (1 - 50.0f / Const.SECOND);
             active = frames[2];
         } else {
             player.v = player.v * (1 - 50.0f / Const.SECOND);

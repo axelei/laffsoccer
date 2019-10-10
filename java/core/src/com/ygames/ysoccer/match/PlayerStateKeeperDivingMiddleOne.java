@@ -60,13 +60,13 @@ class PlayerStateKeeperDivingMiddleOne extends PlayerState {
             player.v = 120 * player.thrustX;
             active = frames[1];
         } else if (timer < 0.75f * Const.SECOND) {
-            player.v = (163 + player.getSkillKeeper()) * player.thrustX;
+            player.v = (130 + 0.5f * player.getSkillKeeper()) * player.thrustX;
             active = frames[2];
         } else if (timer < 0.9f * Const.SECOND) {
             player.v = 40 * player.thrustX;
             active = frames[3];
         } else if (timer < 1.0f * Const.SECOND) {
-            player.v = 40 * player.thrustX;
+            player.v = player.v * (1 - 50.0f / Const.SECOND);
             active = frames[4];
         } else {
             player.v = player.v * (1 - 50.0f / Const.SECOND);

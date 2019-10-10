@@ -64,10 +64,10 @@ class PlayerStateKeeperDivingMiddleTwo extends PlayerState {
             active = frames[0];
         } else if (timer < 0.1f * Const.SECOND) {
             player.v = 40 * player.thrustX;
-            player.vz = 70 + 30 * player.thrustZ;
+            player.vz = 70 + 35 * player.thrustZ;
             active = frames[1];
         } else if (timer < 0.5f * Const.SECOND) {
-            player.v = (128 + player.getSkillKeeper()) * player.thrustX;
+            player.v = (120 + 0.5f * player.getSkillKeeper()) * player.thrustX;
             active = frames[2];
         } else if (timer < 0.7f * Const.SECOND) {
             player.v = 50 * player.thrustX;
@@ -76,7 +76,7 @@ class PlayerStateKeeperDivingMiddleTwo extends PlayerState {
             player.v = 20 * player.thrustX;
             active = frames[4];
         } else if (timer < 0.9f * Const.SECOND) {
-            player.v = 20 * player.thrustX;
+            player.v = player.v * (1 - 50.0f / Const.SECOND);
             active = frames[5];
         } else {
             player.v = player.v * (1 - 50.0f / Const.SECOND);

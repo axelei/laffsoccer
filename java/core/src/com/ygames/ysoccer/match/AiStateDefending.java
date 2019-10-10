@@ -8,8 +8,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 class AiStateDefending extends AiState {
 
-    private static int MIN_UPDATE_INTERVAL = 12;
-    private static int MAX_UPDATE_INTERVAL = 24;
+    private static int MIN_UPDATE_INTERVAL = 15;
+    private static int MAX_UPDATE_INTERVAL = 30;
 
     private int nextUpdate;
 

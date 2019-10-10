@@ -57,17 +57,17 @@ class PlayerStateKeeperDivingHighOne extends PlayerState {
             player.v = 10;
             active = frames[0];
         } else if (timer < 0.2f * Const.SECOND) {
-            player.v = 80 * player.thrustX;
+            player.v = 40 * player.thrustX;
             active = frames[1];
         } else if (timer < 0.7f * Const.SECOND) {
-            player.v = (163 + player.getSkillKeeper()) * player.thrustX;
-            player.vz = 13 + player.getSkillKeeper() + 10 * player.thrustZ;
+            player.v = (140 + 0.5f * player.getSkillKeeper()) * player.thrustX;
+            player.vz = 15 + 0.5f * player.getSkillKeeper() + 10 * player.thrustZ;
             active = frames[2];
         } else if (timer < 1.1f * Const.SECOND) {
-            player.v = (50 + player.getSkillKeeper()) * player.thrustX;
+            player.v = (50 + 0.5f * player.getSkillKeeper()) * player.thrustX;
             active = frames[3];
         } else if (timer < 1.35f * Const.SECOND) {
-            player.v = 20;
+            player.v = player.v * (1 - 50.0f / Const.SECOND);
             active = frames[4];
         } else {
             player.v = player.v * (1 - 50.0f / Const.SECOND);
