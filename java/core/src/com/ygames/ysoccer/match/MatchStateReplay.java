@@ -66,7 +66,7 @@ class MatchStateReplay extends MatchState {
         super.doActions(deltaTime);
 
         // toggle pause
-        if (Gdx.input.isKeyPressed(Input.Keys.P) && !keyPause) {
+        if (inputDevice == null && Gdx.input.isKeyPressed(Input.Keys.P) && !keyPause) {
             paused = !paused;
         }
         keyPause = Gdx.input.isKeyPressed(Input.Keys.P);
@@ -82,6 +82,7 @@ class MatchStateReplay extends MatchState {
             for (InputDevice d : match.game.inputDevices) {
                 if (d.fire2Down()) {
                     inputDevice = d;
+                    paused = false;
                 }
             }
         } else {
