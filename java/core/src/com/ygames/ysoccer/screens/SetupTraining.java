@@ -9,12 +9,13 @@ import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
+import com.ygames.ysoccer.match.SceneSettings;
 
 import static com.ygames.ysoccer.framework.Assets.favouritesFile;
 
 class SetupTraining extends GLScreen {
 
-    private MatchSettings matchSettings;
+    private SceneSettings sceneSettings;
     private TimePicture timePicture;
     private PitchTypePicture pitchTypePicture;
     private WeatherButton weatherButton;
@@ -23,7 +24,7 @@ class SetupTraining extends GLScreen {
     SetupTraining(GLGame game) {
         super(game);
 
-        matchSettings = new MatchSettings(game.settings);
+        sceneSettings = new SceneSettings(game.settings);
 
         Assets.Sounds.volume = game.settings.soundVolume;
 
@@ -96,7 +97,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.lightIcons[matchSettings.time.ordinal()];
+            textureRegion = Assets.lightIcons[sceneSettings.time.ordinal()];
         }
     }
 
@@ -110,7 +111,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(MatchSettings.getTimeLabel(matchSettings.time)));
+            setText(Assets.strings.get(SceneSettings.getTimeLabel(sceneSettings.time)));
         }
 
         @Override
@@ -124,7 +125,7 @@ class SetupTraining extends GLScreen {
         }
 
         private void rotateTime(int n) {
-            matchSettings.rotateTime(n);
+            sceneSettings.rotateTime(n);
             setDirty(true);
             timePicture.setDirty(true);
         }
@@ -150,7 +151,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
+            textureRegion = Assets.pitchIcons[sceneSettings.pitchType.ordinal()];
         }
     }
 
@@ -164,7 +165,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            setText(Assets.strings.get(Pitch.names[matchSettings.pitchType.ordinal()]));
+            setText(Assets.strings.get(Pitch.names[sceneSettings.pitchType.ordinal()]));
         }
 
         @Override
@@ -178,7 +179,7 @@ class SetupTraining extends GLScreen {
         }
 
         private void rotatePitchType(int n) {
-            matchSettings.rotatePitchType(n);
+            sceneSettings.rotatePitchType(n);
             setDirty(true);
             pitchTypePicture.setDirty(true);
             weatherPicture.setDirty(true);
@@ -206,7 +207,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.weatherIcons[matchSettings.weatherOffset()];
+            textureRegion = Assets.weatherIcons[sceneSettings.weatherOffset()];
         }
     }
 
@@ -222,12 +223,12 @@ class SetupTraining extends GLScreen {
         public void refresh() {
             setColor(0x1F1F95);
             setActive(true);
-            setText(Assets.strings.get(matchSettings.getWeatherLabel()));
+            setText(Assets.strings.get(sceneSettings.getWeatherLabel()));
         }
 
         @Override
         public void onFire1Down() {
-            matchSettings.rotateWeather();
+            sceneSettings.rotateWeather();
             setDirty(true);
             weatherPicture.setDirty(true);
         }
@@ -243,8 +244,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            navigation.matchSettings = matchSettings;
-            game.setScreen(new TrainingLoading(game));
+            game.setScreen(new TrainingLoading(game, sceneSettings));
         }
     }
 

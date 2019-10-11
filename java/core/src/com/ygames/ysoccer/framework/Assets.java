@@ -22,6 +22,7 @@ import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.SceneSettings;
 import com.ygames.ysoccer.match.Sky;
 import com.ygames.ysoccer.match.Tactics;
 import com.ygames.ysoccer.match.Team;
@@ -572,12 +573,12 @@ public class Assets {
         }
     }
 
-    public static void loadStadium(MatchSettings matchSettings) {
+    public static void loadStadium(SceneSettings sceneSettings) {
 
-        String paletteName = matchSettings.pitchType.toString().toLowerCase();
-        switch (matchSettings.time) {
+        String paletteName = sceneSettings.pitchType.toString().toLowerCase();
+        switch (sceneSettings.time) {
             case DAY:
-                switch (matchSettings.sky) {
+                switch (sceneSettings.sky) {
                     case Sky.CLEAR:
                         paletteName += "_sunny.pal";
                         break;
@@ -616,36 +617,36 @@ public class Assets {
         crowd[4].flip(false, true);
     }
 
-    public static void loadBall(MatchSettings matchSettings) {
+    public static void loadBall(SceneSettings sceneSettings) {
         List<RgbPair> rgbPairs = new ArrayList<>();
-        switch (matchSettings.time) {
+        switch (sceneSettings.time) {
             case DAY:
-                rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
-                rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.darkShadow));
+                rgbPairs.add(new RgbPair(0x005200, sceneSettings.grass.lightShadow));
+                rgbPairs.add(new RgbPair(0x001800, sceneSettings.grass.darkShadow));
                 break;
 
             case NIGHT:
-                rgbPairs.add(new RgbPair(0x005200, matchSettings.grass.lightShadow));
-                rgbPairs.add(new RgbPair(0x001800, matchSettings.grass.lightShadow));
+                rgbPairs.add(new RgbPair(0x005200, sceneSettings.grass.lightShadow));
+                rgbPairs.add(new RgbPair(0x001800, sceneSettings.grass.lightShadow));
                 break;
         }
 
-        Texture ballTexture = loadTexture("images/" + (matchSettings.useOrangeBall() ? "ballsnow.png" : "ball.png"), rgbPairs);
+        Texture ballTexture = loadTexture("images/" + (sceneSettings.useOrangeBall() ? "ballsnow.png" : "ball.png"), rgbPairs);
         for (int r = 0; r < 5; r++) {
             ball[r] = new TextureRegion(ballTexture, r * 8, 0, 8, 8);
             ball[r].flip(false, true);
         }
     }
 
-    public static void loadCornerFlags(MatchSettings matchSettings) {
+    public static void loadCornerFlags(SceneSettings sceneSettings) {
         List<RgbPair> rgbPairs = new ArrayList<>();
-        switch (matchSettings.time) {
+        switch (sceneSettings.time) {
             case DAY:
-                rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.darkShadow));
+                rgbPairs.add(new RgbPair(0x291000, sceneSettings.grass.darkShadow));
                 break;
 
             case NIGHT:
-                rgbPairs.add(new RgbPair(0x291000, matchSettings.grass.lightShadow));
+                rgbPairs.add(new RgbPair(0x291000, sceneSettings.grass.lightShadow));
                 break;
         }
 

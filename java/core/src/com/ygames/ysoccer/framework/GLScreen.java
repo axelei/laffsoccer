@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
 
@@ -36,7 +35,6 @@ public abstract class GLScreen implements Screen {
         public FileHandle folder;
         public String league;
         public Team team;
-        public MatchSettings matchSettings;
         public Competition competition;
         private Player clipboardPlayer;
 

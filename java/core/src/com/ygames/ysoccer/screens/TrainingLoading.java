@@ -6,8 +6,8 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.match.Kit;
-import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.SceneSettings;
 import com.ygames.ysoccer.match.Team;
 import com.ygames.ysoccer.match.Training;
 
@@ -19,26 +19,25 @@ class TrainingLoading extends GLScreen {
 
     private final Training training;
 
-    TrainingLoading(GLGame game) {
+    TrainingLoading(GLGame game, SceneSettings sceneSettings) {
         super(game);
         playMenuMusic = false;
         usesMouse = false;
 
         Team trainingTeam = navigation.team;
-        MatchSettings matchSettings = navigation.matchSettings;
 
-        matchSettings.setup();
+        sceneSettings.setup();
 
         training = new Training(trainingTeam);
-        training.init(game, matchSettings);
+        training.init(game, sceneSettings);
         assignInputDevices();
 
         game.disableMouse();
 
-        Assets.loadStadium(matchSettings);
+        Assets.loadStadium(sceneSettings);
         Assets.loadCrowd(trainingTeam);
-        Assets.loadBall(matchSettings);
-        Assets.loadCornerFlags(matchSettings);
+        Assets.loadBall(sceneSettings);
+        Assets.loadCornerFlags(sceneSettings);
         Assets.loadCoach(trainingTeam);
         Kit[] trainingKits = {
                 new Kit("PLAIN", 0xBFED6C, 0x264293, 0x264293, 0x264293, 0xBFED6C),
