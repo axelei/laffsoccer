@@ -69,7 +69,7 @@ class TrainingStateFree extends TrainingState {
             training.findNearest();
             training.updateBall();
 
-            ball.collisionFlagposts();
+            ball.collisionFlagPosts();
             ball.collisionGoal();
             ball.inFieldKeep();
 
@@ -183,9 +183,9 @@ class TrainingStateFree extends TrainingState {
     }
 
     private void resetBall() {
-        ball.x = lastTrained.x + (BALL_R - 1) * EMath.cos(lastTrained.a);
-        ball.y = lastTrained.y + (BALL_R - 1) * EMath.sin(lastTrained.a);
-        ball.z = 0;
+        ball.setX(lastTrained.x + (BALL_R - 1) * EMath.cos(lastTrained.a));
+        ball.setY(lastTrained.y + (BALL_R - 1) * EMath.sin(lastTrained.a));
+        ball.setZ(0);
         ball.vMax = 0;
     }
 

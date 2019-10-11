@@ -34,8 +34,8 @@ class PlayerStateStandRun extends PlayerState {
                 // if changing direction keep control only if ball if near
             } else if (((angle_diff <= 67.5) && (player.ballDistance < 11))
                     || (player.ballDistance < 6)) {
-                ball.x = player.x + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.cos(player.a);
-                ball.y = player.y + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.sin(player.a);
+                ball.setX(player.x + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.cos(player.a));
+                ball.setY(player.y + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.sin(player.a));
             }
         }
 

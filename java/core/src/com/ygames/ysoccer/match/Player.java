@@ -295,8 +295,8 @@ public class Player implements Json.Serializable {
 
             if (differenceVec.len() < 250 + 20 * skills.control) {
                 ball.setOwner(this);
-                ball.x = x + (Const.BALL_R - 1) * EMath.cos(a);
-                ball.y = y + (Const.BALL_R - 1) * EMath.sin(a);
+                ball.setX(x + (Const.BALL_R - 1) * EMath.cos(a));
+                ball.setY(y + (Const.BALL_R - 1) * EMath.sin(a));
                 ball.v = v;
                 ball.a = a;
             } else {
@@ -434,9 +434,9 @@ public class Player implements Json.Serializable {
 
     void holdBall(int offX, int offZ) {
         if ((ball.holder == this)) {
-            ball.x = x + offX;
-            ball.y = y;
-            ball.z = z + offZ;
+            ball.setX(x + offX);
+            ball.setY(y);
+            ball.setZ(z + offZ);
             ball.v = v;
             ball.vz = vz;
         }

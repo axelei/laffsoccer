@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_THROW_IN_ANGLE;
 
@@ -57,9 +57,9 @@ class PlayerStateThrowInAngle extends PlayerState {
         }
 
         player.fmy = 8 + a;
-        ball.x = player.x + 6 * EMath.cos(player.a) * a;
-        ball.y = player.y + 6 * EMath.sin(player.a) * a;
-        ball.z = Const.PLAYER_H + 2 + 0 * a;
+        ball.setX(player.x + 6 * EMath.cos(player.a) * a);
+        ball.setY(player.y + 6 * EMath.sin(player.a) * a);
+        ball.setZ(Const.PLAYER_H + 2);
     }
 
     @Override

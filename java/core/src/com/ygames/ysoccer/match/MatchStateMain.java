@@ -97,7 +97,7 @@ class MatchStateMain extends MatchState {
                 return;
             }
 
-            match.ball.collisionFlagposts();
+            match.ball.collisionFlagPosts();
 
             if (match.ball.collisionGoal()) {
                 match.stats[attackingTeam].overallShots += 1;

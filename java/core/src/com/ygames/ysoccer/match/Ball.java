@@ -3,8 +3,8 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 class Ball {
 
@@ -22,30 +22,28 @@ class Ball {
     float vzMax;
     float a;
     float s;
-    float f;
+    private float f;
 
     int xSide; // -1=left, 1=right
     int ySide; // -1=up, 1=down
 
-    Vector3[] predictionL = new Vector3[Const.BALL_PREDICTION];
-    Vector3[] prediction = new Vector3[Const.BALL_PREDICTION];
-    Vector3[] predictionR = new Vector3[Const.BALL_PREDICTION];
-    Data[] data = new Data[Const.REPLAY_SUBFRAMES];
+    final Vector3[] predictionL = new Vector3[Const.BALL_PREDICTION];
+    final Vector3[] prediction = new Vector3[Const.BALL_PREDICTION];
+    final Vector3[] predictionR = new Vector3[Const.BALL_PREDICTION];
+    final Data[] data = new Data[Const.REPLAY_SUBFRAMES];
 
     // tactics
     int zoneX;
     int zoneY;
     float mx;
     float my;
-    int nextZoneX;
-    int nextZoneY;
 
     Player owner;
     Player ownerLast;
     Player goalOwner;
     Player holder;
 
-    SceneSettings sceneSettings;
+    private final SceneSettings sceneSettings;
 
     Ball(SceneSettings sceneSettings) {
         this.sceneSettings = sceneSettings;
@@ -61,10 +59,24 @@ class Ball {
         }
     }
 
-    public void setPosition(float x, float y, float z) {
+    void setX(float x) {
         this.x = x;
+        xSide = EMath.sgn(x);
+    }
+
+    void setY(float y) {
         this.y = y;
+        ySide = EMath.sgn(y);
+    }
+
+    void setZ(float z) {
         this.z = z;
+    }
+
+    public void setPosition(float x, float y, float z) {
+        setX(x);
+        setY(y);
+        setZ(z);
         v = 0;
         vz = 0;
         s = 0;
@@ -86,10 +98,6 @@ class Ball {
         y0 = y;
         z0 = z;
 
-        // side
-        xSide = EMath.sgn(x);
-        ySide = EMath.sgn(y);
-
         float bouncing_speed = updatePhysics();
 
         // animation
@@ -104,8 +112,8 @@ class Ball {
         s *= 1 - Const.SPIN_DAMPENING / Const.SECOND;
 
         // position & speed
-        x += v / Const.SECOND * EMath.cos(a);
-        y += v / Const.SECOND * EMath.sin(a);
+        setX(x + v / Const.SECOND * EMath.cos(a));
+        setY(y + v / Const.SECOND * EMath.sin(a));
 
         if (z < 1) {
             // grass friction
@@ -144,7 +152,7 @@ class Ball {
         }
 
         // z position
-        z += vz / Const.SECOND;
+        setZ(z + vz / Const.SECOND);
 
         // z speed
         if (z > 0) {
@@ -157,7 +165,7 @@ class Ball {
         // bounce
         float bouncing_speed = 0;
         if (z < 0 && vz < 0) {
-            z = 0;
+            setZ(0);
             if (vz > -40) {
                 vz = 0;
             } else {
@@ -230,22 +238,13 @@ class Ball {
         // mx / my
         mx = (((x % Const.BALL_ZONE_DX) / Const.BALL_ZONE_DX + 1.5f) % 1) - 0.5f;
         my = (((y % Const.BALL_ZONE_DY) / Const.BALL_ZONE_DY + 1.5f) % 1) - 0.5f;
-
-        // zone_next
-        if (v > 0) {
-            nextZoneX = zoneX + Math.round(EMath.cos(a));
-            nextZoneX = EMath.bound(nextZoneX, -2, +2);
-
-            nextZoneY = zoneY + Math.round(EMath.sin(a));
-            nextZoneY = EMath.bound(nextZoneY, -3, +3);
-        }
     }
 
     public void inFieldKeep() {
 
         // left
         if (x <= Const.FIELD_XMIN) {
-            x = Const.FIELD_XMIN;
+            setX(Const.FIELD_XMIN);
             v = 0.5f * v;
             a = (180 - a) % 360;
             s = -s;
@@ -253,7 +252,7 @@ class Ball {
 
         // right
         if (x >= Const.FIELD_XMAX) {
-            x = Const.FIELD_XMAX;
+            setX(Const.FIELD_XMAX);
             v = 0.5f * v;
             a = (180 - a) % 360;
             s = -s;
@@ -261,7 +260,7 @@ class Ball {
 
         // top
         if (y <= Const.FIELD_YMIN) {
-            y = Const.FIELD_YMIN;
+            setY(Const.FIELD_YMIN);
             v = 0.5f * v;
             a = (-a) % 360;
             s = -s;
@@ -269,7 +268,7 @@ class Ball {
 
         // bottom
         if (y >= Const.FIELD_YMAX) {
-            y = Const.FIELD_YMAX;
+            setY(Const.FIELD_YMAX);
             v = 0.5f * v;
             a = (-a) % 360;
             s = -s;
@@ -295,14 +294,15 @@ class Ball {
                 && ((EMath.dist(x, y, -Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6)
                 || (EMath.dist(x, y, Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
 
-            // real ball x-y angle (when spinned, it is different from ball.a)
+            // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
             v = 0.5f * v;
             a = (-ballAxy + 360) % 360;
             s = 0;
-            x = x0;
-            y = y0;
+            setX(x0);
+            setY(y0);
+            setZ(z0);
 
             hit = true;
         }
@@ -313,7 +313,7 @@ class Ball {
                 && (-(Const.POST_X + Const.POST_R) < x && x < (Const.POST_X + Const.POST_R))) {
 
             // cartesian coordinates
-            // real ball x-y angle (when spinned, it is different from ball.a)
+            // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
             float ballVx = v * EMath.cos(ballAxy);
@@ -337,8 +337,9 @@ class Ball {
             v = (float) Math.sqrt(ballVx * ballVx + ballVy * ballVy);
             a = EMath.aTan2(ballVy, ballVx);
             s = 0;
-            y = y0;
-            z = z0;
+            setX(x0);
+            setY(y0);
+            setZ(z0);
 
             hit = true;
 
@@ -349,7 +350,7 @@ class Ball {
                 && (EMath.dist(x, y, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 5)
                 && (z <= (Const.CROSSBAR_H + Const.POST_R))) {
 
-            // real ball x-y angle (when spinned, it is different from ball.a)
+            // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
             float angle = EMath.aTan2(y - ySide * (Const.GOAL_LINE + 1), x - xSide * Const.POST_X);
@@ -358,8 +359,9 @@ class Ball {
             v = 0.5f * v;
             a = (2 * angle - ballAxy + 180) % 360;
             s = 0;
-            x = x0;
-            y = y0;
+            setX(x0);
+            setY(y0);
+            setZ(z0);
 
             hit = true;
         }
@@ -372,22 +374,23 @@ class Ball {
         return hit;
     }
 
-    public void collisionFlagposts() {
+    public void collisionFlagPosts() {
 
         if ((xSide == 0) || (ySide == 0)) {
             return;
         }
 
         if ((EMath.dist(x, y, xSide * Const.TOUCH_LINE, ySide * Const.GOAL_LINE) <= 5) && (z <= Const.FLAGPOST_H)) {
-            // real ball x-y angle (when spinned, it is different from ball.a)
+            // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
             float angle = EMath.aTan2(y - ySide * Const.GOAL_LINE, x - (xSide * Const.TOUCH_LINE));
             v = 0.3f * v;
             a = (2 * angle - ballAxy + 180) % 360;
             s = 0;
-            x = x0;
-            y = y0;
+            setX(x0);
+            setY(y0);
+            setZ(z0);
 
             Assets.Sounds.post.play(0.5f * Assets.Sounds.volume / 100f);
         }
@@ -468,28 +471,30 @@ class Ball {
 
         if ((EMath.dist(x, y, xSide * Const.JUMPER_X, ySide * Const.JUMPER_Y) <= 5) && (z <= Const.JUMPER_H)) {
 
-            // real ball x-y angle (when spinned, it is different from ball.a)
+            // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
             float angle = EMath.aTan2(y - ySide * Const.JUMPER_Y, x - (xSide * Const.JUMPER_X));
             v = 0.3f * v;
             a = (2 * angle - ballAxy + 180) % 360;
             s = 0;
-            x = x0;
-            y = y0;
+            setX(x0);
+            setY(y0);
+            setZ(z0);
 
             Assets.Sounds.bounce.play(0.5f * Assets.Sounds.volume / 100f);
         }
     }
 
     void collisionPlayer(float newV) {
-        // real ball x-y angle (when spinned, it is different from ball.a)
+        // real ball x-y angle (when spinning, it is different from ball.a)
         float ballAxy = EMath.aTan2(y - y0, x - x0);
         v = newV;
         a = (ballAxy + 180) % 360;
         s = 0;
-        x = x0;
-        y = y0;
+        setX(x0);
+        setY(y0);
+        setZ(z0);
     }
 
     public void setOwner(Player newOwner) {
@@ -541,9 +546,9 @@ class Ball {
         }
 
         static void restoreValues(Ball ball) {
-            ball.x = x;
-            ball.y = y;
-            ball.z = z;
+            ball.setX(x);
+            ball.setY(y);
+            ball.setZ(z);
             ball.v = v;
             ball.vz = vz;
             ball.a = a;
