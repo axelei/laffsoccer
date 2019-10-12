@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.Settings;
@@ -9,11 +8,12 @@ import com.ygames.ysoccer.framework.Settings;
 import java.util.TreeMap;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
+import static com.badlogic.gdx.Input.Keys.F12;
 import static com.badlogic.gdx.Input.Keys.F2;
 import static com.badlogic.gdx.Input.Keys.F3;
+import static com.badlogic.gdx.Input.Keys.F6;
 import static com.badlogic.gdx.Input.Keys.F7;
 import static com.badlogic.gdx.Input.Keys.F8;
-import static com.badlogic.gdx.Input.Keys.F9;
 import static com.badlogic.gdx.Input.Keys.R;
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.framework.InputDevice.keyDescription;
@@ -40,10 +40,10 @@ abstract class SceneHotKeys {
         String[] keySoundInfo = {keyDescription(F2) + "-" + keyDescription(F3), gettext("HELP.SOUND FX VOLUME")};
         keyMap.put(2, keySoundInfo);
 
-        String[] keyScreenModeInfo = {keyDescription(F7), gettext("HELP.WINDOW / FULL SCREEN")};
+        String[] keyScreenModeInfo = {keyDescription(F6), gettext("HELP.WINDOW / FULL SCREEN")};
         keyMap.put(7, keyScreenModeInfo);
 
-        String[] keyZoomInfo = {keyDescription(F8) + "-" + keyDescription(F9), gettext("HELP.ZOOM IN / OUT")};
+        String[] keyZoomInfo = {keyDescription(F7) + "-" + keyDescription(F8), gettext("HELP.ZOOM IN / OUT")};
         keyMap.put(8, keyZoomInfo);
 
         String[] replay = {keyDescription(R), gettext("ACTION REPLAY")};
@@ -74,7 +74,7 @@ abstract class SceneHotKeys {
             messageTimer = 60;
         }
 
-        if (Gdx.input.isKeyPressed(F7) && !keyScreenMode) {
+        if (Gdx.input.isKeyPressed(F6) && !keyScreenMode) {
             scene.settings.fullScreen = !scene.settings.fullScreen;
             scene.game.setScreenMode(scene.settings.fullScreen);
 
@@ -87,7 +87,7 @@ abstract class SceneHotKeys {
             messageTimer = 120;
         }
 
-        if (Gdx.input.isKeyPressed(F8) && !keyZoomIn) {
+        if (Gdx.input.isKeyPressed(F7) && !keyZoomIn) {
             scene.settings.zoom = EMath.slide(scene.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), +5);
             scene.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
@@ -96,7 +96,7 @@ abstract class SceneHotKeys {
             messageTimer = 60;
         }
 
-        if (Gdx.input.isKeyPressed(F9) && !keyZoomOut) {
+        if (Gdx.input.isKeyPressed(F8) && !keyZoomOut) {
             scene.settings.zoom = EMath.slide(scene.settings.zoom, SceneRenderer.zoomMin(), SceneRenderer.zoomMax(), -5);
             scene.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
@@ -105,7 +105,7 @@ abstract class SceneHotKeys {
             messageTimer = 60;
         }
 
-        if (Settings.development && Gdx.input.isKeyPressed(Input.Keys.F12) && !keyDevelopmentInfo) {
+        if (Settings.development && Gdx.input.isKeyPressed(F12) && !keyDevelopmentInfo) {
             Settings.showDevelopmentInfo = !Settings.showDevelopmentInfo;
 
             message = "DEVELOPMENT INFO " + (Settings.showDevelopmentInfo ? "ON" : "OFF");
@@ -115,10 +115,10 @@ abstract class SceneHotKeys {
 
         keySoundDown = Gdx.input.isKeyPressed(F2);
         keySoundUp = Gdx.input.isKeyPressed(F3);
-        keyScreenMode = Gdx.input.isKeyPressed(F7);
-        keyZoomIn = Gdx.input.isKeyPressed(F8);
-        keyZoomOut = Gdx.input.isKeyPressed(F9);
-        keyDevelopmentInfo = Gdx.input.isKeyPressed(Input.Keys.F12);
+        keyScreenMode = Gdx.input.isKeyPressed(F6);
+        keyZoomIn = Gdx.input.isKeyPressed(F7);
+        keyZoomOut = Gdx.input.isKeyPressed(F8);
+        keyDevelopmentInfo = Gdx.input.isKeyPressed(F12);
     }
 
     void onChangeVolume() {
