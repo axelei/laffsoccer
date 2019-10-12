@@ -92,6 +92,52 @@ class ActionCamera {
         return this;
     }
 
+    ActionCamera setTarget(Vector2 t) {
+        target.set(t);
+        return this;
+    }
+
+    Vector2 getCurrentTarget() {
+        Vector2 t = new Vector2();
+
+        switch (mode) {
+            case STILL:
+                t.set(x - dx, y - dy);
+                break;
+
+            case FOLLOW_BALL:
+                t.set(ball.x + offsetX, ball.y + offsetY);
+                break;
+
+            case REACH_TARGET:
+                t.set(target);
+                break;
+        }
+
+        clampTarget(t);
+
+        return t;
+    }
+
+    private void clampTarget(Vector2 t) {
+        float txMin = -CENTER_X + width / 2;
+        float txMax = -CENTER_X + PITCH_W - width / 2;
+        float tyMin = -CENTER_Y + height / 2;
+        float tyMax = -CENTER_Y + PITCH_H - height / 2;
+
+        if (xLimited && width < 1600) {
+            txMin = -TOUCH_LINE - width / 16 + width / 2;
+            txMax = +TOUCH_LINE + width / 16 - width / 2;
+        }
+        if (yLimited) {
+            tyMin = -GOAL_LINE - height / 4 + height / 2;
+            tyMax = +GOAL_LINE + height / 4 - height / 2;
+        }
+
+        t.x = EMath.clamp(t.x, txMin, txMax);
+        t.y = EMath.clamp(t.y, tyMin, tyMax);
+    }
+
     void setScreenParameters(int screenWidth, int screenHeight, int zoom) {
         x += width / 2;
         y += height / 2;

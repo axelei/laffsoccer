@@ -39,7 +39,7 @@ class MatchStateBenchExit extends MatchState {
 
         sceneRenderer.actionCamera
                 .setMode(REACH_TARGET)
-                .setTarget(getFsm().benchStatus.oldTargetX, getFsm().benchStatus.oldTargetY)
+                .setTarget(getFsm().benchStatus.oldTarget)
                 .setSpeed(WARP);
     }
 

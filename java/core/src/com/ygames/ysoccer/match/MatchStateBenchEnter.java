@@ -4,8 +4,6 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.WARP;
-import static com.ygames.ysoccer.match.Const.CENTER_X;
-import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -29,9 +27,7 @@ class MatchStateBenchEnter extends MatchState {
     void entryActions() {
         super.entryActions();
 
-        // TODO get current observed position from camera
-        getFsm().benchStatus.oldTargetX = sceneRenderer.vCameraX[match.subframe] - CENTER_X + sceneRenderer.screenWidth / (2 * sceneRenderer.zoom / 100f);
-        getFsm().benchStatus.oldTargetY = sceneRenderer.vCameraY[match.subframe] - CENTER_Y + sceneRenderer.screenHeight / (2 * sceneRenderer.zoom / 100f);
+        getFsm().benchStatus.oldTarget.set(sceneRenderer.actionCamera.getCurrentTarget());
 
         getFsm().benchStatus.selectedPosition = -1;
         getFsm().benchStatus.substPosition = -1;

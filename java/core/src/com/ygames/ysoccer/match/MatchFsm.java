@@ -133,8 +133,7 @@ public class MatchFsm extends SceneFsm {
         InputDevice inputDevice;
         float targetX;
         float targetY;
-        float oldTargetX;
-        float oldTargetY;
+        final Vector2 oldTarget = new Vector2();
         int selectedPosition;
         int substPosition = -1;
         int swapPosition = -1;
