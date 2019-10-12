@@ -61,18 +61,14 @@ class MatchStateBenchTactics extends MatchState {
     SceneFsm.Action[] checkConditions() {
 
         // set selected tactics and go back to bench
-        if (getFsm().benchStatus.inputDevice.fire1Down()) {
+        if (getFsm().benchStatus.inputDevice.fire1Down()
+                || getFsm().benchStatus.inputDevice.xReleased()) {
             if (getFsm().benchStatus.selectedTactics != getFsm().benchStatus.team.tactics) {
                 Coach coach = getFsm().benchStatus.team.coach;
                 coach.status = Coach.Status.CALL;
                 coach.timer = 500;
                 getFsm().benchStatus.team.tactics = getFsm().benchStatus.selectedTactics;
             }
-            return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
-        }
-
-        // go back to bench
-        if (getFsm().benchStatus.inputDevice.xReleased()) {
             return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
 

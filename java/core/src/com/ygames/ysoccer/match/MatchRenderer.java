@@ -1088,9 +1088,6 @@ public class MatchRenderer extends SceneRenderer {
         // slots
         for (int i = 0; i < 18; i++) {
             int color = 0x242424;
-            if (i == match.getFsm().benchStatus.team.tactics) {
-                color = 0xFFAA33;
-            }
             if (i == match.getFsm().benchStatus.selectedTactics) {
                 color = GLColor.sweepColor(color, 0xFFAA33);
             }
