@@ -31,6 +31,9 @@ class ActionCamera {
     float x; // position
     float y;
 
+    private float width;
+    private float height;
+
     private float dx;
     private float dy;
 
@@ -43,13 +46,10 @@ class ActionCamera {
     private boolean xLimited;
     private boolean yLimited;
 
-    private Vector2 target;
+    private final Vector2 target;
     private float targetDistance;
 
-    private Ball ball;
-    private int screenWidth;
-    private int screenHeight;
-    private int zoom;
+    private final Ball ball;
 
     ActionCamera(Ball ball) {
         this.ball = ball;
@@ -93,11 +93,10 @@ class ActionCamera {
     }
 
     void setScreenParameters(int screenWidth, int screenHeight, int zoom) {
-        this.screenWidth = screenWidth;
-        this.screenHeight = screenHeight;
-        this.zoom = zoom;
-        dx = CENTER_X - screenWidth / (2 * zoom / 100.0f);
-        dy = CENTER_Y - screenHeight / (2 * zoom / 100.0f);
+        width = screenWidth / (zoom / 100.0f);
+        height = screenHeight / (zoom / 100.0f);
+        dx = CENTER_X - width / 2;
+        dy = CENTER_Y - height / 2;
     }
 
     public float getTargetDistance() {
@@ -115,10 +114,10 @@ class ActionCamera {
             case FOLLOW_BALL:
                 // "remember" last direction of movement
                 if (ball.v * EMath.cos(ball.a) != 0) {
-                    offsetX = screenWidth / 20.0f * EMath.cos(ball.a);
+                    offsetX = width / 20.0f * EMath.cos(ball.a);
                 }
                 if (ball.v * EMath.sin(ball.a) != 0) {
-                    offsetY = screenHeight / 20.0f * EMath.sin(ball.a);
+                    offsetY = height / 20.0f * EMath.sin(ball.a);
                 }
 
                 // speed
@@ -163,17 +162,17 @@ class ActionCamera {
 
         // keep inside pitch
         float xMin = 0;
-        float xMax = PITCH_W - screenWidth / (zoom / 100.0f);
+        float xMax = PITCH_W - width;
         float yMin = 0;
-        float yMax = PITCH_H - screenHeight / (zoom / 100.0f);
+        float yMax = PITCH_H - height;
 
-        if (xLimited && (screenWidth / (zoom / 100.0f) < 1600)) {
-            xMin = CENTER_X - TOUCH_LINE - screenWidth / (16 * zoom / 100.0f);
-            xMax = CENTER_X + TOUCH_LINE + screenWidth / (16 * zoom / 100.0f) - screenWidth / (zoom / 100.0f);
+        if (xLimited && width < 1600) {
+            xMin = CENTER_X - TOUCH_LINE - width / 16;
+            xMax = CENTER_X + TOUCH_LINE + width / 16 - width;
         }
         if (yLimited) {
-            yMin = CENTER_Y - GOAL_LINE - screenHeight / (4 * zoom / 100.0f);
-            yMax = CENTER_Y + GOAL_LINE + screenHeight / (4 * zoom / 100.0f) - screenHeight / (zoom / 100.0f);
+            yMin = CENTER_Y - GOAL_LINE - height / 4;
+            yMax = CENTER_Y + GOAL_LINE + height / 4 - height;
         }
 
         if (x < xMin) {
