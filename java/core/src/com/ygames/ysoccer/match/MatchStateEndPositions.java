@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
 import static com.ygames.ysoccer.match.Match.Period.PENALTIES;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_END;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
@@ -36,9 +36,10 @@ class MatchStateEndPositions extends MatchState {
         match.ball.updatePrediction();
 
         sceneRenderer.actionCamera
+                .setMode(REACH_TARGET)
                 .setTarget(0, 0)
                 .setOffset(0, 0)
-                .setSpeedMode(FAST);
+                .setSpeed(FAST);
 
         match.setLineupTarget(Const.TOUCH_LINE + 80, 0);
         match.setLineupState(STATE_OUTSIDE);
@@ -61,7 +62,7 @@ class MatchStateEndPositions extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(REACH_TARGET);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

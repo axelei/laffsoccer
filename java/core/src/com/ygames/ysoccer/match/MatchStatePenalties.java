@@ -4,6 +4,7 @@ import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.PENALTY_SPOT_Y;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -51,6 +52,15 @@ class MatchStatePenalties extends MatchState {
     }
 
     @Override
+    void onResume() {
+        super.onResume();
+
+        sceneRenderer.actionCamera
+                .setMode(FOLLOW_BALL)
+                .setSpeed(NORMAL);
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -63,7 +73,7 @@ class MatchStatePenalties extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

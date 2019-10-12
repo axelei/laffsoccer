@@ -7,7 +7,8 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
@@ -20,6 +21,7 @@ class MatchStateGoal extends MatchState {
     private Goal goal;
     private boolean replayDone;
     private boolean recordingDone;
+    private boolean followBall;
 
     MatchStateGoal(MatchFsm fsm) {
         super(fsm);
@@ -38,6 +40,7 @@ class MatchStateGoal extends MatchState {
 
         replayDone = false;
         recordingDone = false;
+        followBall = true;
 
         Assets.Sounds.homeGoal.play(Assets.Sounds.volume / 100f);
 
@@ -73,6 +76,13 @@ class MatchStateGoal extends MatchState {
     }
 
     @Override
+    void onResume() {
+        super.onResume();
+
+        setCameraMode();
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -100,17 +110,28 @@ class MatchStateGoal extends MatchState {
 
             sceneRenderer.save();
 
-            if ((match.ball.v > 0) || (match.ball.vz != 0)) {
-                // follow ball
-                sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            if (followBall) {
+                if (match.ball.v == 0 && match.ball.vz == 0) {
+                    followBall = false;
+                    setCameraMode();
+                }
             } else {
-                // follow scorer
-                sceneRenderer.actionCamera
-                        .setSpeedMode(FAST)
-                        .setTarget(goal.player.data[match.subframe].x, goal.player.data[match.subframe].y)
-                        .update(REACH_TARGET);
+                sceneRenderer.actionCamera.setTarget(goal.player.x, goal.player.y);
             }
+            sceneRenderer.actionCamera.update();
             timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
+    }
+
+    private void setCameraMode() {
+        if (followBall) {
+            sceneRenderer.actionCamera
+                    .setMode(FOLLOW_BALL)
+                    .setSpeed(NORMAL);
+        } else {
+            sceneRenderer.actionCamera
+                    .setMode(REACH_TARGET)
+                    .setSpeed(FAST);
         }
     }
 

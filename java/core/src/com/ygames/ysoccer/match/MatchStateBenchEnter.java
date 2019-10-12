@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.WARP;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.WARP;
 import static com.ygames.ysoccer.match.Const.CENTER_X;
 import static com.ygames.ysoccer.match.Const.CENTER_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -15,9 +15,6 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateBenchEnter extends MatchState {
-
-    private float cameraX;
-    private float cameraY;
 
     MatchStateBenchEnter(MatchFsm fsm) {
         super(fsm);
@@ -49,12 +46,11 @@ class MatchStateBenchEnter extends MatchState {
             }
         }
 
-        cameraX = sceneRenderer.actionCamera.x;
-        cameraY = sceneRenderer.actionCamera.y;
         sceneRenderer.actionCamera
+                .setMode(REACH_TARGET)
                 .setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY)
                 .setLimited(false, true)
-                .setSpeedMode(WARP);
+                .setSpeed(WARP);
     }
 
     @Override
@@ -73,7 +69,7 @@ class MatchStateBenchEnter extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(REACH_TARGET);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
@@ -82,18 +78,11 @@ class MatchStateBenchEnter extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
 
-        float dx = cameraX - sceneRenderer.actionCamera.x;
-        float dy = cameraY - sceneRenderer.actionCamera.y;
-
-        // TODO: replace with test on speed provided by camera
-        if (dx <= 1 && dy <= 1) {
+        if (sceneRenderer.actionCamera.getTargetDistance() < 1) {
             Coach coach = getFsm().benchStatus.team.coach;
             coach.status = Coach.Status.STAND;
             return newAction(NEW_FOREGROUND, STATE_BENCH_SUBSTITUTIONS);
         }
-
-        cameraX = sceneRenderer.actionCamera.x;
-        cameraY = sceneRenderer.actionCamera.y;
 
         if (getFsm().benchStatus.inputDevice.xReleased()) {
             return newAction(NEW_FOREGROUND, STATE_BENCH_EXIT);

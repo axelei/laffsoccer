@@ -4,8 +4,7 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -26,9 +25,7 @@ class MatchStateBenchTactics extends MatchState {
         displayTacticsSwitch = true;
         getFsm().benchStatus.selectedTactics = getFsm().benchStatus.team.tactics;
 
-        sceneRenderer.actionCamera
-                .setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY)
-                .setSpeedMode(FAST);
+        sceneRenderer.actionCamera.setMode(STILL);
     }
 
     @Override
@@ -49,7 +46,7 @@ class MatchStateBenchTactics extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(REACH_TARGET);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

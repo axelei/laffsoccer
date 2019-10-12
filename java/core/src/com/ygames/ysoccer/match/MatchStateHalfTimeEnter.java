@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_STARTING_POSITIONS;
@@ -26,6 +27,15 @@ class MatchStateHalfTimeEnter extends MatchState {
         super.entryActions();
 
         match.setStartingPositions();
+    }
+
+    @Override
+    void onResume() {
+        super.onResume();
+
+        sceneRenderer.actionCamera
+                .setMode(FOLLOW_BALL)
+                .setSpeed(NORMAL);
     }
 
     @Override
@@ -53,7 +63,7 @@ class MatchStateHalfTimeEnter extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

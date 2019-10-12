@@ -6,7 +6,6 @@ import com.ygames.ysoccer.framework.GLGame;
 import java.util.ArrayList;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -65,9 +64,7 @@ class MatchStateFreeKickStop extends MatchState {
     void onResume() {
         match.setPointOfInterest(match.foul.position);
 
-        sceneRenderer.actionCamera
-                .setSpeedMode(NORMAL)
-                .setLimited(true, true);
+        sceneRenderer.actionCamera.setMode(STILL);
     }
 
     @Override
@@ -105,7 +102,7 @@ class MatchStateFreeKickStop extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(STILL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

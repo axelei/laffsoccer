@@ -142,6 +142,10 @@ public class MatchRenderer extends SceneRenderer {
             drawPlayerNumberAndName(match.ball.owner);
         }
 
+        if (Settings.showDevelopmentInfo) {
+            Assets.font10.draw(batch, "CAMERA MODE: " + actionCamera.getMode() + ", SPEED: " + actionCamera.getSpeed(), guiWidth / 2, 22, Font.Align.CENTER);
+        }
+
         // clock
         if (matchState.displayTime) {
             drawTime();

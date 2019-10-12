@@ -6,7 +6,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import java.util.Collections;
 
-import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
+import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_TACTICS;
@@ -30,7 +30,7 @@ class MatchStateBenchFormation extends MatchState {
     void entryActions() {
         super.entryActions();
         displayBenchFormation = true;
-        sceneRenderer.actionCamera.setTarget(getFsm().benchStatus.targetX, getFsm().benchStatus.targetY);
+        sceneRenderer.actionCamera.setMode(STILL);
     }
 
     @Override
@@ -51,7 +51,7 @@ class MatchStateBenchFormation extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(REACH_TARGET);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

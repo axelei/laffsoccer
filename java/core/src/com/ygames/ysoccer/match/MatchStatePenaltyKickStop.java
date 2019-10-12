@@ -7,7 +7,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import java.util.ArrayList;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Const.PENALTY_SPOT_Y;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -84,8 +84,9 @@ class MatchStatePenaltyKickStop extends MatchState {
     @Override
     void onResume() {
         sceneRenderer.actionCamera
+                .setMode(REACH_TARGET)
                 .setTarget(penaltyKickPosition.x, penaltyKickPosition.y)
-                .setSpeedMode(NORMAL)
+                .setSpeed(NORMAL)
                 .setLimited(true, true);
 
         match.setPointOfInterest(penaltyKickPosition);
@@ -130,7 +131,7 @@ class MatchStatePenaltyKickStop extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(REACH_TARGET);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

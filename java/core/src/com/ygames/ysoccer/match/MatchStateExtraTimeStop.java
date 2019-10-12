@@ -4,6 +4,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_STARTING_POSITIONS;
@@ -31,6 +32,15 @@ class MatchStateExtraTimeStop extends MatchState {
     }
 
     @Override
+    void onResume() {
+        super.onResume();
+
+        sceneRenderer.actionCamera
+                .setMode(FOLLOW_BALL)
+                .setSpeed(NORMAL);
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -50,7 +60,7 @@ class MatchStateExtraTimeStop extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

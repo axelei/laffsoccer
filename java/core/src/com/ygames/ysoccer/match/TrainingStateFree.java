@@ -10,6 +10,7 @@ import java.util.Collections;
 
 import static com.badlogic.gdx.Input.Keys.ESCAPE;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
@@ -50,7 +51,10 @@ class TrainingStateFree extends TrainingState {
 
         lastTrained = team[HOME].lineup.get(0);
 
-        sceneRenderer.actionCamera.setLimited(true, true);
+        sceneRenderer.actionCamera
+                .setMode(FOLLOW_BALL)
+                .setSpeed(NORMAL)
+                .setLimited(true, true);
     }
 
     @Override
@@ -115,7 +119,7 @@ class TrainingStateFree extends TrainingState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

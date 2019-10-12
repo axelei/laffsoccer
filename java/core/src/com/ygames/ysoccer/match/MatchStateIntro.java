@@ -13,6 +13,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 class MatchStateIntro extends MatchState {
 
     private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
+    private boolean stillCamera;
 
     MatchStateIntro(MatchFsm fsm) {
         super(fsm);
@@ -26,6 +27,7 @@ class MatchStateIntro extends MatchState {
     void entryActions() {
         super.entryActions();
 
+        stillCamera = true;
         match.clock = 0;
         getFsm().matchCompleted = false;
         match.setIntroPositions();
@@ -34,6 +36,13 @@ class MatchStateIntro extends MatchState {
         Assets.Sounds.introId = Assets.Sounds.intro.play(Assets.Sounds.volume / 100f);
         Assets.Sounds.crowdId = Assets.Sounds.crowd.play(Assets.Sounds.volume / 100f);
         Assets.Sounds.crowd.setLooping(Assets.Sounds.crowdId, true);
+    }
+
+    @Override
+    void onResume() {
+        super.onResume();
+
+        setCameraMode();
     }
 
     @Override
@@ -52,14 +61,18 @@ class MatchStateIntro extends MatchState {
 
             sceneRenderer.save();
 
-            if (timer < GLGame.VIRTUAL_REFRESH_RATE) {
-                sceneRenderer.actionCamera.update(STILL);
-            } else {
-                sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            if (stillCamera && timer > GLGame.VIRTUAL_REFRESH_RATE) {
+                stillCamera = false;
+                setCameraMode();
             }
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
+    }
+
+    private void setCameraMode() {
+        sceneRenderer.actionCamera.setMode(stillCamera ? STILL : FOLLOW_BALL);
     }
 
     @Override

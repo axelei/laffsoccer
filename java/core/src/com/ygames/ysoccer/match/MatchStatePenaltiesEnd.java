@@ -43,6 +43,13 @@ class MatchStatePenaltiesEnd extends MatchState {
     }
 
     @Override
+    void onResume() {
+        super.onResume();
+
+        sceneRenderer.actionCamera.setMode(STILL);
+    }
+
+    @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
 
@@ -94,7 +101,7 @@ class MatchStatePenaltiesEnd extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(STILL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

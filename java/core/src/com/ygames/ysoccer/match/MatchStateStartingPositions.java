@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_KICK_OFF;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -32,7 +32,8 @@ class MatchStateStartingPositions extends MatchState {
     @Override
     void onResume() {
         sceneRenderer.actionCamera
-                .setSpeedMode(FAST)
+                .setMode(FOLLOW_BALL)
+                .setSpeed(FAST)
                 .setLimited(true, true);
     }
 
@@ -49,7 +50,7 @@ class MatchStateStartingPositions extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

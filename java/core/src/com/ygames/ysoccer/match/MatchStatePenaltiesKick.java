@@ -4,7 +4,6 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_END;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PENALTY_KICK_ANGLE;
@@ -41,9 +40,7 @@ class MatchStatePenaltiesKick extends MatchState {
         match.penalty.kicker.setTarget(0, match.penalty.side * (Const.PENALTY_SPOT_Y - 7));
         match.penalty.kicker.setState(STATE_REACH_TARGET);
 
-        sceneRenderer.actionCamera
-                .setSpeedMode(FAST)
-                .setLimited(true, true);
+        sceneRenderer.actionCamera.setMode(STILL);
     }
 
     @Override
@@ -74,7 +71,7 @@ class MatchStatePenaltiesKick extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(STILL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

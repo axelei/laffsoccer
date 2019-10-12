@@ -4,7 +4,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.NORMAL;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_THROW_IN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -40,7 +40,8 @@ class MatchStateThrowInStop extends MatchState {
         match.setPointOfInterest(getFsm().throwInPosition);
 
         sceneRenderer.actionCamera
-                .setSpeedMode(NORMAL)
+                .setMode(FOLLOW_BALL)
+                .setSpeed(NORMAL)
                 .setLimited(true, true);
     }
 
@@ -65,7 +66,7 @@ class MatchStateThrowInStop extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

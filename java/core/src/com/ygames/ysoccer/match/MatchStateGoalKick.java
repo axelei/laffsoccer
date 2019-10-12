@@ -4,7 +4,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -34,8 +34,9 @@ class MatchStateGoalKick extends MatchState {
         super.onResume();
 
         sceneRenderer.actionCamera
+                .setMode(FOLLOW_BALL)
                 .setOffset(-30 * match.ball.xSide, -30 * match.ball.ySide)
-                .setSpeedMode(FAST)
+                .setSpeed(FAST)
                 .setLimited(true, true);
 
         isKicking = false;
@@ -75,7 +76,7 @@ class MatchStateGoalKick extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -19,13 +19,14 @@ class ActionCamera {
         REACH_TARGET
     }
 
-    enum SpeedMode {
+    enum Speed {
         NORMAL,
         FAST,
         WARP
     }
 
-    private SpeedMode speedMode;
+    private Mode mode;
+    private Speed speed;
 
     float x; // position
     float y;
@@ -33,7 +34,7 @@ class ActionCamera {
     private float dx;
     private float dy;
 
-    private float vx; // speed
+    private float vx;
     private float vy;
 
     private float offsetX;
@@ -52,12 +53,25 @@ class ActionCamera {
 
     ActionCamera(Ball ball) {
         this.ball = ball;
-        speedMode = SpeedMode.NORMAL;
+        speed = Speed.NORMAL;
         target = new Vector2();
     }
 
-    ActionCamera setSpeedMode(SpeedMode speedMode) {
-        this.speedMode = speedMode;
+    Mode getMode() {
+        return mode;
+    }
+
+    ActionCamera setMode(Mode mode) {
+        this.mode = mode;
+        return this;
+    }
+
+    Speed getSpeed() {
+        return speed;
+    }
+
+    ActionCamera setSpeed(Speed speed) {
+        this.speed = speed;
         return this;
     }
 
@@ -90,7 +104,7 @@ class ActionCamera {
         return targetDistance;
     }
 
-    void update(Mode mode) {
+    void update() {
 
         switch (mode) {
 
@@ -129,11 +143,11 @@ class ActionCamera {
                 // near the point "ball+offset"
                 if (Math.abs(ball.x + offsetX - (x - dx)) >= 10) {
                     float f = ball.x + offsetX - (x - dx);
-                    x = x + (10.0f / SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
+                    x = x + (10.0f / SECOND) * (1 + speed.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 if (Math.abs(ball.y + offsetY - (y - dy)) >= 10) {
                     float f = ball.y + offsetY - (y - dy);
-                    y = y + (10.0f / SECOND) * (1 + speedMode.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
+                    y = y + (10.0f / SECOND) * (1 + speed.ordinal()) * Math.signum(f) * (float) Math.sqrt(Math.abs(f));
                 }
                 break;
 
@@ -142,40 +156,40 @@ class ActionCamera {
                 float y0 = target.y - (y - dy);
                 float a = EMath.aTan2(y0, x0);
                 targetDistance = EMath.sqrt(Math.abs(x0) + Math.abs(y0));
-                x += (10.0f / SECOND) * (1 + speedMode.ordinal()) * targetDistance * EMath.cos(a);
-                y += (10.0f / SECOND) * (1 + speedMode.ordinal()) * targetDistance * EMath.sin(a);
+                x += (10.0f / SECOND) * (1 + speed.ordinal()) * targetDistance * EMath.cos(a);
+                y += (10.0f / SECOND) * (1 + speed.ordinal()) * targetDistance * EMath.sin(a);
                 break;
         }
 
         // keep inside pitch
-        float xmin = 0;
-        float xmax = PITCH_W - screenWidth / (zoom / 100.0f);
-        float ymin = 0;
-        float ymax = PITCH_H - screenHeight / (zoom / 100.0f);
+        float xMin = 0;
+        float xMax = PITCH_W - screenWidth / (zoom / 100.0f);
+        float yMin = 0;
+        float yMax = PITCH_H - screenHeight / (zoom / 100.0f);
 
         if (xLimited && (screenWidth / (zoom / 100.0f) < 1600)) {
-            xmin = CENTER_X - TOUCH_LINE - screenWidth / (16 * zoom / 100.0f);
-            xmax = CENTER_X + TOUCH_LINE + screenWidth / (16 * zoom / 100.0f) - screenWidth / (zoom / 100.0f);
+            xMin = CENTER_X - TOUCH_LINE - screenWidth / (16 * zoom / 100.0f);
+            xMax = CENTER_X + TOUCH_LINE + screenWidth / (16 * zoom / 100.0f) - screenWidth / (zoom / 100.0f);
         }
         if (yLimited) {
-            ymin = CENTER_Y - GOAL_LINE - screenHeight / (4 * zoom / 100.0f);
-            ymax = CENTER_Y + GOAL_LINE + screenHeight / (4 * zoom / 100.0f) - screenHeight / (zoom / 100.0f);
+            yMin = CENTER_Y - GOAL_LINE - screenHeight / (4 * zoom / 100.0f);
+            yMax = CENTER_Y + GOAL_LINE + screenHeight / (4 * zoom / 100.0f) - screenHeight / (zoom / 100.0f);
         }
 
-        if (x < xmin) {
-            x = xmin;
+        if (x < xMin) {
+            x = xMin;
         }
 
-        if (x > xmax) {
-            x = xmax;
+        if (x > xMax) {
+            x = xMax;
         }
 
-        if (y < ymin) {
-            y = ymin;
+        if (y < yMin) {
+            y = yMin;
         }
 
-        if (y > ymax) {
-            y = ymax;
+        if (y > yMax) {
+            y = yMax;
         }
     }
 }

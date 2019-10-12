@@ -3,7 +3,7 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.WARP;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.WARP;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
@@ -38,8 +38,9 @@ class MatchStateBenchExit extends MatchState {
         }
 
         sceneRenderer.actionCamera
+                .setMode(REACH_TARGET)
                 .setTarget(getFsm().benchStatus.oldTargetX, getFsm().benchStatus.oldTargetY)
-                .setSpeedMode(WARP);
+                .setSpeed(WARP);
     }
 
     @Override
@@ -60,7 +61,7 @@ class MatchStateBenchExit extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(REACH_TARGET);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }

@@ -5,7 +5,7 @@ import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
-import static com.ygames.ysoccer.match.ActionCamera.SpeedMode.FAST;
+import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_MAIN;
@@ -41,8 +41,9 @@ class MatchStateFreeKick extends MatchState {
         defendingTeam = match.foul.player.team;
 
         sceneRenderer.actionCamera
+                .setMode(FOLLOW_BALL)
+                .setSpeed(FAST)
                 .setOffset(-30 * match.ball.xSide, -80 * freeKickTeam.side)
-                .setSpeedMode(FAST)
                 .setLimited(true, true);
 
         isKicking = false;
@@ -82,7 +83,7 @@ class MatchStateFreeKick extends MatchState {
 
             sceneRenderer.save();
 
-            sceneRenderer.actionCamera.update(FOLLOW_BALL);
+            sceneRenderer.actionCamera.update();
 
             timeLeft -= GLGame.SUBFRAME_DURATION;
         }
