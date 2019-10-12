@@ -93,8 +93,12 @@ class ActionCamera {
     }
 
     void setScreenParameters(int screenWidth, int screenHeight, int zoom) {
+        x += width / 2;
+        y += height / 2;
         width = screenWidth / (zoom / 100.0f);
         height = screenHeight / (zoom / 100.0f);
+        x -= width / 2;
+        y -= height / 2;
         dx = CENTER_X - width / 2;
         dy = CENTER_Y - height / 2;
     }
