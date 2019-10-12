@@ -521,31 +521,17 @@ public class Team implements Json.Serializable {
 
             // ball owned by opponent: pressing
             else {
-                //  pressing in own side
-                if (ball.ySide == side) {
-                    if (bestDefenderBetterThan(controlled)) {
-                        GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + bestDefender.numberName() + " because is best defender (pressing in own side)");
-                        if (controlled != null) {
-                            controlled.inputDevice = controlled.ai;
-                        } else {
-                            controlled = bestDefender;
-                        }
-                        bestDefender.inputDevice = inputDevice;
-                    } else if (controlled == null) {
-                        GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), " > " + near1.numberName() + " because of no best defender and no controlled (pressing in own side)");
-                        controlled = near1;
-                        near1.inputDevice = inputDevice;
-                    }
-                }
-
-                // pressing in opponent side
-                else if (near1betterThan(controlled)) {
-                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + near1.numberName() + " because is nearest (pressing in opponent side)");
+                if (bestDefenderBetterThan(controlled)) {
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), (controlled != null ? controlled.numberName() : "") + " > " + bestDefender.numberName() + " because is best defender (pressing)");
                     if (controlled != null) {
                         controlled.inputDevice = controlled.ai;
                     } else {
-                        controlled = near1;
+                        controlled = bestDefender;
                     }
+                    bestDefender.inputDevice = inputDevice;
+                } else if (controlled == null) {
+                    GLGame.debug(PLAYER_SELECTION, this.getClass().getSimpleName(), " > " + near1.numberName() + " because of no best defender and no controlled (pressing)");
+                    controlled = near1;
                     near1.inputDevice = inputDevice;
                 }
             }
@@ -677,15 +663,8 @@ public class Team implements Json.Serializable {
     }
 
     public Player playerAtPosition(int pos) {
-        return playerAtPosition(pos, null);
-    }
-
-    private Player playerAtPosition(int pos, Tactics tcs) {
-        if (tcs == null) {
-            tcs = Assets.tactics[tactics];
-        }
         if (pos < players.size()) {
-            int ply = (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
+            int ply = (pos < TEAM_SIZE) ? Tactics.order[Assets.tactics[tactics].basedOn][pos] : pos;
             return players.get(ply);
         } else {
             return null;
@@ -693,15 +672,8 @@ public class Team implements Json.Serializable {
     }
 
     Player lineupAtPosition(int pos) {
-        return lineupAtPosition(pos, null);
-    }
-
-    private Player lineupAtPosition(int pos, Tactics tcs) {
-        if (tcs == null) {
-            tcs = Assets.tactics[tactics];
-        }
         if (pos < lineup.size()) {
-            int ply = (pos < TEAM_SIZE) ? Tactics.order[tcs.basedOn][pos] : pos;
+            int ply = (pos < TEAM_SIZE) ? Tactics.order[Assets.tactics[tactics].basedOn][pos] : pos;
             return lineup.get(ply);
         } else {
             return null;
