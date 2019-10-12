@@ -37,6 +37,10 @@ public class EMath {
         return hypo(x2 - x1, y2 - y1);
     }
 
+    public static float sqrt(float v) {
+        return (float) Math.sqrt(v);
+    }
+
     public static float pow(float v, float v1) {
         return (float) Math.pow(v, v1);
     }

@@ -43,6 +43,7 @@ class ActionCamera {
     private boolean yLimited;
 
     private Vector2 target;
+    private float targetDistance;
 
     private Ball ball;
     private int screenWidth;
@@ -83,6 +84,10 @@ class ActionCamera {
         this.zoom = zoom;
         dx = CENTER_X - screenWidth / (2 * zoom / 100.0f);
         dy = CENTER_Y - screenHeight / (2 * zoom / 100.0f);
+    }
+
+    public float getTargetDistance() {
+        return targetDistance;
     }
 
     void update(Mode mode) {
@@ -136,9 +141,9 @@ class ActionCamera {
                 float x0 = target.x - (x - dx);
                 float y0 = target.y - (y - dy);
                 float a = EMath.aTan2(y0, x0);
-                double v = Math.sqrt(Math.abs(x0) + Math.abs(y0));
-                x += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * EMath.cos(a);
-                y += (10.0f / SECOND) * (1 + speedMode.ordinal()) * v * EMath.sin(a);
+                targetDistance = EMath.sqrt(Math.abs(x0) + Math.abs(y0));
+                x += (10.0f / SECOND) * (1 + speedMode.ordinal()) * targetDistance * EMath.cos(a);
+                y += (10.0f / SECOND) * (1 + speedMode.ordinal()) * targetDistance * EMath.sin(a);
                 break;
         }
 

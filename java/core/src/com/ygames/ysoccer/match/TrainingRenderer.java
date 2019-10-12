@@ -67,7 +67,7 @@ public class TrainingRenderer extends SceneRenderer {
 
         renderBackground();
 
-        if (Settings.development && Settings.showBallPredictions) {
+        if (Settings.showDevelopmentInfo && Settings.showBallPredictions) {
             drawBallPredictions(ball);
         }
 
