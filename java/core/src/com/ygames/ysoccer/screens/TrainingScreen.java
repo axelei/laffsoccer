@@ -6,9 +6,9 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
-import com.ygames.ysoccer.match.ConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Training;
+import com.ygames.ysoccer.match.TrainingConsoleCommandExecutor;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -45,7 +45,7 @@ class TrainingScreen extends GLScreen {
             console.setPositionPercent(0, 0);
             console.setHoverAlpha(0.9f);
             console.setNoHoverAlpha(0.9f);
-            console.setCommandExecutor(new ConsoleCommandExecutor());
+            console.setCommandExecutor(new TrainingConsoleCommandExecutor(training));
         }
     }
 
