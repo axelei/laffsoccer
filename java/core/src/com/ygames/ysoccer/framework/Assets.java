@@ -20,7 +20,6 @@ import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.CrowdRenderer;
 import com.ygames.ysoccer.match.Hair;
 import com.ygames.ysoccer.match.Kit;
-import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.SceneSettings;
 import com.ygames.ysoccer.match.Sky;
@@ -60,11 +59,11 @@ public class Assets {
     public static FileHandle savesFolder;
     static FileHandle saveGame;
     public static Json json;
-    public static int[] calendars = new int[4600];
+    public static final int[] calendars = new int[4600];
     public static List<String> associations;
     public static FileHandle favouritesFile;
     public static List<String> favourites;
-    public static Tactics[] tactics = new Tactics[18];
+    public static final Tactics[] tactics = new Tactics[18];
     public static List<String> kits;
     public static Integer[][][] playerOrigins;
     public static Integer[][][] keeperOrigins;
@@ -72,41 +71,41 @@ public class Assets {
     public static Integer[][][] playerHairMap;    // row, column, (frameX, frameY, posX, posY)
     public static Integer[][][] keeperHairMap;    // row, column, (frameX, frameY, posX, posY)
     public static List<String> currencies;
-    public static TextureRegion[] scroll = new TextureRegion[2];
+    public static final TextureRegion[] scroll = new TextureRegion[2];
     public static TextureRegion shortArrow;
-    public static TextureRegion[] stars = new TextureRegion[10];
-    public static TextureRegion[][] controls = new TextureRegion[2][3];
-    public static TextureRegion[][] pieces = new TextureRegion[2][2];
-    public static TextureRegion[] lightIcons = new TextureRegion[3];
-    public static TextureRegion[] pitchIcons = new TextureRegion[10];
-    public static TextureRegion[] weatherIcons = new TextureRegion[11];
-    public static TextureRegion[][] stadium = new TextureRegion[4][4];
-    public static TextureRegion[] crowd = new TextureRegion[5];
+    public static final TextureRegion[] stars = new TextureRegion[10];
+    public static final TextureRegion[][] controls = new TextureRegion[2][3];
+    public static final TextureRegion[][] pieces = new TextureRegion[2][2];
+    public static final TextureRegion[] lightIcons = new TextureRegion[3];
+    public static final TextureRegion[] pitchIcons = new TextureRegion[10];
+    public static final TextureRegion[] weatherIcons = new TextureRegion[11];
+    public static final TextureRegion[][] stadium = new TextureRegion[4][4];
+    public static final TextureRegion[] crowd = new TextureRegion[5];
     public static CrowdRenderer crowdRenderer;
-    public static TextureRegion[] ball = new TextureRegion[5];
-    public static TextureRegion[][] cornerFlags = new TextureRegion[6][3];
-    public static TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
+    public static final TextureRegion[] ball = new TextureRegion[5];
+    public static final TextureRegion[][] cornerFlags = new TextureRegion[6][3];
+    public static final TextureRegion[][][] cornerFlagsShadows = new TextureRegion[6][3][4];
     public static Texture goalTopA;
     public static Texture goalTopB;
     public static Texture goalBottom;
     public static Texture jumper;
-    public static TextureRegion[][] coach = new TextureRegion[2][6];
-    public static TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
-    public static TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
-    public static TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
-    public static Map<Hair, TextureRegion[][]> hairs = new HashMap<>();
-    public static TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
+    public static final TextureRegion[][] coach = new TextureRegion[2][6];
+    public static final TextureRegion[][][][] keeper = new TextureRegion[2][10][8][19];
+    public static final TextureRegion[][][] keeperShadow = new TextureRegion[8][19][4];
+    public static final TextureRegion[][][][] player = new TextureRegion[2][10][8][16];
+    public static final Map<Hair, TextureRegion[][]> hairs = new HashMap<>();
+    public static final TextureRegion[][][] playerShadow = new TextureRegion[8][16][4];
     public static Pixmap keeperCollisionDetection;
-    public static TextureRegion[][] playerNumbers = new TextureRegion[10][2];
-    public static TextureRegion[] tinyNumbers = new TextureRegion[10];
-    public static TextureRegion[] time = new TextureRegion[11];
-    public static TextureRegion[] score = new TextureRegion[11];
-    public static TextureRegion[][] replaySpeed = new TextureRegion[3][3];
-    public static TextureRegion[] rain = new TextureRegion[4];
-    public static TextureRegion[] snow = new TextureRegion[3];
+    public static final TextureRegion[][] playerNumbers = new TextureRegion[10][2];
+    public static final TextureRegion[] tinyNumbers = new TextureRegion[10];
+    public static final TextureRegion[] time = new TextureRegion[11];
+    public static final TextureRegion[] score = new TextureRegion[11];
+    public static final TextureRegion[][] replaySpeed = new TextureRegion[3][3];
+    public static final TextureRegion[] rain = new TextureRegion[4];
+    public static final TextureRegion[] snow = new TextureRegion[3];
     public static Texture fog;
-    public static TextureRegion[][] wind = new TextureRegion[8][2];
-    public static TextureRegion[] bench = new TextureRegion[2];
+    public static final TextureRegion[][] wind = new TextureRegion[8][2];
+    public static final TextureRegion[] bench = new TextureRegion[2];
 
     public static class Sounds {
 
@@ -126,7 +125,7 @@ public class Assets {
         public static Sound whistle;
         public static int volume;
 
-        public static void load() {
+        static void load() {
             bounce = newSound("bounce.ogg");
             chant = newSound("chant.ogg");
             crowd = newSound("crowd.ogg");
@@ -148,16 +147,16 @@ public class Assets {
 
     public static class Commentary {
 
-        public static List<Sound> cornerKick = new ArrayList<>();
-        public static List<Sound> foul = new ArrayList<>();
-        public static List<Sound> goal = new ArrayList<>();
-        public static List<Sound> keeperSave = new ArrayList<>();
-        public static List<Sound> ownGoal = new ArrayList<>();
-        public static List<Sound> penalty = new ArrayList<>();
-        public static List<Sound> playerSubstitution = new ArrayList<>();
-        public static List<Sound> playerSwap = new ArrayList<>();
+        public static final List<Sound> cornerKick = new ArrayList<>();
+        public static final List<Sound> foul = new ArrayList<>();
+        public static final List<Sound> goal = new ArrayList<>();
+        public static final List<Sound> keeperSave = new ArrayList<>();
+        public static final List<Sound> ownGoal = new ArrayList<>();
+        public static final List<Sound> penalty = new ArrayList<>();
+        public static final List<Sound> playerSubstitution = new ArrayList<>();
+        public static final List<Sound> playerSwap = new ArrayList<>();
 
-        public static void load() {
+        static void load() {
             FileHandle commentaryFolder = Gdx.files.local("sounds/commentary");
             for (FileHandle fileHandle : commentaryFolder.list()) {
                 List<String> extensions = Arrays.asList("ogg", "wav", "mp3");
@@ -189,6 +188,17 @@ public class Assets {
                     }
                 }
             }
+        }
+
+        public static void stop() {
+            for (Sound s : cornerKick) s.stop();
+            for (Sound s : foul) s.stop();
+            for (Sound s : goal) s.stop();
+            for (Sound s : keeperSave) s.stop();
+            for (Sound s : ownGoal) s.stop();
+            for (Sound s : penalty) s.stop();
+            for (Sound s : playerSubstitution) s.stop();
+            for (Sound s : playerSwap) s.stop();
         }
     }
 
@@ -297,22 +307,16 @@ public class Assets {
     }
 
     private static void loadCalendars() {
-        InputStream in = null;
         try {
-            in = Gdx.files.internal("configs/calendars.bin").read();
+            InputStream in = Gdx.files.internal("configs/calendars.bin").read();
             byte[] buffer = new byte[1];
             for (int i = 0; i < calendars.length; i++) {
-                in.read(buffer);
-                calendars[i] = buffer[0] & 0xFF;
+                if (in.read(buffer) != -1) {
+                    calendars[i] = buffer[0] & 0xFF;
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException("Error while reading calendars " + e.getMessage());
-        } finally {
-            if (in != null)
-                try {
-                    in.close();
-                } catch (IOException e) {
-                }
         }
     }
 
@@ -340,20 +344,13 @@ public class Assets {
     }
 
     private static void loadTactics() {
-        InputStream in = null;
         for (int i = 0; i < tactics.length; i++) {
             try {
                 tactics[i] = new Tactics();
-                in = Gdx.files.internal("data/tactics/preset/" + Tactics.fileNames[i] + ".TAC").read();
+                InputStream in = Gdx.files.internal("data/tactics/preset/" + Tactics.fileNames[i] + ".TAC").read();
                 tactics[i].loadFile(in);
             } catch (IOException e) {
                 throw new RuntimeException("Couldn't load tactics", e);
-            } finally {
-                if (in != null)
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                    }
             }
         }
     }
@@ -433,7 +430,7 @@ public class Assets {
         int mul = e - 1 - 3 * e3;
         if (mul >= 0) {
             p *= (int) (Math.pow(10, mul));
-        } else if (mul < 0) {
+        } else {
             p /= (Math.pow(10, -mul));
         }
 
