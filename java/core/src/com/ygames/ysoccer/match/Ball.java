@@ -20,6 +20,7 @@ class Ball {
     float vMax;
     float vz;
     float vzMax;
+    private float bouncing_speed;
     float a;
     float s;
     private float f;
@@ -86,7 +87,7 @@ class Ball {
         this.setPosition(position.x, position.y, 0);
     }
 
-    public float update() {
+    public void update() {
         if (owner != null) {
             if ((owner.ballDistance > 13) || (z > (Const.PLAYER_H + Const.BALL_R))) {
                 setOwner(null);
@@ -98,15 +99,18 @@ class Ball {
         y0 = y;
         z0 = z;
 
-        float bouncing_speed = updatePhysics();
+        updatePhysics(true);
+
+        if (bouncing_speed > 0) {
+            Assets.Sounds.bounce.play(Math.min(bouncing_speed / 250, 1) * Assets.Sounds.volume / 100f);
+            bouncing_speed = 0;
+        }
 
         // animation
         f = (f + 4 + v / 2500) % 4;
-
-        return bouncing_speed;
     }
 
-    private float updatePhysics() {
+    private void updatePhysics(boolean saveBouncingSpeed) {
         // angle & spin
         a += Const.SPIN_FACTOR / Const.SECOND * s;
         s *= 1 - Const.SPIN_DAMPENING / Const.SECOND;
@@ -163,7 +167,6 @@ class Ball {
         }
 
         // bounce
-        float bouncing_speed = 0;
         if (z < 0 && vz < 0) {
             setZ(0);
             if (vz > -40) {
@@ -172,8 +175,10 @@ class Ball {
                 // bounce
                 v *= (1 + vz / 1400.0f);
                 vz *= -Const.BOUNCE * sceneSettings.grass.bounce;
+                if (saveBouncingSpeed) {
+                    bouncing_speed = vz;
+                }
             }
-            bouncing_speed = vz;
         }
 
         if (z > zMax) {
@@ -183,7 +188,6 @@ class Ball {
         if (vz > vzMax) {
             vzMax = vz;
         }
-        return bouncing_speed;
     }
 
     public void updatePrediction() {
@@ -196,7 +200,7 @@ class Ball {
             predictionL[frm].y = Math.round(y);
             predictionL[frm].z = Math.round(z);
             for (int subframe = 0; subframe < GLGame.SUBFRAMES; subframe++) {
-                updatePhysics();
+                updatePhysics(false);
             }
         }
 
@@ -207,7 +211,7 @@ class Ball {
             prediction[frm].y = Math.round(y);
             prediction[frm].z = Math.round(z);
             for (int subframe = 0; subframe < GLGame.SUBFRAMES; subframe++) {
-                updatePhysics();
+                updatePhysics(false);
             }
         }
 
@@ -219,7 +223,7 @@ class Ball {
             predictionR[frm].y = Math.round(y);
             predictionR[frm].z = Math.round(z);
             for (int subframe = 0; subframe < GLGame.SUBFRAMES; subframe++) {
-                updatePhysics();
+                updatePhysics(false);
             }
         }
 
@@ -279,7 +283,7 @@ class Ball {
         return Const.isInsidePenaltyArea(x, y, ySide);
     }
 
-    public boolean collisionGoal() {
+    boolean collisionGoal() {
 
         if (ySide == 0) {
             return false;
@@ -305,6 +309,7 @@ class Ball {
             setZ(z0);
 
             hit = true;
+            bouncing_speed = v;
         }
 
         // crossbar
@@ -342,7 +347,7 @@ class Ball {
             setZ(z0);
 
             hit = true;
-
+            bouncing_speed = 0.5f * ballVyz;
         }
 
         // posts
@@ -364,17 +369,20 @@ class Ball {
             setZ(z0);
 
             hit = true;
+            bouncing_speed = v;
         }
 
         // sound
         if (hit) {
-            Assets.Sounds.post.play(Assets.Sounds.volume / 100f);
+            float volume = Math.min(EMath.floor(bouncing_speed / 10) / 10f, 1);
+            Assets.Sounds.post.play(volume * Assets.Sounds.volume / 100f);
+            bouncing_speed = 0;
         }
 
         return hit;
     }
 
-    public void collisionFlagPosts() {
+    void collisionFlagPosts() {
 
         if ((xSide == 0) || (ySide == 0)) {
             return;
@@ -396,7 +404,7 @@ class Ball {
         }
     }
 
-    public void collisionNet() {
+    void collisionNet() {
 
         boolean sfx = false;
 
@@ -430,7 +438,7 @@ class Ball {
         }
     }
 
-    public void collisionNetOut() {
+    void collisionNetOut() {
 
         // back-top
         if ((EMath.dist(y0, z0, ySide * Const.GOAL_LINE, 0) <= Const.CROSSBAR_H)
@@ -467,7 +475,7 @@ class Ball {
         }
     }
 
-    public void collisionJumpers() {
+    void collisionJumpers() {
 
         if ((EMath.dist(x, y, xSide * Const.JUMPER_X, ySide * Const.JUMPER_Y) <= 5) && (z <= Const.JUMPER_H)) {
 
