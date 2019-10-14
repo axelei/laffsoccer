@@ -24,6 +24,7 @@ public class MatchRenderer extends SceneRenderer {
 
     private final Match match;
     private MatchState matchState;
+    private BallSprite ballSprite;
 
     MatchRenderer(GLGraphics glGraphics, Match match) {
         this.batch = glGraphics.batch;
@@ -42,7 +43,8 @@ public class MatchRenderer extends SceneRenderer {
             vCameraY[i] = Math.round(actionCamera.y);
         }
 
-        allSprites.add(new BallSprite(glGraphics, match.ball));
+        ballSprite = new BallSprite(glGraphics, match.ball);
+        allSprites.add(ballSprite);
         for (int t = HOME; t <= AWAY; t++) {
             CoachSprite coachSprite = new CoachSprite(glGraphics, match.team[t].coach);
             allSprites.add(coachSprite);
@@ -89,8 +91,12 @@ public class MatchRenderer extends SceneRenderer {
 
         renderSprites(match.subframe);
 
+        redrawBallOverTopGoal(ballSprite, match.subframe);
+
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
+
+        redrawBallOverBottomGoal(ballSprite, match.subframe);
 
         // redraw jumpers
         // top

@@ -163,10 +163,10 @@ class ActionCamera {
 
             case FOLLOW_BALL:
                 // "remember" last direction of movement
-                if (ball.v * EMath.cos(ball.a) != 0) {
+                if (Math.abs(ball.v * EMath.cos(ball.a)) > 1) {
                     offsetX = width / 20.0f * EMath.cos(ball.a);
                 }
-                if (ball.v * EMath.sin(ball.a) != 0) {
+                if (Math.abs(ball.v * EMath.sin(ball.a)) > 1) {
                     offsetY = height / 20.0f * EMath.sin(ball.a);
                 }
 

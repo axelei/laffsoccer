@@ -15,6 +15,7 @@ public class TrainingRenderer extends SceneRenderer {
 
     private final Training training;
     private TrainingState trainingState;
+    private BallSprite ballSprite;
 
     TrainingRenderer(GLGraphics glGraphics, Training training) {
         this.batch = glGraphics.batch;
@@ -33,7 +34,8 @@ public class TrainingRenderer extends SceneRenderer {
             vCameraY[i] = Math.round(actionCamera.y);
         }
 
-        allSprites.add(new BallSprite(glGraphics, training.ball));
+        ballSprite = new BallSprite(glGraphics, training.ball);
+        allSprites.add(ballSprite);
         CoachSprite coachSprite = new CoachSprite(glGraphics, training.team[HOME].coach);
         allSprites.add(coachSprite);
 
@@ -73,8 +75,12 @@ public class TrainingRenderer extends SceneRenderer {
 
         renderSprites(training.subframe);
 
+        redrawBallOverTopGoal(ballSprite, training.subframe);
+
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
+
+        redrawBallOverBottomGoal(ballSprite, training.subframe);
 
         // redraw jumpers
         // top

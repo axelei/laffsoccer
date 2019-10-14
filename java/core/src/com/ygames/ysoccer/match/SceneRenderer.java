@@ -18,6 +18,9 @@ import java.util.List;
 import java.util.TreeMap;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.POST_X;
 
 public abstract class SceneRenderer {
 
@@ -294,4 +297,20 @@ public abstract class SceneRenderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
+    void redrawBallOverTopGoal(BallSprite ballSprite, int subframe) {
+        Data d = ball.data[subframe];
+        if (EMath.isIn(d.x, -POST_X, POST_X)
+                && d.y < -GOAL_LINE
+                && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)) {
+            ballSprite.draw(subframe);
+        }
+    }
+
+    void redrawBallOverBottomGoal(BallSprite ballSprite, int subframe) {
+        Data d = ball.data[subframe];
+        if (EMath.isIn(d.x, -POST_X, POST_X)
+                && (d.y > GOAL_LINE + 21 || (d.y > GOAL_LINE && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)))) {
+            ballSprite.draw(subframe);
+        }
+    }
 }
