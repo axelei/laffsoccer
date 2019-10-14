@@ -41,7 +41,7 @@ class MatchStateCornerStop extends MatchState {
 
         // set the player targets relative to corner zone
         // even before moving the ball itself
-        match.ball.updateZone(cornerPosition.x, cornerPosition.y, 0, 0);
+        match.ball.updateZone(cornerPosition.x, cornerPosition.y);
         match.updateTeamTactics();
         match.team[HOME].lineup.get(0).setTarget(0, match.team[HOME].side * (Const.GOAL_LINE - 8));
         match.team[AWAY].lineup.get(0).setTarget(0, match.team[AWAY].side * (Const.GOAL_LINE - 8));

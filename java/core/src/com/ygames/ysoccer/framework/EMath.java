@@ -33,8 +33,8 @@ public class EMath {
         return (float) Math.sqrt(diffX * diffX + diffY * diffY);
     }
 
-    public static float dist(float x1, float y1, float x2, float y2) {
-        return hypo(x2 - x1, y2 - y1);
+    public static float dist(float ax, float ay, float bx, float by) {
+        return hypo(bx - ax, by - ay);
     }
 
     public static float sqrt(float v) {

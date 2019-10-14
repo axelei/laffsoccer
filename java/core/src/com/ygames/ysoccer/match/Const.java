@@ -114,7 +114,7 @@ public class Const {
     static final int JUMPER_H = 42;
 
     // goals
-    static final int GOAL_DEPTH = 22;
+    static final int GOAL_DEPTH = 19;
     static final int POST_X = 71;
     static final int POST_R = 2; // posts and crossbar radius
     static final int CROSSBAR_H = 33;

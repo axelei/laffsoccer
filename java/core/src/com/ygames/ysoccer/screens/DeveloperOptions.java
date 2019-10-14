@@ -18,6 +18,7 @@ import static com.badlogic.gdx.Application.LOG_INFO;
 import static com.badlogic.gdx.Application.LOG_NONE;
 import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
 import static com.ygames.ysoccer.framework.GLGame.LogType.AI_KICKING;
+import static com.ygames.ysoccer.framework.GLGame.LogType.BALL_PHYSICS;
 import static com.ygames.ysoccer.framework.GLGame.LogType.GUI;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
 import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
@@ -112,24 +113,6 @@ class DeveloperOptions extends GLScreen {
         widgets.add(w);
 
         y0 += 22;
-        w = new LogFilterLabel(GUI);
-        widgets.add(w);
-        w = new LogFilterButton(GUI);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(PASSING);
-        widgets.add(w);
-        w = new LogFilterButton(PASSING);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(PLAYER_SELECTION);
-        widgets.add(w);
-        w = new LogFilterButton(PLAYER_SELECTION);
-        widgets.add(w);
-
-        y0 += 22;
         w = new LogFilterLabel(AI_ATTACKING);
         widgets.add(w);
         w = new LogFilterButton(AI_ATTACKING);
@@ -139,6 +122,30 @@ class DeveloperOptions extends GLScreen {
         w = new LogFilterLabel(AI_KICKING);
         widgets.add(w);
         w = new LogFilterButton(AI_KICKING);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(BALL_PHYSICS);
+        widgets.add(w);
+        w = new LogFilterButton(BALL_PHYSICS);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(PASSING);
+        widgets.add(w);
+        w = new LogFilterButton(PASSING);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(GUI);
+        widgets.add(w);
+        w = new LogFilterButton(GUI);
+        widgets.add(w);
+
+        y0 += 22;
+        w = new LogFilterLabel(PLAYER_SELECTION);
+        widgets.add(w);
+        w = new LogFilterButton(PLAYER_SELECTION);
         widgets.add(w);
 
         w = new ExitButton();

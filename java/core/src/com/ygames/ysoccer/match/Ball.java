@@ -230,7 +230,7 @@ class Ball {
         PhysicsSet.restoreValues(this);
     }
 
-    void updateZone(float x, float y, float v, float a) {
+    void updateZone(float x, float y) {
 
         // zone
         zoneX = Math.round(x / Const.BALL_ZONE_DX);
@@ -291,7 +291,7 @@ class Ball {
 
         boolean hit = false;
 
-        // "sette" **
+        // top corners
         if ((ySide * y < Const.GOAL_LINE)
                 && (EMath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 6)
                 && (EMath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 6)
@@ -440,42 +440,80 @@ class Ball {
 
     void collisionNetOut() {
 
-        // back-top
-        if ((EMath.dist(y0, z0, ySide * Const.GOAL_LINE, 0) <= Const.CROSSBAR_H)
-                && (-Const.POST_X < x && x < Const.POST_X)) {
+        boolean xTest = Math.abs(x) <= Const.POST_X + Const.BALL_R / 2f;
+        if (!xTest) return;
+        boolean yTest = EMath.isIn(Math.abs(y), Const.GOAL_LINE, Const.GOAL_LINE + Const.GOAL_DEPTH + Const.BALL_R / 2f);
+        if (!yTest) return;
+        boolean zTest = z <= (Const.CROSSBAR_H + Const.BALL_R - (Math.abs(y) - Const.GOAL_LINE) / 3f);
+        if (!zTest) return;
 
-            float ballVx = v * EMath.cos(a); // cartesian coord.
+        boolean collision = false;
+
+        // top
+        if (z0 > (Const.CROSSBAR_H + Const.BALL_R - (Math.abs(y0) - Const.GOAL_LINE) / 3f)) {
+
+            float ballVx = v * EMath.cos(a);
             float ballVy = v * EMath.sin(a);
 
-            float angle = EMath.aTan2(z, y - ySide * Const.GOAL_LINE); // y-z
-            // angle
-            float ballVyz = (float) Math.sqrt(ballVy * ballVy + vz * vz); // y-z
-            // speed
-            float ballAyz = EMath.aTan2(vz, -ballVy); // y-z angle
+            float ballVyz = 0.25f * EMath.sqrt(ballVy * ballVy + vz * vz);
+            float ballAyz = EMath.aTan2(0, y - Math.signum(y) * Const.GOAL_LINE);
 
-            ballVyz = ballVyz / 10.0f; // net friction
+            ballVy = ballVyz * EMath.cos(ballAyz);
+            ballVy = Math.signum(ballVy) * Math.max(30, Math.abs(ballVy));
 
-            ballAyz = (2 * angle - ballAyz + 180) % 360; // new angle
-            ballVy = ballVyz * EMath.cos(angle); // new y-z speeds
-            vz = ballVyz * EMath.sin(angle);
-
-            v = EMath.hypo(ballVx, ballVy); // back to polar coord.
+            vz = -0.25f * vz;
+            v = EMath.hypo(ballVx, ballVy);
             a = EMath.aTan2(ballVy, ballVx);
-            s = -s;
+
+            collision = true;
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, "net external collision: top", "v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
-        // left/right
-        if ((x0 * xSide > Const.POST_X) && (x * xSide <= Const.POST_X)
-                && (z < Const.CROSSBAR_H + Const.BALL_R)) {
-            if (EMath.isIn(ySide * y, (Const.GOAL_LINE + Const.BALL_R),
-                    (Const.GOAL_LINE + Const.GOAL_DEPTH + Const.BALL_R))) {
-                v = (float) Math.sqrt(v);
-                a = EMath.aTan2(EMath.sin(a), -EMath.cos(a) / 4);
-            }
+        // back
+        if (Math.abs(y0) > Const.GOAL_LINE + Const.GOAL_DEPTH + Const.BALL_R / 2f) {
+
+            float ballVx = v * EMath.cos(a);
+            float ballVy = v * EMath.sin(a);
+
+            ballVx = 0.5f * ballVx;
+            ballVy = -0.15f * ballVy;
+
+            v = EMath.hypo(ballVx, ballVy);
+            a = EMath.aTan2(ballVy, ballVx);
+
+            collision = true;
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, "net external collision: back", "v: " + v + ", a: " + a + ", vz: " + vz);
+        }
+
+        // side
+        if (Math.abs(x0) > Const.POST_X + Const.BALL_R / 2f) {
+
+            float ballVx = v * EMath.cos(a);
+            float ballVy = v * EMath.sin(a);
+
+            ballVx = -0.15f * ballVx;
+            ballVy = 0.5f * ballVy;
+
+            v = EMath.hypo(ballVx, ballVy);
+            a = EMath.aTan2(ballVy, ballVx);
+
+            collision = true;
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, "net external collision: side", "v: " + v + ", a: " + a + ", vz: " + vz);
+        }
+
+        if (collision) {
+            setX(x0);
+            setY(y0);
+            setZ(z0);
         }
     }
 
     void collisionJumpers() {
+
+        if (xSide == 0 || ySide == 0) return;
 
         if ((EMath.dist(x, y, xSide * Const.JUMPER_X, ySide * Const.JUMPER_Y) <= 5) && (z <= Const.JUMPER_H)) {
 

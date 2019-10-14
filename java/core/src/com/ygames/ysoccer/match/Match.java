@@ -505,7 +505,7 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     void updateBallZone() {
-        ball.updateZone(ball.x, ball.y, ball.v, ball.a);
+        ball.updateZone(ball.x, ball.y);
     }
 
     void updateTeamTactics() {

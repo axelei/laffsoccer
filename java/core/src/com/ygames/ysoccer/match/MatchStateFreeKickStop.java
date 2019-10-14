@@ -45,7 +45,7 @@ class MatchStateFreeKickStop extends MatchState {
 
         // set the player targets relative to foul zone
         // even before moving the ball itself
-        match.ball.updateZone(match.foul.position.x, match.foul.position.y, 0, 0);
+        match.ball.updateZone(match.foul.position.x, match.foul.position.y);
         match.updateTeamTactics();
         match.foul.player.team.keepTargetDistanceFrom(match.foul.position);
         if (match.foul.isDirectShot()) {

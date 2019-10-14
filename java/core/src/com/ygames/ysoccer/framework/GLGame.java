@@ -77,7 +77,7 @@ public class GLGame extends Game {
     }
 
     @Override
-    public void setScreen (Screen screen) {
+    public void setScreen(Screen screen) {
         GLGame.debug(LogType.GUI, "setScreen", screen.getClass().getSimpleName());
         super.setScreen(screen);
     }
@@ -225,11 +225,12 @@ public class GLGame extends Game {
     }
 
     public enum LogType {
+        AI_ATTACKING,
+        AI_KICKING,
+        BALL_PHYSICS,
         GUI,
         PASSING,
-        PLAYER_SELECTION,
-        AI_ATTACKING,
-        AI_KICKING
+        PLAYER_SELECTION
     }
 
     public static void debug(LogType type, Object Object, String message) {
