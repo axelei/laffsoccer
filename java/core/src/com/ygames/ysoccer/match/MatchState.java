@@ -36,12 +36,14 @@ abstract class MatchState extends SceneState {
     boolean checkHelpKey = true;
     boolean checkBenchCall = true;
 
-    Match match;
+    final Match match;
+    final Ball ball;
 
     MatchState(MatchFsm matchFsm) {
         super(matchFsm);
 
         this.match = matchFsm.getMatch();
+        this.ball = match.ball;
     }
 
     MatchFsm getFsm() {

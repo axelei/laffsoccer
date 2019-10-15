@@ -45,7 +45,7 @@ class MatchStateFreeKickStop extends MatchState {
 
         // set the player targets relative to foul zone
         // even before moving the ball itself
-        match.ball.updateZone(match.foul.position.x, match.foul.position.y);
+        ball.updateZone(match.foul.position.x, match.foul.position.y);
         match.updateTeamTactics();
         match.foul.player.team.keepTargetDistanceFrom(match.foul.position);
         if (match.foul.isDirectShot()) {
@@ -94,7 +94,12 @@ class MatchStateFreeKickStop extends MatchState {
             }
 
             match.updateBall();
-            match.ball.inFieldKeep();
+            ball.inFieldKeep();
+            ball.collisionFlagPosts();
+            ball.collisionGoal();
+            ball.collisionJumpers();
+            ball.collisionNet();
+            ball.collisionNetOut();
 
             match.updatePlayers(true);
 
@@ -111,8 +116,8 @@ class MatchStateFreeKickStop extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
         if (allPlayersReachingTarget) {
-            match.ball.setPosition(match.foul.position.x, match.foul.position.y, 0);
-            match.ball.updatePrediction();
+            ball.setPosition(match.foul.position.x, match.foul.position.y, 0);
+            ball.updatePrediction();
 
             return newAction(NEW_FOREGROUND, STATE_FREE_KICK);
         }
