@@ -111,7 +111,7 @@ public class Const {
     // jumpers
     static final int JUMPER_X = 92;
     static final int JUMPER_Y = 684;
-    static final int JUMPER_H = 42;
+    static final int JUMPER_H = 40;
 
     // goals
     static final int GOAL_DEPTH = 19;

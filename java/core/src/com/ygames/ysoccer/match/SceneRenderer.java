@@ -309,7 +309,7 @@ public abstract class SceneRenderer {
     void redrawBallOverBottomGoal(BallSprite ballSprite, int subframe) {
         Data d = ball.data[subframe];
         if (EMath.isIn(d.x, -POST_X, POST_X)
-                && (d.y > GOAL_LINE + 21 || (d.y > GOAL_LINE && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)))) {
+                && (d.y >= GOAL_LINE + 21 || (d.y > GOAL_LINE && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)))) {
             ballSprite.draw(subframe);
         }
     }

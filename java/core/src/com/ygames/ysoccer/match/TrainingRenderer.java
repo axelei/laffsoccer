@@ -15,7 +15,7 @@ public class TrainingRenderer extends SceneRenderer {
 
     private final Training training;
     private TrainingState trainingState;
-    private BallSprite ballSprite;
+    private final BallSprite ballSprite;
 
     TrainingRenderer(GLGraphics glGraphics, Training training) {
         this.batch = glGraphics.batch;
@@ -44,6 +44,12 @@ public class TrainingRenderer extends SceneRenderer {
             for (int i = 0; i < len; i++) {
                 PlayerSprite playerSprite = new PlayerSprite(glGraphics, training.team[t].lineup.get(i));
                 allSprites.add(playerSprite);
+            }
+        }
+
+        for (int xSide = -1; xSide <= 1; xSide += 2) {
+            for (int ySide = -1; ySide <= 1; ySide += 2) {
+                allSprites.add(new JumperSprite(glGraphics, xSide, ySide));
             }
         }
 
@@ -81,18 +87,6 @@ public class TrainingRenderer extends SceneRenderer {
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
         redrawBallOverBottomGoal(ballSprite, training.subframe);
-
-        // redraw jumpers
-        // top
-        if (training.ball.data[training.subframe].y < -Const.JUMPER_Y) {
-            batch.draw(Assets.jumper, -Const.JUMPER_X, -Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
-            batch.draw(Assets.jumper, +Const.JUMPER_X, -Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
-        }
-        // bottom
-        if (training.ball.data[training.subframe].y < +Const.JUMPER_Y) {
-            batch.draw(Assets.jumper, -Const.JUMPER_X, +Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
-            batch.draw(Assets.jumper, +Const.JUMPER_X, +Const.JUMPER_Y - 40, 2, 42, 0, 0, 2, 42, false, true);
-        }
 
         if (training.settings.weatherStrength != Weather.Strength.NONE) {
             switch (training.settings.weatherEffect) {

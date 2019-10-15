@@ -4,9 +4,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.GLGraphics;
 
-public class GoalTopB extends Sprite {
+class GoalTopB extends Sprite {
 
-    public GoalTopB(GLGraphics glGraphics) {
+    GoalTopB(GLGraphics glGraphics) {
         super(glGraphics);
         textureRegion = new TextureRegion(Assets.goalTopB);
         textureRegion.flip(false, true);
