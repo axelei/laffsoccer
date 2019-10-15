@@ -13,14 +13,13 @@ class Sprite {
     int x;
     int y;
     int z;
-    int offset;
 
     Sprite(GLGraphics glGraphics) {
         this.glGraphics = glGraphics;
     }
 
     public void draw(int subframe) {
-        glGraphics.batch.draw(textureRegion, x, y - z - offset);
+        glGraphics.batch.draw(textureRegion, x, y - z);
     }
 
     public int getY(int subframe) {

@@ -371,7 +371,7 @@ class Ball {
             // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float angle = EMath.aTan2(y - ySide * (GOAL_LINE + 1), x - xSide * POST_X);
+            float angle = EMath.aTan2(y - ySide * GOAL_LINE, x - xSide * POST_X);
 
             // new speed, angle & spin
             v = 0.5f * v;
