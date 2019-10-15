@@ -6,9 +6,12 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
+import static com.ygames.ysoccer.match.Const.GOAL_DEPTH;
 import static com.ygames.ysoccer.match.Const.JUMPER_H;
 import static com.ygames.ysoccer.match.Const.JUMPER_X;
 import static com.ygames.ysoccer.match.Const.JUMPER_Y;
+import static com.ygames.ysoccer.match.Const.POST_X;
 
 class Ball {
 
@@ -297,10 +300,10 @@ class Ball {
 
         // top corners
         if ((ySide * y < Const.GOAL_LINE)
-                && (EMath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 6)
-                && (EMath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 6)
-                && ((EMath.dist(x, y, -Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6)
-                || (EMath.dist(x, y, Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
+                && (EMath.dist(y0, z0, ySide * Const.GOAL_LINE, CROSSBAR_H) > 6)
+                && (EMath.dist(y, z, ySide * Const.GOAL_LINE, CROSSBAR_H) <= 6)
+                && ((EMath.dist(x, y, -POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6)
+                || (EMath.dist(x, y, POST_X, ySide * (Const.GOAL_LINE + 1)) <= 6))) {
 
             // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
@@ -317,9 +320,9 @@ class Ball {
         }
 
         // crossbar
-        else if ((EMath.dist(y0, z0, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) > 5)
-                && (EMath.dist(y, z, ySide * Const.GOAL_LINE, Const.CROSSBAR_H) <= 5)
-                && (-(Const.POST_X + Const.POST_R) < x && x < (Const.POST_X + Const.POST_R))) {
+        else if ((EMath.dist(y0, z0, ySide * Const.GOAL_LINE, CROSSBAR_H) > 5)
+                && (EMath.dist(y, z, ySide * Const.GOAL_LINE, CROSSBAR_H) <= 5)
+                && (-(POST_X + Const.POST_R) < x && x < (POST_X + Const.POST_R))) {
 
             // cartesian coordinates
             // real ball x-y angle (when spinning, it is different from ball.a)
@@ -329,7 +332,7 @@ class Ball {
             float ballVy = v * EMath.sin(ballAxy);
 
             // collision y-z angle
-            float angle = EMath.aTan2(z - Const.CROSSBAR_H, y - ySide * Const.GOAL_LINE);
+            float angle = EMath.aTan2(z - CROSSBAR_H, y - ySide * Const.GOAL_LINE);
 
             // ball y-z speed and angle
             float ballVyz = (float) Math.sqrt(ballVy * ballVy + vz * vz);
@@ -355,14 +358,14 @@ class Ball {
         }
 
         // posts
-        else if ((EMath.dist(x0, y0, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) > 5)
-                && (EMath.dist(x, y, xSide * Const.POST_X, ySide * (Const.GOAL_LINE + 1)) <= 5)
-                && (z <= (Const.CROSSBAR_H + Const.POST_R))) {
+        else if ((EMath.dist(x0, y0, xSide * POST_X, ySide * (Const.GOAL_LINE + 1)) > 5)
+                && (EMath.dist(x, y, xSide * POST_X, ySide * (Const.GOAL_LINE + 1)) <= 5)
+                && (z <= (CROSSBAR_H + Const.POST_R))) {
 
             // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float angle = EMath.aTan2(y - ySide * (Const.GOAL_LINE + 1), x - xSide * Const.POST_X);
+            float angle = EMath.aTan2(y - ySide * (Const.GOAL_LINE + 1), x - xSide * POST_X);
 
             // new speed, angle & spin
             v = 0.5f * v;
@@ -410,51 +413,90 @@ class Ball {
 
     void collisionNet() {
 
-        boolean sfx = false;
+        boolean xTest = Math.abs(x0) < POST_X - Const.BALL_R / 2f;
+        if (!xTest) return;
+        boolean yTest = Math.abs(y0) > Const.GOAL_LINE && Math.abs(y0) < Const.GOAL_LINE + GOAL_DEPTH - Const.BALL_R / 2f;
+        if (!yTest) return;
+        boolean zTest = z0 < (CROSSBAR_H - Const.BALL_R / 2f - (Math.abs(y0) - Const.GOAL_LINE) / 3f);
+        if (!zTest) return;
 
-        if (ySide * y > Const.GOAL_LINE) {
-            if ((EMath.hypo(1.6f * (y - ySide * Const.GOAL_LINE), z) >= Const.CROSSBAR_H)
-                    && (EMath.hypo((1.6f * (y0 - ySide * Const.GOAL_LINE)), z0) < Const.CROSSBAR_H)) {
+        boolean collision = false;
 
-                if (v > 200) {
-                    sfx = true;
-                }
-                v = v / 10;
-                vz = 0;
-                a = EMath.aTan2(-EMath.sin(a) / 4, EMath.cos(a));
-                s = 0;
-            }
+        // back
+        if (Math.abs(y) >= Const.GOAL_LINE + GOAL_DEPTH - Const.BALL_R / 2f) {
 
-            // left/right
-            if ((x0 * xSide < Const.POST_X) && (x * xSide >= Const.POST_X)) {
-                if (v > 200) {
-                    sfx = true;
-                }
-                v = v / 10.0f;
-                vz = 0;
-                a = EMath.aTan2(EMath.sin(a), -EMath.cos(a) / 4.0f);
-                s = 0;
-            }
+            float ballVx = v * EMath.cos(a);
+            float ballVy = v * EMath.sin(a);
 
-            if (sfx) {
-                Assets.Sounds.net.play(0.5f * Assets.Sounds.volume / 100f);
-            }
+            ballVx = 0.5f * ballVx;
+            ballVy = -0.1f * ballVy;
+
+            v = EMath.hypo(ballVx, ballVy);
+            a = EMath.aTan2(ballVy, ballVx);
+
+            collision = true;
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net internal back collision, v: " + v + ", a: " + a + ", vz: " + vz);
+        }
+
+        // sides
+        if (Math.abs(x) >= POST_X - Const.BALL_R / 2f) {
+
+            float ballVx = v * EMath.cos(a);
+            float ballVy = v * EMath.sin(a);
+
+            ballVx = -0.1f * ballVx;
+            ballVy = 0.5f * ballVy;
+
+            v = EMath.hypo(ballVx, ballVy);
+            a = EMath.aTan2(ballVy, ballVx);
+
+            collision = true;
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net internal side collision, v: " + v + ", a: " + a + ", vz: " + vz);
+        }
+
+        // top
+        if (z >= (CROSSBAR_H - Const.BALL_R / 2f - (Math.abs(y) - Const.GOAL_LINE) / 3f)) {
+
+            float ballVx = v * EMath.cos(a);
+            float ballVy = v * EMath.sin(a);
+
+            float ballVyz = 0.25f * EMath.sqrt(ballVy * ballVy + vz * vz);
+            float ballAyz = EMath.aTan2(0, y - Math.signum(y) * Const.GOAL_LINE);
+
+            ballVy = ballVyz * EMath.cos(ballAyz);
+            ballVy = Math.signum(ballVy) * Math.max(30, Math.abs(ballVy));
+
+            vz = -0.25f * vz;
+            v = EMath.hypo(ballVx, ballVy);
+            a = EMath.aTan2(ballVy, ballVx);
+
+            collision = true;
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net internal top collision, v: " + v + ", a: " + a + ", vz: " + vz);
+        }
+
+        if (collision) {
+            setX(x0);
+            setY(y0);
+            setZ(z0);
         }
     }
 
     void collisionNetOut() {
 
-        boolean xTest = Math.abs(x) <= Const.POST_X + Const.BALL_R / 2f;
+        boolean xTest = Math.abs(x) <= POST_X + Const.BALL_R / 2f;
         if (!xTest) return;
         boolean yTest = EMath.isIn(Math.abs(y), Const.GOAL_LINE, Const.GOAL_LINE + Const.GOAL_DEPTH + Const.BALL_R / 2f);
         if (!yTest) return;
-        boolean zTest = z <= (Const.CROSSBAR_H + Const.BALL_R - (Math.abs(y) - Const.GOAL_LINE) / 3f);
+        boolean zTest = z <= (CROSSBAR_H + Const.BALL_R - (Math.abs(y) - Const.GOAL_LINE) / 3f);
         if (!zTest) return;
 
         boolean collision = false;
 
         // top
-        if (z0 > (Const.CROSSBAR_H + Const.BALL_R - (Math.abs(y0) - Const.GOAL_LINE) / 3f)) {
+        if (z0 > (CROSSBAR_H + Const.BALL_R - (Math.abs(y0) - Const.GOAL_LINE) / 3f)) {
 
             float ballVx = v * EMath.cos(a);
             float ballVy = v * EMath.sin(a);
@@ -491,8 +533,8 @@ class Ball {
             GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net external back collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
-        // side
-        if (Math.abs(x0) > Const.POST_X + Const.BALL_R / 2f) {
+        // sides
+        if (Math.abs(x0) > POST_X + Const.BALL_R / 2f) {
 
             float ballVx = v * EMath.cos(a);
             float ballVy = v * EMath.sin(a);
