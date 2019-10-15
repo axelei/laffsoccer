@@ -6,6 +6,10 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
+import static com.ygames.ysoccer.match.Const.JUMPER_H;
+import static com.ygames.ysoccer.match.Const.JUMPER_X;
+import static com.ygames.ysoccer.match.Const.JUMPER_Y;
+
 class Ball {
 
     // motion & graphics
@@ -467,7 +471,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(GLGame.LogType.BALL_PHYSICS, "net external collision: top", "v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net external top collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // back
@@ -484,7 +488,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(GLGame.LogType.BALL_PHYSICS, "net external collision: back", "v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net external back collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // side
@@ -501,7 +505,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(GLGame.LogType.BALL_PHYSICS, "net external collision: side", "v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Net external side collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         if (collision) {
@@ -513,22 +517,26 @@ class Ball {
 
     void collisionJumpers() {
 
-        if (xSide == 0 || ySide == 0) return;
-
-        if ((EMath.dist(x, y, xSide * Const.JUMPER_X, ySide * Const.JUMPER_Y) <= 5) && (z <= Const.JUMPER_H)) {
+        if ((EMath.dist(Math.abs(x), Math.abs(y), JUMPER_X, JUMPER_Y) <= Const.BALL_R + 1)
+                && (EMath.dist(Math.abs(x0), Math.abs(y0), JUMPER_X, JUMPER_Y) > Const.BALL_R + 1)
+                && (z < JUMPER_H)) {
 
             // real ball x-y angle (when spinning, it is different from ball.a)
             float ballAxy = EMath.aTan2(y - y0, x - x0);
 
-            float angle = EMath.aTan2(y - ySide * Const.JUMPER_Y, x - (xSide * Const.JUMPER_X));
+            float angle = EMath.aTan2(y - Math.signum(y) * JUMPER_Y, x - Math.signum(x) * JUMPER_X);
             v = 0.3f * v;
             a = (2 * angle - ballAxy + 180) % 360;
             s = 0;
+
             setX(x0);
             setY(y0);
             setZ(z0);
 
-            Assets.Sounds.bounce.play(0.5f * Assets.Sounds.volume / 100f);
+            float volume = Math.min(EMath.floor(v / 10) / 20f, 1);
+            Assets.Sounds.post.play(volume * Assets.Sounds.volume / 100f);
+
+            GLGame.debug(GLGame.LogType.BALL_PHYSICS, this, "Jumper collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
     }
 
