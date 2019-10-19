@@ -38,7 +38,7 @@ class PlayerStateTackle extends PlayerState {
                 if ((angleDiff <= 90)
                         && (player.ballDistance * EMath.sin(angleDiff) <= (8 + 0.3f * player.skills.tackling))) {
 
-                    ball.setOwner(player);
+                    scene.setBallOwner(player);
                     ball.v = player.v * (1 + 0.02f * player.skills.tackling);
                     hit = true;
 

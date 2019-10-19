@@ -15,7 +15,8 @@ class PlayerStatePenaltyKickAngle extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball.setOwner(player);
+
+        scene.setBallOwner(player);
         defaultAngle = 90 * (2 - ball.ySide);
         player.a = defaultAngle;
     }

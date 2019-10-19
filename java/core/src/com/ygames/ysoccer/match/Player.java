@@ -164,20 +164,20 @@ public class Player implements Json.Serializable {
     }
 
     void beforeMatch(Match match) {
+        this.scene = match;
         this.ball = match.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
-        scene = match;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
     }
 
     void beforeTraining(Training training) {
+        this.scene = training;
         this.ball = training.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
-        scene = training;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
@@ -312,7 +312,7 @@ public class Player implements Json.Serializable {
 
                     // contrast winner
                     if (r < (skills.tackling + 1) / sum) {
-                        ball.setOwner(this);
+                        scene.setBallOwner(this);
                         ball.v = v;
                         ball.a = a;
                     }
@@ -325,7 +325,7 @@ public class Player implements Json.Serializable {
 
                 // get possession
                 else {
-                    ball.setOwner(this);
+                    scene.setBallOwner(this);
                     ball.v = v;
                     ball.a = a;
                 }
@@ -334,8 +334,8 @@ public class Player implements Json.Serializable {
 
             // collision for too fast ball
             else {
-                ball.setOwner(this);
-                ball.setOwner(null);
+                scene.setBallOwner(this);
+                scene.setBallOwner(null);
                 ball.collisionPlayer((1 - 0.1f * skills.control) * differenceVec.len());
             }
 
@@ -408,8 +408,8 @@ public class Player implements Json.Serializable {
                     ball.a = EMath.aTan2(ballVy, ballVx);
                     ball.s = -ball.s;
 
-                    ball.setOwner(this, false);
-                    ball.setOwner(null);
+                    scene.setBallOwner(this, false);
+                    scene.setBallOwner(null);
                     break;
 
                 case CATCH:
@@ -420,7 +420,7 @@ public class Player implements Json.Serializable {
                     ball.vz = 0;
                     ball.s = 0;
 
-                    ball.setOwner(this);
+                    scene.setBallOwner(this);
                     ball.setHolder(this);
                     break;
 
@@ -443,8 +443,8 @@ public class Player implements Json.Serializable {
                     ball.vz = 1.5f * vz;
                     ball.a = EMath.aTan2(ballVy, ballVx);
 
-                    ball.setOwner(this, false);
-                    ball.setOwner(null);
+                    scene.setBallOwner(this, false);
+                    scene.setBallOwner(null);
                     break;
             }
         }

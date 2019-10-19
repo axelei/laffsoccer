@@ -14,7 +14,7 @@ class PlayerStateGoalKick extends PlayerState {
     void doActions() {
         super.doActions();
 
-        ball.setOwner(player);
+        scene.setBallOwner(player);
 
         //prevent kicking backwards
         if (player.inputDevice.y1 != ball.ySide) {

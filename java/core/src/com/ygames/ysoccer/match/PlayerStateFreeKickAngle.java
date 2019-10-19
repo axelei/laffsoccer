@@ -13,7 +13,8 @@ class PlayerStateFreeKickAngle extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball.setOwner(player);
+
+        scene.setBallOwner(player);
     }
 
     @Override

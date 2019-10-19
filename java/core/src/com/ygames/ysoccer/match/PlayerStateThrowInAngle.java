@@ -21,7 +21,7 @@ class PlayerStateThrowInAngle extends PlayerState {
         player.x = ball.xSide * (Const.TOUCH_LINE + 6);
         player.fmx = 2 * ball.xSide + 2;
         player.fmy = 8;
-        ball.setOwner(player);
+        scene.setBallOwner(player);
         animationCountdown = GLGame.SUBFRAMES_PER_SECOND;
     }
 

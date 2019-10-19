@@ -155,7 +155,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
             ball.vz = 0;
             ball.s = 0;
 
-            ball.setOwner(player);
+            scene.setBallOwner(player);
             ball.setHolder(player);
 
             return fsm.stateKeeperKickAngle;

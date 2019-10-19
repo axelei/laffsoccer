@@ -13,6 +13,7 @@ import java.util.List;
 
 import static com.ygames.ysoccer.framework.EMath.rotate;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
+import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_DOWN;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
@@ -297,7 +298,26 @@ public class Match extends Scene implements Json.Serializable {
 
     void updateBall() {
         ball.update();
+        updateBallOwner();
         ball.inFieldKeep();
+    }
+
+    private void updateBallOwner() {
+        if (ball.owner != null) {
+            if ((ball.owner.ballDistance > 11) || (ball.z > (Const.PLAYER_H + BALL_R))) {
+                setBallOwner(null);
+            }
+        }
+    }
+
+    public void setBallOwner(Player player, boolean updateGoalOwner) {
+        ball.owner = player;
+        if (player != null) {
+            ball.ownerLast = player;
+            if (updateGoalOwner) {
+                ball.goalOwner = player;
+            }
+        }
     }
 
     boolean updatePlayers(boolean limit) {

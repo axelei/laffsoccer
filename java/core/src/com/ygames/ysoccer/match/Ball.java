@@ -101,12 +101,6 @@ class Ball {
     }
 
     public void update() {
-        if (owner != null) {
-            if ((owner.ballDistance > 11) || (z > (Const.PLAYER_H + BALL_R))) {
-                setOwner(null);
-            }
-        }
-
         // store old values
         x0 = x;
         y0 = y;
@@ -600,20 +594,6 @@ class Ball {
         setX(x0);
         setY(y0);
         setZ(z0);
-    }
-
-    public void setOwner(Player newOwner) {
-        setOwner(newOwner, true);
-    }
-
-    public void setOwner(Player newOwner, boolean updateGoalOwner) {
-        owner = newOwner;
-        if (newOwner != null) {
-            ownerLast = newOwner;
-            if (updateGoalOwner) {
-                goalOwner = newOwner;
-            }
-        }
     }
 
     public void setHolder(Player player) {

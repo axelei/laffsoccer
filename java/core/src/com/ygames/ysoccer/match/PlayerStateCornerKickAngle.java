@@ -13,7 +13,8 @@ class PlayerStateCornerKickAngle extends PlayerState {
     @Override
     void entryActions() {
         super.entryActions();
-        ball.setOwner(player);
+
+        scene.setBallOwner(player);
         player.a = 90 * (1 + ball.xSide);
     }
 

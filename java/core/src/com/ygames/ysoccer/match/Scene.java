@@ -47,5 +47,11 @@ abstract class Scene {
 
     abstract Player getNearestOfAll();
 
+    public void setBallOwner(Player player) {
+        setBallOwner(player, true);
+    }
+
+    abstract public void setBallOwner(Player player, boolean updateGoalOwner);
+
     abstract void quit();
 }

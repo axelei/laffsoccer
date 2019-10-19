@@ -24,7 +24,7 @@ class PlayerStateHead extends PlayerState {
                     player.z + Const.PLAYER_H + Const.BALL_R)) {
                 if (player.ballDistance < 2 * Const.BALL_R) {
 
-                    ball.setOwner(player);
+                    scene.setBallOwner(player);
                     ball.v = Math.max(170 + 7 * player.skills.heading, 1.5f * player.v);
                     ball.vz = 100 - 8 * player.skills.heading + player.vz;
                     hit = true;
