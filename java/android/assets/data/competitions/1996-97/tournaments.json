@@ -1,0 +1,585 @@
+[
+  {
+    "class": "TOURNAMENT",
+    "name": "WORLD CUP",
+    "category": "DIY_COMPETITION",
+    "numberOfTeams": 24,
+    "time": "DAY",
+    "weather": "BY_SEASON",
+    "seasonStart": "JULY",
+    "seasonEnd": "JULY",
+    "currentMonth": "JULY",
+    "substitutions": 3,
+    "benchSize": 5,
+    "userPrefersResult": false,
+    "currentRound": 0,
+    "currentMatch": 0,
+    "files": {
+      "folder": "1996-97/NATIONAL_TEAMS",
+      "teams": [
+        "1996-97/NATIONAL_TEAMS/AFRICA/team.cameroon.json",
+        "1996-97/NATIONAL_TEAMS/AFRICA/team.morocco.json",
+        "1996-97/NATIONAL_TEAMS/AFRICA/team.nigeria.json",
+        "1996-97/NATIONAL_TEAMS/ASIA/team.saudi_arabia.json",
+        "1996-97/NATIONAL_TEAMS/ASIA/team.south_korea.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.belgium.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.bulgaria.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.germany.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.greece.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.holland.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.italy.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.norway.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.republic_ireland.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.romania.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.russia.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.spain.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.sweden.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.switzerland.json",
+        "1996-97/NATIONAL_TEAMS/NORTH AMERICA/team.mexico.json",
+        "1996-97/NATIONAL_TEAMS/NORTH AMERICA/team.united_states.json",
+        "1996-97/NATIONAL_TEAMS/SOUTH AMERICA/team.argentina.json",
+        "1996-97/NATIONAL_TEAMS/SOUTH AMERICA/team.brazil.json",
+        "1996-97/NATIONAL_TEAMS/SOUTH AMERICA/team.bolivia.json",
+        "1996-97/NATIONAL_TEAMS/SOUTH AMERICA/team.colombia.json"
+      ]
+    },
+    "scorers": [],
+    "rounds": [
+      {
+        "class": "GROUPS",
+        "name": "FIRST ROUND",
+        "numberOfTeams": 24,
+        "seeded": false,
+        "rounds": 1,
+        "pointsForAWin": 3,
+        "currentGroup": 0,
+        "groups": [
+          {
+            "currentRound": 0,
+            "currentMatch": 0,
+            "calendar": [
+              {
+                "teams": [
+                  16,
+                  1
+                ]
+              },
+              {
+                "teams": [
+                  20,
+                  0
+                ]
+              },
+              {
+                "teams": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "teams": [
+                  16,
+                  20
+                ]
+              },
+              {
+                "teams": [
+                  1,
+                  20
+                ]
+              },
+              {
+                "teams": [
+                  16,
+                  0
+                ]
+              }
+            ],
+            "table": [
+              {
+                "team": 20,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 0,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 1,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 16,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          },
+          {
+            "currentRound": 0,
+            "currentMatch": 0,
+            "calendar": [
+              {
+                "teams": [
+                  13,
+                  2
+                ]
+              },
+              {
+                "teams": [
+                  18,
+                  3
+                ]
+              },
+              {
+                "teams": [
+                  18,
+                  13
+                ]
+              },
+              {
+                "teams": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "teams": [
+                  3,
+                  13
+                ]
+              },
+              {
+                "teams": [
+                  18,
+                  2
+                ]
+              }
+            ],
+            "table": [
+              {
+                "team": 18,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 13,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 3,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 2,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          },
+          {
+            "currentRound": 0,
+            "currentMatch": 0,
+            "calendar": [
+              {
+                "teams": [
+                  4,
+                  19
+                ]
+              },
+              {
+                "teams": [
+                  5,
+                  21
+                ]
+              },
+              {
+                "teams": [
+                  4,
+                  5
+                ]
+              },
+              {
+                "teams": [
+                  21,
+                  19
+                ]
+              },
+              {
+                "teams": [
+                  19,
+                  5
+                ]
+              },
+              {
+                "teams": [
+                  4,
+                  21
+                ]
+              }
+            ],
+            "table": [
+              {
+                "team": 19,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 4,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 21,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 5,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          },
+          {
+            "currentRound": 0,
+            "currentMatch": 0,
+            "calendar": [
+              {
+                "teams": [
+                  17,
+                  7
+                ]
+              },
+              {
+                "teams": [
+                  14,
+                  6
+                ]
+              },
+              {
+                "teams": [
+                  17,
+                  14
+                ]
+              },
+              {
+                "teams": [
+                  6,
+                  7
+                ]
+              },
+              {
+                "teams": [
+                  17,
+                  6
+                ]
+              },
+              {
+                "teams": [
+                  7,
+                  14
+                ]
+              }
+            ],
+            "table": [
+              {
+                "team": 17,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 6,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 7,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 14,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          },
+          {
+            "currentRound": 0,
+            "currentMatch": 0,
+            "calendar": [
+              {
+                "teams": [
+                  9,
+                  8
+                ]
+              },
+              {
+                "teams": [
+                  23,
+                  15
+                ]
+              },
+              {
+                "teams": [
+                  9,
+                  23
+                ]
+              },
+              {
+                "teams": [
+                  15,
+                  8
+                ]
+              },
+              {
+                "teams": [
+                  9,
+                  15
+                ]
+              },
+              {
+                "teams": [
+                  8,
+                  23
+                ]
+              }
+            ],
+            "table": [
+              {
+                "team": 9,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 15,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 23,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 8,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          },
+          {
+            "currentRound": 0,
+            "currentMatch": 0,
+            "calendar": [
+              {
+                "teams": [
+                  11,
+                  12
+                ]
+              },
+              {
+                "teams": [
+                  10,
+                  22
+                ]
+              },
+              {
+                "teams": [
+                  22,
+                  12
+                ]
+              },
+              {
+                "teams": [
+                  11,
+                  10
+                ]
+              },
+              {
+                "teams": [
+                  11,
+                  22
+                ]
+              },
+              {
+                "teams": [
+                  12,
+                  10
+                ]
+              }
+            ],
+            "table": [
+              {
+                "team": 11,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 10,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 12,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              },
+              {
+                "team": 22,
+                "won": 0,
+                "drawn": 0,
+                "lost": 0,
+                "goalsFor": 0,
+                "goalsAgainst": 0,
+                "points": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "SECOND ROUND",
+        "numberOfTeams": 16,
+        "seeded": false,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON",
+        "currentLeg": 0,
+        "legs": []
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "QUARTER-FINAL",
+        "numberOfTeams": 8,
+        "seeded": false,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON",
+        "currentLeg": 0,
+        "legs": []
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "SEMI-FINAL",
+        "numberOfTeams": 4,
+        "seeded": false,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON",
+        "currentLeg": 0,
+        "legs": []
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "FINAL",
+        "numberOfTeams": 2,
+        "seeded": false,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON",
+        "currentLeg": 0,
+        "legs": []
+      }
+    ]
+  }
+]
