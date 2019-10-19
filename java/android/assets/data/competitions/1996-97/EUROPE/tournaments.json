@@ -1,0 +1,232 @@
+[
+  {
+    "name": "EUROPEAN CHAMPIONSHIPS",
+    "numberOfTeams": 16,
+    "time": "DAY",
+    "weather": "BY_SEASON",
+    "seasonStart": "JUNE",
+    "seasonEnd": "JUNE",
+    "substitutions": 3,
+    "benchSize": 11,
+    "files": {
+      "folder": "1996-97/NATIONAL_TEAMS/EUROPE",
+      "teams": [
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.bulgaria.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.croatia.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.czech_republic.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.denmark.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.england.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.france.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.germany.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.holland.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.italy.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.portugal.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.romania.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.russia.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.scotland.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.spain.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.switzerland.json",
+        "1996-97/NATIONAL_TEAMS/EUROPE/team.turkey.json"
+      ]
+    },
+    "rounds": [
+      {
+        "class": "GROUPS",
+        "name": "FIRST ROUND",
+        "numberOfTeams": 16,
+        "seeded": true,
+        "rounds": 1,
+        "pointsForAWin": 3,
+        "groups": [
+          {
+            "calendar": [
+              {
+                "teams": [
+                  4,
+                  14
+                ]
+              },
+              {
+                "teams": [
+                  7,
+                  12
+                ]
+              },
+              {
+                "teams": [
+                  14,
+                  7
+                ]
+              },
+              {
+                "teams": [
+                  12,
+                  4
+                ]
+              },
+              {
+                "teams": [
+                  12,
+                  14
+                ]
+              },
+              {
+                "teams": [
+                  7,
+                  4
+                ]
+              }
+            ]
+          },
+          {
+            "calendar": [
+              {
+                "teams": [
+                  13,
+                  0
+                ]
+              },
+              {
+                "teams": [
+                  10,
+                  5
+                ]
+              },
+              {
+                "teams": [
+                  0,
+                  10
+                ]
+              },
+              {
+                "teams": [
+                  5,
+                  13
+                ]
+              },
+              {
+                "teams": [
+                  5,
+                  0
+                ]
+              },
+              {
+                "teams": [
+                  10,
+                  13
+                ]
+              }
+            ]
+          },
+          {
+            "calendar": [
+              {
+                "teams": [
+                  6,
+                  2
+                ]
+              },
+              {
+                "teams": [
+                  8,
+                  11
+                ]
+              },
+              {
+                "teams": [
+                  2,
+                  8
+                ]
+              },
+              {
+                "teams": [
+                  11,
+                  6
+                ]
+              },
+              {
+                "teams": [
+                  11,
+                  2
+                ]
+              },
+              {
+                "teams": [
+                  8,
+                  6
+                ]
+              }
+            ]
+          },
+          {
+            "calendar": [
+              {
+                "teams": [
+                  3,
+                  9
+                ]
+              },
+              {
+                "teams": [
+                  15,
+                  1
+                ]
+              },
+              {
+                "teams": [
+                  9,
+                  15
+                ]
+              },
+              {
+                "teams": [
+                  1,
+                  3
+                ]
+              },
+              {
+                "teams": [
+                  1,
+                  9
+                ]
+              },
+              {
+                "teams": [
+                  15,
+                  3
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "QUARTER-FINAL",
+        "numberOfTeams": 8,
+        "seeded": true,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON"
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "SEMI-FINAL",
+        "numberOfTeams": 4,
+        "seeded": true,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON"
+      },
+      {
+        "class": "KNOCKOUT",
+        "name": "FINAL",
+        "numberOfTeams": 2,
+        "seeded": true,
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON"
+      }
+    ]
+  }
+]
