@@ -23,6 +23,7 @@ import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_NOT_RESPONSIVE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -120,6 +121,7 @@ public class Player implements Json.Serializable {
     private float fmySweep;
 
     float ballDistance;
+    float ballAngle;
 
     // from 0 to BALL_PREDICTION-1: frames required to reach the ball
     // equal to BALL_PREDICTION: ball too far to be reached
@@ -281,9 +283,16 @@ public class Player implements Json.Serializable {
     }
 
     void getPossession() {
-        if ((ballDistance <= 8)
-                && EMath.dist(x0, y0, ball.x0, ball.y0) > 8
-                && (ball.z < Const.PLAYER_H)) {
+
+        // detection ellipse
+        float focalPoint1x = x + 6.5f * EMath.cos(a + 75);
+        float focalPoint1y = y + 6.5f * EMath.sin(a + 75);
+        float focalPoint2x = x + 6.5f * EMath.cos(a - 75);
+        float focalPoint2y = y + 6.5f * EMath.sin(a - 75);
+
+        boolean inEllipse = EMath.dist(ball.x, ball.y, focalPoint1x, focalPoint1y) + EMath.dist(ball.x, ball.y, focalPoint2x, focalPoint2y) < 14;
+
+        if (inEllipse && (ball.z < Const.PLAYER_H)) {
 
             float smoothedBallV = ball.v * 0.5f;
             Vector2 ballVec = new Vector2(smoothedBallV, 0);
@@ -293,13 +302,38 @@ public class Player implements Json.Serializable {
 
             Vector2 differenceVec = playerVec.sub(ballVec);
 
-            if (differenceVec.len() < 250 + 20 * skills.control) {
-                ball.setOwner(this);
-                ball.setX(x + (Const.BALL_R - 1) * EMath.cos(a));
-                ball.setY(y + (Const.BALL_R - 1) * EMath.sin(a));
-                ball.v = v;
-                ball.a = a;
-            } else {
+            if (differenceVec.len() < 320 + 10 * skills.control) {
+
+                // ball already owned: contrast
+                if (ball.owner != null && ball.owner != this) {
+
+                    float sum = skills.tackling + ball.owner.skills.tackling + 2;
+                    float r = Assets.random.nextFloat();
+
+                    // contrast winner
+                    if (r < (skills.tackling + 1) / sum) {
+                        ball.setOwner(this);
+                        ball.v = v;
+                        ball.a = a;
+                    }
+
+                    // contrast loser: not responsive for a while
+                    else {
+                        setState(STATE_NOT_RESPONSIVE);
+                    }
+                }
+
+                // get possession
+                else {
+                    ball.setOwner(this);
+                    ball.v = v;
+                    ball.a = a;
+                }
+
+            }
+
+            // collision for too fast ball
+            else {
                 ball.setOwner(this);
                 ball.setOwner(null);
                 ball.collisionPlayer((1 - 0.1f * skills.control) * differenceVec.len());
@@ -622,6 +656,7 @@ public class Player implements Json.Serializable {
         }
 
         ballDistance = EMath.dist(x, y, ball.x, ball.y);
+        ballAngle = EMath.aTan2(ball.y - y, ball.x - x);
 
         return ((v > 0) || (vz != 0));
     }

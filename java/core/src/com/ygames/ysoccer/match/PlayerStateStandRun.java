@@ -14,28 +14,45 @@ class PlayerStateStandRun extends PlayerState {
     void doActions() {
         super.doActions();
 
-        player.getPossession();
+        if (ball.owner != player) {
+            player.getPossession();
+        }
 
         // ball control
         if ((ball.owner == player) && (ball.z < Const.PLAYER_H)) {
 
-            // ball2player angle
-            float angle = EMath.aTan2(ball.y - player.y, ball.x - player.x);
+            // ball-player angle difference
+            float signedAngleDiff = EMath.signedAngleDiff(player.ballAngle, player.a);
 
-            // player - ball angle difference
-            float angle_diff = Math.abs(((angle - player.a + 540.0f) % 360.0f) - 180.0f);
+            if (player.ballDistance < 9) {
+                // Control slice
+                // lowest ball control skill: +/- 70 degrees
+                // highest ball control skill: +/- 91 degrees
+                float slice = 70 + 3 * player.skills.control;
 
-            // if angle diff = 0 then push the ball
-            if ((angle_diff <= 22.5) && (player.ballDistance < 11)) {
-                if (player.inputDevice.value) {
-                    ball.v = Math.max(ball.v, (1 + 0.03f * ((player.ballDistance < 11) ? 1 : 0)) * player.v);
-                    ball.a = player.a;
+                // just ahead of feet: push forward
+                if (Math.abs(signedAngleDiff) <= slice && player.ballDistance > 3.5f) {
+                    // Control efficacy
+                    // lowest ball control skill: 1 + 0.060f * player.v
+                    // highest ball control skill: 1 + 0.032f * player.v
+                    float m = 1 + (0.06f - 0.004f * player.skills.control);
+                    ball.v = Math.max(ball.v, (m * ((player.ballDistance < 9) ? 1 : 0)) * player.v);
+
+                    // angle correction
+                    if (Math.abs(signedAngleDiff) > 22.5) {
+                        ball.a = player.a - signedAngleDiff / 2f;
+                    } else {
+                        ball.a = player.a;
+                    }
                 }
-                // if changing direction keep control only if ball if near
-            } else if (((angle_diff <= 67.5) && (player.ballDistance < 11))
-                    || (player.ballDistance < 6)) {
-                ball.setX(player.x + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.cos(player.a));
-                ball.setY(player.y + (1.06f - 0.01f * player.skills.control) * player.ballDistance * EMath.sin(player.a));
+
+                // too back: push fast forward
+                else {
+                    if (player.v > 0) {
+                        ball.v = Math.max(ball.v, 1.2f * player.v);
+                        ball.a = player.a;
+                    }
+                }
             }
         }
 

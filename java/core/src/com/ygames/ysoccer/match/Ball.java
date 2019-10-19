@@ -102,7 +102,7 @@ class Ball {
 
     public void update() {
         if (owner != null) {
-            if ((owner.ballDistance > 13) || (z > (Const.PLAYER_H + BALL_R))) {
+            if ((owner.ballDistance > 11) || (z > (Const.PLAYER_H + BALL_R))) {
                 setOwner(null);
             }
         }

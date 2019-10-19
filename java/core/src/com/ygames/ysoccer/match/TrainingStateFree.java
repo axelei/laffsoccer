@@ -14,9 +14,7 @@ import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.BENCH_X;
 import static com.ygames.ysoccer.match.Const.BENCH_Y_UP;
-import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
-import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TOUCH_LINE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -75,21 +73,11 @@ class TrainingStateFree extends TrainingState {
 
             ball.collisionFlagPosts();
             ball.collisionGoal();
-            ball.inFieldKeep();
+            ball.collisionJumpers();
+            ball.collisionNet();
+            ball.collisionNetOut();
 
-            if (ball.y * ball.ySide >= (GOAL_LINE + BALL_R)) {
-                ball.collisionNet();
-
-                if (!EMath.isIn(ball.x, -POST_X, POST_X) && (ball.z <= CROSSBAR_H)) {
-                    ball.collisionJumpers();
-                    ball.collisionNetOut();
-                }
-                if (ball.v == 0) {
-                    resetBall();
-                }
-            }
-
-            if ((Math.abs(ball.x) > TOUCH_LINE) && (ball.v == 0)) {
+            if (ball.v == 0 && (Math.abs(ball.y) >= (GOAL_LINE + BALL_R) || (Math.abs(ball.x) > TOUCH_LINE + BALL_R))) {
                 resetBall();
             }
 
@@ -187,8 +175,8 @@ class TrainingStateFree extends TrainingState {
     }
 
     private void resetBall() {
-        ball.setX(lastTrained.x + (BALL_R - 1) * EMath.cos(lastTrained.a));
-        ball.setY(lastTrained.y + (BALL_R - 1) * EMath.sin(lastTrained.a));
+        ball.setX(lastTrained.x + BALL_R * EMath.cos(lastTrained.a));
+        ball.setY(lastTrained.y + BALL_R * EMath.sin(lastTrained.a));
         ball.setZ(0);
         ball.vMax = 0;
     }

@@ -64,9 +64,9 @@ class PlayerStateKeeperDivingMiddleTwo extends PlayerState {
             active = frames[0];
         } else if (timer < 0.1f * Const.SECOND) {
             player.v = 40 * player.thrustX;
-            player.vz = 70 + 35 * player.thrustZ;
+            player.vz = 80 + 35 * player.thrustZ;
             active = frames[1];
-        } else if (timer < 0.5f * Const.SECOND) {
+        } else if (timer < 0.55f * Const.SECOND) {
             player.v = (120 + 0.5f * player.getSkillKeeper()) * player.thrustX;
             active = frames[2];
         } else if (timer < 0.7f * Const.SECOND) {

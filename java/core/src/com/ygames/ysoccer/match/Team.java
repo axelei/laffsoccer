@@ -600,9 +600,9 @@ public class Team implements Json.Serializable {
         // avoid stealing controls while still kicking
         if (!controlled.checkState(STATE_STAND_RUN)) return false;
 
-        // passing mate, delay until ball is near
+        // passing mate, let him get the ball
         if (near1 == controlled.passingMate) {
-            return near1.ballDistance < 10;
+            return false;
         } else {
             return near1.frameDistance < 0.5 * controlled.frameDistance;
         }

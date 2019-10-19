@@ -17,6 +17,7 @@ class PlayerFsm extends Fsm {
         STATE_DOWN,
         STATE_REACH_TARGET,
         STATE_KICK_OFF,
+        STATE_NOT_RESPONSIVE,
         STATE_GOAL_KICK,
         STATE_THROW_IN_ANGLE,
         STATE_THROW_IN_SPEED,
@@ -59,6 +60,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateDown;
     PlayerState stateReachTarget;
     PlayerState stateKickOff;
+    PlayerState stateNotResponsive;
     PlayerState stateGoalKick;
     PlayerState stateThrowInAngle;
     PlayerState stateThrowInSpeed;
@@ -100,6 +102,7 @@ class PlayerFsm extends Fsm {
         stateDown = new PlayerStateDown(this);
         stateReachTarget = new PlayerStateReachTarget(this);
         stateKickOff = new PlayerStateKickOff(this);
+        stateNotResponsive = new PlayerStateNotResponsive(this);
         stateGoalKick = new PlayerStateGoalKick(this);
         stateThrowInAngle = new PlayerStateThrowInAngle(this);
         stateThrowInSpeed = new PlayerStateThrowInSpeed(this);

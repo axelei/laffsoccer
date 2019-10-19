@@ -154,7 +154,7 @@ class PlayerStateKick extends PlayerState {
                     // vertical speed
                     // medium shots
                     float base = 110.0f;
-                    float factor = 0.85f;
+                    float factor = 0.8f;
                     if (player.inputDevice.value) {
                         // low shots
                         if (Math.abs(angle_diff) < 67.5f) {
