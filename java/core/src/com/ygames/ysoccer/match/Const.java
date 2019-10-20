@@ -84,8 +84,8 @@ public class Const {
     static final float DIRECT_SHOT_DISTANCE = 310;
 
     // goals
-    static final int GOAL_BTM_X = -72;
-    static final int GOAL_BTM_Y = 604;
+    static final int GOAL_BTM_X = -73;
+    static final int GOAL_BTM_Y = 603;
 
     // benches
     static final int BENCH_X = -544;
@@ -105,8 +105,8 @@ public class Const {
     static final int PITCH_W = 1700;
     static final int PITCH_H = 1800;
 
-    static final int CENTER_X = 846;
-    static final int CENTER_Y = 918;
+    static final int CENTER_X = 847;
+    static final int CENTER_Y = 919;
 
     // jumpers
     static final int JUMPER_X = 92;

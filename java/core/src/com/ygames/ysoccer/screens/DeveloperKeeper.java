@@ -35,16 +35,16 @@ class DeveloperKeeper extends GLScreen {
 
     private final int displayedRows = 7;
 
-    private Player player;
-    private PlayerSprite playerSprite;
+    private final Player player;
+    private final PlayerSprite playerSprite;
     private int fmx, fmy;
     private int fmx2 = 0;
     private int fmy2 = 0;
     private int firstRow;
 
-    private Widget originValue;
-    private Widget saveOriginsButton;
-    private Widget resetOriginsButton;
+    private final Widget originValue;
+    private final Widget saveOriginsButton;
+    private final Widget resetOriginsButton;
 
     private boolean hasExited = false;
 
@@ -282,7 +282,9 @@ class DeveloperKeeper extends GLScreen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin();
-        shapeRenderer.circle(d.x + 1, d.y + 1, 1, 8);
+        shapeRenderer.line(d.x - 4, d.y, d.x + 4, d.y);
+        shapeRenderer.line(d.x, d.y - 4, d.x, d.y + 4);
+        shapeRenderer.circle(d.x, d.y, 1, 8);
         shapeRenderer.end();
     }
 
@@ -663,7 +665,7 @@ class DeveloperKeeper extends GLScreen {
 
     private class MoveOriginButton extends Button {
 
-        int xDir, yDir;
+        final int xDir, yDir;
 
         MoveOriginButton(int x, int y, int xDir, int yDir) {
             this.xDir = xDir;
@@ -761,7 +763,7 @@ class DeveloperKeeper extends GLScreen {
 
     private class FrameButton extends Button {
 
-        private int column, row;
+        private final int column, row;
 
         FrameButton(int column, int row) {
             this.column = column;

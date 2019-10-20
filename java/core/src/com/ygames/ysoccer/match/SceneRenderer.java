@@ -111,7 +111,7 @@ public abstract class SceneRenderer {
             if (d.z > CROSSBAR_H) {
                 float x1 = d.x + oX + mX * (d.z - CROSSBAR_H);
                 float y1 = d.y + oY + mY * (d.z - CROSSBAR_H);
-                if (isInsideGoal(x1, y1 + 2 + BALL_R)) {
+                if (isInsideGoal(x1 + BALL_R, y1 + BALL_R)) {
                     overTheGoal = true;
                     x = x1;
                     y = y1 - CROSSBAR_H;

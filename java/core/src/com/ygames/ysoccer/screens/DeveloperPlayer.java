@@ -39,18 +39,18 @@ class DeveloperPlayer extends GLScreen {
 
     private final int displayedRows = 7;
 
-    private Team team;
-    private int selectedKit = 0;
-    private Player player;
-    private PlayerSprite playerSprite;
+    private final Team team;
+    private final int selectedKit = 0;
+    private final Player player;
+    private final PlayerSprite playerSprite;
     private int fmx, fmy;
     private int fmx2 = 0;
     private int fmy2 = 0;
     private int firstRow;
 
-    private Widget originValue;
-    private Widget saveOriginsButton;
-    private Widget resetOriginsButton;
+    private final Widget originValue;
+    private final Widget saveOriginsButton;
+    private final Widget resetOriginsButton;
 
     private boolean hasExited = false;
 
@@ -337,7 +337,9 @@ class DeveloperPlayer extends GLScreen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin();
-        shapeRenderer.circle(d.x + 1, d.y + 1, 1, 8);
+        shapeRenderer.line(d.x - 4, d.y, d.x + 4, d.y);
+        shapeRenderer.line(d.x, d.y - 4, d.x, d.y + 4);
+        shapeRenderer.circle(d.x, d.y, 1, 8);
         shapeRenderer.end();
     }
 
@@ -424,7 +426,7 @@ class DeveloperPlayer extends GLScreen {
 
     private class HashButton extends Button {
 
-        Kit.Field field;
+        final Kit.Field field;
         int colorIndex;
 
         HashButton(Kit.Field field, int x, int y) {
@@ -512,7 +514,7 @@ class DeveloperPlayer extends GLScreen {
 
     private class KitColorButton extends InputButton {
 
-        Kit.Field field;
+        final Kit.Field field;
 
         KitColorButton(Kit.Field field, int x, int y) {
             this.field = field;
@@ -754,7 +756,7 @@ class DeveloperPlayer extends GLScreen {
     private class RowButton extends Button {
 
         RowButton(int x, int y) {
-            setGeometry(x + 4 + 88 , y, 88, 24);
+            setGeometry(x + 4 + 88, y, 88, 24);
             setColors(0x308C3B, 0x4AC058, 0x1F5926);
         }
 
@@ -930,6 +932,7 @@ class DeveloperPlayer extends GLScreen {
             setDirty(true);
         }
     }
+
     private class OriginLabel extends Button {
 
         OriginLabel(int x, int y) {
@@ -941,7 +944,7 @@ class DeveloperPlayer extends GLScreen {
 
     private class MoveOriginButton extends Button {
 
-        int xDir, yDir;
+        final int xDir, yDir;
 
         MoveOriginButton(int x, int y, int xDir, int yDir) {
             this.xDir = xDir;
@@ -1039,7 +1042,7 @@ class DeveloperPlayer extends GLScreen {
 
     private class FrameButton extends Button {
 
-        private int column, row;
+        private final int column, row;
 
         FrameButton(int column, int row) {
             this.column = column;

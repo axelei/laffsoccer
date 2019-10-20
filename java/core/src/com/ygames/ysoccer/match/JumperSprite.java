@@ -14,8 +14,8 @@ class JumperSprite extends Sprite {
         super(glGraphics);
         textureRegion = new TextureRegion(Assets.jumper);
         textureRegion.flip(false, true);
-        x = xSide * JUMPER_X;
-        y = ySide * JUMPER_Y - JUMPER_H;
+        x = xSide * JUMPER_X -1;
+        y = ySide * JUMPER_Y - JUMPER_H -1;
     }
 
     @Override

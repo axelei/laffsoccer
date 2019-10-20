@@ -12,8 +12,8 @@ class GoalTopA extends Sprite {
         super(glGraphics);
         textureRegion = new TextureRegion(Assets.goalTopA);
         textureRegion.flip(false, true);
-        x = -72;
-        y = -690;
+        x = -73;
+        y = -691;
     }
 
     @Override

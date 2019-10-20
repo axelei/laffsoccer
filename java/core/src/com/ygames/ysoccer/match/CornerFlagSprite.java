@@ -25,7 +25,7 @@ class CornerFlagSprite extends Sprite {
             frameX += ((subframe / GLGame.SUBFRAMES) >> (4 - sceneSettings.wind.speed)) % 2;
             frameY = 1 + sceneSettings.wind.dirY;
         }
-        glGraphics.batch.draw(Assets.cornerFlags[frameX][frameY], x - 21, y - 34);
+        glGraphics.batch.draw(Assets.cornerFlags[frameX][frameY], x - 22, y - 35);
     }
 
     void drawShadow(int subframe, SpriteBatch batch) {
