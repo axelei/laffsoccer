@@ -18,9 +18,11 @@ import java.util.List;
 import java.util.TreeMap;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.POST_X;
+import static com.ygames.ysoccer.match.Const.isInsideGoal;
 
 public abstract class SceneRenderer {
 
@@ -93,6 +95,41 @@ public abstract class SceneRenderer {
     }
 
     protected void drawShadows(int subframe) {
+    }
+
+    void drawBallShadow(Data d, SceneSettings settings, boolean redrawing) {
+
+        for (int i = 0; i < (settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
+            float oX = (i == 0 || i == 3) ? -1 : -5;
+            float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
+            float oY = -3;
+            float mY = (i == 0 || i == 1) ? 0.46f : -0.46f;
+            float x = d.x + oX + mX * d.z;
+            float y = d.y + oY + mY * d.z;
+
+            boolean overTheGoal = false;
+            if (d.z > CROSSBAR_H) {
+                float x1 = d.x + oX + mX * (d.z - CROSSBAR_H);
+                float y1 = d.y + oY + mY * (d.z - CROSSBAR_H);
+                if (isInsideGoal(x1, y1 + 2 + BALL_R)) {
+                    overTheGoal = true;
+                    x = x1;
+                    y = y1 - CROSSBAR_H;
+                }
+            }
+
+            // while drawing all shadows (redrawing == false) -> draw only on-the-ground shadows
+            // while redrawing ball shadows (redrawing == true) -> draw only if over the goal
+            if (!overTheGoal ^ redrawing) {
+                batch.draw(Assets.ball[4], x, y);
+            }
+        }
+    }
+
+    void redrawBallShadowsOverGoals(GLSpriteBatch batch, Data d, SceneSettings settings) {
+        batch.setColor(0xFFFFFF, settings.shadowAlpha);
+        drawBallShadow(d, settings, true);
+        batch.setColor(0xFFFFFF, 1f);
     }
 
     void drawRain(SceneSettings sceneSettings, int subframe) {
@@ -308,7 +345,7 @@ public abstract class SceneRenderer {
 
     void redrawBallOverBottomGoal(BallSprite ballSprite, int subframe) {
         Data d = ball.data[subframe];
-        if (EMath.isIn(d.x, -POST_X, POST_X)
+        if (EMath.isIn(d.x, -POST_X - BALL_R, POST_X + BALL_R)
                 && (d.y >= GOAL_LINE + 21 || (d.y > GOAL_LINE && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)))) {
             ballSprite.draw(subframe);
         }

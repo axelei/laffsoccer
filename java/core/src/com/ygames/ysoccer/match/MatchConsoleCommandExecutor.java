@@ -28,6 +28,17 @@ public class MatchConsoleCommandExecutor extends ConsoleCommandExecutor {
         match.ball.setPosition(x, y, z);
     }
 
+    @HiddenCommand
+    public void ballSpeed() {
+        console.log("(" + match.ball.v * EMath.cos(match.ball.a) + ", " + match.ball.v * EMath.sin(match.ball.a) + ", " + match.ball.vz + ")");
+    }
+
+    public void ballSpeed(float vx, float vy, float vz) {
+        match.ball.v = EMath.hypo(vx, vy);
+        match.ball.a = EMath.aTan2(vy, vx);
+        match.ball.vz = vz;
+    }
+
     public void homePenalty() {
         match.newTackle(match.team[AWAY].lineup.get(0), match.team[HOME].lineup.get(0), 0, 0);
         match.newFoul(0, match.team[AWAY].side * PENALTY_SPOT_Y);

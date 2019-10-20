@@ -81,11 +81,13 @@ public class TrainingRenderer extends SceneRenderer {
 
         renderSprites(training.subframe);
 
+        redrawBallShadowsOverGoals(batch, training.ball.data[training.subframe], training.settings);
         redrawBallOverTopGoal(ballSprite, training.subframe);
 
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
+        redrawBallShadowsOverGoals(batch, training.ball.data[training.subframe], training.settings);
         redrawBallOverBottomGoal(ballSprite, training.subframe);
 
         if (training.settings.weatherStrength != Weather.Strength.NONE) {
@@ -160,13 +162,7 @@ public class TrainingRenderer extends SceneRenderer {
     protected void drawShadows(int subframe) {
         batch.setColor(0xFFFFFF, training.settings.shadowAlpha);
 
-        Data d = training.ball.data[subframe];
-        batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 + 0.46f * d.z);
-        if (training.settings.time == MatchSettings.Time.NIGHT) {
-            batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 + 0.46f * d.z);
-            batch.draw(Assets.ball[4], d.x - 5 - 0.65f * d.z, d.y - 3 - 0.46f * d.z);
-            batch.draw(Assets.ball[4], d.x - 1 + 0.65f * d.z, d.y - 3 - 0.46f * d.z);
-        }
+        drawBallShadow(training.ball.data[subframe], training.settings, false);
 
         for (int i = 0; i < 4; i++) {
             cornerFlagSprites[i].drawShadow(subframe, batch);
@@ -176,7 +172,7 @@ public class TrainingRenderer extends SceneRenderer {
         for (int t = HOME; t <= AWAY; t++) {
             for (Player player : training.team[t].lineup) {
                 if (player.role == Player.Role.GOALKEEPER) {
-                    d = player.data[subframe];
+                    Data d = player.data[subframe];
                     if (d.isVisible) {
                         Integer[] origin = Assets.keeperOrigins[d.fmy][d.fmx];
                         batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - origin[0] + 0.65f * d.z, d.y - origin[1] + 0.46f * d.z);
@@ -196,7 +192,7 @@ public class TrainingRenderer extends SceneRenderer {
             for (int t = HOME; t <= AWAY; t++) {
                 for (Player player : training.team[t].lineup) {
                     if (player.role != Player.Role.GOALKEEPER) {
-                        d = player.data[subframe];
+                        Data d = player.data[subframe];
                         if (d.isVisible) {
                             Integer[] origin = Assets.playerOrigins[d.fmy][d.fmx];
                             float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;

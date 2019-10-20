@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 public class Const {
 
@@ -167,5 +167,11 @@ public class Const {
         float s1 = EMath.sgn(EMath.cos(a + ySide * SHOOTING_ANGLE_TOLERANCE));
         float b1 = y1 - m1 * x1;
         return s0 * ySide * y < s0 * ySide * (m0 * x + b0) && s1 * ySide * y > s1 * ySide * (m1 * x + b1);
+    }
+
+    static boolean isInsideGoal(float x, float y) {
+        return Math.abs(x) < POST_X
+                && Math.abs(y) > GOAL_LINE
+                && Math.abs(y) < GOAL_LINE + GOAL_DEPTH;
     }
 }
