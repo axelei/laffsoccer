@@ -75,6 +75,7 @@ public class Match extends Scene implements Json.Serializable {
 
     ArrayList<Penalty>[] penalties = new ArrayList[2];
     Penalty penalty;
+    Player penaltyScorer;
 
     class Penalty {
         PenaltyState state;
@@ -311,6 +312,9 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     public void setBallOwner(Player player, boolean updateGoalOwner) {
+        if (penaltyScorer != null && player != null && player != penaltyScorer) {
+            penaltyScorer = null;
+        }
         ball.owner = player;
         if (player != null) {
             ball.ownerLast = player;
@@ -565,7 +569,10 @@ public class Match extends Scene implements Json.Serializable {
 
     void addGoal(int attackingTeam) {
         Goal goal;
-        if (team[attackingTeam] == ball.goalOwner.team) {
+        if (ball.goalOwner == penaltyScorer) {
+            competition.addGoal(ball.goalOwner);
+            goal = new Goal(ball.goalOwner, getMinute(), Goal.Type.PENALTY);
+        } else if (team[attackingTeam] == ball.goalOwner.team) {
             competition.addGoal(ball.goalOwner);
             goal = new Goal(ball.goalOwner, getMinute(), Goal.Type.NORMAL);
         } else {

@@ -95,6 +95,7 @@ class MatchStatePenaltyKick extends MatchState {
     SceneFsm.Action[] checkConditions() {
         if (match.ball.v > 0) {
             match.setPlayersState(STATE_STAND_RUN, match.penalty.kicker);
+            match.penaltyScorer = match.penalty.kicker;
             match.penalty = null;
             return newAction(NEW_FOREGROUND, STATE_MAIN);
         }
