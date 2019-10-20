@@ -1,7 +1,7 @@
 package com.ygames.ysoccer.match;
 
-import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
@@ -18,9 +18,9 @@ class PlayerStateKeeperPositioning extends PlayerState {
 
     enum Mode {DEFAULT, COVER_SHOOTING_ANGLE, RECOVER_BALL}
 
-    Mode mode;
+    private Mode mode;
     private int dangerTime;
-    private float reactivity;
+    private final float reactivity;
 
     PlayerStateKeeperPositioning(PlayerFsm fsm) {
         super(STATE_KEEPER_POSITIONING, fsm);
@@ -196,8 +196,8 @@ class PlayerStateKeeperPositioning extends PlayerState {
         }
 
         if (dangerTime > reactivity) {
-            float predX = 0;
-            float predZ = 0;
+            float predictionX = 0;
+            float predictionZ = 0;
 
             // intersection with keeper diving surface
             int frm;
@@ -207,25 +207,26 @@ class PlayerStateKeeperPositioning extends PlayerState {
                 float y = ball.prediction[frm].y;
                 float z = ball.prediction[frm].z;
                 if ((Math.abs(x - player.x) < GOAL_AREA_W / 2) && (Math.abs(z) < 2 * CROSSBAR_H) && ((Math.abs(y) > Math.abs(player.y)) && (Math.abs(y) < Math.abs(player.y) + 15))) {
-                    predX = x;
-                    predZ = z;
+                    predictionX = x;
+                    predictionZ = z;
                     found2 = true;
                 }
                 if (found2) {
                     break;
                 }
             }
-            float diffX = predX - player.x;
+            float diffX = predictionX - player.x;
 
             // kind of save
-            if (predZ < 2 * CROSSBAR_H) {
-                float r = EMath.hypo(diffX, predZ);
+            if (predictionZ < 2 * CROSSBAR_H) {
+                float r = EMath.hypo(diffX, predictionZ);
 
                 if (r < 88) {
                     if (Math.abs(diffX) < 4) {
-                        if (predZ > 30) {
+                        if (predictionZ > 16) {
                             // CATCH HIGH
                             if (frm * GLGame.SUBFRAMES < 0.6f * SECOND) {
+                                player.thrustZ = Math.min(predictionZ - 16, 24);
                                 return fsm.stateKeeperCatchingHigh;
                             }
                         } else {
@@ -234,7 +235,7 @@ class PlayerStateKeeperPositioning extends PlayerState {
                                 return fsm.stateKeeperCatchingLow;
                             }
                         }
-                    } else if (predZ < 7) {
+                    } else if (predictionZ < 7) {
                         if (Math.abs(diffX) > POST_X) {
                             // LOW - ONE HAND
                             if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
@@ -250,27 +251,27 @@ class PlayerStateKeeperPositioning extends PlayerState {
                                 return fsm.stateKeeperDivingLowDouble;
                             }
                         }
-                    } else if (predZ < 21) {
+                    } else if (predictionZ < 21) {
                         // MIDDLE - TWO HANDS
                         if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (POST_X - 8);
-                            player.thrustZ = (predZ - 7) / 14.0f;
+                            player.thrustZ = (predictionZ - 7) / 14.0f;
                             player.a = (diffX < 0) ? 180 : 0;
                             return fsm.stateKeeperDivingMiddleTwo;
                         }
-                    } else if ((predZ < 27) && (Math.abs(diffX) < POST_X + 16)) {
+                    } else if ((predictionZ < 27) && (Math.abs(diffX) < POST_X + 16)) {
                         // MIDDLE - ONE HAND
                         if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (POST_X + 8);
-                            player.thrustZ = (predZ - 17) / 6.0f;
+                            player.thrustZ = (predictionZ - 17) / 6.0f;
                             player.a = (diffX < 0) ? 180 : 0;
                             return fsm.stateKeeperDivingMiddleOne;
                         }
-                    } else if ((predZ < 44) && (Math.abs(diffX) < POST_X + 16)) {
+                    } else if ((predictionZ < 44) && (Math.abs(diffX) < POST_X + 16)) {
                         // HIGH - ONE HAND
                         if ((frm * GLGame.SUBFRAMES < 0.7f * SECOND) && (frm * GLGame.SUBFRAMES > 0.25f * SECOND)) {
                             player.thrustX = (Math.abs(diffX) - 8) / (POST_X + 8);
-                            player.thrustZ = (float) Math.min((predZ - 27) / 8.0, 1);
+                            player.thrustZ = (float) Math.min((predictionZ - 27) / 8.0, 1);
                             player.a = (diffX < 0) ? 180 : 0;
                             return fsm.stateKeeperDivingHighOne;
                         }
