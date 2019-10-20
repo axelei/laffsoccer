@@ -227,7 +227,7 @@ public class GLGame extends Game {
     public enum LogType {
         AI_ATTACKING,
         AI_KICKING,
-        BALL_PHYSICS,
+        BALL,
         GUI,
         PASSING,
         PLAYER_SELECTION

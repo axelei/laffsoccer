@@ -6,7 +6,7 @@ import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
-import static com.ygames.ysoccer.framework.GLGame.LogType.BALL_PHYSICS;
+import static com.ygames.ysoccer.framework.GLGame.LogType.BALL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.FLAGPOST_H;
@@ -317,6 +317,8 @@ class Ball {
 
             hit = true;
             bouncing_speed = v;
+
+            GLGame.debug(BALL, this, "Goal top corner collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // crossbar
@@ -355,6 +357,8 @@ class Ball {
 
             hit = true;
             bouncing_speed = 0.5f * ballVyz;
+
+            GLGame.debug(BALL, this, "Goal crossbar collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // posts
@@ -377,6 +381,8 @@ class Ball {
 
             hit = true;
             bouncing_speed = v;
+
+            GLGame.debug(BALL, this, "Goal post collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // sound
@@ -410,7 +416,7 @@ class Ball {
             float volume = Math.min(EMath.floor(v / 10) / 20f, 1);
             Assets.Sounds.post.play(volume * Assets.Sounds.volume / 100f);
 
-            GLGame.debug(BALL_PHYSICS, this, "Flag post collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Flag post collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
     }
 
@@ -439,7 +445,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(BALL_PHYSICS, this, "Net internal back collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Net internal back collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // sides
@@ -456,7 +462,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(BALL_PHYSICS, this, "Net internal side collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Net internal side collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // top
@@ -469,7 +475,7 @@ class Ball {
             float ballAyz = EMath.aTan2(0, y - Math.signum(y) * GOAL_LINE);
 
             ballVy = ballVyz * EMath.cos(ballAyz);
-            ballVy = Math.signum(ballVy) * Math.max(30, Math.abs(ballVy));
+            ballVy = Math.signum(ballVy) * Math.abs(ballVy);
 
             vz = -0.25f * vz;
             v = EMath.hypo(ballVx, ballVy);
@@ -477,7 +483,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(BALL_PHYSICS, this, "Net internal top collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Net internal top collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         if (collision) {
@@ -516,7 +522,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(BALL_PHYSICS, this, "Net external top collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Net external top collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // back
@@ -533,7 +539,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(BALL_PHYSICS, this, "Net external back collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Net external back collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         // sides
@@ -550,7 +556,7 @@ class Ball {
 
             collision = true;
 
-            GLGame.debug(BALL_PHYSICS, this, "Net external side collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Net external side collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
 
         if (collision) {
@@ -581,7 +587,7 @@ class Ball {
             float volume = Math.min(EMath.floor(v / 10) / 20f, 1);
             Assets.Sounds.post.play(volume * Assets.Sounds.volume / 100f);
 
-            GLGame.debug(BALL_PHYSICS, this, "Jumper collision, v: " + v + ", a: " + a + ", vz: " + vz);
+            GLGame.debug(BALL, this, "Jumper collision, v: " + v + ", a: " + a + ", vz: " + vz);
         }
     }
 
