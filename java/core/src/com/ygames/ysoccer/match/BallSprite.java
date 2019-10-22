@@ -20,7 +20,7 @@ class BallSprite extends Sprite {
         glGraphics.batch.draw(Assets.ball[d.fmx], d.x - Const.BALL_R, d.y - d.z - 2 - Const.BALL_R);
 
         if (Settings.showDevelopmentInfo) {
-            Assets.font6.draw(glGraphics.batch,  d.x + "," + d.y + "," + d.z, d.x, d.y + 22, Font.Align.CENTER);
+            Assets.font3.draw(glGraphics.batch,  d.x + "," + d.y + "," + d.z, d.x, d.y + 22, Font.Align.CENTER);
         }
     }
 

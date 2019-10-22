@@ -59,16 +59,16 @@ public class PlayerSprite extends Sprite {
         // development
         if (Settings.showDevelopmentInfo) {
             if (Settings.showPlayerState && player.fsm != null) {
-                Assets.font6.draw(glGraphics.batch, PlayerFsm.Id.values()[d.playerState].toString(), d.x, d.y - 68 - d.z, CENTER);
+                Assets.font3.draw(glGraphics.batch, PlayerFsm.Id.values()[d.playerState].toString(), d.x, d.y - 50 - d.z, CENTER);
             }
             if (Settings.showPlayerAiState && d.playerAiState != -1) {
-                Assets.font6.draw(glGraphics.batch, AiFsm.Id.values()[d.playerAiState].toString(), d.x, d.y - 54 - d.z, CENTER);
+                Assets.font3.draw(glGraphics.batch, AiFsm.Id.values()[d.playerAiState].toString(), d.x, d.y - 40 - d.z, CENTER);
             }
             if (Settings.showBestDefender && d.isBestDefender) {
                 Assets.font6.draw(glGraphics.batch, "_", d.x, d.y - 12 - d.z, CENTER);
             }
             if (Settings.showFrameDistance) {
-                Assets.font6.draw(glGraphics.batch, d.frameDistance, d.x, d.y - d.z, CENTER);
+                Assets.font3.draw(glGraphics.batch, d.frameDistance, d.x, d.y - d.z + 4, CENTER);
             }
         }
     }
