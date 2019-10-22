@@ -40,6 +40,7 @@ public abstract class SceneRenderer {
 
     static final float guiAlpha = 0.9f;
 
+    final Scene scene;
     GLSpriteBatch batch;
     protected GLShapeRenderer shapeRenderer;
     OrthographicCamera camera;
@@ -65,6 +66,10 @@ public abstract class SceneRenderer {
     private final int modX = (int) Math.ceil(Const.PITCH_W / ((float) modW));
     private final int modY = (int) Math.ceil(Const.PITCH_H / ((float) modH));
 
+    protected SceneRenderer(Scene scene) {
+        this.scene = scene;
+    }
+
     abstract public void render();
 
     void resize(int width, int height, int newZoom) {
@@ -82,24 +87,23 @@ public abstract class SceneRenderer {
 
     abstract void save();
 
-    void renderSprites(int subframe) {
+    void renderSprites() {
 
-        drawShadows(subframe);
+        drawShadows();
 
-        spriteComparator.subframe = subframe;
+        spriteComparator.setSubframe(scene.subframe);
         Collections.sort(allSprites, spriteComparator);
 
         for (Sprite sprite : allSprites) {
-            sprite.draw(subframe);
+            sprite.draw(scene.subframe);
         }
     }
 
-    protected void drawShadows(int subframe) {
-    }
+    abstract void drawShadows();
 
-    void drawBallShadow(Data d, SceneSettings settings, boolean redrawing) {
-
-        for (int i = 0; i < (settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
+    void drawBallShadow(Ball ball, boolean redrawing) {
+        Data d = ball.data[scene.subframe];
+        for (int i = 0; i < (scene.settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
             float oX = (i == 0 || i == 3) ? -1 : -5;
             float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
             float oY = -3;
@@ -126,16 +130,17 @@ public abstract class SceneRenderer {
         }
     }
 
-    void redrawBallShadowsOverGoals(GLSpriteBatch batch, Data d, SceneSettings settings) {
-        batch.setColor(0xFFFFFF, settings.shadowAlpha);
-        drawBallShadow(d, settings, true);
+    void redrawBallShadowsOverGoals(Ball ball) {
+        batch.setColor(0xFFFFFF, scene.settings.shadowAlpha);
+        drawBallShadow(ball, true);
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    void drawRain(SceneSettings sceneSettings, int subframe) {
+    void drawRain() {
         batch.setColor(0xFFFFFF, 0.6f);
+        int subframe = scene.subframe;
         Assets.random.setSeed(1);
-        for (int i = 1; i <= 40 * sceneSettings.weatherStrength; i++) {
+        for (int i = 1; i <= 40 * scene.settings.weatherStrength; i++) {
             int x = Assets.random.nextInt(modW);
             int y = Assets.random.nextInt(modH);
             int h = (Assets.random.nextInt(modH) + subframe) % modH;
@@ -157,11 +162,12 @@ public abstract class SceneRenderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    void drawSnow(SceneSettings sceneSettings, int subframe) {
+    void drawSnow() {
         batch.setColor(0xFFFFFF, 0.7f);
 
+        int subframe = scene.subframe;
         Assets.random.setSeed(1);
-        for (int i = 1; i <= 30 * sceneSettings.weatherStrength; i++) {
+        for (int i = 1; i <= 30 * scene.settings.weatherStrength; i++) {
             int x = Assets.random.nextInt(modW);
             int y = Assets.random.nextInt(modH);
             int s = i % 3;
@@ -178,9 +184,10 @@ public abstract class SceneRenderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    void drawFog(SceneSettings sceneSettings, int subframe) {
-        batch.setColor(0xFFFFFF, 0.25f * sceneSettings.weatherStrength);
+    void drawFog() {
+        batch.setColor(0xFFFFFF, 0.25f * scene.settings.weatherStrength);
 
+        int subframe = scene.subframe;
         int TILE_WIDTH = 256;
         int fogX = -Const.CENTER_X + vCameraX[subframe] - 2 * TILE_WIDTH
                 + ((Const.CENTER_X - vCameraX[subframe]) % TILE_WIDTH + 2 * TILE_WIDTH) % TILE_WIDTH;
@@ -334,20 +341,47 @@ public abstract class SceneRenderer {
         batch.setColor(0xFFFFFF, 1f);
     }
 
-    void redrawBallOverTopGoal(BallSprite ballSprite, int subframe) {
-        Data d = ball.data[subframe];
+    void redrawBallOverTopGoal(BallSprite ballSprite) {
+        Data d = ball.data[scene.subframe];
         if (EMath.isIn(d.x, -POST_X, POST_X)
                 && d.y < -GOAL_LINE
                 && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)) {
-            ballSprite.draw(subframe);
+            ballSprite.draw(scene.subframe);
         }
     }
 
-    void redrawBallOverBottomGoal(BallSprite ballSprite, int subframe) {
-        Data d = ball.data[subframe];
+    void redrawBallOverBottomGoal(BallSprite ballSprite) {
+        Data d = ball.data[scene.subframe];
         if (EMath.isIn(d.x, -POST_X - BALL_R, POST_X + BALL_R)
                 && (d.y >= GOAL_LINE + 21 || (d.y > GOAL_LINE && d.z > (CROSSBAR_H - (Math.abs(d.y) - GOAL_LINE) / 3f)))) {
-            ballSprite.draw(subframe);
+            ballSprite.draw(scene.subframe);
         }
+    }
+
+    void drawPlayerNumber(Player player) {
+        Data d = player.data[scene.subframe];
+
+        int f0 = player.number % 10;
+        int f1 = (player.number - f0) / 10 % 10;
+
+        int dx = Math.round(d.x) + 1;
+        int dy = Math.round(d.y) - 40 - Math.round(d.z);
+
+        int w0 = 6 - ((f0 == 1) ? 2 : 1);
+        int w1 = 6 - ((f1 == 1) ? 2 : 1);
+
+        int fy = scene.settings.pitchType == Pitch.Type.WHITE ? 1 : 0;
+        if (f1 > 0) {
+            dx = dx - (w0 + 2 + w1) / 2;
+            batch.draw(Assets.playerNumbers[f1][fy], dx, dy, 6, 10);
+            dx = dx + w1 + 2;
+            batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
+        } else {
+            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
+        }
+    }
+
+    void drawPlayerNumberAndName(Player player) {
+        Assets.font10.draw(batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
     }
 }

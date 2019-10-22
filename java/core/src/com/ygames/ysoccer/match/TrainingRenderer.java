@@ -13,19 +13,18 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 public class TrainingRenderer extends SceneRenderer {
 
-    private final Training training;
     private TrainingState trainingState;
     private final BallSprite ballSprite;
 
     TrainingRenderer(GLGraphics glGraphics, Training training) {
+        super(training);
         this.batch = glGraphics.batch;
         this.shapeRenderer = glGraphics.shapeRenderer;
         this.camera = glGraphics.camera;
-        this.training = training;
         this.ball = training.ball;
         actionCamera = new ActionCamera(ball);
 
-        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), training.settings.zoom);
+        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), scene.settings.zoom);
 
         actionCamera.x = 0.5f * (Const.PITCH_W - screenWidth / (zoom / 100.0f));
         actionCamera.y = 0.5f * (Const.PITCH_H - screenHeight / (zoom / 100.0f));
@@ -55,20 +54,24 @@ public class TrainingRenderer extends SceneRenderer {
 
         cornerFlagSprites = new CornerFlagSprite[4];
         for (int i = 0; i < 4; i++) {
-            cornerFlagSprites[i] = new CornerFlagSprite(glGraphics, training.settings, i / 2 * 2 - 1, i % 2 * 2 - 1);
+            cornerFlagSprites[i] = new CornerFlagSprite(glGraphics, scene.settings, i / 2 * 2 - 1, i % 2 * 2 - 1);
             allSprites.add(cornerFlagSprites[i]);
         }
         allSprites.add(new GoalTopA(glGraphics));
         allSprites.add(new GoalTopB(glGraphics));
     }
 
+    private Training getTraining() {
+        return (Training) scene;
+    }
+
     public void render() {
-        trainingState = training.getFsm().getState();
+        trainingState = getTraining().getFsm().getState();
 
         gl.glEnable(GL20.GL_BLEND);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(true, Gdx.graphics.getWidth() * 100f / zoom, Gdx.graphics.getHeight() * 100f / zoom);
-        camera.translate(-Const.CENTER_X + vCameraX[training.subframe], -Const.CENTER_Y + vCameraY[training.subframe], 0);
+        camera.translate(-Const.CENTER_X + vCameraX[scene.subframe], -Const.CENTER_Y + vCameraY[scene.subframe], 0);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
@@ -79,29 +82,29 @@ public class TrainingRenderer extends SceneRenderer {
             drawBallPredictions(ball);
         }
 
-        renderSprites(training.subframe);
+        renderSprites();
 
-        redrawBallShadowsOverGoals(batch, training.ball.data[training.subframe], training.settings);
-        redrawBallOverTopGoal(ballSprite, training.subframe);
+        redrawBallShadowsOverGoals(getTraining().ball);
+        redrawBallOverTopGoal(ballSprite);
 
         // redraw bottom goal
         batch.draw(Assets.goalBottom, Const.GOAL_BTM_X, Const.GOAL_BTM_Y, 146, 56, 0, 0, 146, 56, false, true);
 
-        redrawBallShadowsOverGoals(batch, training.ball.data[training.subframe], training.settings);
-        redrawBallOverBottomGoal(ballSprite, training.subframe);
+        redrawBallShadowsOverGoals(getTraining().ball);
+        redrawBallOverBottomGoal(ballSprite);
 
-        if (training.settings.weatherStrength != Weather.Strength.NONE) {
-            switch (training.settings.weatherEffect) {
+        if (scene.settings.weatherStrength != Weather.Strength.NONE) {
+            switch (scene.settings.weatherEffect) {
                 case Weather.RAIN:
-                    drawRain(training.settings, training.subframe);
+                    drawRain();
                     break;
 
                 case Weather.SNOW:
-                    drawSnow(training.settings, training.subframe);
+                    drawSnow();
                     break;
 
                 case Weather.FOG:
-                    drawFog(training.settings, training.subframe);
+                    drawFog();
                     break;
             }
         }
@@ -124,23 +127,23 @@ public class TrainingRenderer extends SceneRenderer {
         batch.setColor(0xFFFFFF, guiAlpha);
 
         // ball owner
-        if (training.ball.owner != null) {
-            drawPlayerNumberAndName(training.ball.owner);
+        if (getTraining().ball.owner != null) {
+            drawPlayerNumberAndName(getTraining().ball.owner);
         }
 
         // wind vane
-        if (training.settings.wind.speed > 0) {
-            batch.draw(Assets.wind[training.settings.wind.direction][training.settings.wind.speed - 1], guiWidth - 50, 20);
+        if (scene.settings.wind.speed > 0) {
+            batch.draw(Assets.wind[scene.settings.wind.direction][scene.settings.wind.speed - 1], guiWidth - 50, 20);
         }
 
         // messages
-        if (training.fsm.getHotKeys().messageTimer > 0) {
+        if (getTraining().fsm.getHotKeys().messageTimer > 0) {
             batch.setColor(0xFFFFFF, guiAlpha);
-            Assets.font10.draw(batch, training.fsm.getHotKeys().message, guiWidth / 2, 1, Font.Align.CENTER);
+            Assets.font10.draw(batch, getTraining().fsm.getHotKeys().message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 
         // additional state-specific render
-        TrainingState trainingState = training.getFsm().getState();
+        TrainingState trainingState = getTraining().getFsm().getState();
         if (trainingState != null) {
             trainingState.render();
         }
@@ -159,24 +162,24 @@ public class TrainingRenderer extends SceneRenderer {
     }
 
     @Override
-    protected void drawShadows(int subframe) {
-        batch.setColor(0xFFFFFF, training.settings.shadowAlpha);
+    protected void drawShadows() {
+        batch.setColor(0xFFFFFF, scene.settings.shadowAlpha);
 
-        drawBallShadow(training.ball.data[subframe], training.settings, false);
+        drawBallShadow(getTraining().ball, false);
 
         for (int i = 0; i < 4; i++) {
-            cornerFlagSprites[i].drawShadow(subframe, batch);
+            cornerFlagSprites[i].drawShadow(scene.subframe, batch);
         }
 
         // keepers
         for (int t = HOME; t <= AWAY; t++) {
-            for (Player player : training.team[t].lineup) {
+            for (Player player : getTraining().team[t].lineup) {
                 if (player.role == Player.Role.GOALKEEPER) {
-                    Data d = player.data[subframe];
+                    Data d = player.data[scene.subframe];
                     if (d.isVisible) {
                         Integer[] origin = Assets.keeperOrigins[d.fmy][d.fmx];
                         batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - origin[0] + 0.65f * d.z, d.y - origin[1] + 0.46f * d.z);
-                        if (training.settings.time == MatchSettings.Time.NIGHT) {
+                        if (scene.settings.time == MatchSettings.Time.NIGHT) {
                             // TODO activate after getting keeper shadows
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
@@ -188,11 +191,11 @@ public class TrainingRenderer extends SceneRenderer {
         }
 
         // players
-        for (int i = 0; i < (training.settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
+        for (int i = 0; i < (scene.settings.time == MatchSettings.Time.NIGHT ? 4 : 1); i++) {
             for (int t = HOME; t <= AWAY; t++) {
-                for (Player player : training.team[t].lineup) {
+                for (Player player : getTraining().team[t].lineup) {
                     if (player.role != Player.Role.GOALKEEPER) {
-                        Data d = player.data[subframe];
+                        Data d = player.data[scene.subframe];
                         if (d.isVisible) {
                             Integer[] origin = Assets.playerOrigins[d.fmy][d.fmx];
                             float mX = (i == 0 || i == 3) ? 0.65f : -0.65f;
@@ -209,10 +212,10 @@ public class TrainingRenderer extends SceneRenderer {
 
     private void drawControlledPlayersNumbers() {
         for (int t = Match.HOME; t <= Match.AWAY; t++) {
-            if (training.team[t] != null) {
-                int len = training.team[t].lineup.size();
+            if (getTraining().team[t] != null) {
+                int len = getTraining().team[t].lineup.size();
                 for (int i = 0; i < len; i++) {
-                    Player player = training.team[t].lineup.get(i);
+                    Player player = getTraining().team[t].lineup.get(i);
                     if ((player.inputDevice != player.ai && player.isVisible)
                             || (Settings.development && Settings.showPlayerNumber)) {
                         drawPlayerNumber(player);
@@ -222,39 +225,12 @@ public class TrainingRenderer extends SceneRenderer {
         }
     }
 
-    private void drawPlayerNumber(Player player) {
-        Data d = player.data[training.subframe];
-
-        int f0 = player.number % 10;
-        int f1 = (player.number - f0) / 10 % 10;
-
-        int dx = Math.round(d.x) + 1;
-        int dy = Math.round(d.y) - 40 - Math.round(d.z);
-
-        int w0 = 6 - ((f0 == 1) ? 2 : 1);
-        int w1 = 6 - ((f1 == 1) ? 2 : 1);
-
-        int fy = training.settings.pitchType == Pitch.Type.WHITE ? 1 : 0;
-        if (f1 > 0) {
-            dx = dx - (w0 + 2 + w1) / 2;
-            batch.draw(Assets.playerNumbers[f1][fy], dx, dy, 6, 10);
-            dx = dx + w1 + 2;
-            batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
-        } else {
-            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
-        }
-    }
-
     @Override
     void save() {
-        ball.save(training.subframe);
-        training.team[HOME].save(training.subframe);
-        training.team[AWAY].save(training.subframe);
-        vCameraX[training.subframe] = Math.round(actionCamera.x);
-        vCameraY[training.subframe] = Math.round(actionCamera.y);
-    }
-
-    private void drawPlayerNumberAndName(Player player) {
-        Assets.font10.draw(batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
+        ball.save(scene.subframe);
+        getTraining().team[HOME].save(scene.subframe);
+        getTraining().team[AWAY].save(scene.subframe);
+        vCameraX[scene.subframe] = Math.round(actionCamera.x);
+        vCameraY[scene.subframe] = Math.round(actionCamera.y);
     }
 }

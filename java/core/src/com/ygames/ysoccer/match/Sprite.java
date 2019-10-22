@@ -28,7 +28,11 @@ class Sprite {
 
     static class SpriteComparator implements Comparator<Sprite> {
 
-        int subframe;
+        private int subframe;
+
+        public void setSubframe(int subframe) {
+            this.subframe = subframe;
+        }
 
         @Override
         public int compare(Sprite sprite1, Sprite sprite2) {
