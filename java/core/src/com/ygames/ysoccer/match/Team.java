@@ -22,7 +22,9 @@ import java.util.Map;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
 import static com.ygames.ysoccer.match.Const.BALL_PREDICTION;
+import static com.ygames.ysoccer.match.Const.FREE_KICK_DISTANCE;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.PLAYER_W;
 import static com.ygames.ysoccer.match.Const.POST_X;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Player.Role.ATTACKER;
@@ -310,8 +312,8 @@ public class Team implements Json.Serializable {
             Player player = lineup.get(i);
             Vector2 vec = new Vector2(player.tx, player.ty);
             vec.sub(position);
-            if (vec.len() < Const.FREE_KICK_DISTANCE) {
-                vec.setLength(Const.FREE_KICK_DISTANCE);
+            if (vec.len() < FREE_KICK_DISTANCE) {
+                vec.setLength(FREE_KICK_DISTANCE);
                 vec.add(position);
                 player.setTarget(vec.x, vec.y);
             }
@@ -328,14 +330,11 @@ public class Team implements Json.Serializable {
 
         // angle step
         Vector2 foulToGoal = new Vector2(0, side * GOAL_LINE).sub(match.foul.position);
-        Vector2 foulToBarrier = new Vector2(foulToGoal).setLength(Const.FREE_KICK_DISTANCE + Const.PLAYER_W / 2f);
+        Vector2 foulToBarrier = new Vector2(foulToGoal).setLength(FREE_KICK_DISTANCE + Const.PLAYER_W / 2f);
         float angleStep = EMath.aTan2(Const.PLAYER_W, foulToBarrier.len()) * Math.signum(angleToCover);
 
         // barrier size
         int size = EMath.ceil(angleToCover / angleStep);
-
-        float angle = nearPostAngle;
-        Vector2 barrierPosition = new Vector2();
 
         while (barrier.size() < size) {
 
@@ -363,11 +362,18 @@ public class Team implements Json.Serializable {
         }
 
         // set targets
-        for (Player player : barrier) {
-            foulToBarrier.setAngle(angle);
-            barrierPosition.set(match.foul.position).add(foulToBarrier);
-            player.setTarget(barrierPosition.x, barrierPosition.y);
-            angle += angleStep;
+        float barrierAngle = EMath.angle(match.foul.position.x, match.foul.position.y, Math.signum(match.foul.position.x) * POST_X / 2f, side * GOAL_LINE);
+        Vector2 barrierCenter = new Vector2(1, 1)
+                .setLength(FREE_KICK_DISTANCE + Const.PLAYER_W / 2f)
+                .setAngle(barrierAngle)
+                .add(match.foul.position.x, match.foul.position.y);
+        for (int i = 0; i < barrier.size(); i++) {
+            float offset = i - (barrier.size() - 1) / 2f;
+            Vector2 barrierPosition = new Vector2(1, 1)
+                    .setLength(Math.abs(offset) * PLAYER_W)
+                    .setAngle(barrierAngle + 90 * Math.signum(offset))
+                    .add(barrierCenter);
+            barrier.get(i).setTarget(barrierPosition.x, barrierPosition.y);
         }
     }
 

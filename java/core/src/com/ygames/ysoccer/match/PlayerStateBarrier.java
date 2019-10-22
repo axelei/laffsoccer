@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.EMath;
 
+import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BARRIER;
 
 class PlayerStateBarrier extends PlayerState {
@@ -19,6 +20,11 @@ class PlayerStateBarrier extends PlayerState {
 
         ballMovingTime = 0;
         exitDelay = 0.01f * EMath.rand(45, 55) * Const.SECOND;
+
+        player.v = 0;
+        player.a = EMath.angle(0, GOAL_LINE * player.team.side, ball.x, ball.y);
+        player.fmx = Math.round(((player.a + 360) % 360) / 45) % 8;
+        player.fmy = 10;
     }
 
     @Override
@@ -32,10 +38,6 @@ class PlayerStateBarrier extends PlayerState {
         } else if (player.z == 0 && player.inputDevice.fire1Down()) {
             player.vz = 50 + 5 * player.skills.heading;
         }
-
-        player.v = 0;
-        player.fmx = Math.round(((player.a + 360) % 360) / 45) % 8;
-        player.fmy = 10;
     }
 
     @Override
