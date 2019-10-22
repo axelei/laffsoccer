@@ -56,12 +56,6 @@ class MatchStateFreeKick extends MatchState {
         freeKickPlayer.tx = match.ball.x - 7 * EMath.cos(ballToGoal);
         freeKickPlayer.ty = match.ball.y - 7 * EMath.sin(ballToGoal);
         freeKickPlayer.setState(STATE_REACH_TARGET);
-
-        for (Player ply : defendingTeam.lineup) {
-            if (defendingTeam.barrier.contains(ply)) {
-                ply.setState(STATE_BARRIER);
-            }
-        }
     }
 
     @Override
@@ -89,6 +83,12 @@ class MatchStateFreeKick extends MatchState {
         }
 
         if (!move && !isKicking) {
+            for (Player ply : defendingTeam.lineup) {
+                if (defendingTeam.barrier.contains(ply)) {
+                    ply.setState(STATE_BARRIER);
+                }
+            }
+
             Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
             freeKickPlayer.setState(STATE_FREE_KICK_ANGLE);

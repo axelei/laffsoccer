@@ -21,6 +21,7 @@ import static com.ygames.ysoccer.match.Const.GOAL_AREA_H;
 import static com.ygames.ysoccer.match.Const.GOAL_AREA_W;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
+import static com.ygames.ysoccer.match.Const.isInsideDirectShotArea;
 import static com.ygames.ysoccer.match.Match.PenaltyState.SCORED;
 import static com.ygames.ysoccer.match.Match.PenaltyState.TO_KICK;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
@@ -44,7 +45,7 @@ public class Match extends Scene implements Json.Serializable {
 
     public static final int HOME = 0;
     public static final int AWAY = 1;
-    public int[] teams = {-1, -1};
+    public final int[] teams = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
     public Scorers scorers;
     public int[] resultAfter90;
@@ -52,7 +53,7 @@ public class Match extends Scene implements Json.Serializable {
     public int[] resultAfterPenalties;
 
     Ball ball;
-    public Team[] team;
+    public final Team[] team;
     int benchSide; // 1 = home upside, -1 = home downside
 
     public MatchListener listener;
@@ -73,15 +74,15 @@ public class Match extends Scene implements Json.Serializable {
 
     enum PenaltyState {TO_KICK, SCORED, MISSED}
 
-    ArrayList<Penalty>[] penalties = new ArrayList[2];
+    final ArrayList<Penalty>[] penalties = new ArrayList[2];
     Penalty penalty;
     Player penaltyScorer;
 
     class Penalty {
         PenaltyState state;
-        Player kicker;
-        Player keeper;
-        int side;
+        final Player kicker;
+        final Player keeper;
+        final int side;
 
         Penalty(Player kicker, Player keeper, int side) {
             this.state = TO_KICK;
@@ -283,7 +284,7 @@ public class Match extends Scene implements Json.Serializable {
         }
 
         if (extraTimeResult) {
-            return (int) Math.floor(goals / 3);
+            return (int) Math.floor(goals / 3f);
         } else {
             return goals;
         }
@@ -639,7 +640,7 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     class Foul {
-        public float time;
+        float time;
         public Vector2 position;
         public Player player;
         public Player opponent;
@@ -655,7 +656,7 @@ public class Match extends Scene implements Json.Serializable {
         }
 
         boolean isDirectShot() {
-            return ball.isInsideDirectShotArea(player.team.side);
+            return isInsideDirectShotArea(position.x, position.y, player.team.side);
         }
 
         boolean isNearOwnGoal() {
@@ -668,8 +669,8 @@ public class Match extends Scene implements Json.Serializable {
     }
 
     class Tackle {
-        public float time;
-        public Vector2 position;
+        float time;
+        Vector2 position;
         public Player player;
         public Player opponent;
         float strength;
