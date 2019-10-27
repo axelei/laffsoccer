@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.Ai;
 public class AiFsm extends Fsm {
 
     enum Id {
+        AI_STATE_BARRIER,
         STATE_IDLE,
         STATE_KICKING_OFF,
         STATE_POSITIONING,
@@ -23,6 +24,7 @@ public class AiFsm extends Fsm {
 
     Ai ai;
 
+    AiState stateBarrier;
     AiState stateIdle;
     AiState stateKickingOff;
     AiState statePositioning;
@@ -41,6 +43,7 @@ public class AiFsm extends Fsm {
     public AiFsm(Ai ai) {
         this.ai = ai;
 
+        stateBarrier = new AiStateBarrier(this);
         stateIdle = new AiStateIdle(this);
         stateKickingOff = new AiStateKickingOff(this);
         statePositioning = new AiStatePositioning(this);

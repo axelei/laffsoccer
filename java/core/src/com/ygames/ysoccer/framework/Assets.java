@@ -215,7 +215,7 @@ public class Assets {
         font10.load();
         font6 = new Font(6, 8, 14, 8, 14);
         font6.load();
-        font3 = new Font(3, 4, 6, 4, 7);
+        font3 = new Font(3, 4, 7, 4, 7);
         font3.load();
 
         // first-time setup of local data for android

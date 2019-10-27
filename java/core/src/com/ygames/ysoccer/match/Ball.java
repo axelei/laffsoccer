@@ -591,12 +591,14 @@ class Ball {
         }
     }
 
-    void collisionPlayer(float newV) {
+    void collisionPlayer(Player player) {
         // real ball x-y angle (when spinning, it is different from ball.a)
         float ballAxy = EMath.aTan2(y - y0, x - x0);
-        v = newV;
-        a = (ballAxy + 180) % 360;
+        float angle = EMath.aTan2(y - player.y, x - player.x);
+        v = 0.25f * v;
+        a = (2 * angle - ballAxy + 180) % 360;
         s = 0;
+
         setX(x0);
         setY(y0);
         setZ(z0);

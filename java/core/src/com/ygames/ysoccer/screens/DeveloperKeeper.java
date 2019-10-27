@@ -282,9 +282,8 @@ class DeveloperKeeper extends GLScreen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin();
-        shapeRenderer.line(d.x - 4, d.y, d.x + 4, d.y);
-        shapeRenderer.line(d.x, d.y - 4, d.x, d.y + 4);
-        shapeRenderer.circle(d.x, d.y, 1, 8);
+        shapeRenderer.line(d.x - 1, d.y, d.x + 1, d.y);
+        shapeRenderer.line(d.x, d.y - 1, d.x, d.y + 1);
         shapeRenderer.end();
     }
 

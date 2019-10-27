@@ -35,9 +35,11 @@ class PlayerStateBarrier extends PlayerState {
             if (ball.v > 0) {
                 ballMovingTime = timer;
             }
-        } else if (player.z == 0 && player.inputDevice.fire1Down()) {
-            player.vz = 50 + 5 * player.skills.heading;
+        } else if (player.z == 0 && player.inputDevice.fire11) {
+            player.vz = 60 + 5 * player.skills.heading;
         }
+
+        player.ballCollision();
     }
 
     @Override

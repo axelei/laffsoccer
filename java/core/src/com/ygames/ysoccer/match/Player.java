@@ -79,7 +79,7 @@ public class Player implements Json.Serializable {
     public Hair hair;
 
     public Skills skills;
-    public List<Skill> bestSkills = new ArrayList<>();
+    public final List<Skill> bestSkills = new ArrayList<>();
 
     public int value; // 0 to 49
 
@@ -99,7 +99,7 @@ public class Player implements Json.Serializable {
 
     public boolean isVisible;
 
-    public Data[] data = new Data[Const.REPLAY_SUBFRAMES];
+    public final Data[] data = new Data[Const.REPLAY_SUBFRAMES];
 
     public float x;
     public float y;
@@ -336,10 +336,27 @@ public class Player implements Json.Serializable {
             else {
                 scene.setBallOwner(this);
                 scene.setBallOwner(null);
-                ball.collisionPlayer((1 - 0.1f * skills.control) * differenceVec.len());
+                ball.collisionPlayer(this);
             }
 
             ball.vz = ball.vz / (2 + skills.control);
+        }
+    }
+
+    void ballCollision() {
+
+        // detection ellipse
+        float focalPoint1x = x + 5f * EMath.cos(a + 90);
+        float focalPoint1y = y + 5f * EMath.sin(a + 90);
+        float focalPoint2x = x + 5f * EMath.cos(a - 90);
+        float focalPoint2y = y + 5f * EMath.sin(a - 90);
+
+        boolean inEllipse = EMath.dist(ball.x, ball.y, focalPoint1x, focalPoint1y) + EMath.dist(ball.x, ball.y, focalPoint2x, focalPoint2y) < 14;
+
+        if (inEllipse && (ball.z < Const.PLAYER_H)) {
+            scene.setBallOwner(this);
+            scene.setBallOwner(null);
+            ball.collisionPlayer(this);
         }
     }
 
