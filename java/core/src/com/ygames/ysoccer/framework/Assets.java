@@ -250,8 +250,8 @@ public class Assets {
         loadPlayerOrigins();
         loadKeeperOrigins();
         hairStyles = loadHairStyles();
-        playerHairMap = loadIntegerArray3("configs/player_hair_map.json");
-        keeperHairMap = loadIntegerArray3("configs/keeper_hair_map.json");
+        loadPlayerHairMap();
+        loadKeeperHairMap();
         currencies = new ArrayList<>(Arrays.asList(loadJsonFile(String[].class, "configs/currencies.json")));
         loadScroll();
         shortArrow = loadTextureRegion("images/short_arrow.png");
@@ -393,6 +393,14 @@ public class Assets {
         keeperOrigins = loadIntegerArray3("configs/keeper_origins.json");
     }
 
+    public static void loadPlayerHairMap() {
+        playerHairMap = loadIntegerArray3("configs/player_hair_map.json");
+    }
+
+    public static void loadKeeperHairMap() {
+        keeperHairMap = loadIntegerArray3("configs/keeper_hair_map.json");
+    }
+
     private static void saveIntegerArray3(Integer[][][] array3, String path) {
         Gdx.files.local(path).writeString(Assets.json.prettyPrint(array3), false, "UTF-8");
     }
@@ -403,6 +411,14 @@ public class Assets {
 
     public static void saveKeeperOrigins() {
         saveIntegerArray3(keeperOrigins, "configs/keeper_origins.json");
+    }
+
+    public static void savePlayerHairMap() {
+        saveIntegerArray3(playerHairMap, "configs/player_hair_map.json");
+    }
+
+    public static void saveKeeperHairMap() {
+        saveIntegerArray3(keeperHairMap, "configs/keeper_hair_map.json");
     }
 
     public static String moneyFormat(double p) {

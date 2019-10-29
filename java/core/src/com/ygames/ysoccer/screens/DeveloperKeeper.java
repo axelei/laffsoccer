@@ -42,12 +42,19 @@ class DeveloperKeeper extends GLScreen {
     private int fmy2 = 0;
     private int firstRow;
 
+    private final Widget hairMapPosition;
+    private final Widget hairFrameXButton;
+    private final Widget hairFrameYButton;
+    private final Widget saveHairMapButton;
+    private final Widget resetHairMapButton;
+
     private final Widget originValue;
     private final Widget saveOriginsButton;
     private final Widget resetOriginsButton;
 
     private boolean hasExited = false;
 
+    private String savedHairMap;
     private String savedOrigins;
 
     DeveloperKeeper(GLGame game) {
@@ -81,6 +88,7 @@ class DeveloperKeeper extends GLScreen {
         reloadKeeper();
         reloadHair();
         playerSprite = new PlayerSprite(game.glGraphics, player);
+        savedHairMap = Assets.json.toJson(Assets.keeperHairMap);
         savedOrigins = Assets.json.toJson(Assets.keeperOrigins);
 
         int x = 10;
@@ -94,6 +102,39 @@ class DeveloperKeeper extends GLScreen {
 
         w = new HairStyleButton(x + 60, y);
         widgets.add(w);
+
+        y += 40;
+        w = new HairLabel(x, y);
+        widgets.add(w);
+
+        w = new MoveHairButton(x + 75, y, 0, -1);
+        widgets.add(w);
+
+        hairFrameXButton = new HairFrameButton(x + 118, y, 1, 0);
+        widgets.add(hairFrameXButton);
+
+        hairFrameYButton = new HairFrameButton(x + 150, y, 0, 1);
+        widgets.add(hairFrameYButton);
+
+        y += 34;
+        w = new MoveHairButton(x + 20, y, -1, 0);
+        widgets.add(w);
+
+        hairMapPosition = new HairPosition(x + 54, y);
+        widgets.add(hairMapPosition);
+
+        w = new MoveHairButton(x + 130, y, +1, 0);
+        widgets.add(w);
+
+        y += 34;
+        w = new MoveHairButton(x + 75, y, 0, +1);
+        widgets.add(w);
+
+        saveHairMapButton = new SaveHairMapButton(x, y);
+        widgets.add(saveHairMapButton);
+
+        resetHairMapButton = new ResetHairMapButton(x + 109, y);
+        widgets.add(resetHairMapButton);
 
         y += 40;
         w = new ColumnButton(x, y);
@@ -433,6 +474,152 @@ class DeveloperKeeper extends GLScreen {
 
             reloadHair();
         }
+    }
+
+    private class HairLabel extends Button {
+
+        HairLabel(int x, int y) {
+            setGeometry(x, y, 64, 24);
+            setText("HAIR", CENTER, font10);
+            setActive(false);
+        }
+    }
+
+    private class HairFrameButton extends Button {
+
+        final int xIncrement, yIncrement;
+
+        HairFrameButton(int x, int y, int xIncrement, int yIncrement) {
+            this.xIncrement = xIncrement;
+            this.yIncrement = yIncrement;
+            setGeometry(x, y, 30, 30);
+            setColor(0x75507B);
+            setText("", CENTER, font10);
+        }
+
+        @Override
+        public void refresh() {
+            setText(xIncrement != 0 ? Assets.keeperHairMap[fmy][fmx][0] : Assets.keeperHairMap[fmy][fmx][1]);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateFrame(+1);
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateFrame(-1);
+        }
+
+        private void updateFrame(int sign) {
+            Assets.keeperHairMap[fmy][fmx][0] = EMath.rotate(Assets.keeperHairMap[fmy][fmx][0], 0, 7, sign * xIncrement);
+            Assets.keeperHairMap[fmy][fmx][1] = EMath.rotate(Assets.keeperHairMap[fmy][fmx][1], 0, 9, sign * yIncrement);
+            setDirty(true);
+            hairMapPosition.setDirty(true);
+            saveHairMapButton.setDirty(true);
+            resetHairMapButton.setDirty(true);
+        }
+    }
+
+    private class MoveHairButton extends Button {
+
+        final int xDir, yDir;
+
+        MoveHairButton(int x, int y, int xDir, int yDir) {
+            this.xDir = xDir;
+            this.yDir = yDir;
+            setGeometry(x, y, 30, 30);
+            setColor(0x2AA748);
+            int fx = (yDir != 0 ? 2 : 0) + (xDir < 0 || yDir < 0 ? 4 : 0);
+            textureRegion = Assets.wind[fx][0];
+            setImagePosition(-3, -3);
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateHair();
+        }
+
+        @Override
+        public void onFire1Hold() {
+            updateHair();
+        }
+
+        private void updateHair() {
+            Assets.keeperHairMap[fmy][fmx][2] += xDir;
+            Assets.keeperHairMap[fmy][fmx][3] += yDir;
+            hairMapPosition.setDirty(true);
+            saveHairMapButton.setDirty(true);
+            resetHairMapButton.setDirty(true);
+        }
+    }
+
+    private class HairPosition extends Button {
+
+        HairPosition(int x, int y) {
+            setGeometry(x, y, 72, 30);
+            setColor(0x666666);
+            setText("", CENTER, font10);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.keeperHairMap[fmy][fmx][2] + ", " + Assets.keeperHairMap[fmy][fmx][3]);
+        }
+    }
+
+    private class SaveHairMapButton extends Button {
+
+        SaveHairMapButton(int x, int y) {
+            setGeometry(x, y, 71, 30);
+            setText("SAVE", CENTER, font10);
+        }
+
+        @Override
+        public void refresh() {
+            String current = Assets.json.toJson(Assets.keeperHairMap);
+            boolean modified = !current.equals(savedHairMap);
+            setColor(modified ? 0xCC0000 : 0x666666);
+            setActive(modified);
+        }
+
+        @Override
+        public void onFire1Down() {
+            Assets.saveKeeperHairMap();
+            savedHairMap = Assets.json.toJson(Assets.keeperHairMap);
+            setDirty(true);
+            resetHairMapButton.setDirty(true);
+        }
+
+    }
+
+    private class ResetHairMapButton extends Button {
+
+        ResetHairMapButton(int x, int y) {
+            setGeometry(x, y, 71, 30);
+            setText("RESET", CENTER, font10);
+        }
+
+        @Override
+        public void refresh() {
+            String current = Assets.json.toJson(Assets.keeperHairMap);
+            boolean modified = !current.equals(savedHairMap);
+            setColor(modified ? 0xCCCC00 : 0x666666);
+            setActive(modified);
+        }
+
+        @Override
+        public void onFire1Down() {
+            Assets.loadKeeperHairMap();
+            setDirty(true);
+            saveHairMapButton.setDirty(true);
+            hairMapPosition.setDirty(true);
+            hairFrameXButton.setDirty(true);
+            hairFrameYButton.setDirty(true);
+        }
+
     }
 
     private class ColumnButton extends Button {
@@ -794,7 +981,7 @@ class DeveloperKeeper extends GLScreen {
     private class ExitButton extends Button {
 
         ExitButton(int x) {
-            setGeometry(x, 660, 180, 32);
+            setGeometry(x, 680, 180, 32);
             setColor(0xC84200);
             setText(Assets.strings.get("EXIT"), CENTER, font10);
         }
