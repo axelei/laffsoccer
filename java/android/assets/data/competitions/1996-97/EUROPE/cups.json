@@ -1,0 +1,182 @@
+[
+  {
+    "name": "EUROPEAN CUP-WINNERS CUP",
+    "numberOfTeams": 32,
+    "time": "NIGHT",
+    "weather": "BY_SEASON",
+    "seasonStart": "SEPTEMBER",
+    "seasonEnd": "MAY",
+    "substitutions": 3,
+    "benchSize": 5,
+    "files": {
+      "folder": "1996-97/CLUB_TEAMS/EUROPE",
+      "teams": [
+        "/1996-97/CLUB_TEAMS/EUROPE/GREECE/team.aek_athens.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/CYPRUS/team.aek_larnaca.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/DENMARK/team.agf.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/SWEDEN/team.aik.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/SPAIN/team.barcelona.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/PORTUGAL/team.benfica.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/NORWAY/team.brann.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/BELGIUM/team.cercle_bruges.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/SLOVAKIA/team.chemlon_humenne.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/ITALY/team.fiorentina.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/TURKEY/team.galatasaray.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/ROMANIA/team.gloria_bistrita.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/FAROE ISLANDS/team.hb.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/GERMANY/team.kaiserslautern.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/HUNGARY/team.kispest-honved.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/ICELAND/team.kr.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/BULGARIA/team.levski_sofia.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/ENGLAND/team.liverpool.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/WALES/team.llansantffraid.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/RUSSIA/team.lokomotiv_moscow.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/FINLAND/team.mypa.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/UKRAINE/team.niva_vinnitsa.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/SLOVENIA/team.olimpija_l'jana.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/FRANCE/team.paris_st-germain.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/NETHERLANDS/team.psv.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/LATVIA/team.raf_yelgava.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/YUGOSLAVIA/team.red_star_b'grade.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/ISRAEL/team.rishon_lezion.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/SWITZERLAND/team.sion.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/CZECH REPUBLIC/team.sparta_prague.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/AUSTRIA/team.sturm_graz.json",
+        "/1996-97/CLUB_TEAMS/EUROPE/CROATIA/team.varteks_varazdin.json"
+      ]
+    },
+    "rounds": [
+      {
+        "name": "FIRST ROUND",
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "ON",
+        "legs": [
+          [
+            {
+              "teams": [
+                0,
+                8
+              ]
+            },
+            {
+              "teams": [
+                2,
+                22
+              ]
+            },
+            {
+              "teams": [
+                4,
+                1
+              ]
+            },
+            {
+              "teams": [
+                5,
+                18
+              ]
+            },
+            {
+              "teams": [
+                15,
+                3
+              ]
+            },
+            {
+              "teams": [
+                7,
+                6
+              ]
+            },
+            {
+              "teams": [
+                27,
+                10
+              ]
+            },
+            {
+              "teams": [
+                12,
+                24
+              ]
+            },
+            {
+              "teams": [
+                11,
+                9
+              ]
+            },
+            {
+              "teams": [
+                13,
+                26
+              ]
+            },
+            {
+              "teams": [
+                19,
+                31
+              ]
+            },
+            {
+              "teams": [
+                20,
+                17
+              ]
+            },
+            {
+              "teams": [
+                16,
+                14
+              ]
+            },
+            {
+              "teams": [
+                28,
+                21
+              ]
+            },
+            {
+              "teams": [
+                30,
+                29
+              ]
+            },
+            {
+              "teams": [
+                25,
+                23
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "name": "SECOND ROUND",
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "ON"
+      },
+      {
+        "name": "QUARTER-FINAL",
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "ON"
+      },
+      {
+        "name": "SEMI-FINAL",
+        "numberOfLegs": 2,
+        "extraTime": "ON",
+        "penalties": "ON"
+      },
+      {
+        "name": "FINAL",
+        "numberOfLegs": 1,
+        "extraTime": "ON",
+        "penalties": "ON"
+      }
+    ],
+    "awayGoals": "AFTER_90_MINUTES"
+  }
+]
