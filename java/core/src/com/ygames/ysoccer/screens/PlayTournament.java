@@ -6,6 +6,7 @@ import com.ygames.ysoccer.competitions.tournament.groups.Group;
 import com.ygames.ysoccer.competitions.tournament.groups.Groups;
 import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -15,7 +16,6 @@ import com.ygames.ysoccer.gui.Label;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ class PlayTournament extends GLScreen {
 
         background = game.stateBackground;
 
-        Font font10green = new Font(10, 13, 17, 12,16, new RgbPair(0xFCFCFC, 0x21E337));
+        Font font10green = new Font(10, 13, 17, 12, 16, new RgbPair(0xFCFCFC, 0x21E337));
         font10green.load();
 
         Widget w;
@@ -58,7 +58,7 @@ class PlayTournament extends GLScreen {
             case GROUPS:
                 Groups groups = (Groups) tournament.getRound();
                 int tableHeight = 21 * (groups.groupNumberOfTeams() + 1) + 23;
-                int visibleGroups = min(groups.groups.size(), 512 / tableHeight);
+                int visibleGroups = min(groups.groups.size(), 548 / tableHeight);
                 int topTeams = groups.numberOfTopTeams();
                 int runnersUp = groups.numberOfRunnersUp();
 
@@ -71,7 +71,7 @@ class PlayTournament extends GLScreen {
                     int dx = 250;
                     w = new Label();
                     w.setGeometry(dx, 0, 322, 21);
-                    w.setText(gettext("GROUP") + " " + ((char) (65 + g)), CENTER, font10);
+                    w.setText(groups.groups.size() == 1 ? "" : gettext("GROUP") + " " + ((char) (65 + g)), CENTER, font10);
                     resultWidgets.add(w);
                     widgets.add(w);
                     dx += 320;
@@ -576,8 +576,8 @@ class PlayTournament extends GLScreen {
                 Groups groups = (Groups) tournament.getRound();
                 int widgetsPerTable = 8 + 9 * groups.groupNumberOfTeams();
                 int tableHeight = 21 * (groups.groupNumberOfTeams() + 1) + 23;
-                int visibleGroups = min(groups.groups.size(), 512 / tableHeight);
-                int dy = 98 - offset * tableHeight + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams() + 2));
+                int visibleGroups = min(groups.groups.size(), 548 / tableHeight);
+                int dy = 104 - offset * tableHeight + 10 * (24 - visibleGroups * (groups.groupNumberOfTeams() + 2));
                 for (Widget w : resultWidgets) {
                     if ((m >= widgetsPerTable * offset) && (m < widgetsPerTable * (offset + visibleGroups))) {
                         int i = m % widgetsPerTable;
