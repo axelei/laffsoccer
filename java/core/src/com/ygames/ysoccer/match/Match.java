@@ -53,6 +53,8 @@ public class Match extends Scene implements Json.Serializable {
     public int[] resultAfterPenalties;
 
     Ball ball;
+    float lastGoalCollisionTime;
+
     public final Team[] team;
     int benchSide; // 1 = home upside, -1 = home downside
 

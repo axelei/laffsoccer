@@ -107,8 +107,12 @@ class MatchStateMain extends MatchState {
             match.ball.collisionFlagPosts();
 
             if (match.ball.collisionGoal()) {
-                match.stats[attackingTeam].overallShots += 1;
-                match.stats[attackingTeam].centeredShots += 1;
+                float elapsed = match.clock - match.lastGoalCollisionTime;
+                if (elapsed > 100) {
+                    match.stats[attackingTeam].overallShots += 1;
+                    match.stats[attackingTeam].centeredShots += 1;
+                }
+                match.lastGoalCollisionTime = match.clock;
             }
 
             // goal/corner/goal-kick
