@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
@@ -80,32 +81,25 @@ class PlayerStateStandRun extends PlayerState {
         // player fired
         if (player.inputDevice.fire1Down()) {
 
-            // if in possession then kick
+            // kick
             if (ball.owner == player) {
                 if (player.v > 0 && ball.z < 8) {
                     player.kickAngle = player.a;
                     return fsm.stateKick;
                 }
-                // else head or tackle
-            } else if (player.frameDistance < Const.BALL_PREDICTION) {
-                if (ball.prediction[player.frameDistance].z > 18) {
-                    float angle = EMath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
-                    float angleDiff = EMath.angleDiff(angle, player.a);
-                    if (angleDiff < 90f) {
-                        return fsm.stateHead;
-                    }
-                }
+            }
 
-                if (ball.prediction[player.frameDistance].z < 6) {
-                    if ((player.v > 0)
-                            && (player.ballDistance < 100)
-                            && player.ballDistance > 12) {
-                        float angle = EMath.aTan2(ball.prediction[player.frameDistance].y - player.y, ball.prediction[player.frameDistance].x - player.x);
-                        float angleDiff = EMath.angleDiff(angle, player.a);
-                        if (angleDiff < 90f) {
-                            return fsm.stateTackle;
-                        }
-                    }
+            // head or tackle
+            else if (player.ballDistance < 120 && player.ballIsApproaching()) {
+
+                Vector3 ballPrediction = ball.prediction[Math.min(player.frameDistance, Const.BALL_PREDICTION - 1)];
+
+                if (ballPrediction.z > 18) {
+                    return fsm.stateHead;
+                } else if (player.v > 0
+                        && player.ballIsInFront()
+                        && player.ballDistance > 12) {
+                    return fsm.stateTackle;
                 }
             } else {
                 // release input device

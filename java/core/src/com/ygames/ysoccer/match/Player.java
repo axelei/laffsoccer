@@ -360,6 +360,14 @@ public class Player implements Json.Serializable {
         }
     }
 
+    boolean ballIsApproaching() {
+        return EMath.dist(x0, y0, ball.x0, ball.y0) > ballDistance;
+    }
+
+    boolean ballIsInFront() {
+        return EMath.angleDiff(ballAngle, a) < 90;
+    }
+
     boolean keeperCollision() {
         KeeperCollision collisionType = KeeperCollision.NONE;
 
