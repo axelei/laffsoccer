@@ -1,3 +1,6 @@
+- version 19 (5 Nov 2019)
+preset and DIY tournaments, tackles, free kicks, penalties, teams/players search, favourite teams, improved gameplay (keeper, AI, passing, ball physics and more)
+
 - version 16 (28 Dec 2016):
 preset competitions, saving competitions, JSON database, porting in java+libgdx, import/export in SWOS 96/97 team file format, kit/logo restyling
 
