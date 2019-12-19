@@ -316,13 +316,14 @@ public class Main extends GLScreen {
     private class HomePageButton extends Button {
 
         HomePageButton() {
-            setGeometry(game.gui.WIDTH - 172, game.gui.HEIGHT - 20, 172, 20);
-            setText("YSOCCER.SF.NET", LEFT, font10);
+            String homepageText = "CHARNEGO TRANSLATIONS INC.";
+            setGeometry(game.gui.WIDTH - homepageText.length() * 10, game.gui.HEIGHT - 20, homepageText.length() * 10, 20);
+            setText(homepageText, LEFT, font10);
         }
 
         @Override
         public void onFire1Down() {
-            Gdx.net.openURI("http://ysoccer.sf.net");
+            Gdx.net.openURI("https://charnego.krusher.net");
         }
     }
 

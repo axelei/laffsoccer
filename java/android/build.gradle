@@ -1,3 +1,4 @@
+/*
 android {
     buildToolsVersion "28.0.3"
     compileSdkVersion 28
@@ -30,7 +31,6 @@ android {
         }
     }
 }
-
 
 // called every time gradle gets executed, takes the native dependencies of
 // the natives configuration, and extracts them to the proper libs/ folders
@@ -88,3 +88,4 @@ task run(type: Exec) {
     def adb = path + "/platform-tools/adb"
     commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.ygames.ysoccer/com.ygames.ysoccer.AndroidLauncher'
 }
+*/

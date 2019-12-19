@@ -1,3 +1,4 @@
+/*
 sourceSets.main.java.srcDirs = [ "src/" ]
 
 sourceCompatibility = '1.7'
@@ -15,3 +16,4 @@ createIPA.dependsOn build
 robovm {
 	archs = "thumbv7:arm64"
 }
+*/
