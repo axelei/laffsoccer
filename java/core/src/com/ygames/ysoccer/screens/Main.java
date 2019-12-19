@@ -316,9 +316,8 @@ public class Main extends GLScreen {
     private class HomePageButton extends Button {
 
         HomePageButton() {
-            String homepageText = "CHARNEGO TRANSLATIONS INC.";
-            setGeometry(game.gui.WIDTH - homepageText.length() * 10, game.gui.HEIGHT - 20, homepageText.length() * 10, 20);
-            setText(homepageText, LEFT, font10);
+            setGeometry(game.gui.WIDTH - 240, game.gui.HEIGHT - 20, 240, 20);
+            setText("CHARNEGO TRANSLATIONS INC.", LEFT, font10);
         }
 
         @Override

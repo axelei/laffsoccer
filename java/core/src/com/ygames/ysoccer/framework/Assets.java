@@ -319,7 +319,7 @@ public class Assets {
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error while reading calendars " + e.getMessage());
+            throw new RuntimeException("Error while reading calendars: " + e.getMessage(), e);
         }
     }
 

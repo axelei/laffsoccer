@@ -15,8 +15,8 @@ public class Settings {
     private Preferences preferences;
     private Json json;
 
-    public final String APP_NAME = "YSoccer";
-    public final String VERSION = "19";
+    public final String APP_NAME = "Laff Soccer";
+    public final String VERSION = "1.0";
 
     // game
     public String locale;
