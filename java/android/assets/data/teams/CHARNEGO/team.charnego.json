@@ -1,0 +1,414 @@
+{
+"name": "CHARNEGO F.C.",
+"type": "CUSTOM",
+"country": "SPA",
+"city": "HOSPITALET DEL LLOBREGAT",
+"stadium": "VILLA TACO GORDO",
+"coach": {
+	"name": "CBEARD",
+	"nationality": "ENG"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "BAND",
+		"shirt1": "#3033c1",
+		"shirt2": "#f61c1c",
+		"shirt3": "#000000",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#000000",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#afb2b9",
+		"shirt2": "#afb2b9",
+		"shirt3": "#000000",
+		"shorts": "#afb2b9",
+		"socks": "#afb2b9"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#ffd200",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#000000",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#993333",
+		"shirt2": "#993333",
+		"shirt3": "#000000",
+		"shorts": "#dfe8eb",
+		"socks": "#3033c1"
+	}
+],
+"players": [
+	{
+		"name": "JAL",
+		"shirtName": "JAL",
+		"nationality": "CUS",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_K",
+		"value": 16
+	},
+	{
+		"name": "POSKAS",
+		"shirtName": "POSKAS",
+		"nationality": "CUS",
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 5,
+			"control": 0,
+			"speed": 6,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "HERO",
+		"shirtName": "HERO",
+		"nationality": "CUS",
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 6,
+			"control": 1,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "COMMANDO",
+		"shirtName": "COMMANDO",
+		"nationality": "CUS",
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 1,
+			"shooting": 1,
+			"heading": 7,
+			"tackling": 6,
+			"control": 0,
+			"speed": 0,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "HUNCHBACK",
+		"shirtName": "HUNCHBACK",
+		"nationality": "CUS",
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "DECATHLON",
+		"shirtName": "DECATHLON",
+		"nationality": "CUS",
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 2,
+			"control": 6,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "LAFF",
+		"shirtName": "LAFF",
+		"nationality": "CUS",
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "KRUSHER",
+		"shirtName": "KRUSHER",
+		"nationality": "CUS",
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 6,
+			"shooting": 0,
+			"heading": 1,
+			"tackling": 5,
+			"control": 1,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "ICEMAN XL",
+		"shirtName": "ICEMANXL",
+		"nationality": "CUS",
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 7,
+			"speed": 7,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "KOACH",
+		"shirtName": "KOACH",
+		"nationality": "CUS",
+		"role": "ATTACKER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "CHRONO",
+		"shirtName": "CHRONO",
+		"nationality": "CUS",
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 7,
+			"heading": 6,
+			"tackling": 2,
+			"control": 1,
+			"speed": 1,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "RAID OVER MOSCOW",
+		"shirtName": "OVER MOSCOW",
+		"nationality": "CUS",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"value": 10
+	},
+	{
+		"name": "SQUISH'EM",
+		"shirtName": "SQUISH'EM",
+		"nationality": "CUS",
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 1,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "URIDIUM",
+		"shirtName": "URIDIUM",
+		"nationality": "CUS",
+		"role": "MIDFIELDER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 3,
+			"control": 1,
+			"speed": 0,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "EXPLODING FIST",
+		"shirtName": "FIST",
+		"nationality": "CUS",
+		"role": "LEFT_BACK",
+		"number": 17,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "SPINDIZZY",
+		"shirtName": "SPINDIZZY",
+		"nationality": "CUS",
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 4,
+			"control": 0,
+			"speed": 0,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING"
+		]
+	}
+]
+}
