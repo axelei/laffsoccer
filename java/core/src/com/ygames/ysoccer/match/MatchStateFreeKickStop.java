@@ -37,9 +37,9 @@ class MatchStateFreeKickStop extends MatchState {
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         if (match.settings.commentary) {
-            int size = Assets.Commentary.foul.size();
+            int size = Assets.CommonCommentary.foul.size();
             if (size > 0) {
-                Assets.Commentary.foul.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
+                Assets.CommonCommentary.foul.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
             }
         }
 

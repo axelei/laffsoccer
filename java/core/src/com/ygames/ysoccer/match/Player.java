@@ -481,9 +481,9 @@ public class Player implements Json.Serializable {
 
         if (collisionType == KeeperCollision.CATCH) {
             if (scene.settings.commentary) {
-                int size = Assets.Commentary.keeperSave.size();
+                int size = Assets.CommonCommentary.keeperSave.size();
                 if (size > 0) {
-                    Assets.Commentary.keeperSave.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
+                    Assets.CommonCommentary.keeperSave.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
                 }
             }
         }

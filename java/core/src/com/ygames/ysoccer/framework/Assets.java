@@ -31,7 +31,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -147,7 +146,7 @@ public class Assets {
         }
     }
 
-    public static class Commentary {
+    public static class CommonCommentary {
 
         public static final List<Sound> cornerKick = new ArrayList<>();
         public static final List<Sound> foul = new ArrayList<>();
@@ -281,7 +280,7 @@ public class Assets {
         loadWind();
         loadBench();
         Sounds.load();
-        Commentary.load();
+        CommonCommentary.load();
     }
 
     private static void loadLocales() {
