@@ -98,6 +98,7 @@ public class GLGame extends Game {
     }
 
     public void setScreenMode(boolean fullScreen) {
+        Gdx.graphics.setTitle(Settings.APP_NAME + " " + Settings.VERSION);
         if (fullScreen) {
             if (!Gdx.graphics.isFullscreen()) {
                 Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
