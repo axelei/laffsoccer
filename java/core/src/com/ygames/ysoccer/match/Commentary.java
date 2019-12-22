@@ -3,10 +3,9 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Singleton that will manage commentaries in-match
@@ -20,9 +19,14 @@ public class Commentary {
     /**
      * A comment element
      */
-    public class Comment {
+    public static class Comment {
         private Priority priority;
         private Sound sound;
+
+        public Comment(Priority priority, Sound sound) {
+            this.priority = priority;
+            this.sound = sound;
+        }
 
         public Priority getPriority() {
             return priority;
@@ -53,17 +57,22 @@ public class Commentary {
     /**
      * Queue of comments
      */
-    private Queue<Comment[]> queue = new PriorityQueue<>();
+    private Queue<Comment[]> queue = new LinkedList<>();
 
     /**
      * Currently playing comments
      */
-    private Queue<Comment> current = null;
+    private Queue<Comment> current = new LinkedList<>();
 
     /**
      * Current playing sound
      */
     private Sound playing = null;
+
+    private long since = 0L;
+    private float lastLength = 0F;
+
+    private Timer timer = new Timer();
 
     /**
      * Enqueue a comment
@@ -72,36 +81,71 @@ public class Commentary {
     public void enqueueComment(Comment[] elements) {
 
         // A comment with greater priority comes
-        if (queue.peek()[0].priority.weight > elements[0].priority.weight) {
+        if (!queue.isEmpty() && queue.peek()[0].priority.weight > elements[0].priority.weight) {
             queue.clear();
         }
 
         queue.add(elements);
     }
 
-    public void tick() {
+    private boolean pullAndPlay() {
 
-        if (playing != null) {
-            /*
-            if (playing.isPlaying()) {
-                return;
-            } else {
-                playing = null;
-            }
-             */
+        if (current.isEmpty()) {
+            return false;
         }
 
-        if (!current.isEmpty()) {
+        Comment target = current.poll();
+
+        OpenALSound openALSound = (OpenALSound) target.getSound();
+
+        lastLength = openALSound.duration();
+        System.out.println(System.currentTimeMillis() + " duracion: " + lastLength);
+        since = System.currentTimeMillis();
+
+        playing = openALSound;
+        playing.play();
+        System.out.println(System.currentTimeMillis() + " reproduce");
+
+        return true;
+    }
+
+    public void wake() {
+        timer.schedule(new TimerTask() {
+            public void run()  {
+                tick();
+            }
+        }, 1, 10);
+    }
+
+    public void tick() {
+
+        long now = System.currentTimeMillis();
+
+        if (playing != null && now > since + lastLength * 1000) {
+            System.out.println(System.currentTimeMillis() + " Se termina");
+            playing = null;
+        }
+
+        if (playing == null) {
+            if (pullAndPlay()) {
+                return;
+            }
+        }
+
+        if (!current.isEmpty() && playing == null) {
             Comment newCurrent = current.poll();
+
+            playing = newCurrent.sound;
 
             return;
         }
 
-        if (!queue.isEmpty()) {
+        if (!queue.isEmpty() && current.isEmpty()) {
             Comment[] next = queue.poll();
 
-            current = new PriorityQueue<>();
-            current.addAll(Arrays.asList(next));
+            if (next != null) {
+                current.addAll(Arrays.asList(next));
+            }
 
            return;
         }
@@ -110,7 +154,9 @@ public class Commentary {
 
     public void stop() {
 
-        playing.sound.stop();
+        timer.cancel();
+
+        playing.stop();
 
         playing = null;
         current.clear();

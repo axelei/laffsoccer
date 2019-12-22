@@ -56,6 +56,10 @@ class MatchStateGoal extends MatchState {
                 int size = Assets.CommonCommentary.goal.size();
                 if (size > 0) {
                     Assets.CommonCommentary.goal.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
+                    Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
+                            new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.goal.get(Assets.random.nextInt(size))),
+                            new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.foul.get(Assets.random.nextInt(size)))
+                    });
                 }
             }
         }
