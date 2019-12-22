@@ -104,7 +104,7 @@ public class Commentary {
 
         playing = openALSound;
         playing.play();
-        System.out.println(System.currentTimeMillis() + " reproduce");
+        System.out.println(System.currentTimeMillis() + " reproduce hasta " + (System.currentTimeMillis() + ((long) (lastLength * 1000))));
 
         return true;
     }
@@ -121,7 +121,7 @@ public class Commentary {
 
         long now = System.currentTimeMillis();
 
-        if (playing != null && now > since + lastLength * 1000) {
+        if (playing != null && now > since + ((long) (lastLength * 1000))) {
             System.out.println(System.currentTimeMillis() + " Se termina");
             playing = null;
         }
