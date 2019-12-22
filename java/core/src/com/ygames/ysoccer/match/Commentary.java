@@ -99,12 +99,10 @@ public class Commentary {
         OpenALSound openALSound = (OpenALSound) target.getSound();
 
         lastLength = openALSound.duration();
-        System.out.println(System.currentTimeMillis() + " duracion: " + lastLength);
         since = System.currentTimeMillis();
 
         playing = openALSound;
         playing.play();
-        System.out.println(System.currentTimeMillis() + " reproduce hasta " + (System.currentTimeMillis() + ((long) (lastLength * 1000))));
 
         return true;
     }
@@ -114,7 +112,7 @@ public class Commentary {
             public void run()  {
                 tick();
             }
-        }, 1, 10);
+        }, 1, 50);
     }
 
     public void tick() {
@@ -122,7 +120,6 @@ public class Commentary {
         long now = System.currentTimeMillis();
 
         if (playing != null && now > since + ((long) (lastLength * 1000))) {
-            System.out.println(System.currentTimeMillis() + " Se termina");
             playing = null;
         }
 
@@ -160,7 +157,7 @@ public class Commentary {
 
         playing = null;
         current.clear();
-        queue .clear();
+        queue.clear();
     }
 
 }
