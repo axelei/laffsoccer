@@ -483,8 +483,9 @@ public class Player implements Json.Serializable {
             if (scene.settings.commentary) {
                 int size = Assets.CommonCommentary.keeperSave.size();
                 if (size > 0) {
-                    Assets.CommonCommentary.keeperSave.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
-                }
+                    Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
+                            new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.keeperSave.get(Assets.random.nextInt(size)))
+                    });                   }
             }
         }
 
