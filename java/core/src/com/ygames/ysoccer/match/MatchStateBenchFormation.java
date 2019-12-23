@@ -114,10 +114,11 @@ class MatchStateBenchFormation extends MatchState {
                         getFsm().benchStatus.substPosition = -1;
 
                         if (match.settings.commentary) {
-                            int size = Assets.Commentary.playerSubstitution.size();
+                            int size = Assets.CommonCommentary.playerSubstitution.size();
                             if (size > 0) {
-                                Assets.Commentary.playerSubstitution.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
-                            }
+                                Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
+                                        new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.playerSubstitution.get(Assets.random.nextInt(size)))
+                                });                            }
                         }
                     }
 
@@ -132,10 +133,11 @@ class MatchStateBenchFormation extends MatchState {
                         getFsm().benchStatus.swapPosition = -1;
 
                         if (match.settings.commentary) {
-                            int size = Assets.Commentary.playerSwap.size();
+                            int size = Assets.CommonCommentary.playerSwap.size();
                             if (size > 0) {
-                                Assets.Commentary.playerSwap.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
-                            }
+                                Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
+                                        new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.playerSwap.get(Assets.random.nextInt(size)))
+                                });                            }
                         }
                     }
 

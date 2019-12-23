@@ -8,11 +8,14 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.Settings;
+import com.ygames.ysoccer.match.Commentary;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Player;
 
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -23,6 +26,7 @@ class MatchScreen extends GLScreen {
     private boolean matchStarted;
     private boolean matchPaused;
     private boolean matchEnded;
+    private Commentary commentary = Commentary.getInstance();
 
     private Console console;
 
@@ -44,6 +48,8 @@ class MatchScreen extends GLScreen {
             }
         };
 
+        commentary.wake();
+
         if (Settings.development) {
             console = new GUIConsole();
             console.setSizePercent(25, 100);
@@ -57,6 +63,7 @@ class MatchScreen extends GLScreen {
     @Override
     public void render(float deltaTime) {
         super.render(deltaTime);
+
 
         if (!matchStarted) {
             match.start();
