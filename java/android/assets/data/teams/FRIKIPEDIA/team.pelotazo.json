@@ -256,9 +256,9 @@
 		]
 	},
 	{
-		"name": "EL LIBI",
-		"shirtName": "LIBI",
-		"nationality": "ESP",
+		"name": "STEVE MONTOYA",
+		"shirtName": "S. MONTOYA",
+		"nationality": "ENG",
 		"role": "ATTACKER",
 		"number": 10,
 		"skinColor": "PINK",
@@ -280,8 +280,8 @@
 		]
 	},
 	{
-		"name": "SERRA FERRER",
-		"shirtName": "SERRA",
+		"name": "EL CHANO DE CÁDIZ",
+		"shirtName": "CHANO",
 		"nationality": "ESP",
 		"role": "ATTACKER",
 		"number": 11,

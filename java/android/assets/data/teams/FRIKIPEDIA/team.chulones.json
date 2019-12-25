@@ -1,11 +1,11 @@
 {
-"name": "VIOLENCIA C.J.",
+"name": "R.C.D. CHULÓN",
 "type": "CUSTOM",
 "country": "SPA",
-"city": "VALENSIA",
-"stadium": "ME ESTALLA",
+"city": "VIETNAM",
+"stadium": "LA ATUNARA",
 "coach": {
-	"name": "POCHOLO",
+	"name": "RAFAEL CHULÓN",
 	"nationality": "ESP"
 },
 "tactics": "4-4-2",
@@ -53,9 +53,9 @@
 ],
 "players": [
 	{
-		"name": "PECHOLOBO MARTINEZ CODORNIU",
-		"shirtName": "PECHOLOBO",
-		"nationality": "ESP",
+		"name": "EL TRAVESAÑO HUMANO",
+		"shirtName": "TRAVESAÑO H.",
+		"nationality": "CUS",
 		"role": "GOALKEEPER",
 		"number": 1,
 		"skinColor": "PINK",
@@ -64,8 +64,8 @@
 		"value": 16
 	},
 	{
-		"name": "XINO VALLO",
-		"shirtName": "XINO",
+		"name": "EL BANDERÍN TIESO",
+		"shirtName": "B. TIESO",
 		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 2,
@@ -88,8 +88,8 @@
 		]
 	},
 	{
-		"name": "PACO AL-PILPIL",
-		"shirtName": "PILPIL",
+		"name": "LA PATAÍTA CHILLONA",
+		"shirtName": "PATAÍTA",
 		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 4,
@@ -112,9 +112,9 @@
 		]
 	},
 	{
-		"name": "ALBERTO FABRICIO LAYALA",
-		"shirtName": "LAYALA",
-		"nationality": "ARG",
+		"name": "LA PELOTA JUGUETONA",
+		"shirtName": "PELOTA J.",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 5,
 		"skinColor": "PINK",
@@ -136,8 +136,8 @@
 		]
 	},
 	{
-		"name": "MIGUEL PIERNA",
-		"shirtName": "PIERNA",
+		"name": "LA ENANA GLOTONA",
+		"shirtName": "ENANAN G.",
 		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 3,
@@ -160,9 +160,9 @@
 		]
 	},
 	{
-		"name": "AMADEO CABRONI",
-		"shirtName": "CABRONI",
-		"nationality": "ITA",
+		"name": "DON REGATE",
+		"shirtName": "D. REGATE",
+		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 7,
 		"skinColor": "PINK",
@@ -184,8 +184,8 @@
 		]
 	},
 	{
-		"name": "VICENT MASSAFÍ",
-		"shirtName": "MASSAFÍ",
+		"name": "EL SAQUE LOCO",
+		"shirtName": "SAQUE LOCO",
 		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 14,
@@ -208,9 +208,9 @@
 		]
 	},
 	{
-		"name": "JUAN CULEBRA GONZÁLEZ",
-		"shirtName": "J. CULEBRA",
-		"nationality": "ESP",
+		"name": "EL MARCAJE SÁTIRO",
+		"shirtName": "M. SÁTIRO",
+		"nationality": "CUS",
 		"role": "MIDFIELDER",
 		"number": 9,
 		"skinColor": "PINK",
@@ -232,8 +232,8 @@
 		]
 	},
 	{
-		"name": "JORDI ALBA GUAITA",
-		"shirtName": "GUAITA",
+		"name": "LA BANDA INQUIETA",
+		"shirtName": "B. INQUIETA",
 		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 8,
@@ -256,9 +256,9 @@
 		]
 	},
 	{
-		"name": "PEP XIMO CABURASSI",
-		"shirtName": "XIMET",
-		"nationality": "ESP",
+		"name": "EL GOLITO ESQUIVO",
+		"shirtName": "GOLITO E.",
+		"nationality": "ENG",
 		"role": "ATTACKER",
 		"number": 10,
 		"skinColor": "PINK",
@@ -280,9 +280,9 @@
 		]
 	},
 	{
-		"name": "DANOZS JACK MACETA VEREST",
-		"shirtName": "D.J. MACETA",
-		"nationality": "CUS",
+		"name": "EL REGATE LOCO",
+		"shirtName": "R. LOCO",
+		"nationality": "ESP",
 		"role": "ATTACKER",
 		"number": 11,
 		"skinColor": "PINK",
@@ -304,9 +304,9 @@
 		]
 	},
 	{
-		"name": "ENRIC CANTONET",
-		"shirtName": "CANTONET",
-		"nationality": "FRA",
+		"name": "EL GUANTE TOCÓN",
+		"shirtName": "G. TOCÓN",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 12,
 		"skinColor": "PINK",
@@ -315,8 +315,8 @@
 		"value": 10
 	},
 	{
-		"name": "RUBEN CARTAS",
-		"shirtName": "CARTAS",
+		"name": "DON PELOTAZO",
+		"shirtName": "D. PELOTAZO",
 		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 13,
@@ -339,12 +339,12 @@
 		]
 	},
 	{
-		"name": "DANIEL LABELDA",
-		"shirtName": "LABELDA",
-		"nationality": "ESP",
+		"name": "LA CARTULINA TRAVIESA",
+		"shirtName": "C. TRAVIESA",
+		"nationality": "NIG",
 		"role": "MIDFIELDER",
 		"number": 16,
-		"skinColor": "PINK",
+		"skinColor": "BLACK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
@@ -363,9 +363,9 @@
 		]
 	},
 	{
-		"name": "MILANO HÉLICES",
-		"shirtName": "HÉLICES",
-		"nationality": "ITA",
+		"name": "EL RECHACE INQUIETO",
+		"shirtName": "R. INQUIETO",
+		"nationality": "ENG",
 		"role": "LEFT_BACK",
 		"number": 17,
 		"skinColor": "PINK",
@@ -387,9 +387,9 @@
 		]
 	},
 	{
-		"name": "MARIO ROBERTO KAMPES",
-		"shirtName": "KAMPES",
-		"nationality": "ITA",
+		"name": "EL LUCIO",
+		"shirtName": "LUCIO",
+		"nationality": "ESP",
 		"role": "ATTACKER",
 		"number": 15,
 		"skinColor": "PINK",
