@@ -5,34 +5,34 @@
 "city": "VALENSIA",
 "stadium": "ME ESTALLA",
 "coach": {
-	"name": "POCHOLO",
-	"nationality": "ESP"
+	"name": "ROBERTO ENSALADES",
+	"nationality": "AND"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "BAND",
-		"shirt1": "#3033c1",
-		"shirt2": "#f61c1c",
-		"shirt3": "#000000",
-		"shorts": "#3033c1",
-		"socks": "#f61c1c"
+		"style": "PLAIN",
+		"shirt1": "#ffffff",
+		"shirt2": "#ff8000",
+		"shirt3": "#ff8000",
+		"shorts": "#000000",
+		"socks": "#ff8000"
+	},
+	{
+		"style": "ARMBAND",
+		"shirt1": "#000000",
+		"shirt2": "#ff8000",
+		"shirt3": "#ff8000",
+		"shorts": "#ff8000",
+		"socks": "#000000"
 	},
 	{
 		"style": "PLAIN",
-		"shirt1": "#dfe8eb",
-		"shirt2": "#f61c1c",
-		"shirt3": "#000000",
-		"shorts": "#3033c1",
-		"socks": "#f61c1c"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#afb2b9",
-		"shirt2": "#afb2b9",
-		"shirt3": "#000000",
-		"shorts": "#afb2b9",
-		"socks": "#afb2b9"
+		"shirt1": "#2271b3",
+		"shirt2": "#2271b3",
+		"shirt3": "#2271b3",
+		"shorts": "#2271b3",
+		"socks": "#2271b3"
 	},
 	{
 		"style": "PLAIN",
@@ -53,22 +53,22 @@
 ],
 "players": [
 	{
-		"name": "PECHOLOBO MARTINEZ CODORNIU",
-		"shirtName": "PECHOLOBO",
-		"nationality": "ESP",
+		"name": "GASPER SILLESEN",
+		"shirtName": "GASPER",
+		"nationality": "NED",
 		"role": "GOALKEEPER",
-		"number": 1,
+		"number": 26,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_K",
-		"value": 16
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"value": 22
 	},
 	{
-		"name": "XINO VALLO",
-		"shirtName": "XINO",
-		"nationality": "ESP",
+		"name": "BUDISTA PILILINI",
+		"shirtName": "PILILINI",
+		"nationality": "ITA",
 		"role": "RIGHT_BACK",
-		"number": 2,
+		"number": 21,
 		"skinColor": "PALE",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
@@ -88,20 +88,20 @@
 		]
 	},
 	{
-		"name": "PACO AL-PILPIL",
-		"shirtName": "PILPIL",
-		"nationality": "ESP",
+		"name": "ESEKIEL CARAY",
+		"shirtName": "CARAY",
+		"nationality": "ARG",
 		"role": "DEFENDER",
-		"number": 4,
+		"number": 24,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_D",
 		"skills": {
-			"passing": 1,
+			"passing": 3,
 			"shooting": 1,
 			"heading": 5,
 			"tackling": 6,
-			"control": 1,
+			"control": 3,
 			"speed": 1,
 			"finishing": 2
 		},
@@ -112,9 +112,9 @@
 		]
 	},
 	{
-		"name": "ALBERTO FABRICIO LAYALA",
-		"shirtName": "LAYALA",
-		"nationality": "ARG",
+		"name": "GRABIEL VALENCIANISTA",
+		"shirtName": "GRABIEL",
+		"nationality": "BRA",
 		"role": "DEFENDER",
 		"number": 5,
 		"skinColor": "PINK",
@@ -136,8 +136,8 @@
 		]
 	},
 	{
-		"name": "MIGUEL PIERNA",
-		"shirtName": "PIERNA",
+		"name": "PEPE LUI PAYÀ",
+		"shirtName": "PAYÀ",
 		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 3,
@@ -145,12 +145,12 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
+			"passing": 3,
+			"shooting": 1,
 			"heading": 2,
-			"tackling": 4,
+			"tackling": 5,
 			"control": 2,
-			"speed": 4,
+			"speed": 5,
 			"finishing": 1
 		},
 		"bestSkills": [
@@ -160,11 +160,262 @@
 		]
 	},
 	{
-		"name": "AMADEO CABRONI",
-		"shirtName": "CABRONI",
-		"nationality": "ITA",
+		"name": "FERRON CASTILLOS",
+		"shirtName": "CASTILLOS",
+		"nationality": "ESP",
+		"role": "RIGHT_WINGER",
+		"number": 27,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "YEFRI KONDOBIA",
+		"shirtName": "YEFRI",
+		"nationality": "CAR",
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "DOBLE PAREJA",
+		"shirtName": "PAREJA",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 3,
+			"control": 4,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "GONZALO GETTHEPIKE",
+		"shirtName": "GETTHEPIKE",
+		"nationality": "POR",
 		"role": "RIGHT_WINGER",
 		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 2,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "KEVIN GAMBITERO",
+		"shirtName": "ER KEVIN",
+		"nationality": "FRA",
+		"role": "ATTACKER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 2,
+			"control": 2,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "RODILLO RUBIO",
+		"shirtName": "RODILLO",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": 19,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "CHAUMA DOMENEK",
+		"shirtName": "CHAUMA",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_K",
+		"value": 16
+	},
+	{
+		"name": "MUKTAR DICEKABY",
+		"shirtName": "MORLANQUIN",
+		"nationality": "FRA",
+		"role": "DEFENDER",
+		"number": 12,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 6,
+			"tackling": 2,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "DENIS CHORISET",
+		"shirtName": "CHORISET",
+		"nationality": "RUS",
+		"role": "LEFT_WINGER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "CARLOS SOLAR",
+		"shirtName": "SOLAR",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "MINI GOMEZ",
+		"shirtName": "MINI",
+		"nationality": "URU",
+		"role": "ATTACKER",
+		"number": 22,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "CHAUMA COSTO",
+		"shirtName": "COSTO",
+		"nationality": "ESP",
+		"role": "LEFT_BACK",
+		"number": 3,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_B",
@@ -184,36 +435,84 @@
 		]
 	},
 	{
-		"name": "VICENT MASSAFÍ",
-		"shirtName": "MASSAFÍ",
-		"nationality": "ESP",
-		"role": "MIDFIELDER",
-		"number": 14,
-		"skinColor": "PINK",
+		"name": "ELDEAKI MANGARA",
+		"shirtName": "MANGARA",
+		"nationality": "FRA",
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "BLACK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_E",
+		"hairStyle": "SMOOTH_B",
 		"skills": {
-			"passing": 3,
-			"shooting": 2,
-			"heading": 6,
-			"tackling": 5,
-			"control": 2,
-			"speed": 2,
-			"finishing": 2
+			"passing": 2,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 1
 		},
 		"bestSkills": [
-			"HEADING",
-			"TACKLING",
+			"CONTROL",
+			"SPEED",
 			"PASSING"
 		]
 	},
 	{
-		"name": "JUAN CULEBRA GONZÁLEZ",
-		"shirtName": "J. CULEBRA",
-		"nationality": "ESP",
+		"name": "KANG-OUT LI",
+		"shirtName": "KANG-OUT",
+		"nationality": "KOR",
+		"role": "LEFT_WINGER",
+		"number": 16,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "TIERRI CORRIA",
+		"shirtName": "CORRIA",
+		"nationality": "POR",
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "FRANCES COQUILLIN",
+		"shirtName": "COQUILLIN",
+		"nationality": "FRA",
 		"role": "MIDFIELDER",
-		"number": 9,
-		"skinColor": "PINK",
+		"number": 17,
+		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
@@ -232,183 +531,63 @@
 		]
 	},
 	{
-		"name": "JORDI ALBA GUAITA",
-		"shirtName": "GUAITA",
-		"nationality": "ESP",
-		"role": "LEFT_WINGER",
-		"number": 8,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_E",
-		"skills": {
-			"passing": 1,
-			"shooting": 2,
-			"heading": 2,
-			"tackling": 2,
-			"control": 7,
-			"speed": 7,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"CONTROL",
-			"SPEED",
-			"TACKLING"
-		]
-	},
-	{
-		"name": "PEP XIMO CABURASSI",
-		"shirtName": "XIMET",
-		"nationality": "ESP",
-		"role": "ATTACKER",
-		"number": 10,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_P",
-		"skills": {
-			"passing": 5,
-			"shooting": 1,
-			"heading": 2,
-			"tackling": 5,
-			"control": 2,
-			"speed": 2,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"HEADING"
-		]
-	},
-	{
-		"name": "DANOZS JACK MACETA VEREST",
-		"shirtName": "D.J. MACETA",
-		"nationality": "CUS",
-		"role": "ATTACKER",
-		"number": 11,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 3,
-			"shooting": 7,
-			"heading": 6,
-			"tackling": 2,
-			"control": 1,
-			"speed": 1,
-			"finishing": 6
-		},
-		"bestSkills": [
-			"SHOOTING",
-			"HEADING",
-			"FINISHING"
-		]
-	},
-	{
-		"name": "ENRIC CANTONET",
-		"shirtName": "CANTONET",
-		"nationality": "FRA",
-		"role": "GOALKEEPER",
-		"number": 12,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"value": 10
-	},
-	{
-		"name": "RUBEN CARTAS",
-		"shirtName": "CARTAS",
-		"nationality": "ESP",
-		"role": "DEFENDER",
-		"number": 13,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 1,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
-		},
-		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
-		]
-	},
-	{
-		"name": "DANIEL LABELDA",
-		"shirtName": "LABELDA",
-		"nationality": "ESP",
+		"name": "DANIEL VIENESS",
+		"shirtName": "VINESS",
+		"nationality": "DEN",
 		"role": "MIDFIELDER",
-		"number": 16,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"number": 18,
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
-			"heading": 1,
+			"heading": 2,
 			"tackling": 3,
-			"control": 1,
-			"speed": 0,
-			"finishing": 1
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
 		},
 		"bestSkills": [
 			"PASSING",
 			"TACKLING",
-			"SHOOTING"
+			"CONTROL"
 		]
 	},
 	{
-		"name": "MILANO HÉLICES",
-		"shirtName": "HÉLICES",
-		"nationality": "ITA",
-		"role": "LEFT_BACK",
-		"number": 17,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
-		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 2,
-			"tackling": 4,
-			"control": 2,
-			"speed": 4,
-			"finishing": 1
-		},
-		"bestSkills": [
-			"TACKLING",
-			"SPEED",
-			"HEADING"
-		]
-	},
-	{
-		"name": "MARIO ROBERTO KAMPES",
-		"shirtName": "KAMPES",
-		"nationality": "ITA",
+		"name": "MANO PALLEJO",
+		"shirtName": "PALLEJO",
+		"nationality": "ESP",
 		"role": "ATTACKER",
 		"number": 15,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 4,
-			"shooting": 0,
-			"heading": 2,
-			"tackling": 4,
-			"control": 0,
-			"speed": 0,
-			"finishing": 1
+			"passing": 2,
+			"shooting": 3,
+			"heading": 1,
+			"tackling": 1,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
 		},
 		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"HEADING"
+			"SHOOTING",
+			"FINISHING",
+			"SPEED"
 		]
+	},
+	{
+		"name": "JORDI ALBA GUAITA",
+		"shirtName": "JAG",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 25,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_A",
+		"value": 20
 	}
 ]
 }
