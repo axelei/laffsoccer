@@ -117,7 +117,7 @@ class TopScorers extends GLScreen {
         ScorerNameButton(int y, Player player, int color) {
             setGeometry(game.gui.WIDTH / 2 - 240 + 1, y, 240, 23);
             setColors(color, 0x1E1E1E, 0x1E1E1E);
-            setText(player.shirtName, Font.Align.LEFT, Assets.font10);
+            setText(player.name, Font.Align.LEFT, Assets.font10);
             setActive(false);
         }
     }

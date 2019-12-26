@@ -69,7 +69,7 @@ public class Settings {
         json.addClassTag("JoystickConfig", JoystickConfig.class);
 
         // game
-        locale = preferences.getString("locale", "en");
+        locale = preferences.getString("locale", "ch");
         fullScreen = preferences.getBoolean("fullScreen", false);
         showIntro = preferences.getBoolean("showIntro", true);
         musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);

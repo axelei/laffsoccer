@@ -291,7 +291,7 @@ public class Assets {
             if (parts.length > 1) {
                 locales.add(parts[1]);
             } else {
-                locales.add("en");
+                locales.add("ch");
             }
         }
         Collections.sort(locales);

@@ -397,7 +397,7 @@ public class MatchRenderer extends SceneRenderer {
             for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
                 Player player = getMatch().team[tm].playerAtPosition(pos);
                 Assets.font10.draw(batch, player.number, l + tm * w / 2 + w / 10, y, Font.Align.CENTER);
-                Assets.font10.draw(batch, player.shirtName, l + tm * w / 2 + w / 7, y, Font.Align.LEFT);
+                Assets.font10.draw(batch, player.name, l + tm * w / 2 + w / 7, y, Font.Align.LEFT);
                 y = y + h / 23;
             }
         }
@@ -763,10 +763,10 @@ public class MatchRenderer extends SceneRenderer {
                         text = " ";
                         break;
                     case SCORED:
-                        text = t == HOME ? penalty.kicker.shirtName + " " + (char) 25 : (char) 25 + " " + penalty.kicker.shirtName;
+                        text = t == HOME ? penalty.kicker.name + " " + (char) 25 : (char) 25 + " " + penalty.kicker.name;
                         break;
                     case MISSED:
-                        text = t == HOME ? penalty.kicker.shirtName + " " + (char) 26 : (char) 26 + " " + penalty.kicker.shirtName;
+                        text = t == HOME ? penalty.kicker.name + " " + (char) 26 : (char) 26 + " " + penalty.kicker.name;
                         break;
                 }
 

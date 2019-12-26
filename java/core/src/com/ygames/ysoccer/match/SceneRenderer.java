@@ -378,10 +378,12 @@ public abstract class SceneRenderer {
             batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
         } else {
             batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
+            //TODO Nombres en el jugador
+            //Assets.font6.draw(batch, player.number + " " + player.shirtName, dx - w0 / 2, dy, Font.Align.CENTER);
         }
     }
 
     void drawPlayerNumberAndName(Player player) {
-        Assets.font10.draw(batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
+        Assets.font10.draw(batch, player.number + " " + player.name, 10, 2, Font.Align.LEFT);
     }
 }
