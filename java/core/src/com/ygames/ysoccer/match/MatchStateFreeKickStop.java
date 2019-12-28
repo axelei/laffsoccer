@@ -40,7 +40,7 @@ class MatchStateFreeKickStop extends MatchState {
             int size = Assets.CommonCommentary.foul.size();
             if (size > 0) {
                 Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                        new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.foul.get(Assets.random.nextInt(size)))
+                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.foul.get(Assets.random.nextInt(size)))
                 });
             }
         }

@@ -1,19 +1,12 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
-import com.ygames.ysoccer.framework.Ai;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Color2;
-import com.ygames.ysoccer.framework.Color3;
-import com.ygames.ysoccer.framework.EMath;
-import com.ygames.ysoccer.framework.GLColor;
-import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.InputDevice;
-import com.ygames.ysoccer.framework.RgbPair;
+import com.ygames.ysoccer.framework.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -325,6 +318,10 @@ public class Player implements Json.Serializable {
 
                 // get possession
                 else {
+                    Sound playerSound = Assets.TeamCommentary.teams.get(FileUtils.getTeamFromFile(this.team.path)).players.get(this.shirtName);
+                    if (playerSound != null) {
+                        Commentary.getInstance().enqueueComment(new Commentary.Comment[]{ new Commentary.Comment(Commentary.Comment.Priority.LOW, playerSound)});
+                    }
                     scene.setBallOwner(this);
                     ball.v = v;
                     ball.a = a;
@@ -484,7 +481,7 @@ public class Player implements Json.Serializable {
                 int size = Assets.CommonCommentary.keeperSave.size();
                 if (size > 0) {
                     Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                            new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.keeperSave.get(Assets.random.nextInt(size)))
+                            new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.keeperSave.get(Assets.random.nextInt(size)))
                     });                   }
             }
         }

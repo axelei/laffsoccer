@@ -150,16 +150,25 @@ public class Assets {
 
         public Sound teamName;
         public Sound stadiumName;
+        public Sound city;
         public final Map<String, Sound> players = new HashMap<>();
 
-        public static void load(String team) {
+        public static void load(Team team) {
+
+            String teamFile = FileUtils.getTeamFromFile(team.path);
+            String soundPath = "commentary/teams/" + teamFile;
 
             TeamCommentary element = new TeamCommentary();
 
-            element.teamName = Sounds.newSound(team + ".ogg");
-            element.stadiumName = Sounds.newSound(team + ".stadium.ogg");
+            element.teamName = Sounds.newSound(soundPath + "/team.ogg");
+            element.stadiumName = Sounds.newSound(soundPath + "/stadium.ogg");
+            element.city = Sounds.newSound(soundPath + "/city.ogg");
 
-            teams.put(team, element);
+            team.players.forEach(player -> {
+                element.players.put(player.shirtName, Sounds.newSound(soundPath + "/player_" + FileUtils.normalizeName(player.shirtName) + ".ogg"));
+            });
+
+            teams.put(teamFile, element);
 
         }
 
@@ -167,6 +176,7 @@ public class Assets {
             teams.forEach((name, team) -> {
                 stopAndDispose(team.teamName);
                 stopAndDispose(team.stadiumName);
+                stopAndDispose(team.city);
                 team.players.forEach((playerName, sound) -> {
                     stopAndDispose(sound);
                 });

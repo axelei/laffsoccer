@@ -20,6 +20,14 @@ public class Commentary {
      * A comment element
      */
     public static class Comment {
+
+        public enum Priority {
+            LOW(1), COMMON(2), HIGH(3), GOAL(4);
+
+            private int weight;
+            Priority(int weight) { this.weight = weight; }
+        }
+
         private Priority priority;
         private Sound sound;
 
@@ -43,13 +51,6 @@ public class Commentary {
         public void setSound(Sound sound) {
             this.sound = sound;
         }
-    }
-
-    public enum Priority {
-        LOW(1), COMMON(2), HIGH(3), GOAL(4);
-
-        private int weight;
-        Priority(int weight) { this.weight = weight; }
     }
 
     private Commentary() {}

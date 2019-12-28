@@ -45,7 +45,8 @@ class MatchScreen extends GLScreen {
 
         commentary.wake();
 
-        Assets.TeamCommentary.load(FileUtils.getTeamFromFile(match.team[0].path));
+        Assets.TeamCommentary.load(match.team[0]);
+        Assets.TeamCommentary.load(match.team[1]);
 
         if (Settings.development) {
             console = new GUIConsole();

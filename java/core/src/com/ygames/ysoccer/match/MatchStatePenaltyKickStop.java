@@ -49,7 +49,7 @@ class MatchStatePenaltyKickStop extends MatchState {
             int size = Assets.CommonCommentary.penalty.size();
             if (size > 0) {
                 Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                        new Commentary.Comment(Commentary.Priority.HIGH, Assets.CommonCommentary.penalty.get(Assets.random.nextInt(size)))
+                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.penalty.get(Assets.random.nextInt(size)))
                 });               }
         }
 
