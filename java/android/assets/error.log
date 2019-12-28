@@ -1,0 +1,15 @@
+Exception in thread "LWJGL Application" java.lang.NullPointerException
+	at com.ygames.ysoccer.framework.Assets$CommonCommentary.stop(Assets.java:206)
+	at com.ygames.ysoccer.match.Match.quit(Match.java:615)
+	at com.ygames.ysoccer.match.MatchState.quitMatch(MatchState.java:87)
+	at com.ygames.ysoccer.match.MatchState.checkCommonConditions(MatchState.java:79)
+	at com.ygames.ysoccer.match.MatchStateMain.checkConditions(MatchStateMain.java:339)
+	at com.ygames.ysoccer.match.SceneFsm.think(SceneFsm.java:127)
+	at com.ygames.ysoccer.match.Scene.update(Scene.java:24)
+	at com.ygames.ysoccer.match.Match.update(Match.java:38)
+	at com.ygames.ysoccer.screens.MatchScreen.render(MatchScreen.java:74)
+	at com.ygames.ysoccer.framework.GLGame.render(GLGame.java:129)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:233)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:128)
+
+

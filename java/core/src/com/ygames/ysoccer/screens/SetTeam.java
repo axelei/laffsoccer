@@ -49,6 +49,7 @@ class SetTeam extends GLScreen {
     SetTeam(GLGame game) {
         super(game);
         playMenuMusic = false;
+        playPrematchMusic = true;
 
         Match match = navigation.competition.getMatch();
 

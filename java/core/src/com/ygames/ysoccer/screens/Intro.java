@@ -6,6 +6,7 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
+import com.ygames.ysoccer.framework.MenuMusic;
 import com.ygames.ysoccer.gui.TextBox;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -79,6 +80,7 @@ public class Intro extends GLScreen {
         Gdx.input.setInputProcessor(null);
         game.enableMouse();
         game.menuMusic.setMode(game.settings.musicMode);
+        game.prematchMusic.setMode(MenuMusic.ALL);
         game.setScreen(new Main(game));
     }
 }

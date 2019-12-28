@@ -3,19 +3,13 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.Gdx;
 import com.strongjoshua.console.Console;
 import com.strongjoshua.console.GUIConsole;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.Settings;
+import com.ygames.ysoccer.framework.*;
 import com.ygames.ysoccer.match.Commentary;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Player;
 
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -35,6 +29,7 @@ class MatchScreen extends GLScreen {
         this.match = match;
 
         playMenuMusic = false;
+        playPrematchMusic = true;
         usesMouse = false;
 
         matchStarted = false;
@@ -49,6 +44,8 @@ class MatchScreen extends GLScreen {
         };
 
         commentary.wake();
+
+        Assets.TeamCommentary.load(FileUtils.getTeamFromFile(match.team[0].path));
 
         if (Settings.development) {
             console = new GUIConsole();
@@ -67,6 +64,7 @@ class MatchScreen extends GLScreen {
 
         if (!matchStarted) {
             match.start();
+            playPrematchMusic = false;
             matchStarted = true;
         }
 

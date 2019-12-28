@@ -96,6 +96,9 @@ public class Main extends GLScreen {
         w = new HomePageButton();
         widgets.add(w);
 
+        w = new MusicButton();
+        widgets.add(w);
+
         if (Settings.development) {
             w = new DeveloperToolsButton();
             widgets.add(w);
@@ -316,13 +319,26 @@ public class Main extends GLScreen {
     private class HomePageButton extends Button {
 
         HomePageButton() {
-            setGeometry(game.gui.WIDTH - 240, game.gui.HEIGHT - 20, 240, 20);
+            setGeometry(game.gui.WIDTH - 270, game.gui.HEIGHT - 20, 270, 20);
             setText("CHARNEGO TRANSLATIONS INC.", LEFT, font10);
         }
 
         @Override
         public void onFire1Down() {
             Gdx.net.openURI("https://charnego.krusher.net");
+        }
+    }
+
+    private class MusicButton extends Button {
+
+        MusicButton() {
+            setGeometry(0, game.gui.HEIGHT - 20, 270, 20);
+            setText("", LEFT, font10);
+        }
+
+        @Override
+        public void onFire1Down() {
+            Gdx.net.openURI("https://antonsapristi.bandcamp.com/");
         }
     }
 

@@ -36,6 +36,7 @@ class MatchSetup extends GLScreen {
     MatchSetup(GLGame game) {
         super(game);
         playMenuMusic = false;
+        playPrematchMusic = true;
 
         Match match = navigation.competition.getMatch();
         Team homeTeam = match.team[HOME];

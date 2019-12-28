@@ -32,18 +32,11 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.Random;
+import java.util.*;
 
 public class Assets {
+
+    public static final List<String> EXTENSIONS = Arrays.asList("ogg", "wav", "mp3");
 
     public static Random random;
     static Cursor customCursor;
@@ -142,11 +135,49 @@ public class Assets {
         }
 
         private static Sound newSound(String filename) {
-            return Gdx.audio.newSound(Gdx.files.internal("sounds").child(filename));
+            FileHandle file = Gdx.files.internal("sounds").child(filename);
+            if (file.exists()) {
+                return Gdx.audio.newSound(file);
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public static class TeamCommentary {
+
+        public static final Map<String, TeamCommentary> teams = new HashMap<>();
+
+        public Sound teamName;
+        public Sound stadiumName;
+        public final Map<String, Sound> players = new HashMap<>();
+
+        public static void load(String team) {
+
+            TeamCommentary element = new TeamCommentary();
+
+            element.teamName = Sounds.newSound(team + ".ogg");
+            element.stadiumName = Sounds.newSound(team + ".stadium.ogg");
+
+            teams.put(team, element);
+
+        }
+
+        public static void unload() {
+            teams.forEach((name, team) -> {
+                stopAndDispose(team.teamName);
+                stopAndDispose(team.stadiumName);
+                team.players.forEach((playerName, sound) -> {
+                    stopAndDispose(sound);
+                });
+            });
+            teams.clear();
         }
     }
 
     public static class CommonCommentary {
+
+        public static final Set<Sound> allComments = new HashSet<>();
 
         public static final List<Sound> cornerKick = new ArrayList<>();
         public static final List<Sound> foul = new ArrayList<>();
@@ -156,12 +187,19 @@ public class Assets {
         public static final List<Sound> penalty = new ArrayList<>();
         public static final List<Sound> playerSubstitution = new ArrayList<>();
         public static final List<Sound> playerSwap = new ArrayList<>();
+        public static final Sound[] numbers = new Sound[999];
 
         static void load() {
+            FileHandle numbersFolder = Gdx.files.local("sounds/commentary/numbers");
+            for (FileHandle fileHandle : numbersFolder.list()) {
+                if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
+                    String name = fileHandle.nameWithoutExtension();
+                    numbers[Integer.parseInt(name)] = Gdx.audio.newSound(fileHandle);
+                }
+            }
             FileHandle commentaryFolder = Gdx.files.local("sounds/commentary");
             for (FileHandle fileHandle : commentaryFolder.list()) {
-                List<String> extensions = Arrays.asList("ogg", "wav", "mp3");
-                if (extensions.contains(fileHandle.extension().toLowerCase())) {
+                if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
                     String name = fileHandle.nameWithoutExtension();
                     if (name.startsWith("corner_kick")) {
                         cornerKick.add(Gdx.audio.newSound(fileHandle));
@@ -189,17 +227,20 @@ public class Assets {
                     }
                 }
             }
+            allComments.addAll(Arrays.asList(numbers));
+            allComments.addAll(cornerKick);
+            allComments.addAll(foul);
+            allComments.addAll(goal);
+            allComments.addAll(keeperSave);
+            allComments.addAll(ownGoal);
+            allComments.addAll(penalty);
+            allComments.addAll(playerSubstitution);
+            allComments.addAll(playerSwap);
+            allComments.remove(null);
         }
 
         public static void stop() {
-            for (Sound s : cornerKick) s.stop();
-            for (Sound s : foul) s.stop();
-            for (Sound s : goal) s.stop();
-            for (Sound s : keeperSave) s.stop();
-            for (Sound s : ownGoal) s.stop();
-            for (Sound s : penalty) s.stop();
-            for (Sound s : playerSubstitution) s.stop();
-            for (Sound s : playerSwap) s.stop();
+            allComments.forEach(comment -> comment.stop());
         }
     }
 
@@ -355,6 +396,13 @@ public class Assets {
             } catch (IOException e) {
                 throw new RuntimeException("Couldn't load tactics", e);
             }
+        }
+    }
+
+    private static void stopAndDispose(Sound sound) {
+        if (sound != null) {
+            sound.stop();
+            sound.dispose();
         }
     }
 

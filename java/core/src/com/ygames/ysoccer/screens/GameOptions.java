@@ -301,6 +301,7 @@ class GameOptions extends GLScreen {
         private void updateMusicMode(int n) {
             game.settings.musicMode = EMath.rotate(game.settings.musicMode, game.menuMusic.getModeMin(), game.menuMusic.getModeMax(), n);
             game.menuMusic.setMode(game.settings.musicMode);
+            game.prematchMusic.setMode(MenuMusic.ALL);
             setDirty(true);
         }
     }

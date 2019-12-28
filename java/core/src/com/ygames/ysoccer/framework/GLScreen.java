@@ -29,6 +29,7 @@ public abstract class GLScreen implements Screen {
     protected Widget.Event widgetEvent;
     protected boolean usesMouse;
     protected boolean playMenuMusic;
+    protected boolean playPrematchMusic;
     protected InputDevice lastFireInputDevice;
 
     protected static class Navigation {
@@ -66,12 +67,14 @@ public abstract class GLScreen implements Screen {
         widgets = new ArrayList<>();
         usesMouse = true;
         playMenuMusic = true;
+        playPrematchMusic = false;
     }
 
     @Override
     public void render(float delta) {
 
         game.menuMusic.update(playMenuMusic ? game.settings.musicVolume : 0);
+        game.prematchMusic.update(playPrematchMusic ? game.settings.musicVolume : 0);
 
         camera.setToOrtho(true, game.gui.screenWidth, game.gui.screenHeight);
         camera.translate(-game.gui.originX, -game.gui.originY);

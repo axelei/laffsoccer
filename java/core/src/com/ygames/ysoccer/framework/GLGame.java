@@ -49,6 +49,7 @@ public class GLGame extends Game {
     public Competition competition;
 
     public MenuMusic menuMusic;
+    public MenuMusic prematchMusic;
 
     @Override
     public void create() {
@@ -72,6 +73,7 @@ public class GLGame extends Game {
         teamList = new TeamList();
 
         menuMusic = new MenuMusic("music");
+        prematchMusic = new MenuMusic("music/prematch");
 
         restoreSaveGame();
     }
