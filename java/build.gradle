@@ -12,8 +12,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.7'
-        
-
     }
 }
 
@@ -25,7 +23,7 @@ allprojects {
         gdxVersion = '1.9.10'
         roboVMVersion = '2.3.7'
         box2DLightsVersion = '1.4'
-        ashleyVersion = '.0'
+        ashleyVersion = '1.7.0'
         aiVersion = '1.8.0'
     }
 
@@ -51,7 +49,6 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-        
     }
 }
 /*
