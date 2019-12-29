@@ -29,7 +29,6 @@ class MatchOptions extends GLScreen {
 
         w = new MatchLengthLabel();
         widgets.add(w);
-
         w = new MatchLengthButton();
         widgets.add(w);
 
@@ -37,38 +36,37 @@ class MatchOptions extends GLScreen {
 
         w = new WeatherEffectsLabel();
         widgets.add(w);
-
         w = new WeatherEffectsButton();
         widgets.add(w);
 
         w = new RadarLabel();
         widgets.add(w);
-
         w = new RadarButton();
         widgets.add(w);
 
         w = new AutoReplaysLabel();
         widgets.add(w);
-
         w = new AutoReplaysButton();
         widgets.add(w);
 
         w = new ZoomLabel();
         widgets.add(w);
-
         w = new ZoomButton();
         widgets.add(w);
 
         w = new SfxVolumeLabel();
         widgets.add(w);
-
         w = new SfxVolumeButton();
         widgets.add(w);
 
         w = new CommentaryLabel();
         widgets.add(w);
-
         w = new CommentaryButton();
+        widgets.add(w);
+
+        w = new NamesLabel();
+        widgets.add(w);
+        w = new NamesButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -398,6 +396,45 @@ class MatchOptions extends GLScreen {
         public void onFire1Down() {
             game.settings.save();
             game.setScreen(new Main(game));
+        }
+    }
+
+    private class NamesLabel extends Button {
+
+        NamesLabel() {
+            setColor(0x76683C);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 540, 440, 40);
+            setText(Assets.strings.get("MATCH OPTIONS.NAMES"), Font.Align.CENTER, Assets.font14);
+            setActive(false);
+        }
+    }
+
+    private class NamesButton extends Button {
+
+        NamesButton() {
+            setColor(0x2B4A61);
+            setGeometry(game.gui.WIDTH / 2 + 10, 540, 440, 40);
+            setText("", Font.Align.CENTER, Assets.font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(Assets.strings.get(game.settings.names ? "MATCH OPTIONS.NAMES.ON" : "MATCH OPTIONS.NAMES.OFF"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            toggleNames();
+        }
+
+        @Override
+        public void onFire2Down() {
+            toggleNames();
+        }
+
+        private void toggleNames() {
+            game.settings.names = !game.settings.names;
+            setDirty(true);
         }
     }
 }

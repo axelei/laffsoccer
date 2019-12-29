@@ -72,6 +72,7 @@ public class Commentary {
 
     private long since = 0L;
     private float lastLength = 0F;
+    private float queueLength = 0F;
 
     private Timer timer = new Timer();
 
@@ -79,13 +80,19 @@ public class Commentary {
      * Enqueue a comment
      * @param elements
      */
-    public void enqueueComment(Comment[] elements) {
+    public void enqueueComment(Comment... elements) {
 
-        // A comment with greater priority comes
-        if (!queue.isEmpty() && queue.peek()[0].priority.weight > elements[0].priority.weight) {
+        // A comment with greater priority comes (or queue is very long)
+        if (!current.isEmpty() && current.peek().priority.weight < elements[0].priority.weight
+                || queueLength > 1.5F) {
             queue.clear();
+            current.clear();
+            queueLength = 0;
         }
 
+        for (Comment element : elements) {
+            queueLength += ((OpenALSound) element.getSound()).duration();
+        }
         queue.add(elements);
     }
 
@@ -100,6 +107,7 @@ public class Commentary {
         OpenALSound openALSound = (OpenALSound) target.getSound();
 
         lastLength = openALSound.duration();
+        queueLength -= lastLength;
         since = System.currentTimeMillis();
 
         playing = openALSound;

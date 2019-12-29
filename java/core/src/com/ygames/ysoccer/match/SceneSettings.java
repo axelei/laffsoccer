@@ -7,6 +7,7 @@ import com.ygames.ysoccer.framework.Settings;
 
 public class SceneSettings {
 
+
     public enum Time {DAY, NIGHT}
 
     public Time time;
@@ -14,6 +15,7 @@ public class SceneSettings {
     public Pitch.Type pitchType;
     public Wind wind;
     public int sky; // Sky.CLEAR, Sky.CLOUDY
+    public boolean names = false;
 
     int weatherEffect; // Weather.WIND, Weather.RAIN, Weather.SNOW, Weather.FOG
     int weatherStrength; // Weather.Strength.NONE, Weather.Strength.LIGHT, Weather.Strength.STRONG
@@ -28,6 +30,7 @@ public class SceneSettings {
     public SceneSettings(Settings gameSettings) {
         this.zoom = gameSettings.zoom;
         this.fullScreen = gameSettings.fullScreen;
+        this.names = gameSettings.names;
 
         this.time = randomTime();
         this.grass = new Grass();

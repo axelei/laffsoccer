@@ -38,6 +38,7 @@ public class Settings {
     public boolean autoReplays;
     public int soundVolume;
     public boolean commentary;
+    public boolean names;
 
     // controls
     private String keyboardConfigs;
@@ -78,6 +79,7 @@ public class Settings {
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 2)
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
+        names = preferences.getBoolean("names", true);
 
         // match
         matchLength = preferences.getInteger("matchLength", matchLengths[0]);

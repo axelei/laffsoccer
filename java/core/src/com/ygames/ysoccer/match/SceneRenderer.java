@@ -373,13 +373,19 @@ public abstract class SceneRenderer {
         int fy = scene.settings.pitchType == Pitch.Type.WHITE ? 1 : 0;
         if (f1 > 0) {
             dx = dx - (w0 + 2 + w1) / 2;
-            batch.draw(Assets.playerNumbers[f1][fy], dx, dy, 6, 10);
-            dx = dx + w1 + 2;
-            batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
+            if (scene.settings.names) {
+                Assets.font3.draw(batch, player.number + " " + player.shirtName, dx - w0 / 2, dy, Font.Align.CENTER);
+            } else {
+                batch.draw(Assets.playerNumbers[f1][fy], dx, dy, 6, 10);
+                dx = dx + w1 + 2;
+                batch.draw(Assets.playerNumbers[f0][fy], dx, dy, 6, 10);
+            }
         } else {
-            batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
-            //TODO Nombres en el jugador
-            //Assets.font6.draw(batch, player.number + " " + player.shirtName, dx - w0 / 2, dy, Font.Align.CENTER);
+            if (scene.settings.names) {
+                Assets.font3.draw(batch, player.number + " " + player.shirtName, dx - w0 / 2, dy, Font.Align.CENTER);
+            } else {
+                batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
+            }
         }
     }
 

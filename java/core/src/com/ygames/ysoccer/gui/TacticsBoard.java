@@ -172,7 +172,7 @@ public class TacticsBoard extends Widget {
 
                     // number
                     Player player = teamToShow.players.get(ply);
-                    Assets.font10.draw(batch, "" + player.number, tx + 10, ty - 1, Font.Align.CENTER);
+                    Assets.font10.draw(batch, String.valueOf(player.number), tx + 10, ty - 1, Font.Align.CENTER);
                 }
             }
         }

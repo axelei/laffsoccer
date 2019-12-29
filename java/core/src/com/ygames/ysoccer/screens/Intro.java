@@ -26,15 +26,17 @@ public class Intro extends GLScreen {
 
         BitmapFont font = new BitmapFont(true);
         String[] lines = {
-                "YSoccer 19, Copyright (C) 2019",
-                "by Massimo Modica, Daniele Giannarini, Marco Modica",
+                "Charnego Soccer",
+                "Charnego Translations Inc.",
                 "",
-                "YSoccer comes with ABSOLUTELY NO WARRANTY; for details press 'W'.",
-                "This is free software, and you are welcome to redistribute it",
-                "under certain conditions; press 'C' for details.",
+                "Basado en YSoccer",
+                "",
+                "Este juego se distribuye SIN NINGUNA GARANTÍA, pulsa 'W' para saber más.",
+                "Juego libre y gratuíto con licencia GPL2.",
+                "Dale a la 'C' para ver más.",
                 "",
                 "",
-                "Press any key or button to continue"
+                "Pica una tecla para viciarte"
         };
         w = new TextBox(font, Arrays.asList(lines), game.gui.WIDTH / 2, 270);
         widgets.add(w);
