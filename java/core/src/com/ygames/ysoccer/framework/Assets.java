@@ -187,17 +187,24 @@ public class Assets {
 
     public static class CommonCommentary {
 
-        public static final Set<Sound> allComments = new HashSet<>();
+        public enum CommonCommentaryType {
+            CORNER_KICK, FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK
+        }
 
-        public static final List<Sound> cornerKick = new ArrayList<>();
-        public static final List<Sound> foul = new ArrayList<>();
-        public static final List<Sound> goal = new ArrayList<>();
-        public static final List<Sound> keeperSave = new ArrayList<>();
-        public static final List<Sound> ownGoal = new ArrayList<>();
-        public static final List<Sound> penalty = new ArrayList<>();
-        public static final List<Sound> playerSubstitution = new ArrayList<>();
-        public static final List<Sound> playerSwap = new ArrayList<>();
+        public static final Map<CommonCommentaryType, Set<Sound>> commonCommentary = new HashMap<>();
+
+        static {
+            for (CommonCommentaryType value : CommonCommentaryType.values()) {
+                commonCommentary.put(value, new HashSet<>());
+            }
+        }
+
+        public static final Set<Sound> allComments = new HashSet<>();
         public static final Sound[] numbers = new Sound[999];
+
+        public static Sound pull(CommonCommentaryType type) {
+            return EMath.getRandomSetElement(commonCommentary.get(type));
+        }
 
         static void load() {
             FileHandle numbersFolder = Gdx.files.local("sounds/commentary/numbers");
@@ -212,40 +219,33 @@ public class Assets {
                 if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
                     String name = fileHandle.nameWithoutExtension();
                     if (name.startsWith("corner_kick")) {
-                        cornerKick.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.CORNER_KICK).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("foul")) {
-                        foul.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.FOUL).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("goal")) {
-                        goal.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.GOAL).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("keeper_save")) {
-                        keeperSave.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.KEEPER_SAVE).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("own_goal")) {
-                        ownGoal.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.OWN_GOAL).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("penalty")) {
-                        penalty.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.PENALTY).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("player_substitution")) {
-                        playerSubstitution.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.PLAYER_SUBSTITUTION).add(Gdx.audio.newSound(fileHandle));
                     }
                     if (name.startsWith("player_swap")) {
-                        playerSwap.add(Gdx.audio.newSound(fileHandle));
+                        commonCommentary.get(CommonCommentaryType.PLAYER_SWAP).add(Gdx.audio.newSound(fileHandle));
                     }
                 }
             }
             allComments.addAll(Arrays.asList(numbers));
-            allComments.addAll(cornerKick);
-            allComments.addAll(foul);
-            allComments.addAll(goal);
-            allComments.addAll(keeperSave);
-            allComments.addAll(ownGoal);
-            allComments.addAll(penalty);
-            allComments.addAll(playerSubstitution);
-            allComments.addAll(playerSwap);
+            commonCommentary.forEach((k, v) -> allComments.addAll(v));
             allComments.remove(null);
         }
 

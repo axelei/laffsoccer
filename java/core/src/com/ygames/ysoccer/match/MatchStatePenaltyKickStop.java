@@ -46,11 +46,9 @@ class MatchStatePenaltyKickStop extends MatchState {
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         if (match.settings.commentary) {
-            int size = Assets.CommonCommentary.penalty.size();
-            if (size > 0) {
-                Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.penalty.get(Assets.random.nextInt(size)))
-                });               }
+            Commentary.getInstance().enqueueComment(
+                    new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.PENALTY)
+                    ));
         }
 
         Player penaltyKicker = match.foul.opponent.team.lastOfLineup();

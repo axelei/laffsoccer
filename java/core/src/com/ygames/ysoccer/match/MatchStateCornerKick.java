@@ -31,12 +31,9 @@ class MatchStateCornerKick extends MatchState {
     void entryActions() {
         super.entryActions();
         if (match.settings.commentary) {
-            int size = Assets.CommonCommentary.cornerKick.size();
-            if (size > 0) {
-                Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.cornerKick.get(Assets.random.nextInt(size)))
-                });
-            }
+            Commentary.getInstance().enqueueComment(
+                    new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.CORNER_KICK)
+                    ));
         }
     }
 

@@ -22,7 +22,7 @@ public class Commentary {
     public static class Comment {
 
         public enum Priority {
-            LOW(1), COMMON(2), HIGH(3), GOAL(4);
+            CHITCHAT(0), LOW(1), COMMON(2), HIGH(3), GOAL(4);
 
             private int weight;
             Priority(int weight) { this.weight = weight; }
@@ -73,6 +73,7 @@ public class Commentary {
     private long since = 0L;
     private float lastLength = 0F;
     private float queueLength = 0F;
+    private Sound lastSound = null;
 
     private Timer timer = new Timer();
 
@@ -88,6 +89,10 @@ public class Commentary {
             queue.clear();
             current.clear();
             queueLength = 0;
+            since = 0L;
+            if (lastSound != null) {
+                lastSound.stop();
+            }
         }
 
         for (Comment element : elements) {
@@ -112,6 +117,7 @@ public class Commentary {
 
         playing = openALSound;
         playing.play();
+        lastSound = playing;
 
         return true;
     }

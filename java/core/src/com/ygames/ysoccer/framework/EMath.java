@@ -1,5 +1,10 @@
 package com.ygames.ysoccer.framework;
 
+import com.sun.istack.internal.NotNull;
+
+import java.util.Random;
+import java.util.Set;
+
 public class EMath {
 
     private static final float TO_RADIANS = (float) Math.PI / 180.0f;
@@ -134,5 +139,9 @@ public class EMath {
             if (value == element) return true;
         }
         return false;
+    }
+
+    static <E> E getRandomSetElement(@NotNull Set<E> set) {
+        return set.stream().skip(new Random().nextInt(set.size())).findFirst().orElse(null);
     }
 }

@@ -11,7 +11,10 @@ public class FileUtils {
 
     public static final char[] BAD_CHARS = new char[] {'.', '\\', '/', '\'', ',', ':', ';', ' '};
 
-    public static String getTeamFromFile(@NotNull String path) {
+    public static String getTeamFromFile(String path) {
+        if (path == null) {
+            return null;
+        }
         return path.substring(path.indexOf('.') + 1, path.lastIndexOf('.'));
     }
 

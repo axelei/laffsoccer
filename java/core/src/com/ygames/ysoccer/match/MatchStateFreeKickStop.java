@@ -37,12 +37,9 @@ class MatchStateFreeKickStop extends MatchState {
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
         if (match.settings.commentary) {
-            int size = Assets.CommonCommentary.foul.size();
-            if (size > 0) {
-                Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.foul.get(Assets.random.nextInt(size)))
-                });
-            }
+            Commentary.getInstance().enqueueComment(
+                    new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.FOUL)
+                    ));
         }
 
         // set the player targets relative to foul zone

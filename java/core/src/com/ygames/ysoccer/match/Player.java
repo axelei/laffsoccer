@@ -318,9 +318,11 @@ public class Player implements Json.Serializable {
 
                 // get possession
                 else {
-                    Sound playerSound = Assets.TeamCommentary.teams.get(FileUtils.getTeamFromFile(this.team.path)).players.get(this.shirtName);
-                    if (playerSound != null) {
-                        Commentary.getInstance().enqueueComment(new Commentary.Comment[]{ new Commentary.Comment(Commentary.Comment.Priority.LOW, playerSound)});
+                    if (this.team.path != null) {
+                        Sound playerSound = Assets.TeamCommentary.teams.get(FileUtils.getTeamFromFile(this.team.path)).players.get(this.shirtName);
+                        if (playerSound != null) {
+                            Commentary.getInstance().enqueueComment(new Commentary.Comment(Commentary.Comment.Priority.LOW, playerSound));
+                        }
                     }
                     scene.setBallOwner(this);
                     ball.v = v;
@@ -478,11 +480,9 @@ public class Player implements Json.Serializable {
 
         if (collisionType == KeeperCollision.CATCH) {
             if (scene.settings.commentary) {
-                int size = Assets.CommonCommentary.keeperSave.size();
-                if (size > 0) {
-                    Commentary.getInstance().enqueueComment(new Commentary.Comment[]{
-                            new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.keeperSave.get(Assets.random.nextInt(size)))
-                    });                   }
+                Commentary.getInstance().enqueueComment(
+                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.KEEPER_SAVE)
+                        ));
             }
         }
 
