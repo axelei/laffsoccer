@@ -115,7 +115,9 @@ public class EMath {
     public static int min(int... values) {
         int min = values[0];
         for (int v : values) {
-            if (v < min) min = v;
+            if (v < min) {
+                min = v;
+            }
         }
         return min;
     }
@@ -134,9 +136,11 @@ public class EMath {
         return (Math.signum(diff1) != Math.signum(diff2)) ? value : (Math.abs(diff1) < Math.abs(diff2) ? limit1 : limit2);
     }
 
-    public static <T> boolean isAmong(T value, T[] elements) {
+    public static <T> boolean isAmong(@NotNull T value, T[] elements) {
         for (T element : elements) {
-            if (value == element) return true;
+            if (value.equals(element)) {
+                return true;
+            }
         }
         return false;
     }
