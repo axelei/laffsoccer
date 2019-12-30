@@ -1,7 +1,6 @@
 package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
-import com.sun.istack.internal.NotNull;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.ByteArrayInputStream;
@@ -18,7 +17,7 @@ public class FileUtils {
         return path.substring(path.indexOf('.') + 1, path.lastIndexOf('.'));
     }
 
-    public static String normalizeName(@NotNull String name) {
+    public static String normalizeName(String name) {
         String normalized = StringUtils.stripAccents(name).toLowerCase();
         for (char badChar : BAD_CHARS) {
             normalized = normalized.replace(String.valueOf(badChar), "");

@@ -1,7 +1,5 @@
 package com.ygames.ysoccer.framework;
 
-import com.sun.istack.internal.NotNull;
-
 import java.util.Random;
 import java.util.Set;
 
@@ -136,7 +134,7 @@ public class EMath {
         return (Math.signum(diff1) != Math.signum(diff2)) ? value : (Math.abs(diff1) < Math.abs(diff2) ? limit1 : limit2);
     }
 
-    public static <T> boolean isAmong(@NotNull T value, T[] elements) {
+    public static <T> boolean isAmong(T value, T[] elements) {
         for (T element : elements) {
             if (value.equals(element)) {
                 return true;
@@ -145,7 +143,7 @@ public class EMath {
         return false;
     }
 
-    static <E> E getRandomSetElement(@NotNull Set<E> set) {
+    static <E> E getRandomSetElement(Set<E> set) {
         return set.stream().skip(new Random().nextInt(set.size())).findFirst().orElse(null);
     }
 }
