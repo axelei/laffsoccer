@@ -79,7 +79,7 @@ public class Settings {
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 2)
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));
         currency = preferences.getString("currency", "€");
-        names = preferences.getBoolean("names", true);
+        names = preferences.getBoolean("names", false);
 
         // match
         matchLength = preferences.getInteger("matchLength", matchLengths[0]);
@@ -129,6 +129,7 @@ public class Settings {
         preferences.putInteger("maxPlayerValueM", m);
         preferences.putInteger("maxPlayerValueE", e);
         preferences.putString("currency", currency);
+        preferences.putBoolean("names", names);
 
         // match
         preferences.putInteger("matchLength", matchLength);
