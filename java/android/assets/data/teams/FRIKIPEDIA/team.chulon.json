@@ -11,44 +11,36 @@
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "BAND",
-		"shirt1": "#3033c1",
+		"style": "VERTICAL",
+		"shirt1": "#1e1e1e",
 		"shirt2": "#f61c1c",
-		"shirt3": "#000000",
-		"shorts": "#3033c1",
+		"shirt3": "#f61c1c",
+		"shorts": "#1e1e1e",
 		"socks": "#f61c1c"
 	},
 	{
 		"style": "PLAIN",
-		"shirt1": "#dfe8eb",
+		"shirt1": "#1e1e1e",
 		"shirt2": "#f61c1c",
-		"shirt3": "#000000",
-		"shorts": "#3033c1",
+		"shirt3": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#1e1e1e",
 		"socks": "#f61c1c"
 	},
 	{
-		"style": "PLAIN",
-		"shirt1": "#afb2b9",
-		"shirt2": "#afb2b9",
-		"shirt3": "#000000",
-		"shorts": "#afb2b9",
-		"socks": "#afb2b9"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#ffd200",
-		"shirt2": "#dfe8eb",
-		"shirt3": "#000000",
-		"shorts": "#3033c1",
-		"socks": "#f61c1c"
-	},
-	{
-		"style": "PLAIN",
-		"shirt1": "#993333",
-		"shirt2": "#993333",
-		"shirt3": "#000000",
-		"shorts": "#dfe8eb",
-		"socks": "#3033c1"
+		"style": "VERTICAL",
+		"shirt1": "#f61c1c",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#f61c1c",
+		"socks": "#1e1e1e"
 	}
 ],
 "players": [

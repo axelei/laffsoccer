@@ -1,7 +1,7 @@
 {
 "name": "JAPÓN",
 "type": "NATIONAL",
-"country": "JAP",
+"country": "JPN",
 "confederation": "AFC",
 "city": "TOKYO",
 "stadium": "ESTADIO ENORME",
@@ -12,23 +12,26 @@
 "tactics": "SWEEP",
 "kits": [
 	{
-		"style": "PLAIN",
+		"style": "CHECK",
 		"shirt1": "#3033c1",
 		"shirt2": "#dfe8eb",
-		"shorts": "#dfe8eb",
+		"shirt3": "#000000",
+		"shorts": "#1e1e1e",
 		"socks": "#3033c1"
 	},
 	{
 		"style": "PLAIN",
-		"shirt1": "#dfe8eb",
-		"shirt2": "#3033c1",
-		"shorts": "#3033c1",
-		"socks": "#dfe8eb"
+		"shirt1": "#949494",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#949494"
 	},
 	{
 		"style": "PLAIN",
 		"shirt1": "#dfe8eb",
 		"shirt2": "#3033c1",
+		"shirt3": "#000000",
 		"shorts": "#dfe8eb",
 		"socks": "#3033c1"
 	}
@@ -37,7 +40,7 @@
 	{
 		"name": "BENJI PRICE",
 		"shirtName": "BENJI",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "GOALKEEPER",
 		"number": 1,
 		"skinColor": "PINK",
@@ -48,12 +51,12 @@
 	{
 		"name": "BRUCE HARPER",
 		"shirtName": "BRUCE",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "RIGHT_BACK",
 		"number": 2,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SHORT_A",
 		"skills": {
 			"passing": 5,
 			"shooting": 3,
@@ -72,110 +75,108 @@
 	{
 		"name": "CLIFFORD YUMA",
 		"shirtName": "CLIFFORD",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "DEFENDER",
 		"number": 3,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 7,
 			"shooting": 4,
 			"heading": 5,
-			"tackling": 7,
-			"control": 7,
+			"tackling": 2,
+			"control": 2,
 			"speed": 6,
 			"finishing": 3
 		},
 		"bestSkills": [
-			"TACKLING",
-			"PASSING",
-			"CONTROL"
+			"PASSING"
 		]
 	},
 	{
 		"name": "BOB DENVER",
 		"shirtName": "DENVER",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "DEFENDER",
 		"number": 4,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "CURLY_C",
 		"skills": {
-			"passing": 7,
+			"passing": 4,
 			"shooting": 5,
 			"heading": 7,
-			"tackling": 7,
-			"control": 7,
-			"speed": 7,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
 			"finishing": 4
 		},
 		"bestSkills": [
-			"TACKLING",
-			"HEADING",
-			"PASSING"
+			"HEADING"
 		]
 	},
 	{
 		"name": "JULIAN ROSS",
 		"shirtName": "JULIAN",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "LEFT_BACK",
 		"number": 5,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_B",
 		"skills": {
-			"passing": 5,
-			"shooting": 4,
-			"heading": 7,
-			"tackling": 5,
-			"control": 5,
+			"passing": 7,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 7,
+			"control": 6,
 			"speed": 5,
-			"finishing": 3
+			"finishing": 6
 		},
 		"bestSkills": [
-			"HEADING",
 			"TACKLING",
-			"SPEED"
+			"FINISHING",
+			"CONTROL",
+			"PASSING"
 		]
 	},
 	{
 		"name": "OLIVER ATOM",
 		"shirtName": "OLIVER",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "MIDFIELDER",
 		"number": 6,
-		"skinColor": "PINK",
+		"skinColor": "ARAB",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 7,
 			"shooting": 6,
 			"heading": 6,
-			"tackling": 6,
+			"tackling": 3,
 			"control": 7,
-			"speed": 6,
-			"finishing": 5
+			"speed": 4,
+			"finishing": 7
 		},
 		"bestSkills": [
 			"PASSING",
 			"CONTROL",
-			"TACKLING"
+			"SHOOTING",
+			"FINISHING"
 		]
 	},
 	{
 		"name": "TOM BAKER",
 		"shirtName": "TOM",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "MIDFIELDER",
 		"number": 7,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 7,
+			"passing": 4,
 			"shooting": 6,
 			"heading": 6,
 			"tackling": 5,
@@ -184,7 +185,6 @@
 			"finishing": 6
 		},
 		"bestSkills": [
-			"PASSING",
 			"CONTROL",
 			"HEADING"
 		]
@@ -192,11 +192,11 @@
 	{
 		"name": "DANI MELLOW",
 		"shirtName": "MELLOW",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "MIDFIELDER",
 		"number": 8,
 		"skinColor": "PINK",
-		"hairColor": "BROWN",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 5,
@@ -216,7 +216,7 @@
 	{
 		"name": "JASON DERRICK",
 		"shirtName": "JASON",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "LEFT_WINGER",
 		"number": 9,
 		"skinColor": "PINK",
@@ -240,7 +240,7 @@
 	{
 		"name": "PAUL DIAMOND",
 		"shirtName": "PAUL",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "MIDFIELDER",
 		"number": 10,
 		"skinColor": "PINK",
@@ -264,10 +264,10 @@
 	{
 		"name": "MARK LENDERS",
 		"shirtName": "LENDERS",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "ATTACKER",
 		"number": 11,
-		"skinColor": "PINK",
+		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
@@ -282,13 +282,14 @@
 		"bestSkills": [
 			"HEADING",
 			"FINISHING",
-			"SPEED"
+			"SPEED",
+			"SHOOTING"
 		]
 	},
 	{
 		"name": "ED WARNER",
 		"shirtName": "WARNER",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "GOALKEEPER",
 		"number": 12,
 		"skinColor": "PINK",
@@ -299,7 +300,7 @@
 	{
 		"name": "RALPH PETTERSON",
 		"shirtName": "PETTERSON",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "DEFENDER",
 		"number": 13,
 		"skinColor": "PINK",
@@ -308,62 +309,57 @@
 		"skills": {
 			"passing": 7,
 			"shooting": 5,
-			"heading": 7,
-			"tackling": 7,
+			"heading": 4,
+			"tackling": 2,
 			"control": 7,
 			"speed": 6,
 			"finishing": 4
 		},
 		"bestSkills": [
-			"TACKLING",
-			"HEADING",
 			"PASSING"
 		]
 	},
 	{
 		"name": "PATRICK EVERETT",
 		"shirtName": "PATRICK",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "MIDFIELDER",
 		"number": 14,
 		"skinColor": "PINK",
-		"hairColor": "BLOND",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 7,
-			"shooting": 5,
-			"heading": 7,
-			"tackling": 7,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 4,
 			"control": 6,
 			"speed": 6,
 			"finishing": 4
 		},
 		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"HEADING"
+			"PASSING"
 		]
 	},
 	{
 		"name": "PHILLIP CALLAHAN",
 		"shirtName": "CALLAHAN",
-		"nationality": "ITA",
+		"nationality": "JPN",
 		"role": "LEFT_WINGER",
 		"number": 15,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 6,
-			"shooting": 6,
+			"shooting": 4,
 			"heading": 5,
 			"tackling": 4,
 			"control": 6,
-			"speed": 7,
+			"speed": 5,
 			"finishing": 6
 		},
 		"bestSkills": [
-			"SPEED",
 			"CONTROL",
 			"PASSING"
 		]
@@ -371,7 +367,7 @@
 	{
 		"name": "JAMES DERRICK",
 		"shirtName": "JAMES",
-		"nationality": "JAP",
+		"nationality": "JPN",
 		"role": "ATTACKER",
 		"number": 16,
 		"skinColor": "PINK",
@@ -383,13 +379,12 @@
 			"heading": 6,
 			"tackling": 5,
 			"control": 5,
-			"speed": 6,
+			"speed": 4,
 			"finishing": 7
 		},
 		"bestSkills": [
 			"FINISHING",
-			"HEADING",
-			"SPEED"
+			"HEADING"
 		]
 	}
 ]

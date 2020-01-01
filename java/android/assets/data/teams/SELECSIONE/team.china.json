@@ -1,0 +1,389 @@
+{
+"name": "CHINA",
+"type": "NATIONAL",
+"country": "CHN",
+"confederation": "AFC",
+"city": "CHIMPÓN",
+"stadium": "EL CUENCO DE ORO",
+"coach": {
+	"name": "PAN DE GAMBAS",
+	"nationality": "CHN"
+},
+"tactics": "SWEEP",
+"kits": [
+	{
+		"style": "ARMBAND",
+		"shirt1": "#f61c1c",
+		"shirt2": "#e8ef2f",
+		"shirt3": "#e8ef2f",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	}
+],
+"players": [
+	{
+		"name": "ROLLITO DE PRIMAVERA",
+		"shirtName": "R. PRIMAVERA",
+		"nationality": "CHN",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"value": 25
+	},
+	{
+		"name": "SOPA DE ALETA DE TIBURÓN",
+		"shirtName": "A. TIBURÓN",
+		"nationality": "CHN",
+		"role": "RIGHT_BACK",
+		"number": 2,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 6,
+			"tackling": 2,
+			"control": 5,
+			"speed": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "SOPA DE WAN-TUN",
+		"shirtName": "WAN-TUN",
+		"nationality": "CHN",
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 6,
+			"heading": 5,
+			"tackling": 3,
+			"control": 7,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL"
+		]
+	},
+	{
+		"name": "ARROZ TRES DELICIAS",
+		"shirtName": "ARROZ 3D",
+		"nationality": "CHN",
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 3,
+			"control": 2,
+			"speed": 1,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "KU-BAK CON GAMBAS",
+		"shirtName": "KU-BAK",
+		"nationality": "CHN",
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 7,
+			"control": 5,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "ANCAS DE RANA",
+		"shirtName": "ANCAS",
+		"nationality": "CHN",
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 6,
+			"heading": 2,
+			"tackling": 7,
+			"control": 1,
+			"speed": 6,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING"
+		]
+	},
+	{
+		"name": "NIDO DE GOLONDRINA",
+		"shirtName": "GOLONDRINA",
+		"nationality": "CHN",
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 6,
+			"heading": 2,
+			"tackling": 2,
+			"control": 1,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "LAS HORMIGAS SUBEN AL ÁRBOL",
+		"shirtName": "HORMIGAS S.A.",
+		"nationality": "CHN",
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 6,
+			"control": 5,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SPEED",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "PATO A LA PEKINESA",
+		"shirtName": "PEKINESA",
+		"nationality": "CHN",
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 4,
+			"tackling": 6,
+			"control": 2,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "TERNERA CON BAMBÚ Y SHITAKE",
+		"shirtName": "T. BAMBÚ",
+		"nationality": "CHN",
+		"role": "MIDFIELDER",
+		"number": 10,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 4,
+			"control": 2,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED"
+		]
+	},
+	{
+		"name": "POLLO CON ALMENDRAS",
+		"shirtName": "P. ALMENDRAS",
+		"nationality": "CHN",
+		"role": "ATTACKER",
+		"number": 11,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 2,
+			"control": 5,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "HELADO FRITO",
+		"shirtName": "HELADO F.",
+		"nationality": "CHN",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"value": 10
+	},
+	{
+		"name": "CERDO AGRIDULCE",
+		"shirtName": "C. AGRIDULCE",
+		"nationality": "CHN",
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 1,
+			"tackling": 1,
+			"control": 1,
+			"speed": 6,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING"
+		]
+	},
+	{
+		"name": "TALLARINES FRITOS",
+		"shirtName": "TALLARINES",
+		"nationality": "CHN",
+		"role": "MIDFIELDER",
+		"number": 14,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 1,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING"
+		]
+	},
+	{
+		"name": "POLLO GONG-BAO",
+		"shirtName": "GONG-BAO",
+		"nationality": "CHN",
+		"role": "LEFT_WINGER",
+		"number": 15,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"heading": 5,
+			"tackling": 4,
+			"control": 6,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING"
+		]
+	},
+	{
+		"name": "XIEN LO PAO",
+		"shirtName": "XIEN LO PAO",
+		"nationality": "CHN",
+		"role": "ATTACKER",
+		"number": 16,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 5,
+			"shooting": 6,
+			"heading": 6,
+			"tackling": 5,
+			"control": 5,
+			"speed": 1,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING"
+		]
+	},
+	{
+		"name": "FAMILIA FELIZ",
+		"shirtName": "F. FELIZ",
+		"nationality": "CHN",
+		"role": "RIGHT_WINGER",
+		"number": 17,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 0,
+			"control": 1,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": []
+	}
+]
+}
