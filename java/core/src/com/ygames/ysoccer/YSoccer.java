@@ -2,6 +2,7 @@ package com.ygames.ysoccer;
 
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.MenuMusic;
+import com.ygames.ysoccer.framework.Video;
 import com.ygames.ysoccer.screens.Intro;
 import com.ygames.ysoccer.screens.Main;
 
