@@ -71,7 +71,7 @@ public class Settings {
 
         // game
         locale = preferences.getString("locale", "ch");
-        fullScreen = preferences.getBoolean("fullScreen", false);
+        fullScreen = preferences.getBoolean("fullScreen", true);
         showIntro = preferences.getBoolean("showIntro", true);
         musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);
         musicVolume = preferences.getInteger("musicVolume", 40);

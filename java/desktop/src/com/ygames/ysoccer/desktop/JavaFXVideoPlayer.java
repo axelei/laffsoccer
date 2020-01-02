@@ -33,6 +33,7 @@ public class JavaFXVideoPlayer extends Application
     private static Settings gameSettings;
     private static boolean end = false;
     private static MediaPlayer mediaPlayer = null;
+    private static boolean ready = false;
 
     @Override  
     public void start(Stage primaryStageParam) throws Exception {
@@ -40,8 +41,10 @@ public class JavaFXVideoPlayer extends Application
         primaryStage = primaryStageParam;
         primaryStage.setResizable(false);
         primaryStage.setAlwaysOnTop(true);
-        primaryStage.setFullScreen(gameSettings.fullScreen);
-        primaryStage.setFullScreenExitHint(StringUtils.EMPTY);
+        if (gameSettings.fullScreen) {
+            primaryStage.setFullScreen(true);
+            primaryStage.setFullScreenExitHint(StringUtils.EMPTY);
+        }
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setOnCloseRequest(event -> {
             Gdx.app.exit();
@@ -58,6 +61,8 @@ public class JavaFXVideoPlayer extends Application
     }
 
     public static void playMedia(Settings settings, String...media) {
+
+        ready = false;
         gameSettings = settings;
         mediaList.addAll(Arrays.asList(media));
 
@@ -117,7 +122,11 @@ public class JavaFXVideoPlayer extends Application
         });
 
         mediaList.clear();
+        ready = true;
+    }
 
+    public static boolean isReady() {
+        return ready;
     }
 
 }  
