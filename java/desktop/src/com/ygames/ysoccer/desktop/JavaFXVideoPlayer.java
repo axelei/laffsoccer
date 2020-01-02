@@ -32,6 +32,7 @@ public class JavaFXVideoPlayer extends Application
     private static Stage primaryStage;
     private static Settings gameSettings;
     private static boolean end = false;
+    private static MediaPlayer mediaPlayer = null;
 
     @Override  
     public void start(Stage primaryStageParam) throws Exception {
@@ -42,11 +43,17 @@ public class JavaFXVideoPlayer extends Application
         primaryStage.setFullScreen(gameSettings.fullScreen);
         primaryStage.setFullScreenExitHint(StringUtils.EMPTY);
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setOnCloseRequest(event -> System.exit(-1)); // TODO clean exit
+        primaryStage.setOnCloseRequest(event -> {
+            Gdx.app.exit();
+            System.exit(-1);
+        });
     }
 
     public static void halt() {
         end = true;
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
         primaryStage.hide();
     }
 
@@ -64,11 +71,12 @@ public class JavaFXVideoPlayer extends Application
 
             Media mediaObject = new Media(new File(currMedia).toURI().toString());
 
-            MediaPlayer mediaPlayer = new MediaPlayer(mediaObject);
+            mediaPlayer = new MediaPlayer(mediaObject);
             MediaView mediaView = new MediaView(mediaPlayer);
 
-            mediaPlayer.setOnEndOfMedia(JavaFXVideoPlayer::halt);
+            mediaView.setStyle("-fx-background-color: #000;");
 
+            mediaPlayer.setOnEndOfMedia(JavaFXVideoPlayer::halt);
             mediaPlayer.setOnHalted(JavaFXVideoPlayer::halt);
             mediaPlayer.setOnStopped(JavaFXVideoPlayer::halt);
 
@@ -80,9 +88,17 @@ public class JavaFXVideoPlayer extends Application
 
                 root.getChildren().add(mediaView);
 
-                Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-                primaryStage.setX(primaryScreenBounds.getWidth() / 2 - mediaObject.getWidth() / 2);
-                primaryStage.setY(primaryScreenBounds.getHeight() / 2 - mediaObject.getHeight() / 2);
+                Integer width = 1;
+                Integer height = 1;
+
+                mediaView.fitWidthProperty().bind(primaryStage.widthProperty());
+                mediaView.fitHeightProperty().bind(primaryStage.heightProperty());
+
+                if (!settings.fullScreen) {
+                    Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+                    primaryStage.setX(primaryScreenBounds.getWidth() / 2 - mediaObject.getWidth() / 2);
+                    primaryStage.setY(primaryScreenBounds.getHeight() / 2 - mediaObject.getHeight() / 2);
+                }
 
                 Scene scene = new Scene(root, mediaObject.getWidth(), mediaObject.getHeight());
                 primaryStage.setScene(scene);

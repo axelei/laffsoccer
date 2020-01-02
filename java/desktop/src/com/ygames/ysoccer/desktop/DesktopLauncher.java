@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.desktop;
 
 import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.ygames.ysoccer.YSoccer;
@@ -19,5 +20,6 @@ public class DesktopLauncher {
         config.addIcon(ICON_32, Files.FileType.Internal);
 
         new LwjglApplication(new YSoccer(), config);
+
     }
 }
