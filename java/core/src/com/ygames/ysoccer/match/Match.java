@@ -615,6 +615,7 @@ public class Match extends Scene implements Json.Serializable {
         Assets.CommonCommentary.stop();
 
         Assets.TeamCommentary.unload();
+        Assets.TeamFaces.unload();
 
         listener.quitMatch(getFsm().matchCompleted);
     }

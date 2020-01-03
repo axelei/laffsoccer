@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.*;
@@ -149,6 +150,14 @@ public class Player implements Json.Serializable {
         } else {
             json.writeValue("skills", skills);
             json.writeValue("bestSkills", bestSkills, Skill[].class, Skill.class);
+        }
+    }
+
+    public String getProperName() {
+        if (this.name.length() > 20) {
+            return this.name;
+        } else {
+            return this.shirtName;
         }
     }
 
