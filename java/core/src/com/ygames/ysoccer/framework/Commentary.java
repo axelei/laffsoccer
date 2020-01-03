@@ -1,7 +1,5 @@
-package com.ygames.ysoccer.match;
+package com.ygames.ysoccer.framework;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 

@@ -2,12 +2,11 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLColor;
-import com.ygames.ysoccer.framework.GLGraphics;
-import com.ygames.ysoccer.framework.Settings;
+import com.ygames.ysoccer.framework.*;
+
+import javax.xml.soap.Text;
 
 import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
@@ -144,7 +143,12 @@ public class MatchRenderer extends SceneRenderer {
 
         // ball owner
         if (matchState.displayBallOwner && getMatch().ball.owner != null) {
-            drawPlayerNumberAndName(getMatch().ball.owner);
+            Player player = getMatch().ball.owner;
+            drawPlayerNumberAndName(player);
+            TextureRegion face = Assets.TeamFaces.teams.get(FileUtils.getTeamFromFile(player.team.path)).faces.get(player.shirtName);
+            if (face != null) {
+                drawFace(face);
+            }
         }
 
         if (Settings.showDevelopmentInfo) {
@@ -397,7 +401,7 @@ public class MatchRenderer extends SceneRenderer {
             for (int pos = 0; pos < Const.TEAM_SIZE; pos++) {
                 Player player = getMatch().team[tm].playerAtPosition(pos);
                 Assets.font10.draw(batch, player.number, l + tm * w / 2 + w / 10, y, Font.Align.CENTER);
-                Assets.font10.draw(batch, player.name, l + tm * w / 2 + w / 7, y, Font.Align.LEFT);
+                Assets.font10.draw(batch, player.getProperName(), l + tm * w / 2 + w / 7, y, Font.Align.LEFT);
                 y = y + h / 23;
             }
         }
@@ -454,10 +458,14 @@ public class MatchRenderer extends SceneRenderer {
         }
     }
 
+    private void drawFace(TextureRegion face) {
+        batch.draw(face, 10, 60);
+    }
+
     private void drawRadar() {
 
-        final int RX = 10;
-        final int RY = 60;
+        final int RX = guiWidth - 142;
+        final int RY = 10;
         final int RW = 132;
         final int RH = 166;
 
@@ -763,10 +771,10 @@ public class MatchRenderer extends SceneRenderer {
                         text = " ";
                         break;
                     case SCORED:
-                        text = t == HOME ? penalty.kicker.name + " " + (char) 25 : (char) 25 + " " + penalty.kicker.name;
+                        text = t == HOME ? penalty.kicker.getProperName() + " " + (char) 25 : (char) 25 + " " + penalty.kicker.getProperName();
                         break;
                     case MISSED:
-                        text = t == HOME ? penalty.kicker.name + " " + (char) 26 : (char) 26 + " " + penalty.kicker.name;
+                        text = t == HOME ? penalty.kicker.getProperName() + " " + (char) 26 : (char) 26 + " " + penalty.kicker.getProperName();
                         break;
                 }
 

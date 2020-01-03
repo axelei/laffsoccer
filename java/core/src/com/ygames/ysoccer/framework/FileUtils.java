@@ -17,6 +17,13 @@ public class FileUtils {
         return path.substring(path.indexOf('.') + 1, path.lastIndexOf('.'));
     }
 
+    public static String getPathFromTeamPath(String path) {
+        if (path == null) {
+            return null;
+        }
+        return path.substring(0, path.lastIndexOf('/') + 1);
+    }
+
     public static String normalizeName(String name) {
         String normalized = StringUtils.stripAccents(name).toLowerCase();
         for (char badChar : BAD_CHARS) {
