@@ -31,7 +31,7 @@ class Scorers {
 
             if (!alreadyScored(goal, tm, goals)) {
 
-                String s = goal.player.name + " " + goal.minute;
+                String s = goal.player.getProperName() + " " + goal.minute;
 
                 switch (goal.type) {
                     case OWN_GOAL:

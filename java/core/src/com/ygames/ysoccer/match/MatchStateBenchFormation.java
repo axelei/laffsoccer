@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 

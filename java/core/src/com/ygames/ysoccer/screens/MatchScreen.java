@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.strongjoshua.console.Console;
 import com.strongjoshua.console.GUIConsole;
 import com.ygames.ysoccer.framework.*;
-import com.ygames.ysoccer.match.Commentary;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchConsoleCommandExecutor;
 import com.ygames.ysoccer.match.Player;
@@ -47,6 +47,9 @@ class MatchScreen extends GLScreen {
 
         Assets.TeamCommentary.load(match.team[0]);
         Assets.TeamCommentary.load(match.team[1]);
+
+        Assets.TeamFaces.load(match.team[0]);
+        Assets.TeamFaces.load(match.team[1]);
 
         if (Settings.development) {
             console = new GUIConsole();

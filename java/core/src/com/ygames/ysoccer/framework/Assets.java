@@ -2,6 +2,7 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Cursor;
@@ -36,7 +37,7 @@ import java.util.*;
 
 public class Assets {
 
-    public static final List<String> EXTENSIONS = Arrays.asList("ogg", "wav", "mp3");
+    public static final List<String> EXTENSIONS = Arrays.asList("ogg", "wav", "mp3"); // Note ogg is preferred as it has better compatibility and quality for compressed sound
 
     public static Random random;
     static Cursor customCursor;
@@ -141,6 +142,38 @@ public class Assets {
             } else {
                 return null;
             }
+        }
+    }
+
+    public static class TeamFaces {
+
+        public static final Map<String, TeamFaces> teams = new HashMap<>();
+
+        public final Map<String, TextureRegion> faces = new HashMap<>();
+
+        public static void load(Team team) {
+
+            String teamFile = FileUtils.getTeamFromFile(team.path);
+            String teamPath = "data/teams" + FileUtils.getPathFromTeamPath(team.path);
+            TeamFaces element = new TeamFaces();
+
+            team.players.forEach(player -> {
+                element.faces.put(player.shirtName, loadTextureRegion(teamPath + teamFile + "/" + FileUtils.normalizeName(player.shirtName) + ".png"));
+            });
+
+            teams.put(teamFile, element);
+
+        }
+
+        public static void unload() {
+            teams.forEach((name, team) -> {
+                team.faces.forEach((player, face) -> {
+                    if (face != null) {
+                        face.getTexture().dispose();
+                    }
+                });
+            });
+            teams.clear();
         }
     }
 
@@ -376,7 +409,7 @@ public class Assets {
 
     private static List<String> loadFavourites() {
         if (favouritesFile.exists()) {
-            return Arrays.asList(Assets.json.fromJson(String[].class, favouritesFile.readString("UTF-8")));
+            return new ArrayList<>(Arrays.asList(Assets.json.fromJson(String[].class, favouritesFile.readString("UTF-8"))));
         } else {
             return new ArrayList<>();
         }
@@ -863,6 +896,11 @@ public class Assets {
     }
 
     public static TextureRegion loadTextureRegion(String internalPath) {
+        FileHandle file = Gdx.files.internal(internalPath);
+        if (!file.exists()) {
+            return null;
+        }
+
         Texture texture = new Texture(internalPath);
         TextureRegion textureRegion = new TextureRegion(texture);
         textureRegion.flip(false, true);

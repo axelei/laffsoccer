@@ -11,6 +11,7 @@ import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLShapeRenderer;
 import com.ygames.ysoccer.framework.GLSpriteBatch;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -374,7 +375,7 @@ public abstract class SceneRenderer {
         if (f1 > 0) {
             dx = dx - (w0 + 2 + w1) / 2;
             if (scene.settings.names) {
-                Assets.font3.draw(batch, player.number + " " + player.shirtName, dx - w0 / 2, dy, Font.Align.CENTER);
+                Assets.font3.draw(batch, player.number + " " + StringUtils.stripAccents(player.shirtName), dx - w0 / 2, dy, Font.Align.CENTER);
             } else {
                 batch.draw(Assets.playerNumbers[f1][fy], dx, dy, 6, 10);
                 dx = dx + w1 + 2;
@@ -382,7 +383,7 @@ public abstract class SceneRenderer {
             }
         } else {
             if (scene.settings.names) {
-                Assets.font3.draw(batch, player.number + " " + player.shirtName, dx - w0 / 2, dy, Font.Align.CENTER);
+                Assets.font3.draw(batch, player.number + " " + StringUtils.stripAccents(player.shirtName), dx - w0 / 2, dy, Font.Align.CENTER);
             } else {
                 batch.draw(Assets.playerNumbers[f0][fy], dx - w0 / 2f, dy, 6, 10);
             }
@@ -390,6 +391,6 @@ public abstract class SceneRenderer {
     }
 
     void drawPlayerNumberAndName(Player player) {
-        Assets.font10.draw(batch, player.number + " " + player.name, 10, 2, Font.Align.LEFT);
+        Assets.font10.draw(batch, player.number + " " + player.getProperName(), 10, 2, Font.Align.LEFT);
     }
 }

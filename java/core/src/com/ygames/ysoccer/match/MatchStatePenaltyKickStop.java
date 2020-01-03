@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.GLGame;
 
 import java.util.ArrayList;
@@ -55,7 +56,6 @@ class MatchStatePenaltyKickStop extends MatchState {
         Player penaltyKeeper = match.foul.player.team.lineupAtPosition(0);
         match.foul = null;
         match.createPenalty(penaltyKicker, penaltyKeeper, match.ball.ySide);
-
 
         // set the player targets relative to penalty
         // even before moving the ball itself
