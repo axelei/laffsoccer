@@ -87,6 +87,9 @@ public class Main extends GLScreen {
         w = new LoadOldCompetitionButton(y);
         widgets.add(w);
 
+        w = new CloseButton();
+        widgets.add(w);
+
         // release date
         w = new Label();
         w.setText("", LEFT, font10);
@@ -243,6 +246,20 @@ public class Main extends GLScreen {
             game.setState(TRAINING, null);
             navigation.competition = null;
             game.setScreen(new SelectFolder(game));
+        }
+    }
+
+    private class CloseButton extends Button {
+
+        CloseButton() {
+            setColors(0xAA0000, 0xFF4444, 0x880000);
+            setGeometry(game.gui.WIDTH -40, 0, 40, 40);
+            setText(gettext("X"), CENTER, font14);
+        }
+
+        @Override
+        protected void onFire1Down() {
+            Gdx.app.exit();
         }
     }
 
