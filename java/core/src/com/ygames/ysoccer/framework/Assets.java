@@ -405,7 +405,7 @@ public class Assets {
 
     private static List<String> loadFavourites() {
         if (favouritesFile.exists()) {
-            return Arrays.asList(Assets.json.fromJson(String[].class, favouritesFile.readString("UTF-8")));
+            return new ArrayList<>(Arrays.asList(Assets.json.fromJson(String[].class, favouritesFile.readString("UTF-8"))));
         } else {
             return new ArrayList<>();
         }
