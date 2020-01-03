@@ -1,0 +1,519 @@
+{
+"name": "U.D. SALAMANCA",
+"type": "CLUB",
+"country": "SPA",
+"league": "LALIGA",
+"city": "VILLARES DE LA REINA",
+"stadium": "HELMÁNTICO",
+"coach": {
+	"name": "JORGE D'ALESSANDRO DI NINNO",
+	"nationality": "ARG"
+},
+"tactics": "5-3-2",
+"kits": [
+	{
+		"style": "SIDE_LINES",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "SIDE_LINES",
+		"shirt1": "#1e1e1e",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
+	}
+],
+"players": [
+	{
+		"name": "JOSÉ IGNACIO AIZPURÚA ALZAGA",
+		"shirtName": "AIZPURÚA",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"value": 25
+	},
+	{
+		"name": "JOSÉ AGUSTÍN CENZUAL COCA",
+		"shirtName": "SITO",
+		"nationality": "ESP",
+		"role": "RIGHT_BACK",
+		"number": 18,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "JOSÉ MARÍA LÓPEZ ECHAVARRIA",
+		"shirtName": "JOSEMA",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "MIGUEL MONTES MONTECILLA",
+		"shirtName": "TORRECILLA",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "ÁNGEL PEDRO MEDINA RUIZ",
+		"shirtName": "MEDINA",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 23,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "JOSÉ GUILLERMO DEL SOLAR",
+		"shirtName": "DEL SOLAR",
+		"nationality": "PER",
+		"role": "DEFENDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "MARTIN VELLISCA GONZÁLEZ",
+		"shirtName": "VELLISCA",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 5,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "LUCIANO ITURRINO ZENEKORTA",
+		"shirtName": "ITURRINO",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "OVIDIU STÎNGÄ",
+		"shirtName": "STÏNGÄ",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 11,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "JOAN BARBARÀ MATA",
+		"shirtName": "BARBARÀ",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": 12,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "CLAUDIO BARRAGÁN ESCOBAR",
+		"shirtName": "CLAUDIO",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 2,
+			"control": 2,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "JOSU ANUZITA ALEGRÍA",
+		"shirtName": "YOSU",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"value": 22
+	},
+	{
+		"name": "RODOLFO CONDADO RODRÍGUEZ",
+		"shirtName": "RODOLFO",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 22,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "JOSÉ ANTONIO QUIROGA FDEZ.",
+		"shirtName": "QUIROGA",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "FRANCISCO JAVIER REY GARCÍA",
+		"shirtName": "QUICO",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": 15,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "JUAN LUIS SUKUNZA SUÁREZ",
+		"shirtName": "SUKUNZA",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "DIEGO FERNANDO LATORRE",
+		"shirtName": "LATORRE",
+		"nationality": "ARG",
+		"role": "LEFT_BACK",
+		"number": 17,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "ALEJANDRO ARENALES MARCHENA",
+		"shirtName": "JANDRI",
+		"nationality": "ESP",
+		"role": "LEFT_BACK",
+		"number": 28,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 2,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "CÉSAR VILLAFAÑE BLANCO",
+		"shirtName": "VILLAFAÑE",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": 19,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 2,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "ENRIQUE AYÚCAR ALBELRDI",
+		"shirtName": "AYÚCAR",
+		"nationality": "ESP",
+		"role": "ATTACKER",
+		"number": 20,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "RAÚL LOZANO MARCOS",
+		"shirtName": "LOZANO",
+		"nationality": "ESP",
+		"role": "LEFT_BACK",
+		"number": 21,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"PASSING"
+		]
+	}
+]
+}

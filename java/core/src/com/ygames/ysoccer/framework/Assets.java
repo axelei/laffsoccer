@@ -167,7 +167,11 @@ public class Assets {
 
         public static void unload() {
             teams.forEach((name, team) -> {
-                team.faces.forEach((player, face) -> face.getTexture().dispose());
+                team.faces.forEach((player, face) -> {
+                    if (face != null) {
+                        face.getTexture().dispose();
+                    }
+                });
             });
             teams.clear();
         }
