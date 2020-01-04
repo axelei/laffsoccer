@@ -39,7 +39,7 @@ import static com.ygames.ysoccer.match.Player.Skill.SHOOTING;
 import static com.ygames.ysoccer.match.Player.Skill.SPEED;
 import static com.ygames.ysoccer.match.Player.Skill.TACKLING;
 
-class ExportTeams extends GLScreen {
+public class ExportTeams extends GLScreen {
 
     private enum State {NO_FOLDERS, READY, EXPORTING, FINISHED}
 
@@ -463,8 +463,8 @@ class ExportTeams extends GLScreen {
         }
     }
 
-    private static class KitStyle {
-        String name;
+    public static class KitStyle {
+        public String name;
         int index;
     }
 
