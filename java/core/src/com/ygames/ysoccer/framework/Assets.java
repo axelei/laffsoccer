@@ -251,29 +251,11 @@ public class Assets {
             for (FileHandle fileHandle : commentaryFolder.list()) {
                 if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
                     String name = fileHandle.nameWithoutExtension();
-                    if (name.startsWith("corner_kick")) {
-                        commonCommentary.get(CommonCommentaryType.CORNER_KICK).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("foul")) {
-                        commonCommentary.get(CommonCommentaryType.FOUL).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("goal")) {
-                        commonCommentary.get(CommonCommentaryType.GOAL).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("keeper_save")) {
-                        commonCommentary.get(CommonCommentaryType.KEEPER_SAVE).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("own_goal")) {
-                        commonCommentary.get(CommonCommentaryType.OWN_GOAL).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("penalty")) {
-                        commonCommentary.get(CommonCommentaryType.PENALTY).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("player_substitution")) {
-                        commonCommentary.get(CommonCommentaryType.PLAYER_SUBSTITUTION).add(Gdx.audio.newSound(fileHandle));
-                    }
-                    if (name.startsWith("player_swap")) {
-                        commonCommentary.get(CommonCommentaryType.PLAYER_SWAP).add(Gdx.audio.newSound(fileHandle));
+                    for (CommonCommentaryType type : CommonCommentaryType.values()) {
+                        String fileType = type.name().toLowerCase();
+                        if (name.startsWith(fileType)) {
+                            commonCommentary.get(type).add(Gdx.audio.newSound(fileHandle));
+                        }
                     }
                 }
             }

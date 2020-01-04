@@ -191,8 +191,10 @@ public class GenerateTeam {
         while (intSet.size() < amount) {
             intSet.add(RND.nextInt(bound) + 1);
         }
-        Collections.shuffle(Collections.singletonList(intSet));
-        return intSet.toArray(new Integer[intSet.size()]);
+
+        ArrayList<Integer> result = new ArrayList<>(intSet);
+        Collections.shuffle(result);
+        return result.toArray(new Integer[result.size()]);
     }
 
     public static String shortName(String name) {
