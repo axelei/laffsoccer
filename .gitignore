@@ -1,3 +1,5 @@
 *.jar
 *.xmp
+*.rar
+*.log
 /java/android/assets/jre/
