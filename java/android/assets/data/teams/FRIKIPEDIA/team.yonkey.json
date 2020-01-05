@@ -1,0 +1,383 @@
+{
+"name": "YONKEY ISLAND FC",
+"type": "CUSTOM",
+"country": "SYR",
+"city": "ISLA DEL MELÓN",
+"stadium": "MUNISIPAL DE ISLA MELÓN",
+"coach": {
+	"name": "SARGENTO LECHUSQUERO",
+	"nationality": "ESP"
+},
+"tactics": "5-4-1",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#1e1e1e",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#993333",
+		"shirt2": "#2e247a",
+		"shirt3": "#2e247a",
+		"shorts": "#1e1e1e",
+		"socks": "#993333"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#e8ef2f",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#f61c1c",
+		"socks": "#e8ef2f"
+	}
+],
+"players": [
+	{
+		"name": "WALKER TEXAS RANGER",
+		"shirtName": "WALKER TR.",
+		"nationality": "STP",
+		"role": "GOALKEEPER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "BALD_B",
+		"value": 12
+	},
+	{
+		"name": "VIEJACO DE LA TIENDA",
+		"shirtName": "VIEJACO",
+		"nationality": "BRU",
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PALE",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 4,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 2,
+			"control": 2,
+			"speed": 7,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"FINISHING",
+			"CONTROL",
+			"HEADING",
+			"SHOOTING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "CHANQUETE",
+		"shirtName": "CHANQUETE",
+		"nationality": "BLZ",
+		"role": "RIGHT_WINGER",
+		"number": 2,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 0,
+			"tackling": 6,
+			"control": 5,
+			"speed": 5,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"FINISHING"
+		]
+	},
+	{
+		"name": "VIGÍA DE ISLA MELÓN",
+		"shirtName": "VIGÍA",
+		"nationality": "BER",
+		"role": "RIGHT_WINGER",
+		"number": 19,
+		"skinColor": "ARAB",
+		"hairColor": "WHITE",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 4,
+			"shooting": 1,
+			"heading": 4,
+			"tackling": 3,
+			"control": 7,
+			"speed": 6,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "ROGELIO IGLESIAS",
+		"shirtName": "ROGELIO",
+		"nationality": "BHR",
+		"role": "LEFT_BACK",
+		"number": 4,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 0,
+			"control": 3,
+			"speed": 2,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SPEED",
+			"HEADING",
+			"PASSING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "OTIS \"EL LUTE\"",
+		"shirtName": "EL LUTE",
+		"nationality": "POR",
+		"role": "LEFT_WINGER",
+		"number": 12,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 7,
+			"heading": 0,
+			"tackling": 6,
+			"control": 6,
+			"speed": 6,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "CARALIMÓN",
+		"shirtName": "CARALIMÓN",
+		"nationality": "ARG",
+		"role": "DEFENDER",
+		"number": 8,
+		"skinColor": "ASIATIC",
+		"hairColor": "PUNK_BLOND",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 5,
+			"heading": 7,
+			"tackling": 4,
+			"control": 0,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SHOOTING",
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "ROCCO SIFREDDI",
+		"shirtName": "ROCCO S.",
+		"nationality": "THA",
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "MULATTO",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SHAVED",
+		"skills": {
+			"passing": 3,
+			"shooting": 0,
+			"heading": 3,
+			"tackling": 5,
+			"control": 4,
+			"speed": 1,
+			"finishing": 7
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "TINA TURNER",
+		"shirtName": "TINA TURNER",
+		"nationality": "FRA",
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_H",
+		"skills": {
+			"passing": 1,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 3,
+			"control": 6,
+			"speed": 2,
+			"finishing": 6
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "GOBERNADORA MARLENNE",
+		"shirtName": "MARLENNE",
+		"nationality": "RSA",
+		"role": "RIGHT_BACK",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_G",
+		"skills": {
+			"passing": 1,
+			"shooting": 6,
+			"heading": 1,
+			"tackling": 0,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "GUYBRUSH TRIPISGOOD",
+		"shirtName": "TRIPISGOOD",
+		"nationality": "BHU",
+		"role": "LEFT_BACK",
+		"number": 7,
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
+		"hairStyle": "PIGTAIL_A",
+		"skills": {
+			"passing": 7,
+			"shooting": 5,
+			"heading": 5,
+			"tackling": 3,
+			"control": 4,
+			"speed": 2,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING"
+		]
+	},
+	{
+		"name": "STANISLAO",
+		"shirtName": "STANISLAO",
+		"nationality": "PHI",
+		"role": "GOALKEEPER",
+		"number": 17,
+		"skinColor": "MULATTO",
+		"hairColor": "PLATINUM",
+		"hairStyle": "THINNING_B",
+		"value": 20
+	},
+	{
+		"name": "GAMBERRO",
+		"shirtName": "GAMBERRO",
+		"nationality": "BOT",
+		"role": "MIDFIELDER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 0,
+			"shooting": 0,
+			"heading": 0,
+			"tackling": 0,
+			"control": 0,
+			"speed": 0,
+			"finishing": 0
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "PRIMO DE ROCCO",
+		"shirtName": "P. ROCCO",
+		"nationality": "MGL",
+		"role": "RIGHT_WINGER",
+		"number": 14,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 1,
+			"shooting": 5,
+			"heading": 1,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "HERMANO DE ROCCO",
+		"shirtName": "H. ROCCO",
+		"nationality": "TJK",
+		"role": "RIGHT_BACK",
+		"number": 13,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_D",
+		"skills": {
+			"passing": 3,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 3,
+			"control": 1,
+			"speed": 2,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING"
+		]
+	},
+	{
+		"name": "SOBRINO DE ROCCO",
+		"shirtName": "S. ROCCO",
+		"nationality": "MOZ",
+		"role": "RIGHT_WINGER",
+		"number": 10,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_I",
+		"skills": {
+			"passing": 0,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": []
+	}
+]
+}

@@ -1,0 +1,460 @@
+{
+"name": "TRUJILLO",
+"type": "CUSTOM",
+"country": "LBY",
+"city": "TRUJILLO",
+"stadium": "TRUJILLO",
+"coach": {
+	"name": "JAVIER COSTA MAYR",
+	"nationality": "CAY"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "CHECK",
+		"shirt1": "#f0759e",
+		"shirt2": "#c9a0b4",
+		"shirt3": "#9531ad",
+		"shorts": "#1dfe51",
+		"socks": "#eeec00"
+	},
+	{
+		"style": "BIG_CHECK",
+		"shirt1": "#964cd3",
+		"shirt2": "#5dc621",
+		"shirt3": "#4d1a53",
+		"shorts": "#c3bc40",
+		"socks": "#3873a7"
+	},
+	{
+		"style": "CHECK",
+		"shirt1": "#495246",
+		"shirt2": "#5cb530",
+		"shirt3": "#2e6a89",
+		"shorts": "#5b5e61",
+		"socks": "#87d7b1"
+	}
+],
+"players": [
+	{
+		"name": "CHARLES JOHNSON",
+		"shirtName": "CHARLES",
+		"nationality": "IRQ",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "BLACK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "CURLY_E",
+		"value": 49
+	},
+	{
+		"name": "MARC PRIFTI RICCI",
+		"shirtName": "P. RICCI",
+		"nationality": "PAN",
+		"role": "MIDFIELDER",
+		"number": 2,
+		"skinColor": "MULATTO",
+		"hairColor": "RED",
+		"hairStyle": "BALD_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 6,
+			"control": 0,
+			"speed": 7,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"HEADING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "AJANI DE SANTIS",
+		"shirtName": "AJANI D.",
+		"nationality": "UZB",
+		"role": "RIGHT_BACK",
+		"number": 15,
+		"skinColor": "RED",
+		"hairColor": "WHITE",
+		"hairStyle": "SHAVED",
+		"skills": {
+			"passing": 4,
+			"shooting": 6,
+			"heading": 1,
+			"tackling": 2,
+			"control": 6,
+			"speed": 7,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING"
+		]
+	},
+	{
+		"name": "SEBASTIÁN CATTANEO JESUS",
+		"shirtName": "J. SEBASTIÁN",
+		"nationality": "MYA",
+		"role": "LEFT_BACK",
+		"number": 13,
+		"skinColor": "BLACK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_M",
+		"skills": {
+			"passing": 0,
+			"shooting": 1,
+			"heading": 0,
+			"tackling": 5,
+			"control": 5,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"FINISHING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "SEBASTIÁN CORREIA",
+		"shirtName": "S. CORREIA",
+		"nationality": "COM",
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_E",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 0,
+			"tackling": 6,
+			"control": 0,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "MIGUEL GJONI",
+		"shirtName": "MIGUEL GJONI",
+		"nationality": "EST",
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 6,
+			"shooting": 7,
+			"heading": 6,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "GABRIELIUS GREEN",
+		"shirtName": "GABRIELIUS",
+		"nationality": "SCO",
+		"role": "MIDFIELDER",
+		"number": 1,
+		"skinColor": "MULATTO",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_H",
+		"skills": {
+			"passing": 0,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 7,
+			"control": 7,
+			"speed": 2,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "KASPAR MACHADO GREEN",
+		"shirtName": "GREEN",
+		"nationality": "ALG",
+		"role": "LEFT_WINGER",
+		"number": 7,
+		"skinColor": "RED",
+		"hairColor": "BLOND",
+		"hairStyle": "SPECIAL_E",
+		"skills": {
+			"passing": 6,
+			"shooting": 4,
+			"heading": 0,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 0
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "AHMET GRECO FIGUEIREDO",
+		"shirtName": "AHMET G.",
+		"nationality": "ESP",
+		"role": "LEFT_WINGER",
+		"number": 10,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_N",
+		"skills": {
+			"passing": 0,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 7,
+			"control": 7,
+			"speed": 6,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"FINISHING",
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "PEDRO WALLNER",
+		"shirtName": "PEDRO WALLNER",
+		"nationality": "LIB",
+		"role": "DEFENDER",
+		"number": 16,
+		"skinColor": "BLACK",
+		"hairColor": "BLOND",
+		"hairStyle": "SPECIAL_H",
+		"skills": {
+			"passing": 6,
+			"shooting": 6,
+			"heading": 3,
+			"tackling": 3,
+			"control": 7,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "MATHIAS BASILE",
+		"shirtName": "MATHIAS BASILE",
+		"nationality": "ERI",
+		"role": "RIGHT_BACK",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "PIGTAIL_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 7,
+			"heading": 4,
+			"tackling": 3,
+			"control": 1,
+			"speed": 5,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL",
+			"PASSING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "NATHAN RUSSO",
+		"shirtName": "NATHAN RUSSO",
+		"nationality": "WAL",
+		"role": "GOALKEEPER",
+		"number": 5,
+		"skinColor": "ALIEN",
+		"hairColor": "RED",
+		"hairStyle": "CURLY_C",
+		"value": 8
+	},
+	{
+		"name": "VINCE GUERRA",
+		"shirtName": "VINCE GUERRA",
+		"nationality": "GRN",
+		"role": "RIGHT_WINGER",
+		"number": 14,
+		"skinColor": "BLACK",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 0,
+			"heading": 6,
+			"tackling": 2,
+			"control": 3,
+			"speed": 2,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "OLIVER GOMES",
+		"shirtName": "OLIVER GOMES",
+		"nationality": "LBY",
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "MULATTO",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "THINNING_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 6,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 0,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"HEADING",
+			"FINISHING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "LIAM GRECO",
+		"shirtName": "LIAM GRECO",
+		"nationality": "MTN",
+		"role": "RIGHT_BACK",
+		"number": 19,
+		"skinColor": "MULATTO",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_K",
+		"skills": {
+			"passing": 1,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 6,
+			"control": 4,
+			"speed": 7,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "ROBERT BONNET",
+		"shirtName": "ROBERT BONNET",
+		"nationality": "KSA",
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "BLACK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 2,
+			"shooting": 7,
+			"heading": 5,
+			"tackling": 4,
+			"control": 6,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"PASSING",
+			"HEADING",
+			"CONTROL",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "JULIAN DUARTE",
+		"shirtName": "JULIAN DUARTE",
+		"nationality": "MLI",
+		"role": "LEFT_BACK",
+		"number": 17,
+		"skinColor": "MULATTO",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 5,
+			"heading": 7,
+			"tackling": 7,
+			"control": 4,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "TARIK BERTRAND",
+		"shirtName": "TARIK BERTRAND",
+		"nationality": "GRN",
+		"role": "LEFT_BACK",
+		"number": 18,
+		"skinColor": "ALIEN",
+		"hairColor": "BLOND",
+		"hairStyle": "PIGTAIL_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 0,
+			"heading": 4,
+			"tackling": 1,
+			"control": 3,
+			"speed": 3,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "ANTONI SOUSA GÓMEZ",
+		"shirtName": "G. SOUSA",
+		"nationality": "CUS",
+		"role": "RIGHT_WINGER",
+		"number": 11,
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 0,
+			"shooting": 5,
+			"heading": 5,
+			"tackling": 3,
+			"control": 2,
+			"speed": 6,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING"
+		]
+	}
+]
+}
