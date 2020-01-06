@@ -51,6 +51,16 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
     }
 }
+
+project(":utils") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+        implementation project(":core")
+    }
+}
+
 /*
 project(":android") {
     apply plugin: "android"
