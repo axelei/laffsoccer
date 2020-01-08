@@ -46,6 +46,11 @@ public class MenuMusic {
     }
 
     public void setMode(int mode) {
+
+        if (this.mode == mode) {
+            return;
+        }
+
         this.mode = mode;
         currentTrack = -1;
 

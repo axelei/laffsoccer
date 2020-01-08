@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.MenuMusic;
-import com.ygames.ysoccer.framework.Video;
 import com.ygames.ysoccer.gui.TextBox;
 import com.ygames.ysoccer.gui.Widget;
 
@@ -19,8 +18,6 @@ public class Intro extends GLScreen {
         super(game);
 
         usesMouse = false;
-
-        Video.playVideo(this.game.settings, "videos/intro.mp4", "videos/intro2.mp4");
 
         game.disableMouse();
         Gdx.input.setInputProcessor(new IntroInputProcessor());

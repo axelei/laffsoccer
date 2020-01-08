@@ -336,7 +336,7 @@ public class Main extends GLScreen {
     private class HomePageButton extends Button {
 
         HomePageButton() {
-            setGeometry(game.gui.WIDTH - 270, game.gui.HEIGHT - 20, 270, 20);
+            setGeometry(game.gui.WIDTH - 320, game.gui.HEIGHT - 20, 320, 20);
             setText("CHARNEGO TRANSLATIONS INC.", LEFT, font10);
         }
 
@@ -349,7 +349,7 @@ public class Main extends GLScreen {
     private class MusicButton extends Button {
 
         MusicButton() {
-            setGeometry(0, game.gui.HEIGHT - 20, 270, 20);
+            setGeometry(0, game.gui.HEIGHT - 20, 360, 20);
             setText("", LEFT, font10);
         }
 

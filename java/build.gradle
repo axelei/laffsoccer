@@ -5,6 +5,7 @@ buildscript {
         mavenLocal()
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         jcenter()
         google()
@@ -48,6 +49,7 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+        compile "es.e-ucm.com.badlogicgames.gdx:gdx-video:0.0.1-SNAPSHOT"
     }
 }
 /*
@@ -75,6 +77,7 @@ project(":android") {
         api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+        compile "es.e-ucm.com.badlogicgames.gdx:gdx-video-android:0.0.1-SNAPSHOT"
         
     }
 }
@@ -110,5 +113,6 @@ project(":core") {
         compile group: 'com.badlogicgames.gdx', name: 'gdx-backend-lwjgl', version: '1.9.5'
         compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
         compile "com.strongjoshua:libgdx-inGameConsole:1.0.0"
+        compile "es.e-ucm.com.badlogicgames.gdx:gdx-video-desktop:0.0.1-SNAPSHOT"
     }
 }

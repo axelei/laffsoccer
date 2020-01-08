@@ -1,11 +1,9 @@
 package com.ygames.ysoccer.desktop;
 
 import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.ygames.ysoccer.YSoccer;
-import com.ygames.ysoccer.framework.Video;
 
 public class DesktopLauncher {
 
