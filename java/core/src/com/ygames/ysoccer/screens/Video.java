@@ -69,19 +69,7 @@ public class Video extends GLScreen {
 
         @Override
         public boolean keyUp(int keycode) {
-            switch (keycode) {
-                case Input.Keys.W:
-                    game.setScreen(new Warranty(game));
-                    break;
-
-                case Input.Keys.C:
-                    game.setScreen(new Copying(game));
-                    break;
-
-                default:
-                    setMainMenu();
-                    break;
-            }
+            setMainMenu();
             return true;
         }
     }
