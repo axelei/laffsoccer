@@ -2,8 +2,8 @@ package com.ygames.ysoccer;
 
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.MenuMusic;
-import com.ygames.ysoccer.screens.Intro;
 import com.ygames.ysoccer.screens.Main;
+import com.ygames.ysoccer.screens.Video;
 
 public class YSoccer extends GLGame {
 
@@ -12,7 +12,7 @@ public class YSoccer extends GLGame {
         super.create();
 
         if (settings.showIntro) {
-            this.setScreen(new Intro(this));
+            this.setScreen(new Video(this));
         } else {
             menuMusic.setMode(settings.musicMode);
             prematchMusic.setMode(MenuMusic.ALL);
