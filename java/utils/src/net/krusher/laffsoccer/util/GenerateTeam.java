@@ -118,7 +118,7 @@ public class GenerateTeam {
             // Goalkeeper
             if (Arrays.stream(goalKeepers).anyMatch(value -> value == finalI + 1)) {
                 player.role = Player.Role.GOALKEEPER;
-                player.value = RND.nextInt(50) + 1;
+                player.value = RND.nextInt(30) + 10;
             } else {
                 player.role = Player.Role.values()[RND.nextInt(Player.Role.values().length - 2) + 1];
 
