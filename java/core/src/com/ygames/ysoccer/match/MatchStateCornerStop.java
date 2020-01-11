@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
@@ -36,6 +37,10 @@ class MatchStateCornerStop extends MatchState {
         }
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
+
+        if (match.settings.commentary) {
+            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.CORNER_KICK, Commentary.Comment.Priority.HIGH));
+        }
 
         cornerPosition.set((Const.TOUCH_LINE - 12) * match.ball.xSide, (Const.GOAL_LINE - 12) * match.ball.ySide);
 

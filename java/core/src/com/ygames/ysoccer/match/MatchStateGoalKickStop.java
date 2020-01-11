@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
@@ -27,6 +28,10 @@ class MatchStateGoalKickStop extends MatchState {
         super.entryActions();
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
+
+        if (match.settings.commentary) {
+            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.GOAL_KICK, Commentary.Comment.Priority.HIGH));
+        }
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(STATE_REACH_TARGET, null);

@@ -144,6 +144,9 @@ public class EMath {
     }
 
     static <E> E getRandomSetElement(Set<E> set) {
+        if (set.isEmpty()) {
+            return null;
+        }
         return set.stream().skip(new Random().nextInt(set.size())).findFirst().orElse(null);
     }
 }
