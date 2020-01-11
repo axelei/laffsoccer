@@ -118,6 +118,7 @@ public class Assets {
         public static Sound post;
         public static Sound end;
         public static Sound whistle;
+        public static Sound shotgun;
         public static int volume;
 
         static void load() {
@@ -133,6 +134,7 @@ public class Assets {
             net = newSound("net.ogg");
             post = newSound("post.ogg");
             whistle = newSound("whistle.ogg");
+            shotgun = newSound("shotgun.ogg"); // https://freesound.org/people/Marregheriti/sounds/266105/
         }
 
         private static Sound newSound(String filename) {
