@@ -612,7 +612,7 @@ public class Match extends Scene implements Json.Serializable {
         Assets.Sounds.end.stop();
         Assets.Sounds.homeGoal.stop();
         Assets.Sounds.intro.stop();
-        Assets.CommonCommentary.stop();
+        Assets.CommonComment.stop();
 
         Assets.TeamCommentary.unload();
         Assets.TeamFaces.unload();

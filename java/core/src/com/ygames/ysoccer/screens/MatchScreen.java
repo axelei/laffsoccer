@@ -37,11 +37,7 @@ class MatchScreen extends GLScreen {
         matchEnded = false;
         game.glGraphics.light = 0;
 
-        match.listener = new Match.MatchListener() {
-            public void quitMatch(boolean matchCompleted) {
-                quit(matchCompleted);
-            }
-        };
+        match.listener = matchCompleted -> quit(matchCompleted);
 
         commentary.wake();
 

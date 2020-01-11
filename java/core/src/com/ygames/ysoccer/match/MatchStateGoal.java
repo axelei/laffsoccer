@@ -50,11 +50,11 @@ class MatchStateGoal extends MatchState {
         if (match.settings.commentary) {
             if (goal.type == Goal.Type.OWN_GOAL) {
                 Commentary.getInstance().enqueueComment(
-                        new Commentary.Comment(Commentary.Comment.Priority.GOAL, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.OWN_GOAL)
+                        new Commentary.Comment(Commentary.Comment.Priority.GOAL, Assets.CommonComment.pull(Assets.CommonComment.CommonCommentType.OWN_GOAL)
                         ));
             } else {
                 Commentary.getInstance().enqueueComment(
-                        new Commentary.Comment(Commentary.Comment.Priority.GOAL, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.GOAL)
+                        new Commentary.Comment(Commentary.Comment.Priority.GOAL, Assets.CommonComment.pull(Assets.CommonComment.CommonCommentType.GOAL)
                         ));
             }
         }

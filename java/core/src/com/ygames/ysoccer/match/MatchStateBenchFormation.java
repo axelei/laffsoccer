@@ -115,9 +115,7 @@ class MatchStateBenchFormation extends MatchState {
                         getFsm().benchStatus.substPosition = -1;
 
                         if (match.settings.commentary) {
-                                Commentary.getInstance().enqueueComment(
-                                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.PLAYER_SUBSTITUTION)
-                                        ));
+                            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.PLAYER_SUBSTITUTION, Commentary.Comment.Priority.HIGH));
                         }
                     }
 
@@ -133,7 +131,7 @@ class MatchStateBenchFormation extends MatchState {
 
                         if (match.settings.commentary) {
                             Commentary.getInstance().enqueueComment(
-                                    new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.PLAYER_SWAP)
+                                    new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonComment.pull(Assets.CommonComment.CommonCommentType.PLAYER_SWAP)
                                     ));
                         }
                     }

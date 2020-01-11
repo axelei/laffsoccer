@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.*;
@@ -23,6 +22,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
 public class Player implements Json.Serializable {
+
+    public static final String CUSTOM_NATIONALITY = "CUS";
 
     public enum Role {GOALKEEPER, RIGHT_BACK, LEFT_BACK, DEFENDER, RIGHT_WINGER, LEFT_WINGER, MIDFIELDER, ATTACKER}
 
@@ -154,7 +155,7 @@ public class Player implements Json.Serializable {
     }
 
     public String getProperName() {
-        if (this.name.length() > 20) {
+        if (this.name.length() < 25 || CUSTOM_NATIONALITY.equals(this.nationality)) {
             return this.name;
         } else {
             return this.shirtName;
@@ -489,9 +490,7 @@ public class Player implements Json.Serializable {
 
         if (collisionType == KeeperCollision.CATCH) {
             if (scene.settings.commentary) {
-                Commentary.getInstance().enqueueComment(
-                        new Commentary.Comment(Commentary.Comment.Priority.HIGH, Assets.CommonCommentary.pull(Assets.CommonCommentary.CommonCommentaryType.KEEPER_SAVE)
-                        ));
+                Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.KEEPER_SAVE, Commentary.Comment.Priority.HIGH));
             }
         }
 

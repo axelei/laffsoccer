@@ -99,6 +99,21 @@ public class Commentary {
         queue.add(elements);
     }
 
+    public static Comment[] getComment(Assets.CommonComment.CommonCommentType type, Comment.Priority priority) {
+        Random dice = new Random();
+
+        List<Comment> result = new ArrayList<>();
+        result.add(new Comment(priority, Assets.CommonComment.pull(type)));
+        if (dice.nextInt(6) > 2) {
+            Sound secSound = Assets.CommonComment.pullSecond(type);
+            if (secSound != null) {
+                result.add(new Comment(priority, Assets.CommonComment.pullSecond(type)));
+            }
+        }
+
+        return result.toArray(new Comment[result.size()]);
+    }
+
     private boolean pullAndPlay() {
 
         if (current.isEmpty()) {

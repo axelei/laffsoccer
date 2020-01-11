@@ -2,7 +2,6 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Cursor;
@@ -137,8 +136,22 @@ public class Assets {
             shotgun = newSound("shotgun.ogg"); // https://freesound.org/people/Marregheriti/sounds/266105/
         }
 
+        /**
+         * Loads sounds from sounds directory
+         * @param filename
+         * @return
+         */
         private static Sound newSound(String filename) {
-            FileHandle file = Gdx.files.internal("sounds").child(filename);
+            return Gdx.audio.newSound(Gdx.files.internal("sounds").child(filename));
+        }
+
+        /**
+         * Load sounds from absolute path from assets directory
+         * @param filename
+         * @return the sounds or null if doesn't exist
+         */
+        private static Sound loadSound(String filename) {
+            FileHandle file = Gdx.files.internal(filename);
             if (file.exists()) {
                 return Gdx.audio.newSound(file);
             } else {
@@ -191,16 +204,17 @@ public class Assets {
         public static void load(Team team) {
 
             String teamFile = FileUtils.getTeamFromFile(team.path);
-            String soundPath = "commentary/teams/" + teamFile;
+            String teamPath = FileUtils.getPathFromTeamPath(team.path);
+            String soundPath = "data/teams" + teamPath + teamFile;
 
             TeamCommentary element = new TeamCommentary();
 
-            element.teamName = Sounds.newSound(soundPath + "/team.ogg");
-            element.stadiumName = Sounds.newSound(soundPath + "/stadium.ogg");
-            element.city = Sounds.newSound(soundPath + "/city.ogg");
+            element.teamName = Sounds.loadSound(soundPath + "/team.ogg");
+            element.stadiumName = Sounds.loadSound(soundPath + "/stadium.ogg");
+            element.city = Sounds.loadSound(soundPath + "/city.ogg");
 
             team.players.forEach(player -> {
-                element.players.put(player.shirtName, Sounds.newSound(soundPath + "/player_" + FileUtils.normalizeName(player.shirtName) + ".ogg"));
+                element.players.put(player.shirtName, Sounds.loadSound(soundPath + "/player_" + FileUtils.normalizeName(player.shirtName) + ".ogg"));
             });
 
             teams.put(teamFile, element);
@@ -220,25 +234,31 @@ public class Assets {
         }
     }
 
-    public static class CommonCommentary {
+    public static class CommonComment {
 
-        public enum CommonCommentaryType {
-            CORNER_KICK, FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK
+        public enum CommonCommentType {
+            CORNER_KICK, FOUL, NOT_FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK, CHITCHAT
         }
 
-        public static final Map<CommonCommentaryType, Set<Sound>> commonCommentary = new HashMap<>();
+        public static final Map<CommonCommentType, Set<Sound>> commonCommentary = new HashMap<>();
+        public static final Map<CommonCommentType, Set<Sound>> commonCommentarySecondary = new HashMap<>();
 
         static {
-            for (CommonCommentaryType value : CommonCommentaryType.values()) {
+            for (CommonCommentType value : CommonCommentType.values()) {
                 commonCommentary.put(value, new HashSet<>());
+                commonCommentarySecondary.put(value, new HashSet<>());
             }
         }
 
         public static final Set<Sound> allComments = new HashSet<>();
         public static final Sound[] numbers = new Sound[999];
 
-        public static Sound pull(CommonCommentaryType type) {
+        public static Sound pull(CommonCommentType type) {
             return EMath.getRandomSetElement(commonCommentary.get(type));
+        }
+
+        public static Sound pullSecond(CommonCommentType type) {
+            return EMath.getRandomSetElement(commonCommentarySecondary.get(type));
         }
 
         static void load() {
@@ -249,11 +269,12 @@ public class Assets {
                     numbers[Integer.parseInt(name)] = Gdx.audio.newSound(fileHandle);
                 }
             }
+            // Legacy load
             FileHandle commentaryFolder = Gdx.files.local("sounds/commentary");
             for (FileHandle fileHandle : commentaryFolder.list()) {
                 if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
                     String name = fileHandle.nameWithoutExtension();
-                    for (CommonCommentaryType type : CommonCommentaryType.values()) {
+                    for (CommonCommentType type : CommonCommentType.values()) {
                         String fileType = type.name().toLowerCase();
                         if (name.startsWith(fileType)) {
                             commonCommentary.get(type).add(Gdx.audio.newSound(fileHandle));
@@ -261,8 +282,25 @@ public class Assets {
                     }
                 }
             }
+            // Comments in their folders
+            for (CommonCommentType commentType : CommonCommentType.values()) {
+                commentaryFolder = Gdx.files.local("sounds/commentary/" + commentType.name().toLowerCase() + "/");
+                for (FileHandle fileHandle : commentaryFolder.list()) {
+                    if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
+                        commonCommentary.get(commentType).add(Gdx.audio.newSound(fileHandle));
+                    }
+                }
+                // Secondary comments
+                commentaryFolder = Gdx.files.local("sounds/commentary/" + commentType.name().toLowerCase() + "/secondary/");
+                for (FileHandle fileHandle : commentaryFolder.list()) {
+                    if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
+                        commonCommentarySecondary.get(commentType).add(Gdx.audio.newSound(fileHandle));
+                    }
+                }
+            }
             allComments.addAll(Arrays.asList(numbers));
             commonCommentary.forEach((k, v) -> allComments.addAll(v));
+            commonCommentarySecondary.forEach((k, v) -> allComments.addAll(v));
             allComments.remove(null);
         }
 
@@ -348,7 +386,7 @@ public class Assets {
         loadWind();
         loadBench();
         Sounds.load();
-        CommonCommentary.load();
+        CommonComment.load();
     }
 
     private static void loadLocales() {
