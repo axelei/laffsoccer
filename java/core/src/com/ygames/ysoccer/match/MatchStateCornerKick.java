@@ -31,9 +31,6 @@ class MatchStateCornerKick extends MatchState {
     @Override
     void entryActions() {
         super.entryActions();
-        if (match.settings.commentary) {
-            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.CORNER_KICK, Commentary.Comment.Priority.HIGH));
-        }
     }
 
     @Override

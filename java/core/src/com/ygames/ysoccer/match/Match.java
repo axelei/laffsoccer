@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
@@ -38,6 +39,8 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 public class Match extends Scene implements Json.Serializable {
 
     public enum ResultType {AFTER_90_MINUTES, AFTER_EXTRA_TIME, AFTER_PENALTIES}
+
+    private final Commentary commentary = Commentary.getInstance();
 
     public interface MatchListener {
         void quitMatch(boolean matchCompleted);
@@ -617,7 +620,10 @@ public class Match extends Scene implements Json.Serializable {
         Assets.TeamCommentary.unload();
         Assets.TeamFaces.unload();
 
+        commentary.stop();
+
         listener.quitMatch(getFsm().matchCompleted);
+
     }
 
     // returns an integer from 0 to 9

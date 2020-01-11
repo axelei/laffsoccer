@@ -120,6 +120,16 @@ public class EMath {
         return min;
     }
 
+    public static long min(long... values) {
+        long min = values[0];
+        for (long v : values) {
+            if (v < min) {
+                min = v;
+            }
+        }
+        return min;
+    }
+
     public static float max(float... values) {
         float max = values[0];
         for (float v : values) {

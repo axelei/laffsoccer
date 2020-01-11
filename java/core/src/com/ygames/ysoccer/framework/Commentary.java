@@ -10,6 +10,10 @@ import java.util.*;
  */
 public class Commentary {
 
+    private static final String THREAD_NAME = "Commentary-thread";
+    private static final float MAX_QUEUE = 3.0f;
+    private static final float SHORT_QUEUE = 0.5f;
+
     private static final Commentary instance = new Commentary();
 
     public static final Commentary getInstance() { return instance; }
@@ -20,7 +24,7 @@ public class Commentary {
     public static class Comment {
 
         public enum Priority {
-            CHITCHAT(0), LOW(1), COMMON(2), HIGH(3), GOAL(4);
+            CHITCHAT(4), LOW(1), COMMON(2), HIGH(3), GOAL(5);
 
             private int weight;
             Priority(int weight) { this.weight = weight; }
@@ -66,7 +70,9 @@ public class Commentary {
     /**
      * Current playing sound
      */
-    private Sound playing = null;
+    private Comment playing = null;
+
+    private long lastChitChat = System.currentTimeMillis();
 
     private long since = 0L;
     private float lastLength = 0F;
@@ -81,9 +87,12 @@ public class Commentary {
      */
     public void enqueueComment(Comment... elements) {
 
+        if (queueLength > MAX_QUEUE && playing != null && playing.priority.weight > elements[0].priority.weight) {
+            return;
+        }
+
         // A comment with greater priority comes (or queue is very long)
-        if (!current.isEmpty() && current.peek().priority.weight < elements[0].priority.weight
-                || queueLength > 1.5F) {
+        if (playing != null && playing.priority.weight < elements[0].priority.weight && queueLength < SHORT_QUEUE || queueLength > MAX_QUEUE) {
             queue.clear();
             current.clear();
             queueLength = 0;
@@ -128,9 +137,9 @@ public class Commentary {
         queueLength -= lastLength;
         since = System.currentTimeMillis();
 
-        playing = openALSound;
-        playing.play();
-        lastSound = playing;
+        playing = target;
+        playing.getSound().play();
+        lastSound = playing.getSound();
 
         return true;
     }
@@ -145,7 +154,17 @@ public class Commentary {
 
     public void tick() {
 
+        Thread.currentThread().setName(THREAD_NAME);
+
         long now = System.currentTimeMillis();
+
+        if (now - lastChitChat > 20000) {
+            Random rnd = new Random();
+            if (rnd.nextInt((int) EMath.max(1, (now - lastChitChat))) > 35000) {
+                enqueueComment(getComment(Assets.CommonComment.CommonCommentType.CHITCHAT, Comment.Priority.CHITCHAT));
+                lastChitChat = now;
+            }
+        }
 
         if (playing != null && now > since + ((long) (lastLength * 1000))) {
             playing = null;
@@ -160,7 +179,7 @@ public class Commentary {
         if (!current.isEmpty() && playing == null) {
             Comment newCurrent = current.poll();
 
-            playing = newCurrent.sound;
+            playing = newCurrent;
 
             return;
         }
@@ -181,11 +200,14 @@ public class Commentary {
 
         timer.cancel();
 
-        playing.stop();
-
-        playing = null;
         current.clear();
         queue.clear();
+
+        if (playing != null) {
+            playing.getSound().stop();
+            playing = null;
+        }
+
     }
 
 }
