@@ -12,7 +12,7 @@ public class Commentary {
 
     private static final String THREAD_NAME = "Commentary-thread";
     private static final float MAX_QUEUE = 3.0f;
-    private static final float SHORT_QUEUE = 0.5f;
+    private static final float SHORT_QUEUE = 0.3f;
 
     private static final Commentary instance = new Commentary();
 

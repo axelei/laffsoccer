@@ -163,7 +163,7 @@ class EditTactics extends GLScreen {
     private class TacticsBoard extends Picture {
 
         TacticsBoard() {
-            Texture texture = new Texture("images/tactics_board.png");
+            Texture texture = new Texture("images/tactics_board.png"); // Source: https://www.pexels.com/photo/top-view-photo-of-soccer-field-2291006/
             textureRegion = new TextureRegion(texture);
             textureRegion.flip(false, true);
             setGeometry(580, 110, 396, 576);

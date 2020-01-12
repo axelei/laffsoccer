@@ -19,7 +19,7 @@ class GameOptions extends GLScreen {
 
     GameOptions(GLGame game) {
         super(game);
-        background = new Texture("images/backgrounds/menu_game_options.jpg");
+        background = new Texture("images/backgrounds/menu_game_options.jpg"); // Source: https://www.piqsels.com/en/public-domain-photo-zktzs
 
         Widget w;
 

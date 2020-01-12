@@ -36,7 +36,7 @@ public class Const {
             {0, 100, 150, 200, 200, 200, 150}
     };
 
-    public static String[] associations = new String[]{
+    public static final String[] ASSOCIATIONS = new String[]{
             "AFG", "AIA", "ALB", "ALG", "AND", "ANG", "ARG", "ARM",
             "ARU", "ASA", "ATG", "AUS", "AUT", "AZE", "BAH", "BAN",
             "BDI", "BEL", "BEN", "BER", "BFA", "BHR", "BHU", "BIH",

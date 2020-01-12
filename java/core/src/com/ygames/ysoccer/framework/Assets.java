@@ -133,7 +133,7 @@ public class Assets {
             net = newSound("net.ogg");
             post = newSound("post.ogg");
             whistle = newSound("whistle.ogg");
-            shotgun = newSound("shotgun.ogg"); // https://freesound.org/people/Marregheriti/sounds/266105/
+            shotgun = newSound("shotgun.ogg"); // Source: https://freesound.org/people/Marregheriti/sounds/266105/
         }
 
         /**
@@ -237,7 +237,7 @@ public class Assets {
     public static class CommonComment {
 
         public enum CommonCommentType {
-            CORNER_KICK, FOUL, NOT_FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK, CHITCHAT
+            CORNER_KICK, FOUL, NOT_FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK, CHITCHAT, KICK_OFF
         }
 
         public static final Map<CommonCommentType, Set<Sound>> commonCommentary = new HashMap<>();
@@ -350,7 +350,7 @@ public class Assets {
         favouritesFile = teamsRootFolder.child("favourites.json");
         favourites = loadFavourites();
 
-        associations = new ArrayList<>(Arrays.asList(Const.associations));
+        associations = new ArrayList<>(Arrays.asList(Const.ASSOCIATIONS));
         loadTactics();
         loadKits();
         loadPlayerOrigins();

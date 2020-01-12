@@ -41,7 +41,7 @@ class SetupControls extends GLScreen {
 
     SetupControls(GLGame game) {
         super(game);
-        background = new Texture("images/backgrounds/menu_controls.jpg");
+        background = new Texture("images/backgrounds/menu_controls.jpg"); // Source: https://pxhere.com/es/photo/1391146
 
         inputProcessor = new SetupInputProcessor();
         joystickConfigs = new ArrayList<>();

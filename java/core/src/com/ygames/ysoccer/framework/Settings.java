@@ -15,8 +15,8 @@ public class Settings {
     private Preferences preferences;
     private Json json;
 
-    public static final String APP_NAME = "Laff Soccer";
-    public static final String VERSION = "1.0";
+    public static final String APP_NAME = "Charnego Internatiolaff Soccer";
+    public static final String VERSION = "0.1";
 
     // game
     public String locale;
@@ -170,7 +170,7 @@ public class Settings {
 
     private String defaultKeyboardConfigs() {
         ArrayList<KeyboardConfig> keyboardConfigs = new ArrayList<>();
-        keyboardConfigs.add(new KeyboardConfig(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.M, Input.Keys.N));
+        keyboardConfigs.add(new KeyboardConfig(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.CONTROL_RIGHT, Input.Keys.SHIFT_RIGHT));
         keyboardConfigs.add(new KeyboardConfig(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.V, Input.Keys.B));
         return json.toJson(keyboardConfigs);
     }
