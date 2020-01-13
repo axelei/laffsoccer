@@ -60,6 +60,8 @@ public class GLGame extends Game {
         setScreenMode(settings.fullScreen);
         Assets.load(settings);
 
+        Assets.Sounds.volume = settings.soundVolume;
+
         inputDevices = new InputDeviceList();
         reloadInputDevices();
 

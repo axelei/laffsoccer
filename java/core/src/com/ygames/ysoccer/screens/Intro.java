@@ -3,6 +3,7 @@ package com.ygames.ysoccer.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
@@ -17,6 +18,7 @@ public class Intro extends GLScreen {
     public Intro(GLGame game) {
         super(game);
 
+        background = new Texture("images/backgrounds/menu_title.jpg");
         usesMouse = false;
 
         game.disableMouse();
@@ -26,7 +28,7 @@ public class Intro extends GLScreen {
 
         BitmapFont font = new BitmapFont(true);
         String[] lines = {
-                "Charnego Soccer",
+                "Charnego Internatiolaff Soccer",
                 "Charnego Translations Inc.",
                 "",
                 "Basado en YSoccer",
@@ -36,9 +38,9 @@ public class Intro extends GLScreen {
                 "Dale a la 'C' para ver más.",
                 "",
                 "",
-                "Pica una tecla para viciarte"
+                "¡¡Pica una tecla para viciarte!!"
         };
-        w = new TextBox(font, Arrays.asList(lines), game.gui.WIDTH / 2, 270);
+        w = new TextBox(font, Arrays.asList(lines), game.gui.WIDTH / 2, 420);
         widgets.add(w);
     }
 

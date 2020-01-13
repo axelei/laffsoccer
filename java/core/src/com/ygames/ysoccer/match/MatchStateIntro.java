@@ -34,7 +34,7 @@ class MatchStateIntro extends MatchState {
         match.resetData();
 
         Assets.Sounds.introId = Assets.Sounds.intro.play(Assets.Sounds.volume / 100f);
-        Assets.Sounds.crowdId = Assets.Sounds.crowd.play(Assets.Sounds.volume / 100f);
+        Assets.Sounds.crowdId = Assets.Sounds.crowd.play(Assets.Sounds.volume / 150f);
         Assets.Sounds.crowd.setLooping(Assets.Sounds.crowdId, true);
     }
 

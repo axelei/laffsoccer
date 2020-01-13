@@ -170,7 +170,7 @@ public class Settings {
 
     private String defaultKeyboardConfigs() {
         ArrayList<KeyboardConfig> keyboardConfigs = new ArrayList<>();
-        keyboardConfigs.add(new KeyboardConfig(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.CONTROL_RIGHT, Input.Keys.SHIFT_RIGHT));
+        keyboardConfigs.add(new KeyboardConfig(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.NUMPAD_0, Input.Keys.NUMPAD_1));
         keyboardConfigs.add(new KeyboardConfig(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.V, Input.Keys.B));
         return json.toJson(keyboardConfigs);
     }

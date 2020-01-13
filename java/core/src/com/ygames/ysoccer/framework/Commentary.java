@@ -12,7 +12,7 @@ public class Commentary {
 
     private static final String THREAD_NAME = "Commentary-thread";
     private static final float MAX_QUEUE = 3.0f;
-    private static final float SHORT_QUEUE = 0.3f;
+    private static final float SHORT_QUEUE = 0.15f;
 
     private static final Commentary instance = new Commentary();
 
@@ -85,7 +85,7 @@ public class Commentary {
      * Enqueue a comment
      * @param elements
      */
-    public void enqueueComment(Comment... elements) {
+    public synchronized void enqueueComment(Comment... elements) {
 
         if (queueLength > MAX_QUEUE && playing != null && playing.priority.weight > elements[0].priority.weight) {
             return;
@@ -152,7 +152,7 @@ public class Commentary {
         }, 1, 50);
     }
 
-    public void tick() {
+    public synchronized void tick() {
 
         Thread.currentThread().setName(THREAD_NAME);
 

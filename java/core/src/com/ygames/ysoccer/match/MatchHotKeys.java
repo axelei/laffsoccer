@@ -65,7 +65,7 @@ class MatchHotKeys extends SceneHotKeys {
         if (Gdx.input.isKeyPressed(F5) && !keyCrowdChants) {
             getMatch().getSettings().crowdChants = !getMatch().getSettings().crowdChants;
             Assets.Sounds.intro.setVolume(Assets.Sounds.introId, Assets.Sounds.volume / 100f);
-            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 100f);
+            Assets.Sounds.crowd.setVolume(Assets.Sounds.crowdId, Assets.Sounds.volume / 150f);
 
             message = gettext("MATCH OPTIONS.CROWD CHANTS") + " ";
             if (getMatch().getSettings().crowdChants) {

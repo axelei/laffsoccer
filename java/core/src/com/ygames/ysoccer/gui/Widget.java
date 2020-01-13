@@ -1,11 +1,7 @@
 package com.ygames.ysoccer.gui;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLColor;
-import com.ygames.ysoccer.framework.GLShapeRenderer;
-import com.ygames.ysoccer.framework.GLSpriteBatch;
-import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.*;
 
 import java.util.Comparator;
 import java.util.List;
@@ -143,6 +139,7 @@ public abstract class Widget {
 
         switch (widgetEvent) {
             case FIRE1_DOWN:
+                Assets.Sounds.button.play(Assets.Sounds.volume / 100f);
                 onFire1Down();
                 break;
 
@@ -155,6 +152,7 @@ public abstract class Widget {
                 break;
 
             case FIRE2_DOWN:
+                Assets.Sounds.button.play(Assets.Sounds.volume / 100f);
                 onFire2Down();
                 break;
 

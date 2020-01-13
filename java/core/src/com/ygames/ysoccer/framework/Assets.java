@@ -118,6 +118,7 @@ public class Assets {
         public static Sound end;
         public static Sound whistle;
         public static Sound shotgun;
+        public static Sound button;
         public static int volume;
 
         static void load() {
@@ -134,6 +135,7 @@ public class Assets {
             post = newSound("post.ogg");
             whistle = newSound("whistle.ogg");
             shotgun = newSound("shotgun.ogg"); // Source: https://freesound.org/people/Marregheriti/sounds/266105/
+            button = newSound("button.ogg"); // Source: https://freesound.org/people/Snapper4298/sounds/178186/
         }
 
         /**
