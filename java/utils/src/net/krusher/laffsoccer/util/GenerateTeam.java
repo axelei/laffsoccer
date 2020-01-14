@@ -1,11 +1,6 @@
 package net.krusher.laffsoccer.util;
 
 import com.badlogic.gdx.utils.JsonWriter;
-import com.ygames.ysoccer.competitions.Cup;
-import com.ygames.ysoccer.competitions.League;
-import com.ygames.ysoccer.competitions.tournament.Tournament;
-import com.ygames.ysoccer.competitions.tournament.groups.Groups;
-import com.ygames.ysoccer.competitions.tournament.knockout.Knockout;
 import com.ygames.ysoccer.framework.FileUtils;
 import com.ygames.ysoccer.match.*;
 
@@ -14,14 +9,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import com.badlogic.gdx.utils.Json;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import static net.krusher.laffsoccer.util.Auxiliary.RND;
+import static net.krusher.laffsoccer.util.Auxiliary.generateSkills;
 
 public class GenerateTeam {
 
@@ -52,7 +48,13 @@ public class GenerateTeam {
         }
     }
 
-    public static final Random RND = new Random();
+    public static String composeName() {
+        switch(RND.nextInt(2)) {
+            case 0: return Auxiliary.getRandomNormalizedItem(NAMES) + " " + Auxiliary.getRandomNormalizedItem(SURNAMES);
+            case 1: return Auxiliary.getRandomNormalizedItem(NAMES) + " " + Auxiliary.getRandomNormalizedItem(SURNAMES) + " " + Auxiliary.getRandomNormalizedItem(SURNAMES);
+            default: return "";
+        }
+    }
 
     public static void main(String[] arg) throws IOException {
 
@@ -87,18 +89,18 @@ public class GenerateTeam {
         for (int i=0; i<3; i++) {
             Kit kit = new Kit();
             kit.style = Auxiliary.getRandomItem(KIT_STYLES);
-            kit.shirt1 = randomColour();
-            kit.shirt2 = randomColour();
-            kit.shirt3 = randomColour();
-            kit.shorts = randomColour();
-            kit.socks = randomColour();
+            kit.shirt1 = Auxiliary.randomColour();
+            kit.shirt2 = Auxiliary.randomColour();
+            kit.shirt3 = Auxiliary.randomColour();
+            kit.shorts = Auxiliary.randomColour();
+            kit.socks = Auxiliary.randomColour();
             team.kits.add(kit);
         }
 
         team.players = new ArrayList<>();
         int numPlayers = RND.nextInt(5) + 18;
 
-        Integer[] playerNumbers = getRndSeq(numPlayers, numPlayers);
+        Integer[] playerNumbers = Auxiliary.getRndSeq(numPlayers, numPlayers);
         int[] goalKeepers = {1, 12};
 
         for (int i = 0; i < numPlayers; i++) {
@@ -107,7 +109,7 @@ public class GenerateTeam {
             Player player = new Player();
 
             player.name = composeName();
-            player.shirtName = shortName(player.name);
+            player.shirtName = Auxiliary.shortName(player.name);
             player.nationality = Auxiliary.getRandomItem(COUNTRIES);
             player.number = playerNumbers[i] + 1;
 
@@ -122,14 +124,7 @@ public class GenerateTeam {
             } else {
                 player.role = Player.Role.values()[RND.nextInt(Player.Role.values().length - 2) + 1];
 
-                player.skills = new Player.Skills();
-                player.skills.shooting = RND.nextInt(8);
-                player.skills.tackling = RND.nextInt(8);
-                player.skills.control = RND.nextInt(8);
-                player.skills.heading = RND.nextInt(8);
-                player.skills.speed = RND.nextInt(8);
-                player.skills.finishing = RND.nextInt(8);
-                player.skills.passing = RND.nextInt(8);
+                player.skills = generateSkills(player.role);
 
                 List<Player.Skill> skills = new LinkedList<Player.Skill>(Arrays.asList(Player.Skill.values()));
                 Collections.shuffle(skills);
@@ -139,12 +134,6 @@ public class GenerateTeam {
 
             team.players.add(player);
         }
-
-        Json json = new Json();
-        json.setOutputType(JsonWriter.OutputType.json);
-        json.setUsePrototypes(false);
-        json.addClassTag("kits", Kit[].class);
-        String result = json.toJson(team, Team.class);
 
         JFileChooser fileChooser = new JFileChooser();
         FileFilter extensionFilter = new FileNameExtensionFilter("JSON File", "json");
@@ -158,6 +147,17 @@ public class GenerateTeam {
 
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = fileChooser.getSelectedFile();
+
+            if (!fileToSave.getName().endsWith("team." + FileUtils.normalizeName(team.name) + ".json")) {
+                String name = fileToSave.getName();
+                team.name = name.substring(name.indexOf('.') + 1, name.lastIndexOf('.')).toUpperCase();
+            }
+
+            Json json = new Json();
+            json.setOutputType(JsonWriter.OutputType.json);
+            json.setUsePrototypes(false);
+            json.addClassTag("kits", Kit[].class);
+            String result = json.toJson(team, Team.class);
             System.out.println("Save as file: " + fileToSave.getAbsolutePath());
             Files.write(Paths.get(fileToSave.getPath()), result.getBytes());
         }
@@ -165,56 +165,6 @@ public class GenerateTeam {
         System.out.print("Done");
         parentFrame.dispose();
 
-    }
-
-    public static int randomColour() {
-        return RND.nextInt(256*256*256);
-    }
-
-    public static String composeName() {
-        switch(RND.nextInt(2)) {
-            case 0: return Auxiliary.getRandomNormalizedItem(NAMES) + " " + Auxiliary.getRandomNormalizedItem(SURNAMES);
-            case 1: return Auxiliary.getRandomNormalizedItem(NAMES) + " " + Auxiliary.getRandomNormalizedItem(SURNAMES) + " " + Auxiliary.getRandomNormalizedItem(SURNAMES);
-            default: return "";
-        }
-    }
-
-    public static Integer[] getRndSeq(int amount, int bound) {
-
-        if (amount == bound) {
-            List<Integer> list = IntStream.range(0, bound).boxed().collect(Collectors.toList());
-            Collections.shuffle(list);
-            return list.toArray(new Integer[amount]);
-        }
-
-        Set<Integer> intSet = new HashSet<>();
-        while (intSet.size() < amount) {
-            intSet.add(RND.nextInt(bound) + 1);
-        }
-
-        ArrayList<Integer> result = new ArrayList<>(intSet);
-        Collections.shuffle(result);
-        return result.toArray(new Integer[result.size()]);
-    }
-
-    public static String shortName(String name) {
-        if (name.length() < 15) {
-            return name;
-        }
-        String[] split = name.split(" ");
-        if (split.length == 1) {
-            return name;
-        }
-
-        Integer[] numbers = getRndSeq(split.length, split.length);
-        switch(RND.nextInt(4)) {
-            case 0: return split[numbers[0]];
-            case 1: return shortName(split[numbers[0]] + " " + split[numbers[1]]);
-            case 2: return split[numbers[0]] + " " + split[numbers[1]].charAt(0) + ".";
-            case 3: return split[numbers[0]].charAt(0) + ". " + split[numbers[1]];
-        }
-
-        return name;
     }
 
 }

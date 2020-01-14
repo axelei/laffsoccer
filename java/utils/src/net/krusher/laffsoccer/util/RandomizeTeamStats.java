@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
+import static net.krusher.laffsoccer.util.Auxiliary.generateSkills;
 
 public class RandomizeTeamStats {
 
@@ -52,13 +52,7 @@ public class RandomizeTeamStats {
                 player.value = RND.nextInt(30) + 10;
             } else {
 
-                player.skills.shooting = RND.nextInt(8);
-                player.skills.tackling = RND.nextInt(8);
-                player.skills.control = RND.nextInt(8);
-                player.skills.heading = RND.nextInt(8);
-                player.skills.speed = RND.nextInt(8);
-                player.skills.finishing = RND.nextInt(8);
-                player.skills.passing = RND.nextInt(8);
+                player.skills = generateSkills(player.role);
 
                 List<Player.Skill> skills = new LinkedList<Player.Skill>(Arrays.asList(Player.Skill.values()));
                 Collections.shuffle(skills);

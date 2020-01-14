@@ -61,7 +61,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_K",
-		"value": 16
+		"value": 30
 	},
 	{
 		"name": "EUSTAQUIO DOMÍNGUEZ",
@@ -73,18 +73,18 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 1,
-			"shooting": 0,
-			"heading": 0,
+			"passing": 4,
+			"shooting": 1,
+			"heading": 3,
 			"tackling": 5,
-			"control": 0,
-			"speed": 6,
-			"finishing": 1
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
 		},
 		"bestSkills": [
-			"SPEED",
-			"TACKLING",
-			"PASSING"
+			"SHOOTING",
+			"HEADING",
+			"TACKLING"
 		]
 	},
 	{
@@ -97,17 +97,20 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_D",
 		"skills": {
-			"passing": 1,
-			"shooting": 1,
-			"heading": 5,
-			"tackling": 6,
-			"control": 1,
-			"speed": 1,
+			"passing": 3,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
 			"finishing": 2
 		},
 		"bestSkills": [
-			"TACKLING",
+			"PASSING",
+			"CONTROL",
+			"SHOOTING",
 			"HEADING",
+			"TACKLING",
 			"FINISHING"
 		]
 	},
@@ -121,19 +124,15 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
-			"passing": 1,
-			"shooting": 1,
-			"heading": 7,
-			"tackling": 6,
-			"control": 0,
-			"speed": 0,
-			"finishing": 1
+			"passing": 3,
+			"shooting": 3,
+			"heading": 0,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
 		},
-		"bestSkills": [
-			"HEADING",
-			"TACKLING",
-			"PASSING"
-		]
+		"bestSkills": []
 	},
 	{
 		"name": "COMANDANTE LARA",
@@ -145,18 +144,19 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
+			"passing": 3,
+			"shooting": 1,
 			"heading": 2,
 			"tackling": 4,
-			"control": 2,
-			"speed": 4,
+			"control": 5,
+			"speed": 3,
 			"finishing": 1
 		},
 		"bestSkills": [
-			"TACKLING",
-			"SPEED",
-			"HEADING"
+			"PASSING",
+			"SHOOTING",
+			"CONTROL",
+			"FINISHING"
 		]
 	},
 	{
@@ -169,16 +169,17 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_B",
 		"skills": {
-			"passing": 2,
-			"shooting": 1,
+			"passing": 1,
+			"shooting": 5,
 			"heading": 1,
-			"tackling": 2,
-			"control": 6,
-			"speed": 4,
-			"finishing": 1
+			"tackling": 3,
+			"control": 5,
+			"speed": 5,
+			"finishing": 6
 		},
 		"bestSkills": [
-			"CONTROL",
+			"SHOOTING",
+			"HEADING",
 			"SPEED",
 			"PASSING"
 		]
@@ -194,18 +195,14 @@
 		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 3,
-			"shooting": 2,
-			"heading": 6,
-			"tackling": 5,
-			"control": 2,
-			"speed": 2,
-			"finishing": 2
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
 		},
-		"bestSkills": [
-			"HEADING",
-			"TACKLING",
-			"PASSING"
-		]
+		"bestSkills": []
 	},
 	{
 		"name": "JEQUE AL THANI",
@@ -217,18 +214,21 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
-			"passing": 6,
-			"shooting": 0,
+			"passing": 5,
+			"shooting": 5,
 			"heading": 1,
-			"tackling": 5,
-			"control": 1,
-			"speed": 2,
-			"finishing": 2
+			"tackling": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 4
 		},
 		"bestSkills": [
+			"CONTROL",
 			"PASSING",
+			"SPEED",
 			"TACKLING",
-			"SPEED"
+			"FINISHING",
+			"SHOOTING"
 		]
 	},
 	{
@@ -242,17 +242,15 @@
 		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 1,
-			"shooting": 2,
-			"heading": 2,
-			"tackling": 2,
-			"control": 7,
-			"speed": 7,
-			"finishing": 2
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 3,
+			"control": 3,
+			"speed": 5,
+			"finishing": 5
 		},
 		"bestSkills": [
-			"CONTROL",
-			"SPEED",
-			"TACKLING"
+			"SHOOTING"
 		]
 	},
 	{
@@ -265,18 +263,20 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_P",
 		"skills": {
-			"passing": 5,
-			"shooting": 1,
+			"passing": 4,
+			"shooting": 5,
 			"heading": 2,
-			"tackling": 5,
-			"control": 2,
-			"speed": 2,
-			"finishing": 2
+			"tackling": 2,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
 		},
 		"bestSkills": [
-			"PASSING",
+			"SPEED",
+			"FINISHING",
 			"TACKLING",
-			"HEADING"
+			"HEADING",
+			"CONTROL"
 		]
 	},
 	{
@@ -290,16 +290,18 @@
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 3,
-			"shooting": 7,
-			"heading": 6,
-			"tackling": 2,
-			"control": 1,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
 			"speed": 1,
-			"finishing": 6
+			"finishing": 3
 		},
 		"bestSkills": [
+			"TACKLING",
 			"SHOOTING",
 			"HEADING",
+			"CONTROL",
 			"FINISHING"
 		]
 	},
@@ -312,7 +314,7 @@
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
-		"value": 10
+		"value": 39
 	},
 	{
 		"name": "JOSÉ ANTONIO SÁNCHEZ ARAUJO",
@@ -324,18 +326,17 @@
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 0,
-			"tackling": 1,
-			"control": 0,
-			"speed": 0,
-			"finishing": 0
+			"passing": 5,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 3,
+			"control": 1,
+			"speed": 1,
+			"finishing": 5
 		},
 		"bestSkills": [
-			"TACKLING",
 			"HEADING",
-			"PASSING"
+			"FINISHING"
 		]
 	},
 	{
@@ -349,16 +350,14 @@
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 2,
-			"heading": 1,
-			"tackling": 3,
-			"control": 1,
-			"speed": 0,
-			"finishing": 1
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 2,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
 		},
 		"bestSkills": [
-			"PASSING",
-			"TACKLING",
 			"SHOOTING"
 		]
 	},
@@ -369,21 +368,20 @@
 		"role": "LEFT_BACK",
 		"number": 17,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_G",
 		"skills": {
-			"passing": 0,
-			"shooting": 0,
-			"heading": 2,
-			"tackling": 4,
-			"control": 2,
-			"speed": 4,
-			"finishing": 1
+			"passing": 4,
+			"shooting": 3,
+			"heading": 1,
+			"tackling": 5,
+			"control": 6,
+			"speed": 3,
+			"finishing": 2
 		},
 		"bestSkills": [
-			"TACKLING",
-			"SPEED",
-			"HEADING"
+			"SHOOTING",
+			"TACKLING"
 		]
 	},
 	{
@@ -397,17 +395,16 @@
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
-			"shooting": 0,
+			"shooting": 5,
 			"heading": 2,
-			"tackling": 4,
-			"control": 0,
-			"speed": 0,
-			"finishing": 1
+			"tackling": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 4
 		},
 		"bestSkills": [
-			"PASSING",
-			"TACKLING",
-			"HEADING"
+			"SPEED",
+			"TACKLING"
 		]
 	}
 ]
