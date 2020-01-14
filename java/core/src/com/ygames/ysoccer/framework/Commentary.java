@@ -79,7 +79,7 @@ public class Commentary {
     private float queueLength = 0F;
     private Sound lastSound = null;
 
-    private Timer timer = new Timer();
+    private Timer timer;
 
     /**
      * Enqueue a comment
@@ -145,6 +145,10 @@ public class Commentary {
     }
 
     public void wake() {
+        if (timer != null) {
+            timer.cancel();
+        }
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run()  {
                 tick();

@@ -1,0 +1,419 @@
+{
+"name": "ESTADOS UNIDOS",
+"type": "NATIONAL",
+"country": "USA",
+"city": "WASHINGTONG DC",
+"stadium": "LA CASA BLANCA",
+"coach": {
+	"name": "CHUCK NORRIS",
+	"nationality": "USA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#a31212",
+		"shirt3": "#a31212",
+		"shorts": "#dfe8eb",
+		"socks": "#3033c1"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#a31212",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#a31212",
+		"socks": "#3033c1"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#3033c1",
+		"socks": "#a31212"
+	}
+],
+"players": [
+	{
+		"name": "JEAN-CLAUDE VAN DAMME",
+		"shirtName": "VAN DAMME",
+		"nationality": "MAC",
+		"role": "GOALKEEPER",
+		"number": 2,
+		"skinColor": "RED",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_G",
+		"value": 11
+	},
+	{
+		"name": "ARNOLD SCHWARZENEGGER",
+		"shirtName": "EL CHUACHE",
+		"nationality": "GER",
+		"role": "MIDFIELDER",
+		"number": 18,
+		"skinColor": "ARAB",
+		"hairColor": "BLOND",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING"
+		]
+	},
+	{
+		"name": "STEVEN SEAGAL",
+		"shirtName": "SEAGAL",
+		"nationality": "TLS",
+		"role": "LEFT_WINGER",
+		"number": 9,
+		"skinColor": "MULATTO",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"FINISHING",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "SYLVESTER STALONE",
+		"shirtName": "STALONE",
+		"nationality": "PHI",
+		"role": "LEFT_WINGER",
+		"number": 16,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_N",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "BRUCE WILLIS",
+		"shirtName": "B. WILLIS",
+		"nationality": "NZL",
+		"role": "RIGHT_BACK",
+		"number": 15,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 1,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "CLINT EASTWOOD",
+		"shirtName": "EASTWOOD",
+		"nationality": "SDN",
+		"role": "DEFENDER",
+		"number": 12,
+		"skinColor": "RED",
+		"hairColor": "WHITE",
+		"hairStyle": "THINNING_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "SAMUEL L. JACKSON",
+		"shirtName": "SL JACKSON",
+		"nationality": "TAN",
+		"role": "DEFENDER",
+		"number": 5,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"SPEED",
+			"TACKLING",
+			"SHOOTING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "MEL GIBSON",
+		"shirtName": "GIBSON",
+		"nationality": "CHI",
+		"role": "LEFT_BACK",
+		"number": 13,
+		"skinColor": "RED",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_D",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 4,
+			"tackling": 3,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "JOHN WAYNE",
+		"shirtName": "WAYNE",
+		"nationality": "GUY",
+		"role": "LEFT_WINGER",
+		"number": 7,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "CHARLES BRONSON",
+		"shirtName": "BRONSON",
+		"nationality": "ALB",
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 3,
+			"control": 6,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"CONTROL"
+		]
+	},
+	{
+		"name": "STEVE MCQUEEN",
+		"shirtName": "MCQUEEN",
+		"nationality": "SOM",
+		"role": "LEFT_WINGER",
+		"number": 14,
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 1,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "KURT RUSSEL",
+		"shirtName": "K RUSSEL",
+		"nationality": "BEL",
+		"role": "GOALKEEPER",
+		"number": 11,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "CURLY_A",
+		"value": 13
+	},
+	{
+		"name": "AHMET RASMUSSEN MORELLI",
+		"shirtName": "MORELLI A.",
+		"nationality": "PER",
+		"role": "LEFT_BACK",
+		"number": 3,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_J",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 2,
+			"control": 6,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL"
+		]
+	},
+	{
+		"name": "ONDŘEJ RUSSO",
+		"shirtName": "ONDŘEJ RUSSO",
+		"nationality": "VIR",
+		"role": "DEFENDER",
+		"number": 17,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"SPEED",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "JAKOB LOMBARDI",
+		"shirtName": "JAKOB LOMBARDI",
+		"nationality": "RUS",
+		"role": "RIGHT_WINGER",
+		"number": 1,
+		"skinColor": "PINK",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 3,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "JONAS HAAS",
+		"shirtName": "JONAS HAAS",
+		"nationality": "ZIM",
+		"role": "RIGHT_WINGER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 1,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 1,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "CHARLIE MOREAU HUBER",
+		"shirtName": "CHARLIE",
+		"nationality": "SOM",
+		"role": "DEFENDER",
+		"number": 10,
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 5,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"HEADING",
+			"SPEED",
+			"CONTROL",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "MIKHAIL ALVES FREITAS",
+		"shirtName": "ALVES",
+		"nationality": "GHA",
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "BALD_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"CONTROL"
+		]
+	}
+]
+}

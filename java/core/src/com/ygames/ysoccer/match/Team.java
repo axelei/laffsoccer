@@ -819,10 +819,13 @@ public class Team implements Json.Serializable {
     public void loadImage() {
         if (image != null) return;
 
+        String teamId = path.substring(path.lastIndexOf('/') + 6, path.lastIndexOf('.'));
+        String teamPath = path.substring(0, path.lastIndexOf('/') + 1);
+
         switch (type) {
             case CLUB:
             case CUSTOM:
-                String logoPath = path.replaceFirst("/team.", "/logo.").replaceFirst(".json", ".png");
+                String logoPath = teamPath + "logo." + teamId + ".png";
                 FileHandle customLogo = Assets.teamsRootFolder.child(logoPath);
                 if (customLogo.exists()) {
                     Texture texture = new Texture(customLogo);
@@ -836,11 +839,11 @@ public class Team implements Json.Serializable {
 
             case NATIONAL:
                 // custom flag
-                String flagPath = path.replaceFirst("/team.", "/flag.").replaceFirst(".json", ".png");
+                String flagPath = teamPath + "flag" + teamId + ".png";
                 FileHandle file = Assets.teamsRootFolder.child(flagPath);
                 if (!file.exists()) {
                     // default flag
-                    file = Gdx.files.internal("images/flags/medium/" + name.toLowerCase().replace(" ", "_").replace(".", "") + ".png");
+                    file = Gdx.files.internal("images/flags/medium/" + teamId + ".png");
                 }
                 if (file.exists()) {
                     Texture texture = new Texture(file);
