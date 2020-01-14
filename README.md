@@ -19,8 +19,8 @@ Tienes que tener Java 1.8 instalado. Funciona en Güindos, Kleenux y MacacOSX. E
 
 (Windows)
 ```
-$ cd java/
-$ gradlew desktop:run
+C:\COSAS\LAFFSOCCER\> cd java/
+C:\COSAS\LAFFSOCCER\> gradlew desktop:run
 ```
 
 (Leenucs, MacdonaldsOS X, UN*X, etc)
