@@ -17,6 +17,13 @@ Tiene más pringue que el periódico de envolver un bocata, y más antigua que l
 
 Tienes que tener Java 1.8 instalado. Funciona en Güindos, Kleenux y MacacOSX. Entra en la consola y haz lo siguiente:
 
+(Windows)
+```
+$ cd java/
+$ gradlew desktop:run
+```
+
+(Leenucs, MacdonaldsOS X, UN*X, etc)
 ```
 $ cd java/
 $ ./gradlew desktop:run
