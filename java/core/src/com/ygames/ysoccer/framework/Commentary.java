@@ -87,12 +87,12 @@ public class Commentary {
      */
     public synchronized void enqueueComment(Comment... elements) {
 
-        if (queueLength > MAX_QUEUE && playing != null && playing.priority.weight > elements[0].priority.weight) {
+        if (queueLength > MAX_QUEUE && playing != null && playing.priority.weight > elements[0].priority.weight && elements[0].priority != Comment.Priority.CHITCHAT) {
             return;
         }
 
         // A comment with greater priority comes (or queue is very long)
-        if (playing != null && playing.priority.weight < elements[0].priority.weight && queueLength < SHORT_QUEUE || queueLength > MAX_QUEUE) {
+        if ((playing != null && playing.priority.weight < elements[0].priority.weight && queueLength < SHORT_QUEUE || queueLength > MAX_QUEUE) && elements[0].priority != Comment.Priority.CHITCHAT)  {
             queue.clear();
             current.clear();
             queueLength = 0;
@@ -116,7 +116,7 @@ public class Commentary {
         if (dice.nextInt(6) > 2) {
             Sound secSound = Assets.CommonComment.pullSecond(type);
             if (secSound != null) {
-                result.add(new Comment(priority, Assets.CommonComment.pullSecond(type)));
+                result.add(new Comment(priority == Comment.Priority.HIGH ? Comment.Priority.COMMON : priority, Assets.CommonComment.pullSecond(type)));
             }
         }
 
@@ -164,7 +164,7 @@ public class Commentary {
 
         if (now - lastChitChat > 20000) {
             Random rnd = new Random();
-            if (rnd.nextInt((int) EMath.max(1, (now - lastChitChat))) > 35000) {
+            if (rnd.nextInt((int) EMath.max(1, (now - lastChitChat))) > 36000) {
                 enqueueComment(getComment(Assets.CommonComment.CommonCommentType.CHITCHAT, Comment.Priority.CHITCHAT));
                 lastChitChat = now;
             }

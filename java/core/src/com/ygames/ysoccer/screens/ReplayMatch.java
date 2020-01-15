@@ -21,7 +21,7 @@ class ReplayMatch extends GLScreen {
         super(game);
         this.match = match;
 
-        background = new Texture("images/backgrounds/menu_match_presentation.jpg");
+        background = new Texture("images/backgrounds/menu_match_presentation.jpg"); // Source: https://commons.wikimedia.org/wiki/File:Hooligans_FCB-Slavia_30092018.jpg
 
         Widget w;
 
