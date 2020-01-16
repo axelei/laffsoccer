@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
@@ -221,6 +222,9 @@ class MatchStateMain extends MatchState {
                             Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
+                            if (match.settings.commentary) {
+                                Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.NOT_FOUL, Commentary.Comment.Priority.HIGH));
+                            }
                         }
                     } else {
                         Gdx.app.debug(opponent.shirtName, "avoids the tackle from " + player.shirtName);

@@ -239,7 +239,7 @@ public class Assets {
     public static class CommonComment {
 
         public enum CommonCommentType {
-            CORNER_KICK, FOUL, NOT_FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK, CHITCHAT, KICK_OFF
+            CORNER_KICK, FOUL, NOT_FOUL, GOAL, KEEPER_SAVE, OWN_GOAL, PENALTY, PLAYER_SUBSTITUTION, PLAYER_SWAP, THROW_IN, GOAL_KICK, CHITCHAT, KICK_OFF, MATCH_END, HALF_MATCH
         }
 
         public static final Map<CommonCommentType, Set<Sound>> commonCommentary = new HashMap<>();
@@ -389,6 +389,25 @@ public class Assets {
         loadBench();
         Sounds.load();
         CommonComment.load();
+    }
+
+    /**
+     * Gets a random team file
+     * @return
+     */
+    public static FileHandle getRandomTeam() {
+        Random rnd = new Random();
+        FileHandle teamFileHandle;
+        FileHandle[] directory;
+        do {
+            directory = teamsRootFolder.list();
+            teamFileHandle = directory[rnd.nextInt(directory.length)];
+            while (teamFileHandle.isDirectory()) {
+                directory = teamFileHandle.list();
+                teamFileHandle = directory[rnd.nextInt(directory.length)];
+            }
+        } while (!teamFileHandle.name().startsWith("team.") || !teamFileHandle.name().endsWith(".json"));
+        return teamFileHandle;
     }
 
     private static void loadLocales() {

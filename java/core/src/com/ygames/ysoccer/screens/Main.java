@@ -160,7 +160,7 @@ public class Main extends GLScreen {
 
         @Override
         public void onFire1Down() {
-            FileHandle teamFileHandle = Assets.teamsRootFolder.child("CUSTOM/team.electronics.json");
+            FileHandle teamFileHandle = Assets.getRandomTeam();
             game.tacticsTeam = Assets.json.fromJson(Team.class, teamFileHandle.readString("UTF-8"));
             game.setScreen(new SelectTactics(game));
         }

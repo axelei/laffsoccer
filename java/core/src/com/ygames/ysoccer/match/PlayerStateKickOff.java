@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KICK_OFF;
@@ -31,6 +33,12 @@ class PlayerStateKickOff extends PlayerState {
     @Override
     State checkConditions() {
         if (player.inputDevice.fire1Down()) {
+
+            Match match = (Match) this.scene;
+            if (match.settings.commentary && match.clock == 0.0f) {
+                Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.KICK_OFF, Commentary.Comment.Priority.HIGH));
+            }
+
             player.kickAngle = player.a;
             return fsm.stateKick;
         }
