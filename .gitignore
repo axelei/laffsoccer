@@ -3,6 +3,5 @@
 *.rar
 *.log
 /java/android/assets/jre/
-*.log
-*.rar
 *.exe
+*.zip
