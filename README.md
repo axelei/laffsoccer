@@ -9,9 +9,9 @@ Charnego Internatiolaff Soccer es una producción de Charnego Translations Lld, 
 
 ¡Nunca jamás! Pero intentaremos publicar versiones cuando nos pique
 
-## Versión para Windows lista para jugar
+## Versión lista para jugar
 
-Tiene más pringue que el periódico de envolver un bocata, y más antigua que los balcones de palo, pero sirve para ilustrar: https://mega.nz/#!GI8inYDL!DGebYtLv3Ey9x-bKXe1M1Rr5JoBN8fsaV5wGuFNGPtc
+Ve a https://github.com/axelei/laffsoccer/releases para ver las versiones lanzadas listas para jugar, sin tener que andarte con zarandajas de compilar cosas.
 
 ## Para jugar a la última versión
 
