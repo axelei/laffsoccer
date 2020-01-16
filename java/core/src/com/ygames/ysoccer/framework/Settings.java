@@ -96,7 +96,8 @@ public class Settings {
         joystickConfigs = preferences.getString("joystickConfigs", "[]");
 
         // development
-        development = preferences.getBoolean("development", false);
+        // development = preferences.getBoolean("development", false);
+        development = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().indexOf("-agentlib:jdwp") > 0;
 
         // (logs)
         logLevel = preferences.getInteger("logLevel", Application.LOG_INFO);
