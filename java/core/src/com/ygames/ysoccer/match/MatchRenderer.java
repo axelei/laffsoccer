@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.*;
 
-import javax.xml.soap.Text;
-
 import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
