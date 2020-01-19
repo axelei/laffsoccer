@@ -1,12 +1,17 @@
 package net.krusher.laffsoccer.util;
 
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonWriter;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.match.Kit;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Team;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -132,5 +137,15 @@ public class Auxiliary {
         }
 
         return name;
+    }
+
+    public static void saveTeam(Team team, File fileToSave) throws IOException {
+        Json json = new Json();
+        json.setOutputType(JsonWriter.OutputType.json);
+        json.setUsePrototypes(false);
+        json.addClassTag("kits", Kit[].class);
+        String result = json.toJson(team, Team.class);
+        System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+        Files.write(Paths.get(fileToSave.getPath()), result.getBytes());
     }
 }

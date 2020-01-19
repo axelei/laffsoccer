@@ -379,52 +379,6 @@
 			"SHOOTING",
 			"CONTROL"
 		]
-	},
-	{
-		"name": "HARRY GALLI HALL",
-		"shirtName": "HARRY H.",
-		"nationality": "JOR",
-		"role": "RIGHT_BACK",
-		"number": 12,
-		"skinColor": "ASIATIC",
-		"hairColor": "BLACK",
-		"hairStyle": "SPECIAL_A",
-		"skills": {
-			"passing": 5,
-			"shooting": 1,
-			"heading": 4,
-			"tackling": 3,
-			"control": 3,
-			"speed": 4,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"FINISHING",
-			"PASSING",
-			"TACKLING"
-		]
-	},
-	{
-		"name": "TUNAR MIHHAILOV TEIXEIRA",
-		"shirtName": "T. MIHHAILOV",
-		"nationality": "NCA",
-		"role": "RIGHT_WINGER",
-		"number": 3,
-		"skinColor": "PINK",
-		"hairColor": "GRAY",
-		"hairStyle": "SMOOTH_M",
-		"skills": {
-			"passing": 2,
-			"shooting": 2,
-			"heading": 5,
-			"tackling": 3,
-			"control": 3,
-			"speed": 4,
-			"finishing": 5
-		},
-		"bestSkills": [
-			"HEADING"
-		]
 	}
 ]
 }

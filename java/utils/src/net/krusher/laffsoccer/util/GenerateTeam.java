@@ -142,28 +142,28 @@ public class GenerateTeam {
         fileChooser.setFileFilter(extensionFilter);
         fileChooser.setDialogTitle("Specify a file to save");
 
-        JFrame parentFrame = new JFrame();
-        int userSelection = fileChooser.showSaveDialog(parentFrame);
+        if (arg.length != 0) {
+            File fileToSave = new File(arg[0]);
+            Auxiliary.saveTeam(team, fileToSave);
+        } else {
 
-        if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = fileChooser.getSelectedFile();
+            JFrame parentFrame = new JFrame();
+            int userSelection = fileChooser.showSaveDialog(parentFrame);
 
-            if (!fileToSave.getName().endsWith("team." + FileUtils.normalizeName(team.name) + ".json")) {
-                String name = fileToSave.getName();
-                team.name = name.substring(name.indexOf('.') + 1, name.lastIndexOf('.')).toUpperCase();
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                File fileToSave = fileChooser.getSelectedFile();
+
+                if (!fileToSave.getName().endsWith("team." + FileUtils.normalizeName(team.name) + ".json")) {
+                    String name = fileToSave.getName();
+                    team.name = name.substring(name.indexOf('.') + 1, name.lastIndexOf('.')).toUpperCase();
+                }
+
+                Auxiliary.saveTeam(team, fileToSave);
+                parentFrame.dispose();
             }
-
-            Json json = new Json();
-            json.setOutputType(JsonWriter.OutputType.json);
-            json.setUsePrototypes(false);
-            json.addClassTag("kits", Kit[].class);
-            String result = json.toJson(team, Team.class);
-            System.out.println("Save as file: " + fileToSave.getAbsolutePath());
-            Files.write(Paths.get(fileToSave.getPath()), result.getBytes());
         }
 
         System.out.print("Done");
-        parentFrame.dispose();
 
     }
 
