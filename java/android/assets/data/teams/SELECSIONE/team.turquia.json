@@ -1,0 +1,388 @@
+{
+"name": "TURQUÍA",
+"type": "CUSTOM",
+"country": "AND",
+"city": "SEBASTIAN",
+"stadium": "SEBASTIAN CENTER",
+"coach": {
+	"name": "SEM RICHARD FERREIRA",
+	"nationality": "TKM"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#eb3278",
+		"shirt2": "#e4db53",
+		"shirt3": "#ff8f0b",
+		"shorts": "#c12954",
+		"socks": "#d727ba"
+	},
+	{
+		"style": "CROSS",
+		"shirt1": "#1a87e7",
+		"shirt2": "#b350e9",
+		"shirt3": "#cd8c0a",
+		"shorts": "#b216f8",
+		"socks": "#2ef624"
+	},
+	{
+		"style": "CHECK",
+		"shirt1": "#fa934e",
+		"shirt2": "#d0c539",
+		"shirt3": "#f52002",
+		"shorts": "#cf2c01",
+		"socks": "#e91c34"
+	}
+],
+"players": [
+	{
+		"name": "WILSON GRECO MERCIER",
+		"shirtName": "WILSON GRECO",
+		"nationality": "NAM",
+		"role": "GOALKEEPER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"value": 23
+	},
+	{
+		"name": "LOUIS DAVID PARISI",
+		"shirtName": "DAVID PARISI",
+		"nationality": "TUR",
+		"role": "RIGHT_BACK",
+		"number": 16,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 4,
+			"control": 6,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SHOOTING",
+			"PASSING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "EETU BERGER",
+		"shirtName": "EETU BERGER",
+		"nationality": "GUY",
+		"role": "LEFT_WINGER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 7,
+			"heading": 3,
+			"tackling": 1,
+			"control": 3,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"TACKLING"
+		]
+	},
+	{
+		"name": "MATHIAS FONTANA MOREL",
+		"shirtName": "MOREL",
+		"nationality": "BIH",
+		"role": "RIGHT_WINGER",
+		"number": 3,
+		"skinColor": "RED",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 3,
+			"control": 1,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "ERIK DELVINA ALONSO",
+		"shirtName": "ALONSO E.",
+		"nationality": "LUX",
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "ALIEN",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 3,
+			"control": 3,
+			"speed": 0,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"CONTROL",
+			"SPEED"
+		]
+	},
+	{
+		"name": "SABA AUER HAAS",
+		"shirtName": "SABA AUER HAAS",
+		"nationality": "MKD",
+		"role": "LEFT_WINGER",
+		"number": 2,
+		"skinColor": "ASIATIC",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_K",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 2,
+			"speed": 6,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED"
+		]
+	},
+	{
+		"name": "ALEJANDRO DURAND",
+		"shirtName": "DURAND",
+		"nationality": "ETH",
+		"role": "RIGHT_WINGER",
+		"number": 11,
+		"skinColor": "MULATTO",
+		"hairColor": "RED",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 0,
+			"shooting": 5,
+			"heading": 1,
+			"tackling": 4,
+			"control": 6,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "DÁNIEL THANASI RUIZ",
+		"shirtName": "DÁNIEL THANASI",
+		"nationality": "CUS",
+		"role": "LEFT_BACK",
+		"number": 18,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 5,
+			"control": 3,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "SERGEI SIMÕES",
+		"shirtName": "SERGEI SIMÕES",
+		"nationality": "NCA",
+		"role": "RIGHT_WINGER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 1,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 1,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"HEADING",
+			"TACKLING",
+			"CONTROL",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "SANTINO JONES",
+		"shirtName": "SANTINO JONES",
+		"nationality": "AFG",
+		"role": "LEFT_BACK",
+		"number": 1,
+		"skinColor": "BLACK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "GUSTAVS VIEIRAGARCÍA",
+		"shirtName": "GUSTAVS V.",
+		"nationality": "VAN",
+		"role": "LEFT_WINGER",
+		"number": 13,
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 2,
+			"control": 1,
+			"speed": 1,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"FINISHING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "MIGUEL ÁNGEL ROBERTS PELLEGRINI",
+		"shirtName": "MIGUEL",
+		"nationality": "TCA",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "ALIEN",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_F",
+		"value": 20
+	},
+	{
+		"name": "LUCAS ROBERT RODRÍGUEZ",
+		"shirtName": "R. LUCAS",
+		"nationality": "PLE",
+		"role": "RIGHT_WINGER",
+		"number": 15,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_E",
+		"skills": {
+			"passing": 2,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 3,
+			"control": 2,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "WILLIAM JIMÉNEZ",
+		"shirtName": "WILLIAM",
+		"nationality": "UKR",
+		"role": "RIGHT_BACK",
+		"number": 7,
+		"skinColor": "ALIEN",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_N",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "ANGEL FERRARA",
+		"shirtName": "ANGEL FERRARA",
+		"nationality": "AUT",
+		"role": "LEFT_WINGER",
+		"number": 17,
+		"skinColor": "ASIATIC",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 4,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "MATYÁŠ BERNARDI",
+		"shirtName": "MATYÁŠ B.",
+		"nationality": "EQG",
+		"role": "MIDFIELDER",
+		"number": 21,
+		"skinColor": "ASIATIC",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 6,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"PASSING"
+		]
+	}
+]
+}

@@ -1,0 +1,522 @@
+{
+"name": "ITALIA",
+"type": "CUSTOM",
+"country": "SEY",
+"city": "STERLING HEIGHTS",
+"stadium": "CARBONNARA",
+"coach": {
+	"name": "ALEKSANDAR LEFÈVRE ALVES",
+	"nationality": "MGL"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "CROSS",
+		"shirt1": "#b59f3b",
+		"shirt2": "#356b63",
+		"shirt3": "#395ca5",
+		"shorts": "#27670d",
+		"socks": "#3b618a"
+	},
+	{
+		"style": "DIAGONAL",
+		"shirt1": "#cc9fa4",
+		"shirt2": "#d93f3f",
+		"shirt3": "#37f69b",
+		"shorts": "#e01995",
+		"socks": "#827366"
+	},
+	{
+		"style": "SLEEVES",
+		"shirt1": "#0de02c",
+		"shirt2": "#e47a97",
+		"shirt3": "#921c2c",
+		"shorts": "#2d649c",
+		"socks": "#8907c7"
+	}
+],
+"players": [
+	{
+		"name": "ARTIOM ANTUNES VASSILJEV",
+		"shirtName": "VASSILJEV A.",
+		"nationality": "ARG",
+		"role": "GOALKEEPER",
+		"number": 10,
+		"skinColor": "MULATTO",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_A",
+		"value": 23
+	},
+	{
+		"name": "KOBE EDER",
+		"shirtName": "KOBE EDER",
+		"nationality": "BHR",
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "ALIEN",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "BALD_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 2,
+			"control": 2,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "MARTI SERRA",
+		"shirtName": "MARTI SERRA",
+		"nationality": "FRO",
+		"role": "MIDFIELDER",
+		"number": 11,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SHAVED",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 3,
+			"control": 5,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "JACOB MATOS IGLESIASSMITH",
+		"shirtName": "JACOB MATOS",
+		"nationality": "DEN",
+		"role": "MIDFIELDER",
+		"number": 5,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "PIGTAIL_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"SPEED",
+			"HEADING",
+			"CONTROL",
+			"PASSING"
+		]
+	},
+	{
+		"name": "NOAH PETERSEN",
+		"shirtName": "NOAH PETERSEN",
+		"nationality": "ISR",
+		"role": "LEFT_BACK",
+		"number": 2,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "CURLY_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED"
+		]
+	},
+	{
+		"name": "IAN FERRARA",
+		"shirtName": "IAN FERRARA",
+		"nationality": "MSR",
+		"role": "RIGHT_BACK",
+		"number": 8,
+		"skinColor": "ALIEN",
+		"hairColor": "PLATINUM",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 0,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING"
+		]
+	},
+	{
+		"name": "LIAM WALKER",
+		"shirtName": "LIAM WALKER",
+		"nationality": "PRK",
+		"role": "LEFT_BACK",
+		"number": 6,
+		"skinColor": "ALIEN",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_D",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 5,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "MATÍAS DE ANGELIS AIGNER",
+		"shirtName": "MATÍAS",
+		"nationality": "TUR",
+		"role": "MIDFIELDER",
+		"number": 3,
+		"skinColor": "BLACK",
+		"hairColor": "RED",
+		"hairStyle": "THINNING_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 6,
+			"heading": 2,
+			"tackling": 0,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"CONTROL",
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "MARKUSS SHEHU",
+		"shirtName": "MARKUSS SHEHU",
+		"nationality": "STP",
+		"role": "LEFT_WINGER",
+		"number": 18,
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 5,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "LOUIS ROBERT NEVES",
+		"shirtName": "NEVES LOUIS",
+		"nationality": "NIG",
+		"role": "RIGHT_WINGER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "CURLY_E",
+		"skills": {
+			"passing": 5,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"TACKLING",
+			"SPEED",
+			"HEADING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "IVAN HYSI COELHO",
+		"shirtName": "IVAN H.",
+		"nationality": "SBM",
+		"role": "RIGHT_BACK",
+		"number": 7,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 5,
+			"control": 3,
+			"speed": 4,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"HEADING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "SEBASTIÁN MONTANARI PIRES",
+		"shirtName": "PIRES",
+		"nationality": "MAC",
+		"role": "GOALKEEPER",
+		"number": 21,
+		"skinColor": "ALIEN",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_D",
+		"value": 16
+	},
+	{
+		"name": "HENRI SILVA",
+		"shirtName": "HENRI SILVA",
+		"nationality": "MKD",
+		"role": "RIGHT_BACK",
+		"number": 12,
+		"skinColor": "ASIATIC",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SPECIAL_D",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 5,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "GORAN MARTÍN BIANCHI",
+		"shirtName": "BIANCHI M.",
+		"nationality": "TCA",
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "ASIATIC",
+		"hairColor": "RED",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SPEED",
+			"PASSING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "UNAX CRUZ MATOS",
+		"shirtName": "MATOS U.",
+		"nationality": "PAR",
+		"role": "LEFT_BACK",
+		"number": 20,
+		"skinColor": "BLACK",
+		"hairColor": "GRAY",
+		"hairStyle": "SPECIAL_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING",
+			"SPEED",
+			"HEADING"
+		]
+	},
+	{
+		"name": "CHARLIE BRUNNER MORALES",
+		"shirtName": "MORALES C.",
+		"nationality": "ARG",
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "ARAB",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "CURLY_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING"
+		]
+	},
+	{
+		"name": "ELIAS GATTI RUBIO",
+		"shirtName": "R. GATTI",
+		"nationality": "POR",
+		"role": "RIGHT_WINGER",
+		"number": 17,
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"SHOOTING",
+			"PASSING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "MATTHEW BASILE",
+		"shirtName": "MATTHEW BASILE",
+		"nationality": "PLE",
+		"role": "DEFENDER",
+		"number": 4,
+		"skinColor": "ARAB",
+		"hairColor": "RED",
+		"hairStyle": "PIGTAIL_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "NICOLÁS BRUNNER",
+		"shirtName": "BRUNNER N.",
+		"nationality": "SWZ",
+		"role": "RIGHT_WINGER",
+		"number": 1,
+		"skinColor": "ALIEN",
+		"hairColor": "WHITE",
+		"hairStyle": "PIGTAIL_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"HEADING",
+			"FINISHING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "JOVAN JORGENSEN",
+		"shirtName": "JOVAN J.",
+		"nationality": "KSA",
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "BLACK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "LEO SANTORO",
+		"shirtName": "LEO SANTORO",
+		"nationality": "VIE",
+		"role": "RIGHT_WINGER",
+		"number": 19,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 2,
+			"tackling": 1,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING",
+			"SPEED",
+			"CONTROL",
+			"TACKLING"
+		]
+	}
+]
+}

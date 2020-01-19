@@ -1,0 +1,406 @@
+{
+"name": "U.R.S.S.",
+"type": "CUSTOM",
+"country": "IRL",
+"city": "SEBASTOPOL",
+"stadium": "MÁSS NIEVE QUE EL COPÓNN",
+"coach": {
+	"name": "MIKHAIL GORBACHOV",
+	"nationality": "MAR"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "STRIP",
+		"shirt1": "#f61c1c",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#f61c1c"
+	}
+],
+"players": [
+	{
+		"name": "KALASHNIKOV",
+		"shirtName": "AK47",
+		"nationality": "ETH",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "MULATTO",
+		"hairColor": "RED",
+		"hairStyle": "CURLY_B",
+		"value": 26
+	},
+	{
+		"name": "K. G. B.",
+		"shirtName": "K.G.B.",
+		"nationality": "BER",
+		"role": "RIGHT_WINGER",
+		"number": 4,
+		"skinColor": "PALE",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_E",
+		"skills": {
+			"passing": 1,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "SPUTNIK",
+		"shirtName": "SPUTNIK",
+		"nationality": "HKG",
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_BLOND",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"CONTROL",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "MARTRYOSHKA",
+		"shirtName": "MATRYOSHKA",
+		"nationality": "TRI",
+		"role": "LEFT_WINGER",
+		"number": 18,
+		"skinColor": "PALE",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 5,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"TACKLING",
+			"CONTROL",
+			"HEADING",
+			"SHOOTING",
+			"PASSING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "TROIKA",
+		"shirtName": "TROIKA",
+		"nationality": "SLE",
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "PALE",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 2,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"CONTROL",
+			"TACKLING",
+			"SPEED",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "VODKA",
+		"shirtName": "VODKA",
+		"nationality": "IND",
+		"role": "LEFT_WINGER",
+		"number": 8,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"CONTROL",
+			"SHOOTING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "PERESTROIKA",
+		"shirtName": "PERESTROIKA",
+		"nationality": "AUT",
+		"role": "RIGHT_WINGER",
+		"number": 2,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_F",
+		"skills": {
+			"passing": 2,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 1,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "TETRIS",
+		"shirtName": "TETRIS",
+		"nationality": "THA",
+		"role": "RIGHT_WINGER",
+		"number": 16,
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 1,
+			"shooting": 6,
+			"heading": 1,
+			"tackling": 1,
+			"control": 5,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"TACKLING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "TOVARISCH",
+		"shirtName": "TOVARISH",
+		"nationality": "GHA",
+		"role": "LEFT_WINGER",
+		"number": 13,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 1,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 1,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL",
+			"FINISHING",
+			"SPEED",
+			"TACKLING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "VLADIMIR LENIN",
+		"shirtName": "LENIN",
+		"nationality": "JAM",
+		"role": "RIGHT_BACK",
+		"number": 11,
+		"skinColor": "PALE",
+		"hairColor": "WHITE",
+		"hairStyle": "THINNING_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 3,
+			"control": 4,
+			"speed": 6,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "VLADIMIR PUTIN",
+		"shirtName": "PUTIN",
+		"nationality": "SMR",
+		"role": "MIDFIELDER",
+		"number": 15,
+		"skinColor": "PALE",
+		"hairColor": "RED",
+		"hairStyle": "CURLY_E",
+		"skills": {
+			"passing": 7,
+			"shooting": 7,
+			"heading": 7,
+			"tackling": 7,
+			"control": 7,
+			"speed": 7,
+			"finishing": 7
+		},
+		"bestSkills": [
+			"CONTROL",
+			"HEADING",
+			"SHOOTING",
+			"SPEED",
+			"PASSING",
+			"TACKLING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "PETAR HOFER",
+		"shirtName": "PETAR HOFER",
+		"nationality": "BIH",
+		"role": "GOALKEEPER",
+		"number": 5,
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "THINNING_C",
+		"value": 24
+	},
+	{
+		"name": "DAVID SERRA GIRARD",
+		"shirtName": "SERRA DAVID",
+		"nationality": "JOR",
+		"role": "LEFT_BACK",
+		"number": 17,
+		"skinColor": "PALE",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "ALFRED MARQUES",
+		"shirtName": "ALFRED MARQUES",
+		"nationality": "IRN",
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "PALE",
+		"hairColor": "BROWN",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "LAZAR SUÁREZ GASHI",
+		"shirtName": "GASHI SUÁREZ",
+		"nationality": "LUX",
+		"role": "RIGHT_WINGER",
+		"number": 9,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_E",
+		"skills": {
+			"passing": 2,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 1,
+			"control": 4,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"SPEED",
+			"FINISHING",
+			"PASSING",
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "DANIEL ABAZI PALUMBO",
+		"shirtName": "ABAZI",
+		"nationality": "IRN",
+		"role": "RIGHT_WINGER",
+		"number": 6,
+		"skinColor": "ARAB",
+		"hairColor": "BROWN",
+		"hairStyle": "BALD_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 1,
+			"tackling": 1,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL",
+			"SHOOTING",
+			"TACKLING",
+			"SPEED",
+			"HEADING"
+		]
+	}
+]
+}
