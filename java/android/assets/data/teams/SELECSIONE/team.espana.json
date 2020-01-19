@@ -2,7 +2,7 @@
 "name": "ESPAÑA",
 "type": "NATIONAL",
 "country": "ESP",
-"confederation": "FIFA",
+"confederation": "UEFA",
 "city": "MADRIZ",
 "stadium": "SANTIAGO BERNALEU",
 "coach": {
@@ -40,7 +40,7 @@
 	{
 		"name": "ARTURO PÉREZ-REVERTE",
 		"shirtName": "PEREZ-REVERTE",
-		"nationality": "CIV",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 19,
 		"skinColor": "RED",
@@ -51,7 +51,7 @@
 	{
 		"name": "MANOLO ESCOBAR",
 		"shirtName": "MANOLO ESC.",
-		"nationality": "MSR",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 4,
 		"skinColor": "ARAB",
@@ -73,7 +73,7 @@
 	{
 		"name": "BERTÍN OSBORNE",
 		"shirtName": "B. OSBORNE",
-		"nationality": "ROM",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 11,
 		"skinColor": "RED",
@@ -100,7 +100,7 @@
 	{
 		"name": "JESÚS GIL Y GIL",
 		"shirtName": "JESÚS GIL",
-		"nationality": "VAN",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 12,
 		"skinColor": "ARAB",
@@ -125,7 +125,7 @@
 	{
 		"name": "DON PELAYO",
 		"shirtName": "DON PELAYO",
-		"nationality": "UGA",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 5,
 		"skinColor": "PALE",
@@ -145,7 +145,7 @@
 	{
 		"name": "RAMÓN GARCÍA",
 		"shirtName": "RAMÓN G.",
-		"nationality": "RUS",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 16,
 		"skinColor": "PALE",
@@ -171,7 +171,7 @@
 	{
 		"name": "CAMILO SESTO",
 		"shirtName": "C. SESTO",
-		"nationality": "URU",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 10,
 		"skinColor": "PINK",
@@ -193,7 +193,7 @@
 	{
 		"name": "NINO BRAVO",
 		"shirtName": "NINO BRAVO",
-		"nationality": "CZE",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 2,
 		"skinColor": "PALE",
@@ -219,7 +219,7 @@
 	{
 		"name": "JULIO IGLESIAS",
 		"shirtName": "JULIO I.",
-		"nationality": "ITA",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 17,
 		"skinColor": "PALE",
@@ -242,7 +242,7 @@
 	{
 		"name": "ARTURO FERNÁNDEZ",
 		"shirtName": "ARTURO FDEZ.",
-		"nationality": "SLV",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 8,
 		"skinColor": "ARAB",
@@ -269,7 +269,7 @@
 	{
 		"name": "MANOLETE",
 		"shirtName": "MANOLETE",
-		"nationality": "CHN",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 15,
 		"skinColor": "MULATTO",
@@ -293,7 +293,7 @@
 	{
 		"name": "CONSTANTINO ROMERO",
 		"shirtName": "CONSTANTINO",
-		"nationality": "SVK",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 1,
 		"skinColor": "ARAB",
@@ -304,7 +304,7 @@
 	{
 		"name": "PACO UMBRAL",
 		"shirtName": "UMBRAL",
-		"nationality": "MWI",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 14,
 		"skinColor": "PINK",
@@ -329,7 +329,7 @@
 	{
 		"name": "ANDRÉS PAJARES",
 		"shirtName": "PAJARES",
-		"nationality": "NCL",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 6,
 		"skinColor": "MULATTO",
@@ -354,7 +354,7 @@
 	{
 		"name": "PACO MARTÍNEZ SORIA",
 		"shirtName": "M. SORIA",
-		"nationality": "TGA",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 9,
 		"skinColor": "ARAB",
@@ -374,7 +374,7 @@
 	{
 		"name": "EMILIO ARAGÓN",
 		"shirtName": "MILIKITO",
-		"nationality": "MLT",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 7,
 		"skinColor": "RED",

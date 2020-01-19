@@ -2,6 +2,7 @@
 "name": "ESTADOS UNIDOS",
 "type": "NATIONAL",
 "country": "USA",
+"confederation": "CONCACAF",
 "city": "WASHINGTONG DC",
 "stadium": "LA CASA BLANCA",
 "coach": {
@@ -39,7 +40,7 @@
 	{
 		"name": "JEAN-CLAUDE VAN DAMME",
 		"shirtName": "VAN DAMME",
-		"nationality": "MAC",
+		"nationality": "USA",
 		"role": "GOALKEEPER",
 		"number": 2,
 		"skinColor": "RED",
@@ -50,7 +51,7 @@
 	{
 		"name": "ARNOLD SCHWARZENEGGER",
 		"shirtName": "EL CHUACHE",
-		"nationality": "GER",
+		"nationality": "USA",
 		"role": "MIDFIELDER",
 		"number": 18,
 		"skinColor": "ARAB",
@@ -72,7 +73,7 @@
 	{
 		"name": "STEVEN SEAGAL",
 		"shirtName": "SEAGAL",
-		"nationality": "TLS",
+		"nationality": "USA",
 		"role": "LEFT_WINGER",
 		"number": 9,
 		"skinColor": "MULATTO",
@@ -98,7 +99,7 @@
 	{
 		"name": "SYLVESTER STALONE",
 		"shirtName": "STALONE",
-		"nationality": "PHI",
+		"nationality": "USA",
 		"role": "LEFT_WINGER",
 		"number": 16,
 		"skinColor": "RED",
@@ -118,7 +119,7 @@
 	{
 		"name": "BRUCE WILLIS",
 		"shirtName": "B. WILLIS",
-		"nationality": "NZL",
+		"nationality": "USA",
 		"role": "RIGHT_BACK",
 		"number": 15,
 		"skinColor": "ARAB",
@@ -138,7 +139,7 @@
 	{
 		"name": "CLINT EASTWOOD",
 		"shirtName": "EASTWOOD",
-		"nationality": "SDN",
+		"nationality": "USA",
 		"role": "DEFENDER",
 		"number": 12,
 		"skinColor": "RED",
@@ -161,7 +162,7 @@
 	{
 		"name": "SAMUEL L. JACKSON",
 		"shirtName": "SL JACKSON",
-		"nationality": "TAN",
+		"nationality": "USA",
 		"role": "DEFENDER",
 		"number": 5,
 		"skinColor": "BLACK",
@@ -188,7 +189,7 @@
 	{
 		"name": "MEL GIBSON",
 		"shirtName": "GIBSON",
-		"nationality": "CHI",
+		"nationality": "USA",
 		"role": "LEFT_BACK",
 		"number": 13,
 		"skinColor": "RED",
@@ -208,7 +209,7 @@
 	{
 		"name": "JOHN WAYNE",
 		"shirtName": "WAYNE",
-		"nationality": "GUY",
+		"nationality": "USA",
 		"role": "LEFT_WINGER",
 		"number": 7,
 		"skinColor": "PINK",
@@ -228,7 +229,7 @@
 	{
 		"name": "CHARLES BRONSON",
 		"shirtName": "BRONSON",
-		"nationality": "ALB",
+		"nationality": "USA",
 		"role": "RIGHT_WINGER",
 		"number": 6,
 		"skinColor": "MULATTO",
@@ -250,7 +251,7 @@
 	{
 		"name": "STEVE MCQUEEN",
 		"shirtName": "MCQUEEN",
-		"nationality": "SOM",
+		"nationality": "USA",
 		"role": "LEFT_WINGER",
 		"number": 14,
 		"skinColor": "PALE",
@@ -270,7 +271,7 @@
 	{
 		"name": "KURT RUSSEL",
 		"shirtName": "K RUSSEL",
-		"nationality": "BEL",
+		"nationality": "USA",
 		"role": "GOALKEEPER",
 		"number": 11,
 		"skinColor": "ARAB",
@@ -281,7 +282,7 @@
 	{
 		"name": "AHMET RASMUSSEN MORELLI",
 		"shirtName": "MORELLI A.",
-		"nationality": "PER",
+		"nationality": "USA",
 		"role": "LEFT_BACK",
 		"number": 3,
 		"skinColor": "ARAB",
@@ -303,7 +304,7 @@
 	{
 		"name": "ONDŘEJ RUSSO",
 		"shirtName": "ONDŘEJ RUSSO",
-		"nationality": "VIR",
+		"nationality": "USA",
 		"role": "DEFENDER",
 		"number": 17,
 		"skinColor": "ARAB",
@@ -326,7 +327,7 @@
 	{
 		"name": "JAKOB LOMBARDI",
 		"shirtName": "JAKOB LOMBARDI",
-		"nationality": "RUS",
+		"nationality": "USA",
 		"role": "RIGHT_WINGER",
 		"number": 1,
 		"skinColor": "PINK",
@@ -346,7 +347,7 @@
 	{
 		"name": "JONAS HAAS",
 		"shirtName": "JONAS HAAS",
-		"nationality": "ZIM",
+		"nationality": "USA",
 		"role": "RIGHT_WINGER",
 		"number": 4,
 		"skinColor": "PINK",
@@ -364,55 +365,6 @@
 		"bestSkills": [
 			"SHOOTING",
 			"FINISHING"
-		]
-	},
-	{
-		"name": "CHARLIE MOREAU HUBER",
-		"shirtName": "CHARLIE",
-		"nationality": "SOM",
-		"role": "DEFENDER",
-		"number": 10,
-		"skinColor": "RED",
-		"hairColor": "BROWN",
-		"hairStyle": "SMOOTH_C",
-		"skills": {
-			"passing": 2,
-			"shooting": 3,
-			"heading": 2,
-			"tackling": 5,
-			"control": 3,
-			"speed": 4,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"FINISHING",
-			"PASSING",
-			"HEADING",
-			"SPEED",
-			"CONTROL",
-			"SHOOTING"
-		]
-	},
-	{
-		"name": "MIKHAIL ALVES FREITAS",
-		"shirtName": "ALVES",
-		"nationality": "GHA",
-		"role": "LEFT_WINGER",
-		"number": 8,
-		"skinColor": "PINK",
-		"hairColor": "PUNK_FUCHSIA",
-		"hairStyle": "BALD_B",
-		"skills": {
-			"passing": 3,
-			"shooting": 4,
-			"heading": 4,
-			"tackling": 2,
-			"control": 3,
-			"speed": 4,
-			"finishing": 6
-		},
-		"bestSkills": [
-			"CONTROL"
 		]
 	}
 ]

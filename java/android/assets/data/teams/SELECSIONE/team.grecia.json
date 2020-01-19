@@ -1,7 +1,8 @@
 {
 "name": "GRECIA",
-"type": "CUSTOM",
-"country": "TAN",
+"type": "NATIONAL",
+"country": "GRE",
+"confederation": "UEFA",
 "city": "ATENAS",
 "stadium": "RUINA PURA",
 "coach": {
@@ -39,18 +40,18 @@
 	{
 		"name": "ARISTÓTELES",
 		"shirtName": "ARISTÓTELES",
-		"nationality": "NCL",
+		"nationality": "GRE",
 		"role": "GOALKEEPER",
 		"number": 13,
 		"skinColor": "PALE",
-		"hairColor": "BROWN",
-		"hairStyle": "SPECIAL_H",
+		"hairColor": "WHITE",
+		"hairStyle": "THINNING_A",
 		"value": 29
 	},
 	{
 		"name": "JROÑA QUE JROÑA",
 		"shirtName": "JROÑA",
-		"nationality": "HON",
+		"nationality": "GRE",
 		"role": "MIDFIELDER",
 		"number": 2,
 		"skinColor": "RED",
@@ -73,11 +74,11 @@
 	{
 		"name": "GRECIAN 2000",
 		"shirtName": "GRECIAN",
-		"nationality": "SDN",
+		"nationality": "GRE",
 		"role": "LEFT_BACK",
 		"number": 12,
 		"skinColor": "BLACK",
-		"hairColor": "PUNK_BLOND",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_H",
 		"skills": {
 			"passing": 4,
@@ -97,11 +98,11 @@
 	{
 		"name": "YANIS BUROFAXIS",
 		"shirtName": "BUROFAXIS",
-		"nationality": "TOG",
+		"nationality": "GRE",
 		"role": "LEFT_BACK",
 		"number": 18,
 		"skinColor": "RED",
-		"hairColor": "PLATINUM",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 4,
@@ -123,11 +124,11 @@
 	{
 		"name": "SÓCRATES",
 		"shirtName": "SÓCRATES",
-		"nationality": "CHI",
+		"nationality": "GRE",
 		"role": "RIGHT_BACK",
 		"number": 3,
 		"skinColor": "ASIATIC",
-		"hairColor": "BLACK",
+		"hairColor": "WHITE",
 		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 3,
@@ -148,11 +149,11 @@
 	{
 		"name": "TALES DE MILETO",
 		"shirtName": "T. MILETO",
-		"nationality": "CUS",
+		"nationality": "GRE",
 		"role": "DEFENDER",
 		"number": 9,
 		"skinColor": "ARAB",
-		"hairColor": "BLACK",
+		"hairColor": "WHITE",
 		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 4,
@@ -175,11 +176,11 @@
 	{
 		"name": "DEMÓCRITO",
 		"shirtName": "DEMÓCRITO",
-		"nationality": "CZE",
+		"nationality": "GRE",
 		"role": "DEFENDER",
 		"number": 19,
 		"skinColor": "PALE",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "WHITE",
 		"hairStyle": "SPECIAL_F",
 		"skills": {
 			"passing": 2,
@@ -197,7 +198,7 @@
 	{
 		"name": "PITÁGORAS",
 		"shirtName": "PITÁGORAS",
-		"nationality": "JPN",
+		"nationality": "GRE",
 		"role": "RIGHT_WINGER",
 		"number": 14,
 		"skinColor": "RED",
@@ -217,11 +218,11 @@
 	{
 		"name": "SÓFOCLES",
 		"shirtName": "SÓFOCLES",
-		"nationality": "NIG",
+		"nationality": "GRE",
 		"role": "LEFT_WINGER",
 		"number": 6,
 		"skinColor": "PALE",
-		"hairColor": "BLOND",
+		"hairColor": "WHITE",
 		"hairStyle": "CURLY_C",
 		"skills": {
 			"passing": 5,
@@ -241,7 +242,7 @@
 	{
 		"name": "ARISTÓTELES",
 		"shirtName": "ARISTÓTELES",
-		"nationality": "MOZ",
+		"nationality": "GRE",
 		"role": "LEFT_BACK",
 		"number": 15,
 		"skinColor": "ARAB",
@@ -268,11 +269,11 @@
 	{
 		"name": "PLATÓN",
 		"shirtName": "PLATÓN",
-		"nationality": "PAN",
+		"nationality": "GRE",
 		"role": "RIGHT_WINGER",
 		"number": 10,
 		"skinColor": "PALE",
-		"hairColor": "BLACK",
+		"hairColor": "WHITE",
 		"hairStyle": "SMOOTH_P",
 		"skills": {
 			"passing": 1,
@@ -294,18 +295,18 @@
 	{
 		"name": "YOGURT GRIEGO DE DANONE",
 		"shirtName": "YOGUR",
-		"nationality": "TCA",
+		"nationality": "GRE",
 		"role": "GOALKEEPER",
 		"number": 20,
 		"skinColor": "MULATTO",
-		"hairColor": "GRAY",
+		"hairColor": "BROWN",
 		"hairStyle": "PIGTAIL_A",
 		"value": 26
 	},
 	{
 		"name": "ALEXEY HANSEN HALILI",
 		"shirtName": "ALEXEY HANSEN",
-		"nationality": "GIB",
+		"nationality": "GRE",
 		"role": "RIGHT_WINGER",
 		"number": 11,
 		"skinColor": "RED",
@@ -325,7 +326,7 @@
 	{
 		"name": "SANTIAGO FREITAS BRUNO",
 		"shirtName": "SANTIAGO B.",
-		"nationality": "PUR",
+		"nationality": "GRE",
 		"role": "DEFENDER",
 		"number": 7,
 		"skinColor": "PALE",
@@ -350,7 +351,7 @@
 	{
 		"name": "ANDRÉS FELIPE STEINER ROCHA",
 		"shirtName": "FELIPE STEINER",
-		"nationality": "BOL",
+		"nationality": "GRE",
 		"role": "DEFENDER",
 		"number": 4,
 		"skinColor": "RED",
@@ -370,7 +371,7 @@
 	{
 		"name": "HARRY LEROY",
 		"shirtName": "HARRY LEROY",
-		"nationality": "LAO",
+		"nationality": "GRE",
 		"role": "RIGHT_WINGER",
 		"number": 5,
 		"skinColor": "PINK",

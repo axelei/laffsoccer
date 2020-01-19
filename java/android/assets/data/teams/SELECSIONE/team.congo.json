@@ -1,59 +1,60 @@
 {
 "name": "CONGO",
-"type": "CUSTOM",
-"country": "CZE",
-"city": "HIGH POINT",
-"stadium": "HIGH POINT",
+"type": "NATIONAL",
+"confederation": "CAF",
+"country": "CGO",
+"city": "LA SABANA",
+"stadium": "PUMBA",
 "coach": {
 	"name": "EL NEGRO DEL WHATSAPP",
-	"nationality": "PUR"
+	"nationality": "CGO"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "VERTICAL",
-		"shirt1": "#b4df50",
-		"shirt2": "#2fd663",
-		"shirt3": "#f7751f",
-		"shorts": "#faeb4f",
-		"socks": "#023fc5"
+		"style": "ARMBAND",
+		"shirt1": "#f61c1c",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
 	},
 	{
-		"style": "SPICE",
-		"shirt1": "#4faa6c",
-		"shirt2": "#1157e3",
-		"shirt3": "#320af4",
-		"shorts": "#495787",
-		"socks": "#e5c0bb"
+		"style": "ARMBAND",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
 	},
 	{
-		"style": "DIAGONAL_HALF",
-		"shirt1": "#dce8e2",
-		"shirt2": "#56322f",
-		"shirt3": "#4d0d68",
-		"shorts": "#ba907c",
-		"socks": "#8bb467"
+		"style": "DIAGONAL",
+		"shirt1": "#30c52c",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#e8ef2f",
+		"socks": "#30c52c"
 	}
 ],
 "players": [
 	{
-		"name": "TOMÁS DUARTE EDER",
-		"shirtName": "EDER D.",
-		"nationality": "SRB",
+		"name": "MON D'ONGO",
+		"shirtName": "MON D'ONGO",
+		"nationality": "CGO",
 		"role": "GOALKEEPER",
 		"number": 15,
-		"skinColor": "MULATTO",
-		"hairColor": "RED",
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_B",
 		"value": 31
 	},
 	{
-		"name": "MUSTAFA DE LUCA BASILE",
-		"shirtName": "BASILE M.",
-		"nationality": "ARM",
+		"name": "M'OPONGO",
+		"shirtName": "M'OPONGO",
+		"nationality": "CGO",
 		"role": "RIGHT_BACK",
 		"number": 16,
-		"skinColor": "RED",
+		"skinColor": "BLACK",
 		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_D",
 		"skills": {
@@ -74,13 +75,13 @@
 		]
 	},
 	{
-		"name": "JAKOV MONTEIRO CASTRO",
-		"shirtName": "J. CASTRO",
-		"nationality": "MLT",
+		"name": "HAKUNA",
+		"shirtName": "HAKUNA",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 7,
-		"skinColor": "ALIEN",
-		"hairColor": "BLOND",
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 0,
@@ -100,13 +101,13 @@
 		]
 	},
 	{
-		"name": "DÁNIEL CASTRO",
-		"shirtName": "DÁNIEL CASTRO",
-		"nationality": "GRN",
+		"name": "MATATA",
+		"shirtName": "MATATA",
+		"nationality": "CGO",
 		"role": "LEFT_BACK",
 		"number": 21,
 		"skinColor": "BLACK",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_G",
 		"skills": {
 			"passing": 3,
@@ -126,9 +127,9 @@
 		]
 	},
 	{
-		"name": "MURAD HOFER FOURNIER",
-		"shirtName": "HOFER FOURNIER",
-		"nationality": "ECU",
+		"name": "BORONDONGO",
+		"shirtName": "BORONDONGO",
+		"nationality": "CGO",
 		"role": "DEFENDER",
 		"number": 3,
 		"skinColor": "BLACK",
@@ -150,12 +151,12 @@
 		]
 	},
 	{
-		"name": "MARKO COSTA TOSKU",
-		"shirtName": "TOSKU",
-		"nationality": "LES",
+		"name": "MONDONGO",
+		"shirtName": "MONDONGO",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 22,
-		"skinColor": "ALIEN",
+		"skinColor": "BLACK",
 		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_O",
 		"skills": {
@@ -173,13 +174,13 @@
 		]
 	},
 	{
-		"name": "KAJUS RAMÍREZ",
-		"shirtName": "KAJUS RAMÍREZ",
-		"nationality": "TCA",
+		"name": "MACUMBA",
+		"shirtName": "MACUMBA",
+		"nationality": "CGO",
 		"role": "MIDFIELDER",
 		"number": 20,
-		"skinColor": "PINK",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
 		"hairStyle": "THINNING_A",
 		"skills": {
 			"passing": 3,
@@ -193,13 +194,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "LUCAS SOUSA",
-		"shirtName": "LUCAS SOUSA",
-		"nationality": "TJK",
+		"name": "LEOPOLDO II",
+		"shirtName": "LEOPOLDO II",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 10,
-		"skinColor": "ARAB",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "PALE",
+		"hairColor": "PUNK_BLOND",
 		"hairStyle": "SMOOTH_O",
 		"skills": {
 			"passing": 2,
@@ -218,12 +219,12 @@
 		]
 	},
 	{
-		"name": "ARMAN JENSEN GRECO",
-		"shirtName": "GRECO ARMAN",
-		"nationality": "TKM",
+		"name": "SUPONGO",
+		"shirtName": "SUPONGO",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 5,
-		"skinColor": "PINK",
+		"skinColor": "BLACK",
 		"hairColor": "BROWN",
 		"hairStyle": "SPECIAL_C",
 		"skills": {
@@ -242,9 +243,9 @@
 		]
 	},
 	{
-		"name": "BOGDAN GÓMEZ LAURENT",
-		"shirtName": "BOGDAN L.",
-		"nationality": "MGL",
+		"name": "DESCOMPONGO",
+		"shirtName": "DESCOMPONGO",
+		"nationality": "CGO",
 		"role": "DEFENDER",
 		"number": 4,
 		"skinColor": "ALIEN",
@@ -262,12 +263,12 @@
 		"bestSkills": []
 	},
 	{
-		"name": "MATTHIAS DAVIES MADSEN",
-		"shirtName": "DAVIES M.",
-		"nationality": "SAM",
+		"name": "TONGO",
+		"shirtName": "TONGO",
+		"nationality": "CGO",
 		"role": "MIDFIELDER",
 		"number": 18,
-		"skinColor": "ASIATIC",
+		"skinColor": "BLACK",
 		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_G",
 		"skills": {
@@ -286,24 +287,24 @@
 		]
 	},
 	{
-		"name": "EMIL SERRA",
-		"shirtName": "EMIL SERRA",
-		"nationality": "BDI",
+		"name": "CACAHUÉ",
+		"shirtName": "CACAHUÉ",
+		"nationality": "CGO",
 		"role": "GOALKEEPER",
 		"number": 17,
-		"skinColor": "PINK",
+		"skinColor": "BLACK",
 		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_B",
 		"value": 19
 	},
 	{
-		"name": "NOAH ALEKSEJEVMARTIN",
-		"shirtName": "NOAH A.",
-		"nationality": "GHA",
+		"name": "KIMBO",
+		"shirtName": "KIMBO",
+		"nationality": "CGO",
 		"role": "LEFT_BACK",
 		"number": 13,
-		"skinColor": "PALE",
-		"hairColor": "RED",
+		"skinColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SPECIAL_E",
 		"skills": {
 			"passing": 6,
@@ -323,13 +324,13 @@
 		]
 	},
 	{
-		"name": "NICOLÁS LOMBARDO TAYLOR",
-		"shirtName": "T. NICOLÁS",
-		"nationality": "IND",
+		"name": "BOMBO",
+		"shirtName": "BOMBO",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 1,
-		"skinColor": "PALE",
-		"hairColor": "PLATINUM",
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
 		"hairStyle": "CURLY_D",
 		"skills": {
 			"passing": 2,
@@ -349,11 +350,11 @@
 	{
 		"name": "FINN NUNES LOMBARDO",
 		"shirtName": "L. NUNES",
-		"nationality": "KSA",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 9,
-		"skinColor": "PINK",
-		"hairColor": "WHITE",
+		"skinColor": "BLACK",
+		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 3,
@@ -371,10 +372,10 @@
 	{
 		"name": "ADIN ROBERTS SILVESTRI",
 		"shirtName": "A. SILVESTRI",
-		"nationality": "AUT",
+		"nationality": "CGO",
 		"role": "DEFENDER",
 		"number": 11,
-		"skinColor": "MULATTO",
+		"skinColor": "BLACK",
 		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_G",
 		"skills": {
@@ -398,10 +399,10 @@
 	{
 		"name": "NOAH LEFEBVRE",
 		"shirtName": "NOAH LEFEBVRE",
-		"nationality": "OMA",
+		"nationality": "CGO",
 		"role": "MIDFIELDER",
 		"number": 6,
-		"skinColor": "RED",
+		"skinColor": "BLACK",
 		"hairColor": "GRAY",
 		"hairStyle": "SHAVED",
 		"skills": {
@@ -418,11 +419,11 @@
 	{
 		"name": "KEVIN FARINA ARAÚJO",
 		"shirtName": "FARINA K.",
-		"nationality": "ZAM",
+		"nationality": "CGO",
 		"role": "RIGHT_WINGER",
 		"number": 12,
-		"skinColor": "PALE",
-		"hairColor": "BLOND",
+		"skinColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "BALD_A",
 		"skills": {
 			"passing": 3,
@@ -441,7 +442,7 @@
 	{
 		"name": "FINN MATOS",
 		"shirtName": "FINN MATOS",
-		"nationality": "LIE",
+		"nationality": "CGO",
 		"role": "RIGHT_BACK",
 		"number": 8,
 		"skinColor": "BLACK",
@@ -467,10 +468,10 @@
 	{
 		"name": "LIAM BRUNO LEFÈVRE",
 		"shirtName": "LEFÈVRE B.",
-		"nationality": "KOR",
+		"nationality": "CGO",
 		"role": "DEFENDER",
 		"number": 19,
-		"skinColor": "ALIEN",
+		"skinColor": "BLACK",
 		"hairColor": "RED",
 		"hairStyle": "BALD_A",
 		"skills": {
@@ -494,11 +495,11 @@
 	{
 		"name": "SANTIAGO SHEHU",
 		"shirtName": "SANTIAGO SHEHU",
-		"nationality": "CHA",
+		"nationality": "CGO",
 		"role": "RIGHT_WINGER",
 		"number": 2,
-		"skinColor": "MULATTO",
-		"hairColor": "PLATINUM",
+		"skinColor": "BLACK",
+		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_B",
 		"skills": {
 			"passing": 4,
@@ -517,11 +518,11 @@
 	{
 		"name": "THÉO NUNES",
 		"shirtName": "THÉO NUNES",
-		"nationality": "KVX",
+		"nationality": "CGO",
 		"role": "LEFT_WINGER",
 		"number": 14,
 		"skinColor": "BLACK",
-		"hairColor": "BLOND",
+		"hairColor": "RED",
 		"hairStyle": "SHAVED",
 		"skills": {
 			"passing": 1,

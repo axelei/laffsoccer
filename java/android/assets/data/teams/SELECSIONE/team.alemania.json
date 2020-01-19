@@ -1,7 +1,8 @@
 {
 "name": "ALEMANIA",
-"type": "CUSTOM",
-"country": "CMR",
+"type": "NATIONAL",
+"country": "GER",
+"confederation": "UEFA",
 "city": "PLOFF",
 "stadium": "BALLSPIELSPLATZ",
 "coach": {
@@ -39,7 +40,7 @@
 	{
 		"name": "BAUHAUS",
 		"shirtName": "BAUHAUS",
-		"nationality": "SCO",
+		"nationality": "GER",
 		"role": "GOALKEEPER",
 		"number": 7,
 		"skinColor": "PALE",
@@ -50,7 +51,7 @@
 	{
 		"name": "SAUEURKRAUT",
 		"shirtName": "CHUCRUT",
-		"nationality": "TUR",
+		"nationality": "GER",
 		"role": "LEFT_WINGER",
 		"number": 10,
 		"skinColor": "PALE",
@@ -70,7 +71,7 @@
 	{
 		"name": "VOLKSWAGEN",
 		"shirtName": "WAGEN",
-		"nationality": "CUB",
+		"nationality": "GER",
 		"role": "LEFT_WINGER",
 		"number": 5,
 		"skinColor": "PALE",
@@ -94,7 +95,7 @@
 	{
 		"name": "KARTOFFEL",
 		"shirtName": "KARTOFFEL",
-		"nationality": "CUB",
+		"nationality": "GER",
 		"role": "DEFENDER",
 		"number": 2,
 		"skinColor": "PALE",
@@ -117,7 +118,7 @@
 	{
 		"name": "PANZERKAMPFWAGEN",
 		"shirtName": "PANZER",
-		"nationality": "NAM",
+		"nationality": "GER",
 		"role": "LEFT_BACK",
 		"number": 15,
 		"skinColor": "PALE",
@@ -141,7 +142,7 @@
 	{
 		"name": "SIEMENS",
 		"shirtName": "SIEMENS",
-		"nationality": "SUI",
+		"nationality": "GER",
 		"role": "LEFT_BACK",
 		"number": 8,
 		"skinColor": "PINK",
@@ -161,7 +162,7 @@
 	{
 		"name": "FERDINAND PORSCHE",
 		"shirtName": "PORSCHE",
-		"nationality": "SVN",
+		"nationality": "GER",
 		"role": "LEFT_WINGER",
 		"number": 17,
 		"skinColor": "PALE",
@@ -188,7 +189,7 @@
 	{
 		"name": "BLITZKRIEG",
 		"shirtName": "BLITZKRIEG",
-		"nationality": "CUB",
+		"nationality": "GER",
 		"role": "RIGHT_WINGER",
 		"number": 9,
 		"skinColor": "PINK",
@@ -215,7 +216,7 @@
 	{
 		"name": "ATCHUNG",
 		"shirtName": "ATCHUNG",
-		"nationality": "USA",
+		"nationality": "GER",
 		"role": "RIGHT_BACK",
 		"number": 6,
 		"skinColor": "RED",
@@ -235,7 +236,7 @@
 	{
 		"name": "DAS AUTO",
 		"shirtName": "DAS AUTO",
-		"nationality": "COM",
+		"nationality": "GER",
 		"role": "RIGHT_BACK",
 		"number": 1,
 		"skinColor": "RED",
@@ -255,7 +256,7 @@
 	{
 		"name": "KRAFTWERK",
 		"shirtName": "KRAFTWERK",
-		"nationality": "BAN",
+		"nationality": "GER",
 		"role": "RIGHT_BACK",
 		"number": 18,
 		"skinColor": "PALE",
@@ -281,7 +282,7 @@
 	{
 		"name": "STEFAN LECHNER WRIGHT",
 		"shirtName": "STEFAN W.",
-		"nationality": "BEN",
+		"nationality": "GER",
 		"role": "GOALKEEPER",
 		"number": 16,
 		"skinColor": "MULATTO",
@@ -292,7 +293,7 @@
 	{
 		"name": "SAMUEL AIGNER",
 		"shirtName": "SAMUEL AIGNER",
-		"nationality": "MSR",
+		"nationality": "GER",
 		"role": "RIGHT_WINGER",
 		"number": 11,
 		"skinColor": "ARAB",
@@ -316,7 +317,7 @@
 	{
 		"name": "OSKAR HOFER",
 		"shirtName": "OSKAR HOFER",
-		"nationality": "BAN",
+		"nationality": "GER",
 		"role": "MIDFIELDER",
 		"number": 14,
 		"skinColor": "BLACK",
@@ -340,7 +341,7 @@
 	{
 		"name": "SANTIAGO MORELLI",
 		"shirtName": "MORELLI",
-		"nationality": "TUN",
+		"nationality": "GER",
 		"role": "DEFENDER",
 		"number": 4,
 		"skinColor": "BLACK",
@@ -360,7 +361,7 @@
 	{
 		"name": "DAVID JESUS MARINO",
 		"shirtName": "DAVID",
-		"nationality": "EST",
+		"nationality": "GER",
 		"role": "LEFT_WINGER",
 		"number": 13,
 		"skinColor": "PALE",

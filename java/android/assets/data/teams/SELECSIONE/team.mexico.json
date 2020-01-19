@@ -1,7 +1,8 @@
 {
 "name": "MÉXICO",
-"type": "CUSTOM",
-"country": "EST",
+"type": "NATIONAL",
+"country": "MEX",
+"confederation": "CONCACAF",
 "city": "MÉXICO LINDO",
 "stadium": "TACO BELL",
 "coach": {
@@ -39,7 +40,7 @@
 	{
 		"name": "KIKO",
 		"shirtName": "KIKO",
-		"nationality": "KSA",
+		"nationality": "MEX",
 		"role": "GOALKEEPER",
 		"number": 18,
 		"skinColor": "ARAB",
@@ -50,7 +51,7 @@
 	{
 		"name": "GODÍNEZ",
 		"shirtName": "GODÍNEZ",
-		"nationality": "RUS",
+		"nationality": "MEX",
 		"role": "RIGHT_BACK",
 		"number": 14,
 		"skinColor": "ALIEN",
@@ -77,7 +78,7 @@
 	{
 		"name": "CHÓMPIRAS",
 		"shirtName": "CHÓMPIRAS",
-		"nationality": "JOR",
+		"nationality": "MEX",
 		"role": "DEFENDER",
 		"number": 9,
 		"skinColor": "ASIATIC",
@@ -100,7 +101,7 @@
 	{
 		"name": "PETERETE",
 		"shirtName": "PETERETE",
-		"nationality": "SEY",
+		"nationality": "MEX",
 		"role": "RIGHT_BACK",
 		"number": 17,
 		"skinColor": "PALE",
@@ -126,7 +127,7 @@
 	{
 		"name": "DOCTOR CHAPATÍN",
 		"shirtName": "DR. CHAPATÍN",
-		"nationality": "NCL",
+		"nationality": "MEX",
 		"role": "DEFENDER",
 		"number": 10,
 		"skinColor": "BLACK",
@@ -146,7 +147,7 @@
 	{
 		"name": "ÑOÑO",
 		"shirtName": "ÑOÑO",
-		"nationality": "CRC",
+		"nationality": "MEX",
 		"role": "DEFENDER",
 		"number": 16,
 		"skinColor": "PALE",
@@ -170,7 +171,7 @@
 	{
 		"name": "CHESPIRITO",
 		"shirtName": "CHESPIRITO",
-		"nationality": "VAN",
+		"nationality": "MEX",
 		"role": "LEFT_BACK",
 		"number": 21,
 		"skinColor": "PINK",
@@ -196,7 +197,7 @@
 	{
 		"name": "PROFESOR JIRAFALES",
 		"shirtName": "JIRAFALES",
-		"nationality": "COM",
+		"nationality": "MEX",
 		"role": "LEFT_BACK",
 		"number": 1,
 		"skinColor": "PINK",
@@ -218,7 +219,7 @@
 	{
 		"name": "EL CHAPULÍN COLORADO",
 		"shirtName": "CH. COLORADO",
-		"nationality": "THA",
+		"nationality": "MEX",
 		"role": "LEFT_WINGER",
 		"number": 3,
 		"skinColor": "ASIATIC",
@@ -240,7 +241,7 @@
 	{
 		"name": "EL CHAVO DEL 8",
 		"shirtName": "CHAVO DEL 8",
-		"nationality": "DMA",
+		"nationality": "MEX",
 		"role": "LEFT_BACK",
 		"number": 8,
 		"skinColor": "BLACK",
@@ -266,7 +267,7 @@
 	{
 		"name": "DON RAMÓN",
 		"shirtName": "DON RAMON",
-		"nationality": "GUA",
+		"nationality": "MEX",
 		"role": "RIGHT_WINGER",
 		"number": 19,
 		"skinColor": "PINK",
@@ -290,7 +291,7 @@
 	{
 		"name": "EL BOTIJAS",
 		"shirtName": "BOTIJAS",
-		"nationality": "GEO",
+		"nationality": "MEX",
 		"role": "GOALKEEPER",
 		"number": 7,
 		"skinColor": "MULATTO",
@@ -301,7 +302,7 @@
 	{
 		"name": "MARIO MORENO \"CANTINFLAS\"",
 		"shirtName": "CANTINFLAS",
-		"nationality": "CPV",
+		"nationality": "MEX",
 		"role": "RIGHT_BACK",
 		"number": 4,
 		"skinColor": "PINK",
@@ -328,7 +329,7 @@
 	{
 		"name": "CHANFLE",
 		"shirtName": "CHANFLE",
-		"nationality": "MAR",
+		"nationality": "MEX",
 		"role": "LEFT_BACK",
 		"number": 11,
 		"skinColor": "PALE",
@@ -348,7 +349,7 @@
 	{
 		"name": "SEÑOR BARRIGA",
 		"shirtName": "SR. BARRIGA",
-		"nationality": "TRI",
+		"nationality": "MEX",
 		"role": "LEFT_BACK",
 		"number": 5,
 		"skinColor": "MULATTO",
@@ -371,7 +372,7 @@
 	{
 		"name": "JOÃO LUCAS LÓPEZ GJIKA",
 		"shirtName": "LUCAS",
-		"nationality": "PLE",
+		"nationality": "MEX",
 		"role": "DEFENDER",
 		"number": 15,
 		"skinColor": "BLACK",

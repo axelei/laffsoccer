@@ -1,7 +1,8 @@
 {
 "name": "ESCOCIA",
-"type": "CUSTOM",
-"country": "KGZ",
+"type": "NATIONAL",
+"confederation": "UEFA",
+"country": "ESC",
 "city": "WHISKY",
 "stadium": "EL BARRIL",
 "coach": {
@@ -39,7 +40,7 @@
 	{
 		"name": "SEAN CONNERY",
 		"shirtName": "S. CONNERY",
-		"nationality": "SKN",
+		"nationality": "ESC",
 		"role": "GOALKEEPER",
 		"number": 13,
 		"skinColor": "MULATTO",
@@ -50,7 +51,7 @@
 	{
 		"name": "JAMESON",
 		"shirtName": "JAMESON",
-		"nationality": "BUL",
+		"nationality": "ESC",
 		"role": "MIDFIELDER",
 		"number": 16,
 		"skinColor": "BLACK",
@@ -77,7 +78,7 @@
 	{
 		"name": "JUSTERINI BROOKS",
 		"shirtName": "J&B",
-		"nationality": "TLS",
+		"nationality": "ESC",
 		"role": "MIDFIELDER",
 		"number": 2,
 		"skinColor": "RED",
@@ -103,7 +104,7 @@
 	{
 		"name": "KNOCKANDO",
 		"shirtName": "KNOCKANDO",
-		"nationality": "CRO",
+		"nationality": "ESC",
 		"role": "MIDFIELDER",
 		"number": 4,
 		"skinColor": "RED",
@@ -127,7 +128,7 @@
 	{
 		"name": "GLENFIDDICH",
 		"shirtName": "GLENFIDDICH",
-		"nationality": "VAN",
+		"nationality": "ESC",
 		"role": "RIGHT_WINGER",
 		"number": 1,
 		"skinColor": "PINK",
@@ -150,7 +151,7 @@
 	{
 		"name": "DEWARS",
 		"shirtName": "DEWARS",
-		"nationality": "BHU",
+		"nationality": "ESC",
 		"role": "DEFENDER",
 		"number": 14,
 		"skinColor": "PINK",
@@ -176,7 +177,7 @@
 	{
 		"name": "BALLANTINES",
 		"shirtName": "BALLANTINES",
-		"nationality": "IND",
+		"nationality": "ESC",
 		"role": "RIGHT_BACK",
 		"number": 17,
 		"skinColor": "MULATTO",
@@ -203,7 +204,7 @@
 	{
 		"name": "MACALLAN",
 		"shirtName": "MACALLAN",
-		"nationality": "BUL",
+		"nationality": "ESC",
 		"role": "RIGHT_BACK",
 		"number": 5,
 		"skinColor": "PINK",
@@ -230,7 +231,7 @@
 	{
 		"name": "CHIVAS",
 		"shirtName": "CHIVAS",
-		"nationality": "SWE",
+		"nationality": "ESC",
 		"role": "RIGHT_WINGER",
 		"number": 7,
 		"skinColor": "ALIEN",
@@ -253,7 +254,7 @@
 	{
 		"name": "CARDHU",
 		"shirtName": "CARDHU",
-		"nationality": "LIE",
+		"nationality": "ESC",
 		"role": "RIGHT_WINGER",
 		"number": 12,
 		"skinColor": "BLACK",
@@ -276,7 +277,7 @@
 	{
 		"name": "JOHNNY WALKER",
 		"shirtName": "J. WALKER",
-		"nationality": "BUL",
+		"nationality": "ESC",
 		"role": "RIGHT_WINGER",
 		"number": 19,
 		"skinColor": "MULATTO",
@@ -300,7 +301,7 @@
 	{
 		"name": "HARRY MARTÍN",
 		"shirtName": "HARRY MARTÍN",
-		"nationality": "TOG",
+		"nationality": "ESC",
 		"role": "GOALKEEPER",
 		"number": 9,
 		"skinColor": "RED",
@@ -311,7 +312,7 @@
 	{
 		"name": "DANIIL GALLI SHKRELI",
 		"shirtName": "DANIIL G.",
-		"nationality": "AUS",
+		"nationality": "ESC",
 		"role": "LEFT_WINGER",
 		"number": 8,
 		"skinColor": "PALE",
@@ -331,7 +332,7 @@
 	{
 		"name": "DAVID COPPOLA SHKRELI",
 		"shirtName": "COPPOLA DAVID",
-		"nationality": "AUT",
+		"nationality": "ESC",
 		"role": "MIDFIELDER",
 		"number": 18,
 		"skinColor": "ARAB",
@@ -355,7 +356,7 @@
 	{
 		"name": "JAYDEN FRANCO SIMÕES",
 		"shirtName": "FRANCO",
-		"nationality": "SVN",
+		"nationality": "ESC",
 		"role": "LEFT_BACK",
 		"number": 10,
 		"skinColor": "RED",
@@ -380,7 +381,7 @@
 	{
 		"name": "OSCAR BAUMGARTNER KOROVESHI",
 		"shirtName": "BAUMGARTNER O.",
-		"nationality": "NAM",
+		"nationality": "ESC",
 		"role": "RIGHT_BACK",
 		"number": 20,
 		"skinColor": "PALE",

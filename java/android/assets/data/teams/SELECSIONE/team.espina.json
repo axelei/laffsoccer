@@ -6,38 +6,41 @@
 "city": "MADRÍS",
 "stadium": "VALLE DE LOS CAIDOS",
 "coach": {
-	"name": "FRANCISCO FRUTANCO",
-	"nationality": "GAL"
+	"name": "FRANCISCO FRASCO",
+	"nationality": "ESP"
 },
 "tactics": "SWEEP",
 "kits": [
 	{
-		"style": "PLAIN",
-		"shirt1": "#3033c1",
-		"shirt2": "#dfe8eb",
-		"shorts": "#dfe8eb",
-		"socks": "#3033c1"
+		"style": "STRIP",
+		"shirt1": "#f61c1c",
+		"shirt2": "#e8ef2f",
+		"shirt3": "#e8ef2f",
+		"shorts": "#1e1e1e",
+		"socks": "#1e1e1e"
 	},
 	{
 		"style": "PLAIN",
-		"shirt1": "#dfe8eb",
-		"shirt2": "#3033c1",
-		"shorts": "#3033c1",
-		"socks": "#dfe8eb"
+		"shirt1": "#f59ee1",
+		"shirt2": "#47bfeb",
+		"shirt3": "#47bfeb",
+		"shorts": "#f59ee1",
+		"socks": "#47bfeb"
 	},
 	{
 		"style": "PLAIN",
-		"shirt1": "#dfe8eb",
-		"shirt2": "#3033c1",
-		"shorts": "#dfe8eb",
-		"socks": "#3033c1"
+		"shirt1": "#993333",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#417039",
+		"socks": "#417039"
 	}
 ],
 "players": [
 	{
-		"name": "ENRICO ALBERTOSI",
-		"shirtName": "ALBERTOSI",
-		"nationality": "ITA",
+		"name": "PRIMO DE RIVERA DEL DUERO",
+		"shirtName": "RIVERA",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 1,
 		"skinColor": "PINK",
@@ -46,9 +49,9 @@
 		"value": 39
 	},
 	{
-		"name": "TARCISIO BURGNICH",
-		"shirtName": "BURGNICH",
-		"nationality": "ITA",
+		"name": "JOSÉ PELUCA SOTELO",
+		"shirtName": "SOTELO",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 2,
 		"skinColor": "PINK",
@@ -70,9 +73,9 @@
 		]
 	},
 	{
-		"name": "ARMANDO PICCHI",
-		"shirtName": "PICCHI",
-		"nationality": "ITA",
+		"name": "GENERAL JOSÉ SANJORGE",
+		"shirtName": "JOSÉ S.",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 3,
 		"skinColor": "PINK",
@@ -94,9 +97,9 @@
 		]
 	},
 	{
-		"name": "ROBERTO ROSATO",
-		"shirtName": "ROSATO",
-		"nationality": "ITA",
+		"name": "ONÉSIMO CUADRADO",
+		"shirtName": "ONÉSIMO",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 4,
 		"skinColor": "PINK",
@@ -118,9 +121,9 @@
 		]
 	},
 	{
-		"name": "ARISTIDE GUARNERI",
-		"shirtName": "GUARNERI",
-		"nationality": "ITA",
+		"name": "JULIO RUIZ DE ALDI",
+		"shirtName": "J. RUIZ",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 5,
 		"skinColor": "PINK",
@@ -142,9 +145,9 @@
 		]
 	},
 	{
-		"name": "GIACOMO BULGARELLI",
-		"shirtName": "BULGARELLI",
-		"nationality": "ITA",
+		"name": "JUAN DE BRIBÓN",
+		"shirtName": "BRIBÓN",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 6,
 		"skinColor": "PINK",
@@ -166,9 +169,9 @@
 		]
 	},
 	{
-		"name": "GIANNI RIVERA",
-		"shirtName": "RIVERA",
-		"nationality": "ITA",
+		"name": "GENERAL YEGUA",
+		"shirtName": "G. YEGUA",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 7,
 		"skinColor": "PINK",
@@ -190,9 +193,9 @@
 		]
 	},
 	{
-		"name": "SAUL MALATRASI",
-		"shirtName": "MALATRASI",
-		"nationality": "ITA",
+		"name": "QUEIPO LLANITO",
+		"shirtName": "QUEIPO L.",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 8,
 		"skinColor": "PINK",
@@ -214,9 +217,9 @@
 		]
 	},
 	{
-		"name": "MARIO CORSO",
-		"shirtName": "CORSO",
-		"nationality": "ITA",
+		"name": "MANUEL FRASCA",
+		"shirtName": "FRASCA",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 9,
 		"skinColor": "PINK",
@@ -238,9 +241,9 @@
 		]
 	},
 	{
-		"name": "SANDRO MAZZOLA",
-		"shirtName": "MAZZOLA",
-		"nationality": "ITA",
+		"name": "CARRERO ARMSTRONG",
+		"shirtName": "CARRERO",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 10,
 		"skinColor": "PINK",
@@ -262,9 +265,9 @@
 		]
 	},
 	{
-		"name": "ALBERTO ORLANDO",
-		"shirtName": "ORLANDO",
-		"nationality": "ITA",
+		"name": "GENERAL MOLA MAZO",
+		"shirtName": "MOLA MAZO",
+		"nationality": "ESP",
 		"role": "ATTACKER",
 		"number": 11,
 		"skinColor": "PINK",
@@ -288,7 +291,7 @@
 	{
 		"name": "WILLIAM NEGRI",
 		"shirtName": "NEGRI",
-		"nationality": "ITA",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 12,
 		"skinColor": "PINK",
@@ -299,7 +302,7 @@
 	{
 		"name": "SANDRO SALVADORE",
 		"shirtName": "SALVADORE",
-		"nationality": "ITA",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 13,
 		"skinColor": "PINK",
@@ -323,7 +326,7 @@
 	{
 		"name": "GIOVANNI TRAPATTONI",
 		"shirtName": "TRAPATTONI",
-		"nationality": "ITA",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 14,
 		"skinColor": "PINK",
@@ -347,7 +350,7 @@
 	{
 		"name": "GIAMPAOLO MENICHELLI",
 		"shirtName": "MENICHELLI",
-		"nationality": "ITA",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 15,
 		"skinColor": "PINK",
@@ -371,7 +374,7 @@
 	{
 		"name": "EZIO PASCUTTI",
 		"shirtName": "PASCUTTI",
-		"nationality": "ITA",
+		"nationality": "ESP",
 		"role": "ATTACKER",
 		"number": 16,
 		"skinColor": "PINK",
