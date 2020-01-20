@@ -2,29 +2,29 @@
 "name": "TURQUÍA",
 "type": "CUSTOM",
 "country": "AND",
-"city": "SEBASTIAN",
-"stadium": "SEBASTIAN CENTER",
+"city": "TURKMENISTÁN",
+"stadium": "CAPILAR CENTER",
 "coach": {
-	"name": "SEM RICHARD FERREIRA",
-	"nationality": "TKM"
+	"name": "TRÄS PLANT EDEPELÖ",
+	"nationality": "TUR"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "HORIZONTAL",
-		"shirt1": "#eb3278",
-		"shirt2": "#e4db53",
-		"shirt3": "#ff8f0b",
-		"shorts": "#c12954",
-		"socks": "#d727ba"
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
 	},
 	{
-		"style": "CROSS",
-		"shirt1": "#1a87e7",
-		"shirt2": "#b350e9",
-		"shirt3": "#cd8c0a",
-		"shorts": "#b216f8",
-		"socks": "#2ef624"
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
 	},
 	{
 		"style": "CHECK",

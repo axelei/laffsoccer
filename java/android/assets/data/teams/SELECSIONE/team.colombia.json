@@ -11,28 +11,28 @@
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "DIAGONAL_HALF",
-		"shirt1": "#16cbf3",
-		"shirt2": "#a943e2",
-		"shirt3": "#53601e",
-		"shorts": "#cdf3c2",
-		"socks": "#8b74d5"
+		"style": "CHECK",
+		"shirt1": "#e8ef2f",
+		"shirt2": "#ffd200",
+		"shirt3": "#ffd200",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
 	},
 	{
-		"style": "CROSS",
-		"shirt1": "#d0f8b3",
-		"shirt2": "#fa354b",
-		"shirt3": "#b420a2",
-		"shorts": "#301a92",
-		"socks": "#ef9174"
+		"style": "SLEEVES",
+		"shirt1": "#3033c1",
+		"shirt2": "#e8ef2f",
+		"shirt3": "#e8ef2f",
+		"shorts": "#e8ef2f",
+		"socks": "#3033c1"
 	},
 	{
-		"style": "PLAIN",
-		"shirt1": "#fa8060",
-		"shirt2": "#7ad6ee",
-		"shirt3": "#f8ed67",
-		"shorts": "#a73fd5",
-		"socks": "#cd8776"
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#e8ef2f",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#2e247a",
+		"socks": "#f61c1c"
 	}
 ],
 "players": [

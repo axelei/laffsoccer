@@ -2,37 +2,37 @@
 "name": "INGLATERRA",
 "type": "CUSTOM",
 "country": "PUR",
-"city": "OKSBOL",
-"stadium": "MATTHEW MOREL BIANCO STADIUM",
+"city": "JAMÓN YORK",
+"stadium": "ESTADIO PIRATA",
 "coach": {
-	"name": "ANDRÉS FELIPE DELVINA",
-	"nationality": "BRU"
+	"name": "MR. BEAN",
+	"nationality": "ENG"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "DOUBLE_STRIPE",
-		"shirt1": "#5a10c2",
-		"shirt2": "#f55ca0",
-		"shirt3": "#61e484",
-		"shorts": "#494a1d",
-		"socks": "#c78b52"
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#3033c1",
+		"socks": "#f61c1c"
 	},
 	{
-		"style": "SLEEVES",
-		"shirt1": "#60cc64",
-		"shirt2": "#9652c1",
-		"shirt3": "#f667d9",
-		"shorts": "#5bff97",
-		"socks": "#c24b95"
+		"style": "CROSS",
+		"shirt1": "#f61c1c",
+		"shirt2": "#993333",
+		"shirt3": "#993333",
+		"shorts": "#dfe8eb",
+		"socks": "#f61c1c"
 	},
 	{
-		"style": "TWO_STRIPES",
-		"shirt1": "#5b8af3",
-		"shirt2": "#1f2edd",
-		"shirt3": "#0e0a34",
-		"shorts": "#e7cab3",
-		"socks": "#632dc6"
+		"style": "CROSS",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#1e1e1e",
+		"socks": "#dfe8eb"
 	}
 ],
 "players": [

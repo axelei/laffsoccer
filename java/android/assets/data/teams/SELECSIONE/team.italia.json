@@ -2,43 +2,43 @@
 "name": "ITALIA",
 "type": "CUSTOM",
 "country": "SEY",
-"city": "STERLING HEIGHTS",
-"stadium": "CARBONNARA",
+"city": "MONZA",
+"stadium": "AUTODROMO NAZIONALE DI MONZA",
 "coach": {
-	"name": "ALEKSANDAR LEFÈVRE ALVES",
-	"nationality": "MGL"
+	"name": "ENZO FERRARI",
+	"nationality": "ITA"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "CROSS",
-		"shirt1": "#b59f3b",
-		"shirt2": "#356b63",
-		"shirt3": "#395ca5",
-		"shorts": "#27670d",
-		"socks": "#3b618a"
+		"style": "PLAIN",
+		"shirt1": "#417039",
+		"shirt2": "#2e247a",
+		"shirt3": "#2e247a",
+		"shorts": "#417039",
+		"socks": "#417039"
 	},
 	{
-		"style": "DIAGONAL",
-		"shirt1": "#cc9fa4",
-		"shirt2": "#d93f3f",
-		"shirt3": "#37f69b",
-		"shorts": "#e01995",
-		"socks": "#827366"
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
 	},
 	{
-		"style": "SLEEVES",
-		"shirt1": "#0de02c",
-		"shirt2": "#e47a97",
-		"shirt3": "#921c2c",
-		"shorts": "#2d649c",
-		"socks": "#8907c7"
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#417039",
+		"shirt3": "#417039",
+		"shorts": "#417039",
+		"socks": "#a31212"
 	}
 ],
 "players": [
 	{
-		"name": "ARTIOM ANTUNES VASSILJEV",
-		"shirtName": "VASSILJEV A.",
+		"name": "CARBONARA",
+		"shirtName": "CARBONARA",
 		"nationality": "ARG",
 		"role": "GOALKEEPER",
 		"number": 10,
@@ -48,12 +48,12 @@
 		"value": 23
 	},
 	{
-		"name": "KOBE EDER",
-		"shirtName": "KOBE EDER",
+		"name": "BOLOGNESSE",
+		"shirtName": "BOLOGNESSE",
 		"nationality": "BHR",
 		"role": "DEFENDER",
 		"number": 13,
-		"skinColor": "ALIEN",
+		"skinColor": "BLACK",
 		"hairColor": "PUNK_FUCHSIA",
 		"hairStyle": "BALD_B",
 		"skills": {
@@ -76,7 +76,7 @@
 		"nationality": "FRO",
 		"role": "MIDFIELDER",
 		"number": 11,
-		"skinColor": "ARAB",
+		"skinColor": "MULATTO",
 		"hairColor": "GRAY",
 		"hairStyle": "SHAVED",
 		"skills": {
@@ -149,7 +149,7 @@
 		"nationality": "MSR",
 		"role": "RIGHT_BACK",
 		"number": 8,
-		"skinColor": "ALIEN",
+		"skinColor": "MULATTO",
 		"hairColor": "PLATINUM",
 		"hairStyle": "BALD_A",
 		"skills": {
@@ -171,7 +171,7 @@
 		"nationality": "PRK",
 		"role": "LEFT_BACK",
 		"number": 6,
-		"skinColor": "ALIEN",
+		"skinColor": "RED",
 		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_D",
 		"skills": {
@@ -194,7 +194,7 @@
 		"nationality": "TUR",
 		"role": "MIDFIELDER",
 		"number": 3,
-		"skinColor": "BLACK",
+		"skinColor": "RED",
 		"hairColor": "RED",
 		"hairStyle": "THINNING_B",
 		"skills": {
@@ -221,7 +221,7 @@
 		"nationality": "STP",
 		"role": "LEFT_WINGER",
 		"number": 18,
-		"skinColor": "PALE",
+		"skinColor": "PINK",
 		"hairColor": "PLATINUM",
 		"hairStyle": "SPECIAL_A",
 		"skills": {
@@ -296,7 +296,7 @@
 		"nationality": "MAC",
 		"role": "GOALKEEPER",
 		"number": 21,
-		"skinColor": "ALIEN",
+		"skinColor": "MULATTO",
 		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_D",
 		"value": 16
@@ -356,7 +356,7 @@
 		"nationality": "PAR",
 		"role": "LEFT_BACK",
 		"number": 20,
-		"skinColor": "BLACK",
+		"skinColor": "RED",
 		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_B",
 		"skills": {
@@ -453,7 +453,7 @@
 		"nationality": "SWZ",
 		"role": "RIGHT_WINGER",
 		"number": 1,
-		"skinColor": "ALIEN",
+		"skinColor": "RED",
 		"hairColor": "WHITE",
 		"hairStyle": "PIGTAIL_B",
 		"skills": {
@@ -478,7 +478,7 @@
 		"nationality": "KSA",
 		"role": "MIDFIELDER",
 		"number": 15,
-		"skinColor": "BLACK",
+		"skinColor": "RED",
 		"hairColor": "PLATINUM",
 		"hairStyle": "BALD_A",
 		"skills": {

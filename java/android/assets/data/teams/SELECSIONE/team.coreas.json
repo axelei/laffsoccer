@@ -2,59 +2,59 @@
 "name": "COREA DEL SUR",
 "type": "CUSTOM",
 "country": "CUB",
-"city": "HUNDESTED",
-"stadium": "HUNDESTED",
+"city": "KAH WEN TO",
+"stadium": "BLIZZARD ARENA",
 "coach": {
-	"name": "FILIP GENTILE",
-	"nationality": "GRE"
+	"name": "STARCRAFT",
+	"nationality": "KOR"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "CROSS",
-		"shirt1": "#883aba",
-		"shirt2": "#2f6d49",
-		"shirt3": "#95c1dd",
-		"shorts": "#0ecdf3",
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#1e1e1e",
 		"socks": "#bc1163"
 	},
 	{
 		"style": "SIDE_LINES",
-		"shirt1": "#21c313",
-		"shirt2": "#08d5c9",
-		"shirt3": "#bf0500",
-		"shorts": "#b7d1a9",
-		"socks": "#984f69"
+		"shirt1": "#dfe8eb",
+		"shirt2": "#a31212",
+		"shirt3": "#a31212",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
 	},
 	{
-		"style": "BAND",
-		"shirt1": "#7ed41d",
-		"shirt2": "#782972",
-		"shirt3": "#f998ce",
-		"shorts": "#8b1eef",
-		"socks": "#6a16bf"
+		"style": "DOUBLE_STRIPE",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#f61c1c",
+		"socks": "#3033c1"
 	}
 ],
 "players": [
 	{
-		"name": "JUAN POULSEN",
-		"shirtName": "JUAN POULSEN",
+		"name": "SSANG YONG",
+		"shirtName": "SSANG Y.",
 		"nationality": "SAM",
 		"role": "GOALKEEPER",
 		"number": 7,
-		"skinColor": "ALIEN",
-		"hairColor": "GRAY",
-		"hairStyle": "SPECIAL_G",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_H",
 		"value": 14
 	},
 	{
-		"name": "HARRY BAUMGARTNER MEHMETI",
-		"shirtName": "HARRY",
+		"name": "DAIKIN",
+		"shirtName": "DAIKIN",
 		"nationality": "MTN",
 		"role": "LEFT_BACK",
 		"number": 19,
-		"skinColor": "PINK",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "PIGTAIL_C",
 		"skills": {
 			"passing": 3,
@@ -74,13 +74,13 @@
 		]
 	},
 	{
-		"name": "JOÃO LUCAS MEHMETI BRUNNER",
-		"shirtName": "J. BRUNNER",
+		"name": "HANKOOK",
+		"shirtName": "HANKOOK",
 		"nationality": "MDV",
 		"role": "LEFT_WINGER",
 		"number": 13,
-		"skinColor": "PALE",
-		"hairColor": "RED",
+		"skinColor": "ASIATIC",
+		"hairColor": "GRAY",
 		"hairStyle": "CURLY_C",
 		"skills": {
 			"passing": 3,
@@ -100,8 +100,8 @@
 		]
 	},
 	{
-		"name": "ALEJANDRO KOLA GREEN",
-		"shirtName": "GREEN",
+		"name": "TAEKWONDO",
+		"shirtName": "TAEKWONDO",
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 4,
@@ -126,8 +126,8 @@
 		]
 	},
 	{
-		"name": "ŞTEFAN CHAMI BLANCO",
-		"shirtName": "Ş. CHAMI",
+		"name": "STARCRAFT",
+		"shirtName": "STARCRAFT",
 		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 1,
@@ -149,12 +149,12 @@
 		]
 	},
 	{
-		"name": "JACOB ALONSO",
-		"shirtName": "JACOB ALONSO",
+		"name": "SANYO",
+		"shirtName": "SANYO",
 		"nationality": "SRB",
 		"role": "MIDFIELDER",
 		"number": 6,
-		"skinColor": "ALIEN",
+		"skinColor": "ASIATIC",
 		"hairColor": "BLACK",
 		"hairStyle": "THINNING_A",
 		"skills": {
@@ -176,13 +176,13 @@
 		]
 	},
 	{
-		"name": "MATTHEW LAURENT",
-		"shirtName": "LAURENT M.",
+		"name": "KYMCO",
+		"shirtName": "KYMCO",
 		"nationality": "JOR",
 		"role": "DEFENDER",
 		"number": 3,
-		"skinColor": "ALIEN",
-		"hairColor": "BLOND",
+		"skinColor": "ASIATIC",
+		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_N",
 		"skills": {
 			"passing": 2,
@@ -202,13 +202,13 @@
 		]
 	},
 	{
-		"name": "VUSAL LAMBERT",
-		"shirtName": "VUSAL LAMBERT",
+		"name": "HYOSUNG",
+		"shirtName": "HYOSUNG",
 		"nationality": "ZIM",
 		"role": "RIGHT_WINGER",
 		"number": 2,
-		"skinColor": "ARAB",
-		"hairColor": "BLACK",
+		"skinColor": "ASIATIC",
+		"hairColor": "GRAY",
 		"hairStyle": "CURLY_B",
 		"skills": {
 			"passing": 4,
@@ -226,13 +226,13 @@
 		]
 	},
 	{
-		"name": "ELCHIN GIORDANO",
-		"shirtName": "ELCHIN",
+		"name": "DAEWOO",
+		"shirtName": "DAEWOO",
 		"nationality": "CTA",
 		"role": "RIGHT_BACK",
 		"number": 18,
-		"skinColor": "MULATTO",
-		"hairColor": "RED",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 4,
@@ -248,13 +248,13 @@
 		]
 	},
 	{
-		"name": "NOAH LARSEN",
-		"shirtName": "NOAH LARSEN",
+		"name": "HYUNDAI",
+		"shirtName": "HYUNDAI",
 		"nationality": "SUI",
 		"role": "MIDFIELDER",
 		"number": 12,
-		"skinColor": "MULATTO",
-		"hairColor": "WHITE",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "PIGTAIL_A",
 		"skills": {
 			"passing": 4,
@@ -273,13 +273,13 @@
 		]
 	},
 	{
-		"name": "NAREK MARIANI MUÑOZ",
-		"shirtName": "NAREK",
+		"name": "SAMSUNG",
+		"shirtName": "SAMSUNG",
 		"nationality": "PER",
 		"role": "DEFENDER",
 		"number": 5,
-		"skinColor": "PINK",
-		"hairColor": "PLATINUM",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 4,
@@ -299,15 +299,29 @@
 		]
 	},
 	{
-		"name": "DÁNIEL ROMERO",
-		"shirtName": "DÁNIEL ROMERO",
-		"nationality": "CTA",
-		"role": "GOALKEEPER",
-		"number": 16,
-		"skinColor": "ALIEN",
-		"hairColor": "PUNK_FUCHSIA",
-		"hairStyle": "CURLY_D",
-		"value": 28
+		"name": "FILIP MARTINO",
+		"shirtName": "FILIP MARTINO",
+		"nationality": "NAM",
+		"role": "RIGHT_BACK",
+		"number": 17,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "PIGTAIL_B",
+		"skills": {
+			"passing": 6,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 4,
+			"control": 5,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"CONTROL",
+			"SHOOTING",
+			"PASSING"
+		]
 	},
 	{
 		"name": "MARC MEHMETI",
@@ -315,8 +329,8 @@
 		"nationality": "URU",
 		"role": "MIDFIELDER",
 		"number": 21,
-		"skinColor": "ALIEN",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_L",
 		"skills": {
 			"passing": 2,
@@ -339,8 +353,8 @@
 		"nationality": "BFA",
 		"role": "MIDFIELDER",
 		"number": 10,
-		"skinColor": "MULATTO",
-		"hairColor": "GRAY",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_G",
 		"skills": {
 			"passing": 3,
@@ -364,8 +378,8 @@
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 20,
-		"skinColor": "ARAB",
-		"hairColor": "PLATINUM",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "CURLY_E",
 		"skills": {
 			"passing": 1,
@@ -389,8 +403,8 @@
 		"nationality": "LAO",
 		"role": "RIGHT_BACK",
 		"number": 14,
-		"skinColor": "ALIEN",
-		"hairColor": "RED",
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 4,
@@ -408,126 +422,6 @@
 			"HEADING",
 			"SHOOTING",
 			"TACKLING"
-		]
-	},
-	{
-		"name": "FILIP MARTINO",
-		"shirtName": "FILIP MARTINO",
-		"nationality": "NAM",
-		"role": "RIGHT_BACK",
-		"number": 17,
-		"skinColor": "ALIEN",
-		"hairColor": "PUNK_FUCHSIA",
-		"hairStyle": "PIGTAIL_B",
-		"skills": {
-			"passing": 6,
-			"shooting": 3,
-			"heading": 2,
-			"tackling": 4,
-			"control": 5,
-			"speed": 3,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"SPEED",
-			"CONTROL",
-			"SHOOTING",
-			"PASSING"
-		]
-	},
-	{
-		"name": "MATEO EGGER VÁZQUEZ",
-		"shirtName": "E. VÁZQUEZ",
-		"nationality": "GUA",
-		"role": "RIGHT_BACK",
-		"number": 8,
-		"skinColor": "BLACK",
-		"hairColor": "RED",
-		"hairStyle": "SMOOTH_P",
-		"skills": {
-			"passing": 3,
-			"shooting": 2,
-			"heading": 5,
-			"tackling": 5,
-			"control": 3,
-			"speed": 4,
-			"finishing": 3
-		},
-		"bestSkills": []
-	},
-	{
-		"name": "ALEXANDER DOMÍNGUEZ VIEIRAGARCÍA",
-		"shirtName": "DOMÍNGUEZ A.",
-		"nationality": "GRE",
-		"role": "LEFT_BACK",
-		"number": 9,
-		"skinColor": "PINK",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SPECIAL_D",
-		"skills": {
-			"passing": 4,
-			"shooting": 1,
-			"heading": 2,
-			"tackling": 3,
-			"control": 4,
-			"speed": 4,
-			"finishing": 1
-		},
-		"bestSkills": [
-			"TACKLING",
-			"FINISHING",
-			"CONTROL",
-			"PASSING",
-			"HEADING"
-		]
-	},
-	{
-		"name": "WILLIAM HALILI COSTA",
-		"shirtName": "WILLIAM C.",
-		"nationality": "MTN",
-		"role": "LEFT_BACK",
-		"number": 11,
-		"skinColor": "ARAB",
-		"hairColor": "BLOND",
-		"hairStyle": "THINNING_B",
-		"skills": {
-			"passing": 5,
-			"shooting": 2,
-			"heading": 1,
-			"tackling": 3,
-			"control": 3,
-			"speed": 4,
-			"finishing": 3
-		},
-		"bestSkills": [
-			"TACKLING",
-			"CONTROL",
-			"PASSING",
-			"HEADING",
-			"FINISHING",
-			"SHOOTING"
-		]
-	},
-	{
-		"name": "TOMÁS NUNES MARINO",
-		"shirtName": "TOMÁS",
-		"nationality": "YEM",
-		"role": "LEFT_WINGER",
-		"number": 15,
-		"skinColor": "PINK",
-		"hairColor": "RED",
-		"hairStyle": "SPECIAL_C",
-		"skills": {
-			"passing": 3,
-			"shooting": 3,
-			"heading": 2,
-			"tackling": 3,
-			"control": 3,
-			"speed": 3,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"SPEED"
 		]
 	}
 ]
