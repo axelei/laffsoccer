@@ -1,0 +1,407 @@
+{
+"name": "FRANCIA",
+"type": "CUSTOM",
+"country": "KAZ",
+"city": "ALICANTE",
+"stadium": "OMELETTE DU FROMAGE",
+"coach": {
+	"name": "POMME DE TERRE",
+	"nationality": "FRA"
+},
+"tactics": "4-3-3",
+"kits": [
+	{
+		"style": "ARMBAND",
+		"shirt1": "#2e247a",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#dfe8eb",
+		"socks": "#f61c1c"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#bcefee",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#3033c1",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "SPICE",
+		"shirt1": "#3033c1",
+		"shirt2": "#a31212",
+		"shirt3": "#a31212",
+		"shorts": "#dfe8eb",
+		"socks": "#3033c1"
+	}
+],
+"players": [
+	{
+		"name": "CROISSANT",
+		"shirtName": "CROISSANT",
+		"nationality": "DMA",
+		"role": "GOALKEEPER",
+		"number": 13,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_E",
+		"value": 14
+	},
+	{
+		"name": "SOUFFLÉ",
+		"shirtName": "SOUFFLÉ",
+		"nationality": "ARU",
+		"role": "RIGHT_BACK",
+		"number": 3,
+		"skinColor": "MULATTO",
+		"hairColor": "PUNK_BLOND",
+		"hairStyle": "SMOOTH_N",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 6,
+			"control": 5,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "CAN CAN",
+		"shirtName": "CANCAN",
+		"nationality": "FRA",
+		"role": "DEFENDER",
+		"number": 2,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 6,
+			"control": 4,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"FINISHING",
+			"SHOOTING",
+			"CONTROL",
+			"PASSING"
+		]
+	},
+	{
+		"name": "TORRE EIFFEL",
+		"shirtName": "T. EIFFEL",
+		"nationality": "GER",
+		"role": "MIDFIELDER",
+		"number": 9,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 5,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"PASSING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "BAGUETTE",
+		"shirtName": "BAGUETTE",
+		"nationality": "IDN",
+		"role": "RIGHT_WINGER",
+		"number": 8,
+		"skinColor": "PALE",
+		"hairColor": "GRAY",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"FINISHING",
+			"CONTROL",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "DÉJÀ-VU",
+		"shirtName": "DÉJÀ-VU",
+		"nationality": "SOL",
+		"role": "RIGHT_BACK",
+		"number": 10,
+		"skinColor": "PINK",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_H",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 5,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED",
+			"TACKLING",
+			"HEADING",
+			"SHOOTING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "LÈ GRILLÊ",
+		"shirtName": "GRILLÉ",
+		"nationality": "UGA",
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_N",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 5,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"PASSING"
+		]
+	},
+	{
+		"name": "C'EST LA VIE",
+		"shirtName": "SELAVÍ",
+		"nationality": "BRB",
+		"role": "RIGHT_BACK",
+		"number": 5,
+		"skinColor": "RED",
+		"hairColor": "BLOND",
+		"hairStyle": "CURLY_E",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL",
+			"SHOOTING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "ROCOCÓ",
+		"shirtName": "ROCOCÓ",
+		"nationality": "STP",
+		"role": "MIDFIELDER",
+		"number": 11,
+		"skinColor": "MULATTO",
+		"hairColor": "BROWN",
+		"hairStyle": "PIGTAIL_C",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 5,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"HEADING",
+			"TACKLING",
+			"CONTROL",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "OH-LALÁ",
+		"shirtName": "OH-LALÁ",
+		"nationality": "CRC",
+		"role": "LEFT_WINGER",
+		"number": 12,
+		"skinColor": "MULATTO",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 5,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"HEADING",
+			"SPEED",
+			"CONTROL",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "CAFÉ OU LAIT",
+		"shirtName": "CAFÉ OLÉ",
+		"nationality": "WAL",
+		"role": "DEFENDER",
+		"number": 15,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_G",
+		"skills": {
+			"passing": 4,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"SHOOTING",
+			"TACKLING",
+			"FINISHING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "CREPERIÉ",
+		"shirtName": "CREPERIÉ",
+		"nationality": "SVK",
+		"role": "GOALKEEPER",
+		"number": 6,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_J",
+		"value": 25
+	},
+	{
+		"name": "PARABRÍS",
+		"shirtName": "PARABRÍS",
+		"nationality": "LIB",
+		"role": "MIDFIELDER",
+		"number": 19,
+		"skinColor": "ARAB",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"CONTROL"
+		]
+	},
+	{
+		"name": "DANIEL CATTANEO TEIXEIRA",
+		"shirtName": "CATTANEO",
+		"nationality": "MTN",
+		"role": "MIDFIELDER",
+		"number": 4,
+		"skinColor": "BLACK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_G",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 2,
+			"control": 5,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "AYKHAN JIM�NEZ MONTANARI",
+		"shirtName": "AYKHAN",
+		"nationality": "SVK",
+		"role": "RIGHT_WINGER",
+		"number": 18,
+		"skinColor": "ASIATIC",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 4,
+			"control": 2,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "HUGO BARDHIGRUBER �LVAREZ",
+		"shirtName": "B. HUGO",
+		"nationality": "GUY",
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "RED",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_O",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 5,
+			"control": 4,
+			"speed": 1,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING",
+			"HEADING",
+			"CONTROL",
+			"TACKLING"
+		]
+	}
+]
+}
