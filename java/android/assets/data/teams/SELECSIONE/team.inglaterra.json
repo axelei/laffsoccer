@@ -37,19 +37,19 @@
 ],
 "players": [
 	{
-		"name": "DRAGAN ABAZI",
-		"shirtName": "DRAGAN ABAZI",
+		"name": "JAMES BOND",
+		"shirtName": "J.B. 007",
 		"nationality": "BDI",
 		"role": "GOALKEEPER",
 		"number": 5,
 		"skinColor": "PALE",
-		"hairColor": "PLATINUM",
+		"hairColor": "BLACK",
 		"hairStyle": "CURLY_A",
 		"value": 16
 	},
 	{
-		"name": "THOMAS ARAÚJO",
-		"shirtName": "THOMAS ARAÚJO",
+		"name": "RINGO STARR",
+		"shirtName": "R. STARR",
 		"nationality": "ANG",
 		"role": "RIGHT_BACK",
 		"number": 6,
@@ -75,13 +75,13 @@
 		]
 	},
 	{
-		"name": "WILLIAM PRIFTI GRASSI",
-		"shirtName": "PRIFTI GRASSI",
+		"name": "PAUL MCCARTNEY",
+		"shirtName": "MCCARTNEY",
 		"nationality": "EGY",
 		"role": "LEFT_BACK",
 		"number": 21,
 		"skinColor": "ARAB",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "SHORT_C",
 		"skills": {
 			"passing": 1,
@@ -99,13 +99,13 @@
 		]
 	},
 	{
-		"name": "TOMÁS RUSSO AUER",
-		"shirtName": "TOMÁS",
+		"name": "JOHN LENNON",
+		"shirtName": "LENNON",
 		"nationality": "ETH",
 		"role": "LEFT_BACK",
 		"number": 10,
 		"skinColor": "RED",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 4,
@@ -126,8 +126,8 @@
 		]
 	},
 	{
-		"name": "RAPHAEL TEIXEIRA",
-		"shirtName": "RAPHAEL T.",
+		"name": "ROGER WATERS",
+		"shirtName": "R. WATERS",
 		"nationality": "BUL",
 		"role": "MIDFIELDER",
 		"number": 17,
@@ -151,8 +151,8 @@
 		]
 	},
 	{
-		"name": "MIGUEL ROBINSON BAUER",
-		"shirtName": "M. ROBINSON",
+		"name": "ERIC CLAPTON",
+		"shirtName": "E. CLAPTON",
 		"nationality": "MRI",
 		"role": "LEFT_BACK",
 		"number": 19,
@@ -171,8 +171,8 @@
 		"bestSkills": []
 	},
 	{
-		"name": "BEN RODRIGUES",
-		"shirtName": "BEN RODRIGUES",
+		"name": "AUSTIN POWERS",
+		"shirtName": "A. POWERS",
 		"nationality": "NCL",
 		"role": "DEFENDER",
 		"number": 1,
@@ -196,8 +196,8 @@
 		]
 	},
 	{
-		"name": "SZYMON SALA",
-		"shirtName": "SZYMON SALA",
+		"name": "TOM YORKE",
+		"shirtName": "RADIOHEAD",
 		"nationality": "GIB",
 		"role": "RIGHT_BACK",
 		"number": 9,
@@ -223,12 +223,12 @@
 		]
 	},
 	{
-		"name": "RAYAN BAUER",
-		"shirtName": "RAYAN BAUER",
+		"name": "ELTON JOHN",
+		"shirtName": "ELTON T.",
 		"nationality": "GUA",
 		"role": "RIGHT_BACK",
 		"number": 15,
-		"skinColor": "ASIATIC",
+		"skinColor": "MULATTO",
 		"hairColor": "BLOND",
 		"hairStyle": "SPECIAL_E",
 		"skills": {
@@ -248,8 +248,8 @@
 		]
 	},
 	{
-		"name": "ELIJAH GALLO",
-		"shirtName": "ELIJAH GALLO",
+		"name": "DAVID BOWIE",
+		"shirtName": "BOWIE",
 		"nationality": "MRI",
 		"role": "LEFT_BACK",
 		"number": 4,
@@ -271,8 +271,8 @@
 		]
 	},
 	{
-		"name": "LIAM ARAÚJO",
-		"shirtName": "LIAM ARAÚJO",
+		"name": "IGGY POP",
+		"shirtName": "IGGY POP",
 		"nationality": "TAH",
 		"role": "DEFENDER",
 		"number": 13,
@@ -294,25 +294,25 @@
 		]
 	},
 	{
-		"name": "DAVID GIRARD",
-		"shirtName": "DAVID GIRARD",
+		"name": "FREDDIE MERCURY",
+		"shirtName": "F. MERCURY",
 		"nationality": "MAC",
 		"role": "GOALKEEPER",
 		"number": 11,
-		"skinColor": "MULATTO",
-		"hairColor": "PUNK_FUCHSIA",
-		"hairStyle": "THINNING_A",
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_B",
 		"value": 15
 	},
 	{
-		"name": "JORDI PETERSEN KRISTENSEN",
-		"shirtName": "PETERSEN JORDI",
+		"name": "ALI G",
+		"shirtName": "ALI G",
 		"nationality": "SSD",
 		"role": "RIGHT_WINGER",
 		"number": 12,
-		"skinColor": "MULATTO",
+		"skinColor": "PINK",
 		"hairColor": "PLATINUM",
-		"hairStyle": "THINNING_A",
+		"hairStyle": "THINNING_B",
 		"skills": {
 			"passing": 1,
 			"shooting": 3,

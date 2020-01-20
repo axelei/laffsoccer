@@ -5,7 +5,7 @@
 "city": "MONZA",
 "stadium": "AUTODROMO NAZIONALE DI MONZA",
 "coach": {
-	"name": "ENZO FERRARI",
+	"name": "SILVIO BERLUSCONI",
 	"nationality": "ITA"
 },
 "tactics": "4-4-2",
@@ -48,14 +48,14 @@
 		"value": 23
 	},
 	{
-		"name": "BOLOGNESSE",
-		"shirtName": "BOLOGNESSE",
+		"name": "BOLOGNESE",
+		"shirtName": "BOLOGNESE",
 		"nationality": "BHR",
 		"role": "DEFENDER",
 		"number": 13,
-		"skinColor": "BLACK",
-		"hairColor": "PUNK_FUCHSIA",
-		"hairStyle": "BALD_B",
+		"skinColor": "PALE",
+		"hairColor": "PUNK_BLOND",
+		"hairStyle": "CURLY_A",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
@@ -71,8 +71,8 @@
 		]
 	},
 	{
-		"name": "MARTI SERRA",
-		"shirtName": "MARTI SERRA",
+		"name": "TAGLIATELLE",
+		"shirtName": "TAGLIATELLE",
 		"nationality": "FRO",
 		"role": "MIDFIELDER",
 		"number": 11,
@@ -95,12 +95,12 @@
 		]
 	},
 	{
-		"name": "JACOB MATOS IGLESIASSMITH",
-		"shirtName": "JACOB MATOS",
+		"name": "PASTA DI PESTO DI PASTA",
+		"shirtName": "PESTO",
 		"nationality": "DEN",
 		"role": "MIDFIELDER",
 		"number": 5,
-		"skinColor": "ASIATIC",
+		"skinColor": "ARAB",
 		"hairColor": "BLACK",
 		"hairStyle": "PIGTAIL_A",
 		"skills": {
@@ -121,13 +121,13 @@
 		]
 	},
 	{
-		"name": "NOAH PETERSEN",
-		"shirtName": "NOAH PETERSEN",
+		"name": "RICOTTA",
+		"shirtName": "RICOTTA",
 		"nationality": "ISR",
 		"role": "LEFT_BACK",
 		"number": 2,
 		"skinColor": "ARAB",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "CURLY_F",
 		"skills": {
 			"passing": 3,
@@ -144,13 +144,13 @@
 		]
 	},
 	{
-		"name": "IAN FERRARA",
-		"shirtName": "IAN FERRARA",
+		"name": "TONY SOPRANO",
+		"shirtName": "T. SOPRANO",
 		"nationality": "MSR",
 		"role": "RIGHT_BACK",
 		"number": 8,
 		"skinColor": "MULATTO",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "BALD_A",
 		"skills": {
 			"passing": 3,
@@ -166,8 +166,8 @@
 		]
 	},
 	{
-		"name": "LIAM WALKER",
-		"shirtName": "LIAM WALKER",
+		"name": "QUATRO STAGIONI",
+		"shirtName": "Q. STAGIONI",
 		"nationality": "PRK",
 		"role": "LEFT_BACK",
 		"number": 6,
@@ -189,8 +189,8 @@
 		]
 	},
 	{
-		"name": "MATÍAS DE ANGELIS AIGNER",
-		"shirtName": "MATÍAS",
+		"name": "DR. ÖEKTER",
+		"shirtName": "ÖEKTER",
 		"nationality": "TUR",
 		"role": "MIDFIELDER",
 		"number": 3,
@@ -216,13 +216,13 @@
 		]
 	},
 	{
-		"name": "MARKUSS SHEHU",
-		"shirtName": "MARKUSS SHEHU",
+		"name": "FERRUCCIO LAMBORGHINI",
+		"shirtName": "LAMBORGHINI",
 		"nationality": "STP",
 		"role": "LEFT_WINGER",
 		"number": 18,
 		"skinColor": "PINK",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 4,
@@ -239,13 +239,13 @@
 		]
 	},
 	{
-		"name": "LOUIS ROBERT NEVES",
-		"shirtName": "NEVES LOUIS",
+		"name": "CASADIMAMMA",
+		"shirtName": "CASADIMAMMA",
 		"nationality": "NIG",
 		"role": "RIGHT_WINGER",
 		"number": 16,
 		"skinColor": "PINK",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "CURLY_E",
 		"skills": {
 			"passing": 5,
@@ -266,8 +266,8 @@
 		]
 	},
 	{
-		"name": "IVAN HYSI COELHO",
-		"shirtName": "IVAN H.",
+		"name": "ENZO FERRARI",
+		"shirtName": "FERRARI",
 		"nationality": "SBM",
 		"role": "RIGHT_BACK",
 		"number": 7,
@@ -291,8 +291,8 @@
 		]
 	},
 	{
-		"name": "SEBASTIÁN MONTANARI PIRES",
-		"shirtName": "PIRES",
+		"name": "GIGI D'AGOSTINO",
+		"shirtName": "D'AGOSTINO",
 		"nationality": "MAC",
 		"role": "GOALKEEPER",
 		"number": 21,
@@ -302,8 +302,8 @@
 		"value": 16
 	},
 	{
-		"name": "HENRI SILVA",
-		"shirtName": "HENRI SILVA",
+		"name": "MUSOLINNI",
+		"shirtName": "MUSOLINNI",
 		"nationality": "MKD",
 		"role": "RIGHT_BACK",
 		"number": 12,
@@ -326,8 +326,8 @@
 		]
 	},
 	{
-		"name": "GORAN MARTÍN BIANCHI",
-		"shirtName": "BIANCHI M.",
+		"name": "PORCA MISSERIA",
+		"shirtName": "P. MISSERIA",
 		"nationality": "TCA",
 		"role": "MIDFIELDER",
 		"number": 9,
@@ -351,8 +351,8 @@
 		]
 	},
 	{
-		"name": "UNAX CRUZ MATOS",
-		"shirtName": "MATOS U.",
+		"name": "VAFFANCULO",
+		"shirtName": "VAFFANCULO",
 		"nationality": "PAR",
 		"role": "LEFT_BACK",
 		"number": 20,
@@ -377,13 +377,13 @@
 		]
 	},
 	{
-		"name": "CHARLIE BRUNNER MORALES",
-		"shirtName": "MORALES C.",
+		"name": "GNOCCHI",
+		"shirtName": "GNOCCHI",
 		"nationality": "ARG",
 		"role": "DEFENDER",
 		"number": 14,
 		"skinColor": "ARAB",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BLOND",
 		"hairStyle": "CURLY_F",
 		"skills": {
 			"passing": 3,
@@ -399,13 +399,13 @@
 		]
 	},
 	{
-		"name": "ELIAS GATTI RUBIO",
-		"shirtName": "R. GATTI",
+		"name": "LASAGNA",
+		"shirtName": "LASAGNA",
 		"nationality": "POR",
 		"role": "RIGHT_WINGER",
 		"number": 17,
 		"skinColor": "PALE",
-		"hairColor": "PLATINUM",
+		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_F",
 		"skills": {
 			"passing": 2,
@@ -425,8 +425,8 @@
 		]
 	},
 	{
-		"name": "MATTHEW BASILE",
-		"shirtName": "MATTHEW BASILE",
+		"name": "FORNO DI PIETRA",
+		"shirtName": "DI PIETRA",
 		"nationality": "PLE",
 		"role": "DEFENDER",
 		"number": 4,
@@ -448,14 +448,14 @@
 		]
 	},
 	{
-		"name": "NICOLÁS BRUNNER",
-		"shirtName": "BRUNNER N.",
+		"name": "TUTTI FRUTTI",
+		"shirtName": "T. FRUTTI",
 		"nationality": "SWZ",
 		"role": "RIGHT_WINGER",
 		"number": 1,
 		"skinColor": "RED",
-		"hairColor": "WHITE",
-		"hairStyle": "PIGTAIL_B",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_A",
 		"skills": {
 			"passing": 2,
 			"shooting": 3,
@@ -470,52 +470,6 @@
 			"HEADING",
 			"FINISHING",
 			"PASSING"
-		]
-	},
-	{
-		"name": "JOVAN JORGENSEN",
-		"shirtName": "JOVAN J.",
-		"nationality": "KSA",
-		"role": "MIDFIELDER",
-		"number": 15,
-		"skinColor": "RED",
-		"hairColor": "PLATINUM",
-		"hairStyle": "BALD_A",
-		"skills": {
-			"passing": 2,
-			"shooting": 3,
-			"heading": 2,
-			"tackling": 3,
-			"control": 3,
-			"speed": 5,
-			"finishing": 3
-		},
-		"bestSkills": []
-	},
-	{
-		"name": "LEO SANTORO",
-		"shirtName": "LEO SANTORO",
-		"nationality": "VIE",
-		"role": "RIGHT_WINGER",
-		"number": 19,
-		"skinColor": "ARAB",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SMOOTH_E",
-		"skills": {
-			"passing": 3,
-			"shooting": 5,
-			"heading": 2,
-			"tackling": 1,
-			"control": 4,
-			"speed": 2,
-			"finishing": 3
-		},
-		"bestSkills": [
-			"HEADING",
-			"FINISHING",
-			"SPEED",
-			"CONTROL",
-			"TACKLING"
 		]
 	}
 ]
