@@ -1,7 +1,8 @@
 {
 "name": "SUECIA",
-"type": "CUSTOM",
-"country": "VIE",
+"type": "NATIONAL",
+"country": "SWE",
+"confederation": "UEFA",
 "city": "EYJAFJALLAJÖKULL",
 "stadium": "KÖTTBULLAR",
 "coach": {

@@ -1,7 +1,8 @@
 {
 "name": "TURQUÍA",
-"type": "CUSTOM",
-"country": "AND",
+"type": "NATIONAL",
+"country": "TUR",
+"confederation": "UEFA",
 "city": "TURKMENISTÁN",
 "stadium": "CAPILAR CENTER",
 "coach": {
@@ -39,7 +40,7 @@
 	{
 		"name": "WILSON GRECO MERCIER",
 		"shirtName": "WILSON GRECO",
-		"nationality": "NAM",
+		"nationality": "TUR",
 		"role": "GOALKEEPER",
 		"number": 8,
 		"skinColor": "PINK",
@@ -75,7 +76,7 @@
 	{
 		"name": "EETU BERGER",
 		"shirtName": "EETU BERGER",
-		"nationality": "GUY",
+		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 6,
 		"skinColor": "PINK",
@@ -97,7 +98,7 @@
 	{
 		"name": "MATHIAS FONTANA MOREL",
 		"shirtName": "MOREL",
-		"nationality": "BIH",
+		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 3,
 		"skinColor": "RED",
@@ -120,7 +121,7 @@
 	{
 		"name": "ERIK DELVINA ALONSO",
 		"shirtName": "ALONSO E.",
-		"nationality": "LUX",
+		"nationality": "TUR",
 		"role": "LEFT_BACK",
 		"number": 5,
 		"skinColor": "ALIEN",
@@ -144,7 +145,7 @@
 	{
 		"name": "SABA AUER HAAS",
 		"shirtName": "SABA AUER HAAS",
-		"nationality": "MKD",
+		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 2,
 		"skinColor": "ASIATIC",
@@ -166,7 +167,7 @@
 	{
 		"name": "ALEJANDRO DURAND",
 		"shirtName": "DURAND",
-		"nationality": "ETH",
+		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 11,
 		"skinColor": "MULATTO",
@@ -190,7 +191,7 @@
 	{
 		"name": "DÁNIEL THANASI RUIZ",
 		"shirtName": "DÁNIEL THANASI",
-		"nationality": "CUS",
+		"nationality": "TUR",
 		"role": "LEFT_BACK",
 		"number": 18,
 		"skinColor": "BLACK",
@@ -214,7 +215,7 @@
 	{
 		"name": "SERGEI SIMÕES",
 		"shirtName": "SERGEI SIMÕES",
-		"nationality": "NCA",
+		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 9,
 		"skinColor": "PINK",
@@ -241,7 +242,7 @@
 	{
 		"name": "SANTINO JONES",
 		"shirtName": "SANTINO JONES",
-		"nationality": "AFG",
+		"nationality": "TUR",
 		"role": "LEFT_BACK",
 		"number": 1,
 		"skinColor": "BLACK",
@@ -265,7 +266,7 @@
 	{
 		"name": "GUSTAVS VIEIRAGARCÍA",
 		"shirtName": "GUSTAVS V.",
-		"nationality": "VAN",
+		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 13,
 		"skinColor": "PALE",
@@ -289,7 +290,7 @@
 	{
 		"name": "MIGUEL ÁNGEL ROBERTS PELLEGRINI",
 		"shirtName": "MIGUEL",
-		"nationality": "TCA",
+		"nationality": "TUR",
 		"role": "GOALKEEPER",
 		"number": 12,
 		"skinColor": "ALIEN",
@@ -300,7 +301,7 @@
 	{
 		"name": "LUCAS ROBERT RODRÍGUEZ",
 		"shirtName": "R. LUCAS",
-		"nationality": "PLE",
+		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 15,
 		"skinColor": "BLACK",
@@ -320,7 +321,7 @@
 	{
 		"name": "WILLIAM JIMÉNEZ",
 		"shirtName": "WILLIAM",
-		"nationality": "UKR",
+		"nationality": "TUR",
 		"role": "RIGHT_BACK",
 		"number": 7,
 		"skinColor": "ALIEN",
@@ -343,7 +344,7 @@
 	{
 		"name": "ANGEL FERRARA",
 		"shirtName": "ANGEL FERRARA",
-		"nationality": "AUT",
+		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 17,
 		"skinColor": "ASIATIC",
@@ -363,7 +364,7 @@
 	{
 		"name": "MATYÁŠ BERNARDI",
 		"shirtName": "MATYÁŠ B.",
-		"nationality": "EQG",
+		"nationality": "TUR",
 		"role": "MIDFIELDER",
 		"number": 21,
 		"skinColor": "ASIATIC",

@@ -1,7 +1,8 @@
 {
 "name": "ITALIA",
-"type": "CUSTOM",
-"country": "SEY",
+"type": "NATIONAL",
+"country": "ITA",
+"confederation": "UEFA",
 "city": "MONZA",
 "stadium": "AUTODROMO NAZIONALE DI MONZA",
 "coach": {

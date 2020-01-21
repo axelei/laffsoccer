@@ -1,7 +1,8 @@
 {
 "name": "COLOMBIA",
-"type": "CUSTOM",
-"country": "LES",
+"type": "NATIONAL",
+"country": "COL",
+"confederation": "CONMEBOL",
 "city": "MEDELLÍN",
 "stadium": "MU GRANDE",
 "coach": {
@@ -39,7 +40,7 @@
 	{
 		"name": "HUGO HASANI FERNANDES",
 		"shirtName": "FERNANDES H.",
-		"nationality": "EQG",
+		"nationality": "COL",
 		"role": "GOALKEEPER",
 		"number": 5,
 		"skinColor": "MULATTO",
@@ -50,7 +51,7 @@
 	{
 		"name": "ALEKSANDRS MARTINI",
 		"shirtName": "ALEKSANDRS M.",
-		"nationality": "PRK",
+		"nationality": "COL",
 		"role": "DEFENDER",
 		"number": 2,
 		"skinColor": "MULATTO",
@@ -70,7 +71,7 @@
 	{
 		"name": "ANDY GOMES",
 		"shirtName": "ANDY GOMES",
-		"nationality": "ALG",
+		"nationality": "COL",
 		"role": "DEFENDER",
 		"number": 8,
 		"skinColor": "ASIATIC",
@@ -92,7 +93,7 @@
 	{
 		"name": "ALEKSANDAR BASILE MANCINI",
 		"shirtName": "MANCINI A.",
-		"nationality": "SWZ",
+		"nationality": "COL",
 		"role": "LEFT_WINGER",
 		"number": 13,
 		"skinColor": "ASIATIC",
@@ -117,7 +118,7 @@
 	{
 		"name": "BENJAMIN RAMÍREZ KUZNETSOV",
 		"shirtName": "B. RAMÍREZ",
-		"nationality": "CRC",
+		"nationality": "COL",
 		"role": "RIGHT_BACK",
 		"number": 12,
 		"skinColor": "ALIEN",
@@ -142,7 +143,7 @@
 	{
 		"name": "NIKOLA AZEVEDO MATOS",
 		"shirtName": "NIKOLA A.",
-		"nationality": "VEN",
+		"nationality": "COL",
 		"role": "LEFT_WINGER",
 		"number": 11,
 		"skinColor": "MULATTO",
@@ -166,7 +167,7 @@
 	{
 		"name": "UNAX CRUZ VITALEALMEIDA",
 		"shirtName": "U. VITALEALMEIDA",
-		"nationality": "VAN",
+		"nationality": "COL",
 		"role": "DEFENDER",
 		"number": 17,
 		"skinColor": "RED",
@@ -190,7 +191,7 @@
 	{
 		"name": "ARTJOMS MAYR CAPUTO",
 		"shirtName": "MAYR",
-		"nationality": "ROM",
+		"nationality": "COL",
 		"role": "RIGHT_BACK",
 		"number": 15,
 		"skinColor": "ASIATIC",
@@ -210,7 +211,7 @@
 	{
 		"name": "ALEKSANDER ROBERT HALL",
 		"shirtName": "ALEKSANDER",
-		"nationality": "TRI",
+		"nationality": "COL",
 		"role": "DEFENDER",
 		"number": 18,
 		"skinColor": "ASIATIC",
@@ -232,7 +233,7 @@
 	{
 		"name": "ALI JACKSON",
 		"shirtName": "ALI JACKSON",
-		"nationality": "HUN",
+		"nationality": "COL",
 		"role": "DEFENDER",
 		"number": 3,
 		"skinColor": "RED",
@@ -257,7 +258,7 @@
 	{
 		"name": "IOANNIS HANSEN",
 		"shirtName": "IOANNIS HANSEN",
-		"nationality": "GUM",
+		"nationality": "COL",
 		"role": "LEFT_BACK",
 		"number": 14,
 		"skinColor": "ARAB",
@@ -282,7 +283,7 @@
 	{
 		"name": "MARTIN SERRA",
 		"shirtName": "MARTIN SERRA",
-		"nationality": "BRU",
+		"nationality": "COL",
 		"role": "GOALKEEPER",
 		"number": 9,
 		"skinColor": "ASIATIC",
@@ -293,7 +294,7 @@
 	{
 		"name": "MIGUEL VILLA TEIXEIRA",
 		"shirtName": "TEIXEIRA",
-		"nationality": "LBY",
+		"nationality": "COL",
 		"role": "RIGHT_BACK",
 		"number": 7,
 		"skinColor": "RED",
@@ -320,7 +321,7 @@
 	{
 		"name": "NAREK ANDREJEV BIANCHI",
 		"shirtName": "B. NAREK",
-		"nationality": "ZAM",
+		"nationality": "COL",
 		"role": "RIGHT_BACK",
 		"number": 10,
 		"skinColor": "ALIEN",
@@ -345,7 +346,7 @@
 	{
 		"name": "JAKE LECHNER",
 		"shirtName": "JAKE LECHNER",
-		"nationality": "PNG",
+		"nationality": "COL",
 		"role": "MIDFIELDER",
 		"number": 16,
 		"skinColor": "ASIATIC",
@@ -365,7 +366,7 @@
 	{
 		"name": "CHARLIE LOMBARDO",
 		"shirtName": "LOMBARDO",
-		"nationality": "ASA",
+		"nationality": "COL",
 		"role": "LEFT_WINGER",
 		"number": 4,
 		"skinColor": "BLACK",
@@ -392,7 +393,7 @@
 	{
 		"name": "TOBIAS GIL",
 		"shirtName": "TOBIAS GIL",
-		"nationality": "ISL",
+		"nationality": "COL",
 		"role": "MIDFIELDER",
 		"number": 6,
 		"skinColor": "ARAB",
@@ -418,7 +419,7 @@
 	{
 		"name": "SERGEI ROMEO BIANCO",
 		"shirtName": "B. ROMEO",
-		"nationality": "KGZ",
+		"nationality": "COL",
 		"role": "DEFENDER",
 		"number": 1,
 		"skinColor": "ASIATIC",

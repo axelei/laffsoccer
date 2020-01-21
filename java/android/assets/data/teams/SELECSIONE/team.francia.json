@@ -1,7 +1,8 @@
 {
 "name": "FRANCIA",
-"type": "CUSTOM",
-"country": "KAZ",
+"type": "NATIONAL",
+"country": "FRA",
+"confederation": "UEFA",
 "city": "ALICANTE",
 "stadium": "OMELETTE DU FROMAGE",
 "coach": {

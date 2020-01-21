@@ -1,9 +1,10 @@
 {
 "name": "INGLATERRA",
-"type": "CUSTOM",
-"country": "PUR",
+"type": "NATIONAL",
+"country": "ENG",
+"confederation": "UEFA",
 "city": "JAMÓN YORK",
-"stadium": "ESTADIO PIRATA",
+"stadium": "BARCO PIRATA",
 "coach": {
 	"name": "MR. BEAN",
 	"nationality": "ENG"
@@ -39,7 +40,7 @@
 	{
 		"name": "JAMES BOND",
 		"shirtName": "J.B. 007",
-		"nationality": "BDI",
+		"nationality": "ENG",
 		"role": "GOALKEEPER",
 		"number": 5,
 		"skinColor": "PALE",
@@ -50,7 +51,7 @@
 	{
 		"name": "RINGO STARR",
 		"shirtName": "R. STARR",
-		"nationality": "ANG",
+		"nationality": "ENG",
 		"role": "RIGHT_BACK",
 		"number": 6,
 		"skinColor": "PINK",
@@ -77,7 +78,7 @@
 	{
 		"name": "PAUL MCCARTNEY",
 		"shirtName": "MCCARTNEY",
-		"nationality": "EGY",
+		"nationality": "ENG",
 		"role": "LEFT_BACK",
 		"number": 21,
 		"skinColor": "ARAB",
@@ -101,7 +102,7 @@
 	{
 		"name": "JOHN LENNON",
 		"shirtName": "LENNON",
-		"nationality": "ETH",
+		"nationality": "ENG",
 		"role": "LEFT_BACK",
 		"number": 10,
 		"skinColor": "RED",
@@ -128,7 +129,7 @@
 	{
 		"name": "ROGER WATERS",
 		"shirtName": "R. WATERS",
-		"nationality": "BUL",
+		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 17,
 		"skinColor": "MULATTO",
@@ -153,7 +154,7 @@
 	{
 		"name": "ERIC CLAPTON",
 		"shirtName": "E. CLAPTON",
-		"nationality": "MRI",
+		"nationality": "ENG",
 		"role": "LEFT_BACK",
 		"number": 19,
 		"skinColor": "PALE",
@@ -173,7 +174,7 @@
 	{
 		"name": "AUSTIN POWERS",
 		"shirtName": "A. POWERS",
-		"nationality": "NCL",
+		"nationality": "ENG",
 		"role": "DEFENDER",
 		"number": 1,
 		"skinColor": "ARAB",
@@ -198,7 +199,7 @@
 	{
 		"name": "TOM YORKE",
 		"shirtName": "RADIOHEAD",
-		"nationality": "GIB",
+		"nationality": "ENG",
 		"role": "RIGHT_BACK",
 		"number": 9,
 		"skinColor": "MULATTO",
@@ -225,7 +226,7 @@
 	{
 		"name": "ELTON JOHN",
 		"shirtName": "ELTON T.",
-		"nationality": "GUA",
+		"nationality": "ENG",
 		"role": "RIGHT_BACK",
 		"number": 15,
 		"skinColor": "MULATTO",
@@ -250,7 +251,7 @@
 	{
 		"name": "DAVID BOWIE",
 		"shirtName": "BOWIE",
-		"nationality": "MRI",
+		"nationality": "ENG",
 		"role": "LEFT_BACK",
 		"number": 4,
 		"skinColor": "PALE",
@@ -273,7 +274,7 @@
 	{
 		"name": "IGGY POP",
 		"shirtName": "IGGY POP",
-		"nationality": "TAH",
+		"nationality": "ENG",
 		"role": "DEFENDER",
 		"number": 13,
 		"skinColor": "ARAB",
@@ -296,7 +297,7 @@
 	{
 		"name": "FREDDIE MERCURY",
 		"shirtName": "F. MERCURY",
-		"nationality": "MAC",
+		"nationality": "ENG",
 		"role": "GOALKEEPER",
 		"number": 11,
 		"skinColor": "RED",
@@ -307,7 +308,7 @@
 	{
 		"name": "ALI G",
 		"shirtName": "ALI G",
-		"nationality": "SSD",
+		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 12,
 		"skinColor": "PINK",
@@ -334,7 +335,7 @@
 	{
 		"name": "ADRIÁN MADSEN",
 		"shirtName": "ADRIÁN MADSEN",
-		"nationality": "GHA",
+		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 3,
 		"skinColor": "ARAB",
@@ -361,7 +362,7 @@
 	{
 		"name": "LIAM JIMÉNEZ MOREAU",
 		"shirtName": "JIMÉNEZ",
-		"nationality": "ETH",
+		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 14,
 		"skinColor": "ASIATIC",
@@ -408,7 +409,7 @@
 	{
 		"name": "LUCAS RICHARD SCHUSTER",
 		"shirtName": "SCHUSTER R.",
-		"nationality": "SRB",
+		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 7,
 		"skinColor": "RED",
@@ -430,7 +431,7 @@
 	{
 		"name": "WOJCIECH DERVISHI BIANCO",
 		"shirtName": "BIANCO",
-		"nationality": "TUN",
+		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 20,
 		"skinColor": "ALIEN",
@@ -456,7 +457,7 @@
 	{
 		"name": "YUSUF JOHNSON SINANI",
 		"shirtName": "YUSUF SINANI",
-		"nationality": "UGA",
+		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 18,
 		"skinColor": "ASIATIC",
@@ -479,7 +480,7 @@
 	{
 		"name": "JUSTIN LEFÈVRE",
 		"shirtName": "JUSTIN LEFÈVRE",
-		"nationality": "EST",
+		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 16,
 		"skinColor": "ASIATIC",
@@ -503,7 +504,7 @@
 	{
 		"name": "ALESSANDRO WEBER",
 		"shirtName": "W. ALESSANDRO",
-		"nationality": "COL",
+		"nationality": "ENG",
 		"role": "DEFENDER",
 		"number": 8,
 		"skinColor": "BLACK",

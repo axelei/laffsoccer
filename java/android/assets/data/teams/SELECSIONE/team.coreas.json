@@ -1,7 +1,8 @@
 {
 "name": "COREA DEL SUR",
-"type": "CUSTOM",
-"country": "CUB",
+"type": "NATIONAL",
+"country": "KOR",
+"confederation": "AFC",
 "city": "KAH WEN TO",
 "stadium": "BLIZZARD ARENA",
 "coach": {

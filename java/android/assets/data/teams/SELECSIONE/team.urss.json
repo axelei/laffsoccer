@@ -1,12 +1,13 @@
 {
 "name": "U.R.S.S.",
-"type": "CUSTOM",
-"country": "IRL",
+"type": "NATIONAL",
+"country": "RUS",
+"confederation": "AFC",
 "city": "SEBASTOPOL",
 "stadium": "MÁSS NIEVE QUE EL COPÓNN",
 "coach": {
 	"name": "MIKHAIL GORBACHOV",
-	"nationality": "MAR"
+	"nationality": "RUS"
 },
 "tactics": "4-4-2",
 "kits": [
@@ -39,7 +40,7 @@
 	{
 		"name": "KALASHNIKOV",
 		"shirtName": "AK47",
-		"nationality": "ETH",
+		"nationality": "RUS",
 		"role": "GOALKEEPER",
 		"number": 12,
 		"skinColor": "MULATTO",
@@ -50,7 +51,7 @@
 	{
 		"name": "K. G. B.",
 		"shirtName": "K.G.B.",
-		"nationality": "BER",
+		"nationality": "RUS",
 		"role": "RIGHT_WINGER",
 		"number": 4,
 		"skinColor": "PALE",
@@ -70,7 +71,7 @@
 	{
 		"name": "SPUTNIK",
 		"shirtName": "SPUTNIK",
-		"nationality": "HKG",
+		"nationality": "RUS",
 		"role": "DEFENDER",
 		"number": 3,
 		"skinColor": "PALE",
@@ -93,7 +94,7 @@
 	{
 		"name": "MARTRYOSHKA",
 		"shirtName": "MATRYOSHKA",
-		"nationality": "TRI",
+		"nationality": "RUS",
 		"role": "LEFT_WINGER",
 		"number": 18,
 		"skinColor": "PALE",
@@ -120,7 +121,7 @@
 	{
 		"name": "TROIKA",
 		"shirtName": "TROIKA",
-		"nationality": "SLE",
+		"nationality": "RUS",
 		"role": "MIDFIELDER",
 		"number": 7,
 		"skinColor": "PALE",
@@ -147,7 +148,7 @@
 	{
 		"name": "VODKA",
 		"shirtName": "VODKA",
-		"nationality": "IND",
+		"nationality": "RUS",
 		"role": "LEFT_WINGER",
 		"number": 8,
 		"skinColor": "RED",
@@ -173,7 +174,7 @@
 	{
 		"name": "PERESTROIKA",
 		"shirtName": "PERESTROIKA",
-		"nationality": "AUT",
+		"nationality": "RUS",
 		"role": "RIGHT_WINGER",
 		"number": 2,
 		"skinColor": "PINK",
@@ -193,7 +194,7 @@
 	{
 		"name": "TETRIS",
 		"shirtName": "TETRIS",
-		"nationality": "THA",
+		"nationality": "RUS",
 		"role": "RIGHT_WINGER",
 		"number": 16,
 		"skinColor": "PALE",
@@ -218,7 +219,7 @@
 	{
 		"name": "TOVARISCH",
 		"shirtName": "TOVARISH",
-		"nationality": "GHA",
+		"nationality": "RUS",
 		"role": "LEFT_WINGER",
 		"number": 13,
 		"skinColor": "RED",
@@ -245,7 +246,7 @@
 	{
 		"name": "VLADIMIR LENIN",
 		"shirtName": "LENIN",
-		"nationality": "JAM",
+		"nationality": "RUS",
 		"role": "RIGHT_BACK",
 		"number": 11,
 		"skinColor": "PALE",
@@ -265,7 +266,7 @@
 	{
 		"name": "VLADIMIR PUTIN",
 		"shirtName": "PUTIN",
-		"nationality": "SMR",
+		"nationality": "RUS",
 		"role": "MIDFIELDER",
 		"number": 15,
 		"skinColor": "PALE",
@@ -293,7 +294,7 @@
 	{
 		"name": "PETAR HOFER",
 		"shirtName": "PETAR HOFER",
-		"nationality": "BIH",
+		"nationality": "RUS",
 		"role": "GOALKEEPER",
 		"number": 5,
 		"skinColor": "PALE",
@@ -304,7 +305,7 @@
 	{
 		"name": "DAVID SERRA GIRARD",
 		"shirtName": "SERRA DAVID",
-		"nationality": "JOR",
+		"nationality": "RUS",
 		"role": "LEFT_BACK",
 		"number": 17,
 		"skinColor": "PALE",
@@ -327,7 +328,7 @@
 	{
 		"name": "ALFRED MARQUES",
 		"shirtName": "ALFRED MARQUES",
-		"nationality": "IRN",
+		"nationality": "RUS",
 		"role": "DEFENDER",
 		"number": 14,
 		"skinColor": "PALE",
@@ -351,7 +352,7 @@
 	{
 		"name": "LAZAR SUÁREZ GASHI",
 		"shirtName": "GASHI SUÁREZ",
-		"nationality": "LUX",
+		"nationality": "RUS",
 		"role": "RIGHT_WINGER",
 		"number": 9,
 		"skinColor": "ARAB",
@@ -378,7 +379,7 @@
 	{
 		"name": "DANIEL ABAZI PALUMBO",
 		"shirtName": "ABAZI",
-		"nationality": "IRN",
+		"nationality": "RUS",
 		"role": "RIGHT_WINGER",
 		"number": 6,
 		"skinColor": "ARAB",
