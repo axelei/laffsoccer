@@ -1,0 +1,505 @@
+{
+"name": "U.E. LLEIDA",
+"type": "CLUB",
+"country": "SPA",
+"league": "LALIGA",
+"city": "NORFOLK",
+"stadium": "LE MARCOS",
+"coach": {
+	"name": "FINN JIMÉNEZ",
+	"nationality": "YEM"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "BIG_CHECK",
+		"shirt1": "#7feb4d",
+		"shirt2": "#ed5cbb",
+		"shirt3": "#f34e9a",
+		"shorts": "#bcd3d4",
+		"socks": "#6a9373"
+	},
+	{
+		"style": "VERTICAL_HALF",
+		"shirt1": "#b95801",
+		"shirt2": "#e13605",
+		"shirt3": "#9115c9",
+		"shorts": "#e98664",
+		"socks": "#91c4e1"
+	},
+	{
+		"style": "DIAGONAL",
+		"shirt1": "#c05924",
+		"shirt2": "#b9f1a0",
+		"shirt3": "#7cf8b8",
+		"shorts": "#e4f8b4",
+		"socks": "#f40cf2"
+	}
+],
+"players": [
+	{
+		"name": "JONAS SORENSEN",
+		"shirtName": "JONAS SORENSEN",
+		"nationality": "BHR",
+		"role": "GOALKEEPER",
+		"number": 2,
+		"skinColor": "RED",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_F",
+		"value": 32
+	},
+	{
+		"name": "MARTÍ LEKA PEREIRA",
+		"shirtName": "M. LEKA",
+		"nationality": "VIE",
+		"role": "LEFT_WINGER",
+		"number": 5,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "KRISTJÁN ORTIZ",
+		"shirtName": "KRISTJÁN ORTIZ",
+		"nationality": "PLE",
+		"role": "RIGHT_WINGER",
+		"number": 13,
+		"skinColor": "ASIATIC",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_G",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 1,
+			"control": 2,
+			"speed": 6,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "DARIS VILLA",
+		"shirtName": "DARIS VILLA",
+		"nationality": "LES",
+		"role": "LEFT_WINGER",
+		"number": 16,
+		"skinColor": "ALIEN",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 5,
+			"control": 2,
+			"speed": 1,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "ALEXANDER FRANÇOIS D'ANGELO",
+		"shirtName": "FRANÇOIS",
+		"nationality": "LTU",
+		"role": "RIGHT_BACK",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 5,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING",
+			"SPEED",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "THOMAS EDER",
+		"shirtName": "THOMAS EDER",
+		"nationality": "BOT",
+		"role": "MIDFIELDER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 1,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "DIEGO MARTINELLI",
+		"shirtName": "MARTINELLI",
+		"nationality": "HAI",
+		"role": "RIGHT_WINGER",
+		"number": 17,
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_J",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 5,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "IOANNIS EBNER",
+		"shirtName": "IOANNIS EBNER",
+		"nationality": "CTA",
+		"role": "LEFT_BACK",
+		"number": 6,
+		"skinColor": "RED",
+		"hairColor": "RED",
+		"hairStyle": "CURLY_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 5,
+			"tackling": 3,
+			"control": 3,
+			"speed": 2,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING",
+			"PASSING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "YANIS MONTEIRO",
+		"shirtName": "YANIS MONTEIRO",
+		"nationality": "MAC",
+		"role": "MIDFIELDER",
+		"number": 1,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 1,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "JAKOB MADSEN SUÁREZ",
+		"shirtName": "SUÁREZ MADSEN",
+		"nationality": "WAL",
+		"role": "LEFT_BACK",
+		"number": 15,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SPECIAL_H",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 5,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "HARRY RUGGIERO",
+		"shirtName": "HARRY RUGGIERO",
+		"nationality": "OMA",
+		"role": "DEFENDER",
+		"number": 19,
+		"skinColor": "PALE",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 1
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"SPEED",
+			"PASSING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "FILIP RICHARD",
+		"shirtName": "FILIP RICHARD",
+		"nationality": "BRA",
+		"role": "GOALKEEPER",
+		"number": 10,
+		"skinColor": "ARAB",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "BALD_A",
+		"value": 31
+	},
+	{
+		"name": "ATHANASIOS RICCI",
+		"shirtName": "RICCI A.",
+		"nationality": "ARU",
+		"role": "DEFENDER",
+		"number": 12,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 3,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "DAVID BARONE",
+		"shirtName": "DAVID BARONE",
+		"nationality": "ARM",
+		"role": "RIGHT_BACK",
+		"number": 9,
+		"skinColor": "RED",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_K",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "ÀLEX BERTRAND",
+		"shirtName": "ÀLEX BERTRAND",
+		"nationality": "KUW",
+		"role": "RIGHT_BACK",
+		"number": 14,
+		"skinColor": "PINK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "ALI SHKODRA",
+		"shirtName": "ALI SHKODRA",
+		"nationality": "UAE",
+		"role": "LEFT_BACK",
+		"number": 18,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"HEADING",
+			"SPEED",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "BOGDAN CASTRO SALA",
+		"shirtName": "CASTRO B.",
+		"nationality": "IRL",
+		"role": "RIGHT_BACK",
+		"number": 21,
+		"skinColor": "BLACK",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_J",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 2,
+			"control": 2,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"PASSING",
+			"TACKLING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "JUAN JOSÉ LAMBERT",
+		"shirtName": "JUAN J.",
+		"nationality": "GEO",
+		"role": "LEFT_WINGER",
+		"number": 11,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"SHOOTING",
+			"HEADING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "DOVYDAS MADSEN",
+		"shirtName": "DOVYDAS MADSEN",
+		"nationality": "YEM",
+		"role": "LEFT_WINGER",
+		"number": 3,
+		"skinColor": "ARAB",
+		"hairColor": "BROWN",
+		"hairStyle": "PIGTAIL_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 0,
+			"control": 4,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "DAVID ANTUNES HEILIGNIELSEN",
+		"shirtName": "HEILIGNIELSEN",
+		"nationality": "NED",
+		"role": "RIGHT_WINGER",
+		"number": 7,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 2,
+			"control": 1,
+			"speed": 2,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"CONTROL",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "ANDREAS HAAS SILVA",
+		"shirtName": "ANDREAS S.",
+		"nationality": "BAH",
+		"role": "LEFT_BACK",
+		"number": 20,
+		"skinColor": "PINK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"TACKLING"
+		]
+	}
+]
+}

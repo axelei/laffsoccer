@@ -1,0 +1,562 @@
+{
+"name": "BURGOS C.F.",
+"type": "CLUB",
+"country": "SPA",
+"league": "LALIGA",
+"city": "BURGOS",
+"stadium": "EL PLANTÍO",
+"coach": {
+	"name": "MARCEL DOMINGO ALGARA",
+	"nationality": "FRA"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "PLAIN",
+		"shirt1": "#e8ef2f",
+		"shirt2": "#e8ef2f",
+		"shirt3": "#e8ef2f",
+		"shorts": "#e8ef2f",
+		"socks": "#e8ef2f"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "VERTICAL",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#dfe8eb",
+		"socks": "#1e1e1e"
+	}
+],
+"players": [
+	{
+		"name": "JOSE LUÍS FDEZ. MANZANEDO",
+		"shirtName": "MANZANEDO",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 7,
+		"skinColor": "ARAB",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_A",
+		"value": 21
+	},
+	{
+		"name": "JOSÉ PALMER CALAFELL",
+		"shirtName": "PALMER",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_B",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 5,
+			"control": 3,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"PASSING",
+			"FINISHING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "ANTONIO GARCÍA NAVAJAS",
+		"shirtName": "GARCÍA NAVAJAS",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 3,
+		"skinColor": "MULATTO",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 2,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"FINISHING",
+			"TACKLING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "SERGIJE KRESIC JURIC",
+		"shirtName": "KRESIC",
+		"nationality": "CRO",
+		"role": "MIDFIELDER",
+		"number": 1,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_B",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 6,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING"
+		]
+	},
+	{
+		"name": "JUAN JOSÉ RUIZ IGARTUA",
+		"shirtName": "RUIZ IGARTUA",
+		"nationality": "ESP",
+		"role": "LEFT_BACK",
+		"number": 10,
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 5,
+			"shooting": 0,
+			"heading": 2,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "FLORENCIO GARRIDO AJENJO",
+		"shirtName": "FLORO GARRIDO",
+		"nationality": "ESP",
+		"role": "RIGHT_BACK",
+		"number": 15,
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 1,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"PASSING"
+		]
+	},
+	{
+		"name": "JESÚS VALDÉS ÁLVAREZ",
+		"shirtName": "VALDÉS",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 17,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 5,
+			"control": 3,
+			"speed": 5,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SPEED",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "EUFEMIO RAÚL FDEZ. CABRAL",
+		"shirtName": "CABRAL",
+		"nationality": "PAR",
+		"role": "RIGHT_WINGER",
+		"number": 4,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 2,
+			"control": 4,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "JUAN GÓMEZ GONZÁLEZ",
+		"shirtName": "JUANITO",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 22,
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 5,
+			"control": 3,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SHOOTING",
+			"HEADING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "ILIJA KATICH MIKIC",
+		"shirtName": "KATIC",
+		"nationality": "CRO",
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"HEADING",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "RAFAEL MARÍA VITERI CHAVARRI",
+		"shirtName": "VITERI",
+		"nationality": "ESP",
+		"role": "RIGHT_BACK",
+		"number": 11,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"PASSING",
+			"CONTROL",
+			"FINISHING",
+			"TACKLING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "JOSÉ NAVARRO APARICIO",
+		"shirtName": "NAVARRO",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 2,
+		"skinColor": "MULATTO",
+		"hairColor": "PUNK_BLOND",
+		"hairStyle": "CURLY_E",
+		"value": 15
+	},
+	{
+		"name": "JOAQUÍN ÁNGEL CABRERA PELÁEZ",
+		"shirtName": "QUINI",
+		"nationality": "ESP",
+		"role": "MIDFIELDER",
+		"number": 21,
+		"skinColor": "PINK",
+		"hairColor": "BLOND",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING"
+		]
+	},
+	{
+		"name": "FERNANDO AGUILERA CARVAJAL",
+		"shirtName": "AGUILERA",
+		"nationality": "ESP",
+		"role": "LEFT_BACK",
+		"number": 16,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_N",
+		"skills": {
+			"passing": 5,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 5,
+			"control": 4,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "RUBÉN OMAR REY CUCARO",
+		"shirtName": "OMAR REY",
+		"nationality": "PAR",
+		"role": "LEFT_WINGER",
+		"number": 19,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_D",
+		"skills": {
+			"passing": 2,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"FINISHING",
+			"TACKLING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "MARTÍN GOROSPE OSINALDE",
+		"shirtName": "GOROSPE",
+		"nationality": "ESP",
+		"role": "GOALKEEPER",
+		"number": 12,
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "SHORT_B",
+		"value": 3
+	},
+	{
+		"name": "JOSÉ LUÍS ROMERO ROBLEDO",
+		"shirtName": "ROMERO",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 9,
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 4,
+			"control": 3,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"HEADING",
+			"SPEED",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "FERNANDO JAVIER GÓMEZ RDEZ.",
+		"shirtName": "GÓMEZ",
+		"nationality": "ESP",
+		"role": "LEFT_WINGER",
+		"number": 20,
+		"skinColor": "PINK",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL",
+			"PASSING"
+		]
+	},
+	{
+		"name": "ANTONIO MARÍA NOZAL MARCOS",
+		"shirtName": "NOZAL",
+		"nationality": "ESP",
+		"role": "LEFT_BACK",
+		"number": 18,
+		"skinColor": "RED",
+		"hairColor": "PLATINUM",
+		"hairStyle": "CURLY_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 1,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "BERNARDO PATRICIO COS LUJÁN",
+		"shirtName": "COS",
+		"nationality": "ARG",
+		"role": "DEFENDER",
+		"number": 8,
+		"skinColor": "BLACK",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 1,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "MARTÍN GOROSPE OSINALDE",
+		"shirtName": "PORTUGAL",
+		"nationality": "ESP",
+		"role": "DEFENDER",
+		"number": 14,
+		"skinColor": "MULATTO",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 2,
+			"speed": 2,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "JOSÉ ANTONIO FERRERO GARCÍA",
+		"shirtName": "FERRERO",
+		"nationality": "ESP",
+		"role": "LEFT_WINGER",
+		"number": 6,
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_M",
+		"skills": {
+			"passing": 1,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 4,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"PASSING"
+		]
+	},
+	{
+		"name": "CARLOS SÁNCHEZ BENÍTEZ",
+		"shirtName": "BENÍTEZ",
+		"nationality": "ESP",
+		"role": "LEFT_WINGER",
+		"number": 23,
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 1,
+			"control": 1,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "FRANCISCO JAV. ANDRÉS PÉREZ",
+		"shirtName": "ANDRÉS",
+		"nationality": "PAR",
+		"role": "RIGHT_WINGER",
+		"number": 24,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 1,
+			"tackling": 1,
+			"control": 3,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING",
+			"CONTROL"
+		]
+	}
+]
+}

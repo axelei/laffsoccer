@@ -1,0 +1,459 @@
+{
+"name": "S.D. COMPOSTELA",
+"type": "CLUB",
+"country": "SPA",
+"league": "LALIGA",
+"city": "SIOUX FALLS",
+"stadium": "SIOUX FALLS CENTER",
+"coach": {
+	"name": "JACOB FISCHER GIRARD",
+	"nationality": "SKN"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "LINE",
+		"shirt1": "#f1e0b5",
+		"shirt2": "#bee850",
+		"shirt3": "#7bd5ae",
+		"shorts": "#a7279a",
+		"socks": "#851314"
+	},
+	{
+		"style": "BIG_V",
+		"shirt1": "#6ebd78",
+		"shirt2": "#1a4d83",
+		"shirt3": "#6e53af",
+		"shorts": "#2c4e79",
+		"socks": "#76e174"
+	},
+	{
+		"style": "HORIZONTAL",
+		"shirt1": "#28832f",
+		"shirt2": "#792816",
+		"shirt3": "#f3820b",
+		"shorts": "#564797",
+		"socks": "#823cb2"
+	}
+],
+"players": [
+	{
+		"name": "WILLIAM KOROVESHI PAGANO",
+		"shirtName": "P. KOROVESHI",
+		"nationality": "BHU",
+		"role": "GOALKEEPER",
+		"number": 10,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_G",
+		"value": 30
+	},
+	{
+		"name": "INUK ROUX",
+		"shirtName": "INUK ROUX",
+		"nationality": "OMA",
+		"role": "RIGHT_WINGER",
+		"number": 11,
+		"skinColor": "PALE",
+		"hairColor": "GRAY",
+		"hairStyle": "PIGTAIL_C",
+		"skills": {
+			"passing": 0,
+			"shooting": 6,
+			"heading": 0,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SPEED",
+			"PASSING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "PETAR GOMES MERCIER",
+		"shirtName": "G. PETAR",
+		"nationality": "RWA",
+		"role": "RIGHT_WINGER",
+		"number": 8,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_K",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 1,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"HEADING",
+			"PASSING",
+			"SHOOTING",
+			"FINISHING",
+			"CONTROL",
+			"SPEED"
+		]
+	},
+	{
+		"name": "ANTONI WILSON",
+		"shirtName": "ANTONI WILSON",
+		"nationality": "KUW",
+		"role": "LEFT_WINGER",
+		"number": 16,
+		"skinColor": "PINK",
+		"hairColor": "WHITE",
+		"hairStyle": "SHORT_C",
+		"skills": {
+			"passing": 1,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 1,
+			"control": 5,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED"
+		]
+	},
+	{
+		"name": "CHARLIE SHKRELI KRASNIQI",
+		"shirtName": "KRASNIQI",
+		"nationality": "VGB",
+		"role": "LEFT_BACK",
+		"number": 18,
+		"skinColor": "ASIATIC",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_L",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 2,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "JUAN PETERSEN FRANCO",
+		"shirtName": "JUAN",
+		"nationality": "SBM",
+		"role": "LEFT_BACK",
+		"number": 5,
+		"skinColor": "MULATTO",
+		"hairColor": "RED",
+		"hairStyle": "SPECIAL_G",
+		"skills": {
+			"passing": 6,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 2,
+			"control": 5,
+			"speed": 4,
+			"finishing": 1
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "NATHAN MARTINELLI REIS",
+		"shirtName": "MARTINELLI",
+		"nationality": "THA",
+		"role": "RIGHT_WINGER",
+		"number": 3,
+		"skinColor": "ASIATIC",
+		"hairColor": "GRAY",
+		"hairStyle": "BALD_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 5,
+			"control": 4,
+			"speed": 1,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"CONTROL",
+			"PASSING",
+			"SHOOTING",
+			"FINISHING",
+			"HEADING"
+		]
+	},
+	{
+		"name": "ILGAR JORGENSEN",
+		"shirtName": "J. ILGAR",
+		"nationality": "HON",
+		"role": "RIGHT_WINGER",
+		"number": 9,
+		"skinColor": "ASIATIC",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_F",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 4,
+			"control": 3,
+			"speed": 1,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"HEADING",
+			"TACKLING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "DAVID FARINA BERNARDI",
+		"shirtName": "BERNARDI D.",
+		"nationality": "COM",
+		"role": "RIGHT_BACK",
+		"number": 17,
+		"skinColor": "ASIATIC",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_O",
+		"skills": {
+			"passing": 3,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "KRISTIAN FERRARI MORENO",
+		"shirtName": "KRISTIAN M.",
+		"nationality": "MDA",
+		"role": "LEFT_BACK",
+		"number": 14,
+		"skinColor": "ARAB",
+		"hairColor": "BLOND",
+		"hairStyle": "THINNING_C",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 2,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"TACKLING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "OLIVER ROBERT",
+		"shirtName": "OLIVER ROBERT",
+		"nationality": "EGY",
+		"role": "LEFT_WINGER",
+		"number": 2,
+		"skinColor": "RED",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SMOOTH_P",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 1,
+			"control": 3,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"CONTROL",
+			"HEADING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "PETAR BIANCHI NEVES",
+		"shirtName": "PETAR",
+		"nationality": "SIN",
+		"role": "GOALKEEPER",
+		"number": 4,
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_D",
+		"value": 26
+	},
+	{
+		"name": "LUKÁŠ PETERSEN MARTÍNEZ",
+		"shirtName": "M. LUKÁŠ",
+		"nationality": "SVN",
+		"role": "MIDFIELDER",
+		"number": 19,
+		"skinColor": "BLACK",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 3,
+			"shooting": 1,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 1,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"TACKLING",
+			"SHOOTING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "ALEJANDRO BEKTASHI BLANCO",
+		"shirtName": "B. BEKTASHI",
+		"nationality": "FRO",
+		"role": "RIGHT_WINGER",
+		"number": 12,
+		"skinColor": "MULATTO",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 4,
+			"shooting": 6,
+			"heading": 2,
+			"tackling": 2,
+			"control": 5,
+			"speed": 3,
+			"finishing": 5
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "HASAN MARQUES",
+		"shirtName": "HASAN MARQUES",
+		"nationality": "CYP",
+		"role": "DEFENDER",
+		"number": 13,
+		"skinColor": "BLACK",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 3,
+			"control": 2,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING"
+		]
+	},
+	{
+		"name": "JOSÉ RODRIGUES",
+		"shirtName": "JOSÉ RODRIGUES",
+		"nationality": "ISL",
+		"role": "MIDFIELDER",
+		"number": 7,
+		"skinColor": "ASIATIC",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_I",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 5,
+			"tackling": 3,
+			"control": 3,
+			"speed": 5,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"TACKLING",
+			"FINISHING",
+			"CONTROL",
+			"SPEED"
+		]
+	},
+	{
+		"name": "THÉO AZEVEDO",
+		"shirtName": "THÉO AZEVEDO",
+		"nationality": "BAN",
+		"role": "MIDFIELDER",
+		"number": 6,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SHORT_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"SHOOTING",
+			"TACKLING",
+			"HEADING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "JACOB PAGANO",
+		"shirtName": "JACOB PAGANO",
+		"nationality": "KEN",
+		"role": "RIGHT_BACK",
+		"number": 15,
+		"skinColor": "ALIEN",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_M",
+		"skills": {
+			"passing": 6,
+			"shooting": 1,
+			"heading": 1,
+			"tackling": 4,
+			"control": 4,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "FILIP COLOMBO",
+		"shirtName": "FILIP COLOMBO",
+		"nationality": "UKR",
+		"role": "RIGHT_BACK",
+		"number": 1,
+		"skinColor": "MULATTO",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_M",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 0,
+			"tackling": 5,
+			"control": 5,
+			"speed": 4,
+			"finishing": 0
+		},
+		"bestSkills": [
+			"FINISHING",
+			"SPEED"
+		]
+	}
+]
+}

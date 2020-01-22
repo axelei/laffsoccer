@@ -1,0 +1,437 @@
+{
+"name": "C.D. MÁLAGA",
+"type": "CLUB",
+"country": "SPA",
+"league": "LALIGA",
+"city": "MÁLAGA",
+"stadium": "LA ROSALEDA",
+"coach": {
+	"name": "LASZLO KUBALA STECZ",
+	"nationality": "HUN"
+},
+"tactics": "4-4-2",
+"kits": [
+	{
+		"style": "VERTICAL",
+		"shirt1": "#47bfeb",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#3033c1",
+		"socks": "#3033c1"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#3033c1",
+		"shirt3": "#3033c1",
+		"shorts": "#dfe8eb",
+		"socks": "#dfe8eb"
+	},
+	{
+		"style": "PLAIN",
+		"shirt1": "#29c841",
+		"shirt2": "#c2e9bf",
+		"shirt3": "#dbbcf8",
+		"shorts": "#4114f3",
+		"socks": "#ce49cb"
+	}
+],
+"players": [
+	{
+		"name": "GABRIEL FIORE",
+		"shirtName": "GABRIEL FIORE",
+		"nationality": "CGO",
+		"role": "GOALKEEPER",
+		"number": 11,
+		"skinColor": "RED",
+		"hairColor": "BLACK",
+		"hairStyle": "CURLY_B",
+		"value": 19
+	},
+	{
+		"name": "FILIP MARÍN MARQUES",
+		"shirtName": "FILIP",
+		"nationality": "UZB",
+		"role": "DEFENDER",
+		"number": 8,
+		"skinColor": "ARAB",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 1,
+			"shooting": 0,
+			"heading": 3,
+			"tackling": 3,
+			"control": 3,
+			"speed": 4,
+			"finishing": 5
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"SPEED",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "CHARLIE RUSSO HYSI",
+		"shirtName": "CHARLIE RUSSO",
+		"nationality": "WAL",
+		"role": "MIDFIELDER",
+		"number": 5,
+		"skinColor": "PALE",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_K",
+		"skills": {
+			"passing": 1,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 4,
+			"control": 3,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"FINISHING",
+			"TACKLING",
+			"SPEED"
+		]
+	},
+	{
+		"name": "KONSTANTINOS LEHNER LACI",
+		"shirtName": "LEHNER",
+		"nationality": "ARG",
+		"role": "RIGHT_WINGER",
+		"number": 2,
+		"skinColor": "PALE",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SPECIAL_D",
+		"skills": {
+			"passing": 0,
+			"shooting": 3,
+			"heading": 3,
+			"tackling": 0,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"CONTROL",
+			"FINISHING",
+			"HEADING",
+			"SPEED",
+			"PASSING"
+		]
+	},
+	{
+		"name": "FABIAN CAPUTO",
+		"shirtName": "FABIAN CAPUTO",
+		"nationality": "BOT",
+		"role": "MIDFIELDER",
+		"number": 3,
+		"skinColor": "RED",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 4,
+			"tackling": 3,
+			"control": 2,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"SPEED"
+		]
+	},
+	{
+		"name": "ERIK ORTEGA GALLI",
+		"shirtName": "GALLI ORTEGA",
+		"nationality": "DJI",
+		"role": "DEFENDER",
+		"number": 10,
+		"skinColor": "RED",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "SPECIAL_E",
+		"skills": {
+			"passing": 3,
+			"shooting": 2,
+			"heading": 2,
+			"tackling": 3,
+			"control": 3,
+			"speed": 5,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING"
+		]
+	},
+	{
+		"name": "MAKSIM REIS BAUER",
+		"shirtName": "REIS B.",
+		"nationality": "ARG",
+		"role": "LEFT_WINGER",
+		"number": 18,
+		"skinColor": "ALIEN",
+		"hairColor": "BLOND",
+		"hairStyle": "SMOOTH_G",
+		"skills": {
+			"passing": 2,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 2,
+			"control": 4,
+			"speed": 5,
+			"finishing": 6
+		},
+		"bestSkills": [
+			"FINISHING",
+			"PASSING",
+			"SPEED",
+			"SHOOTING",
+			"HEADING",
+			"TACKLING"
+		]
+	},
+	{
+		"name": "JAMES SUÁREZ PEREIRA",
+		"shirtName": "JAMES",
+		"nationality": "UAE",
+		"role": "LEFT_BACK",
+		"number": 6,
+		"skinColor": "MULATTO",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 0,
+			"tackling": 5,
+			"control": 4,
+			"speed": 5,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING"
+		]
+	},
+	{
+		"name": "ALEXANDRE TOSKU SILVA",
+		"shirtName": "ALEXANDRE S.",
+		"nationality": "YEM",
+		"role": "LEFT_WINGER",
+		"number": 17,
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_E",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 4,
+			"control": 2,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING",
+			"FINISHING"
+		]
+	},
+	{
+		"name": "NATHAN LÓPEZ",
+		"shirtName": "NATHAN LÓPEZ",
+		"nationality": "KVX",
+		"role": "RIGHT_BACK",
+		"number": 15,
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "SPECIAL_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": []
+	},
+	{
+		"name": "SZYMON GIULIANI STEINER",
+		"shirtName": "GIULIANI",
+		"nationality": "BER",
+		"role": "RIGHT_WINGER",
+		"number": 4,
+		"skinColor": "PALE",
+		"hairColor": "RED",
+		"hairStyle": "SMOOTH_E",
+		"skills": {
+			"passing": 3,
+			"shooting": 4,
+			"heading": 4,
+			"tackling": 3,
+			"control": 4,
+			"speed": 3,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"PASSING"
+		]
+	},
+	{
+		"name": "DANIEL SINANI",
+		"shirtName": "DANIEL SINANI",
+		"nationality": "MNE",
+		"role": "GOALKEEPER",
+		"number": 7,
+		"skinColor": "BLACK",
+		"hairColor": "WHITE",
+		"hairStyle": "CURLY_A",
+		"value": 37
+	},
+	{
+		"name": "LIAM FERNÁNDEZ",
+		"shirtName": "LIAM FERNÁNDEZ",
+		"nationality": "CHA",
+		"role": "RIGHT_WINGER",
+		"number": 9,
+		"skinColor": "RED",
+		"hairColor": "WHITE",
+		"hairStyle": "SMOOTH_F",
+		"skills": {
+			"passing": 5,
+			"shooting": 3,
+			"heading": 4,
+			"tackling": 2,
+			"control": 0,
+			"speed": 4,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"PASSING",
+			"TACKLING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "GUSTAVS GREEN BRAHIMI",
+		"shirtName": "GREEN BRAHIMI",
+		"nationality": "BRB",
+		"role": "RIGHT_BACK",
+		"number": 12,
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "BALD_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 4,
+			"heading": 2,
+			"tackling": 1,
+			"control": 3,
+			"speed": 2,
+			"finishing": 2
+		},
+		"bestSkills": [
+			"HEADING",
+			"CONTROL",
+			"SPEED",
+			"FINISHING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "STEFAN MARQUES",
+		"shirtName": "STEFAN MARQUES",
+		"nationality": "MDV",
+		"role": "RIGHT_WINGER",
+		"number": 14,
+		"skinColor": "BLACK",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_B",
+		"skills": {
+			"passing": 4,
+			"shooting": 5,
+			"heading": 1,
+			"tackling": 3,
+			"control": 5,
+			"speed": 3,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"SPEED",
+			"FINISHING",
+			"TACKLING",
+			"HEADING",
+			"PASSING",
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "VASILIJE MARKU",
+		"shirtName": "VASILIJE MARKU",
+		"nationality": "GUA",
+		"role": "LEFT_WINGER",
+		"number": 13,
+		"skinColor": "ARAB",
+		"hairColor": "PUNK_FUCHSIA",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 3,
+			"shooting": 5,
+			"heading": 3,
+			"tackling": 2,
+			"control": 3,
+			"speed": 3,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"SHOOTING"
+		]
+	},
+	{
+		"name": "MARC MIHHAILOV BERNARD",
+		"shirtName": "MIHHAILOV B.",
+		"nationality": "USA",
+		"role": "LEFT_BACK",
+		"number": 1,
+		"skinColor": "BLACK",
+		"hairColor": "GRAY",
+		"hairStyle": "SMOOTH_H",
+		"skills": {
+			"passing": 4,
+			"shooting": 3,
+			"heading": 2,
+			"tackling": 3,
+			"control": 5,
+			"speed": 4,
+			"finishing": 4
+		},
+		"bestSkills": [
+			"FINISHING",
+			"CONTROL"
+		]
+	},
+	{
+		"name": "MATÍAS LEKA PICHLER",
+		"shirtName": "MATÍAS LEKA",
+		"nationality": "QAT",
+		"role": "RIGHT_BACK",
+		"number": 16,
+		"skinColor": "ASIATIC",
+		"hairColor": "BROWN",
+		"hairStyle": "CURLY_A",
+		"skills": {
+			"passing": 5,
+			"shooting": 2,
+			"heading": 3,
+			"tackling": 4,
+			"control": 4,
+			"speed": 4,
+			"finishing": 2
+		},
+		"bestSkills": []
+	}
+]
+}
