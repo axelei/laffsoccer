@@ -149,7 +149,7 @@
 		"number": 5,
 		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
-		"hairStyle": "SPECIAL_G",
+		"hairStyle": "SPECIAL_F",
 		"skills": {
 			"passing": 6,
 			"shooting": 4,
@@ -234,7 +234,7 @@
 		"bestSkills": []
 	},
 	{
-		"name": "BENT RENÉ CHRIST. ARENSOE",
+		"name": "BENT RENÉ CHRIST. ARENSØE",
 		"shirtName": "CHRISTENSEN",
 		"nationality": "DIN",
 		"role": "LEFT_BACK",
@@ -285,7 +285,7 @@
 	{
 		"name": "RAMON ÁNGEL FDEZ. DOCOBO",
 		"shirtName": "DOCOBO",
-		"nationality": "ASD",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 4,
 		"skinColor": "PALE",
@@ -296,7 +296,7 @@
 	{
 		"name": "MODESTO LÓPEZ NOVOA",
 		"shirtName": "MODESTO",
-		"nationality": "SVN",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 19,
 		"skinColor": "PINK",
@@ -320,7 +320,7 @@
 	{
 		"name": "J. MANUEL GALDAMES IBÁÑEZ",
 		"shirtName": "GALDAMES",
-		"nationality": "FRO",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 12,
 		"skinColor": "MULATTO",
@@ -340,7 +340,7 @@
 	{
 		"name": "FRANCISCO LLORENTE GENTO",
 		"shirtName": "LLORENTE",
-		"nationality": "CYP",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 13,
 		"skinColor": "PINK",
@@ -362,7 +362,7 @@
 	{
 		"name": "JESÚS MOURE VIEIRO",
 		"shirtName": "MOURE",
-		"nationality": "ISL",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 7,
 		"skinColor": "PALE",
@@ -388,7 +388,7 @@
 	{
 		"name": "FCO. JAVIER FALAGÁN HDEZ.",
 		"shirtName": "FALAGÁN",
-		"nationality": "BAN",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 6,
 		"skinColor": "PINK",
@@ -399,7 +399,7 @@
 	{
 		"name": "VÍCTOR MANUEL ARIAS CASARES",
 		"shirtName": "VÍCTOR",
-		"nationality": "KEN",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 15,
 		"skinColor": "PALE",
@@ -419,7 +419,7 @@
 	{
 		"name": "ANTONIO CASTRO FERNÁNDEZ",
 		"shirtName": "TOÑO CASTRO",
-		"nationality": "UKR",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 1,
 		"skinColor": "MULATTO",
@@ -440,8 +440,8 @@
 		]
 	},
 	{
-		"name": "DRAGAN SKOCIC",
-		"shirtName": "SKOCIC",
+		"name": "DRAGAN SKOČIĆ",
+		"shirtName": "SKOČIĆ",
 		"nationality": "CRO",
 		"role": "LEFT_WINGER",
 		"number": 20,
