@@ -98,6 +98,8 @@ public class Assets {
     public static final TextureRegion[] rain = new TextureRegion[4];
     public static final TextureRegion[] snow = new TextureRegion[3];
     public static Texture fog;
+    public static Texture mow;
+    public static TextureRegion[] blood;
     public static final TextureRegion[][] wind = new TextureRegion[8][2];
     public static final TextureRegion[] bench = new TextureRegion[2];
 
@@ -385,10 +387,31 @@ public class Assets {
         loadRain();
         loadSnow();
         fog = new Texture("images/fog.png");
+        mow = new Texture("images/mow.png");
+        blood = loadTextureRegionFlat("images/blood.png", 2, 2);
         loadWind();
         loadBench();
         Sounds.load();
         CommonComment.load();
+    }
+
+    public static TextureRegion[][] loadTextureRegion(String file, int framesX, int framesY) {
+        Texture texture =  new Texture(file);
+        int width = texture.getWidth() / framesX;
+        int height = texture.getHeight() / framesY;
+        return TextureRegion.split(texture, width, height);
+    }
+
+    public static TextureRegion[] loadTextureRegionFlat(String file, int framesX, int framesY) {
+        TextureRegion[][] textureMatrix = loadTextureRegion(file, framesX, framesY);
+        TextureRegion[] result = new TextureRegion[framesX * framesY];
+        int count = 0;
+        for (int i = 0; i < textureMatrix.length; i++) {
+            for (int a = 0; a < textureMatrix[i].length; a++) {
+                result[count++] = textureMatrix[i][a];
+            }
+        }
+        return result;
     }
 
     /**
@@ -402,7 +425,7 @@ public class Assets {
         do {
             directory = teamsRootFolder.list();
             teamFileHandle = directory[rnd.nextInt(directory.length)];
-            while (teamFileHandle.isDirectory()) {
+            while (teamFileHandle.isDirectory() && teamFileHandle.list().length != 0) {
                 directory = teamFileHandle.list();
                 teamFileHandle = directory[rnd.nextInt(directory.length)];
             }

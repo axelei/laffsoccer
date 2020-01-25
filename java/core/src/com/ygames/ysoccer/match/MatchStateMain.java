@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.EMath;
@@ -170,6 +171,7 @@ class MatchStateMain extends MatchState {
                                 float strength = (4f + player.v / 260f) / 5f;
                                 float angleDiff = EMath.angleDiff(player.a, opponent.a);
                                 match.newTackle(player, opponent, strength, angleDiff);
+                                EMath.oneIn(3f, () -> match.getRenderer().allSprites.add(ObjectSprite.blood(match.game.glGraphics, player.x, player.y)));
                                 Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at speed: " + player.v + " (strength = " + strength + ") and angle: " + angleDiff);
                             }
                         }

@@ -3,14 +3,10 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.EMath;
-import com.ygames.ysoccer.framework.Font;
-import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GLShapeRenderer;
-import com.ygames.ysoccer.framework.GLSpriteBatch;
+import com.ygames.ysoccer.framework.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -43,6 +39,7 @@ public abstract class SceneRenderer {
 
     final Scene scene;
     GLSpriteBatch batch;
+    GLSpriteBatch batchAlpha;
     protected GLShapeRenderer shapeRenderer;
     OrthographicCamera camera;
     int screenWidth;
