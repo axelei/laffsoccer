@@ -3,29 +3,29 @@
 "type": "CLUB",
 "country": "SPA",
 "league": "LALIGA",
-"city": "NORFOLK",
-"stadium": "LE MARCOS",
+"city": "LÉRIDA",
+"stadium": "CAMP D'ESPORTS DE LLEIDA",
 "coach": {
-	"name": "FINN JIMÉNEZ",
-	"nationality": "YEM"
+	"name": "DAVID VIDAL TOMÉ",
+	"nationality": "ESP"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
-		"style": "BIG_CHECK",
-		"shirt1": "#7feb4d",
-		"shirt2": "#ed5cbb",
-		"shirt3": "#f34e9a",
-		"shorts": "#bcd3d4",
-		"socks": "#6a9373"
+		"style": "PLAIN",
+		"shirt1": "#3033c1",
+		"shirt2": "#1e1e1e",
+		"shirt3": "#1e1e1e",
+		"shorts": "#dfe8eb",
+		"socks": "#3033c1"
 	},
 	{
-		"style": "VERTICAL_HALF",
-		"shirt1": "#b95801",
-		"shirt2": "#e13605",
-		"shirt3": "#9115c9",
-		"shorts": "#e98664",
-		"socks": "#91c4e1"
+		"style": "PLAIN",
+		"shirt1": "#f61c1c",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#1e1e1e",
+		"socks": "#f61c1c"
 	},
 	{
 		"style": "DIAGONAL",
@@ -38,20 +38,20 @@
 ],
 "players": [
 	{
-		"name": "JONAS SORENSEN",
-		"shirtName": "JONAS SORENSEN",
-		"nationality": "BHR",
+		"name": "DAVID RANGEL PASTOR",
+		"shirtName": "RANGEL",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 2,
 		"skinColor": "RED",
-		"hairColor": "PLATINUM",
+		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_F",
 		"value": 32
 	},
 	{
-		"name": "MARTÍ LEKA PEREIRA",
-		"shirtName": "M. LEKA",
-		"nationality": "VIE",
+		"name": "BRUNO SALTOR GRAU",
+		"shirtName": "BRUNO SALTOR",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 5,
 		"skinColor": "ARAB",
@@ -72,14 +72,14 @@
 		]
 	},
 	{
-		"name": "KRISTJÁN ORTIZ",
-		"shirtName": "KRISTJÁN ORTIZ",
-		"nationality": "PLE",
+		"name": "DANIEL MARÍN VÁZQUEZ",
+		"shirtName": "DANI MARÍN",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 13,
-		"skinColor": "ASIATIC",
+		"skinColor": "ARAB",
 		"hairColor": "RED",
-		"hairStyle": "SPECIAL_G",
+		"hairStyle": "SPECIAL_H",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
@@ -92,12 +92,12 @@
 		"bestSkills": []
 	},
 	{
-		"name": "DARIS VILLA",
-		"shirtName": "DARIS VILLA",
-		"nationality": "LES",
+		"name": "JOSÉ MARÍA ALONSO FERNÁNDEZ",
+		"shirtName": "TXEMA",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 16,
-		"skinColor": "ALIEN",
+		"skinColor": "PALE",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_H",
 		"skills": {
@@ -115,12 +115,12 @@
 		]
 	},
 	{
-		"name": "ALEXANDER FRANÇOIS D'ANGELO",
-		"shirtName": "FRANÇOIS",
-		"nationality": "LTU",
+		"name": "ÒSCAR RUBIO FAURIA",
+		"shirtName": "ÒSCAR RUBIO",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 8,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BROWN",
 		"hairStyle": "CURLY_B",
 		"skills": {
@@ -139,12 +139,12 @@
 		]
 	},
 	{
-		"name": "THOMAS EDER",
-		"shirtName": "THOMAS EDER",
-		"nationality": "BOT",
+		"name": "RUBÉN GARCÍA ARNAL",
+		"shirtName": "RUBÉN",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 4,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_P",
 		"skills": {
@@ -162,9 +162,9 @@
 		]
 	},
 	{
-		"name": "DIEGO MARTINELLI",
-		"shirtName": "MARTINELLI",
-		"nationality": "HAI",
+		"name": "ANDRÉS DEL CAMPO SANTOS",
+		"shirtName": "SANTOS",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 17,
 		"skinColor": "PALE",
@@ -182,9 +182,9 @@
 		"bestSkills": []
 	},
 	{
-		"name": "IOANNIS EBNER",
-		"shirtName": "IOANNIS EBNER",
-		"nationality": "CTA",
+		"name": "SERGIO RODRÍGUEZ MARTÍNEZ",
+		"shirtName": "SERGIO RGUEZ.",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 6,
 		"skinColor": "RED",
@@ -207,13 +207,13 @@
 		]
 	},
 	{
-		"name": "YANIS MONTEIRO",
-		"shirtName": "YANIS MONTEIRO",
-		"nationality": "MAC",
+		"name": "JUAN LUIS HENS LORITE",
+		"shirtName": "JUANLU HENS",
+		"nationality": "ESP",
 		"role": "MIDFIELDER",
 		"number": 1,
 		"skinColor": "PALE",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_B",
 		"skills": {
 			"passing": 4,
@@ -231,13 +231,13 @@
 		]
 	},
 	{
-		"name": "JAKOB MADSEN SUÁREZ",
-		"shirtName": "SUÁREZ MADSEN",
-		"nationality": "WAL",
+		"name": "JACOBO MARÍA YNCLÁN PAJARES",
+		"shirtName": "JACOBO",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 15,
 		"skinColor": "PALE",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BROWN",
 		"hairStyle": "SPECIAL_H",
 		"skills": {
 			"passing": 5,
@@ -255,9 +255,9 @@
 		]
 	},
 	{
-		"name": "HARRY RUGGIERO",
-		"shirtName": "HARRY RUGGIERO",
-		"nationality": "OMA",
+		"name": "MATE BILIC",
+		"shirtName": "BILIC",
+		"nationality": "CRO",
 		"role": "DEFENDER",
 		"number": 19,
 		"skinColor": "PALE",
@@ -281,24 +281,24 @@
 		]
 	},
 	{
-		"name": "FILIP RICHARD",
-		"shirtName": "FILIP RICHARD",
-		"nationality": "BRA",
+		"name": "EDUARDO NAVARRO SORIANO",
+		"shirtName": "EDUARDO",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 10,
 		"skinColor": "ARAB",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BLACK",
 		"hairStyle": "BALD_A",
 		"value": 31
 	},
 	{
-		"name": "ATHANASIOS RICCI",
-		"shirtName": "RICCI A.",
-		"nationality": "ARU",
+		"name": "NAKOR BUENO GÓMEZ",
+		"shirtName": "NAKOR",
+		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 12,
 		"skinColor": "PALE",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_L",
 		"skills": {
 			"passing": 4,
@@ -315,13 +315,13 @@
 		]
 	},
 	{
-		"name": "DAVID BARONE",
-		"shirtName": "DAVID BARONE",
-		"nationality": "ARM",
+		"name": "XAVIER PELEGRÍ DURÁN",
+		"shirtName": "PELEGRÍ",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 9,
 		"skinColor": "RED",
-		"hairColor": "PLATINUM",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_K",
 		"skills": {
 			"passing": 3,
@@ -335,13 +335,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "ÀLEX BERTRAND",
-		"shirtName": "ÀLEX BERTRAND",
-		"nationality": "KUW",
+		"name": "JUAN POVEDANO MARTÍNEZ",
+		"shirtName": "POVEDANO",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 14,
 		"skinColor": "PINK",
-		"hairColor": "PLATINUM",
+		"hairColor": "RED",
 		"hairStyle": "SMOOTH_L",
 		"skills": {
 			"passing": 3,
@@ -358,9 +358,9 @@
 		]
 	},
 	{
-		"name": "ALI SHKODRA",
-		"shirtName": "ALI SHKODRA",
-		"nationality": "UAE",
+		"name": "UNAI VERGARA DÍEZ-CABALLERO",
+		"shirtName": "UNAI",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 18,
 		"skinColor": "ARAB",
@@ -384,12 +384,12 @@
 		]
 	},
 	{
-		"name": "BOGDAN CASTRO SALA",
-		"shirtName": "CASTRO B.",
-		"nationality": "IRL",
+		"name": "MIGUEL MARTÍNEZ DE CORTA",
+		"shirtName": "MIGUEL",
+		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 21,
-		"skinColor": "BLACK",
+		"skinColor": "PALE",
 		"hairColor": "RED",
 		"hairStyle": "SMOOTH_J",
 		"skills": {
@@ -410,9 +410,9 @@
 		]
 	},
 	{
-		"name": "JUAN JOSÉ LAMBERT",
-		"shirtName": "JUAN J.",
-		"nationality": "GEO",
+		"name": "JOSÉ ANTONIO DORADO RAMÍREZ",
+		"shirtName": "DORADO",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 11,
 		"skinColor": "ARAB",
@@ -435,9 +435,9 @@
 		]
 	},
 	{
-		"name": "DOVYDAS MADSEN",
-		"shirtName": "DOVYDAS MADSEN",
-		"nationality": "YEM",
+		"name": "ENEKO ROMO ARANGUA",
+		"shirtName": "ENEKO ROMO",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 3,
 		"skinColor": "ARAB",
@@ -455,13 +455,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "DAVID ANTUNES HEILIGNIELSEN",
-		"shirtName": "HEILIGNIELSEN",
-		"nationality": "NED",
+		"name": "JUAN JOSÉ CAMACHO ARANGUA",
+		"shirtName": "CAMACHO",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 7,
-		"skinColor": "ASIATIC",
-		"hairColor": "BLOND",
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 1,
@@ -478,13 +478,13 @@
 		]
 	},
 	{
-		"name": "ANDREAS HAAS SILVA",
-		"shirtName": "ANDREAS S.",
-		"nationality": "BAH",
+		"name": "RAMÓN ROS BADIA",
+		"shirtName": "ROS",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 20,
 		"skinColor": "PINK",
-		"hairColor": "GRAY",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 4,

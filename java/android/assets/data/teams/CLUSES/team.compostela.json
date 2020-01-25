@@ -3,55 +3,55 @@
 "type": "CLUB",
 "country": "SPA",
 "league": "LALIGA",
-"city": "SIOUX FALLS",
-"stadium": "SIOUX FALLS CENTER",
+"city": "SANTIAGO DE COMPOSTELA",
+"stadium": "SAN LÁZARO",
 "coach": {
-	"name": "JACOB FISCHER GIRARD",
-	"nationality": "SKN"
+	"name": "FERNANDO CASTRO SANTOS",
+	"nationality": "ESP"
 },
 "tactics": "4-4-2",
 "kits": [
 	{
+		"style": "VERTICAL_HALF",
+		"shirt1": "#dfe8eb",
+		"shirt2": "#47bfeb",
+		"shirt3": "#47bfeb",
+		"shorts": "#dfe8eb",
+		"socks": "#7be2e3"
+	},
+	{
+		"style": "CHECK",
+		"shirt1": "#f61c1c",
+		"shirt2": "#dfe8eb",
+		"shirt3": "#dfe8eb",
+		"shorts": "#f61c1c",
+		"socks": "#f61c1c"
+	},
+	{
 		"style": "LINE",
-		"shirt1": "#f1e0b5",
-		"shirt2": "#bee850",
-		"shirt3": "#7bd5ae",
-		"shorts": "#a7279a",
-		"socks": "#851314"
-	},
-	{
-		"style": "BIG_V",
-		"shirt1": "#6ebd78",
-		"shirt2": "#1a4d83",
-		"shirt3": "#6e53af",
-		"shorts": "#2c4e79",
-		"socks": "#76e174"
-	},
-	{
-		"style": "HORIZONTAL",
-		"shirt1": "#28832f",
-		"shirt2": "#792816",
-		"shirt3": "#f3820b",
-		"shorts": "#564797",
-		"socks": "#823cb2"
+		"shirt1": "#dfe8eb",
+		"shirt2": "#f61c1c",
+		"shirt3": "#f61c1c",
+		"shorts": "#47bfeb",
+		"socks": "#47bfeb"
 	}
 ],
 "players": [
 	{
-		"name": "WILLIAM KOROVESHI PAGANO",
-		"shirtName": "P. KOROVESHI",
-		"nationality": "BHU",
+		"name": "AITOR IRUARRIZAGA AMARIKA",
+		"shirtName": "IRU",
+		"nationality": "ESP",
 		"role": "GOALKEEPER",
 		"number": 10,
 		"skinColor": "PALE",
 		"hairColor": "BLACK",
-		"hairStyle": "SPECIAL_G",
+		"hairStyle": "SPECIAL_F",
 		"value": 30
 	},
 	{
-		"name": "INUK ROUX",
-		"shirtName": "INUK ROUX",
-		"nationality": "OMA",
+		"name": "JAVIER BELLIDO PLAZA",
+		"shirtName": "BELLIDO",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 11,
 		"skinColor": "PALE",
@@ -73,14 +73,14 @@
 		]
 	},
 	{
-		"name": "PETAR GOMES MERCIER",
-		"shirtName": "G. PETAR",
-		"nationality": "RWA",
+		"name": "JOSÉ IGNACIO FDEZ. PALACIOS",
+		"shirtName": "NACHO",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 8,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_K",
+		"hairStyle": "SMOOTH_L",
 		"skills": {
 			"passing": 3,
 			"shooting": 2,
@@ -100,13 +100,13 @@
 		]
 	},
 	{
-		"name": "ANTONI WILSON",
-		"shirtName": "ANTONI WILSON",
-		"nationality": "KUW",
+		"name": "FERNANDO TOCORNAL LINARES",
+		"shirtName": "TOCORNAL",
+		"nationality": "ESP",
 		"role": "LEFT_WINGER",
 		"number": 16,
-		"skinColor": "PINK",
-		"hairColor": "WHITE",
+		"skinColor": "RED",
+		"hairColor": "RED",
 		"hairStyle": "SHORT_C",
 		"skills": {
 			"passing": 1,
@@ -122,13 +122,13 @@
 		]
 	},
 	{
-		"name": "CHARLIE SHKRELI KRASNIQI",
-		"shirtName": "KRASNIQI",
-		"nationality": "VGB",
+		"name": "FCO. JAVIER MULERO VILLENA",
+		"shirtName": "VILLENA",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 18,
-		"skinColor": "ASIATIC",
-		"hairColor": "RED",
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_L",
 		"skills": {
 			"passing": 3,
@@ -142,13 +142,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "JUAN PETERSEN FRANCO",
-		"shirtName": "JUAN",
-		"nationality": "SBM",
+		"name": "ÁNGEL LEKUMBERRI GARCÍA",
+		"shirtName": "LEKUMBERRI",
+		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 5,
 		"skinColor": "MULATTO",
-		"hairColor": "RED",
+		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_G",
 		"skills": {
 			"passing": 6,
@@ -162,12 +162,12 @@
 		"bestSkills": []
 	},
 	{
-		"name": "NATHAN MARTINELLI REIS",
-		"shirtName": "MARTINELLI",
-		"nationality": "THA",
+		"name": "FABIANO SOARES PESSOA",
+		"shirtName": "FABIANO",
+		"nationality": "BRA",
 		"role": "RIGHT_WINGER",
 		"number": 3,
-		"skinColor": "ASIATIC",
+		"skinColor": "ARAB",
 		"hairColor": "GRAY",
 		"hairStyle": "BALD_A",
 		"skills": {
@@ -188,12 +188,12 @@
 		]
 	},
 	{
-		"name": "ILGAR JORGENSEN",
-		"shirtName": "J. ILGAR",
-		"nationality": "HON",
+		"name": "AGUSTÍN ABADÍA PLANA",
+		"shirtName": "TATO ABADÍA",
+		"nationality": "ESP",
 		"role": "RIGHT_WINGER",
 		"number": 9,
-		"skinColor": "ASIATIC",
+		"skinColor": "ARAB",
 		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_F",
 		"skills": {
@@ -214,14 +214,14 @@
 		]
 	},
 	{
-		"name": "DAVID FARINA BERNARDI",
-		"shirtName": "BERNARDI D.",
-		"nationality": "COM",
+		"name": "FRANK PASSI",
+		"shirtName": "PASSI",
+		"nationality": "FRA",
 		"role": "RIGHT_BACK",
 		"number": 17,
-		"skinColor": "ASIATIC",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SMOOTH_O",
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_B",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
@@ -234,13 +234,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "KRISTIAN FERRARI MORENO",
-		"shirtName": "KRISTIAN M.",
-		"nationality": "MDA",
+		"name": "BENT RENÉ CHRIST. ARENSOE",
+		"shirtName": "CHRISTENSEN",
+		"nationality": "DIN",
 		"role": "LEFT_BACK",
 		"number": 14,
 		"skinColor": "ARAB",
-		"hairColor": "BLOND",
+		"hairColor": "GRAY",
 		"hairStyle": "THINNING_C",
 		"skills": {
 			"passing": 2,
@@ -258,14 +258,14 @@
 		]
 	},
 	{
-		"name": "OLIVER ROBERT",
-		"shirtName": "OLIVER ROBERT",
-		"nationality": "EGY",
+		"name": "CHRISTOPHER NUSA OHENHEN",
+		"shirtName": "OHEN",
+		"nationality": "NIG",
 		"role": "LEFT_WINGER",
 		"number": 2,
-		"skinColor": "RED",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SMOOTH_P",
+		"skinColor": "BLACK",
+		"hairColor": "BLACK",
+		"hairStyle": "SPECIAL_C",
 		"skills": {
 			"passing": 2,
 			"shooting": 2,
@@ -283,9 +283,9 @@
 		]
 	},
 	{
-		"name": "PETAR BIANCHI NEVES",
-		"shirtName": "PETAR",
-		"nationality": "SIN",
+		"name": "RAMON ÁNGEL FDEZ. DOCOBO",
+		"shirtName": "DOCOBO",
+		"nationality": "ASD",
 		"role": "GOALKEEPER",
 		"number": 4,
 		"skinColor": "PALE",
@@ -294,13 +294,13 @@
 		"value": 26
 	},
 	{
-		"name": "LUKÁŠ PETERSEN MARTÍNEZ",
-		"shirtName": "M. LUKÁŠ",
+		"name": "MODESTO LÓPEZ NOVOA",
+		"shirtName": "MODESTO",
 		"nationality": "SVN",
 		"role": "MIDFIELDER",
 		"number": 19,
-		"skinColor": "BLACK",
-		"hairColor": "BLOND",
+		"skinColor": "PINK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_B",
 		"skills": {
 			"passing": 3,
@@ -318,13 +318,13 @@
 		]
 	},
 	{
-		"name": "ALEJANDRO BEKTASHI BLANCO",
-		"shirtName": "B. BEKTASHI",
+		"name": "J. MANUEL GALDAMES IBÁÑEZ",
+		"shirtName": "GALDAMES",
 		"nationality": "FRO",
 		"role": "RIGHT_WINGER",
 		"number": 12,
 		"skinColor": "MULATTO",
-		"hairColor": "BLOND",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 4,
@@ -338,13 +338,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "HASAN MARQUES",
-		"shirtName": "HASAN MARQUES",
+		"name": "FRANCISCO LLORENTE GENTO",
+		"shirtName": "LLORENTE",
 		"nationality": "CYP",
 		"role": "DEFENDER",
 		"number": 13,
-		"skinColor": "BLACK",
-		"hairColor": "WHITE",
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 4,
@@ -360,13 +360,13 @@
 		]
 	},
 	{
-		"name": "JOSÉ RODRIGUES",
-		"shirtName": "JOSÉ RODRIGUES",
+		"name": "JESÚS MOURE VIEIRO",
+		"shirtName": "MOURE",
 		"nationality": "ISL",
 		"role": "MIDFIELDER",
 		"number": 7,
-		"skinColor": "ASIATIC",
-		"hairColor": "WHITE",
+		"skinColor": "PALE",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_I",
 		"skills": {
 			"passing": 4,
@@ -386,40 +386,24 @@
 		]
 	},
 	{
-		"name": "THÉO AZEVEDO",
-		"shirtName": "THÉO AZEVEDO",
+		"name": "FCO. JAVIER FALAGÁN HDEZ.",
+		"shirtName": "FALAGÁN",
 		"nationality": "BAN",
-		"role": "MIDFIELDER",
+		"role": "GOALKEEPER",
 		"number": 6,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
 		"hairStyle": "SHORT_B",
-		"skills": {
-			"passing": 4,
-			"shooting": 4,
-			"heading": 3,
-			"tackling": 3,
-			"control": 3,
-			"speed": 3,
-			"finishing": 4
-		},
-		"bestSkills": [
-			"FINISHING",
-			"PASSING",
-			"SHOOTING",
-			"TACKLING",
-			"HEADING",
-			"SPEED"
-		]
+		"value": 12
 	},
 	{
-		"name": "JACOB PAGANO",
-		"shirtName": "JACOB PAGANO",
+		"name": "VÍCTOR MANUEL ARIAS CASARES",
+		"shirtName": "VÍCTOR",
 		"nationality": "KEN",
 		"role": "RIGHT_BACK",
 		"number": 15,
-		"skinColor": "ALIEN",
-		"hairColor": "WHITE",
+		"skinColor": "PALE",
+		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_M",
 		"skills": {
 			"passing": 6,
@@ -433,8 +417,8 @@
 		"bestSkills": []
 	},
 	{
-		"name": "FILIP COLOMBO",
-		"shirtName": "FILIP COLOMBO",
+		"name": "ANTONIO CASTRO FERNÁNDEZ",
+		"shirtName": "TOÑO CASTRO",
 		"nationality": "UKR",
 		"role": "RIGHT_BACK",
 		"number": 1,
@@ -453,6 +437,29 @@
 		"bestSkills": [
 			"FINISHING",
 			"SPEED"
+		]
+	},
+	{
+		"name": "DRAGAN SKOCIC",
+		"shirtName": "SKOCIC",
+		"nationality": "CRO",
+		"role": "LEFT_WINGER",
+		"number": 20,
+		"skinColor": "PINK",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_A",
+		"skills": {
+			"passing": 2,
+			"shooting": 2,
+			"heading": 5,
+			"tackling": 2,
+			"control": 2,
+			"speed": 2,
+			"finishing": 3
+		},
+		"bestSkills": [
+			"HEADING",
+			"FINISHING"
 		]
 	}
 ]

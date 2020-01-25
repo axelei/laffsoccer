@@ -44,7 +44,7 @@
 		"role": "GOALKEEPER",
 		"number": 1,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"value": 25
 	},
@@ -54,9 +54,9 @@
 		"nationality": "ESP",
 		"role": "RIGHT_BACK",
 		"number": 18,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 3,
 			"shooting": 2,
@@ -78,9 +78,9 @@
 		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 3,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_B",
 		"skills": {
 			"passing": 3,
 			"shooting": 2,
@@ -103,8 +103,8 @@
 		"role": "DEFENDER",
 		"number": 2,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,
@@ -126,9 +126,9 @@
 		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 23,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 2,
 			"shooting": 2,
@@ -150,9 +150,9 @@
 		"nationality": "PER",
 		"role": "DEFENDER",
 		"number": 6,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"skinColor": "RED",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,
@@ -176,7 +176,7 @@
 		"number": 5,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_B",
 		"skills": {
 			"passing": 5,
 			"shooting": 4,
@@ -200,7 +200,7 @@
 		"number": 8,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,
@@ -224,7 +224,7 @@
 		"number": 11,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 4,
 			"shooting": 4,
@@ -247,8 +247,8 @@
 		"role": "ATTACKER",
 		"number": 12,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_E",
 		"skills": {
 			"passing": 4,
 			"shooting": 4,
@@ -272,7 +272,7 @@
 		"number": 9,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_B",
 		"skills": {
 			"passing": 3,
 			"shooting": 4,
@@ -296,7 +296,7 @@
 		"number": 13,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_C",
 		"value": 22
 	},
 	{
@@ -307,7 +307,7 @@
 		"number": 22,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 3,
 			"shooting": 2,
@@ -329,9 +329,9 @@
 		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 14,
-		"skinColor": "PINK",
+		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,
@@ -354,8 +354,8 @@
 		"role": "ATTACKER",
 		"number": 15,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_F",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,
@@ -377,9 +377,9 @@
 		"nationality": "ESP",
 		"role": "DEFENDER",
 		"number": 16,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 2,
 			"shooting": 4,
@@ -403,7 +403,7 @@
 		"number": 17,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 3,
 			"shooting": 2,
@@ -427,7 +427,7 @@
 		"number": 28,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 2,
 			"shooting": 2,
@@ -450,8 +450,8 @@
 		"role": "ATTACKER",
 		"number": 19,
 		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 2,
 			"shooting": 2,
@@ -475,7 +475,7 @@
 		"number": 20,
 		"skinColor": "PINK",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_A",
+		"hairStyle": "SMOOTH_D",
 		"skills": {
 			"passing": 4,
 			"shooting": 2,
@@ -497,8 +497,8 @@
 		"nationality": "ESP",
 		"role": "LEFT_BACK",
 		"number": 21,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
+		"skinColor": "RED",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 3,
