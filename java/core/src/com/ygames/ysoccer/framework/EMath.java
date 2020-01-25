@@ -1,12 +1,17 @@
 package com.ygames.ysoccer.framework;
 
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public class EMath {
 
     private static final float TO_RADIANS = (float) Math.PI / 180.0f;
     private static final float TO_DEGREES = 180.0f / (float) Math.PI;
+
+    public static final Random RND = new Random(Calendar.getInstance().getTimeInMillis());
 
     public static boolean isIn(float v, float a, float b) {
         return (b > a) ? (a <= v) && (v <= b) : (b <= v) && (v <= a);
@@ -128,6 +133,16 @@ public class EMath {
             }
         }
         return min;
+    }
+
+    public static int dice(int min, int max) {
+        return RND.nextInt(max - min + 1) + min;
+    }
+
+    public static void oneIn(float bet, Runnable action) {
+        if (Math.floor(RND.nextFloat() * bet) == 0) {
+            action.run();
+        }
     }
 
     public static float max(float... values) {

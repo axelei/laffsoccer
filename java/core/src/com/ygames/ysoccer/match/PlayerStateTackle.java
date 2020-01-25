@@ -1,7 +1,9 @@
 package com.ygames.ysoccer.match;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 
@@ -24,6 +26,11 @@ class PlayerStateTackle extends PlayerState {
         player.y += 10 * EMath.sin(player.a);
         player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;
         player.fmy = 4;
+
+        Match match = ((Match) scene);
+        float angle = EMath.aTan2(player.inputDevice.y0, player.inputDevice.x0) + (float) (Math.random() - 0.5f) * 25;
+        EMath.oneIn(2.5f, () -> match.getRenderer().allSprites.add(ObjectSprite.mow(match.game.glGraphics, player.x, player.y, angle)));
+
     }
 
     @Override

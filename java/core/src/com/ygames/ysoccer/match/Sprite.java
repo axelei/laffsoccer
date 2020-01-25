@@ -13,6 +13,7 @@ class Sprite {
     int x;
     int y;
     int z;
+    int priority = 0;
 
     Sprite(GLGraphics glGraphics) {
         this.glGraphics = glGraphics;
@@ -36,6 +37,11 @@ class Sprite {
 
         @Override
         public int compare(Sprite sprite1, Sprite sprite2) {
+
+            if (sprite1.priority != sprite1.priority) {
+                return sprite2.priority - sprite1.priority;
+            }
+
             return sprite1.getY(subframe) - sprite2.getY(subframe);
         }
     }
