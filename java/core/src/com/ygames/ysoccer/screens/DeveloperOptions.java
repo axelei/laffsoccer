@@ -16,12 +16,7 @@ import static com.badlogic.gdx.Application.LOG_DEBUG;
 import static com.badlogic.gdx.Application.LOG_ERROR;
 import static com.badlogic.gdx.Application.LOG_INFO;
 import static com.badlogic.gdx.Application.LOG_NONE;
-import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
-import static com.ygames.ysoccer.framework.GLGame.LogType.AI_KICKING;
-import static com.ygames.ysoccer.framework.GLGame.LogType.BALL;
-import static com.ygames.ysoccer.framework.GLGame.LogType.GUI;
-import static com.ygames.ysoccer.framework.GLGame.LogType.PASSING;
-import static com.ygames.ysoccer.framework.GLGame.LogType.PLAYER_SELECTION;
+import static com.ygames.ysoccer.framework.GLGame.LogType.*;
 
 class DeveloperOptions extends GLScreen {
 
@@ -112,41 +107,13 @@ class DeveloperOptions extends GLScreen {
         w = new LogLevelButton();
         widgets.add(w);
 
-        y0 += 22;
-        w = new LogFilterLabel(AI_ATTACKING);
-        widgets.add(w);
-        w = new LogFilterButton(AI_ATTACKING);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(AI_KICKING);
-        widgets.add(w);
-        w = new LogFilterButton(AI_KICKING);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(BALL);
-        widgets.add(w);
-        w = new LogFilterButton(BALL);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(PASSING);
-        widgets.add(w);
-        w = new LogFilterButton(PASSING);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(GUI);
-        widgets.add(w);
-        w = new LogFilterButton(GUI);
-        widgets.add(w);
-
-        y0 += 22;
-        w = new LogFilterLabel(PLAYER_SELECTION);
-        widgets.add(w);
-        w = new LogFilterButton(PLAYER_SELECTION);
-        widgets.add(w);
+        for (GLGame.LogType value : values()) {
+            y0 += 22;
+            w = new LogFilterLabel(value);
+            widgets.add(w);
+            w = new LogFilterButton(value);
+            widgets.add(w);
+        }
 
         w = new ExitButton();
         widgets.add(w);

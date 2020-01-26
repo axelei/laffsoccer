@@ -87,8 +87,10 @@ public class Main extends GLScreen {
         w = new LoadOldCompetitionButton(y);
         widgets.add(w);
 
-        w = new CloseButton();
-        widgets.add(w);
+        if (game.settings.fullScreen) {
+            w = new CloseButton();
+            widgets.add(w);
+        }
 
         // release date
         w = new Label();

@@ -235,7 +235,8 @@ public class GLGame extends Game {
         BALL,
         GUI,
         PASSING,
-        PLAYER_SELECTION
+        PLAYER_SELECTION,
+        COMMENTARY
     }
 
     public static void debug(LogType type, Object Object, String message) {

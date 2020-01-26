@@ -5,6 +5,9 @@ import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 
 import java.util.*;
 
+import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
+import static com.ygames.ysoccer.framework.GLGame.LogType.COMMENTARY;
+
 /**
  * Singleton that will manage commentaries in-match
  */
@@ -88,11 +91,15 @@ public class Commentary {
     public synchronized void enqueueComment(Comment... elements) {
 
         if (queueLength > MAX_QUEUE && playing != null && playing.priority.weight > elements[0].priority.weight && elements[0].priority != Comment.Priority.CHITCHAT) {
+            GLGame.debug(COMMENTARY, elements, "Commentary not queued: queue too long: " + queueLength);
             return;
         }
 
         // A comment with greater priority comes (or queue is very long)
         if ((playing != null && playing.priority.weight < elements[0].priority.weight && queueLength < SHORT_QUEUE || queueLength > MAX_QUEUE) && elements[0].priority != Comment.Priority.CHITCHAT)  {
+            GLGame.debug(COMMENTARY, elements, "Queue clear and commentary pushed immediately: is not chitchat? " + (elements[0].priority != Comment.Priority.CHITCHAT));
+            GLGame.debug(COMMENTARY, elements, "Queue clear and commentary pushed immediately: higher priority? " + (playing == null? "(not playing)" : playing.priority.weight < elements[0].priority.weight));
+            GLGame.debug(COMMENTARY, elements, "Queue clear and commentary pushed immediately: short queue?" + (queueLength < SHORT_QUEUE));
             queue.clear();
             current.clear();
             queueLength = 0;
@@ -105,6 +112,7 @@ public class Commentary {
         for (Comment element : elements) {
             queueLength += ((OpenALSound) element.getSound()).duration();
         }
+        GLGame.debug(COMMENTARY, queueLength, "Queue length: " + queueLength);
         queue.add(elements);
     }
 
@@ -131,6 +139,8 @@ public class Commentary {
 
         Comment target = current.poll();
 
+        GLGame.debug(COMMENTARY, target, "Pulling new comment: " + target);
+
         OpenALSound openALSound = (OpenALSound) target.getSound();
 
         lastLength = openALSound.duration();
@@ -145,6 +155,10 @@ public class Commentary {
     }
 
     public void wake() {
+
+        GLGame.debug(COMMENTARY, this, "Waking commentary subsystem");
+
+
         if (timer != null) {
             timer.cancel();
         }
@@ -201,6 +215,8 @@ public class Commentary {
     }
 
     public void stop() {
+
+        GLGame.debug(COMMENTARY, this, "Stopping commentary subsystem");
 
         timer.cancel();
 

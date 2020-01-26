@@ -16,7 +16,7 @@ public class Settings {
     private Json json;
 
     public static final String APP_NAME = "Charnego Internatiolaff Soccer";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.2";
 
     // game
     public String locale;
@@ -147,7 +147,7 @@ public class Settings {
         preferences.putString("joystickConfigs", joystickConfigs);
 
         // development
-        preferences.putBoolean("development", development);
+        // preferences.putBoolean("development", development);
 
         // (logs)
         preferences.putInteger("logLevel", logLevel);
@@ -172,7 +172,7 @@ public class Settings {
     private String defaultKeyboardConfigs() {
         ArrayList<KeyboardConfig> keyboardConfigs = new ArrayList<>();
         keyboardConfigs.add(new KeyboardConfig(Input.Keys.LEFT, Input.Keys.RIGHT, Input.Keys.UP, Input.Keys.DOWN, Input.Keys.NUMPAD_0, Input.Keys.NUMPAD_1));
-        keyboardConfigs.add(new KeyboardConfig(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.V, Input.Keys.B));
+        keyboardConfigs.add(new KeyboardConfig(Input.Keys.A, Input.Keys.D, Input.Keys.W, Input.Keys.S, Input.Keys.N, Input.Keys.M));
         return json.toJson(keyboardConfigs);
     }
 
