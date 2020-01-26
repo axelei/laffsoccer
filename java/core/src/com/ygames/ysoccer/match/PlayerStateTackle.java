@@ -27,9 +27,8 @@ class PlayerStateTackle extends PlayerState {
         player.fmx = Math.round((((player.a + 360) % 360)) / 45) % 8;
         player.fmy = 4;
 
-        Match match = ((Match) scene);
         float angle = EMath.aTan2(player.inputDevice.y0, player.inputDevice.x0) + (float) (Math.random() - 0.5f) * 25;
-        EMath.oneIn(2.5f, () -> match.getRenderer().allSprites.add(ObjectSprite.mow(match.game.glGraphics, player.x, player.y, angle)));
+        EMath.oneIn(2.5f, () -> scene.getRenderer().allSprites.add(ObjectSprite.mow(scene.getGame().glGraphics, player.x, player.y, angle)));
 
     }
 

@@ -33,6 +33,10 @@ abstract class Scene {
         fsm.getSceneRenderer().render();
     }
 
+    public final GLGame getGame() {
+        return game;
+    }
+
     public void resize(int width, int height) {
         fsm.getSceneRenderer().resize(width, height, settings.zoom);
     }
