@@ -225,7 +225,7 @@
 	},
 	{
 		"name": "ELTON JOHN",
-		"shirtName": "ELTON T.",
+		"shirtName": "ELTON JOHN",
 		"nationality": "ENG",
 		"role": "RIGHT_BACK",
 		"number": 15,
@@ -250,7 +250,7 @@
 	},
 	{
 		"name": "DAVID BOWIE",
-		"shirtName": "BOWIE",
+		"shirtName": "D. BOWIE",
 		"nationality": "ENG",
 		"role": "LEFT_BACK",
 		"number": 4,
@@ -333,8 +333,8 @@
 		]
 	},
 	{
-		"name": "ADRIÁN MADSEN",
-		"shirtName": "ADRIÁN MADSEN",
+		"name": "DAVID ATTENBOROUGH",
+		"shirtName": "DAVID ATT.",
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 3,
@@ -360,8 +360,8 @@
 		]
 	},
 	{
-		"name": "LIAM JIMÉNEZ MOREAU",
-		"shirtName": "JIMÉNEZ",
+		"name": "ED SHEERAN",
+		"shirtName": "ED SHEERAN",
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 14,
@@ -387,8 +387,8 @@
 		]
 	},
 	{
-		"name": "LUKE SUÁREZ PAVLOV",
-		"shirtName": "L. SUÁREZ",
+		"name": "GEORGE MICHAEL",
+		"shirtName": "G. MICHAEL",
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 2,
@@ -407,8 +407,8 @@
 		"bestSkills": []
 	},
 	{
-		"name": "LUCAS RICHARD SCHUSTER",
-		"shirtName": "SCHUSTER R.",
+		"name": "OZZY OSBOURNE",
+		"shirtName": "OZZY",
 		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 7,
@@ -429,8 +429,8 @@
 		]
 	},
 	{
-		"name": "WOJCIECH DERVISHI BIANCO",
-		"shirtName": "BIANCO",
+		"name": "GEORGE HARRISON",
+		"shirtName": "GEORGE H.",
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 20,
@@ -455,8 +455,8 @@
 		]
 	},
 	{
-		"name": "YUSUF JOHNSON SINANI",
-		"shirtName": "YUSUF SINANI",
+		"name": "ROD STEWART",
+		"shirtName": "ROD STW.",
 		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 18,
@@ -478,8 +478,8 @@
 		]
 	},
 	{
-		"name": "JUSTIN LEFÈVRE",
-		"shirtName": "JUSTIN LEFÈVRE",
+		"name": "LIAM GALLAGHER",
+		"shirtName": "L. GALLAGHER",
 		"nationality": "ENG",
 		"role": "MIDFIELDER",
 		"number": 16,
@@ -502,8 +502,8 @@
 		]
 	},
 	{
-		"name": "ALESSANDRO WEBER",
-		"shirtName": "W. ALESSANDRO",
+		"name": "ROBERT PLANT",
+		"shirtName": "ROB PLANT",
 		"nationality": "ENG",
 		"role": "DEFENDER",
 		"number": 8,

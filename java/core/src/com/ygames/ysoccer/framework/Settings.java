@@ -26,7 +26,7 @@ public class Settings {
     public int musicVolume;
 
     // match
-    public static Integer[] matchLengths = {3, 5, 7, 10};
+    public static Integer[] matchLengths = {3, 5, 7, 10, 15};
     public int matchLength;
     public int benchSize;
     public boolean useFlags;
@@ -74,7 +74,7 @@ public class Settings {
         fullScreen = preferences.getBoolean("fullScreen", true);
         showIntro = preferences.getBoolean("showIntro", true);
         musicMode = preferences.getInteger("musicMode", MenuMusic.ALL);
-        musicVolume = preferences.getInteger("musicVolume", 40);
+        musicVolume = preferences.getInteger("musicVolume", 50);
         useFlags = preferences.getBoolean("useFlags", true);
         maxPlayerValue = preferences.getInteger("maxPlayerValueM", 2)
                 * Math.pow(10, preferences.getInteger("maxPlayerValueE", 8));

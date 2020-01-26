@@ -44,7 +44,7 @@
 		"role": "GOALKEEPER",
 		"number": 7,
 		"skinColor": "PALE",
-		"hairColor": "WHITE",
+		"hairColor": "PUNK_BLOND",
 		"hairStyle": "SHORT_B",
 		"value": 29
 	},
@@ -76,7 +76,7 @@
 		"number": 5,
 		"skinColor": "PALE",
 		"hairColor": "RED",
-		"hairStyle": "CURLY_D",
+		"hairStyle": "SHORT_C",
 		"skills": {
 			"passing": 2,
 			"shooting": 4,
@@ -99,7 +99,7 @@
 		"role": "DEFENDER",
 		"number": 2,
 		"skinColor": "PALE",
-		"hairColor": "GRAY",
+		"hairColor": "PUNK_BLOND",
 		"hairStyle": "SPECIAL_C",
 		"skills": {
 			"passing": 2,
@@ -123,7 +123,7 @@
 		"number": 15,
 		"skinColor": "PALE",
 		"hairColor": "PLATINUM",
-		"hairStyle": "SPECIAL_B",
+		"hairStyle": "SPECIAL_C",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
@@ -145,9 +145,9 @@
 		"nationality": "GER",
 		"role": "LEFT_BACK",
 		"number": 8,
-		"skinColor": "PINK",
+		"skinColor": "MULATTO",
 		"hairColor": "PLATINUM",
-		"hairStyle": "SMOOTH_L",
+		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 2,
 			"shooting": 1,
@@ -166,7 +166,7 @@
 		"role": "LEFT_WINGER",
 		"number": 17,
 		"skinColor": "PALE",
-		"hairColor": "BROWN",
+		"hairColor": "PLATINUM",
 		"hairStyle": "CURLY_B",
 		"skills": {
 			"passing": 4,
@@ -192,9 +192,9 @@
 		"nationality": "GER",
 		"role": "RIGHT_WINGER",
 		"number": 9,
-		"skinColor": "PINK",
-		"hairColor": "BLACK",
-		"hairStyle": "SPECIAL_G",
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
+		"hairStyle": "CURLY_B",
 		"skills": {
 			"passing": 2,
 			"shooting": 3,
@@ -219,9 +219,9 @@
 		"nationality": "GER",
 		"role": "RIGHT_BACK",
 		"number": 6,
-		"skinColor": "RED",
-		"hairColor": "RED",
-		"hairStyle": "SPECIAL_B",
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
+		"hairStyle": "SPECIAL_C",
 		"skills": {
 			"passing": 2,
 			"shooting": 2,
@@ -239,8 +239,8 @@
 		"nationality": "GER",
 		"role": "RIGHT_BACK",
 		"number": 1,
-		"skinColor": "RED",
-		"hairColor": "BROWN",
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
 		"hairStyle": "PIGTAIL_C",
 		"skills": {
 			"passing": 4,
@@ -260,7 +260,7 @@
 		"role": "RIGHT_BACK",
 		"number": 18,
 		"skinColor": "PALE",
-		"hairColor": "BROWN",
+		"hairColor": "PLATINUM",
 		"hairStyle": "PIGTAIL_A",
 		"skills": {
 			"passing": 2,
@@ -280,24 +280,24 @@
 		]
 	},
 	{
-		"name": "STEFAN LECHNER WRIGHT",
-		"shirtName": "STEFAN W.",
+		"name": "BACKPFEIFENGESICHT",
+		"shirtName": "PFESHIT",
 		"nationality": "GER",
 		"role": "GOALKEEPER",
 		"number": 16,
-		"skinColor": "MULATTO",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "PALE",
+		"hairColor": "PUNK_BLOND",
 		"hairStyle": "SHORT_C",
 		"value": 35
 	},
 	{
-		"name": "SAMUEL AIGNER",
-		"shirtName": "SAMUEL AIGNER",
+		"name": "ZEITGEIST",
+		"shirtName": "ZEITGEIST",
 		"nationality": "GER",
 		"role": "RIGHT_WINGER",
 		"number": 11,
-		"skinColor": "ARAB",
-		"hairColor": "GRAY",
+		"skinColor": "PALE",
+		"hairColor": "PUNK_BLOND",
 		"hairStyle": "SPECIAL_E",
 		"skills": {
 			"passing": 2,
@@ -315,13 +315,13 @@
 		]
 	},
 	{
-		"name": "OSKAR HOFER",
-		"shirtName": "OSKAR HOFER",
+		"name": "FRÜHLINGSGEFÜHLE",
+		"shirtName": "GEFÜHLE",
 		"nationality": "GER",
 		"role": "MIDFIELDER",
 		"number": 14,
-		"skinColor": "BLACK",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "PALE",
+		"hairColor": "BLOND",
 		"hairStyle": "SMOOTH_N",
 		"skills": {
 			"passing": 3,
@@ -339,13 +339,13 @@
 		]
 	},
 	{
-		"name": "SANTIAGO MORELLI",
-		"shirtName": "MORELLI",
+		"name": "JAGGERMEISTER",
+		"shirtName": "JAGGER",
 		"nationality": "GER",
 		"role": "DEFENDER",
 		"number": 4,
-		"skinColor": "BLACK",
-		"hairColor": "RED",
+		"skinColor": "PALE",
+		"hairColor": "PLATINUM",
 		"hairStyle": "SMOOTH_I",
 		"skills": {
 			"passing": 2,
@@ -359,13 +359,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "DAVID JESUS MARINO",
-		"shirtName": "DAVID",
+		"name": "OBERGRUPPENFÜHRER",
+		"shirtName": "OBERN",
 		"nationality": "GER",
 		"role": "LEFT_WINGER",
 		"number": 13,
 		"skinColor": "PALE",
-		"hairColor": "GRAY",
+		"hairColor": "PLATINUM",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 0,

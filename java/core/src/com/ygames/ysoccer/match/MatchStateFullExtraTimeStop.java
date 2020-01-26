@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
@@ -27,6 +28,10 @@ class MatchStateFullExtraTimeStop extends MatchState {
 
         match.clock = match.length * 120f / 90f;
         getFsm().matchCompleted = true;
+
+        if (match.settings.commentary) {
+            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.MATCH_END, Commentary.Comment.Priority.HIGH));
+        }
 
         Assets.Sounds.end.play(Assets.Sounds.volume / 100f);
 

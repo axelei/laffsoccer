@@ -1,6 +1,7 @@
 package com.ygames.ysoccer.match;
 
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Commentary;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
@@ -125,6 +126,11 @@ class MatchStatePenaltiesEnd extends MatchState {
                 if (haveWinner()) {
                     match.setResult(match.penaltiesScore(HOME), match.penaltiesScore(AWAY), Match.ResultType.AFTER_PENALTIES);
                     getFsm().matchCompleted = true;
+
+                    if (match.settings.commentary) {
+                        Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.MATCH_END, Commentary.Comment.Priority.HIGH));
+                    }
+
                     return newAction(NEW_FOREGROUND, STATE_END_POSITIONS);
                 } else {
                     return newAction(NEW_FOREGROUND, STATE_PENALTIES);

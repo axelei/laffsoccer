@@ -43,7 +43,7 @@
 		"nationality": "DMA",
 		"role": "GOALKEEPER",
 		"number": 13,
-		"skinColor": "PINK",
+		"skinColor": "PALE",
 		"hairColor": "BLACK",
 		"hairStyle": "CURLY_E",
 		"value": 14
@@ -54,7 +54,7 @@
 		"nationality": "ARU",
 		"role": "RIGHT_BACK",
 		"number": 3,
-		"skinColor": "MULATTO",
+		"skinColor": "PALE",
 		"hairColor": "PUNK_BLOND",
 		"hairStyle": "SMOOTH_N",
 		"skills": {
@@ -77,7 +77,7 @@
 		"nationality": "FRA",
 		"role": "DEFENDER",
 		"number": 2,
-		"skinColor": "ARAB",
+		"skinColor": "PALE",
 		"hairColor": "PLATINUM",
 		"hairStyle": "SMOOTH_B",
 		"skills": {
@@ -103,7 +103,7 @@
 		"nationality": "GER",
 		"role": "MIDFIELDER",
 		"number": 9,
-		"skinColor": "PINK",
+		"skinColor": "PALE",
 		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
@@ -149,12 +149,12 @@
 		]
 	},
 	{
-		"name": "DÉJÀ-VU",
-		"shirtName": "DÉJÀ-VU",
+		"name": "DÉJÀ-VÚ",
+		"shirtName": "DÉJÀ-VÚ",
 		"nationality": "SOL",
 		"role": "RIGHT_BACK",
 		"number": 10,
-		"skinColor": "PINK",
+		"skinColor": "PALE",
 		"hairColor": "RED",
 		"hairStyle": "SPECIAL_H",
 		"skills": {
@@ -177,11 +177,11 @@
 	},
 	{
 		"name": "LÈ GRILLÊ",
-		"shirtName": "GRILLÉ",
+		"shirtName": "GRILLÊ",
 		"nationality": "UGA",
 		"role": "DEFENDER",
 		"number": 14,
-		"skinColor": "MULATTO",
+		"skinColor": "PALE",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_N",
 		"skills": {
@@ -229,7 +229,7 @@
 		"nationality": "STP",
 		"role": "MIDFIELDER",
 		"number": 11,
-		"skinColor": "MULATTO",
+		"skinColor": "PALE",
 		"hairColor": "BROWN",
 		"hairStyle": "PIGTAIL_C",
 		"skills": {
@@ -319,9 +319,9 @@
 		"nationality": "LIB",
 		"role": "MIDFIELDER",
 		"number": 19,
-		"skinColor": "ARAB",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SPECIAL_F",
+		"skinColor": "PALE",
+		"hairColor": "RED",
+		"hairStyle": "THINNING_A",
 		"skills": {
 			"passing": 3,
 			"shooting": 4,
@@ -336,14 +336,14 @@
 		]
 	},
 	{
-		"name": "DANIEL CATTANEO TEIXEIRA",
-		"shirtName": "CATTANEO",
+		"name": "MON DIEU",
+		"shirtName": "MONDIEU",
 		"nationality": "MTN",
 		"role": "MIDFIELDER",
 		"number": 4,
-		"skinColor": "BLACK",
+		"skinColor": "PALE",
 		"hairColor": "WHITE",
-		"hairStyle": "SMOOTH_G",
+		"hairStyle": "SPECIAL_B",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
@@ -360,14 +360,14 @@
 		]
 	},
 	{
-		"name": "AYKHAN JIM�NEZ MONTANARI",
-		"shirtName": "AYKHAN",
+		"name": "SACRE BLEU",
+		"shirtName": "SACRE BLEU",
 		"nationality": "SVK",
 		"role": "RIGHT_WINGER",
 		"number": 18,
-		"skinColor": "ASIATIC",
+		"skinColor": "PALE",
 		"hairColor": "BROWN",
-		"hairStyle": "SMOOTH_H",
+		"hairStyle": "SPECIAL_B",
 		"skills": {
 			"passing": 3,
 			"shooting": 4,
@@ -380,14 +380,14 @@
 		"bestSkills": []
 	},
 	{
-		"name": "HUGO BARDHIGRUBER �LVAREZ",
-		"shirtName": "B. HUGO",
+		"name": "S'IL VOUS PLÄIT",
+		"shirtName": "SIVUPLÉ",
 		"nationality": "GUY",
 		"role": "RIGHT_WINGER",
 		"number": 7,
-		"skinColor": "RED",
+		"skinColor": "PINK",
 		"hairColor": "PLATINUM",
-		"hairStyle": "SMOOTH_O",
+		"hairStyle": "SPECIAL_A",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,

@@ -124,7 +124,7 @@
 		"number": 15,
 		"skinColor": "ARAB",
 		"hairColor": "GRAY",
-		"hairStyle": "SMOOTH_E",
+		"hairStyle": "BALD_A",
 		"skills": {
 			"passing": 4,
 			"shooting": 3,
@@ -280,14 +280,14 @@
 		"value": 13
 	},
 	{
-		"name": "AHMET RASMUSSEN MORELLI",
-		"shirtName": "MORELLI A.",
+		"name": "DWAYNE JOHNSON",
+		"shirtName": "THE ROCK",
 		"nationality": "USA",
 		"role": "LEFT_BACK",
 		"number": 3,
 		"skinColor": "ARAB",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_J",
+		"hairStyle": "BALD_A",
 		"skills": {
 			"passing": 2,
 			"shooting": 2,
@@ -302,14 +302,14 @@
 		]
 	},
 	{
-		"name": "ONDŘEJ RUSSO",
-		"shirtName": "ONDŘEJ RUSSO",
+		"name": "VIN DIESEL",
+		"shirtName": "VIN DIESEL",
 		"nationality": "USA",
 		"role": "DEFENDER",
 		"number": 17,
-		"skinColor": "ARAB",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SPECIAL_A",
+		"skinColor": "RED",
+		"hairColor": "RED",
+		"hairStyle": "BALD_A",
 		"skills": {
 			"passing": 3,
 			"shooting": 0,
@@ -325,14 +325,14 @@
 		]
 	},
 	{
-		"name": "JAKOB LOMBARDI",
-		"shirtName": "JAKOB LOMBARDI",
+		"name": "DANNY TREJO",
+		"shirtName": "D. TREJO",
 		"nationality": "USA",
 		"role": "RIGHT_WINGER",
 		"number": 1,
 		"skinColor": "PINK",
-		"hairColor": "PUNK_FUCHSIA",
-		"hairStyle": "SMOOTH_C",
+		"hairColor": "BLACK",
+		"hairStyle": "SMOOTH_K",
 		"skills": {
 			"passing": 3,
 			"shooting": 3,
@@ -345,14 +345,14 @@
 		"bestSkills": []
 	},
 	{
-		"name": "JONAS HAAS",
-		"shirtName": "JONAS HAAS",
+		"name": "ALFREDO JAMES PACINO",
+		"shirtName": "AL PACINO",
 		"nationality": "USA",
 		"role": "RIGHT_WINGER",
 		"number": 4,
 		"skinColor": "PINK",
-		"hairColor": "PLATINUM",
-		"hairStyle": "SMOOTH_F",
+		"hairColor": "BROWN",
+		"hairStyle": "SMOOTH_C",
 		"skills": {
 			"passing": 1,
 			"shooting": 3,

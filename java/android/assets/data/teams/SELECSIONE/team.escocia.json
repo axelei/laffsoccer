@@ -1,8 +1,8 @@
 {
 "name": "ESCOCIA",
 "type": "NATIONAL",
-"confederation": "UEFA",
 "country": "ESC",
+"confederation": "UEFA",
 "city": "WHISKY",
 "stadium": "EL BARRIL",
 "coach": {
@@ -44,7 +44,7 @@
 		"role": "GOALKEEPER",
 		"number": 13,
 		"skinColor": "MULATTO",
-		"hairColor": "PUNK_FUCHSIA",
+		"hairColor": "BLACK",
 		"hairStyle": "SHORT_C",
 		"value": 36
 	},
@@ -54,7 +54,7 @@
 		"nationality": "SCO",
 		"role": "MIDFIELDER",
 		"number": 16,
-		"skinColor": "BLACK",
+		"skinColor": "ARAB",
 		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_H",
 		"skills": {
@@ -234,7 +234,7 @@
 		"nationality": "SCO",
 		"role": "RIGHT_WINGER",
 		"number": 7,
-		"skinColor": "ALIEN",
+		"skinColor": "PALE",
 		"hairColor": "GRAY",
 		"hairStyle": "SMOOTH_L",
 		"skills": {
@@ -257,7 +257,7 @@
 		"nationality": "SCO",
 		"role": "RIGHT_WINGER",
 		"number": 12,
-		"skinColor": "BLACK",
+		"skinColor": "PALE",
 		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_C",
 		"skills": {
@@ -299,7 +299,7 @@
 		]
 	},
 	{
-		"name": "HARRY MARTÍN",
+		"name": "BALLANTINES",
 		"shirtName": "HARRY MARTÍN",
 		"nationality": "SCO",
 		"role": "GOALKEEPER",
@@ -310,8 +310,8 @@
 		"value": 34
 	},
 	{
-		"name": "DANIIL GALLI SHKRELI",
-		"shirtName": "DANIIL G.",
+		"name": "JIM BEAN",
+		"shirtName": "JIM BEAN",
 		"nationality": "SCO",
 		"role": "LEFT_WINGER",
 		"number": 8,
@@ -330,8 +330,8 @@
 		"bestSkills": []
 	},
 	{
-		"name": "DAVID COPPOLA SHKRELI",
-		"shirtName": "COPPOLA DAVID",
+		"name": "CROWN ROYAL",
+		"shirtName": "C. ROYAL",
 		"nationality": "SCO",
 		"role": "MIDFIELDER",
 		"number": 18,
@@ -354,8 +354,8 @@
 		]
 	},
 	{
-		"name": "JAYDEN FRANCO SIMÕES",
-		"shirtName": "FRANCO",
+		"name": "GRANTS",
+		"shirtName": "GRANTS",
 		"nationality": "SCO",
 		"role": "LEFT_BACK",
 		"number": 10,
@@ -379,8 +379,8 @@
 		]
 	},
 	{
-		"name": "OSCAR BAUMGARTNER KOROVESHI",
-		"shirtName": "BAUMGARTNER O.",
+		"name": "SINGLETON",
+		"shirtName": "SINGLETON",
 		"nationality": "SCO",
 		"role": "RIGHT_BACK",
 		"number": 20,

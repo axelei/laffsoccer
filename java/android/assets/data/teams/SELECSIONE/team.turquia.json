@@ -38,8 +38,8 @@
 ],
 "players": [
 	{
-		"name": "WILSON GRECO MERCIER",
-		"shirtName": "WILSON GRECO",
+		"name": "DÖNER",
+		"shirtName": "DÖNER",
 		"nationality": "TUR",
 		"role": "GOALKEEPER",
 		"number": 8,
@@ -49,12 +49,12 @@
 		"value": 23
 	},
 	{
-		"name": "LOUIS DAVID PARISI",
-		"shirtName": "DAVID PARISI",
+		"name": "KEFTA",
+		"shirtName": "KEFTA",
 		"nationality": "TUR",
 		"role": "RIGHT_BACK",
 		"number": 16,
-		"skinColor": "BLACK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_B",
 		"skills": {
@@ -74,8 +74,8 @@
 		]
 	},
 	{
-		"name": "EETU BERGER",
-		"shirtName": "EETU BERGER",
+		"name": "HUMMUS",
+		"shirtName": "HUMMUS",
 		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 6,
@@ -96,7 +96,7 @@
 		]
 	},
 	{
-		"name": "MATHIAS FONTANA MOREL",
+		"name": "DÜRÜM",
 		"shirtName": "MOREL",
 		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
@@ -119,14 +119,14 @@
 		]
 	},
 	{
-		"name": "ERIK DELVINA ALONSO",
-		"shirtName": "ALONSO E.",
+		"name": "KEFIR",
+		"shirtName": "KEFIR",
 		"nationality": "TUR",
 		"role": "LEFT_BACK",
 		"number": 5,
 		"skinColor": "ALIEN",
-		"hairColor": "BLOND",
-		"hairStyle": "SMOOTH_L",
+		"hairColor": "WHITE",
+		"hairStyle": "SPECIAL_G",
 		"skills": {
 			"passing": 2,
 			"shooting": 3,
@@ -143,13 +143,13 @@
 		]
 	},
 	{
-		"name": "SABA AUER HAAS",
-		"shirtName": "SABA AUER HAAS",
+		"name": "HALAL",
+		"shirtName": "HALAL",
 		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 2,
-		"skinColor": "ASIATIC",
-		"hairColor": "WHITE",
+		"skinColor": "ARAB",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_K",
 		"skills": {
 			"passing": 2,
@@ -165,13 +165,13 @@
 		]
 	},
 	{
-		"name": "ALEJANDRO DURAND",
-		"shirtName": "DURAND",
+		"name": "FALAFEL",
+		"shirtName": "FALAFEL",
 		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 11,
 		"skinColor": "MULATTO",
-		"hairColor": "RED",
+		"hairColor": "GRAY",
 		"hairStyle": "CURLY_C",
 		"skills": {
 			"passing": 0,
@@ -189,12 +189,12 @@
 		]
 	},
 	{
-		"name": "DÁNIEL THANASI RUIZ",
-		"shirtName": "DÁNIEL THANASI",
+		"name": "SHAWARMA",
+		"shirtName": "SHAWARMA",
 		"nationality": "TUR",
 		"role": "LEFT_BACK",
 		"number": 18,
-		"skinColor": "BLACK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_H",
 		"skills": {
@@ -213,12 +213,12 @@
 		]
 	},
 	{
-		"name": "SERGEI SIMÕES",
-		"shirtName": "SERGEI SIMÕES",
+		"name": "KEBAB",
+		"shirtName": "KEBAB",
 		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 9,
-		"skinColor": "PINK",
+		"skinColor": "RED",
 		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
@@ -240,13 +240,13 @@
 		]
 	},
 	{
-		"name": "SANTINO JONES",
-		"shirtName": "SANTINO JONES",
+		"name": "BAKLAVA",
+		"shirtName": "BAKLAVA",
 		"nationality": "TUR",
 		"role": "LEFT_BACK",
 		"number": 1,
-		"skinColor": "BLACK",
-		"hairColor": "PLATINUM",
+		"skinColor": "MULATTO",
+		"hairColor": "GRAY",
 		"hairStyle": "SPECIAL_H",
 		"skills": {
 			"passing": 4,
@@ -264,13 +264,13 @@
 		]
 	},
 	{
-		"name": "GUSTAVS VIEIRAGARCÍA",
-		"shirtName": "GUSTAVS V.",
+		"name": "ISKENDER",
+		"shirtName": "ISKENDER",
 		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 13,
-		"skinColor": "PALE",
-		"hairColor": "BLOND",
+		"skinColor": "MULATTO",
+		"hairColor": "BROWN",
 		"hairStyle": "SMOOTH_F",
 		"skills": {
 			"passing": 4,
@@ -288,23 +288,23 @@
 		]
 	},
 	{
-		"name": "MIGUEL ÁNGEL ROBERTS PELLEGRINI",
-		"shirtName": "MIGUEL",
+		"name": "ÇAY",
+		"shirtName": "ÇAY",
 		"nationality": "TUR",
 		"role": "GOALKEEPER",
 		"number": 12,
-		"skinColor": "ALIEN",
-		"hairColor": "WHITE",
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_F",
 		"value": 20
 	},
 	{
-		"name": "LUCAS ROBERT RODRÍGUEZ",
-		"shirtName": "R. LUCAS",
+		"name": "BÖREK",
+		"shirtName": "BÖREK",
 		"nationality": "TUR",
 		"role": "RIGHT_WINGER",
 		"number": 15,
-		"skinColor": "BLACK",
+		"skinColor": "MULATTO",
 		"hairColor": "BLACK",
 		"hairStyle": "SPECIAL_E",
 		"skills": {
@@ -319,13 +319,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "WILLIAM JIMÉNEZ",
-		"shirtName": "WILLIAM",
+		"name": "LAHMACUN",
+		"shirtName": "LAHMACUN",
 		"nationality": "TUR",
 		"role": "RIGHT_BACK",
 		"number": 7,
-		"skinColor": "ALIEN",
-		"hairColor": "GRAY",
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_N",
 		"skills": {
 			"passing": 2,
@@ -342,12 +342,12 @@
 		]
 	},
 	{
-		"name": "ANGEL FERRARA",
-		"shirtName": "ANGEL FERRARA",
+		"name": "PIDE",
+		"shirtName": "PIDE",
 		"nationality": "TUR",
 		"role": "LEFT_WINGER",
 		"number": 17,
-		"skinColor": "ASIATIC",
+		"skinColor": "MULATTO",
 		"hairColor": "BROWN",
 		"hairStyle": "CURLY_C",
 		"skills": {
@@ -362,13 +362,13 @@
 		"bestSkills": []
 	},
 	{
-		"name": "MATYÁŠ BERNARDI",
-		"shirtName": "MATYÁŠ B.",
+		"name": "KAHVE",
+		"shirtName": "KAHVE",
 		"nationality": "TUR",
 		"role": "MIDFIELDER",
 		"number": 21,
-		"skinColor": "ASIATIC",
-		"hairColor": "PUNK_FUCHSIA",
+		"skinColor": "MULATTO",
+		"hairColor": "BLACK",
 		"hairStyle": "SMOOTH_A",
 		"skills": {
 			"passing": 3,

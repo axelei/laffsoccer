@@ -58,6 +58,9 @@ public class Commentary {
         }
     }
 
+    /**
+     * This is meant to be a singleton
+     */
     private Commentary() {}
 
     /**
@@ -116,7 +119,16 @@ public class Commentary {
         queue.add(elements);
     }
 
+    /**
+     * Prepares a random comment of type and priority specified
+     * @param type
+     * @param priority
+     * @return the composed comment
+     */
     public static Comment[] getComment(Assets.CommonComment.CommonCommentType type, Comment.Priority priority) {
+
+        GLGame.debug(COMMENTARY, priority, "Generating new comment: " + type);
+
         Random dice = new Random();
 
         List<Comment> result = new ArrayList<>();
@@ -131,6 +143,10 @@ public class Commentary {
         return result.toArray(new Comment[result.size()]);
     }
 
+    /**
+     * Pulls a comment from the queue and plays it
+     * @return whether it did or not
+     */
     private boolean pullAndPlay() {
 
         if (current.isEmpty()) {
@@ -154,10 +170,14 @@ public class Commentary {
         return true;
     }
 
+    /**
+     * Awakens the commentary thread
+     */
     public void wake() {
 
         GLGame.debug(COMMENTARY, this, "Waking commentary subsystem");
 
+        since = System.currentTimeMillis();
 
         if (timer != null) {
             timer.cancel();
@@ -214,6 +234,9 @@ public class Commentary {
 
     }
 
+    /**
+     * Stops the commentary thread
+     */
     public void stop() {
 
         GLGame.debug(COMMENTARY, this, "Stopping commentary subsystem");

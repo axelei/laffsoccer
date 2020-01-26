@@ -45,7 +45,7 @@
 		"number": 7,
 		"skinColor": "ASIATIC",
 		"hairColor": "BLACK",
-		"hairStyle": "SPECIAL_H",
+		"hairStyle": "THINNING_C",
 		"value": 14
 	},
 	{
@@ -56,7 +56,7 @@
 		"number": 19,
 		"skinColor": "ASIATIC",
 		"hairColor": "BLACK",
-		"hairStyle": "PIGTAIL_C",
+		"hairStyle": "SHORT_A",
 		"skills": {
 			"passing": 3,
 			"shooting": 2,
@@ -300,39 +300,25 @@
 		]
 	},
 	{
-		"name": "FILIP MARTINO",
-		"shirtName": "FILIP MARTINO",
+		"name": "DOOSAN",
+		"shirtName": "DOOSAN",
 		"nationality": "NAM",
-		"role": "RIGHT_BACK",
+		"role": "GOALKEEPER",
 		"number": 17,
 		"skinColor": "ASIATIC",
 		"hairColor": "BLACK",
-		"hairStyle": "PIGTAIL_B",
-		"skills": {
-			"passing": 6,
-			"shooting": 3,
-			"heading": 2,
-			"tackling": 4,
-			"control": 5,
-			"speed": 3,
-			"finishing": 2
-		},
-		"bestSkills": [
-			"SPEED",
-			"CONTROL",
-			"SHOOTING",
-			"PASSING"
-		]
+		"hairStyle": "SHORT_A",
+		"value": 0
 	},
 	{
-		"name": "MARC MEHMETI",
-		"shirtName": "MARC MEHMETI",
+		"name": "KT&G",
+		"shirtName": "KT&G",
 		"nationality": "URU",
 		"role": "MIDFIELDER",
 		"number": 21,
 		"skinColor": "ASIATIC",
 		"hairColor": "BLACK",
-		"hairStyle": "SMOOTH_L",
+		"hairStyle": "SMOOTH_O",
 		"skills": {
 			"passing": 2,
 			"shooting": 5,
@@ -349,14 +335,14 @@
 		]
 	},
 	{
-		"name": "LUKA RINALDI KRASNIQI",
-		"shirtName": "LUKA K.",
+		"name": "KUHMO",
+		"shirtName": "KUHMO",
 		"nationality": "BFA",
 		"role": "MIDFIELDER",
 		"number": 10,
 		"skinColor": "ASIATIC",
 		"hairColor": "BLACK",
-		"hairStyle": "SPECIAL_G",
+		"hairStyle": "THINNING_A",
 		"skills": {
 			"passing": 3,
 			"shooting": 4,
@@ -374,8 +360,8 @@
 		]
 	},
 	{
-		"name": "BENJAMÍN MACHADO",
-		"shirtName": "MACHADO",
+		"name": "DAEHAN",
+		"shirtName": "DAEHAN",
 		"nationality": "ENG",
 		"role": "RIGHT_WINGER",
 		"number": 20,
@@ -399,8 +385,8 @@
 		]
 	},
 	{
-		"name": "ANTÔNIO SILVESTRI",
-		"shirtName": "ANTÔNIO S.",
+		"name": "LOTTE",
+		"shirtName": "LOTTE",
 		"nationality": "LAO",
 		"role": "RIGHT_BACK",
 		"number": 14,
