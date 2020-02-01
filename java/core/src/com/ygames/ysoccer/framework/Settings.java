@@ -18,6 +18,12 @@ public class Settings {
     public static final String APP_NAME = "Charnego Internatiolaff Soccer";
     public static final String VERSION = "0.2";
 
+    // Difficulty
+    public int difficulty;
+    public static final int DIFFICULTY_EASY = 0;
+    public static final int DIFFICULTY_NORMAL = 1;
+    public static final int DIFFICULTY_DIFFICULT = 2;
+
     // game
     public String locale;
     public boolean fullScreen;
@@ -90,6 +96,7 @@ public class Settings {
         autoReplays = preferences.getBoolean("autoReplays", true);
         soundVolume = preferences.getInteger("soundVolume", 40);
         commentary = preferences.getBoolean("commentary", true);
+        difficulty = preferences.getInteger("difficulty", DIFFICULTY_EASY);
 
         // controls
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());
@@ -141,6 +148,7 @@ public class Settings {
         preferences.putBoolean("autoReplays", autoReplays);
         preferences.putInteger("soundVolume", soundVolume);
         preferences.putBoolean("commentary", commentary);
+        preferences.putInteger("difficulty", difficulty);
 
         // controls
         preferences.putString("keyboardConfigs", keyboardConfigs);
