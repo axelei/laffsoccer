@@ -305,7 +305,12 @@ public class Player implements Json.Serializable {
 
             Vector2 differenceVec = playerVec.sub(ballVec);
 
-            if (differenceVec.len() < 320 + 10 * skills.control) {
+            int vectorFactor = 320;
+            if (scene.game.settings.difficulty == Settings.DIFFICULTY_EASY && team.controlMode == Team.ControlMode.PLAYER) {
+                vectorFactor = 750;
+            }
+
+            if (differenceVec.len() < vectorFactor + 10 * skills.control) {
 
                 // ball already owned: contrast
                 if (ball.owner != null && ball.owner != this) {
@@ -348,7 +353,12 @@ public class Player implements Json.Serializable {
                 ball.collisionPlayer(this);
             }
 
-            ball.vz = ball.vz / (2 + skills.control);
+            float controlQuotent = (2 + skills.control);
+            if (scene.game.settings.difficulty == Settings.DIFFICULTY_EASY && team.controlMode == Team.ControlMode.PLAYER) {
+                controlQuotent = 20;
+            }
+
+            ball.vz = ball.vz / controlQuotent;
         }
     }
 
@@ -1068,6 +1078,11 @@ public class Player implements Json.Serializable {
 
         float maxCorrectionAngle = 22.5f;
         float maxSearchAngle = maxCorrectionAngle + 5f;
+
+        if (scene.game.settings.difficulty == Settings.DIFFICULTY_EASY && team.controlMode == Team.ControlMode.PLAYER) {
+            maxCorrectionAngle += 10;
+            maxSearchAngle += 10;
+        }
 
         passingMate = null;
         float minFrameDistance = BALL_PREDICTION;
