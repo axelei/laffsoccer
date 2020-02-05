@@ -39,25 +39,48 @@ class PlayerStateStandRun extends PlayerState {
 
                 // just ahead of feet: push forward
                 if (Math.abs(signedAngleDiff) <= slice && player.ballDistance > 3.5f) {
-                    // Control efficacy
-                    // lowest ball control skill: 1 + 0.060f * player.v
-                    // highest ball control skill: 1 + 0.032f * player.v
-                    float m = 1 + (0.06f - 0.004f * player.skills.control);
-                    ball.v = Math.max(ball.v, (m * ((player.ballDistance < 9) ? 1 : 0)) * player.v);
 
-                    // angle correction
-                    if (Math.abs(signedAngleDiff) > 22.5) {
-                        ball.a = player.a - signedAngleDiff / 2f;
+                    if (scene.game.settings.difficulty == Settings.DIFFICULTY_EASY && player.team.controlMode == Team.ControlMode.PLAYER) {
+
+                        // Easy control
+                        if (player.v > 0) {
+                            ball.a = player.a;
+                            ball.v = player.v;
+                            ball.vLast = player.v;
+                        } else {
+                            ball.a = player.a;
+                            ball.v = ball.vLast / 2;
+                        }
+
                     } else {
-                        ball.a = player.a;
-                    }
-                }
 
-                // too back: push fast forward
-                else {
-                    if (player.v > 0) {
-                        ball.v = Math.max(ball.v, 1.2f * player.v);
-                        ball.a = player.a;
+                        // Control slice
+                        // lowest ball control skill: +/- 70 degrees
+                        // highest ball control skill: +/- 91 degrees
+
+                        // just ahead of feet: push forward
+                        if (Math.abs(signedAngleDiff) <= slice && player.ballDistance > 3.5f) {
+                            // Control efficacy
+                            // lowest ball control skill: 1 + 0.060f * player.v
+                            // highest ball control skill: 1 + 0.032f * player.v
+                            float m = 1 + (0.06f - 0.004f * player.skills.control);
+                            ball.v = Math.max(ball.v, (m * ((player.ballDistance < 9) ? 1 : 0)) * player.v);
+
+                            // angle correction
+                            if (Math.abs(signedAngleDiff) > 22.5) {
+                                ball.a = player.a - signedAngleDiff / 2f;
+                            } else {
+                                ball.a = player.a;
+                            }
+                        }
+
+                        // too back: push fast forward
+                        else {
+                            if (player.v > 0) {
+                                ball.v = Math.max(ball.v, 1.2f * player.v);
+                                ball.a = player.a;
+                            }
+                        }
                     }
                 }
             }

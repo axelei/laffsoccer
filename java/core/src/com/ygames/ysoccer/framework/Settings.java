@@ -96,7 +96,7 @@ public class Settings {
         autoReplays = preferences.getBoolean("autoReplays", true);
         soundVolume = preferences.getInteger("soundVolume", 40);
         commentary = preferences.getBoolean("commentary", true);
-        difficulty = preferences.getInteger("difficulty", DIFFICULTY_EASY);
+        difficulty = preferences.getInteger("difficulty", DIFFICULTY_NORMAL);
 
         // controls
         keyboardConfigs = preferences.getString("keyboardConfigs", defaultKeyboardConfigs());

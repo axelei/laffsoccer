@@ -32,6 +32,7 @@ class Ball {
     float y0;
     private float z0;
     float v;
+    float vLast = 200f;
     float vMax;
     float vz;
     private float vzMax;

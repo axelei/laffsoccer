@@ -2,14 +2,10 @@ package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.GLGame;
-import com.ygames.ysoccer.framework.GLScreen;
-import com.ygames.ysoccer.framework.MenuMusic;
+import com.ygames.ysoccer.framework.*;
 import com.ygames.ysoccer.gui.Button;
 import com.ygames.ysoccer.gui.ToggleButton;
 import com.ygames.ysoccer.gui.Widget;
-import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.framework.Assets.font14;
 import static com.ygames.ysoccer.framework.Assets.gettext;

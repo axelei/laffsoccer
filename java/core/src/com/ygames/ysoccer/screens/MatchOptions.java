@@ -15,6 +15,10 @@ import com.ygames.ysoccer.framework.EMath;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.ygames.ysoccer.framework.Assets.font14;
+import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+
 class MatchOptions extends GLScreen {
 
     MatchOptions(GLGame game) {
@@ -67,6 +71,11 @@ class MatchOptions extends GLScreen {
         w = new NamesLabel();
         widgets.add(w);
         w = new NamesButton();
+        widgets.add(w);
+
+        w = new DifficultyLabel();
+        widgets.add(w);
+        w = new DifficultyButton();
         widgets.add(w);
 
         w = new ExitButton();
@@ -437,4 +446,54 @@ class MatchOptions extends GLScreen {
             setDirty(true);
         }
     }
+
+    private class DifficultyButton extends Button {
+
+        DifficultyButton() {
+            setColor(0x2B4A61);
+            setGeometry(game.gui.WIDTH / 2 + 10, 590, 440, 40);
+            setText("", CENTER, font14);
+        }
+
+        @Override
+        public void refresh() {
+            setText(gettext(game.settings.difficulty == Settings.DIFFICULTY_NORMAL ? "DIFFICULTY.NORMAL" : "DIFFICULTY.EASY"));
+        }
+
+        @Override
+        public void onFire1Down() {
+            updateDifficulty();
+        }
+
+        @Override
+        public void onFire2Down() {
+            updateDifficulty();
+        }
+
+        private void updateDifficulty() {
+            if (game.settings.difficulty == Settings.DIFFICULTY_NORMAL) {
+                game.settings.difficulty = Settings.DIFFICULTY_EASY;
+            } else {
+                game.settings.difficulty = Settings.DIFFICULTY_NORMAL;
+            }
+            setDirty(true);
+        }
+
+    }
+
+    private class DifficultyLabel extends Button {
+
+        DifficultyLabel() {
+            setColor(0x76683C);
+            setGeometry(game.gui.WIDTH / 2 - 10 - 440, 590, 440, 40);
+            setText("", CENTER, font14);
+            setActive(false);
+        }
+
+        @Override
+        public void refresh() {
+            setText(gettext("DIFFICULTY"));
+        }
+    }
+
 }
