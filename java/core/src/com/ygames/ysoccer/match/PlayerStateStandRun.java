@@ -2,6 +2,7 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.EMath;
+import com.ygames.ysoccer.framework.Settings;
 
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 
@@ -29,7 +30,12 @@ class PlayerStateStandRun extends PlayerState {
                 // Control slice
                 // lowest ball control skill: +/- 70 degrees
                 // highest ball control skill: +/- 91 degrees
-                float slice = 70 + 3 * player.skills.control;
+
+                float baseSlice = 70;
+                if (scene.game.settings.difficulty == Settings.DIFFICULTY_EASY && player.team.controlMode == Team.ControlMode.PLAYER) {
+                    baseSlice = 250;
+                }
+                float slice = baseSlice + 3 * player.skills.control;
 
                 // just ahead of feet: push forward
                 if (Math.abs(signedAngleDiff) <= slice && player.ballDistance > 3.5f) {

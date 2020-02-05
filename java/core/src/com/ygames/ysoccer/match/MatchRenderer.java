@@ -140,8 +140,11 @@ public class MatchRenderer extends SceneRenderer {
         batch.setColor(0xFFFFFF, guiAlpha);
 
         // ball owner
-        if (matchState.displayBallOwner && getMatch().ball.owner != null) {
+        if (matchState.displayBallOwner && (getMatch().ball.owner != null || getMatch().ball.ownerLast != null)) {
             Player player = getMatch().ball.owner;
+            if (player == null) {
+                player = getMatch().ball.ownerLast;
+            }
             drawPlayerNumberAndName(player);
             TextureRegion face = Assets.TeamFaces.teams.get(FileUtils.getTeamFromFile(player.team.path)).faces.get(player.shirtName);
             if (face != null) {

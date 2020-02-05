@@ -22,6 +22,7 @@ public class SceneSettings {
     int weatherMaxStrength;
 
     public boolean commentary;
+    public int difficulty;
 
     boolean fullScreen;
     public int zoom;
@@ -31,6 +32,7 @@ public class SceneSettings {
         this.zoom = gameSettings.zoom;
         this.fullScreen = gameSettings.fullScreen;
         this.names = gameSettings.names;
+        this.difficulty = gameSettings.difficulty;
 
         this.time = randomTime();
         this.grass = new Grass();

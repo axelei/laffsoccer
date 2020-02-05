@@ -125,6 +125,16 @@ public class EMath {
         return min;
     }
 
+    public static float min(float... values) {
+        float min = values[0];
+        for (float v : values) {
+            if (v < min) {
+                min = v;
+            }
+        }
+        return min;
+    }
+
     public static long min(long... values) {
         long min = values[0];
         for (long v : values) {

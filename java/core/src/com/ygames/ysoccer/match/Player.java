@@ -353,7 +353,12 @@ public class Player implements Json.Serializable {
                 ball.collisionPlayer(this);
             }
 
-            ball.vz = ball.vz / (2 + skills.control);
+            float controlQuotent = (2 + skills.control);
+            if (scene.game.settings.difficulty == Settings.DIFFICULTY_EASY && team.controlMode == Team.ControlMode.PLAYER) {
+                controlQuotent = 20;
+            }
+
+            ball.vz = ball.vz / controlQuotent;
         }
     }
 

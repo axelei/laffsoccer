@@ -5,6 +5,8 @@ import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.framework.Settings;
+import org.lwjgl.util.vector.Vector2f;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.BALL;
 import static com.ygames.ysoccer.match.Const.BALL_R;
