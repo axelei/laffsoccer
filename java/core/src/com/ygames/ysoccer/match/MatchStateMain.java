@@ -79,11 +79,11 @@ class MatchStateMain extends MatchState {
                 if (match.clock >= match.nextChant) {
                     if (match.chantSwitch) {
                         match.chantSwitch = false;
-                        match.nextChant = match.clock + (6 + Assets.random.nextInt(6)) * 1000;
+                        match.nextChant = match.clock + (6 + Assets.random.nextInt(3)) * 1000;
                     } else {
-                        Assets.Sounds.chant.play(match.getSettings().crowdChants ? Assets.Sounds.volume / 150f : 0);
+                        Assets.Sounds.getSound(Assets.Sounds.SoundClass.CHANTS).play(match.getSettings().crowdChants ? Assets.Sounds.volume / 150f : 0);
                         match.chantSwitch = true;
-                        match.nextChant = match.clock + 8000;
+                        match.nextChant = match.clock + 4000;
                     }
                 }
 

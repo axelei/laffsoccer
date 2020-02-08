@@ -106,7 +106,6 @@ public class Assets {
     public static class Sounds {
 
         public static Sound bounce;
-        public static Sound chant;
         public static Sound crowd;
         public static Long crowdId;
         public static Sound deflect;
@@ -123,9 +122,14 @@ public class Assets {
         public static Sound button;
         public static int volume;
 
+        public static Map<SoundClass, Set<Sound>> sounds = new HashMap<>();
+
+        public enum SoundClass {
+            CHANTS
+        }
+
         static void load() {
             bounce = newSound("bounce.ogg");
-            chant = newSound("chant.ogg");
             crowd = newSound("crowd.ogg");
             deflect = newSound("deflect.ogg");
             end = newSound("end.ogg");
@@ -138,6 +142,27 @@ public class Assets {
             whistle = newSound("whistle.ogg");
             shotgun = newSound("shotgun.ogg"); // Source: https://freesound.org/people/Marregheriti/sounds/266105/
             button = newSound("button.ogg"); // Source: https://freesound.org/people/Snapper4298/sounds/178186/
+            sounds.put(SoundClass.CHANTS, loadSoundFolder("chants"));
+        }
+
+        private static Set<Sound> loadSoundFolder(String folder) {
+            Set<Sound> result = new HashSet<>();
+
+            FileHandle soundFolder = Gdx.files.local("sounds/" + folder);
+            for (FileHandle fileHandle : soundFolder.list()) {
+                if (EXTENSIONS.contains(fileHandle.extension().toLowerCase())) {
+                    result.add(newSound(soundFolder.name() + "/" + fileHandle.name()));
+                }
+            }
+            return result;
+        }
+
+        public static Sound getSound(SoundClass soundClass) {
+            return sounds.get(soundClass).stream().skip(new Random().nextInt(sounds.get(soundClass).size())).findFirst().orElse(null);
+        }
+
+        public static void stopSounds() {
+            sounds.forEach((k, v) -> v.forEach(x -> x.stop()));
         }
 
         /**

@@ -610,12 +610,13 @@ public class Match extends Scene implements Json.Serializable {
 
     @Override
     void quit() {
-        Assets.Sounds.chant.stop();
         Assets.Sounds.crowd.stop();
         Assets.Sounds.end.stop();
         Assets.Sounds.homeGoal.stop();
         Assets.Sounds.intro.stop();
         Assets.CommonComment.stop();
+
+        Assets.Sounds.stopSounds();
 
         Assets.TeamCommentary.unload();
         Assets.TeamFaces.unload();

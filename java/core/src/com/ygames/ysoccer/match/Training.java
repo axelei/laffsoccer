@@ -141,7 +141,7 @@ public class Training extends Scene {
 
     @Override
     void quit() {
-        Assets.Sounds.chant.stop();
+        Assets.Sounds.stopSounds();
 
         listener.quitTraining();
     }
