@@ -83,6 +83,10 @@ public class Match extends Scene implements Json.Serializable {
     Penalty penalty;
     Player penaltyScorer;
 
+    public List<String>[] getScorersRows() {
+        return scorers.rows;
+    }
+
     class Penalty {
         PenaltyState state;
         final Player kicker;

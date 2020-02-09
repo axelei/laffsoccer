@@ -11,7 +11,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class Scorers {
 
-    ArrayList<String>[] rows = new ArrayList[2];
+    List<String>[] rows = new ArrayList[2];
 
     Scorers() {
         this.rows[HOME] = new ArrayList<String>();
