@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Commentary;
@@ -81,9 +83,11 @@ class MatchStateMain extends MatchState {
                         match.chantSwitch = false;
                         match.nextChant = match.clock + (6 + Assets.random.nextInt(3)) * 1000;
                     } else {
-                        Assets.Sounds.getSound(Assets.Sounds.SoundClass.CHANTS).play(match.getSettings().crowdChants ? Assets.Sounds.volume / 150f : 0);
+                        Sound chant = Assets.Sounds.getSound(Assets.Sounds.SoundClass.CHANTS);
+                        float length = ((OpenALSound) chant).duration();
+                        chant.play(match.getSettings().crowdChants ? Assets.Sounds.volume / 150f : 0);
                         match.chantSwitch = true;
-                        match.nextChant = match.clock + 4000;
+                        match.nextChant = match.clock + length;
                     }
                 }
 
