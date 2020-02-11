@@ -9,10 +9,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.*;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.Const.BALL_R;
@@ -56,7 +53,9 @@ public abstract class SceneRenderer {
     Ball ball;
 
     final List<Sprite> allSprites = new ArrayList<>();
+    final List<Sprite> allSpritesGui = new ArrayList<>();
     final Sprite.SpriteComparator spriteComparator = new Sprite.SpriteComparator();
+    final Sprite.SpriteComparator spriteGuiComparator = new Sprite.SpriteComparator();
     CornerFlagSprite[] cornerFlagSprites;
 
     private final int modW = Const.REPLAY_FRAMES;
@@ -92,8 +91,14 @@ public abstract class SceneRenderer {
         spriteComparator.setSubframe(scene.subframe);
         Collections.sort(allSprites, spriteComparator);
 
-        for (Sprite sprite : allSprites) {
-            sprite.draw(scene.subframe);
+        Iterator<Sprite> spritesIterator = allSprites.iterator();
+        while (spritesIterator.hasNext()) {
+            Sprite sprite = spritesIterator.next();
+            if (!sprite.alive) {
+                spritesIterator.remove();
+            } else {
+                sprite.draw(scene.subframe);
+            }
         }
     }
 

@@ -176,6 +176,7 @@ class MatchStateMain extends MatchState {
                                 float angleDiff = EMath.angleDiff(player.a, opponent.a);
                                 match.newTackle(player, opponent, strength, angleDiff);
                                 EMath.oneIn(3f, () -> match.getRenderer().allSprites.add(ObjectSprite.blood(match.game.glGraphics, player.x, player.y)));
+
                                 Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " at speed: " + player.v + " (strength = " + strength + ") and angle: " + angleDiff);
                             }
                         }

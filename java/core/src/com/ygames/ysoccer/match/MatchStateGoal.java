@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.framework.Commentary;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.gui.Gui;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
@@ -84,6 +86,13 @@ class MatchStateGoal extends MatchState {
     @Override
     void doActions(float deltaTime) {
         super.doActions(deltaTime);
+
+        // Add explosions
+        if (match.subframe % GLGame.SUBFRAMES * 10 == 0) {
+            int x = EMath.rand(40, Gui.WIDTH - 40);
+            int y = EMath.rand(40, Gui.HEIGHT - 40);
+            match.getRenderer().allSpritesGui.add(AnimatedObjectSprite.explosion(match.game.glGraphics, x, y));
+        }
 
         // set states
         if (goal.type == Goal.Type.OWN_GOAL) {

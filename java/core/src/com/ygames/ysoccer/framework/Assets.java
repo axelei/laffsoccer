@@ -100,6 +100,7 @@ public class Assets {
     public static Texture fog;
     public static Texture mow;
     public static TextureRegion[] blood;
+    public static TextureRegion[] explosion;
     public static final TextureRegion[][] wind = new TextureRegion[8][2];
     public static final TextureRegion[] bench = new TextureRegion[2];
 
@@ -414,6 +415,7 @@ public class Assets {
         fog = new Texture("images/fog.png");
         mow = new Texture("images/mow.png");
         blood = loadTextureRegionFlat("images/blood.png", 2, 2);
+        explosion = loadTextureRegionFlat("images/explosion.png", 16, 1); // https://docs.idew.org/video-game/
         loadWind();
         loadBench();
         Sounds.load();

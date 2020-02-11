@@ -2,8 +2,8 @@ package com.ygames.ysoccer.gui;
 
 public class Gui {
 
-    public final int WIDTH = 1280;
-    public final int HEIGHT = 720;
+    public static final int WIDTH = 1280;
+    public static final int HEIGHT = 720;
     public int screenWidth;
     public int screenHeight;
     public int originX;

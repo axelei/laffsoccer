@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ygames.ysoccer.framework.*;
 
+import java.util.Collections;
+import java.util.Iterator;
+
 import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
@@ -213,6 +216,8 @@ public class MatchRenderer extends SceneRenderer {
         if (matchState.displayTacticsSwitch) {
             drawTacticsSwitch();
         }
+
+        drawGuiObjects();
 
         // additional state-specific render
         MatchState matchState = getMatch().getFsm().getState();
@@ -1048,6 +1053,22 @@ public class MatchRenderer extends SceneRenderer {
             Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
             Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
             Assets.font10.draw(batch, Assets.strings.get(ply.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
+        }
+    }
+
+
+    private void drawGuiObjects() {
+        spriteGuiComparator.setSubframe(scene.subframe);
+        Collections.sort(allSpritesGui, spriteGuiComparator);
+
+        Iterator<Sprite> spritesIterator = allSpritesGui.iterator();
+        while (spritesIterator.hasNext()) {
+            Sprite sprite = spritesIterator.next();
+            if (!sprite.alive) {
+                spritesIterator.remove();
+            } else {
+                sprite.draw(scene.subframe);
+            }
         }
     }
 

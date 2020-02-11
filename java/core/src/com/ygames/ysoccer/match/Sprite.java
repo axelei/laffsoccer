@@ -14,6 +14,7 @@ class Sprite {
     int y;
     int z;
     int priority = 0;
+    boolean alive = true;
 
     Sprite(GLGraphics glGraphics) {
         this.glGraphics = glGraphics;
