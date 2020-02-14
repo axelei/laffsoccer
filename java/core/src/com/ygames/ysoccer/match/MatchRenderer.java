@@ -140,7 +140,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.setProjectionMatrix(camera.combined);
         shapeRenderer.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // ball owner
         if (matchState.displayBallOwner && (getMatch().ball.owner != null || getMatch().ball.ownerLast != null)) {
@@ -179,6 +179,11 @@ public class MatchRenderer extends SceneRenderer {
             drawRosters();
         }
 
+        // rosters
+        if (matchState.displayGoal) {
+            drawGoal();
+        }
+
         // score
         if (matchState.displayScore) {
             drawScore();
@@ -191,7 +196,7 @@ public class MatchRenderer extends SceneRenderer {
 
         // messages
         if (getMatch().fsm.getHotKeys().messageTimer > 0) {
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             Assets.font10.draw(batch, getMatch().fsm.getHotKeys().message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 
@@ -341,7 +346,7 @@ public class MatchRenderer extends SceneRenderer {
         fadeRect(l + 2, t + 2, r - 2, b - 2, 0.35f, 0x000000);
 
         // line's shadows
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
         drawRosterLines(l, r, w, t, b, m1, m2, hw);
 
         l = l - 2;
@@ -353,12 +358,12 @@ public class MatchRenderer extends SceneRenderer {
         hw = hw - 2;
 
         // lines
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
         drawRosterLines(l, r, w, t, b, m1, m2, hw);
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // title
         int y = t + h / 23;
@@ -379,9 +384,9 @@ public class MatchRenderer extends SceneRenderer {
             float imageScale0 = (h0 > 70) ? 70f / h0 : 1f;
             int x0 = l + w / 23;
             int y0 = y - (int) (imageScale0 * h0) / 2;
-            batch.setColor(0x242424, guiAlpha);
+            batch.setColor(0x242424, GUI_ALPHA);
             batch.draw(getMatch().team[HOME].image, x0 + 2, y0 + 2, 0, 0, w0, h0, imageScale0, imageScale0, 0);
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             batch.draw(getMatch().team[HOME].image, x0, y0, 0, 0, w0, h0, imageScale0, imageScale0, 0);
         }
         if (getMatch().team[AWAY].image != null) {
@@ -390,9 +395,9 @@ public class MatchRenderer extends SceneRenderer {
             float imageScale1 = (h1 > 70) ? 70f / h1 : 1f;
             int x1 = r - w / 23 - (int) (imageScale1 * w1);
             int y1 = y - (int) (imageScale1 * h1) / 2;
-            batch.setColor(0x242424, guiAlpha);
+            batch.setColor(0x242424, GUI_ALPHA);
             batch.draw(getMatch().team[AWAY].image, x1 + 2, y1 + 2, 0, 0, w1, h1, imageScale1, imageScale1, 0);
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             batch.draw(getMatch().team[AWAY].image, x1, y1, 0, 0, w1, h1, imageScale1, imageScale1, 0);
         }
 
@@ -468,6 +473,13 @@ public class MatchRenderer extends SceneRenderer {
         batch.draw(face, 10, 60);
     }
 
+    private void drawGoal() {
+        float ratio = (float) (1d + Math.sin(System.currentTimeMillis() / 200d) / 4);
+        int width = Assets.goal[0].getRegionWidth();
+        int height = Assets.goal[0].getRegionHeight();
+        batch.draw(Assets.goal[0], guiHeight / 2f - height / (ratio * 2f), guiWidth / 2f - width / (ratio * 2f), height / 2f * ratio, width / 2f * ratio, width, height, ratio, ratio, 0);
+    }
+
     private void drawRadar() {
 
         final int RX = guiWidth - 142;
@@ -529,7 +541,7 @@ public class MatchRenderer extends SceneRenderer {
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // controlled players numbers
         if (matchState.displayControlledPlayer) {
@@ -601,17 +613,17 @@ public class MatchRenderer extends SceneRenderer {
         if (getMatch().team[HOME].image != null) {
             int x = 12;
             int y = y0 + 8 + (hMax - (int) (imageScale0 * h0)) / 2;
-            batch.setColor(0x242424, guiAlpha);
+            batch.setColor(0x242424, GUI_ALPHA);
             batch.draw(getMatch().team[HOME].image, x + 2, y + 2, 0, 0, w0, h0, imageScale0, imageScale0, 0);
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             batch.draw(getMatch().team[HOME].image, x, y, 0, 0, w0, h0, imageScale0, imageScale0, 0);
         }
         if (getMatch().team[AWAY].image != null) {
             int x = guiWidth - (int) (imageScale1 * w1) - 12;
             int y = y0 + 8 + (hMax - (int) (imageScale1 * h1)) / 2;
-            batch.setColor(0x242424, guiAlpha);
+            batch.setColor(0x242424, GUI_ALPHA);
             batch.draw(getMatch().team[AWAY].image, x + 2, y + 2, 0, 0, w1, h1, imageScale1, imageScale1, 0);
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             batch.draw(getMatch().team[AWAY].image, x, y, 0, 0, w1, h1, imageScale1, imageScale1, 0);
         }
 
@@ -623,18 +635,18 @@ public class MatchRenderer extends SceneRenderer {
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
 
         shapeRenderer.rect(10, y0, guiWidth / 2f - 22, 2);
         shapeRenderer.rect(guiWidth / 2f + 12, y0, guiWidth / 2f - 22, 2);
 
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
         shapeRenderer.rect(12, y0 + 2, guiWidth / 2f - 22, 2);
         shapeRenderer.rect(guiWidth / 2f + 14, y0 + 2, guiWidth / 2f - 22, 2);
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // home score
         int f0 = getMatch().stats[Match.HOME].goals % 10;
@@ -706,17 +718,17 @@ public class MatchRenderer extends SceneRenderer {
         if (getMatch().team[HOME].image != null) {
             int x = 12;
             int y = y0 + 8 + (hMax - (int) (imageScale0 * h0)) / 2;
-            batch.setColor(0x242424, guiAlpha);
+            batch.setColor(0x242424, GUI_ALPHA);
             batch.draw(getMatch().team[HOME].image, x + 2, y + 2, 0, 0, w0, h0, imageScale0, imageScale0, 0);
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             batch.draw(getMatch().team[HOME].image, x, y, 0, 0, w0, h0, imageScale0, imageScale0, 0);
         }
         if (getMatch().team[AWAY].image != null) {
             int x = guiWidth - (int) (imageScale1 * w1) - 12;
             int y = y0 + 8 + (hMax - (int) (imageScale1 * h1)) / 2;
-            batch.setColor(0x242424, guiAlpha);
+            batch.setColor(0x242424, GUI_ALPHA);
             batch.draw(getMatch().team[AWAY].image, x + 2, y + 2, 0, 0, w1, h1, imageScale1, imageScale1, 0);
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             batch.draw(getMatch().team[AWAY].image, x, y, 0, 0, w1, h1, imageScale1, imageScale1, 0);
         }
 
@@ -728,18 +740,18 @@ public class MatchRenderer extends SceneRenderer {
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
 
         shapeRenderer.rect(10, y0, guiWidth / 2f - 22, 2);
         shapeRenderer.rect(guiWidth / 2f + 12, y0, guiWidth / 2f - 22, 2);
 
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
         shapeRenderer.rect(12, y0 + 2, guiWidth / 2f - 22, 2);
         shapeRenderer.rect(guiWidth / 2f + 14, y0 + 2, guiWidth / 2f - 22, 2);
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // home score
         int homeScore = getMatch().penaltyGoals(HOME);
@@ -820,7 +832,7 @@ public class MatchRenderer extends SceneRenderer {
         fadeRect(l + 2, i + 1, r - 2, b - 2, 0.35f, 0x000000);
 
         // frame shadow
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
         drawFrame(l, t, r - l, b - t);
 
         l = l - 2;
@@ -829,12 +841,12 @@ public class MatchRenderer extends SceneRenderer {
         b = b - 2;
 
         // frame
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
         drawFrame(l, t, r - l, b - t);
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         MatchStats homeStats = getMatch().stats[Match.HOME];
         MatchStats awayStats = getMatch().stats[Match.AWAY];
@@ -908,7 +920,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
 
         // title
         drawFrame(x, y, w, h + 2);
@@ -941,7 +953,7 @@ public class MatchRenderer extends SceneRenderer {
         y = y - 2;
 
         // objects //
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
 
         // title
         drawFrame(x, y, w, h + 2);
@@ -951,7 +963,7 @@ public class MatchRenderer extends SceneRenderer {
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // image
         batch.draw(Assets.bench[0], x + w / 2f - 41, y + 41);
@@ -981,7 +993,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
 
         // title
         drawFrame(x, y, w, h + 2);
@@ -1029,7 +1041,7 @@ public class MatchRenderer extends SceneRenderer {
         y = y - 2;
 
         // objects //
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
 
         // title
         drawFrame(x, y, w, h + 2);
@@ -1039,7 +1051,7 @@ public class MatchRenderer extends SceneRenderer {
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // image
         batch.draw(Assets.bench[1], x + w / 2f - 41, y + 41);
@@ -1083,7 +1095,7 @@ public class MatchRenderer extends SceneRenderer {
         batch.end();
         gl.glEnable(GL20.GL_BLEND);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
 
         // image
         shapeRenderer.rect(x + w / 2f - 41, y, 82, 66);
@@ -1104,13 +1116,13 @@ public class MatchRenderer extends SceneRenderer {
         y = y - 2;
 
         // objects //
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
 
         drawFrame(x, y + 80, w, 18 * h + 6);
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         batch.draw(Assets.bench[1], x + w / 2f - 41, y);
 

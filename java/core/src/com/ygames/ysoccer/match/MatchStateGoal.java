@@ -2,12 +2,10 @@ package com.ygames.ysoccer.match;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.ygames.ysoccer.framework.Assets;
-import com.ygames.ysoccer.framework.Commentary;
-import com.ygames.ysoccer.framework.EMath;
-import com.ygames.ysoccer.framework.GLGame;
+import com.ygames.ysoccer.framework.*;
 import com.ygames.ysoccer.gui.Gui;
 
+import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
@@ -33,7 +31,7 @@ class MatchStateGoal extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
-
+        displayGoal = true;
         checkReplayKey = false;
     }
 

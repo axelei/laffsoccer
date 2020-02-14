@@ -15,7 +15,7 @@ import static com.ygames.ysoccer.framework.Assets.gettext;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_END;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
-import static com.ygames.ysoccer.match.SceneRenderer.guiAlpha;
+import static com.ygames.ysoccer.match.SceneRenderer.GUI_ALPHA;
 
 class MatchStateHighlights extends MatchState {
 
@@ -153,9 +153,9 @@ class MatchStateHighlights extends MatchState {
         shapeRenderer.setProjectionMatrix(sceneRenderer.camera.combined);
         shapeRenderer.setAutoShapeType(true);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
         shapeRenderer.arc(20, 32, 6, 270 + a, 360 - a);
-        shapeRenderer.setColor(0xFF0000, guiAlpha);
+        shapeRenderer.setColor(0xFF0000, GUI_ALPHA);
         shapeRenderer.arc(18, 30, 6, 270 + a, 360 - a);
         shapeRenderer.end();
         sceneRenderer.batch.begin();

@@ -100,6 +100,7 @@ public class Assets {
     public static Texture fog;
     public static Texture mow;
     public static TextureRegion[] blood;
+    public static TextureRegion[] goal;
     public static TextureRegion[] explosion;
     public static final TextureRegion[][] wind = new TextureRegion[8][2];
     public static final TextureRegion[] bench = new TextureRegion[2];
@@ -414,6 +415,7 @@ public class Assets {
         loadSnow();
         fog = new Texture("images/fog.png");
         mow = new Texture("images/mow.png");
+        goal = loadTextureRegionFlat("images/goal.png", 1, 1);
         blood = loadTextureRegionFlat("images/blood.png", 2, 2);
         explosion = loadTextureRegionFlat("images/explosion.png", 16, 1); // https://docs.idew.org/video-game/
         loadWind();
@@ -426,7 +428,13 @@ public class Assets {
         Texture texture =  new Texture(file);
         int width = texture.getWidth() / framesX;
         int height = texture.getHeight() / framesY;
-        return TextureRegion.split(texture, width, height);
+        TextureRegion[][] textures = TextureRegion.split(texture, width, height);
+        for (TextureRegion[] textureRegions : textures) {
+            for (TextureRegion textureRegion : textureRegions) {
+                textureRegion.flip(false, true);
+            }
+        }
+        return textures;
     }
 
     public static TextureRegion[] loadTextureRegionFlat(String file, int framesX, int framesY) {

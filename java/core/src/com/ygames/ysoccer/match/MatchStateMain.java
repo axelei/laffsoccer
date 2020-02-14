@@ -47,6 +47,7 @@ class MatchStateMain extends MatchState {
         displayTime = true;
         displayWindVane = true;
         displayRadar = true;
+        displayGoal = false;
 
         checkBenchCall = false;
     }

@@ -124,7 +124,7 @@ public class TrainingRenderer extends SceneRenderer {
         batch.setProjectionMatrix(camera.combined);
         shapeRenderer.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         // ball owner
         if (getTraining().ball.owner != null) {
@@ -138,7 +138,7 @@ public class TrainingRenderer extends SceneRenderer {
 
         // messages
         if (getTraining().fsm.getHotKeys().messageTimer > 0) {
-            batch.setColor(0xFFFFFF, guiAlpha);
+            batch.setColor(0xFFFFFF, GUI_ALPHA);
             Assets.font10.draw(batch, getTraining().fsm.getHotKeys().message, guiWidth / 2, 1, Font.Align.CENTER);
         }
 

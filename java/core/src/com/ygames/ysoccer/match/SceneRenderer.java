@@ -3,10 +3,10 @@ package com.ygames.ysoccer.match;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.ygames.ysoccer.framework.*;
+import com.ygames.ysoccer.gui.Gui;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
@@ -32,18 +32,17 @@ public abstract class SceneRenderer {
         return 5 * (int) (20.0f * VISIBLE_FIELD_WIDTH_OPT / VISIBLE_FIELD_WIDTH_MIN);
     }
 
-    static final float guiAlpha = 0.9f;
+    public static final float GUI_ALPHA = 0.9f;
 
     final Scene scene;
     GLSpriteBatch batch;
-    GLSpriteBatch batchAlpha;
     protected GLShapeRenderer shapeRenderer;
     OrthographicCamera camera;
     int screenWidth;
     int screenHeight;
     int zoom;
     int light;
-    final int guiWidth = 1280;
+    final int guiWidth = Gui.WIDTH;
     int guiHeight;
 
     public ActionCamera actionCamera;
@@ -313,7 +312,7 @@ public abstract class SceneRenderer {
         fadeRect(left + 2, i + 1, right - 2, bottom - 2, 0.35f, 0x000000);
 
         // frame shadow
-        shapeRenderer.setColor(0x242424, guiAlpha);
+        shapeRenderer.setColor(0x242424, GUI_ALPHA);
         drawFrame(left, top, right - left, bottom - top);
 
         left = left - 2;
@@ -322,12 +321,12 @@ public abstract class SceneRenderer {
         bottom = bottom - 2;
 
         // frame
-        shapeRenderer.setColor(0xFFFFFF, guiAlpha);
+        shapeRenderer.setColor(0xFFFFFF, GUI_ALPHA);
         drawFrame(left, top, right - left, bottom - top);
 
         shapeRenderer.end();
         batch.begin();
-        batch.setColor(0xFFFFFF, guiAlpha);
+        batch.setColor(0xFFFFFF, GUI_ALPHA);
 
         int lc = left + 3 * width / 18;
         int rc = right - 12 * width / 18;

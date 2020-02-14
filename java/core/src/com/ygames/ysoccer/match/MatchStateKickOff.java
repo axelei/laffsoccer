@@ -27,6 +27,7 @@ class MatchStateKickOff extends MatchState {
         displayWindVane = true;
         displayScore = true;
         displayRadar = true;
+        displayGoal = false;
     }
 
     @Override
