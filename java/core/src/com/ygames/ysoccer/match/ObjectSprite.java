@@ -52,11 +52,11 @@ class ObjectSprite extends Sprite {
     }
 
     public static ObjectSprite mow(GLGraphics glGraphics, float x, float y, float angle) {
-        return new ObjectSprite(glGraphics, new TextureRegion(Assets.mow), 0.5f + (float) (Math.random() / 2), (int) x, (int) y, 0.25f + (float) (Math.random() - 0.5) / 2, angle - 90 + (float) (Math.random() * 15 - 7.5));
+        return new ObjectSprite(glGraphics, new TextureRegion(Assets.mow), 0.6f + (float) (Math.random() / 2), (int) x, (int) y, 0.25f + (float) ((Math.random() + 0.5) / 2), angle - 90 + (float) (Math.random() * 15 - 7.5));
     }
 
     public static ObjectSprite blood(GLGraphics glGraphics, float x, float y) {
-        return new ObjectSprite(glGraphics, Assets.blood[EMath.dice(0, 3)], 0.75f + (float) (Math.random() - 0.5), (int) x, (int) y, 0.5f + (float) (Math.random() - 0.5) / 2, (float) Math.random() * 360);
+        return new ObjectSprite(glGraphics, Assets.blood[EMath.dice(0, 3)], 0.75f + (float) (Math.random() * 0.20), (int) x, (int) y, 0.5f + (float) ((Math.random() + 0.5) / 2) , (float) Math.random() * 360);
     }
 }
 
