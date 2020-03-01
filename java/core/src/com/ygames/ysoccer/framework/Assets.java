@@ -122,6 +122,16 @@ public class Assets {
         public static Sound whistle;
         public static Sound shotgun;
         public static Sound button;
+
+        // Specials
+        public static Sound noGoalsHalfTime;
+        public static Sound manyGoalsHalfTime;
+        public static Sound awayTeamTrashing;
+        public static Sound localTeamTrashing;
+
+        public static Sound violentMatch;
+
+
         public static int volume;
 
         public static Map<SoundClass, Set<Sound>> sounds = new HashMap<>();
@@ -145,6 +155,16 @@ public class Assets {
             shotgun = newSound("shotgun.ogg"); // Source: https://freesound.org/people/Marregheriti/sounds/266105/
             button = newSound("button.ogg"); // Source: https://freesound.org/people/Snapper4298/sounds/178186/
             sounds.put(SoundClass.CHANTS, loadSoundFolder("chants"));
+
+            String specialsFolder = "commentary/special/";
+
+            noGoalsHalfTime = newSound(specialsFolder + "singolesmediotiempo.ogg");
+            manyGoalsHalfTime = newSound(specialsFolder + "muchosgolesmediotiempo.ogg");
+            awayTeamTrashing = newSound(specialsFolder + "equipovisitantepalizamediotiempo.ogg");
+            localTeamTrashing = newSound(specialsFolder + "equipolocalpalizamediotiempo.ogg");
+
+            violentMatch = newSound(specialsFolder + "muchasfaltas.ogg");
+
         }
 
         private static Set<Sound> loadSoundFolder(String folder) {

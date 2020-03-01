@@ -28,6 +28,7 @@ class MatchStateHalfTimeStop extends MatchState {
 
         if (match.settings.commentary) {
             Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.HALF_MATCH, Commentary.Comment.Priority.HIGH));
+            Commentary.getInstance().enqueueComment(Commentary.halfTime(match));
         }
 
         match.resetAutomaticInputDevices();

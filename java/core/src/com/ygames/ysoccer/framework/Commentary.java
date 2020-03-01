@@ -2,10 +2,11 @@ package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
+import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.MatchStats;
 
 import java.util.*;
 
-import static com.ygames.ysoccer.framework.GLGame.LogType.AI_ATTACKING;
 import static com.ygames.ysoccer.framework.GLGame.LogType.COMMENTARY;
 
 /**
@@ -93,6 +94,11 @@ public class Commentary {
      */
     public synchronized void enqueueComment(Comment... elements) {
 
+        if (elements == null || elements.length == 0) {
+            GLGame.debug(COMMENTARY, elements, "Queued null comment");
+            return;
+        }
+
         if (queueLength > MAX_QUEUE && playing != null && playing.priority.weight > elements[0].priority.weight && elements[0].priority != Comment.Priority.CHITCHAT) {
             GLGame.debug(COMMENTARY, elements, "Commentary not queued: queue too long: " + queueLength);
             return;
@@ -141,6 +147,34 @@ public class Commentary {
         }
 
         return result.toArray(new Comment[result.size()]);
+    }
+
+    public static Comment[] halfTime(Match match) {
+        Set<Sound> sounds = new HashSet<>();
+
+        MatchStats home = match.stats[Match.HOME];
+        MatchStats away = match.stats[Match.AWAY];
+
+        if (home.goals + away.goals > 3) {
+            sounds.add(Assets.Sounds.manyGoalsHalfTime);
+        }
+        if (home.foulsConceded + away.foulsConceded > 15) {
+            sounds.add(Assets.Sounds.violentMatch);
+        }
+        if (home.goals + away.goals == 0) {
+            sounds.add(Assets.Sounds.noGoalsHalfTime);
+        }
+        if (home.goals + 3 < away.goals) {
+            sounds.add(Assets.Sounds.awayTeamTrashing);
+        }
+        if (home.goals > away.goals + 3) {
+            sounds.add(Assets.Sounds.localTeamTrashing);
+        }
+
+        if (!sounds.isEmpty()) {
+            return new Comment[] {new Comment(Comment.Priority.LOW, EMath.getRandomSetElement(sounds))};
+        }
+        return null;
     }
 
     /**
