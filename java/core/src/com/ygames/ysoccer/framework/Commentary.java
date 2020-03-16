@@ -95,7 +95,7 @@ public class Commentary {
     public synchronized void enqueueComment(Comment... elements) {
 
         if (elements == null || elements.length == 0) {
-            GLGame.debug(COMMENTARY, elements, "Queued null comment");
+            GLGame.debug(COMMENTARY, null, "Queued null comment");
             return;
         }
 

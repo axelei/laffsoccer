@@ -239,8 +239,8 @@ public class GLGame extends Game {
         COMMENTARY
     }
 
-    public static void debug(LogType type, Object Object, String message) {
-        debug(type, Object.getClass().getSimpleName(), message);
+    public static void debug(LogType type, Object object, String message) {
+        debug(type, object != null ? object.getClass().getSimpleName() : null, message);
     }
 
     public static void debug(LogType type, String tag, String message) {
