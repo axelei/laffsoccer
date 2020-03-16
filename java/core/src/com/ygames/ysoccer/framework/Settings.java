@@ -16,7 +16,7 @@ public class Settings {
     private Json json;
 
     public static final String APP_NAME = "Charnego Internatiolaff Soccer";
-    public static final String VERSION = "0.2";
+    public static final String VERSION = "0.3";
 
     // Difficulty
     public int difficulty;
