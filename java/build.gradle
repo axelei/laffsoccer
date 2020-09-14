@@ -10,7 +10,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.8'
         
 
@@ -18,6 +18,7 @@ buildscript {
 }
 
 allprojects {
+    apply plugin: "eclipse"
 
     version = '1.0'
     ext {
@@ -74,11 +75,11 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86_64"
-        api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-controllers-android:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+        api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+        api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-controllers-android:$gdxVersion"
         
     }
 }
@@ -106,11 +107,11 @@ project(":core") {
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+        api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+        api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         compile group: 'ar.com.hjg', name: 'pngj', version: '2.1.0'
-        compile "com.strongjoshua:libgdx-inGameConsole:1.0.0"
+        compile "com.strongjoshua:libgdx-inGameConsole:1.0.0"        
     }
 }

@@ -1,4 +1,4 @@
-package com.ygames.ysoccer.android;
+package com.ygames.ysoccer;
 
 import android.os.Bundle;
 
