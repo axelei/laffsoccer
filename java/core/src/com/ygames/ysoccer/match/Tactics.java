@@ -79,16 +79,18 @@ public class Tactics {
         // name
         int index = 0;
         name = "";
-        boolean end_of_name = false;
+        boolean endOfString = false;
+        StringBuilder sb = new StringBuilder();
         for (int c = 0; c < 9; c++) {
             int i = bytes[index++] & 0xFF;
             if (i == 0) {
-                end_of_name = true;
+                endOfString = true;
             }
-            if (!end_of_name) {
-                name += (char) (i);
+            if (!endOfString) {
+                sb.append((char) (i));
             }
         }
+        name = sb.toString();
 
         // targets
         for (int player = 1; player < TEAM_SIZE; player++) {
