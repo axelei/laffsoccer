@@ -35,7 +35,8 @@ public class Video extends GLScreen {
 
         try {
             player.play(intro);
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | NoClassDefFoundError e) {
+            e.printStackTrace();
             setMainMenu();
         }
 

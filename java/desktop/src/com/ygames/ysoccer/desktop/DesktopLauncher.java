@@ -17,8 +17,7 @@ public class DesktopLauncher {
         config.addIcon(ICON_128, Files.FileType.Internal);
         config.addIcon(ICON_32, Files.FileType.Internal);
         config.title = "Charnego Internatiolaff Soccer";
-
+        config.forceExit = false;
         new LwjglApplication(new YSoccer(), config);
-
     }
 }
