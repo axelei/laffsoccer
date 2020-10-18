@@ -23,7 +23,7 @@ allprojects {
     version = '1.0'
     ext {
         appName = "laffsoccer"
-        gdxVersion = '1.9.11'
+        gdxVersion = '1.9.5'
         roboVMVersion = '2.3.8'
         box2DLightsVersion = '1.4'
         ashleyVersion = '1.7.0'
@@ -122,7 +122,7 @@ project(":core") {
         api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         compile group: 'ar.com.hjg', name: 'pngj', version: '2.1.0'
-        compile group: 'com.badlogicgames.gdx', name: 'gdx-backend-lwjgl', version: '1.9.11'
+        compile group: 'com.badlogicgames.gdx', name: 'gdx-backend-lwjgl', version: '1.9.5'
         compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
         compile "com.strongjoshua:libgdx-inGameConsole:1.0.0"
         compile "es.e-ucm.com.badlogicgames.gdx:gdx-video:0.0.1-SNAPSHOT"
