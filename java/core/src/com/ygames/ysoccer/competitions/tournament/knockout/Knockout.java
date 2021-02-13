@@ -6,9 +6,9 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -651,5 +651,14 @@ public class Knockout extends Round implements Json.Serializable {
             match.resultAfterExtraTime = null;
             match.resultAfterPenalties = null;
         }
+    }
+
+    @Override
+    public Team getMatchWinner() {
+        int qualified = getLeg().getQualifiedTeam(getMatch());
+        if (qualified != -1) {
+            return tournament.teams.get(qualified);
+        }
+        return null;
     }
 }

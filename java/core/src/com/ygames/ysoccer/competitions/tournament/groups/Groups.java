@@ -6,6 +6,7 @@ import com.ygames.ysoccer.competitions.TableRow;
 import com.ygames.ysoccer.competitions.tournament.Round;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -277,5 +278,16 @@ public class Groups extends Round implements Json.Serializable {
         } else {
             match.resultAfter90 = null;
         }
+    }
+
+    @Override
+    public Team getMatchWinner() {
+        int[] result = getMatch().getResult();
+        if (result[HOME] > result[AWAY]) {
+            return tournament.teams.get(getMatch().teams[HOME]);
+        } else if (result[HOME] < result[AWAY]) {
+            return tournament.teams.get(getMatch().teams[AWAY]);
+        }
+        return null;
     }
 }

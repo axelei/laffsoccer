@@ -3,10 +3,11 @@ package com.ygames.ysoccer.competitions;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Team;
 
 public class Friendly extends Competition {
 
-    private Match match;
+    private final Match match;
 
     public Friendly() {
         super(Type.FRIENDLY);
@@ -24,5 +25,10 @@ public class Friendly extends Competition {
     @Override
     public MatchSettings.Time getTime() {
         return MatchSettings.randomTime();
+    }
+
+    @Override
+    public Team getMatchWinner() {
+        return null;
     }
 }

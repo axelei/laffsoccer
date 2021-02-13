@@ -5,7 +5,9 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
+import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_END_POSITIONS;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_CELEBRATION;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -32,6 +34,16 @@ class MatchStateFullTimeStop extends MatchState {
 
         match.resetAutomaticInputDevices();
         match.setPlayersState(STATE_IDLE, null);
+
+        Team winner = match.competition.getMatchWinner();
+        if (winner != null) {
+            for (int i = 1; i < TEAM_SIZE; i++) {
+                if (Assets.random.nextFloat() < 0.7f) {
+                    Player player = winner.lineup.get(i);
+                    player.setState(STATE_CELEBRATION);
+                }
+            }
+        }
     }
 
     @Override

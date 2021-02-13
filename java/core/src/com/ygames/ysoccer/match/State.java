@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-class State {
+abstract class State {
 
     int timer;
     int id;

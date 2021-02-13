@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.match.Match;
+import com.ygames.ysoccer.match.Team;
 
 import java.util.ArrayList;
 
@@ -96,4 +97,6 @@ public abstract class Round {
     abstract protected void matchCompleted();
 
     abstract protected void matchInterrupted();
+
+    public abstract Team getMatchWinner();
 }

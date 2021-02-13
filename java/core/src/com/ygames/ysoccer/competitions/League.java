@@ -267,4 +267,15 @@ public class League extends Competition implements Json.Serializable {
     public void matchCompleted() {
         addMatchToTable(getMatch());
     }
+
+    @Override
+    public Team getMatchWinner() {
+        int[] result = getMatch().getResult();
+        if (result[HOME] > result[AWAY]) {
+            return teams.get(getMatch().teams[HOME]);
+        } else if (result[HOME] < result[AWAY]) {
+            return teams.get(getMatch().teams[AWAY]);
+        }
+        return null;
+    }
 }

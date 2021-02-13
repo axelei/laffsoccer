@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerFsm extends Fsm {
 
     enum Id {
+        STATE_CELEBRATION,
         STATE_IDLE,
         STATE_OUTSIDE,
         STATE_BENCH_SITTING,
@@ -46,6 +47,7 @@ class PlayerFsm extends Fsm {
 
     protected Player player;
 
+    PlayerState stateCelebration;
     PlayerState stateIdle;
     PlayerState stateOutSide;
     PlayerState stateBenchSitting;
@@ -88,6 +90,7 @@ class PlayerFsm extends Fsm {
 
     public PlayerFsm(Player player) {
         this.player = player;
+        stateCelebration = new PlayerStateCelebration(this);
         stateIdle = new PlayerStateIdle(this);
         stateOutSide = new PlayerStateOutside(this);
         stateBenchSitting = new PlayerStateBenchSitting(this);

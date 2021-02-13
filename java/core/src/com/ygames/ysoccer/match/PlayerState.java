@@ -1,6 +1,6 @@
 package com.ygames.ysoccer.match;
 
-class PlayerState extends State {
+abstract class PlayerState extends State {
 
     protected final PlayerFsm fsm;
     protected final Player player;
