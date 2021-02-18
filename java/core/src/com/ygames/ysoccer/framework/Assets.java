@@ -111,6 +111,7 @@ public class Assets {
     public static class Sounds {
 
         public static Sound bounce;
+        public static Sound celebration;
         public static Sound chant;
         public static Sound crowd;
         public static Long crowdId;
@@ -128,6 +129,7 @@ public class Assets {
 
         static void load() {
             bounce = newSound("bounce.ogg");
+            celebration = newSound("celebration.ogg");
             chant = newSound("chant.ogg");
             crowd = newSound("crowd.ogg");
             deflect = newSound("deflect.ogg");

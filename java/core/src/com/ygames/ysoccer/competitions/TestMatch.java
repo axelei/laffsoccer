@@ -26,9 +26,4 @@ public class TestMatch extends Competition {
     public MatchSettings.Time getTime() {
         return MatchSettings.Time.values()[Assets.random.nextInt(2)];
     }
-
-    @Override
-    public Team getMatchWinner() {
-        return null;
-    }
 }

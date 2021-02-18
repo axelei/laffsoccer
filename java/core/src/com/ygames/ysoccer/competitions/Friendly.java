@@ -26,9 +26,4 @@ public class Friendly extends Competition {
     public MatchSettings.Time getTime() {
         return MatchSettings.randomTime();
     }
-
-    @Override
-    public Team getMatchWinner() {
-        return null;
-    }
 }

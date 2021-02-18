@@ -390,7 +390,17 @@ public abstract class Competition {
     public void matchCompleted() {
     }
 
-    abstract public Team getMatchWinner();
+    public Team getMatchWinner() {
+        return null;
+    };
+
+    public Team getFinalWinner() {
+        return null;
+    };
+
+    public Team getFinalRunnerUp() {
+        return null;
+    }
 
     public class ComparatorByPlayersValue implements Comparator<Integer> {
 

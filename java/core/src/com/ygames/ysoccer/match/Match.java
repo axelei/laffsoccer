@@ -441,9 +441,7 @@ public class Match extends Scene implements Json.Serializable {
 
     void setLineupState(PlayerFsm.Id stateId) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (Player player : team[t].lineup) {
-                player.setState(stateId);
-            }
+            team[t].setLineupState(stateId);
         }
     }
 
@@ -495,11 +493,7 @@ public class Match extends Scene implements Json.Serializable {
 
     void setLineupTarget(float tx, float ty) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (Player player : team[t].lineup) {
-                if (!player.checkState(STATE_OUTSIDE)) {
-                    player.setTarget(tx, ty);
-                }
-            }
+            team[t].setLineupTarget(tx, ty);
         }
     }
 

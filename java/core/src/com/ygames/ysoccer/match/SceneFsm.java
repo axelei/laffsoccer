@@ -72,8 +72,8 @@ abstract class SceneFsm {
     }
 
     int addState(SceneState state) {
-        state.setId(states.size());
         states.add(state);
+        state.setId(states.size());
         return state.getId();
     }
 

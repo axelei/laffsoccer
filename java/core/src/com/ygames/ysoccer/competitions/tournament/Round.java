@@ -98,5 +98,13 @@ public abstract class Round {
 
     abstract protected void matchInterrupted();
 
-    public abstract Team getMatchWinner();
+    abstract public Team getMatchWinner();
+
+    public Team getFinalWinner() {
+        return null;
+    };
+
+    public Team getFinalRunnerUp() {
+        return null;
+    }
 }

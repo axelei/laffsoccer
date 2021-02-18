@@ -225,4 +225,14 @@ public class Tournament extends Competition implements Json.Serializable {
     public Team getMatchWinner() {
         return getRound().getMatchWinner();
     }
+
+    @Override
+    public Team getFinalWinner() {
+        return getRound().getFinalWinner();
+    }
+
+    @Override
+    public Team getFinalRunnerUp() {
+        return getRound().getFinalRunnerUp();
+    }
 }

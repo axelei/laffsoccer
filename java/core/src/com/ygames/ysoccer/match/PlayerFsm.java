@@ -16,6 +16,7 @@ class PlayerFsm extends Fsm {
         STATE_HEAD,
         STATE_TACKLE,
         STATE_DOWN,
+        STATE_FINAL_CELEBRATION,
         STATE_REACH_TARGET,
         STATE_KICK_OFF,
         STATE_NOT_RESPONSIVE,
@@ -60,6 +61,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateHead;
     PlayerState stateTackle;
     PlayerState stateDown;
+    PlayerState stateFinalCelebration;
     PlayerState stateReachTarget;
     PlayerState stateKickOff;
     PlayerState stateNotResponsive;
@@ -103,6 +105,7 @@ class PlayerFsm extends Fsm {
         stateHead = new PlayerStateHead(this);
         stateTackle = new PlayerStateTackle(this);
         stateDown = new PlayerStateDown(this);
+        stateFinalCelebration = new PlayerStateFinalCelebration(this);
         stateReachTarget = new PlayerStateReachTarget(this);
         stateKickOff = new PlayerStateKickOff(this);
         stateNotResponsive = new PlayerStateNotResponsive(this);

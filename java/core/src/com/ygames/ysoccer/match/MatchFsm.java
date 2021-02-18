@@ -27,6 +27,7 @@ public class MatchFsm extends SceneFsm {
     static int STATE_END;
     static int STATE_END_POSITIONS;
     static int STATE_EXTRA_TIME_STOP;
+    static int STATE_FINAL_CELEBRATION;
     static int STATE_FREE_KICK;
     static int STATE_FREE_KICK_STOP;
     static int STATE_FULL_EXTRA_TIME_STOP;
@@ -79,6 +80,7 @@ public class MatchFsm extends SceneFsm {
         STATE_END = addState(new MatchStateEnd(this));
         STATE_END_POSITIONS = addState(new MatchStateEndPositions(this));
         STATE_EXTRA_TIME_STOP = addState(new MatchStateExtraTimeStop(this));
+        STATE_FINAL_CELEBRATION = addState(new MatchStateFinalCelebration(this));
         STATE_FREE_KICK = addState(new MatchStateFreeKick(this));
         STATE_FREE_KICK_STOP = addState(new MatchStateFreeKickStop(this));
         STATE_FULL_EXTRA_TIME_STOP = addState(new MatchStateFullExtraTimeStop(this));

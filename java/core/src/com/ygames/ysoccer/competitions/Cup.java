@@ -679,4 +679,25 @@ public class Cup extends Competition implements Json.Serializable {
         }
         return null;
     }
+
+    @Override
+    public Team getFinalWinner() {
+        if (isEnded()) {
+            return teams.get(getLeg().getQualifiedTeam(getMatch()));
+        }
+        return null;
+    }
+
+    @Override
+    public Team getFinalRunnerUp() {
+        if (isEnded()) {
+            int winner = getLeg().getQualifiedTeam(getMatch());
+            if (winner == getMatch().teams[HOME]) {
+                return teams.get(getMatch().teams[AWAY]);
+            } else {
+                return teams.get(getMatch().teams[HOME]);
+            }
+        }
+        return null;
+    }
 }

@@ -484,6 +484,20 @@ public class Team implements Json.Serializable {
         }
     }
 
+    void setLineupState(PlayerFsm.Id stateId) {
+        for (Player player : lineup) {
+            player.setState(stateId);
+        }
+    }
+
+    void setLineupTarget(float tx, float ty) {
+        for (Player player : lineup) {
+            if (!player.checkState(STATE_OUTSIDE)) {
+                player.setTarget(tx, ty);
+            }
+        }
+    }
+
     void assignAutomaticInputDevices(Player receiver) {
         if (usesAutomaticInputDevice()) {
             for (int i = 0; i < TEAM_SIZE; i++) {

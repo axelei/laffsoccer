@@ -661,4 +661,25 @@ public class Knockout extends Round implements Json.Serializable {
         }
         return null;
     }
+
+    @Override
+    public Team getFinalWinner() {
+        if (isEnded()) {
+            return getMatchWinner();
+        }
+        return null;
+    }
+
+    @Override
+    public Team getFinalRunnerUp() {
+        if (tournament.isEnded()) {
+            int winner = getLeg().getQualifiedTeam(getMatch());
+            if (winner == getMatch().teams[HOME]) {
+                return tournament.teams.get(getMatch().teams[AWAY]);
+            } else {
+                return tournament.teams.get(getMatch().teams[HOME]);
+            }
+        }
+        return null;
+    }
 }
