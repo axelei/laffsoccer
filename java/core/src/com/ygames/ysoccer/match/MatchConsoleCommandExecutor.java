@@ -41,12 +41,12 @@ public class MatchConsoleCommandExecutor extends ConsoleCommandExecutor {
 
     public void homePenalty() {
         match.newTackle(match.team[AWAY].lineup.get(0), match.team[HOME].lineup.get(0), 0, 0);
-        match.newFoul(0, match.team[AWAY].side * PENALTY_SPOT_Y);
+        match.newFoul(0, match.team[AWAY].side * PENALTY_SPOT_Y, 1f);
     }
 
     public void awayPenalty() {
         match.newTackle(match.team[HOME].lineup.get(0), match.team[AWAY].lineup.get(0), 0, 0);
-        match.newFoul(0, match.team[HOME].side * PENALTY_SPOT_Y);
+        match.newFoul(0, match.team[HOME].side * PENALTY_SPOT_Y, 1f);
     }
 
     public void homeFreeKick() {
@@ -67,6 +67,6 @@ public class MatchConsoleCommandExecutor extends ConsoleCommandExecutor {
             x = d * EMath.cos(a);
             y = side * GOAL_LINE + d * EMath.sin(a);
         } while (Const.isInsidePenaltyArea(x, y, side) || !Const.isInsideDirectShotArea(x, y, side));
-        match.newFoul(x, y);
+        match.newFoul(x, y, 1f);
     }
 }

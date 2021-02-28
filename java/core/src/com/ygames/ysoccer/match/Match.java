@@ -448,9 +448,7 @@ public class Match extends Scene implements Json.Serializable {
 
     void setLineupState(PlayerFsm.Id stateId) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (Player player : team[t].lineup) {
-                player.setState(stateId);
-            }
+            team[t].setLineupState(stateId);
         }
     }
 
@@ -502,11 +500,7 @@ public class Match extends Scene implements Json.Serializable {
 
     void setLineupTarget(float tx, float ty) {
         for (int t = HOME; t <= AWAY; t++) {
-            for (Player player : team[t].lineup) {
-                if (!player.checkState(STATE_OUTSIDE)) {
-                    player.setTarget(tx, ty);
-                }
-            }
+            team[t].setLineupTarget(tx, ty);
         }
     }
 
@@ -600,7 +594,7 @@ public class Match extends Scene implements Json.Serializable {
             return false;
         }
         // ball going toward the goals
-        if ((Math.abs(ball.y) > (GOAL_LINE / 4))
+        if ((Math.abs(ball.y) > (GOAL_LINE / 4f))
                 && (Math.abs(ball.y) > Math.abs(ball.y0))) {
             return false;
         }
@@ -647,12 +641,13 @@ public class Match extends Scene implements Json.Serializable {
         tackle.angleDiff = angleDiff;
     }
 
-    void newFoul(float x, float y) {
+    void newFoul(float x, float y, float unfairness) {
         foul = new Foul();
         foul.time = tackle.time;
         foul.position = new Vector2(x, y);
         foul.player = tackle.player;
         foul.opponent = tackle.opponent;
+        foul.entailsYellowCard = Assets.random.nextFloat() < EMath.pow(unfairness, 4);
     }
 
     class Foul {
@@ -660,9 +655,10 @@ public class Match extends Scene implements Json.Serializable {
         public Vector2 position;
         public Player player;
         public Player opponent;
+        public boolean entailsYellowCard;
 
         public boolean isPenalty() {
-            return (Math.abs(position.x) < Const.PENALTY_AREA_W / 2)
+            return (Math.abs(position.x) < Const.PENALTY_AREA_W / 2f)
                     &&
                     EMath.isIn(
                             position.y,
@@ -676,7 +672,7 @@ public class Match extends Scene implements Json.Serializable {
         }
 
         boolean isNearOwnGoal() {
-            return Math.abs(ball.x) < (GOAL_AREA_W / 2 + 50)
+            return Math.abs(ball.x) < (GOAL_AREA_W / 2f + 50)
                     && EMath.isIn(ball.y,
                     -player.team.side * (GOAL_LINE - GOAL_AREA_H - 50),
                     -player.team.side * GOAL_LINE

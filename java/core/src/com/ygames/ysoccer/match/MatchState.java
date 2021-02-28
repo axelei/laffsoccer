@@ -19,6 +19,7 @@ abstract class MatchState extends SceneState {
 
     boolean displayControlledPlayer;
     boolean displayBallOwner;
+    boolean displayFoulMaker;
     boolean displayGoalScorer;
     boolean displayTime;
     boolean displayWindVane;

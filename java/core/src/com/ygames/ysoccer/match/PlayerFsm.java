@@ -3,6 +3,7 @@ package com.ygames.ysoccer.match;
 class PlayerFsm extends Fsm {
 
     enum Id {
+        STATE_CELEBRATION,
         STATE_IDLE,
         STATE_OUTSIDE,
         STATE_BENCH_SITTING,
@@ -15,6 +16,7 @@ class PlayerFsm extends Fsm {
         STATE_HEAD,
         STATE_TACKLE,
         STATE_DOWN,
+        STATE_FINAL_CELEBRATION,
         STATE_REACH_TARGET,
         STATE_KICK_OFF,
         STATE_NOT_RESPONSIVE,
@@ -31,6 +33,7 @@ class PlayerFsm extends Fsm {
         STATE_GOAL_SCORER,
         STATE_GOAL_MATE,
         STATE_OWN_GOAL_SCORER,
+        STATE_YELLOW_CARD,
 
         STATE_KEEPER_POSITIONING,
         STATE_KEEPER_PENALTY_POSITIONING,
@@ -46,6 +49,7 @@ class PlayerFsm extends Fsm {
 
     protected Player player;
 
+    PlayerState stateCelebration;
     PlayerState stateIdle;
     PlayerState stateOutSide;
     PlayerState stateBenchSitting;
@@ -58,6 +62,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateHead;
     PlayerState stateTackle;
     PlayerState stateDown;
+    PlayerState stateFinalCelebration;
     PlayerState stateReachTarget;
     PlayerState stateKickOff;
     PlayerState stateNotResponsive;
@@ -74,7 +79,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateGoalScorer;
     PlayerState stateGoalMate;
     PlayerState stateOwnGoalScorer;
-    PlayerState stateKeeperKickAngle;
+    PlayerState stateYellowCard;
 
     PlayerState stateKeeperPositioning;
     PlayerState stateKeeperPenaltyPositioning;
@@ -85,9 +90,11 @@ class PlayerFsm extends Fsm {
     PlayerState stateKeeperDivingHighOne;
     PlayerState stateKeeperCatchingHigh;
     PlayerState stateKeeperCatchingLow;
+    PlayerState stateKeeperKickAngle;
 
     public PlayerFsm(Player player) {
         this.player = player;
+        stateCelebration = new PlayerStateCelebration(this);
         stateIdle = new PlayerStateIdle(this);
         stateOutSide = new PlayerStateOutside(this);
         stateBenchSitting = new PlayerStateBenchSitting(this);
@@ -100,6 +107,7 @@ class PlayerFsm extends Fsm {
         stateHead = new PlayerStateHead(this);
         stateTackle = new PlayerStateTackle(this);
         stateDown = new PlayerStateDown(this);
+        stateFinalCelebration = new PlayerStateFinalCelebration(this);
         stateReachTarget = new PlayerStateReachTarget(this);
         stateKickOff = new PlayerStateKickOff(this);
         stateNotResponsive = new PlayerStateNotResponsive(this);
@@ -116,6 +124,7 @@ class PlayerFsm extends Fsm {
         stateGoalScorer = new PlayerStateGoalScorer(this);
         stateGoalMate = new PlayerStateGoalMate(this);
         stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this);
+        stateYellowCard = new PlayerStateYellowCard(this);
 
         stateKeeperPositioning = new PlayerStateKeeperPositioning(this);
         stateKeeperPenaltyPositioning = new PlayerStateKeeperPenaltyPositioning(this);

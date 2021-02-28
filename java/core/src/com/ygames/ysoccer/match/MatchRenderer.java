@@ -11,6 +11,7 @@ import java.util.Iterator;
 
 import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.GLGame.SUBFRAMES_PER_SECOND;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -18,6 +19,7 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
 import static java.lang.Math.min;
 
 public class MatchRenderer extends SceneRenderer {
@@ -129,6 +131,14 @@ public class MatchRenderer extends SceneRenderer {
             drawControlledPlayersNumbers();
         }
 
+        if (matchState.displayFoulMaker) {
+            if (getMatch().foul.player.checkState(STATE_YELLOW_CARD)) {
+                drawYellowCard(getMatch().foul.player);
+            } else {
+                drawPlayerNumber(getMatch().foul.player);
+            }
+        }
+
         batch.end();
 
         renderGui();
@@ -154,6 +164,12 @@ public class MatchRenderer extends SceneRenderer {
                 drawFace(face);
             }
         }
+
+        // foul maker
+        if (matchState.displayFoulMaker) {
+            drawPlayerNumberAndName(getMatch().foul.player);
+        }
+
 
         if (Settings.showDevelopmentInfo) {
             Assets.font10.draw(batch, "CAMERA MODE: " + actionCamera.getMode() + ", SPEED: " + actionCamera.getSpeed(), guiWidth / 2, 22, Font.Align.CENTER);

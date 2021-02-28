@@ -27,6 +27,7 @@ public class MatchFsm extends SceneFsm {
     static int STATE_END;
     static int STATE_END_POSITIONS;
     static int STATE_EXTRA_TIME_STOP;
+    static int STATE_FINAL_CELEBRATION;
     static int STATE_FREE_KICK;
     static int STATE_FREE_KICK_STOP;
     static int STATE_FULL_EXTRA_TIME_STOP;
@@ -56,7 +57,7 @@ public class MatchFsm extends SceneFsm {
     static int STATE_STARTING_POSITIONS;
     static int STATE_THROW_IN;
     static int STATE_THROW_IN_STOP;
-
+    static int STATE_YELLOW_CARD;
 
     MatchFsm(Match match) {
         super(match);
@@ -79,6 +80,7 @@ public class MatchFsm extends SceneFsm {
         STATE_END = addState(new MatchStateEnd(this));
         STATE_END_POSITIONS = addState(new MatchStateEndPositions(this));
         STATE_EXTRA_TIME_STOP = addState(new MatchStateExtraTimeStop(this));
+        STATE_FINAL_CELEBRATION = addState(new MatchStateFinalCelebration(this));
         STATE_FREE_KICK = addState(new MatchStateFreeKick(this));
         STATE_FREE_KICK_STOP = addState(new MatchStateFreeKickStop(this));
         STATE_FULL_EXTRA_TIME_STOP = addState(new MatchStateFullExtraTimeStop(this));
@@ -108,6 +110,7 @@ public class MatchFsm extends SceneFsm {
         STATE_STARTING_POSITIONS = addState(new MatchStateStartingPositions(this));
         STATE_THROW_IN = addState(new MatchStateThrowIn(this));
         STATE_THROW_IN_STOP = addState(new MatchStateThrowInStop(this));
+        STATE_YELLOW_CARD = addState(new MatchStateYellowCard(this));
     }
 
     @Override

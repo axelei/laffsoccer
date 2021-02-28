@@ -3,10 +3,11 @@ package com.ygames.ysoccer.competitions;
 import com.ygames.ysoccer.framework.Assets;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
+import com.ygames.ysoccer.match.Team;
 
 public class TestMatch extends Competition {
 
-    private Match match;
+    private final Match match;
 
     public TestMatch() {
         super(Type.TEST_MATCH);

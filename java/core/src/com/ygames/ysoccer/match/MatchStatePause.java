@@ -84,6 +84,7 @@ class MatchStatePause extends MatchState {
 
         displayControlledPlayer = holdState.displayControlledPlayer;
         displayBallOwner = holdState.displayBallOwner;
+        displayFoulMaker = holdState.displayFoulMaker;
         displayGoalScorer = holdState.displayGoalScorer;
         displayTime = holdState.displayTime;
         displayWindVane = holdState.displayWindVane;
