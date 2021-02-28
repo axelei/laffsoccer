@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.*;
 import com.ygames.ysoccer.gui.Gui;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Assets.random;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
@@ -90,6 +91,7 @@ class MatchStateGoal extends MatchState {
             int x = EMath.rand(40, Gui.WIDTH - 40);
             int y = EMath.rand(40, Gui.HEIGHT - 40);
             match.getRenderer().allSpritesGui.add(AnimatedObjectSprite.explosion(match.game.glGraphics, x, y));
+            Assets.Sounds.shotgun.play(random.nextFloat() / 1.4f, random.nextFloat() + 0.5f, random.nextFloat() + 0.5f);
         }
 
         // set states

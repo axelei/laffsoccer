@@ -490,10 +490,17 @@ public class MatchRenderer extends SceneRenderer {
     }
 
     private void drawGoal() {
-        float ratio = (float) (1d + Math.sin(System.currentTimeMillis() / 200d) / 4);
+        float ratio = (float) (1d + Math.sin(System.currentTimeMillis() / 130d) / 5);
         int width = Assets.goal[0].getRegionWidth();
         int height = Assets.goal[0].getRegionHeight();
-        batch.draw(Assets.goal[0], guiHeight / 2f - height / (ratio * 2f), guiWidth / 2f - width / (ratio * 2f), height / 2f * ratio, width / 2f * ratio, width, height, ratio, ratio, 0);
+
+        batch.draw(Assets.goal[0],
+                (guiWidth / 2f) - (width * ratio / 2),
+                (guiHeight / 2f) - (height * ratio / 2),
+                width * ratio,
+                height * ratio
+                );
+
     }
 
     private void drawRadar() {
