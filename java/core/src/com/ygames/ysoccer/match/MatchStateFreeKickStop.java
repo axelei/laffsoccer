@@ -37,10 +37,6 @@ class MatchStateFreeKickStop extends MatchState {
 
         Assets.Sounds.whistle.play(Assets.Sounds.volume / 100f);
 
-        if (match.settings.commentary) {
-            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.FOUL, Commentary.Comment.Priority.HIGH));
-        }
-
         // set the player targets relative to foul zone
         // even before moving the ball itself
         ball.updateZone(match.foul.position.x, match.foul.position.y);

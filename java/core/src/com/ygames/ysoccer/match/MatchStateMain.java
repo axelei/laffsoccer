@@ -230,6 +230,10 @@ class MatchStateMain extends MatchState {
                             match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y, unfairness);
                             if (match.foul.entailsYellowCard) {
                                 match.stats[match.foul.player.team.index].yellowCards++;
+                            } else {
+                                if (match.settings.commentary) {
+                                    Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.FOUL, Commentary.Comment.Priority.HIGH));
+                                }
                             }
                             Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
                         } else {
