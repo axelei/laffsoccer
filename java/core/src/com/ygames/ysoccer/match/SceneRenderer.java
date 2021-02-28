@@ -397,6 +397,10 @@ public abstract class SceneRenderer {
         Assets.font10.draw(batch, player.number + " " + player.getProperName(), 10, 2, Font.Align.LEFT);
     }
 
+    void drawPlayerNumberAndNameCenter(Player player) {
+        Assets.font14.draw(batch, player.number + " " + player.getProperName(), guiWidth / 2 - 7, guiHeight / 2, Font.Align.CENTER);
+    }
+
     void drawYellowCard(Player player) {
         Data d = player.data[scene.subframe];
         if ((scene.subframe % (SUBFRAMES_PER_SECOND / 2)) > SUBFRAMES_PER_SECOND / 4) {

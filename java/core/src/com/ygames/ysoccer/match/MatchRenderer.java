@@ -167,7 +167,7 @@ public class MatchRenderer extends SceneRenderer {
 
         // foul maker
         if (matchState.displayFoulMaker) {
-            drawPlayerNumberAndName(getMatch().foul.player);
+            drawPlayerNumberAndNameCenter(getMatch().foul.player);
         }
 
 
@@ -223,7 +223,7 @@ public class MatchRenderer extends SceneRenderer {
 
         // goal scorer
         if (matchState.displayGoalScorer && (scene.subframe % 160 > 80)) {
-            drawPlayerNumberAndName(getMatch().ball.goalOwner);
+            drawPlayerNumberAndNameCenter(getMatch().ball.goalOwner);
         }
 
         if (matchState.displayBenchPlayers) {
