@@ -52,13 +52,13 @@ class Warranty extends GLScreen {
 
         @Override
         public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-            game.setScreen(new Intro(game));
+            game.setScreen(new Title(game));
             return true;
         }
 
         @Override
         public boolean keyUp(int keycode) {
-            game.setScreen(new Intro(game));
+            game.setScreen(new Title(game));
             return true;
         }
     }

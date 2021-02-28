@@ -32,9 +32,9 @@ public class MenuMusic {
 
         FileHandle fileHandle = Gdx.files.internal(folder);
         for (FileHandle file : fileHandle.list()) {
-            if (file.extension().toLowerCase().equals("ogg")
-                    || file.extension().toLowerCase().equals("wav")
-                    || file.extension().toLowerCase().equals("mp3")) {
+            if (file.extension().equalsIgnoreCase("ogg")
+                    || file.extension().equalsIgnoreCase("wav")
+                    || file.extension().equalsIgnoreCase("mp3")) {
                 fileList.add(file);
             }
         }
