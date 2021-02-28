@@ -23,6 +23,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_THROW_IN_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_YELLOW_CARD;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_TACKLE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -30,7 +31,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 class MatchStateMain extends MatchState {
 
     private enum Event {
-        KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, FREE_KICK, PENALTY_KICK, NONE
+        KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, FREE_KICK, PENALTY_KICK, YELLOW_CARD, NONE
     }
 
     private Event event;
@@ -182,42 +183,45 @@ class MatchStateMain extends MatchState {
                     Player opponent = match.tackle.opponent;
                     float angleDiff = match.tackle.angleDiff;
 
-                    float downProbability;
+                    float hardness;
 
                     // back/side
                     if (angleDiff < 112.5f) {
-                        downProbability = match.tackle.strength * (0.7f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control);
+                        hardness = match.tackle.strength * (0.7f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control);
                     }
 
                     // front
                     else {
-                        downProbability = match.tackle.strength * (0.9f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control);
+                        hardness = match.tackle.strength * (0.9f + 0.01f * player.skills.tackling - 0.01f * opponent.skills.control);
                     }
 
-                    float foulProbability;
+                    float unfairness;
 
                     // back tackle
                     if (angleDiff < 67.5f) {
-                        foulProbability = (player.ballDistance < opponent.ballDistance) ? 0.8f : 0.9f;
+                        unfairness = (player.ballDistance < opponent.ballDistance) ? 0.8f : 0.9f;
                     }
 
                     // side tackle
                     else if (angleDiff < 112.5f) {
-                        foulProbability = (player.ballDistance < opponent.ballDistance) ? 0.2f : 0.8f;
+                        unfairness = (player.ballDistance < opponent.ballDistance) ? 0.2f : 0.8f;
                     }
 
                     // front tackle
                     else {
-                        foulProbability = (player.ballDistance < opponent.ballDistance) ? 0.3f : 0.9f;
+                        unfairness = (player.ballDistance < opponent.ballDistance) ? 0.3f : 0.9f;
                     }
 
-                    Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " finished, down probability: " + downProbability + ", foul probability: " + foulProbability);
+                    Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " finished, down probability: " + hardness + ", unfairness: " + unfairness);
 
-                    if (Assets.random.nextFloat() < downProbability) {
+                    if (Assets.random.nextFloat() < hardness) {
                         opponent.setState(STATE_DOWN);
 
-                        if (Assets.random.nextFloat() < foulProbability) {
-                            match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y);
+                        if (Assets.random.nextFloat() < unfairness) {
+                            match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y, unfairness);
+                            if (match.foul.entailsYellowCard) {
+                                match.stats[match.foul.player.team.index].yellowCards++;
+                            }
                             Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
@@ -230,7 +234,9 @@ class MatchStateMain extends MatchState {
             }
 
             if (match.foul != null) {
-                if (match.foul.isPenalty()) {
+                if (match.foul.entailsYellowCard) {
+                    event = Event.YELLOW_CARD;
+                } else if (match.foul.isPenalty()) {
                     event = Event.PENALTY_KICK;
                 } else {
                     event = Event.FREE_KICK;
@@ -282,6 +288,9 @@ class MatchStateMain extends MatchState {
 
             case THROW_IN:
                 return newAction(NEW_FOREGROUND, STATE_THROW_IN_STOP);
+
+            case YELLOW_CARD:
+                return newAction(NEW_FOREGROUND, STATE_YELLOW_CARD);
 
             case FREE_KICK:
                 return newAction(NEW_FOREGROUND, STATE_FREE_KICK_STOP);

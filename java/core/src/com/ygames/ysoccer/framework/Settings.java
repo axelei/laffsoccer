@@ -46,6 +46,7 @@ public class Settings {
     // development
     public static boolean development;
 
+    // (logs)
     public static int logLevel;
     static int logFilter;
 

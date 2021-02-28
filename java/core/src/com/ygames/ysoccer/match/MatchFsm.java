@@ -57,7 +57,7 @@ public class MatchFsm extends SceneFsm {
     static int STATE_STARTING_POSITIONS;
     static int STATE_THROW_IN;
     static int STATE_THROW_IN_STOP;
-
+    static int STATE_YELLOW_CARD;
 
     MatchFsm(Match match) {
         super(match);
@@ -110,6 +110,7 @@ public class MatchFsm extends SceneFsm {
         STATE_STARTING_POSITIONS = addState(new MatchStateStartingPositions(this));
         STATE_THROW_IN = addState(new MatchStateThrowIn(this));
         STATE_THROW_IN_STOP = addState(new MatchStateThrowInStop(this));
+        STATE_YELLOW_CARD = addState(new MatchStateYellowCard(this));
     }
 
     @Override

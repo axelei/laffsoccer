@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.TreeMap;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
+import static com.ygames.ysoccer.framework.Font.Align.CENTER;
+import static com.ygames.ysoccer.framework.GLGame.SUBFRAMES_PER_SECOND;
 import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
@@ -364,7 +366,7 @@ public abstract class SceneRenderer {
         int f0 = player.number % 10;
         int f1 = (player.number - f0) / 10 % 10;
 
-        int dx = Math.round(d.x) + 1;
+        int dx = Math.round(d.x);
         int dy = Math.round(d.y) - 40 - Math.round(d.z);
 
         int w0 = 6 - ((f0 == 1) ? 2 : 1);
@@ -383,5 +385,12 @@ public abstract class SceneRenderer {
 
     void drawPlayerNumberAndName(Player player) {
         Assets.font10.draw(batch, player.number + " " + player.shirtName, 10, 2, Font.Align.LEFT);
+    }
+
+    void drawYellowCard(Player player) {
+        Data d = player.data[scene.subframe];
+        if ((scene.subframe % (SUBFRAMES_PER_SECOND / 2)) > SUBFRAMES_PER_SECOND / 4) {
+            Assets.font6.draw(batch, "" + (char) 16, d.x + 1, d.y - 40, CENTER);
+        }
     }
 }

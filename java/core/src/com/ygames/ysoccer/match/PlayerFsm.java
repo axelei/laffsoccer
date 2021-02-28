@@ -33,6 +33,7 @@ class PlayerFsm extends Fsm {
         STATE_GOAL_SCORER,
         STATE_GOAL_MATE,
         STATE_OWN_GOAL_SCORER,
+        STATE_YELLOW_CARD,
 
         STATE_KEEPER_POSITIONING,
         STATE_KEEPER_PENALTY_POSITIONING,
@@ -78,7 +79,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateGoalScorer;
     PlayerState stateGoalMate;
     PlayerState stateOwnGoalScorer;
-    PlayerState stateKeeperKickAngle;
+    PlayerState stateYellowCard;
 
     PlayerState stateKeeperPositioning;
     PlayerState stateKeeperPenaltyPositioning;
@@ -89,6 +90,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateKeeperDivingHighOne;
     PlayerState stateKeeperCatchingHigh;
     PlayerState stateKeeperCatchingLow;
+    PlayerState stateKeeperKickAngle;
 
     public PlayerFsm(Player player) {
         this.player = player;
@@ -122,6 +124,7 @@ class PlayerFsm extends Fsm {
         stateGoalScorer = new PlayerStateGoalScorer(this);
         stateGoalMate = new PlayerStateGoalMate(this);
         stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this);
+        stateYellowCard = new PlayerStateYellowCard(this);
 
         stateKeeperPositioning = new PlayerStateKeeperPositioning(this);
         stateKeeperPenaltyPositioning = new PlayerStateKeeperPenaltyPositioning(this);
