@@ -20,7 +20,7 @@ public class Intro extends GLScreen {
     private Music music;
     private static List<Slide> introSlides;
     private Slide currSlide;
-    private int currSlideNumber = 0;
+    private int currSlideNumber = -1;
     private float clock = 0;
 
     private boolean fadingIn = false;
@@ -30,6 +30,7 @@ public class Intro extends GLScreen {
 
         introSlides = new ArrayList<>();
         introSlides.add(new Slide(new Texture("images/intro/charnegologo.jpg"), null, 7));
+        introSlides.add(new Slide(new Texture("images/intro/enloartolameza.jpg"), null, 7));
 
         music = Gdx.audio.newMusic(Gdx.files.internal("music/Anton Sapristi - Disfraz Extraño.mp3"));
         music.setLooping(true);
@@ -51,6 +52,7 @@ public class Intro extends GLScreen {
         if (currSlide == null || currSlide.duration < clock) {
             clock = 0;
             fadingIn = true;
+            currSlideNumber++;
             if (currSlideNumber + 1 > introSlides.size()) {
                 currSlideNumber = 0;
             }
@@ -74,6 +76,9 @@ public class Intro extends GLScreen {
             }
             if (clock + FADING_TIME > currSlide.duration) {
                 float alpha = (currSlide.duration - clock) / FADING_TIME;
+                if (alpha <= 0) {
+                    alpha = 0;
+                }
                 batch.setColor(alpha, alpha, alpha,1);
             }
             batch.draw(currSlide.texture, 0, 0, game.gui.WIDTH, game.gui.HEIGHT, 0, 0, currSlide.texture.getWidth(), currSlide.texture.getHeight(), false, true);
