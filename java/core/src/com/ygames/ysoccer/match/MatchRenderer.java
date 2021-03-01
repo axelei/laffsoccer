@@ -11,7 +11,6 @@ import com.ygames.ysoccer.framework.Settings;
 
 import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
-import static com.ygames.ysoccer.framework.GLGame.SUBFRAMES_PER_SECOND;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DY;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
@@ -900,7 +899,7 @@ public class MatchRenderer extends SceneRenderer {
     }
 
     private void drawBenchPlayers() {
-        int w = 250;
+        int w = 270;
         int h = 18;
 
         int x = guiWidth / 3 + 2;
@@ -973,7 +972,7 @@ public class MatchRenderer extends SceneRenderer {
     }
 
     private void drawBenchFormation() {
-        int w = 250;
+        int w = 270;
         int h = 18;
 
         int x = guiWidth / 3 + 2;
@@ -1054,6 +1053,9 @@ public class MatchRenderer extends SceneRenderer {
 
             Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
             Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
+            if (getMatch().referee.hasYellowCard(ply)) {
+                Assets.font10.draw(batch, "" + (char) 14, x + w - 45, y + 5 + 125 + pos * h, Font.Align.CENTER);
+            }
             Assets.font10.draw(batch, Assets.strings.get(ply.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
         }
     }
@@ -1062,7 +1064,7 @@ public class MatchRenderer extends SceneRenderer {
         int w = 180;
         int h = 18;
 
-        int x = guiWidth / 3 + 35 + 2;
+        int x = guiWidth / 3 + 45 + 2;
         int y = guiHeight / 2 - 186 + 2;
 
         // objects' shadows //

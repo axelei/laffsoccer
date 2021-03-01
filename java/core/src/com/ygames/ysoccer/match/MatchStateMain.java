@@ -219,9 +219,6 @@ class MatchStateMain extends MatchState {
 
                         if (Assets.random.nextFloat() < unfairness) {
                             match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y, unfairness);
-                            if (match.foul.entailsYellowCard) {
-                                match.stats[match.foul.player.team.index].yellowCards++;
-                            }
                             Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
@@ -235,6 +232,9 @@ class MatchStateMain extends MatchState {
 
             if (match.foul != null) {
                 if (match.foul.entailsYellowCard) {
+                    match.referee.addYellowCard(match.foul.player);
+                    match.stats[match.foul.player.team.index].yellowCards++;
+
                     event = Event.YELLOW_CARD;
                 } else if (match.foul.isPenalty()) {
                     event = Event.PENALTY_KICK;

@@ -48,6 +48,7 @@ public class Match extends Scene implements Json.Serializable {
     public final int[] teams = {-1, -1};
     public MatchStats[] stats = {new MatchStats(), new MatchStats()};
     public Scorers scorers;
+    Referee referee;
     public int[] resultAfter90;
     public int[] resultAfterExtraTime;
     public int[] resultAfterPenalties;
@@ -126,6 +127,7 @@ public class Match extends Scene implements Json.Serializable {
         this.competition = competition;
 
         scorers = new Scorers();
+        referee = new Referee();
         ball = new Ball(matchSettings);
 
         for (int t = HOME; t <= AWAY; t++) {
