@@ -228,22 +228,18 @@ class MatchStateMain extends MatchState {
                         opponent.setState(STATE_DOWN);
 
                         if (Assets.random.nextFloat() < unfairness) {
-                            match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y, unfairness);
-                            if (match.foul.entailsYellowCard) {
-                                match.stats[match.foul.player.team.index].yellowCards++;
-                            } else {
-                                if (match.settings.commentary) {
-                                    Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.FOUL, Commentary.Comment.Priority.HIGH));
-                                }
+                            match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y, hardness, unfairness);
+                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y + " yellow: " + match.foul.entailsYellowCard + " red: " + match.foul.entailsRedCard);
+                            if (match.settings.commentary) {
+                                Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.FOUL, Commentary.Comment.Priority.HIGH));
                             }
-                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
-
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
                             if (match.settings.commentary) {
                                 Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.NOT_FOUL, Commentary.Comment.Priority.HIGH));
                             }
                         }
+
                     } else {
                         Gdx.app.debug(opponent.shirtName, "avoids the tackle from " + player.shirtName);
                     }
