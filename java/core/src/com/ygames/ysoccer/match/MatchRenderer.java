@@ -13,11 +13,13 @@ import static com.badlogic.gdx.Gdx.gl;
 import static com.ygames.ysoccer.framework.Font.Align.CENTER;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DX;
 import static com.ygames.ysoccer.match.Const.BALL_ZONE_DY;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
 import static java.lang.Math.min;
 
@@ -131,8 +133,12 @@ public class MatchRenderer extends SceneRenderer {
         }
 
         if (matchState.displayFoulMaker) {
-            if (getMatch().foul.player.checkState(STATE_YELLOW_CARD)) {
-                drawYellowCard(getMatch().foul.player);
+            Player player = getMatch().foul.player;
+            if (player.checkState(STATE_RED_CARD)) {
+                drawRedCard(player);
+            } else
+            if (player.checkState(STATE_YELLOW_CARD)) {
+                drawYellowCard(player);
             } else {
                 drawPlayerNumber(getMatch().foul.player);
             }
@@ -160,7 +166,6 @@ public class MatchRenderer extends SceneRenderer {
         if (matchState.displayFoulMaker) {
             drawPlayerNumberAndName(getMatch().foul.player);
         }
-
 
         if (Settings.showDevelopmentInfo) {
             Assets.font10.draw(batch, "CAMERA MODE: " + actionCamera.getMode() + ", SPEED: " + actionCamera.getSpeed(), guiWidth / 2, 22, Font.Align.CENTER);
@@ -276,12 +281,12 @@ public class MatchRenderer extends SceneRenderer {
                     if (d.isVisible) {
                         Integer[] origin = Assets.keeperOrigins[d.fmy][d.fmx];
                         batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - origin[0] + 0.65f * d.z, d.y - origin[1] + 0.46f * d.z);
-                        if (scene.settings.time == MatchSettings.Time.NIGHT) {
-                            // TODO activate after getting keeper shadows
+                        // TODO activate after getting keeper shadows
+                        // if (scene.settings.time == MatchSettings.Time.NIGHT) {
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
                             // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
-                        }
+                        // }
                     }
                 }
             }
@@ -642,9 +647,9 @@ public class MatchRenderer extends SceneRenderer {
         int f1 = ((getMatch().stats[Match.HOME].goals - f0) / 10) % 10;
 
         if (f1 > 0) {
-            batch.draw(Assets.score[f1], guiWidth / 2 - 15 - 48, y0 - 40);
+            batch.draw(Assets.score[f1], guiWidth / 2f - 15 - 48, y0 - 40);
         }
-        batch.draw(Assets.score[f0], guiWidth / 2 - 15 - 24, y0 - 40);
+        batch.draw(Assets.score[f0], guiWidth / 2f - 15 - 24, y0 - 40);
 
         // "-"
         batch.draw(Assets.score[10], guiWidth / 2f - 9, y0 - 40);
@@ -748,9 +753,9 @@ public class MatchRenderer extends SceneRenderer {
         int f1 = ((homeScore - f0) / 10) % 10;
 
         if (f1 > 0) {
-            batch.draw(Assets.score[f1], guiWidth / 2 - 15 - 48, y0 - 40);
+            batch.draw(Assets.score[f1], guiWidth / 2f - 15 - 48, y0 - 40);
         }
-        batch.draw(Assets.score[f0], guiWidth / 2 - 15 - 24, y0 - 40);
+        batch.draw(Assets.score[f0], guiWidth / 2f - 15 - 24, y0 - 40);
 
         // "-"
         batch.draw(Assets.score[10], guiWidth / 2f - 9, y0 - 40);
@@ -1104,6 +1109,20 @@ public class MatchRenderer extends SceneRenderer {
 
         for (int i = 0; i < 18; i++) {
             Assets.font10.draw(batch, Tactics.codes[i], x + w / 2, y + 85 + h * i, Font.Align.CENTER);
+        }
+    }
+
+    void drawYellowCard(Player player) {
+        Data d = player.data[scene.subframe];
+        if ((matchState.timer % (SECOND / 2)) > SECOND / 4) {
+            Assets.font6.draw(batch, "" + (char) 14, d.x + 1, d.y - 40, CENTER);
+        }
+    }
+
+    void drawRedCard(Player player) {
+        Data d = player.data[scene.subframe];
+        if ((matchState.timer % (SECOND / 2)) > SECOND / 4) {
+            Assets.font6.draw(batch, "" + (char) 15, d.x + 1, d.y - 40, CENTER);
         }
     }
 

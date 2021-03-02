@@ -28,4 +28,8 @@ public class Referee {
     boolean hasYellowCard(Player player) {
         return penaltyCards.containsKey(player) && penaltyCards.get(player) == PenaltyCard.YELLOW;
     }
+
+    boolean hasRedCard(Player player) {
+        return penaltyCards.containsKey(player) && penaltyCards.get(player) == PenaltyCard.RED;
+    }
 }

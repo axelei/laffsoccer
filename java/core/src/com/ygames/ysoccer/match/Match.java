@@ -629,13 +629,15 @@ public class Match extends Scene implements Json.Serializable {
         tackle.angleDiff = angleDiff;
     }
 
-    void newFoul(float x, float y, float unfairness) {
+    void newFoul(float x, float y, float hardness, float unfairness) {
         foul = new Foul();
         foul.time = tackle.time;
         foul.position = new Vector2(x, y);
         foul.player = tackle.player;
         foul.opponent = tackle.opponent;
-        foul.entailsYellowCard = Assets.random.nextFloat() < EMath.pow(unfairness, 4);
+        float r = Assets.random.nextFloat();
+        foul.entailsYellowCard = r < EMath.pow(hardness * unfairness, 2);
+        foul.entailsRedCard = r < EMath.pow(hardness * unfairness, 4);
     }
 
     class Foul {
@@ -644,6 +646,7 @@ public class Match extends Scene implements Json.Serializable {
         public Player player;
         public Player opponent;
         public boolean entailsYellowCard;
+        public boolean entailsRedCard;
 
         public boolean isPenalty() {
             return (Math.abs(position.x) < Const.PENALTY_AREA_W / 2f)
