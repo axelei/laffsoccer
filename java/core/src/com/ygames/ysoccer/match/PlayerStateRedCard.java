@@ -1,11 +1,11 @@
 package com.ygames.ysoccer.match;
 
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
 
-class PlayerStateYellowCard extends PlayerState {
+class PlayerStateRedCard extends PlayerState {
 
-    public PlayerStateYellowCard(PlayerFsm fsm) {
-        super(STATE_YELLOW_CARD, fsm);
+    public PlayerStateRedCard(PlayerFsm fsm) {
+        super(STATE_RED_CARD, fsm);
     }
 
     @Override
@@ -26,11 +26,7 @@ class PlayerStateYellowCard extends PlayerState {
     @Override
     State checkConditions() {
         if (timer > Const.SECOND) {
-            if (player.getMatch().referee.hasRedCard(player)) {
-                return fsm.stateRedCard;
-            } else {
-                return fsm.stateIdle;
-            }
+            return fsm.stateIdle;
         }
         return null;
     }

@@ -11,6 +11,7 @@ import java.util.List;
 
 import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_END_POSITIONS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_FINAL_CELEBRATION;
@@ -99,7 +100,7 @@ class MatchStateFinalCelebration extends MatchState {
 
     @Override
     SceneFsm.Action[] checkConditions() {
-        if (step == Step.QUITTING && (timer - celebrationEndingTime > GLGame.VIRTUAL_REFRESH_RATE)) {
+        if (step == Step.QUITTING && (timer - celebrationEndingTime > SECOND)) {
             return newAction(NEW_FOREGROUND, STATE_END_POSITIONS);
         }
 

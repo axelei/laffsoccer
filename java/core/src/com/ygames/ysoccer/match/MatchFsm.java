@@ -53,6 +53,7 @@ public class MatchFsm extends SceneFsm {
     static int STATE_PENALTIES_STOP;
     static int STATE_PENALTY_KICK;
     static int STATE_PENALTY_KICK_STOP;
+    static int STATE_RED_CARD;
     static int STATE_REPLAY;
     static int STATE_STARTING_POSITIONS;
     static int STATE_THROW_IN;
@@ -106,6 +107,7 @@ public class MatchFsm extends SceneFsm {
         STATE_PENALTIES_STOP = addState(new MatchStatePenaltiesStop(this));
         STATE_PENALTY_KICK = addState(new MatchStatePenaltyKick(this));
         STATE_PENALTY_KICK_STOP = addState(new MatchStatePenaltyKickStop(this));
+        STATE_RED_CARD = addState(new MatchStateRedCard(this));
         STATE_REPLAY = addState(new MatchStateReplay(this));
         STATE_STARTING_POSITIONS = addState(new MatchStateStartingPositions(this));
         STATE_THROW_IN = addState(new MatchStateThrowIn(this));

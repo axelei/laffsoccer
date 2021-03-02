@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.Match.PenaltyState.MISSED;
@@ -119,7 +120,7 @@ class MatchStatePenaltiesEnd extends MatchState {
                 match.penalty.setState(MISSED);
             }
 
-            if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
+            if (timer > 3 * SECOND) {
 
                 match.ball.setPosition(0, -Const.PENALTY_SPOT_Y, 0);
                 match.ball.updatePrediction();

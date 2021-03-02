@@ -4,6 +4,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_ENTER;
@@ -54,7 +55,7 @@ class MatchStateHalfTimeWait extends MatchState {
     SceneFsm.Action[] checkConditions() {
         if (match.team[HOME].fire1Down() != null
                 || match.team[AWAY].fire1Down() != null
-                || (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
+                || (timer > 3 * SECOND)) {
             match.period = Match.Period.SECOND_HALF;
             return newAction(NEW_FOREGROUND, STATE_HALF_TIME_ENTER);
         }

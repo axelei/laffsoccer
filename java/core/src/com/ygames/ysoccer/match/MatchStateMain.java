@@ -26,6 +26,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_HALF_TIME_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_KEEPER_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_STOP;
+import static com.ygames.ysoccer.match.MatchFsm.STATE_RED_CARD;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_THROW_IN_STOP;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_YELLOW_CARD;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_DOWN;
@@ -35,7 +36,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 class MatchStateMain extends MatchState {
 
     private enum Event {
-        KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, FREE_KICK, PENALTY_KICK, YELLOW_CARD, NONE
+        KEEPER_STOP, GOAL, CORNER, GOAL_KICK, THROW_IN, FREE_KICK, PENALTY_KICK, YELLOW_CARD, RED_CARD, NONE
     }
 
     private Event event;
@@ -221,7 +222,7 @@ class MatchStateMain extends MatchState {
                         unfairness = (player.ballDistance < opponent.ballDistance) ? 0.3f : 0.9f;
                     }
 
-                    Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " finished, down probability: " + hardness + ", unfairness: " + unfairness);
+                    Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " finished, hardness: " + hardness + ", unfairness: " + unfairness);
 
                     if (Assets.random.nextFloat() < hardness) {
                         opponent.setState(STATE_DOWN);
@@ -236,6 +237,7 @@ class MatchStateMain extends MatchState {
                                 }
                             }
                             Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y);
+
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
                             if (match.settings.commentary) {
@@ -250,7 +252,18 @@ class MatchStateMain extends MatchState {
             }
 
             if (match.foul != null) {
-                if (match.foul.entailsYellowCard) {
+                if (match.foul.entailsRedCard) {
+                    match.referee.addRedCard(match.foul.player);
+                    match.stats[match.foul.player.team.index].redCards++;
+
+                    event = Event.RED_CARD;
+                } else if (match.foul.entailsYellowCard) {
+                    match.referee.addYellowCard(match.foul.player);
+                    match.stats[match.foul.player.team.index].yellowCards++;
+                    if (match.referee.hasRedCard(match.foul.player)) {
+                        match.stats[match.foul.player.team.index].redCards++;
+                    }
+
                     event = Event.YELLOW_CARD;
                 } else if (match.foul.isPenalty()) {
                     event = Event.PENALTY_KICK;
@@ -305,6 +318,9 @@ class MatchStateMain extends MatchState {
             case THROW_IN:
                 return newAction(NEW_FOREGROUND, STATE_THROW_IN_STOP);
 
+            case RED_CARD:
+                return newAction(NEW_FOREGROUND, STATE_RED_CARD);
+
             case YELLOW_CARD:
                 return newAction(NEW_FOREGROUND, STATE_YELLOW_CARD);
 
@@ -321,7 +337,7 @@ class MatchStateMain extends MatchState {
                 break;
 
             case FIRST_HALF:
-                if ((match.clock > (match.length * 45 / 90)) && match.periodIsTerminable()) {
+                if ((match.clock > (match.length * 45f / 90f)) && match.periodIsTerminable()) {
                     return newAction(NEW_FOREGROUND, STATE_HALF_TIME_STOP);
                 }
                 break;
@@ -342,13 +358,13 @@ class MatchStateMain extends MatchState {
                 break;
 
             case FIRST_EXTRA_TIME:
-                if ((match.clock > (match.length * 105 / 90)) && match.periodIsTerminable()) {
+                if ((match.clock > (match.length * 105f / 90f)) && match.periodIsTerminable()) {
                     return newAction(NEW_FOREGROUND, STATE_HALF_EXTRA_TIME_STOP);
                 }
                 break;
 
             case SECOND_EXTRA_TIME:
-                if ((match.clock > (match.length * 120 / 90)) && match.periodIsTerminable()) {
+                if ((match.clock > (match.length * 120f / 90f)) && match.periodIsTerminable()) {
 
                     match.setResult(match.stats[HOME].goals, match.stats[AWAY].goals, Match.ResultType.AFTER_EXTRA_TIME);
 

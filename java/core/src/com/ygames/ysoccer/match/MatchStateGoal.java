@@ -11,6 +11,7 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.FAST;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_REPLAY;
@@ -146,7 +147,7 @@ class MatchStateGoal extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
         if ((match.ball.v == 0) && (match.ball.vz == 0)
-                && (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE)) {
+                && (timer > 3 * SECOND)) {
 
             if (!recordingDone) {
                 match.recorder.saveHighlight(sceneRenderer);

@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -71,7 +72,7 @@ class MatchStatePenaltiesStop extends MatchState {
 
     @Override
     SceneFsm.Action[] checkConditions() {
-        if (timer > 3 * GLGame.VIRTUAL_REFRESH_RATE) {
+        if (timer > 3 * SECOND) {
             match.ball.setPosition(0, -Const.PENALTY_SPOT_Y, 0);
             match.ball.updatePrediction();
 

@@ -14,15 +14,15 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
-class MatchStateYellowCard extends MatchState {
+class MatchStateRedCard extends MatchState {
 
     boolean booked;
 
-    MatchStateYellowCard(MatchFsm matchFsm) {
+    MatchStateRedCard(MatchFsm matchFsm) {
         super(matchFsm);
 
         displayBallOwner = true;
@@ -61,7 +61,7 @@ class MatchStateYellowCard extends MatchState {
         setPlayerStates();
 
         if (!booked && timer > SECOND) {
-            match.foul.player.setState(STATE_YELLOW_CARD);
+            match.foul.player.setState(STATE_RED_CARD);
             booked = true;
         }
 
@@ -94,6 +94,8 @@ class MatchStateYellowCard extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
         if (booked && match.foul.player.checkState(STATE_IDLE)) {
+            match.foul.player.setTarget(Const.TOUCH_LINE + 80, 0);
+            // TODO match.foul.player.setState(STATE_SENT_OFF);
             if (match.foul.isPenalty()) {
                 return newAction(NEW_FOREGROUND, STATE_PENALTY_KICK_STOP);
             } else {
