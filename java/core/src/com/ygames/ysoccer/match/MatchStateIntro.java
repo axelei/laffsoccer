@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.FOLLOW_BALL;
 import static com.ygames.ysoccer.match.ActionCamera.Mode.STILL;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_STARTING_POSITIONS;
@@ -12,7 +13,7 @@ import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateIntro extends MatchState {
 
-    private final int enterDelay = GLGame.VIRTUAL_REFRESH_RATE / 16;
+    private final int enterDelay = SECOND / 16;
     private boolean stillCamera;
 
     MatchStateIntro(MatchFsm fsm) {
@@ -61,7 +62,7 @@ class MatchStateIntro extends MatchState {
 
             sceneRenderer.save();
 
-            if (stillCamera && timer > GLGame.VIRTUAL_REFRESH_RATE) {
+            if (stillCamera && timer > SECOND) {
                 stillCamera = false;
                 setCameraMode();
             }
@@ -80,7 +81,7 @@ class MatchStateIntro extends MatchState {
         if (match.enterPlayersFinished(timer, enterDelay)) {
             if ((match.team[HOME].fire1Down() != null)
                     || (match.team[AWAY].fire1Down() != null)
-                    || (timer >= 5 * GLGame.VIRTUAL_REFRESH_RATE)) {
+                    || (timer >= 5 * SECOND)) {
                 return newAction(NEW_FOREGROUND, STATE_STARTING_POSITIONS);
             }
         }

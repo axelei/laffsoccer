@@ -6,6 +6,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_HIGHLIGHTS;
@@ -62,7 +63,7 @@ class MatchStateEnd extends MatchState {
 
         if (match.team[HOME].fire1Up() != null
                 || match.team[AWAY].fire1Up() != null
-                || timer > 20 * GLGame.VIRTUAL_REFRESH_RATE) {
+                || timer > 20 * SECOND) {
             quitMatch();
             return null;
         }

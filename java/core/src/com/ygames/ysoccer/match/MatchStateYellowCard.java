@@ -5,6 +5,7 @@ import com.ygames.ysoccer.framework.GLGame;
 
 import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.NORMAL;
+import static com.ygames.ysoccer.match.Const.SECOND;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
@@ -13,6 +14,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTY_KICK_STOP;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
@@ -59,7 +61,7 @@ class MatchStateYellowCard extends MatchState {
 
         setPlayerStates();
 
-        if (!booked && timer > GLGame.VIRTUAL_REFRESH_RATE) {
+        if (!booked && timer > SECOND) {
             match.foul.player.setState(STATE_YELLOW_CARD);
             booked = true;
         }

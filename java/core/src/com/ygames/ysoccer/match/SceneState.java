@@ -1,5 +1,7 @@
 package com.ygames.ysoccer.match;
 
+import com.ygames.ysoccer.framework.GLGame;
+
 abstract class SceneState {
 
     private int id;
@@ -28,7 +30,12 @@ abstract class SceneState {
     }
 
     void doActions(float deltaTime) {
-        timer += 1;
+        float timeLeft = deltaTime;
+        while (timeLeft >= GLGame.SUBFRAME_DURATION) {
+            timer += 1;
+
+            timeLeft -= GLGame.SUBFRAME_DURATION;
+        }
         fsm.getHotKeys().update();
     }
 
