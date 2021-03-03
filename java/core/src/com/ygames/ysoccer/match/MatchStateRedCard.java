@@ -15,6 +15,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_IDLE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_POSITIONING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
@@ -94,8 +95,7 @@ class MatchStateRedCard extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
         if (booked && match.foul.player.checkState(STATE_IDLE)) {
-            match.foul.player.setTarget(Const.TOUCH_LINE + 80, 0);
-            // TODO match.foul.player.setState(STATE_SENT_OFF);
+            match.foul.player.setState(STATE_SENT_OFF);
             if (match.foul.isPenalty()) {
                 return newAction(NEW_FOREGROUND, STATE_PENALTY_KICK_STOP);
             } else {

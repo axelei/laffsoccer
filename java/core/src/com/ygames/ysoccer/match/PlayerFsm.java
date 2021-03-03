@@ -35,6 +35,7 @@ class PlayerFsm extends Fsm {
         STATE_OWN_GOAL_SCORER,
         STATE_YELLOW_CARD,
         STATE_RED_CARD,
+        STATE_SENT_OFF,
 
         STATE_KEEPER_POSITIONING,
         STATE_KEEPER_PENALTY_POSITIONING,
@@ -82,6 +83,7 @@ class PlayerFsm extends Fsm {
     PlayerState stateOwnGoalScorer;
     PlayerState stateYellowCard;
     PlayerState stateRedCard;
+    PlayerState stateSentOff;
 
     PlayerState stateKeeperPositioning;
     PlayerState stateKeeperPenaltyPositioning;
@@ -128,6 +130,7 @@ class PlayerFsm extends Fsm {
         stateOwnGoalScorer = new PlayerStateOwnGoalScorer(this);
         stateYellowCard = new PlayerStateYellowCard(this);
         stateRedCard = new PlayerStateRedCard(this);
+        stateSentOff = new PlayerStateSentOff(this);
 
         stateKeeperPositioning = new PlayerStateKeeperPositioning(this);
         stateKeeperPenaltyPositioning = new PlayerStateKeeperPenaltyPositioning(this);
@@ -147,6 +150,8 @@ class PlayerFsm extends Fsm {
     }
 
     void setState(Id id) {
-        super.setState(id.ordinal());
+        if (player.isActive) {
+            super.setState(id.ordinal());
+        }
     }
 }

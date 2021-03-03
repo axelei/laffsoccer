@@ -98,6 +98,7 @@ public class Player implements Json.Serializable {
     float speed;
 
     public boolean isVisible;
+    boolean isActive;
 
     public final Data[] data = new Data[Const.REPLAY_SUBFRAMES];
 
@@ -168,6 +169,7 @@ public class Player implements Json.Serializable {
         this.ball = match.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
+        isActive = true;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
@@ -178,6 +180,7 @@ public class Player implements Json.Serializable {
         this.ball = training.ball;
         fsm = new PlayerFsm(this);
         isVisible = true;
+        isActive = true;
         for (int i = 0; i < data.length; i++) {
             data[i] = new Data();
         }
@@ -186,6 +189,13 @@ public class Player implements Json.Serializable {
     void setTarget(float tx, float ty) {
         this.tx = tx;
         this.ty = ty;
+    }
+
+    void swapTargetWith(Player other) {
+        float tempTx = tx;
+        float tempTy = ty;
+        setTarget(other.tx, other.ty);
+        other.setTarget(tempTx, tempTy);
     }
 
     public PlayerState getState() {
@@ -520,7 +530,7 @@ public class Player implements Json.Serializable {
     }
 
     float targetAngle() {
-        return EMath.aTan2(ty - y, tx - x);
+        return angleToPoint(tx, ty);
     }
 
     void watchPosition(Vector2 pos) {
@@ -676,7 +686,7 @@ public class Player implements Json.Serializable {
             vz = 0;
         }
 
-        if (limit) {
+        if (limit && isActive) {
             limitInsideField();
         }
 
@@ -1042,7 +1052,11 @@ public class Player implements Json.Serializable {
     }
 
     float distanceFrom(Player player) {
-        return EMath.dist(x, y, player.x, player.y);
+        return distanceFrom(player.x, player.y);
+    }
+
+    float distanceFrom(float x0, float y0) {
+        return EMath.dist(x, y, x0, y0);
     }
 
     float angleToPoint(float x0, float y0) {
