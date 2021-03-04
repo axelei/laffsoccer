@@ -47,7 +47,10 @@ class Recorder {
 
             // players
             for (int t = HOME; t <= AWAY; t++) {
-                for (Player player : match.team[t].lineup) {
+                int len = match.team[t].lineup.size();
+                for (int pos = 0; pos < len; pos++) {
+                    // using 'players' because order in 'lineup' may change during the match
+                    Player player = match.team[t].players.get(pos);
                     Data playerData = player.data[match.subframe];
                     record[index++] = (short) playerData.x;
                     record[index++] = (short) playerData.y;
@@ -111,7 +114,10 @@ class Recorder {
 
             // players
             for (int t = HOME; t <= AWAY; t++) {
-                for (Player player : match.team[t].lineup) {
+                int len = match.team[t].lineup.size();
+                for (int pos = 0; pos < len; pos++) {
+                    // using 'players' because order in 'lineup' may change during the match
+                    Player player = match.team[t].players.get(pos);
                     Data playerData = player.data[match.subframe];
                     playerData.x = record[offset++];
                     playerData.y = record[offset++];
