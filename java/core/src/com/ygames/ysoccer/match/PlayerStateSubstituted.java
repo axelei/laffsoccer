@@ -3,14 +3,14 @@ package com.ygames.ysoccer.match;
 import com.ygames.ysoccer.framework.EMath;
 
 import static com.ygames.ysoccer.match.Const.BENCH_X;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 
-class PlayerStateSentOff extends PlayerState {
+class PlayerStateSubstituted extends PlayerState {
 
     private float v, tx, ty;
 
-    PlayerStateSentOff(PlayerFsm fsm) {
-        super(STATE_SENT_OFF, fsm);
+    PlayerStateSubstituted(PlayerFsm fsm) {
+        super(STATE_SUBSTITUTED, fsm);
     }
 
     @Override

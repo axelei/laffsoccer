@@ -21,6 +21,7 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
 import static java.lang.Math.min;
 
@@ -510,7 +511,7 @@ public class MatchRenderer extends SceneRenderer {
         for (Sprite sprite : allSprites) {
             if (sprite.getClass() == PlayerSprite.class) {
                 Player player = ((PlayerSprite) sprite).player;
-                if (player.checkState(STATE_BENCH_SITTING) || player.checkState(STATE_OUTSIDE)) {
+                if (player.checkState(STATE_BENCH_SITTING)) {
                     continue;
                 }
                 Data d = player.data[scene.subframe];
@@ -542,7 +543,7 @@ public class MatchRenderer extends SceneRenderer {
             for (Sprite sprite : allSprites) {
                 if (sprite.getClass() == PlayerSprite.class) {
                     Player player = ((PlayerSprite) sprite).player;
-                    if (player.checkState(STATE_BENCH_SITTING) || player.checkState(STATE_OUTSIDE)) {
+                    if (player.checkState(STATE_BENCH_SITTING)) {
                         continue;
                     }
                     Data d = player.data[scene.subframe];
@@ -968,7 +969,7 @@ public class MatchRenderer extends SceneRenderer {
         for (int pos = 0; pos < benchSize; pos++) {
             Player player = getMatch().getFsm().benchStatus.team.lineupAtPosition(TEAM_SIZE + pos);
 
-            if (!player.getState().checkId(STATE_OUTSIDE)) {
+            if (!player.getState().checkId(STATE_SUBSTITUTED)) {
                 Assets.font10.draw(batch, player.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
                 Assets.font10.draw(batch, player.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
                 Assets.font10.draw(batch, Assets.strings.get(player.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);

@@ -492,9 +492,7 @@ public class Team implements Json.Serializable {
 
     void setLineupTarget(float tx, float ty) {
         for (Player player : lineup) {
-            if (!player.checkState(STATE_OUTSIDE)) {
-                player.setTarget(tx, ty);
-            }
+            player.setTarget(tx, ty);
         }
     }
 
@@ -703,7 +701,7 @@ public class Team implements Json.Serializable {
     Player lastOfLineup() {
         for (int pos = TEAM_SIZE - 1; pos > 0; pos--) {
             Player ply = lineupAtPosition(pos);
-            if (!ply.checkState(STATE_OUTSIDE)) {
+            if (ply.isActive) {
                 return ply;
             }
         }

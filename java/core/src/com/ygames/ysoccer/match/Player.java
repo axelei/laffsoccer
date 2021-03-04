@@ -1037,7 +1037,7 @@ public class Player implements Json.Serializable {
         float nearPlayerDistance = 350; // if all players are far than this value, no player is found
 
         for (Player ply : team.lineup) {
-            if (ply.checkState(STATE_OUTSIDE)) {
+            if (!ply.isActive) {
                 continue;
             }
 

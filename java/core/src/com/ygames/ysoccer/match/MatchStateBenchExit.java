@@ -6,7 +6,7 @@ import static com.ygames.ysoccer.match.ActionCamera.Mode.REACH_TARGET;
 import static com.ygames.ysoccer.match.ActionCamera.Speed.WARP;
 import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.RESTORE_FOREGROUND;
 import static java.lang.Math.min;
 
@@ -32,7 +32,7 @@ class MatchStateBenchExit extends MatchState {
         int substitutes = min(match.getSettings().benchSize, getFsm().benchStatus.team.lineup.size() - TEAM_SIZE);
         for (int i = 0; i < substitutes; i++) {
             Player player = getFsm().benchStatus.team.lineup.get(TEAM_SIZE + i);
-            if (!player.getState().checkId(STATE_OUTSIDE)) {
+            if (!player.getState().checkId(STATE_SUBSTITUTED)) {
                 player.setState(STATE_BENCH_SITTING);
             }
         }

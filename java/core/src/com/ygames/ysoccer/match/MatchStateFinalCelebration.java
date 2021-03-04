@@ -118,6 +118,7 @@ class MatchStateFinalCelebration extends MatchState {
         float tx = -8 * winners.size();
         float ty = side * GOAL_LINE / 2f;
         for (Player player : winners) {
+            player.isActive = true;
             player.setState(STATE_REACH_TARGET);
             player.setTarget(tx, ty);
             tx += 16;

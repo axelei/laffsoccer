@@ -12,6 +12,7 @@ class PlayerFsm extends Fsm {
 
         STATE_PHOTO,
         STATE_STAND_RUN,
+        STATE_SUBSTITUTED,
         STATE_KICK,
         STATE_HEAD,
         STATE_TACKLE,
@@ -60,6 +61,7 @@ class PlayerFsm extends Fsm {
 
     PlayerState statePhoto;
     PlayerState stateStandRun;
+    PlayerState stateSubstituted;
     PlayerState stateKick;
     PlayerState stateHead;
     PlayerState stateTackle;
@@ -107,6 +109,7 @@ class PlayerFsm extends Fsm {
 
         statePhoto = new PlayerStatePhoto(this);
         stateStandRun = new PlayerStateStandRun(this);
+        stateSubstituted = new PlayerStateSubstituted(this);
         stateKick = new PlayerStateKick(this);
         stateHead = new PlayerStateHead(this);
         stateTackle = new PlayerStateTackle(this);

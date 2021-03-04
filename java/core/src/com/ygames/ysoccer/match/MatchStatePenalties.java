@@ -11,8 +11,9 @@ import static com.ygames.ysoccer.match.Match.AWAY;
 import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_PENALTIES_KICK;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_KEEPER_PENALTY_POSITIONING;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStatePenalties extends MatchState {
@@ -96,7 +97,7 @@ class MatchStatePenalties extends MatchState {
             int len = team.lineup.size();
             for (int i = 0; i < len; i++) {
                 Player player = team.lineupAtPosition(i);
-                if (!player.checkState(STATE_OUTSIDE)) {
+                if (!player.checkState(STATE_SUBSTITUTED) && !player.checkState(STATE_SENT_OFF)) {
                     int side = 2 * t - 1;
                     player.tx = 18 * (-team.lineup.size() + 2 * i) + 8 * EMath.cos(70 * (player.number));
                     player.ty = -(i == 0 ? 300 : 100) + side * (15 + 5 * (i % 2)) + 8 * EMath.sin(70 * (player.number));

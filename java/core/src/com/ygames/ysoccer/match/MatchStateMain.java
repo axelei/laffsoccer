@@ -220,7 +220,8 @@ class MatchStateMain extends MatchState {
 
                         if (Assets.random.nextFloat() < unfairness) {
                             match.newFoul(match.tackle.opponent.x, match.tackle.opponent.y, hardness, unfairness);
-                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y + " yellow: " + match.foul.entailsYellowCard + " red: " + match.foul.entailsRedCard);
+                            Gdx.app.debug(player.shirtName, "tackle on " + opponent.shirtName + " is a foul at: " + match.tackle.opponent.x + ", " + match.tackle.opponent.y
+                                    + " direct shot: " + (match.foul.isDirectShot() ? "yes" : "no") + " yellow: " + match.foul.entailsYellowCard + " red: " + match.foul.entailsRedCard);
                         } else {
                             Gdx.app.debug(player.shirtName, "tackles on " + opponent.shirtName + " is probably not a foul");
                         }

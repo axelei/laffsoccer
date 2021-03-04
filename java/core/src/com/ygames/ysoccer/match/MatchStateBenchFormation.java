@@ -11,9 +11,9 @@ import static com.ygames.ysoccer.match.Const.TEAM_SIZE;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_SUBSTITUTIONS;
 import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_TACTICS;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_STANDING;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 
 class MatchStateBenchFormation extends MatchState {
@@ -119,7 +119,7 @@ class MatchStateBenchFormation extends MatchState {
                             int benchPlayerIndex = benchStatus.team.playerIndexAtPosition(benchStatus.substPosition);
                             Player benchPlayer = benchStatus.team.lineup.get(benchPlayerIndex);
 
-                            selectedPlayer.setState(STATE_OUTSIDE);
+                            selectedPlayer.setState(STATE_SUBSTITUTED);
                             benchPlayer.setState(STATE_REACH_TARGET);
 
                             benchStatus.substPosition = -1;
