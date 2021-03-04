@@ -126,18 +126,11 @@ class MatchStateBenchFormation extends MatchState {
                             benchStatus.substPosition = -1;
 
                             if (match.settings.commentary) {
-                                int size = Assets.Commentary.playerSubstitution.size();
-                                if (size > 0) {
-                                    Assets.Commentary.playerSubstitution.get(Assets.random.nextInt(size)).play(Assets.Sounds.volume / 100f);
-                                }
+                                Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.PLAYER_SUBSTITUTION, Commentary.Comment.Priority.HIGH));
                             }
 
                             Collections.swap(benchStatus.team.lineup, selectedPlayerIndex, benchPlayerIndex);
                             selectedPlayer.swapTargetWith(benchPlayer);
-
-                            if (match.settings.commentary) {
-                         	   Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.PLAYER_SUBSTITUTION, Commentary.Comment.Priority.HIGH));
-                        	}
                         }
                     }
 
