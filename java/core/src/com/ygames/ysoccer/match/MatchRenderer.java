@@ -20,6 +20,7 @@ import static com.ygames.ysoccer.match.Match.HOME;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_RED_CARD;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_YELLOW_CARD;
 import static java.lang.Math.min;
 
@@ -136,8 +137,7 @@ public class MatchRenderer extends SceneRenderer {
             Player player = getMatch().foul.player;
             if (player.checkState(STATE_RED_CARD)) {
                 drawRedCard(player);
-            } else
-            if (player.checkState(STATE_YELLOW_CARD)) {
+            } else if (player.checkState(STATE_YELLOW_CARD)) {
                 drawYellowCard(player);
             } else {
                 drawPlayerNumber(getMatch().foul.player);
@@ -298,9 +298,9 @@ public class MatchRenderer extends SceneRenderer {
                         batch.draw(Assets.keeperShadow[d.fmx][d.fmy][0], d.x - origin[0] + 0.65f * d.z, d.y - origin[1] + 0.46f * d.z);
                         // TODO activate after getting keeper shadows
                         // if (scene.settings.time == MatchSettings.Time.NIGHT) {
-                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
-                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
-                            // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                        // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][1], d.x - 24 - 0.65f * d.z, d.y - 34 + 0.46f * d.z);
+                        // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][2], d.x - 24 - 0.65f * d.z, d.y - 34 - 0.46f * d.z);
+                        // batch.draw(Assets.keeperShadow[d.fmx][d.fmy][3], d.x - 24 + 0.65f * d.z, d.y - 34 - 0.46f * d.z);
                         // }
                     }
                 }
@@ -1089,12 +1089,14 @@ public class MatchRenderer extends SceneRenderer {
 
             Player ply = getMatch().getFsm().benchStatus.team.lineupAtPosition(pos);
 
-            Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
-            Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
-            if (getMatch().referee.hasYellowCard(ply)) {
-                Assets.font10.draw(batch, "" + (char) 14, x + w - 45, y + 5 + 125 + pos * h, Font.Align.CENTER);
+            if (!ply.checkState(STATE_SENT_OFF)) {
+                Assets.font10.draw(batch, ply.number, x + 25, y + 5 + 125 + pos * h, Font.Align.CENTER);
+                Assets.font10.draw(batch, ply.shirtName, x + 45, y + 5 + 125 + pos * h, Font.Align.LEFT);
+                if (getMatch().referee.hasYellowCard(ply)) {
+                    Assets.font10.draw(batch, "" + (char) 14, x + w - 45, y + 5 + 125 + pos * h, Font.Align.CENTER);
+                }
+                Assets.font10.draw(batch, Assets.strings.get(ply.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
             }
-            Assets.font10.draw(batch, Assets.strings.get(ply.getRoleLabel()), x + w - 20, y + 5 + 125 + pos * h, Font.Align.CENTER);
         }
     }
 

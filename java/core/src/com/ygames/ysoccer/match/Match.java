@@ -651,7 +651,7 @@ public class Match extends Scene implements Json.Serializable {
         foul.opponent = tackle.opponent;
         float r = Assets.random.nextFloat();
         foul.entailsYellowCard = r < EMath.pow(hardness * unfairness, 2);
-        foul.entailsRedCard = r < EMath.pow(hardness * unfairness, 4);
+        foul.entailsRedCard = r < EMath.pow(hardness * unfairness, 5);
     }
 
     class Foul {
