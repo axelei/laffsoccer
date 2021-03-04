@@ -34,7 +34,9 @@ import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OWN_GOAL_SCORER;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_PHOTO;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_REACH_TARGET;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SENT_OFF;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_STAND_RUN;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 
 public class Match extends Scene implements Json.Serializable {
 
@@ -172,7 +174,7 @@ public class Match extends Scene implements Json.Serializable {
             while (penalties[t].size() < newSize) {
                 Player kicker = team[t].lineupAtPosition(team[t].kickerIndex);
                 Player keeper = team[1 - t].lineupAtPosition(0);
-                if (!kicker.checkState(STATE_OUTSIDE)) {
+                if (!kicker.checkState(STATE_SUBSTITUTED) && !kicker.checkState(STATE_SENT_OFF)) {
                     penalties[t].add(new Penalty(kicker, keeper, -1));
                 }
                 team[t].kickerIndex = rotate(team[t].kickerIndex, 0, team[t].lineup.size() - 1, -1);

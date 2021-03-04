@@ -11,7 +11,7 @@ import static com.ygames.ysoccer.match.MatchFsm.STATE_BENCH_FORMATION;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_OUT;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_SITTING;
 import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_BENCH_STANDING;
-import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_OUTSIDE;
+import static com.ygames.ysoccer.match.PlayerFsm.Id.STATE_SUBSTITUTED;
 import static com.ygames.ysoccer.match.SceneFsm.ActionType.NEW_FOREGROUND;
 import static java.lang.Math.min;
 
@@ -73,7 +73,7 @@ class MatchStateBenchSubstitutions extends MatchState {
             // reset positions
             for (int i = 0; i < substitutes; i++) {
                 Player player = benchStatus.team.lineup.get(TEAM_SIZE + i);
-                if (!player.getState().checkId(STATE_OUTSIDE)) {
+                if (!player.getState().checkId(STATE_SUBSTITUTED)) {
                     player.setState(STATE_BENCH_SITTING);
                 }
             }
@@ -81,7 +81,7 @@ class MatchStateBenchSubstitutions extends MatchState {
             // move selected player
             if (benchStatus.selectedPosition != -1) {
                 Player player = benchStatus.team.lineup.get(TEAM_SIZE + benchStatus.selectedPosition);
-                if (!player.getState().checkId(STATE_OUTSIDE)) {
+                if (!player.getState().checkId(STATE_SUBSTITUTED)) {
                     // coach calls player
                     Coach coach = benchStatus.team.coach;
                     coach.status = LOOK_BENCH;
@@ -106,7 +106,7 @@ class MatchStateBenchSubstitutions extends MatchState {
                     // out the player for substitution
                     Player player = benchStatus.team.lineup.get(TEAM_SIZE + benchStatus.selectedPosition);
 
-                    if (!player.getState().checkId(STATE_OUTSIDE)) {
+                    if (!player.getState().checkId(STATE_SUBSTITUTED)) {
 
                         player.setState(STATE_BENCH_OUT);
 
