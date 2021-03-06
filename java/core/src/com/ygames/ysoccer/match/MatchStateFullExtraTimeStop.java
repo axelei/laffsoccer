@@ -34,7 +34,7 @@ class MatchStateFullExtraTimeStop extends MatchState {
         getFsm().matchCompleted = true;
 
         if (match.settings.commentary) {
-            Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.MATCH_END, Commentary.Comment.Priority.HIGH));
+            Commentary.getInstance().endGameComment(match);
         }
 
         Assets.Sounds.end.play(Assets.Sounds.volume / 100f);

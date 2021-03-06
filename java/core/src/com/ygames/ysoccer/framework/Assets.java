@@ -138,7 +138,7 @@ public class Assets {
         public static Map<SoundClass, Set<Sound>> sounds = new HashMap<>();
 
         public enum SoundClass {
-            CHANTS
+            CHANTS, PAIN
         }
 
         static void load() {
@@ -157,6 +157,7 @@ public class Assets {
             shotgun = newSound("shotgun.ogg"); // Source: https://freesound.org/people/Marregheriti/sounds/266105/
             button = newSound("button.ogg"); // Source: https://freesound.org/people/Snapper4298/sounds/178186/
             sounds.put(SoundClass.CHANTS, loadSoundFolder("chants"));
+            sounds.put(SoundClass.PAIN, loadSoundFolder("pain"));
 
             String specialsFolder = "commentary/special/";
 
@@ -210,6 +211,16 @@ public class Assets {
             } else {
                 return null;
             }
+        }
+
+        public static void playVariations(Sound sound, boolean rndPanning) {
+            sound.play(random.nextFloat() / 1.4f, (random.nextFloat() / 2) + 0.5f, rndPanning ? (random.nextFloat() * 2) - 1 : 0);
+        }
+        public static void playVariations(Sound sound) {
+            playVariations(sound, false);
+        }
+        public static void playVariations(SoundClass soundClass) {
+            playVariations(Assets.Sounds.getSound(soundClass), false);
         }
     }
 

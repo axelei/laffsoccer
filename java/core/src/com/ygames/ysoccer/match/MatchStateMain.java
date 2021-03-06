@@ -188,6 +188,8 @@ class MatchStateMain extends MatchState {
             } else {
                 if (EMath.dist(match.tackle.player.x, match.tackle.player.y, match.tackle.opponent.x, match.tackle.opponent.y) >= 8) {
 
+                    Assets.Sounds.playVariations(Assets.Sounds.SoundClass.PAIN);
+
                     // tackle is finished, eventually generate a foul
                     Player player = match.tackle.player;
                     Player opponent = match.tackle.opponent;

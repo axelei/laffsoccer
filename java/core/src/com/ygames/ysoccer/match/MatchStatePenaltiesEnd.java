@@ -130,7 +130,7 @@ class MatchStatePenaltiesEnd extends MatchState {
                     getFsm().matchCompleted = true;
 
                     if (match.settings.commentary) {
-                        Commentary.getInstance().enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.MATCH_END, Commentary.Comment.Priority.HIGH));
+                        Commentary.getInstance().endGameComment(match);
                     }
 
                     if (match.competition.getFinalWinner() != null) {

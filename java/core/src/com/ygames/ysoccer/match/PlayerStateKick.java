@@ -52,6 +52,7 @@ class PlayerStateKick extends PlayerState {
                             int dice = rnd.nextInt(player.skills.shooting + (player.bestSkills.contains(Player.Skill.SHOOTING) ? 6 : 2));
                             if (dice > 7) {
                                 Assets.Sounds.shotgun.play(Assets.Sounds.volume / 100f);
+                                Assets.Sounds.playVariations(Assets.Sounds.SoundClass.PAIN);
                                 mode = Mode.SUPERSHOOT;
                             } else {
                                 Assets.Sounds.kick.play(Assets.Sounds.volume / 100f);

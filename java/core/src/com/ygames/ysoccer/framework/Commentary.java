@@ -126,6 +126,17 @@ public class Commentary {
     }
 
     /**
+     * Prepares and enqueue end game comment
+     */
+    public void endGameComment(Match match) {
+        enqueueComment(Commentary.getComment(Assets.CommonComment.CommonCommentType.MATCH_END, Commentary.Comment.Priority.HIGH));
+        Comment[] resultComment = buildResult(match);
+        if (resultComment != null) {
+            enqueueComment(resultComment);
+        }
+    }
+
+    /**
      * Prepares a random comment of type and priority specified
      * @param type
      * @param priority
@@ -149,13 +160,36 @@ public class Commentary {
         return result.toArray(new Comment[result.size()]);
     }
 
+    public static Comment[] buildResult(Match match) {
+        Sound[] numbers = Assets.CommonComment.numbers;
+
+        MatchStats home = match.stats[Match.HOME];
+        MatchStats away = match.stats[Match.AWAY];
+        Map<String, Assets.TeamCommentary> teams = Assets.TeamCommentary.teams;
+
+        Assets.TeamCommentary homeName = teams.get(FileUtils.getTeamFromFile(match.team[Match.HOME].path));
+        Assets.TeamCommentary awayName = teams.get(FileUtils.getTeamFromFile(match.team[Match.AWAY].path));
+
+        if (numbers[(home.goals)] == null
+            || numbers[(away.goals)] == null
+            || homeName == null || awayName == null) {
+            return null;
+        }
+        return new Comment[] {
+                new Comment(Comment.Priority.HIGH, homeName.teamName),
+                new Comment(Comment.Priority.HIGH, numbers[(home.goals)]),
+                new Comment(Comment.Priority.HIGH, awayName.teamName),
+                new Comment(Comment.Priority.HIGH, numbers[(away.goals)])
+            };
+    }
+
     public static Comment[] halfTime(Match match) {
         Set<Sound> sounds = new HashSet<>();
 
         MatchStats home = match.stats[Match.HOME];
         MatchStats away = match.stats[Match.AWAY];
 
-        if (home.goals + away.goals > 3) {
+        if (home.goals + away.goals > 5) {
             sounds.add(Assets.Sounds.manyGoalsHalfTime);
         }
         if (home.foulsConceded + away.foulsConceded > 15) {
@@ -210,6 +244,7 @@ public class Commentary {
     public void wake() {
 
         GLGame.debug(COMMENTARY, this, "Waking commentary subsystem");
+        lastChitChat = System.currentTimeMillis();
 
         since = System.currentTimeMillis();
 
