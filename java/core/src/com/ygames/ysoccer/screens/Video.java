@@ -49,7 +49,7 @@ public class Video extends GLScreen {
             batch.begin();
             Texture frame = videoPlayer.getTexture();
             if (frame != null) {
-                batch.draw(frame, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 0, frame.getWidth(), frame.getHeight(),  false, true);
+                batch.draw(frame, 0, 0, game.gui.WIDTH, game.gui.HEIGHT, 0, 0, frame.getWidth(), frame.getHeight(), false, true);
             }
             batch.end();
         } catch (NullPointerException e) {
