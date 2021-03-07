@@ -26,7 +26,7 @@ public class Video extends GLScreen {
         game.disableMouse();
         Gdx.input.setInputProcessor(new IntroInputProcessor());
 
-        FileHandle intro = Gdx.files.local("videos").child("intro.ogg");
+        FileHandle intro = Gdx.files.local("videos").child("intro1.ogg");
 
         try {
             videoPlayer.play(intro);
@@ -49,7 +49,7 @@ public class Video extends GLScreen {
             batch.begin();
             Texture frame = videoPlayer.getTexture();
             if (frame != null) {
-                batch.draw(frame, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+                batch.draw(frame, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 0, frame.getWidth(), frame.getHeight(),  false, true);
             }
             batch.end();
         } catch (NullPointerException e) {
