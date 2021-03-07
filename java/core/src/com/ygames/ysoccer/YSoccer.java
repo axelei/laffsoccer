@@ -11,13 +11,6 @@ public class YSoccer extends GLGame {
     @Override
     public void create() {
         super.create();
-
-        if (settings.showIntro && SystemUtils.IS_OS_WINDOWS) {
-            this.setScreen(new Intro(this));
-        } else {
-            menuMusic.setMode(settings.musicMode);
-            prematchMusic.setMode(MenuMusic.ALL);
-            this.setScreen(new Title(this));
-        }
+        this.setScreen(new Intro(this));
     }
 }
