@@ -10,6 +10,7 @@ import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.MenuMusic;
 import com.ygames.ysoccer.gui.Widget;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -78,8 +79,18 @@ public class Video extends GLScreen {
     }
 
     private void setMainMenu() {
-        if (videoPlayer.isPlaying()) {
-            videoPlayer.stop();
+        // En linux no funciona el dispose, esto es una ñapa.
+        if(SystemUtils.IS_OS_LINUX) {
+            if (videoPlayer != null && videoPlayer.isPlaying()) {
+                videoPlayer.pause();
+            }
+        } else {
+            if (videoPlayer != null) {
+                if (videoPlayer.isPlaying()) {
+                    videoPlayer.stop();
+                }
+                videoPlayer.dispose();
+            }
         }
         Gdx.input.setInputProcessor(null);
         game.enableMouse();
