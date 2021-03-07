@@ -1,6 +1,5 @@
 package com.ygames.ysoccer;
 
-import com.badlogic.gdx.video.VideoPlayerInitException;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.MenuMusic;
 import com.ygames.ysoccer.screens.Title;
@@ -18,7 +17,7 @@ public class YSoccer extends GLGame {
         //this.setScreen(new Intro(this));
         try {
             this.setScreen(new Video(this));
-        } catch (IOException | VideoPlayerInitException e) {
+        } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }

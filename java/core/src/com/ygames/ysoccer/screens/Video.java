@@ -1,30 +1,24 @@
 package com.ygames.ysoccer.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.video.VideoPlayer;
 import com.badlogic.gdx.video.VideoPlayerCreator;
-import com.badlogic.gdx.video.VideoPlayerInitException;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.MenuMusic;
-import com.ygames.ysoccer.gui.TextBox;
 import com.ygames.ysoccer.gui.Widget;
 
-
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Video extends GLScreen {
 
-    private VideoPlayer player = VideoPlayerCreator.createVideoPlayer();
+    private VideoPlayer videoPlayer = VideoPlayerCreator.createVideoPlayer();
 
-    public Video(GLGame game) throws VideoPlayerInitException, IOException {
+    public Video(GLGame game) throws IOException {
         super(game);
 
         usesMouse = false;
@@ -32,17 +26,17 @@ public class Video extends GLScreen {
         game.disableMouse();
         Gdx.input.setInputProcessor(new IntroInputProcessor());
 
-        FileHandle intro = Gdx.files.local("videos").child("intro2.ogg");
+        FileHandle intro = Gdx.files.local("videos").child("intro.ogg");
 
         try {
-            player.play(intro);
+            videoPlayer.play(intro);
         } catch (FileNotFoundException | NoClassDefFoundError e) {
             e.printStackTrace();
             setMainMenu();
         }
 
-        player.setOnCompletionListener(event -> setMainMenu());
-        player.resize(1,1);
+        videoPlayer.setOnCompletionListener(event -> setMainMenu());
+
 
     }
 
@@ -51,7 +45,13 @@ public class Video extends GLScreen {
         super.render(delta);
 
         try {
-            player.render();
+            videoPlayer.update();
+            batch.begin();
+            Texture frame = videoPlayer.getTexture();
+            if (frame != null) {
+                batch.draw(frame, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            }
+            batch.end();
         } catch (NullPointerException e) {
             e.printStackTrace();
             setMainMenu();
@@ -78,8 +78,8 @@ public class Video extends GLScreen {
     }
 
     private void setMainMenu() {
-        if (player.isPlaying()) {
-            player.stop();
+        if (videoPlayer.isPlaying()) {
+            videoPlayer.stop();
         }
         Gdx.input.setInputProcessor(null);
         game.enableMouse();
