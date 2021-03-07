@@ -101,9 +101,9 @@ public class MatchRenderer extends SceneRenderer {
             drawBallPredictions(ball);
         }
 
-        Assets.crowdRenderer.draw(batch);
-
         renderSprites();
+
+        Assets.crowdRenderer.draw(batch);
 
         redrawBallShadowsOverGoals(getMatch().ball);
         redrawBallOverTopGoal(ballSprite);

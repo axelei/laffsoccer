@@ -12,8 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 import static com.ygames.ysoccer.framework.Assets.gettext;
-import static com.ygames.ysoccer.framework.Font.Align.CENTER;
-import static com.ygames.ysoccer.framework.GLGame.SUBFRAMES_PER_SECOND;
 import static com.ygames.ysoccer.match.Const.BALL_R;
 import static com.ygames.ysoccer.match.Const.CROSSBAR_H;
 import static com.ygames.ysoccer.match.Const.GOAL_LINE;

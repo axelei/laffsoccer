@@ -6,11 +6,15 @@ public class Slide {
 
     public Texture texture;
     public String text;
-    public int duration;
+    public float duration;
+    public float fade = 1.5F;
 
-    public Slide(Texture texture, String text, int duration) {
+    public Slide() { super(); }
+
+    public Slide(Texture texture, String text, float duration, float fade) {
         this.texture = texture;
         this.text = text;
         this.duration = duration;
+        this.fade = fade;
     }
 }

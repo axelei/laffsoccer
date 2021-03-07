@@ -92,7 +92,8 @@ class MatchStateGoal extends MatchState {
             int x = EMath.rand(40, Gui.WIDTH - 40);
             int y = EMath.rand(40, Gui.HEIGHT - 40);
             match.getRenderer().allSpritesGui.add(AnimatedObjectSprite.explosion(match.game.glGraphics, x, y));
-            Assets.Sounds.playVariations(Assets.Sounds.shotgun, true);
+            // dAssets.Sounds.playVariations(Assets.Sounds.shotgun, true);
+            // TODO: Poner sonido de petardos o algo
         }
 
         // set states

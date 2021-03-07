@@ -1,5 +1,6 @@
 package com.ygames.ysoccer.framework;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 import com.ygames.ysoccer.match.Match;
@@ -15,7 +16,7 @@ import static com.ygames.ysoccer.framework.GLGame.LogType.COMMENTARY;
 public class Commentary {
 
     private static final String THREAD_NAME = "Commentary-thread";
-    private static final float MAX_QUEUE = 3.0f;
+    private static final float MAX_QUEUE = 2.0f;
     private static final float SHORT_QUEUE = 0.15f;
 
     private static final Commentary instance = new Commentary();
@@ -160,6 +161,11 @@ public class Commentary {
         return result.toArray(new Comment[result.size()]);
     }
 
+    /**
+     * Builds a comment saying the result
+     * @param match
+     * @return
+     */
     public static Comment[] buildResult(Match match) {
         Sound[] numbers = Assets.CommonComment.numbers;
 
@@ -172,7 +178,7 @@ public class Commentary {
 
         if (numbers[(home.goals)] == null
             || numbers[(away.goals)] == null
-            || homeName == null || awayName == null) {
+            || homeName.teamName == null || awayName.teamName == null) {
             return null;
         }
         return new Comment[] {
@@ -183,6 +189,11 @@ public class Commentary {
             };
     }
 
+    /**
+     * Builds a comment for half time
+     * @param match
+     * @return
+     */
     public static Comment[] halfTime(Match match) {
         Set<Sound> sounds = new HashSet<>();
 
@@ -232,7 +243,11 @@ public class Commentary {
         since = System.currentTimeMillis();
 
         playing = target;
-        playing.getSound().play();
+        try {
+            playing.getSound().play();
+        } catch (UnsatisfiedLinkError ex) {
+            GLGame.debug(COMMENTARY, this, "Couldn't play comment: " + ex.getMessage());
+        }
         lastSound = playing.getSound();
 
         return true;

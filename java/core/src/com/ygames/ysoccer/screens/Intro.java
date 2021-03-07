@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
+import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.Font;
 import com.ygames.ysoccer.framework.GLGame;
 import com.ygames.ysoccer.framework.GLScreen;
 import com.ygames.ysoccer.framework.MenuMusic;
@@ -16,6 +18,7 @@ import java.util.List;
 public class Intro extends GLScreen {
 
     public static final float FADING_TIME = 1.5F;
+    public static final float NO_FADE = 0.000001F;
 
     private Music music;
     private static List<Slide> introSlides;
@@ -23,14 +26,22 @@ public class Intro extends GLScreen {
     private int currSlideNumber = -1;
     private float clock = 0;
 
+    private static String CREDITS =
+            "PROGRAMACIÓN: KRUSHER\n" +
+            "NARRACIONES: SUPERLAFF\n" +
+            "MÚSICA: ANTON SAPRISTI";
+
     private boolean fadingIn = false;
 
     public Intro(GLGame game) {
         super(game);
 
         introSlides = new ArrayList<>();
-        introSlides.add(new Slide(new Texture("images/intro/charnegologo.jpg"), null, 7));
-        introSlides.add(new Slide(new Texture("images/intro/enloartolameza.jpg"), null, 7));
+        introSlides.add(new Slide(new Texture("images/intro/charnegologo.jpg"), null, 5, FADING_TIME));
+        introSlides.add(new Slide(new Texture("images/intro/enloartolameza.jpg"), null, 5, FADING_TIME));
+        introSlides.add(new Slide(new Texture("images/intro/logojuego.jpg"), null, 8, NO_FADE));
+        introSlides.add(new Slide(null, CREDITS, 6, FADING_TIME));
+        introSlides.add(new Slide(new Texture("images/intro/logojuego.jpg"), null, 18, NO_FADE));
 
         music = Gdx.audio.newMusic(Gdx.files.internal("music/Anton Sapristi - Disfraz Extraño.mp3"));
         music.setLooping(true);
@@ -51,12 +62,14 @@ public class Intro extends GLScreen {
 
         if (currSlide == null || currSlide.duration < clock) {
             clock = 0;
-            fadingIn = true;
             currSlideNumber++;
             if (currSlideNumber + 1 > introSlides.size()) {
                 currSlideNumber = 0;
             }
             currSlide = introSlides.get(currSlideNumber);
+            if (currSlide.fade >= NO_FADE) {
+                fadingIn = true;
+            }
             background = currSlide.texture;
             batch.setColor(0, 1);
         }
@@ -65,25 +78,33 @@ public class Intro extends GLScreen {
             setMainMenu();
         }
 
-        if (currSlide.texture != null) {
-            batch.begin();
-            if (fadingIn) {
-                float alpha = clock / FADING_TIME;
-                batch.setColor(alpha, alpha, alpha,1);
-                if (alpha >= 1) {
-                    fadingIn = false;
-                }
+        batch.begin();
+        if (fadingIn) {
+            float alpha = clock / currSlide.fade;
+            batch.setColor(alpha, alpha, alpha,1);
+            if (alpha >= 1) {
+                fadingIn = false;
             }
-            if (clock + FADING_TIME > currSlide.duration) {
-                float alpha = (currSlide.duration - clock) / FADING_TIME;
-                if (alpha <= 0) {
-                    alpha = 0;
-                }
-                batch.setColor(alpha, alpha, alpha,1);
-            }
-            batch.draw(currSlide.texture, 0, 0, game.gui.WIDTH, game.gui.HEIGHT, 0, 0, currSlide.texture.getWidth(), currSlide.texture.getHeight(), false, true);
-            batch.end();
         }
+        if (clock + currSlide.fade > currSlide.duration && currSlide.fade >= NO_FADE) {
+            float alpha = (currSlide.duration - clock) / currSlide.fade;
+            if (alpha <= 0) {
+                alpha = 0;
+            }
+            batch.setColor(alpha, alpha, alpha,1);
+        }
+        if (currSlide.texture != null) {
+            batch.draw(currSlide.texture, 0, 0, game.gui.WIDTH, game.gui.HEIGHT, 0, 0, currSlide.texture.getWidth(), currSlide.texture.getHeight(), false, true);
+        }
+        if (currSlide.text != null) {
+            String[] lines = currSlide.text.split("\n");
+            int lineCount = 1;
+            for (String line : lines) {
+                Assets.font14.draw(batch, line, game.gui.WIDTH / 2, game.gui.HEIGHT / 2 - 7 - ((int) currSlide.text.chars().filter(ch -> ch == '\n').count() * 17) + lineCount * 17, Font.Align.CENTER);
+                lineCount++;
+            }
+        }
+        batch.end();
 
     }
 
