@@ -1,6 +1,5 @@
 buildscript {
     
-
     repositories {
         mavenLocal()
         mavenCentral()
@@ -14,6 +13,10 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.0'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.14'
     }
+}
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
 allprojects {
@@ -34,11 +37,11 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-        jcenter()
         google()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
+
 }
 
 project(":desktop") {
@@ -54,6 +57,16 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
         implementation "com.badlogicgames.gdx-video:gdx-video-lwjgl:1.3.2-SNAPSHOT"
     }
+
+    jar {
+        from {
+            configurations.compileClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+        }
+        manifest {
+            attributes 'Main-Class': 'com.ygames.ysoccer.desktop.DesktopLauncher'
+        }
+    }
+
 }
 
 project(":utils") {
