@@ -1,2 +1,2 @@
-set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_211
+set JAVA_HOME=D:\java\corretto\jdk17.0.0_35
 gradlew desktop:run
