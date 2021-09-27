@@ -1,12 +1,20 @@
 package com.ygames.ysoccer.framework;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchStats;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Random;
+import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.ygames.ysoccer.framework.GLGame.LogType.COMMENTARY;
 
@@ -120,7 +128,7 @@ public class Commentary {
         }
 
         for (Comment element : elements) {
-            queueLength += ((OpenALSound) element.getSound()).duration();
+            queueLength += FileUtils.soundDuration(element.getSound());
         }
         GLGame.debug(COMMENTARY, queueLength, "Queue length: " + queueLength);
         queue.add(elements);
@@ -236,9 +244,7 @@ public class Commentary {
 
         GLGame.debug(COMMENTARY, target, "Pulling new comment: " + target);
 
-        OpenALSound openALSound = (OpenALSound) target.getSound();
-
-        lastLength = openALSound.duration();
+        lastLength = FileUtils.soundDuration(target.getSound());
         queueLength -= lastLength;
         since = System.currentTimeMillis();
 

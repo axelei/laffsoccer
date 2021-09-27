@@ -1,6 +1,8 @@
 package com.ygames.ysoccer.framework;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.backends.lwjgl.audio.OpenALSound;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.ByteArrayInputStream;
@@ -44,5 +46,9 @@ public class FileUtils {
             Gdx.app.error("Error converting inputStream", e.toString());
         }
         return byteArrayOutputStream.toByteArray();
+    }
+
+    public static float soundDuration(Sound sound) {
+        return ((OpenALSound) sound).duration();
     }
 }
