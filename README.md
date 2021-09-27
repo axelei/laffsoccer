@@ -13,9 +13,9 @@ Charnego Internatiolaff Soccer es una producción de Charnego Translations Lld, 
 
 Ve a https://github.com/axelei/laffsoccer/releases para ver las versiones lanzadas listas para jugar, sin tener que andarte con zarandajas de compilar cosas.
 
-## Para jugar a la última versión
+## Para jugar a la última versión (versión en desarrollo, inestable)
 
-Tienes que tener Java 1.8 instalado. Funciona en Güindos, Kleenux y MacacOSX. Entra en la consola y haz lo siguiente:
+Tienes que tener Java 1.17 instalado. Funciona en Güindos, Kleenux y MacacOSX. Entra en la consola y haz lo siguiente:
 
 (Windows)
 ```
