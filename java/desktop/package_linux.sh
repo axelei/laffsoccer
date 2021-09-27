@@ -8,6 +8,6 @@ cp build/libs/desktop-1.0.jar build/linux/jar/Charnego-Internatiolaff-Soccer.jar
 cp -R $jdk build/linux/jre/
 cp -R ../android/assets/* build/linux/
 
-tee -a build/linux/Charnego-International-Soccer.sh << END
-./jre/bin/java -jar jar/Charnego-Internatiolaff-Soccer.jar
-END
+echo "./jre/bin/java -jar jar/Charnego-Internatiolaff-Soccer.jar" > build/linux/Charnego-International-Soccer.sh
+chmod +x build/linux/Charnego-International-Soccer.sh
+
