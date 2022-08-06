@@ -95,7 +95,7 @@ class MatchStateYellowCard extends MatchState {
     @Override
     SceneFsm.Action[] checkConditions() {
         if (booked && match.foul.player.checkState(STATE_IDLE)) {
-            if (match.referee.hasRedCard(match.foul.player)) {
+            if (match.referee.isSentOff(match.foul.player)) {
                 match.foul.player.setState(STATE_SENT_OFF);
             }
             if (match.foul.isPenalty()) {

@@ -26,7 +26,7 @@ class PlayerStateYellowCard extends PlayerState {
     @Override
     State checkConditions() {
         if (timer > Const.SECOND) {
-            if (player.getMatch().referee.hasRedCard(player)) {
+            if (player.getMatch().referee.isSentOff(player)) {
                 return fsm.stateRedCard;
             } else {
                 return fsm.stateIdle;
