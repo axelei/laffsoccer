@@ -7,10 +7,14 @@ public class Referee {
 
     Map<Player, PenaltyCard> penaltyCards;
 
-    enum PenaltyCard {YELLOW, RED, DOUBLE_YELLOW, YELLOW_PLUS_RED}
+    public enum PenaltyCard {YELLOW, RED, DOUBLE_YELLOW, YELLOW_PLUS_RED}
 
     public Referee() {
         penaltyCards = new HashMap<>();
+    }
+
+    public Map<Player, PenaltyCard> getPenaltyCards() {
+        return penaltyCards;
     }
 
     void addYellowCard(Player player) {

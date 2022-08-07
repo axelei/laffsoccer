@@ -681,4 +681,8 @@ public class Match extends Scene implements Json.Serializable {
         float strength;
         float angleDiff;
     }
+
+    public Referee getReferee() {
+        return referee;
+    }
 }

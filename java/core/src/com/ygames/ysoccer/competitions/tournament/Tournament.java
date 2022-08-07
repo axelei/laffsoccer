@@ -213,6 +213,7 @@ public class Tournament extends Competition implements Json.Serializable {
 
     @Override
     public void matchCompleted() {
+        super.matchCompleted();
         getRound().matchCompleted();
     }
 

@@ -265,6 +265,7 @@ public class League extends Competition implements Json.Serializable {
 
     @Override
     public void matchCompleted() {
+        super.matchCompleted();
         addMatchToTable(getMatch());
     }
 

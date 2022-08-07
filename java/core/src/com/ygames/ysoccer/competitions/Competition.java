@@ -5,19 +5,21 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import com.ygames.ysoccer.framework.Assets;
+import com.ygames.ysoccer.framework.EMath;
 import com.ygames.ysoccer.framework.Month;
 import com.ygames.ysoccer.match.Const;
 import com.ygames.ysoccer.match.Match;
 import com.ygames.ysoccer.match.MatchSettings;
 import com.ygames.ysoccer.match.Pitch;
 import com.ygames.ysoccer.match.Player;
+import com.ygames.ysoccer.match.Referee;
 import com.ygames.ysoccer.match.Team;
-import com.ygames.ysoccer.framework.EMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import static com.ygames.ysoccer.match.Const.BASE_TEAM;
 import static com.ygames.ysoccer.match.Match.AWAY;
@@ -56,7 +58,8 @@ public abstract class Competition {
 
     public List<Team> teams;
     public ArrayList<Scorer> scorers;
-    private Comparator<Scorer> scorerComparator;
+    public ArrayList<PlayerCards> penaltyCards;
+    final private Comparator<Scorer> scorerComparator;
 
     protected Competition(Type type) {
         this.type = type;
@@ -71,6 +74,7 @@ public abstract class Competition {
         time = MatchSettings.Time.DAY;
         scorers = new ArrayList<>();
         scorerComparator = new ScorerComparator();
+        penaltyCards = new ArrayList<>();
     }
 
     public void read(Json json, JsonValue jsonData) {
@@ -110,6 +114,17 @@ public abstract class Competition {
                 rawScorer = rawScorer.next();
             }
         }
+
+        JsonValue rawPenaltyCards = jsonData.get("penaltyCards");
+        if (rawPenaltyCards != null) {
+            JsonValue rawPlayerCards = rawPenaltyCards.child();
+            while (rawPlayerCards != null) {
+                Team team = teams.get(rawPlayerCards.getInt("team"));
+                Player player = team.players.get(rawPlayerCards.getInt("player"));
+                penaltyCards.add(new PlayerCards(player, rawPlayerCards.getInt("yellows"), rawPlayerCards.getInt("reds")));
+                rawPlayerCards = rawPlayerCards.next();
+            }
+        }
     }
 
     public void write(Json json) {
@@ -141,6 +156,17 @@ public abstract class Competition {
             json.writeValue("team", teams.indexOf(scorer.player.team));
             json.writeValue("player", scorer.player.team.players.indexOf(scorer.player));
             json.writeValue("goals", scorer.goals);
+            json.writeObjectEnd();
+        }
+        json.writeArrayEnd();
+        json.writeArrayStart("penaltyCards");
+        for (PlayerCards playerCards : penaltyCards) {
+            if (playerCards.yellows == 0 && playerCards.reds == 0) continue;
+            json.writeObjectStart();
+            json.writeValue("team", teams.indexOf(playerCards.player.team));
+            json.writeValue("player", playerCards.player.team.players.indexOf(playerCards.player));
+            json.writeValue("yellows", playerCards.yellows);
+            json.writeValue("reds", playerCards.reds);
             json.writeObjectEnd();
         }
         json.writeArrayEnd();
@@ -312,7 +338,7 @@ public abstract class Competition {
         }
     }
 
-    private class ScorerComparator implements Comparator<Scorer> {
+    private static class ScorerComparator implements Comparator<Scorer> {
 
         @Override
         public int compare(Scorer o1, Scorer o2) {
@@ -388,15 +414,17 @@ public abstract class Competition {
     }
 
     public void matchCompleted() {
+        updateSuspensions();
+        addNewPenaltyCards();
     }
 
     public Team getMatchWinner() {
         return null;
-    };
+    }
 
     public Team getFinalWinner() {
         return null;
-    };
+    }
 
     public Team getFinalRunnerUp() {
         return null;
@@ -421,5 +449,74 @@ public abstract class Competition {
             // by team name
             return team1.name.compareTo(team2.name);
         }
+    }
+
+    public static class PlayerCards {
+        public Player player;
+        public int yellows;
+        public int reds;
+
+        PlayerCards(Player player, int yellows, int reds) {
+            this.player = player;
+            this.yellows = yellows;
+            this.reds = reds;
+        }
+    }
+
+    private void updateSuspensions() {
+        Team homeTeam = getTeam(HOME);
+        Team awayTeam = getTeam(AWAY);
+        for (PlayerCards playerCards : penaltyCards) {
+            if (playerCards.player.team == homeTeam || playerCards.player.team == awayTeam) {
+                if (playerCards.reds > 0) {
+                    playerCards.reds -= 1;
+                } else if (playerCards.yellows >= 2) {
+                    playerCards.yellows -= 2;
+                }
+            }
+        }
+    }
+
+    private void addNewPenaltyCards() {
+        Map<Player, Referee.PenaltyCard> penaltyCards = getMatch().getReferee().getPenaltyCards();
+        for (Map.Entry<Player, Referee.PenaltyCard> entry : penaltyCards.entrySet()) {
+            addPlayerCards(entry.getKey(), entry.getValue());
+        }
+    }
+
+    private void addPlayerCards(Player player, Referee.PenaltyCard penaltyCard) {
+        PlayerCards playerCards = searchPlayerCards(player);
+        if (playerCards == null) {
+            playerCards = new PlayerCards(player, 0, 0);
+            penaltyCards.add(playerCards);
+        }
+
+        switch (penaltyCard) {
+            case YELLOW:
+                playerCards.yellows += 1;
+                break;
+
+            case DOUBLE_YELLOW:
+                playerCards.yellows += 2;
+                break;
+
+            case YELLOW_PLUS_RED:
+                playerCards.yellows += 1;
+                playerCards.reds += 1;
+                break;
+
+            case RED:
+                playerCards.reds += 1;
+                break;
+        }
+    }
+
+    public PlayerCards searchPlayerCards(Player player) {
+        for (PlayerCards playerCards : penaltyCards) {
+            if (playerCards.player == player) {
+                return playerCards;
+            }
+        }
+        return null;
     }
 }
