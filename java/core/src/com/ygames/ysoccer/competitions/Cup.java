@@ -700,4 +700,9 @@ public class Cup extends Competition implements Json.Serializable {
         }
         return null;
     }
+
+    @Override
+    protected boolean oneToSuspension(int yellows) {
+        return (yellows % 2 == 1);
+    }
 }

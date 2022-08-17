@@ -279,4 +279,9 @@ public class League extends Competition implements Json.Serializable {
         }
         return null;
     }
+
+    @Override
+    protected boolean oneToSuspension(int yellows) {
+        return (yellows == 3 || yellows == 6 || yellows >= 8);
+    }
 }

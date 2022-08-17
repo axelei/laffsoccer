@@ -58,7 +58,7 @@ public abstract class Competition {
 
     public List<Team> teams;
     public ArrayList<Scorer> scorers;
-    public ArrayList<PlayerCards> penaltyCards;
+    public ArrayList<PlayerSanctions> sanctionsList;
     final private Comparator<Scorer> scorerComparator;
 
     protected Competition(Type type) {
@@ -74,7 +74,7 @@ public abstract class Competition {
         time = MatchSettings.Time.DAY;
         scorers = new ArrayList<>();
         scorerComparator = new ScorerComparator();
-        penaltyCards = new ArrayList<>();
+        sanctionsList = new ArrayList<>();
     }
 
     public void read(Json json, JsonValue jsonData) {
@@ -115,14 +115,14 @@ public abstract class Competition {
             }
         }
 
-        JsonValue rawPenaltyCards = jsonData.get("penaltyCards");
-        if (rawPenaltyCards != null) {
-            JsonValue rawPlayerCards = rawPenaltyCards.child();
-            while (rawPlayerCards != null) {
-                Team team = teams.get(rawPlayerCards.getInt("team"));
-                Player player = team.players.get(rawPlayerCards.getInt("player"));
-                penaltyCards.add(new PlayerCards(player, rawPlayerCards.getInt("yellows"), rawPlayerCards.getInt("reds")));
-                rawPlayerCards = rawPlayerCards.next();
+        JsonValue rawSanctionsList = jsonData.get("sanctions");
+        if (rawSanctionsList != null) {
+            JsonValue rawPlayerSanctions = rawSanctionsList.child();
+            while (rawPlayerSanctions != null) {
+                Team team = teams.get(rawPlayerSanctions.getInt("team"));
+                Player player = team.players.get(rawPlayerSanctions.getInt("player"));
+                sanctionsList.add(new PlayerSanctions(player, rawPlayerSanctions.getInt("yellows"), rawPlayerSanctions.getInt("suspensions")));
+                rawPlayerSanctions = rawPlayerSanctions.next();
             }
         }
     }
@@ -159,14 +159,14 @@ public abstract class Competition {
             json.writeObjectEnd();
         }
         json.writeArrayEnd();
-        json.writeArrayStart("penaltyCards");
-        for (PlayerCards playerCards : penaltyCards) {
-            if (playerCards.yellows == 0 && playerCards.reds == 0) continue;
+        json.writeArrayStart("sanctions");
+        for (PlayerSanctions playerSanctions : sanctionsList) {
+            if (playerSanctions.yellows == 0 && playerSanctions.suspensions == 0) continue;
             json.writeObjectStart();
-            json.writeValue("team", teams.indexOf(playerCards.player.team));
-            json.writeValue("player", playerCards.player.team.players.indexOf(playerCards.player));
-            json.writeValue("yellows", playerCards.yellows);
-            json.writeValue("reds", playerCards.reds);
+            json.writeValue("team", teams.indexOf(playerSanctions.player.team));
+            json.writeValue("player", playerSanctions.player.team.players.indexOf(playerSanctions.player));
+            json.writeValue("yellows", playerSanctions.yellows);
+            json.writeValue("suspensions", playerSanctions.suspensions);
             json.writeObjectEnd();
         }
         json.writeArrayEnd();
@@ -414,8 +414,8 @@ public abstract class Competition {
     }
 
     public void matchCompleted() {
-        updateSuspensions();
-        addNewPenaltyCards();
+        dropSuspensions();
+        updateSanctionsList();
     }
 
     public Team getMatchWinner() {
@@ -451,72 +451,82 @@ public abstract class Competition {
         }
     }
 
-    public static class PlayerCards {
+    public static class PlayerSanctions {
         public Player player;
         public int yellows;
-        public int reds;
+        public int suspensions;
 
-        PlayerCards(Player player, int yellows, int reds) {
+        PlayerSanctions(Player player, int yellows, int suspensions) {
             this.player = player;
             this.yellows = yellows;
-            this.reds = reds;
+            this.suspensions = suspensions;
         }
     }
 
-    private void updateSuspensions() {
+    private void dropSuspensions() {
         Team homeTeam = getTeam(HOME);
         Team awayTeam = getTeam(AWAY);
-        for (PlayerCards playerCards : penaltyCards) {
+        for (PlayerSanctions playerCards : sanctionsList) {
             if (playerCards.player.team == homeTeam || playerCards.player.team == awayTeam) {
-                if (playerCards.reds > 0) {
-                    playerCards.reds -= 1;
-                } else if (playerCards.yellows >= 2) {
-                    playerCards.yellows -= 2;
+                if (playerCards.suspensions > 0) {
+                    playerCards.suspensions -= 1;
                 }
             }
         }
     }
 
-    private void addNewPenaltyCards() {
+    private void updateSanctionsList() {
         Map<Player, Referee.PenaltyCard> penaltyCards = getMatch().getReferee().getPenaltyCards();
         for (Map.Entry<Player, Referee.PenaltyCard> entry : penaltyCards.entrySet()) {
-            addPlayerCards(entry.getKey(), entry.getValue());
+            updatePlayerSanctions(entry.getKey(), entry.getValue());
         }
     }
 
-    private void addPlayerCards(Player player, Referee.PenaltyCard penaltyCard) {
-        PlayerCards playerCards = searchPlayerCards(player);
+    private void updatePlayerSanctions(Player player, Referee.PenaltyCard penaltyCard) {
+        PlayerSanctions playerCards = searchPlayerSanctions(player);
         if (playerCards == null) {
-            playerCards = new PlayerCards(player, 0, 0);
-            penaltyCards.add(playerCards);
+            playerCards = new PlayerSanctions(player, 0, 0);
+            sanctionsList.add(playerCards);
         }
 
         switch (penaltyCard) {
             case YELLOW:
+                if(oneToSuspension(playerCards.yellows)) {
+                    playerCards.suspensions += 1;
+                }
                 playerCards.yellows += 1;
-                break;
-
-            case DOUBLE_YELLOW:
-                playerCards.yellows += 2;
                 break;
 
             case YELLOW_PLUS_RED:
+                if(oneToSuspension(playerCards.yellows)) {
+                    playerCards.suspensions += 1;
+                }
                 playerCards.yellows += 1;
-                playerCards.reds += 1;
+                playerCards.suspensions += 1;
                 break;
 
+            case DOUBLE_YELLOW:
             case RED:
-                playerCards.reds += 1;
+                playerCards.suspensions += 1;
                 break;
         }
     }
 
-    public PlayerCards searchPlayerCards(Player player) {
-        for (PlayerCards playerCards : penaltyCards) {
-            if (playerCards.player == player) {
-                return playerCards;
+    public PlayerSanctions searchPlayerSanctions(Player player) {
+        for (PlayerSanctions playerSanctions : sanctionsList) {
+            if (playerSanctions.player == player) {
+                return playerSanctions;
             }
         }
         return null;
+    }
+
+    public boolean isPlayerCautioned(Player player){
+        PlayerSanctions playerSanctions = searchPlayerSanctions(player);
+        return oneToSuspension(playerSanctions.yellows);
+    }
+
+    protected boolean oneToSuspension(int yellows) {
+        return false;
     }
 }

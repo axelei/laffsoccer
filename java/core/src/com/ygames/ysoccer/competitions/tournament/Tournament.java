@@ -236,4 +236,9 @@ public class Tournament extends Competition implements Json.Serializable {
     public Team getFinalRunnerUp() {
         return getRound().getFinalRunnerUp();
     }
+
+    @Override
+    protected boolean oneToSuspension(int yellows) {
+        return (yellows % 2 == 1);
+    }
 }
