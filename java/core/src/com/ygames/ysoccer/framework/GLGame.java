@@ -3,6 +3,7 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.files.FileHandle;
@@ -24,6 +25,7 @@ public class GLGame extends Game {
     public static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
 
     public Settings settings;
+    public AssetManager assetManager;
     public GLGraphics glGraphics;
     public Gui gui;
     private float deltaTime;
@@ -53,10 +55,15 @@ public class GLGame extends Game {
     @Override
     public void create() {
         settings = new Settings();
+        assetManager = new AssetManager();
         Gdx.app.setLogLevel(Settings.logLevel);
         glGraphics = new GLGraphics();
         gui = new Gui();
+
         setScreenMode(settings.fullScreen);
+        loadAssets();
+        assetManager.finishLoading();
+        getAssets();
         Assets.load(settings);
 
         inputDevices = new InputDeviceList();
@@ -74,6 +81,12 @@ public class GLGame extends Game {
         menuMusic = new MenuMusic("music");
 
         restoreSaveGame();
+    }
+
+    private void loadAssets() {
+    }
+
+    private void getAssets() {
     }
 
     @Override
@@ -146,12 +159,25 @@ public class GLGame extends Game {
     public void pause() {
         super.pause();
         createSaveGame();
+        unloadAssets();
+    }
+
+    private void unloadAssets() {
+    }
+
+    @Override
+    public void resume() {
+        loadAssets();
+        assetManager.finishLoading();
+        getAssets();
+        super.resume();
     }
 
     @Override
     public void dispose() {
         super.dispose();
         glGraphics.dispose();
+        assetManager.dispose();
     }
 
     public void setState(State state, Competition.Category category) {
