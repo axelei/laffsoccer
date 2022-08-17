@@ -1,0 +1,13 @@
+
+gui.png
+size: 512, 128
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+logo
+  rotate: false
+  xy: 2, 2
+  size: 349, 113
+  orig: 349, 113
+  offset: 0, 0
+  index: -1

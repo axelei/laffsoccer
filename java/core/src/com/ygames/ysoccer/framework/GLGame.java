@@ -8,6 +8,7 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.WidgetColor;
@@ -24,10 +25,13 @@ public class GLGame extends Game {
     public static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRESH_RATE * SUBFRAMES;
     public static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
 
+    private final String GUI_ATLAS_FILE = "images/gui.atlas";
+
     public Settings settings;
     public AssetManager assetManager;
     public GLGraphics glGraphics;
     public Gui gui;
+    public TextureAtlas guiAtlas;
     private float deltaTime;
     public InputDeviceList inputDevices;
     Mouse mouse;
@@ -84,9 +88,11 @@ public class GLGame extends Game {
     }
 
     private void loadAssets() {
+        assetManager.load(GUI_ATLAS_FILE, TextureAtlas.class);
     }
 
     private void getAssets() {
+        guiAtlas = assetManager.get(GUI_ATLAS_FILE);
     }
 
     @Override
