@@ -93,6 +93,7 @@ public class GLGame extends Game {
 
     private void getAssets() {
         guiAtlas = assetManager.get(GUI_ATLAS_FILE);
+        gui.setTextures(guiAtlas);
     }
 
     @Override
@@ -169,6 +170,7 @@ public class GLGame extends Game {
     }
 
     private void unloadAssets() {
+        assetManager.unload(GUI_ATLAS_FILE);
     }
 
     @Override
@@ -254,6 +256,10 @@ public class GLGame extends Game {
                 port++;
             }
         }
+    }
+
+    Gui getGui() {
+        return gui;
     }
 
     public enum LogType {

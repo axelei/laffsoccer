@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Button;
+import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.Widget;
 import com.ygames.ysoccer.match.Player;
 import com.ygames.ysoccer.match.Team;
@@ -22,6 +23,7 @@ public abstract class GLScreen implements Screen {
     protected final OrthographicCamera camera;
     protected final GLSpriteBatch batch;
     protected final GLShapeRenderer shapeRenderer;
+    protected Gui gui;
 
     protected Texture background;
     protected final List<Widget> widgets;
@@ -62,6 +64,7 @@ public abstract class GLScreen implements Screen {
         camera = game.glGraphics.camera;
         batch = game.glGraphics.batch;
         shapeRenderer = game.glGraphics.shapeRenderer;
+        this.gui = game.getGui();
 
         widgets = new ArrayList<>();
         usesMouse = true;
@@ -186,6 +189,7 @@ public abstract class GLScreen implements Screen {
 
     @Override
     public void resume() {
+        refreshAllWidgets();
     }
 
     @Override
