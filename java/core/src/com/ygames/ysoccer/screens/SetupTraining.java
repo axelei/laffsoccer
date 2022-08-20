@@ -97,7 +97,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.lightIcons[sceneSettings.time.ordinal()];
+            textureRegion = gui.lightIcons[sceneSettings.time.ordinal()];
         }
     }
 
@@ -151,7 +151,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.pitchIcons[sceneSettings.pitchType.ordinal()];
+            textureRegion = gui.pitchIcons[sceneSettings.pitchType.ordinal()];
         }
     }
 
@@ -207,7 +207,7 @@ class SetupTraining extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.weatherIcons[sceneSettings.weatherOffset()];
+            textureRegion = gui.weatherIcons[sceneSettings.weatherOffset()];
         }
     }
 

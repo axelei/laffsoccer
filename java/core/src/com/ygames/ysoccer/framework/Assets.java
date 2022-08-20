@@ -77,9 +77,6 @@ public class Assets {
     public static final TextureRegion[] stars = new TextureRegion[10];
     public static final TextureRegion[][] controls = new TextureRegion[2][3];
     public static final TextureRegion[][] pieces = new TextureRegion[2][2];
-    public static final TextureRegion[] lightIcons = new TextureRegion[3];
-    public static final TextureRegion[] pitchIcons = new TextureRegion[10];
-    public static final TextureRegion[] weatherIcons = new TextureRegion[11];
     public static final TextureRegion[][] stadium = new TextureRegion[4][4];
     public static final TextureRegion[] crowd = new TextureRegion[5];
     public static CrowdRenderer crowdRenderer;
@@ -260,9 +257,6 @@ public class Assets {
         loadStars();
         loadControls();
         loadPieces();
-        loadLightIcons();
-        loadPitchIcons();
-        loadWeatherIcons();
         crowdRenderer = new CrowdRenderer(Gdx.files.internal("images/stadium/crowd.json"));
         goalTopA = new Texture("images/stadium/goal_top_a.png");
         goalTopB = new Texture("images/stadium/goal_top_b.png");
@@ -504,30 +498,6 @@ public class Assets {
                 pieces[i][j] = new TextureRegion(texture, 20 * i, 14 * j, 20, 14);
                 pieces[i][j].flip(false, true);
             }
-        }
-    }
-
-    private static void loadLightIcons() {
-        Texture texture = new Texture("images/light.png");
-        for (int i = 0; i < 3; i++) {
-            lightIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
-            lightIcons[i].flip(false, true);
-        }
-    }
-
-    private static void loadPitchIcons() {
-        Texture texture = new Texture("images/pitches.png");
-        for (int i = 0; i < 10; i++) {
-            pitchIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
-            pitchIcons[i].flip(false, true);
-        }
-    }
-
-    private static void loadWeatherIcons() {
-        Texture texture = new Texture("images/weather.png");
-        for (int i = 0; i < 11; i++) {
-            weatherIcons[i] = new TextureRegion(texture, 47 * i, 0, 46, 46);
-            weatherIcons[i].flip(false, true);
         }
     }
 
