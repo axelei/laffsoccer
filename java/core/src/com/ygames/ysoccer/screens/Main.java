@@ -28,9 +28,14 @@ import static com.ygames.ysoccer.framework.GLGame.State.TRAINING;
 
 public class Main extends GLScreen {
 
+    protected TextureRegion logo;
+
     public Main(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_main.jpg");
+        Texture logoTexture = new Texture("images/gui/logo.png");
+        logo = new TextureRegion(logoTexture, logoTexture.getWidth(), logoTexture.getHeight());
+        logo.flip(false, true);
 
         game.teamList.clear();
         game.setState(NONE, null);
@@ -116,7 +121,7 @@ public class Main extends GLScreen {
 
         @Override
         public void refresh() {
-            setTextureRegion(gui.logo);
+            setTextureRegion(logo);
         }
     }
 
