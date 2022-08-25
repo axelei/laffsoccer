@@ -265,6 +265,7 @@ public class League extends Competition implements Json.Serializable {
 
     @Override
     public void matchCompleted() {
+        super.matchCompleted();
         addMatchToTable(getMatch());
     }
 
@@ -277,5 +278,10 @@ public class League extends Competition implements Json.Serializable {
             return teams.get(getMatch().teams[AWAY]);
         }
         return null;
+    }
+
+    @Override
+    protected boolean oneToSuspension(int yellows) {
+        return (yellows == 3 || yellows == 6 || yellows >= 8);
     }
 }

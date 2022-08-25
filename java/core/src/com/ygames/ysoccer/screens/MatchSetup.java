@@ -24,14 +24,14 @@ import static com.ygames.ysoccer.match.Match.HOME;
 
 class MatchSetup extends GLScreen {
 
-    private MatchSettings matchSettings;
-    private TimePicture timePicture;
-    private PitchTypePicture pitchTypePicture;
-    private WeatherButton weatherButton;
-    private WeatherPicture weatherPicture;
-    private KitPicture[] kitPictures = new KitPicture[2];
-    private ArrayList<KitButton>[] kitButtons = new ArrayList[2];
-    private Widget playMatchButton;
+    private final MatchSettings matchSettings;
+    private final TimePicture timePicture;
+    private final PitchTypePicture pitchTypePicture;
+    private final WeatherButton weatherButton;
+    private final WeatherPicture weatherPicture;
+    private final KitPicture[] kitPictures = new KitPicture[2];
+    private final ArrayList<KitButton>[] kitButtons = new ArrayList[2];
+    private final Widget playMatchButton;
 
     MatchSetup(GLGame game) {
         super(game);
@@ -128,7 +128,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.lightIcons[matchSettings.time.ordinal()];
+            textureRegion = gui.lightIcons[matchSettings.time.ordinal()];
         }
     }
 
@@ -188,7 +188,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.pitchIcons[matchSettings.pitchType.ordinal()];
+            textureRegion = gui.pitchIcons[matchSettings.pitchType.ordinal()];
         }
     }
 
@@ -250,7 +250,7 @@ class MatchSetup extends GLScreen {
 
         @Override
         public void refresh() {
-            textureRegion = Assets.weatherIcons[matchSettings.weatherOffset()];
+            textureRegion = gui.weatherIcons[matchSettings.weatherOffset()];
         }
     }
 

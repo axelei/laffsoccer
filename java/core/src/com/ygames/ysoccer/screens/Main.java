@@ -31,7 +31,6 @@ public class Main extends GLScreen {
     public Main(GLGame game) {
         super(game);
         background = new Texture("images/backgrounds/menu_main.jpg");
-        TextureRegion logo = Assets.loadTextureRegion("images/logo.png");
 
         game.teamList.clear();
         game.setState(NONE, null);
@@ -41,8 +40,7 @@ public class Main extends GLScreen {
 
         Widget w;
 
-        w = new Picture(logo);
-        w.setPosition(game.gui.WIDTH / 2, 164);
+        w = new LogoPicture();
         widgets.add(w);
 
         w = new GameOptionsButton();
@@ -107,6 +105,18 @@ public class Main extends GLScreen {
         if (Settings.development) {
             w = new DeveloperToolsButton();
             widgets.add(w);
+        }
+    }
+
+    private class LogoPicture extends Picture {
+
+        LogoPicture() {
+            setPosition(game.gui.WIDTH / 2, 163);
+        }
+
+        @Override
+        public void refresh() {
+            setTextureRegion(gui.logo);
         }
     }
 

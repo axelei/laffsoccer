@@ -3,10 +3,12 @@ package com.ygames.ysoccer.framework;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.ygames.ysoccer.competitions.Competition;
 import com.ygames.ysoccer.gui.Gui;
 import com.ygames.ysoccer.gui.WidgetColor;
@@ -23,9 +25,13 @@ public class GLGame extends Game {
     public static final int SUBFRAMES_PER_SECOND = VIRTUAL_REFRESH_RATE * SUBFRAMES;
     public static final float SUBFRAME_DURATION = 1.0f / SUBFRAMES_PER_SECOND;
 
+    private final String GUI_ATLAS_FILE = "images/gui.atlas";
+
     public Settings settings;
+    public AssetManager assetManager;
     public GLGraphics glGraphics;
     public Gui gui;
+    public TextureAtlas guiAtlas;
     private float deltaTime;
     public InputDeviceList inputDevices;
     Mouse mouse;
@@ -54,10 +60,15 @@ public class GLGame extends Game {
     @Override
     public void create() {
         settings = new Settings();
+        assetManager = new AssetManager();
         Gdx.app.setLogLevel(Settings.logLevel);
         glGraphics = new GLGraphics();
         gui = new Gui();
+
         setScreenMode(settings.fullScreen);
+        loadAssets();
+        assetManager.finishLoading();
+        getAssets();
         Assets.load(settings);
 
         Assets.Sounds.volume = settings.soundVolume;
@@ -78,6 +89,15 @@ public class GLGame extends Game {
         prematchMusic = new MenuMusic("music/prematch");
 
         restoreSaveGame();
+    }
+
+    private void loadAssets() {
+        assetManager.load(GUI_ATLAS_FILE, TextureAtlas.class);
+    }
+
+    private void getAssets() {
+        guiAtlas = assetManager.get(GUI_ATLAS_FILE);
+        gui.setTextures(guiAtlas);
     }
 
     @Override
@@ -151,12 +171,26 @@ public class GLGame extends Game {
     public void pause() {
         super.pause();
         createSaveGame();
+        unloadAssets();
+    }
+
+    private void unloadAssets() {
+        assetManager.unload(GUI_ATLAS_FILE);
+    }
+
+    @Override
+    public void resume() {
+        loadAssets();
+        assetManager.finishLoading();
+        getAssets();
+        super.resume();
     }
 
     @Override
     public void dispose() {
         super.dispose();
         glGraphics.dispose();
+        assetManager.dispose();
     }
 
     public void setState(State state, Competition.Category category) {
@@ -227,6 +261,10 @@ public class GLGame extends Game {
                 port++;
             }
         }
+    }
+
+    Gui getGui() {
+        return gui;
     }
 
     public enum LogType {

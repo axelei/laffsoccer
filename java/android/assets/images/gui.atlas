@@ -1,0 +1,34 @@
+
+gui.png
+size: 512, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+light
+  rotate: false
+  xy: 353, 69
+  size: 94, 46
+  orig: 94, 46
+  offset: 0, 0
+  index: -1
+logo
+  rotate: false
+  xy: 2, 2
+  size: 349, 113
+  orig: 349, 113
+  offset: 0, 0
+  index: -1
+pitches
+  rotate: false
+  xy: 2, 117
+  size: 423, 46
+  orig: 423, 46
+  offset: 0, 0
+  index: -1
+weather
+  rotate: false
+  xy: 2, 165
+  size: 470, 46
+  orig: 470, 46
+  offset: 0, 0
+  index: -1
