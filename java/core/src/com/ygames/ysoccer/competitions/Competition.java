@@ -414,6 +414,9 @@ public abstract class Competition {
     }
 
     public void matchCompleted() {
+        if (Type.FRIENDLY.equals(this.type) || Type.TEST_MATCH.equals(this.type)) {
+            return;
+        }
         dropSuspensions();
         updateSanctionsList();
     }
