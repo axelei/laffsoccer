@@ -4,6 +4,6 @@
 *.log
 /java/android/assets/jre/
 *.exe
-.idea
+.idea/
 *.zip
 saves/
