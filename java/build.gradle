@@ -53,6 +53,19 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
         implementation "com.badlogicgames.gdx-video:gdx-video-lwjgl:1.3.2-SNAPSHOT"
     }
+
+    jar {
+        manifest {
+            attributes "Main-Class": 'com.ygames.ysoccer.desktop.DesktopLauncher'
+        }
+
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+        exclude 'META-INF/*.RSA'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+    }
 }
 
 project(":utils") {
